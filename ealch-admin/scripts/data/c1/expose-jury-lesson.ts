@@ -59,7 +59,7 @@
 //                                      narrow, maintain (tapTable, role play)
 //   10  Quand le jury pousse        6  three pushes, recorded · outside the
 //                                      dossier, the personal view, the
-//                                      hypothesis; moods under load (trap)
+//                                      hypothesis; the moods a jury provokes (trap)
 //   11  Clore l’entretien           6  the last two minutes, recorded
 //   12  À toi, devant le jury      12  model exposé (another dossier),
 //                                      annotation, plan, jury role play,
@@ -136,6 +136,10 @@
 //      international.fr refused the fetcher, 403, so no DALF C1 fact could
 //      be verified at the source; the secondary-source facts sit in corpus
 //      §A.7a, unused). Name the DALF C1 once it is checked at FEI?
+//      PRE-REVIEW: the 2005 Bulletin officiel annex confirms exposé from
+//      several written documents + discussion with the jury, 30 min, /25,
+//      1 h preparation (corpus §A.7a). Still not named: the app's task is
+//      3-5 min, far shorter than the real exposé, and the source is dated.
 //   2. No live speech grading: the task is self-checked against the model
 //      and six criteria (20 points), as b2.26. Keep six criteria?
 //   3. 18 legacy rows are Postgres-only (PG_ROWS); 12 carry straight
@@ -144,8 +148,13 @@
 //   4. Four tapTables (acts 4, 5, 8, 9), the C1 maximum (decision 16).
 //   5. `Lesson.skill` 'PO'. PO@c1 has no exam task and no EXAM_PREP_TARGETS
 //      route; this lesson is the natural target once one exists.
-//   6. Act 10 recycles B2 moods (doute que, il n’est pas certain que, bien
-//      que, à moins que… ne) under load and cites « la leçon 6 du B2 ».
+//   6. RESOLVED at the pre-review (orchestrator, 2026-10-01): act 10's
+//      trap no longer re-drills B2 lesson 6. It teaches only moods a jury
+//      provokes: negated opinion (doive), the answer to « Pensez-vous
+//      vraiment que… ? » (indicative), que ce soit… ou…, quoi qu’on en
+//      dise, si convaincant que soit, à supposer que / en admettant que,
+//      le fait que (both moods). « La leçon 6 du B2 » is cited once, in
+//      the rule, as the base. Rows .1335-.1340 reworded, .1362 added.
 //   7. Act 10 names b2.23’s « faux dilemme » (reused row) as a jury move,
 //      citing « la leçon 23 du B2 ». Fine as recycling, or out of scope?
 //   8. 'coach-fr-FR' is inert (build log, 2026-09-25). Kept, as every
@@ -954,7 +963,7 @@ const A4_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(1247), 'selon l’auteur, puis l’idée'),
       it(E(1249), 'le document comme sujet'),
     ], chk(
-      'Après « Selon l’auteur, », que vient-il ?',
+      'Après « Selon l’auteur, », qu’est-ce qui suit ?',
       ['l’idée elle-même : une parcelle ne nourrira jamais une famille', 'un deuxième verbe de parole : il dit que…'], 0,
       '« Selon » attribue déjà : un second « il dit » répète l’attribution. EN: selon already attributes.')),
     ctl('Rappeler', 'Pour un fait que personne ne conteste, tu choisis…',
@@ -981,13 +990,13 @@ const A4_PIEGE: Sec<'trapDrill'> = {
     trap('selon… il dit', 'Selon l’auteur, il dit qu’une parcelle ne nourrira jamais une famille.', E(1247), '« Selon » attribue déjà. EN: one attribution is enough.'),
     trap('prouver', 'L’agronome prouve que les jardins ne servent à rien.', E(1248), 'Une tribune soutient ; et elle ne dit pas « à rien ». EN: an opinion piece maintains.'),
     trap('le doublon', 'Le témoignage, il est d’accord avec le bilan.', E(1249), 'Pas de sujet répété devant un jury. EN: no doubled subject.'),
-    trap('insister que', 'Le bilan insiste que les jardins sont pleins.', E(1250), 'Insister sur le fait que ; « insister que » vient de l’anglais. EN: insister sur.'),
+    trap('insister que', 'Le bilan insiste que les jardins sont pleins.', E(1250), 'Insister sur le fait que (ou insister pour que, pour une demande) ; « insister que » est critiqué comme un calque de to insist that. EN: insister sur.'),
     trap('souligner comment', 'Elle souligne comment le jardin est important pour le quartier.', E(1251), 'Pour un degré (how important), on dit à quel point ; « comment » dit la manière. EN: à quel point for degree.'),
   ],
   drill: [
     { promptSay: 'Le bilan insiste ... le fait que les listes sont longues.', opts: ['sur', 'que'], correct: 0 },
     { promptSay: 'Selon l’agronome, ... jardin nourrit peu la ville.', opts: ['un', 'il dit qu’un'], correct: 0 },
-    { promptSay: 'Elle souligne ... le jardin compte pour elle.', opts: ['à quel point', 'comment'], correct: 0 },
+    { promptSay: 'Elle souligne ... le jardin est important pour elle.', opts: ['à quel point', 'comment'], correct: 0 },
     { promptSay: 'L’agronome ... que les jardins nourrissent peu la ville.', opts: ['soutient', 'prouve'], correct: 0 },
     { promptSay: 'Le témoignage ... le bilan sur ce point.', opts: ['rejoint', 'il rejoint'], correct: 0 },
     { promptSay: 'Il met en garde ... un discours trop optimiste.', opts: ['contre', 'que'], correct: 0 },
@@ -1232,7 +1241,7 @@ const A6_LECTURE: Sec<'reading'> = {
   layer: 'core',
   questionsInModal: true,
   title: 'Ton exposé, tel que tu l’as dit',
-  frSub: 'Les jardins, en quatre minutes',
+  frSub: 'Le dossier des jardins, à voix haute',
   text: EXPOSE_TEXT,
   glossary: [
     { word: 'pèse', en: 'weighs, counts for', note: 'Peser peu : compter peu, avoir peu d’importance.' },
@@ -1364,7 +1373,7 @@ const ACT6: ActDef = {
   act: {
     id: 'act6', title: 'Tenir le plan',
     opener: {
-      line: 'Quatre minutes sans notes à relire, et un jury qui doit savoir à chaque instant où tu en es : ici tu apprends les balises de l’oral. EN: Four minutes with no notes to read and a jury that must know where you are at every moment: here you learn the signposts of a talk.',
+      line: 'Trois à cinq minutes sans notes à relire, et un jury qui doit savoir à chaque instant où tu en es : ici tu apprends les balises de l’oral. EN: Three to five minutes with no notes to read and a jury that must know where you are at every moment: here you learn the signposts of a talk.',
       imageRef: 'lessons/expose-jury/act06.jpg',
     },
     sections: [],
@@ -1543,7 +1552,7 @@ const A7_SCENARIO: Sec<'scenario'> = {
       user: 'Alors je réponds non : le dossier montre qu’un jardin nourrit peu la ville. Ai-je répondu à votre question ?',
       userEn: 'Then my answer is no: the dossier shows that a garden feeds the city little. Have I answered your question? (Answer, source, check.)',
       alts: [
-        { fr: 'Dans ce cas, non : même l’agronome le dit, une parcelle ne nourrira jamais une famille.', en: 'In that case, no: even the agronomist says so, a plot will never feed a family.' },
+        { fr: 'Dans ce cas, non : l’agronome le dit lui-même, une parcelle ne nourrira jamais une famille.', en: 'In that case, no: even the agronomist says so, a plot will never feed a family.' },
         { fr: 'Non, et c’est justement ma thèse : leur valeur est ailleurs. Souhaitez-vous que je précise ?', en: 'No, and that is precisely my thesis: their value lies elsewhere. Would you like me to say more?' },
       ],
     },
@@ -1689,8 +1698,8 @@ const A8_PIEGE: Sec<'trapDrill'> = {
     trap('make sense', 'Votre objection fait du sens.', E(1304), 'Faire du sens calque to make sense ; on dit avoir du sens. EN: avoir du sens.'),
     trap('basically', 'Basiquement, la question est celle du coût.', E(1305), 'Basiquement veut dire « de façon basique ». Pour basically : au fond, en gros. EN: au fond.'),
     trap('definitely', 'C’est définitivement un point important.', E(1306), 'Définitivement veut dire « pour toujours ». Pour definitely : assurément. EN: assurément.'),
-    trap('get back to you', 'Je vais revenir à vous sur ce point.', E(1307), 'Pour get back to you, « revenir à vous » calque l’anglais : dis j’y reviens, ou je reviendrai vers vous. EN: j’y reviens.'),
-    trap('address', 'Je vais adresser cette question en deux temps.', E(1308), 'On adresse une lettre ; une question, on la traite. EN: traiter une question.'),
+    trap('get back to you', 'Je vais revenir à vous sur ce point.', E(1307), 'Pour get back to you, « revenir à vous » calque l’anglais, et l’Académie condamne aussi « revenir vers vous ». Dis j’y reviens, ou je reprendrai ce point. EN: j’y reviens.'),
+    trap('address', 'Je vais adresser cette question en deux temps.', E(1308), 'Adresser une question à quelqu’un, c’est la lui poser ; une question qu’on examine, on la traite. EN: traiter une question.'),
     trap('as a matter of fact', 'Comme une question de fait, la ville paie surtout l’eau et les clôtures.', E(1309), 'Mot à mot, la phrase ne veut rien dire. As a matter of fact : en fait. EN: en fait.'),
   ],
   drill: [
@@ -1879,7 +1888,7 @@ const A9_ERREURS: Sec<'commonErrors'> = {
     {
       wrong: 'Pardon, pardon, je me suis complètement trompé.',
       right: fr(E(1318)),
-      why: 'Par politesse, on s’excuse ; mais l’excuse répétée transforme une précision en échec. Dis que tu t’es mal fait comprendre, puis précise. EN: reframe, do not apologise.',
+      why: 'Par politesse, on s’excuse ; mais l’excuse répétée transforme une précision en échec. Si l’objection vient d’un malentendu, dis que tu t’es mal fait comprendre, puis précise. EN: reframe, do not apologise.',
     },
   ],
   audio: AUDIO,
@@ -1973,8 +1982,8 @@ const ACT9: ActDef = {
  *  ACT 10 · QUAND LE JURY POUSSE
  *
  *  Three pushes: the personal view, a question outside the dossier, a
- *  hypothesis, then a false choice. The B2 moods recycled under load (la
- *  leçon 6 du B2).
+ *  hypothesis, then a false choice. The moods a jury provokes, past « la
+ *  leçon 6 du B2 » (cited once, in the trap rule, as the base).
  * ══════════════════════════════════════════════════════════════════════════ */
 
 const A10_ECOUTE: Sec<'listening'> = {
@@ -2070,28 +2079,28 @@ const A10_PIEGE: Sec<'trapDrill'> = {
   id: 'a10-piege',
   layer: 'core',
   swipe: true,
-  title: 'Six modes qui lâchent sous pression',
+  title: 'Six modes que le jury provoque',
   rule: {
-    title: 'Sous pression, garde le bon mode',
-    body: `Doute, nécessité, faible probabilité, concession : le subjonctif (douter que, il faut que, il est peu probable que, bien que, à moins que). Opinion affirmée : l’indicatif (je pense que). C’est ${MODES_REF}, sous la pression du jury. EN: B2 moods, under load.`,
+    title: 'Le mode de la réponse, pas celui de la question',
+    body: `Opinion niée : subjonctif. Réponse affirmative à « Pensez-vous que… ? » : indicatif. Concéder ou supposer : que ce soit, quoi qu’on en dise, si… que soit, à supposer que, au subjonctif. Le fait que : les deux modes. Base : ${MODES_REF}. EN: jury moods.`,
   },
   cards: [
-    trap('douter que', 'Je doute que les jardins font baisser le prix des légumes.', E(1335), 'Douter que appelle le subjonctif : fassent. EN: fassent.'),
-    trap('il faut que', 'Il faut que la ville paiera l’eau et les clôtures.', E(1336), 'Il faut que : toujours le subjonctif, jamais le futur. EN: paie.'),
-    trap('penser que', 'À titre personnel, je pense que ce soit une bonne idée.', E(1337), 'Penser que, à la forme affirmative : l’indicatif. EN: indicative after an affirmative penser.'),
-    trap('bien que', 'Bien que le dossier ne dit rien des toits, la question se pose.', E(1338), 'Bien que : subjonctif, dise. EN: dise.'),
-    trap('à moins que', 'À moins que la ville peut payer l’eau, le projet restera fragile.', E(1339), 'À moins que + subjonctif, souvent avec un ne explétif. EN: puisse.'),
-    trap('peu probable que', 'Il est peu probable que les toits sont plus faciles à cultiver.', E(1340), 'Il est peu probable que : subjonctif, soient. EN: soient.'),
+    trap('opinion niée', 'Je ne pense pas que la ville doit tout payer.', E(1335), 'Une opinion niée appelle le subjonctif dans un registre soutenu ; l’indicatif s’entend à l’oral familier, pas devant un jury. EN: doive.'),
+    trap('pensez-vous… ?', 'Pensez-vous vraiment qu’ils soient utiles ? Oui, je pense qu’ils soient utiles.', E(1337), 'La question du jury peut prendre le subjonctif ; ta réponse affirmative, non : je pense qu’ils sont. EN: an affirmative answer takes the indicative.'),
+    trap('que ce soit', 'Que c’est la ville ou les habitants, quelqu’un doit payer l’eau.', E(1336), 'Que ce soit… ou… : subjonctif figé, pour écarter une alternative. EN: whether it is… or…'),
+    trap('quoi qu’on en dise', 'Quoiqu’on en dit, les jardins rassemblent.', E(1338), 'Quoi que, en deux mots (whatever), puis le subjonctif : quoi qu’on en dise. EN: dise.'),
+    trap('si… que soit', 'Si convaincant que cet argument est, il ne tranche pas la question.', E(1339), 'Si + adjectif + que : subjonctif, souvent avec le sujet après le verbe. EN: soit.'),
+    trap('à supposer que', 'À supposer que la ville n’a plus de budget, je garderais les parcelles collectives.', E(1340), 'Accorder une hypothèse : à supposer que, en admettant que, toujours au subjonctif. EN: ait.'),
   ],
   drill: [
-    { promptSay: 'Je doute que les jardins ... baisser les prix.', opts: ['fassent', 'font'], correct: 0 },
-    { promptSay: 'Il faut que la ville ... l’eau.', opts: ['paie', 'paiera'], correct: 0 },
-    { promptSay: 'Je pense que c’... une bonne idée.', opts: ['est', 'soit'], correct: 0 },
-    { promptSay: 'Bien que le dossier ne ... rien des toits, la question se pose.', opts: ['dise', 'dit'], correct: 0 },
-    { promptSay: 'À moins que la ville ne ... payer l’eau, le projet restera fragile.', opts: ['puisse', 'peut'], correct: 0 },
-    { promptSay: 'Je crains que le budget ne ... pas.', opts: ['suffise', 'suffit'], correct: 0 },
-    { promptSay: 'Il est possible que la ville ... d’autres jardins.', opts: ['ouvre', 'ouvrira'], correct: 0 },
-    { promptSay: 'Il est clair que ces chiffres ... justes.', opts: ['sont', 'soient'], correct: 0 },
+    { promptSay: 'Devant le jury : je ne pense pas que la ville ... tout payer.', opts: ['doive', 'doit'], correct: 0 },
+    { promptSay: '« Pensez-vous vraiment que ce soit utile ? » Oui, je pense que c’... utile.', opts: ['est', 'soit'], correct: 0 },
+    { promptSay: '... la ville ou les habitants, quelqu’un doit payer l’eau.', opts: ['Que ce soit', 'Que c’est'], correct: 0 },
+    { promptSay: 'Quoi qu’on en ..., les jardins rassemblent.', opts: ['dise', 'dit'], correct: 0 },
+    { promptSay: 'Si convaincant que ... cet argument, il ne tranche pas la question.', opts: ['soit', 'est'], correct: 0 },
+    { promptSay: 'En admettant que la liste ... trop longue, que proposeriez-vous ?', opts: ['soit', 'est'], correct: 0 },
+    { promptSay: 'Je ne crois pas qu’il ... choisir entre nourrir et rassembler.', opts: ['faille', 'faut'], correct: 0 },
+    { promptSay: '« Le fait que la liste soit longue » et « le fait que la liste est longue » : lesquels se disent ?', opts: ['les deux', 'seulement le premier'], correct: 0 },
   ],
   steps: TRAP_STEPS,
   audio: REC('rec-c1-09-piege-modes'),
@@ -2131,8 +2140,8 @@ const A10_CHECK = actCheck('a10-check', 'Le point : acte 10', [
     ['montre qu’on n’est pas obligé de choisir', 'choisit au hasard', 'change de sujet'], 0,
     'Je ne crois pas qu’il faille choisir entre… EN: refuse the false choice.'),
   ctl('Le mode', 'Laquelle est correcte ?',
-    ['Bien que le dossier ne dise rien des toits, la question se pose.', 'Bien que le dossier ne dit rien des toits, la question se pose.'], 0,
-    'Bien que + subjonctif. EN: subjunctive.'),
+    [fr(E(1336)), 'Que c’est la ville ou les habitants, quelqu’un doit payer l’eau.'], 0,
+    'Que ce soit… ou… : subjonctif figé. EN: whether it is… or…'),
 ], ['jury', 'fil']);
 
 const ACT10: ActDef = {
@@ -2729,8 +2738,22 @@ const A12_PROGRESS: Sec<'progressCheck'> = {
 type QQ = QuizQuestion;
 const TI_Q = 'Complète et écris toute la phrase. EN: Complete it and write the whole sentence.';
 const ES_Q = 'Quelque chose ne va pas. Écris la phrase correcte. EN: Something is wrong; write the sentence correctly.';
+/** The blank's own words (« porte sur »), derived from the prompt and the
+ *  answer, so a learner who types only the missing part is accepted too. */
+function blankFill(prompt: string, answer: string): string[] {
+  const [pre, rest = ''] = prompt.split('___');
+  const post = rest.replace(/\s*\([^)]*\)\s*$/, '').trim();
+  const p = pre.trim();
+  let a = answer.trim();
+  if (p && !a.startsWith(p)) return [];
+  a = a.slice(p.length);
+  const postCore = post.replace(/^-/, '').replace(/^\s*[.?]\s*$/, '');
+  if (postCore && !a.endsWith(postCore)) return [];
+  const fill = a.slice(0, a.length - postCore.length).replace(/[\s.?]+$/, '').trim();
+  return fill && fill.length < a.length ? [fill] : [];
+}
 const tI = (prompt: string, answer: string, why: string, ref: string, more: string[] = []): QQ =>
-  ({ format: 'typeIn', q: TI_Q, prompt, answer, accept: [answer, ...more], why, ref });
+  ({ format: 'typeIn', q: TI_Q, prompt, answer, accept: [answer, ...more, ...blankFill(prompt, answer)], why, ref });
 const mc = (q: string, opts: string[], correct: number, why: string, ref: string): QQ =>
   ({ format: 'mcq', q, opts, correct, why, ref });
 const eS = (prompt: string, answer: string, why: string, ref: string, more: string[] = []): QQ =>
@@ -2777,11 +2800,11 @@ const A12_QUIZ: Sec<'quiz'> = {
       questions: [
         mc('Le bilan propose une idée qu’il ne démontre pas. Le bilan…', ['avance que', 'prouve que', 'démontre que'], 0, 'Avancer garde la distance. EN: avancer.', 'a4-tableau'),
         mc('Pour un fait que personne ne conteste, tu choisis…', ['rappeler', 'avancer', 'prétendre'], 0, 'Rappeler un fait connu. EN: rappeler.', 'a4-tableau'),
-        mc('Laquelle est correcte ?', [fr(E(1251)), 'Elle souligne comment le jardin compte pour le quartier.', 'Elle souligne combien que le jardin compte pour le quartier.'], 0, 'Souligner à quel point. EN: à quel point.', 'a4-piege'),
-        tI('L’agronome ___ que les jardins nourrissent peu la ville. (to maintain, au présent)', fr(E(1248)), 'Soutenir que + indicatif. EN: soutenir.', 'a4-tableau', ['L’agronome maintient que les jardins nourrissent peu la ville.']),
+        mc('Laquelle est correcte ?', [fr(E(1251)), 'Elle souligne comment le jardin est important pour le quartier.', 'Elle souligne combien que le jardin compte pour le quartier.'], 0, 'Pour un degré, souligner à quel point (ou combien) ; « comment » dit la manière, et « combien que » n’existe pas. EN: à quel point for degree.', 'a4-piege'),
+        tI('L’agronome ___ que les jardins nourrissent peu la ville. (to maintain, au présent)', fr(E(1248)), 'Soutenir que + indicatif. EN: soutenir.', 'a4-tableau', ['L’agronome maintient que les jardins nourrissent peu la ville.', 'maintient']),
         tI('Il met en garde ___ un discours qui en ferait une politique alimentaire.', fr(E(1242)), 'Mettre en garde contre + nom. EN: contre.', 'a4-tableau'),
         eS('Selon l’auteur, il dit qu’une parcelle ne nourrira jamais une famille.', fr(E(1247)), '« Selon » attribue déjà. EN: one attribution.', 'a4-piege', ['L’auteur dit qu’une parcelle ne nourrira jamais une famille.', 'L’auteur affirme qu’une parcelle ne nourrira jamais une famille.', 'Selon lui, une parcelle ne nourrira jamais une famille.', 'D’après l’auteur, une parcelle ne nourrira jamais une famille.', 'L’auteur estime qu’une parcelle ne nourrira jamais une famille.', 'L’auteur soutient qu’une parcelle ne nourrira jamais une famille.']),
-        eS('Le bilan insiste que les jardins sont pleins.', fr(E(1250)), 'Insister sur le fait que. EN: insister sur.', 'a4-piege', ['Le bilan souligne que les jardins sont pleins.', 'Le bilan affirme que les jardins sont pleins.']),
+        eS('Le bilan insiste que les jardins sont pleins.', fr(E(1250)), 'Insister sur le fait que. EN: insister sur.', 'a4-piege', ['Le bilan souligne que les jardins sont pleins.', 'Le bilan affirme que les jardins sont pleins.', 'Le bilan rappelle que les jardins sont pleins.', 'Le bilan constate que les jardins sont pleins.', 'Le bilan souligne le fait que les jardins sont pleins.']),
         lC('Écoute. Quel verbe dit la position du document ?', fr(E(1243)), ['avance : une idée non prouvée', 'rappelle : un fait connu', 'prouve : une démonstration'], 0, 'Avancer, sans chiffre. EN: avancer.', 'a4-ecoute'),
       ],
     },
@@ -2805,7 +2828,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('Ta conclusion orale commence par…', ['rappeler ta question', 'un nouvel argument', 'le résumé des trois documents'], 0, 'La réponse n’a de sens qu’avec la question. EN: restate it.', 'a6-construire'),
         mc('L’ouverture finale…', ['pose une question que le dossier laisse ouverte', 'ajoute un troisième argument', 'répète le plan'], 0, 'Elle élargit, sans démontrer de nouveau. EN: it widens.', 'a6-atoi'),
         mc('Il te reste deux minutes et une partie entière. Tu dis…', [fr(E(1279)), 'Excusez-moi, je n’ai pas eu le temps de tout préparer.', 'Je m’arrête là, tant pis.'], 0, 'Tu gères ton temps à voix haute. EN: manage time openly.', 'a6-construire'),
-        tI('J’en viens à mon ___ temps, qui répond à ma question. (second)', fr(E(1271)), 'Second temps, ou deuxième. EN: second.', 'a6-construire', ['J’en viens à mon deuxième temps, qui répond à ma question.']),
+        tI('J’en viens à mon ___ temps, qui répond à ma question. (second)', fr(E(1271)), 'Second temps, ou deuxième. EN: second.', 'a6-construire', ['J’en viens à mon deuxième temps, qui répond à ma question.', 'deuxième']),
         tI('Je reviens à ma question de ___ . (starting point)', fr(E(1272)), 'La question de départ. EN: starting question.', 'a6-lecture'),
         eS('Je vous remercie ; je me tiens à votre disposition de vos questions.', fr(E(1275)), 'À votre disposition pour vos questions. EN: pour.', 'a6-lecture', ['Je vous remercie ; je me tiens à votre disposition pour répondre à vos questions.', 'Je vous remercie ; je me tiens à votre disposition pour toute question.']),
         lC('Écoute. Où en est l’orateur ?', fr(E(1278)), ['entre ses deux parties', 'au début de son exposé', 'dans sa conclusion'], 0, 'Il vient de montrer, il annonce la suite. EN: between parts.', 'a6-lecture'),
@@ -2830,9 +2853,9 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('Laquelle donne du temps ET fait avancer la réponse ?', [fr(E(1297)), 'Euh… alors… voilà…', 'C’est une bonne question, une très bonne question.'], 0, 'Distinguer, c’est déjà répondre. EN: distinguishing answers.', 'a8-construire'),
         mc('Le jury demande un chiffre absent du dossier. Tu…', ['le dis, et proposes un ordre de grandeur', 'inventes un chiffre précis', 'changes de sujet'], 0, 'Jamais de chiffre inventé. EN: never invent.', 'a8-tableau'),
         mc('« C’est définitivement un point important. » En bon français :', ['C’est assurément un point important.', 'C’est finalement un point important.', 'C’est longuement un point important.'], 0, 'Définitivement veut dire pour toujours. EN: assurément.', 'a8-piege'),
-        tI('Permettez-moi d’y ___ un instant. (to think it over)', fr(E(1295)), 'Réfléchir. EN: réfléchir.', 'a8-tableau', ['Permettez-moi d’y penser un instant.']),
+        tI('Permettez-moi d’y ___ un instant. (to think it over)', fr(E(1295)), 'Réfléchir. EN: réfléchir.', 'a8-tableau', ['Permettez-moi d’y penser un instant.', 'penser']),
         tI('Je n’ai pas le chiffre exact en ___ , mais l’ordre de grandeur est clair.', fr(E(1298)), 'Avoir en tête. EN: en tête.', 'a8-tableau'),
-        eS('Je vais adresser cette question en deux temps.', fr(E(1308)), 'On traite une question. EN: traiter.', 'a8-piege', ['Je vais aborder cette question en deux temps.', 'Je vais répondre à cette question en deux temps.', 'Je vais examiner cette question en deux temps.', 'Je vais étudier cette question en deux temps.']),
+        eS('Je vais adresser cette question en deux temps.', fr(E(1308)), 'Adresser une question, c’est la poser à quelqu’un ; pour l’examiner, on la traite. EN: traiter.', 'a8-piege', ['Je vais aborder cette question en deux temps.', 'Je vais répondre à cette question en deux temps.', 'Je vais examiner cette question en deux temps.', 'Je vais étudier cette question en deux temps.']),
         eS('Basiquement, la question est celle du coût.', fr(E(1305)), 'Au fond, en gros. EN: au fond.', 'a8-piege', ['En gros, la question est celle du coût.', 'Fondamentalement, la question est celle du coût.', 'En fait, la question est celle du coût.', 'Essentiellement, la question est celle du coût.', 'En somme, la question est celle du coût.']),
         lC('Écoute. Cette réponse invente-t-elle quelque chose ?', fr(E(1300)), ['non : elle refuse d’inventer', 'oui : elle donne un chiffre précis'], 0, 'Le dossier ne donne pas ce chiffre, et elle le dit. EN: no invention.', 'a8-ecoute'),
       ],
@@ -2843,7 +2866,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('M. Aubertin : « Trois cents personnes attendent. » Quelle réponse concède sans abandonner ?', [fr(E(1324)), 'Vous avez raison, je n’y avais pas pensé.', 'Non, ce n’est pas un problème.'], 0, 'Reconnaître, puis préciser. EN: grant, then refine.', 'a9-construire'),
         mc('« Cela nuance ma position sans la renverser » veut dire que…', ['l’objection limite la thèse sans la détruire', 'tu changes d’avis', 'tu refuses l’objection'], 0, 'Une limite, pas une chute. EN: a limit, not a collapse.', 'a9-tableau'),
         mc('Avant de répondre à une objection, tu te demandes…', ['sur quelle partie de ta thèse elle porte', 'comment la contredire au plus vite', 'si le jury a raison sur tout'], 0, 'La portée de l’objection. EN: its scope.', 'a9-construire'),
-        tI('Je vous ___ que trois cents noms en attente, c’est beaucoup. (to grant)', fr(E(1313)), 'Accorder que. EN: accorder.', 'a9-tableau', ['Je vous concède que trois cents noms en attente, c’est beaucoup.']),
+        tI('Je vous ___ que trois cents noms en attente, c’est beaucoup. (to grant)', fr(E(1313)), 'Accorder que. EN: accorder.', 'a9-tableau', ['Je vous concède que trois cents noms en attente, c’est beaucoup.', 'concède']),
         tI('Votre remarque m’___ à préciser ma pensée. (obliger)', fr(E(1314)), 'Obliger à. EN: oblige.', 'a9-tableau'),
         eS('Je maintiens néanmoins que leur valeur soit d’abord sociale.', fr(E(1317)), 'Maintenir que + indicatif. EN: est.', 'a9-tableau'),
         eS('C’est une objection sérieuse, et je la prends au sérieuse.', fr(E(1319)), 'Prendre au sérieux : invariable. EN: au sérieux.', 'a9-lecture'),
@@ -2856,11 +2879,11 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('Le jury te demande ton avis personnel. Tu…', ['le donnes en disant que tu sors du dossier', 'refuses : le dossier n’en dit rien', 'réponds par une question'], 0, 'À titre personnel… EN: give it, flagged.', 'a10-cartes'),
         mc('M. Aubertin : « Il faudrait choisir : nourrir ou rassembler. » Tu réponds…', [fr(E(1329)), 'Alors je choisis nourrir.', 'Je ne sais pas.'], 0, 'Refuser le faux choix, au subjonctif. EN: refuse the false choice.', 'a10-ecoute'),
         mc('Face à une question sur un sujet que le dossier n’aborde pas, tu commences par…', [fr(E(1327)), 'Ce n’est pas dans le dossier, donc je ne peux rien dire.', 'Le dossier dit exactement cela.'], 0, 'Signaler, puis répondre. EN: flag, then answer.', 'a10-cartes'),
-        tI('Je doute que les jardins ___ baisser le prix des légumes. (faire)', fr(E(1335)), 'Douter que + subjonctif. EN: fassent.', 'a10-piege'),
-        tI('Bien que le dossier ne ___ rien des toits, la question se pose. (dire)', fr(E(1338)), 'Bien que + subjonctif. EN: dise.', 'a10-piege'),
-        eS('À titre personnel, je pense que ce soit une bonne idée.', fr(E(1337)), 'Penser que, à l’affirmatif : indicatif. EN: c’est.', 'a10-piege'),
-        eS('Il faut que la ville paiera l’eau et les clôtures.', fr(E(1336)), 'Il faut que + subjonctif. EN: paie.', 'a10-piege', ['Il faut que la ville paye l’eau et les clôtures.']),
-        lC('Écoute. Dans quel cas la candidate se place-t-elle ?', fr(E(1333)), ['dans l’hypothèse d’une ville sans budget', 'dans la situation actuelle de la ville', 'dans le dossier'], 0, 'Le conditionnel répond à l’hypothèse. EN: the hypothesis.', 'a10-ecoute'),
+        tI('Devant le jury : je ne pense pas que la ville ___ tout payer. (devoir)', fr(E(1335)), 'Une opinion niée, en registre soutenu : subjonctif. EN: doive.', 'a10-piege', ['Je ne crois pas que la ville doive tout payer.', 'doive']),
+        tI('Si convaincant que ___ cet argument, il ne tranche pas la question. (être)', fr(E(1339)), 'Si + adjectif + que : subjonctif. EN: soit.', 'a10-piege', ['Si convaincant que cet argument soit, il ne tranche pas la question.', 'Aussi convaincant que soit cet argument, il ne tranche pas la question.', 'Quelque convaincant que soit cet argument, il ne tranche pas la question.']),
+        eS('Quoi qu’on en dit, les jardins rassemblent.', fr(E(1338)), 'Quoi que + subjonctif : quoi qu’on en dise. EN: dise.', 'a10-piege'),
+        eS('À supposer que la ville n’a plus de budget, je garderais les parcelles collectives.', fr(E(1340)), 'À supposer que + subjonctif. EN: ait.', 'a10-piege', ['En admettant que la ville n’ait plus de budget, je garderais les parcelles collectives.', 'Supposons que la ville n’ait plus de budget, je garderais les parcelles collectives.']),
+        lC('Écoute. Quel mode suit « le fait que », et est-ce correct ?', fr(E(1362)), ['le subjonctif, correct et fréquent en tête de phrase', 'le subjonctif, une faute : il faut l’indicatif', 'l’indicatif, la seule forme possible'], 0, 'Le fait que admet les deux modes ; le subjonctif domine quand la phrase commence par lui. EN: both moods are possible.', 'a10-piege'),
       ],
     },
     {
@@ -2871,7 +2894,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('Laquelle redit une position ?', [fr(LEG(20)), fr(LEG(45)), fr(E(1344))], 0, 'Favorable, mais prudente. EN: a nuanced position.', 'a11-construire'),
         tI('Vos questions m’ont ___ de préciser un point : l’accès. (permettre)', fr(E(1343)), 'Permettre de. EN: permis.', 'a11-ecoute'),
         tI('J’ai nuancé ma réponse ; je n’ai pas changé de ___ .', fr(E(1346)), 'Changer de question. EN: question.', 'a11-focus'),
-        eS('Si vous n’avez pas d’autres questions, je résumerais ma position en une phrase.', fr(E(1342)), 'Si + présent, puis futur. EN: résumerai.', 'a11-construire', ['Si vous n’avez pas d’autres questions, je résume ma position en une phrase.', 'Si vous n’avez pas d’autres questions, je vais résumer ma position en une phrase.']),
+        eS('Si vous n’auriez pas d’autres questions, je résumerai ma position en une phrase.', fr(E(1342)), 'Après le si de condition, jamais de conditionnel : si vous n’avez pas. EN: n’avez.', 'a11-construire', ['Si vous n’avez pas d’autres questions, je résume ma position en une phrase.', 'Si vous n’avez pas d’autres questions, je vais résumer ma position en une phrase.']),
         eS('Mon fil n’a pas changé : un jardin partagé se juge d’abord à ce qu’il rassemblent.', fr(E(1345)), 'Il rassemble : accord avec le sujet. EN: rassemble.', 'a11-ecoute'),
         lC('Écoute. Que fait la candidate ?', fr(E(1342)), ['elle annonce sa phrase de clôture', 'elle pose une question au jury', 'elle commence son exposé'], 0, 'Elle annonce la fin, puis la donne. EN: she announces the close.', 'a11-construire'),
       ],
@@ -3021,6 +3044,9 @@ const SHEET_LIST_FULL: ReferenceSheet[] = [
       ['sortir du dossier', 'Le dossier ne l’aborde pas, mais…', 'refuser de répondre'],
       ['l’avis personnel', 'À titre personnel, je…', 'Je n’ai pas d’avis.'],
       ['le faux choix', 'Je ne crois pas qu’il faille choisir entre… et…', 'choisir au hasard'],
+      ['concéder à voix haute', 'Quoi qu’on en dise, … ; si convaincant que soit cet argument, …', 'quoiqu’on en dit'],
+      ['le fait que', 'Le fait que la liste soit si longue montre un vrai besoin.', 'les deux modes se disent ; subjonctif surtout en tête'],
+      ['accorder une hypothèse', 'À supposer que (en admettant que) la ville n’ait plus de budget, …', 'à supposer que + indicatif'],
       ['clore', 'Si vous n’avez pas d’autres questions, je résumerai ma position en une phrase.', 'J’espère que c’était bien.'],
     ]),
   ]),
@@ -3051,7 +3077,7 @@ const DRILL_LIST_FULL: LessonDrill[] = [
   { id: 'd-jury', title: 'En vous, devant le jury', format: 'flashcard' as const, coach: 'Lis chaque phrase comme devant le jury : reformuler, préciser, répondre, vérifier. EN: read each one aloud, formally.', items: [E(1281), E(1282), E(1283), E(1284), E(1285), E(1292)], audio: AUDIO },
   { id: 'd-temps', title: 'Gagner du temps en français', format: 'mcq' as const, coach: 'Réfléchir à voix haute, sans anglicisme et sans meubler. EN: think aloud, in French.', q: 'Je vais ... cette question en deux temps.', opts: ['traiter', 'adresser'], correct: 0, why: 'On traite une question. EN: traiter.', items: [E(1295), E(1296), E(1298), E(1300), E(1305), E(1308)], audio: AUDIO },
   { id: 'd-conceder', title: 'Concéder ou maintenir', format: 'sort' as const, coach: 'Deux piles : ce que tu accordes, ce que tu maintiens. EN: what you grant, what you keep.', buckets: ['j’accorde', 'je maintiens'], items: [E(1312), E(1313), E(1324), E(1316), E(1317), E(1326)], audio: AUDIO },
-  { id: 'd-pousser', title: 'Le bon mode sous pression', format: 'mcq' as const, coach: 'Doute, nécessité, concession : subjonctif. Opinion affirmée : indicatif. EN: moods under load.', q: 'Bien que le dossier ne ... rien des toits…', opts: ['dise', 'dit'], correct: 0, why: 'Bien que + subjonctif. EN: dise.', items: [E(1329), E(1335), E(1337), E(1338), E(1339), E(1340)], audio: AUDIO },
+  { id: 'd-pousser', title: 'Le bon mode sous pression', format: 'mcq' as const, coach: 'Opinion niée, concession, hypothèse accordée : subjonctif. Réponse affirmative : indicatif. EN: the moods a jury provokes.', q: '« Pensez-vous vraiment que ce soit utile ? » Oui, je pense que c’… utile.', opts: ['est', 'soit'], correct: 0, why: 'La question peut prendre le subjonctif ; la réponse affirmative revient à l’indicatif. EN: est.', items: [E(1335), E(1336), E(1337), E(1338), E(1339), E(1340)], audio: AUDIO },
   { id: 'd-clore', title: 'La dernière phrase', format: 'flashcard' as const, coach: 'Dis chaque phrase comme la fin de l’entretien : le fil, l’apport, le merci. EN: say each closing line.', items: [E(1342), E(1343), E(1344), E(1345), E(1346), E(1348)], audio: AUDIO },
   { id: 'd-format', title: 'Le modèle, phrase par phrase', format: 'flashcard' as const, coach: 'Dis chaque phrase du modèle comme à l’oral : synthèse, question, plan, réponse, ouverture. EN: say each model line.', items: [E(1352), E(1353), E(1354), E(1355), E(1356), E(1357)], audio: AUDIO },
 ];
@@ -3065,7 +3091,7 @@ const TRIGGER_LIST_FULL: ErrorTrigger[] = [
   { id: 'jury-familier', description: 'Slips into tu or casual register with the jury, answers without reformulating or checking, or replies with a bare oui or ça dépend.', detectOn: ['a7-construire', 'a7-erreurs', 'a7-check', 'a12-scenario'], drill: 'd-jury', retest: 'd-jury' },
   { id: 'temps-meuble', description: 'Fills the silence with fillers, invents a figure the dossier does not give, or buys time with anglicisms (basiquement, définitivement, adresser).', detectOn: ['a8-construire', 'a8-piege', 'a8-check', 'a12-scenario'], drill: 'd-temps', retest: 'd-temps' },
   { id: 'these-abandonnee', description: 'Abandons the thesis at the first fair objection, denies it flatly, concedes more than it claims, or apologises instead of refining.', detectOn: ['a9-construire', 'a9-erreurs', 'a9-check', 'a12-scenario'], drill: 'd-conceder', retest: 'd-conceder' },
-  { id: 'hors-dossier', description: 'Refuses questions outside the dossier or the personal view, accepts a false choice, or loses the mood under pressure (bien que + indicatif, je pense que + subjonctif).', detectOn: ['a10-construire', 'a10-piege', 'a10-check', 'a12-scenario'], drill: 'd-pousser', retest: 'd-pousser' },
+  { id: 'hors-dossier', description: 'Refuses questions outside the dossier or the personal view, accepts a false choice, or loses the mood a jury provokes (je ne pense pas que + indicatif, oui je pense qu’ils soient, quoi qu’on en dit, à supposer que + indicatif).', detectOn: ['a10-construire', 'a10-piege', 'a10-check', 'a12-scenario'], drill: 'd-pousser', retest: 'd-pousser' },
   { id: 'fin-sans-fil', description: 'Ends the interview on voilà, an apology or a new doubt instead of one sentence restating the thread.', detectOn: ['a11-construire', 'a11-erreurs', 'a11-check', 'a12-scenario'], drill: 'd-clore', retest: 'd-clore' },
   { id: 'consigne-orale', description: 'Misses what the spoken task demands: no synthesis, no problématique, no plan held, no return to the question, or a duration outside three to five minutes.', detectOn: ['a12-modele', 'a12-plan', 'a12-mission'], drill: 'd-format', retest: 'd-format' },
 ];
@@ -3077,15 +3103,15 @@ const REC_DESC_FULL: Record<string, string> = {
   'rec-c1-09-theo-ecoute': 'REQUIRED FOR THE EAR MISSION (act 4): eight lines, ONE TAKE, ONE VOICE, in authored order. Théo (a man in his thirties, Québec French) presenting the dossier in synthesis: confident, natural C1 pace; the stance verbs (souligne, met en garde, avance) carry a light stress.',
   'rec-c1-09-piege-synthese': 'The audio step plays each card’s CORRECT sentence. Read the six plainly and identically in pace; the wrong versions in promptSound are never spoken.',
   'rec-c1-09-questions-ecoute': 'REQUIRED FOR THE EAR MISSION (act 5): six lines, ONE TAKE, in authored order. THREE VOICES: candidate 1 (line 1, a young man, France French), Mme Rocheval (lines 2, 4, 6, Québec French, courteous and dry), candidate 2 (line 3, a young woman, Belgian French); line 5 is candidate 3 (a woman, Québec French), steady. Until the studio delivers, one TTS voice reads all six; the questions do not depend on telling the voices apart.',
-  'rec-c1-09-expose': 'Your exposé (act 6), ONE VOICE, one take, a candidate of about thirty (Québec French), about four minutes: spoken, addressed, natural pace, a clear breath at each signpost (Premier temps, donc ; Je viens de montrer… ; Je reviens à ma question de départ).',
+  'rec-c1-09-expose': 'Your exposé (act 6), ONE VOICE, one take, a candidate of about thirty (Québec French), about two and a half minutes (313 words): spoken, addressed, natural pace, a clear breath at each signpost (Premier temps, donc ; Je viens de montrer… ; Je reviens à ma question de départ).',
   'rec-c1-09-question': 'The story (act 7), THREE VOICES: a narrator; M. Aubertin (a man in his sixties, France French, courteous, a little dry); the candidate (Québec French, calm). The candidate’s pause after « C’est une question qui touche au cœur du sujet. » is about one second.',
   'rec-c1-09-temps-ecoute': 'REQUIRED FOR THE EAR MISSION (act 8): eight lines, ONE TAKE, in authored order. FOUR VOICES: Mme Rocheval (line 1); candidate A (line 2, hesitant, audible fillers, trailing off); candidate B (line 3, crisp, over-confident); candidate C (lines 4 to 8, a woman, Québec French, calm, a one-second pause after line 4). Until the studio delivers, one TTS voice reads all; the content alone separates the three answers.',
   'rec-c1-09-piege-temps': 'The audio step plays each card’s CORRECT sentence. Read the six plainly and identically in pace; the wrong versions in promptSound are never spoken.',
   'rec-c1-09-entretien': 'The jury exchange (act 9), THREE VOICES, one take: M. Aubertin (France French, probing, never hostile), Mme Rocheval (Québec French), the candidate (Québec French, calm, unhurried). The speaker labels are read as short captions or replaced by the change of voice.',
   'rec-c1-09-pousser-ecoute': 'REQUIRED FOR THE EAR MISSION (act 10): ten lines, ONE TAKE, in authored order. THREE VOICES: Mme Rocheval (lines 1 and 7), M. Aubertin (lines 4 and 9), the candidate (lines 2, 3, 5, 6, 8, 10, a woman, Québec French). « qu’il faille » in the last line is clearly articulated.',
-  'rec-c1-09-piege-modes': 'The audio step plays each card’s CORRECT sentence. Read the six plainly and identically in pace; the wrong versions in promptSound are never spoken. « fassent », « paie », « dise », « puisse », « soient » are clearly articulated.',
+  'rec-c1-09-piege-modes': 'The audio step plays each card’s CORRECT sentence. Read the six plainly and identically in pace; the wrong versions in promptSound are never spoken. « doive », « sont », « que ce soit », « dise », « soit », « ait » are clearly articulated.',
   'rec-c1-09-cloture-ecoute': 'REQUIRED FOR THE EAR MISSION (act 11): seven lines, ONE TAKE, in authored order. THREE VOICES: Mme Rocheval (line 1), the candidate (lines 2, 4, 5, 6, a woman, Québec French), M. Aubertin (lines 3 and 7). The candidate’s closing lines are slower, one breath each.',
-  'rec-c1-09-modele': 'The model exposé (act 12), ONE VOICE, one take, a woman in her thirties (France French), about three minutes: natural C1 exam pace, addressed to a jury, a short breath at each signpost. Spoken, not read.',
+  'rec-c1-09-modele': 'The model exposé (act 12), ONE VOICE, one take, a woman in her thirties (France French), a little over two minutes (281 words): natural C1 exam pace, addressed to a jury, a short breath at each signpost. Spoken, not read.',
 };
 
 
@@ -3146,7 +3172,7 @@ export const LESSON: Lesson = {
     'The formal floor toward a jury: reformulating the whole question, asking for a precision, answering first, checking (ai-je répondu à votre question ?)',
     'Buying time without filling the silence (permettez-moi d’y réfléchir un instant, je distinguerais deux choses, en première analyse), admitting a gap without inventing, and the anglicisms that surface under pressure',
     'Conceding in public without losing the thesis: granting the point, naming its scope, narrowing (je ne dis pas que…, je dis que…), maintaining (je maintiens néanmoins que)',
-    'Questions outside the dossier, the personal view (à titre personnel), the hypothesis and the false choice, with the B2 moods kept under load',
+    'Questions outside the dossier, the personal view (à titre personnel), the hypothesis and the false choice, and the moods a jury provokes past B2 lesson 6 (negated or questioned opinion, que ce soit… ou…, quoi qu’on en dise, si convaincant que soit, à supposer que / en admettant que, le fait que)',
     'Closing the interview on one sentence that restates the thread, what the exchange clarified and thanks',
     'A three-to-five-minute spoken exposé from a printed dossier in the app’s own format, self-checked against an annotated model and a six-criterion grid',
   ],

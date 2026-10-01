@@ -115,7 +115,7 @@ export const NUANCER_ORAL_TERMS: Record<string, LessonTerm> = {
   litote: {
     term: 'la litote',
     title: 'Dire moins pour dire plus',
-    body: 'La litote nie le contraire de ce qu’elle veut dire : ce n’est pas mauvais du tout veut dire c’est bon. La retenue minimise : un peu long peut vouloir dire beaucoup trop long. Au Québec, c’est pas pire est un compliment. EN: Saying less so that more is heard; the regional codes matter.',
+    body: 'La litote nie le contraire de ce qu’elle veut dire : ce n’est pas mauvais du tout veut dire c’est bon. La retenue minimise : un peu long peut vouloir dire beaucoup trop long. Au Québec, c’est pas pire veut dire pas mal, assez bien : le plus souvent un compliment. EN: Saying less so that more is heard; the regional codes matter.',
     examples: [
       { itemId: E(1115), note: 'une litote positive' },
       { itemId: E(1116), note: 'la retenue' },

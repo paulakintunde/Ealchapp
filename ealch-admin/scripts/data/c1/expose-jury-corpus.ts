@@ -46,7 +46,9 @@
 //     act 9   conceding in public without losing the thesis: concede the
 //             point, narrow the scope, maintain
 //     act 10  when the jury pushes: outside the dossier, the personal view,
-//             the hypothesis, the false dilemma; B2 moods under load
+//             the hypothesis, the false dilemma; the moods a jury
+//             provokes (negated or questioned opinion, que ce soit, quoi
+//             qu'on en dise, si… que soit, à supposer que, le fait que)
 //     act 11  closing the entretien
 //     act 12  the model exposé (another dossier), the plan, the jury
 //             scenario, THE TASK (spoken, 180 to 300 s), the quiz
@@ -69,8 +71,9 @@
 //       hearing « je ne dis pas que…, je dis que… », « tout dépend de ce
 //       qu’on met derrière le mot » and « il faut distinguer deux choses ».
 //       Those rows are REUSED by id here, where the learner says them.
-//     - « la leçon 6 du B2 » owns indicative vs subjunctive; act 10 only
-//       recycles it under load.
+//     - « la leçon 6 du B2 » owns indicative vs subjunctive (douter que, il
+//       faut que, bien que, à moins que…). Cited once in act 10's rule as
+//       the base; act 10 teaches only the moods a jury provokes, past it.
 //     - Wave-mates, deliberately NOT authored here: closure markers (somme
 //       toute, tout bien considéré, en guise de conclusion) and reframing
 //       markers (ou plutôt, j’entends par là): c1.07. Hedges (si je ne
@@ -96,8 +99,8 @@
 //
 //  2. ID BLOCK: `fr.c1.discours-dexamen.1200`-`.1399`, claimed in the C1
 //     build log ledger for c1.09. Probed 2026-10-01: 0 rows in 1200-1399 at
-//     ANY level of the theme. Used: `.1200`-`.1361`, 162 rows, no gaps (§G).
-//     `.1362`-`.1399` free for fixes.
+//     ANY level of the theme. Used: `.1200`-`.1362`, 163 rows, no gaps (§G;
+//     `.1362` added at the pre-review, act 10). `.1363`-`.1399` free.
 //
 //  3. REUSED ROWS (all `published` in Postgres, read 2026-10-01):
 //     - act 1 recap: 13 rows of b2.22, b2.23, b2.25 and b2.26, all in
@@ -168,6 +171,13 @@
 //        jury; 1 h preparation; 30 min passation; scored /25; exposé about
 //        8-10 min, entretien about 15-20 min. NONE of these numbers is in
 //        the lesson. Paul: verify at FEI before any number is added.
+//        PRE-REVIEW 2026-10-01: FEI still 403 (ERR-BOT-403). The official
+//        Bulletin officiel annex (education.gouv.fr, BO 2005 n° 29,
+//        DELF_DALF.pdf, « DALF C1 - nature des épreuves ») confirms:
+//        « Exposé à partir de plusieurs documents écrits, suivi d'une
+//        discussion avec le jury », 0 h 30, /25, préparation 1 h 00, two
+//        domains. It does NOT give the 8-10 / 15-20 min split. The source
+//        is from 2005, so the lesson still names no exam (open question 1).
 //     b. Every person, town, institute, company and figure is INVENTED:
 //        Institut Verlune (house invention), Sainte-Albine and its forty
 //        gardens, the jardin des Tilleuls, the 300-name waiting list,
@@ -182,12 +192,32 @@
 //        shared gardens « ne pèsent presque rien » against what it consumes
 //        (Desgranges, an opinion column); quiet carriages make passengers
 //        lower their voices (an invented operator’s communiqué).
-//     d. The anglicisms of act 8 (faire du sens for « avoir du sens », basiquement,
-//        définitivement for « assurément », adresser une question for
-//        « traiter », revenir à quelqu’un for « revenir vers », « comme une question de fait »
-//        for « en fait »): check each against Académie « Dire, ne pas dire »
-//        and the OQLF BDL. « Insister que » and « souligner comment »
-//        (act 4) against the same.
+//     d. The anglicisms of act 8 and the calques of act 4, CHECKED at the
+//        pre-review 2026-10-01:
+//        - faire du sens: OQLF Vitrine « L'emprunt déconseillé faire du
+//          sens » (déconseillé; avoir du sens, être sensé). The OQLF notes
+//          that « faire sens » (no article) is attested and acceptable.
+//        - définitivement for « certainly »: Académie (« Les anglicismes
+//          furtifs ») and OQLF (« Emploi déconseillé de l'emprunt
+//          définitivement »): both condemn.
+//        - adresser une question in the sense « traiter »: OQLF « ADRESSER :
+//          emprunt déconseillé » (déconseillé for to address a problem).
+//          BUT « adresser une question à quelqu'un » (= la poser) is
+//          correct (OQLF, « demander une question »): the tips say so.
+//        - revenir à vous for « get back to you »: the Académie's entry « Je
+//          reviens vers vous » condemns « revenir vers » as an anglicism, so
+//          the tip no longer offers it (j'y reviens, je reprendrai ce point).
+//          No OQLF article on « revenir à quelqu'un » was found.
+//        - basiquement: no Académie or OQLF entry found in this check; the
+//          verdict (not formal register, a calque of basically) rests on
+//          usage guides. « Comme une question de fait » is an INVENTED
+//          word-for-word calque, not an attested anglicism.
+//        - insister que: no Académie or OQLF entry found; criticised as a
+//          calque of to insist that by usage guides; the tip says
+//          « critiqué » and gives insister sur le fait que / insister pour
+//          que. « Souligner comment » + adjective of degree is a grammar
+//          point (comment = manner), not an Académie verdict; the items use
+//          « est important », where « comment » cannot mean manner.
 //
 // ══════════════════════════════════════════════════════════════════════════
 
@@ -570,7 +600,7 @@ export const ACT6_ROWS: Row[] = [
   sent(1275, 'Je vous remercie ; je me tiens à votre disposition pour vos questions.', 'Thank you; I am at your disposal for your questions.', '/ʒə vu ʁə.mɛʁ.si ʒə mə tjɛ̃ a vɔtʁ dis.po.zi.sjɔ̃ puʁ vo kɛs.tjɔ̃/', 'zhuh voo ruh-mehr-SEE | zhuh muh TYEHⁿ | a votr dees-po-zee-SYOHⁿ | poor voh kehs-TYOHⁿ', ['conclusion'], FCVDR),
   phrase(1276, 'une balise', 'a signpost (in a talk)', '/yn ba.liz/', 'ün ba-LEEZ', ['balise'], 'À l’oral : la phrase courte qui dit au jury où tu en es.'),
   sent(1277, 'À l’oral, la conclusion redit la question avant d’y répondre.', 'In a talk, the conclusion restates the question before answering it.', '/a lɔ.ʁal la kɔ̃.kly.zjɔ̃ ʁə.di la kɛs.tjɔ̃ a.vɑ̃ di ʁe.pɔ̃dʁ/', 'a lo-RAL | la kohⁿ-klü-ZYOHⁿ | ruh-DEE la kehs-TYOHⁿ | a-vahⁿ dee ray-POHⁿDR', ['rule', 'conclusion'], RULE,
-    rule('Ta conclusion orale commence par quoi ?', 'Par la question de départ : le jury l’a peut-être perdue de vue en dix minutes.')),
+    rule('Ta conclusion orale commence par quoi ?', 'Par la question de départ : le jury l’a peut-être perdue de vue en quelques minutes.')),
   sent(1278, 'Je viens de montrer ce que les jardins produisent ; voyons ce qu’ils font vraiment.', 'I have just shown what the gardens produce; let us see what they really do.', '/ʒə vjɛ̃ də mɔ̃.tʁe sə kə le ʒaʁ.dɛ̃ pʁɔ.dɥiz vwa.jɔ̃ sə kil fɔ̃ vʁɛ.mɑ̃/', 'zhuh vyehⁿ duh mohⁿ-TRAY | suh kuh lay zhar-DEHⁿ pro-DWEEZ | vwa-YOHⁿ | suh keel fohⁿ vreh-MAHⁿ', ['balise', 'transition']),
   sent(1279, 'Il me reste deux minutes ; je vais à l’essentiel.', 'I have two minutes left; I will go straight to the essentials.', '/il mə ʁɛst dø mi.nyt ʒə vɛ a le.sɑ̃.sjɛl/', 'eel muh rehst deu mee-NÜT | zhuh veh a lay-sahⁿ-SYEHL', ['balise', 'temps']),
   sent(1280, 'Voilà pour le premier temps.', 'So much for the first stage.', '/vwa.la puʁ lə pʁə.mje tɑ̃/', 'vwa-LA poor luh pruh-myay TAHⁿ', ['balise']),
@@ -651,14 +681,15 @@ export const ACT10_ROWS: Row[] = [
   sent(1332, 'Et si la ville n’avait plus de budget, que faudrait-il garder ?', 'And if the city had no budget left, what should be kept?', '/e si la vil na.vɛ ply də byd.ʒɛ kə fo.dʁɛ.til gaʁ.de/', 'ay see la VEEL na-veh plü duh büd-ZHEH | kuh foh-dreh-TEEL gar-DAY', ['jury', 'hypothese']),
   sent(1333, 'Dans ce cas, je garderais les parcelles collectives, qui rassemblent le plus.', 'In that case, I would keep the shared plots, which bring the most people together.', '/dɑ̃ sə ka ʒə gaʁ.də.ʁɛ le paʁ.sɛl kɔ.lɛk.tiv ki ʁa.sɑ̃bl lə plys/', 'dahⁿ suh KA | zhuh gar-duh-REH | lay par-SEHL ko-lehk-TEEV | kee ra-SAHⁿBL luh PLÜSS', ['hypothese']),
   sent(1334, 'Et vous, personnellement, que feriez-vous ?', 'And you, personally, what would you do?', '/e vu pɛʁ.sɔ.nɛl.mɑ̃ kə fə.ʁje.vu/', 'ay VOO | pehr-so-nehl-MAHⁿ | kuh fuh-ryay-VOO', ['jury', 'avis']),
-  sent(1335, 'Je doute que les jardins fassent baisser le prix des légumes.', 'I doubt the gardens bring down the price of vegetables.', '/ʒə dut kə le ʒaʁ.dɛ̃ fas be.se lə pʁi de le.gym/', 'zhuh DOOT | kuh lay zhar-DEHⁿ FASS | beh-SAY luh PREE | day lay-GÜM', ['subjonctif', 'trap']),
-  sent(1336, 'Il faut que la ville paie l’eau et les clôtures.', 'The city has to pay for the water and the fences.', '/il fo kə la vil pɛ lo e le klo.tyʁ/', 'eel FOH | kuh la VEEL PEH | LOH | ay lay kloh-TÜR', ['subjonctif', 'trap']),
-  sent(1337, 'À titre personnel, je pense que c’est une bonne idée.', 'Speaking personally, I think it is a good idea.', '/a titʁ pɛʁ.sɔ.nɛl ʒə pɑ̃s kə sɛ.tyn bɔ.ni.de/', 'a teetr pehr-so-NEHL | zhuh PAHⁿSS | kuh seh-tün bo-nee-DAY', ['subjonctif', 'trap']),
-  sent(1338, 'Bien que le dossier ne dise rien des toits, la question se pose.', 'Although the dossier says nothing about roofs, the question arises.', '/bjɛ̃ kə lə do.sje nə diz ʁjɛ̃ de twa la kɛs.tjɔ̃ sə poz/', 'byehⁿ kuh luh do-SYAY | nuh deez RYEHⁿ | day TWA | la kehs-TYOHⁿ suh POHZ', ['subjonctif', 'trap']),
-  sent(1339, 'À moins que la ville ne puisse payer l’eau, le projet restera fragile.', 'Unless the city can pay for the water, the project will remain fragile.', '/a mwɛ̃ kə la vil nə pɥis pe.je lo lə pʁɔ.ʒɛ ʁɛs.tə.ʁa fʁa.ʒil/', 'a MWEHⁿ | kuh la VEEL nuh PWEESS | pay-YAY LOH | luh pro-ZHEH | rehs-tuh-RA fra-ZHEEL', ['subjonctif', 'trap']),
-  sent(1340, 'Il est peu probable que les toits soient plus faciles à cultiver.', 'It is unlikely that roofs are easier to cultivate.', '/il ɛ pø pʁɔ.babl kə le twa swa ply fa.sil a kyl.ti.ve/', 'eel eh peu pro-BABL | kuh lay TWA | swa plü fa-SEEL | a kül-tee-VAY', ['subjonctif', 'trap']),
+  sent(1335, 'Je ne pense pas que la ville doive tout payer.', 'I do not think the city has to pay for everything.', '/ʒə nə pɑ̃s pa kə la vil dwav tu pe.je/', 'zhuh nuh PAHⁿSS pa | kuh la VEEL DWAV | too pay-YAY', ['subjonctif', 'trap']),
+  sent(1336, 'Que ce soit la ville ou les habitants, quelqu’un doit payer l’eau.', 'Whether it is the city or the residents, someone has to pay for the water.', '/kə sə swa la vil u le.za.bi.tɑ̃ kɛl.kœ̃ dwa pe.je lo/', 'kuh suh SWA | la VEEL | oo lay-za-bee-TAHⁿ | kehl-KUHⁿ dwa pay-YAY LOH', ['subjonctif', 'trap']),
+  sent(1337, 'Oui, je pense qu’ils sont utiles, et je vais vous dire à quoi.', 'Yes, I think they are useful, and I will tell you what for.', '/wi ʒə pɑ̃s kil sɔ̃.ty.til e ʒə vɛ vu diʁ a kwa/', 'WEE | zhuh pahⁿss keel sohⁿ-tü-TEEL | ay zhuh veh voo DEER a KWA', ['indicatif', 'trap']),
+  sent(1338, 'Quoi qu’on en dise, les jardins rassemblent.', 'Whatever people may say, the gardens bring people together.', '/kwa kɔ̃.nɑ̃ diz le ʒaʁ.dɛ̃ ʁa.sɑ̃bl/', 'kwa kohⁿ-nahⁿ DEEZ | lay zhar-DEHⁿ ra-SAHⁿBL', ['subjonctif', 'trap', 'concession']),
+  sent(1339, 'Si convaincant que soit cet argument, il ne tranche pas la question.', 'However convincing this argument may be, it does not settle the question.', '/si kɔ̃.vɛ̃.kɑ̃ kə swa sɛ.taʁ.gy.mɑ̃ il nə tʁɑ̃ʃ pa la kɛs.tjɔ̃/', 'see kohⁿ-vehⁿ-KAHⁿ kuh SWA | seh-tar-gü-MAHⁿ | eel nuh TRAHⁿSH pa | la kehs-TYOHⁿ', ['subjonctif', 'trap', 'concession']),
+  sent(1340, 'À supposer que la ville n’ait plus de budget, je garderais les parcelles collectives.', 'Supposing the city had no budget left, I would keep the shared plots.', '/a sy.po.ze kə la vil nɛ ply də byd.ʒɛ ʒə gaʁ.də.ʁɛ le paʁ.sɛl kɔ.lɛk.tiv/', 'a sü-poh-ZAY | kuh la VEEL neh plü duh büd-ZHEH | zhuh gar-duh-REH | lay par-SEHL ko-lehk-TEEV', ['subjonctif', 'trap', 'hypothese']),
   sent(1341, 'Le jury pousse pour voir si ta pensée tient, pas pour te piéger.', 'The jury pushes to see whether your thinking holds, not to trap you.', '/lə ʒy.ʁi pus puʁ vwaʁ si ta pɑ̃.se tjɛ̃ pa puʁ tə pje.ʒe/', 'luh zhü-REE POOSS | poor vwar see ta pahⁿ-SAY TYEHⁿ | pa poor tuh pyay-ZHAY', ['rule', 'jury'], RULE,
     rule('Le jury te demande ton avis personnel. C’est un piège ?', 'Non : il veut voir ta pensée hors du dossier. Dis que tu en sors, puis donne un avis motivé.')),
+  sent(1362, 'Le fait que la liste soit si longue montre un vrai besoin.', 'The fact that the list is so long shows a real need.', '/lə fɛ kə la list swa si lɔ̃g mɔ̃tʁ œ̃ vʁɛ bə.zwɛ̃/', 'luh FEH | kuh la LEEST swa see LOHⁿG | mohⁿtr uhⁿ vreh buh-ZWEHⁿ', ['subjonctif', 'le-fait-que']),
 ];
 
 /* ── ACT 11 · CLORE L’ENTRETIEN ───────────────────────────────────────────── */
@@ -725,7 +756,7 @@ export const DOSSIER_TEXT =
   'Document 2. Témoignage de Mireille Kassab, jardinière au jardin des Tilleuls. « Je suis arrivée pour les tomates, je l’avoue. Mais ce qui me fait revenir, ce sont les gens. Le samedi, on partage les outils, on se donne des graines, on discute avec des voisins qu’on croisait depuis dix ans sans se parler. Aux Tilleuls, il n’y a plus une parcelle libre depuis des années. L’été dernier, un retraité a appris à deux adolescents à greffer un pommier. Des légumes, on en récolte, bien sûr, mais pas de quoi remplir un frigo. » ' +
   'Document 3. Tribune de Paul-Henri Desgranges, agronome. « Les jardins partagés n’ont jamais été aussi demandés, et c’est tant mieux. Mais il faut cesser de leur demander ce qu’ils ne peuvent pas donner. Une parcelle de quelques mètres carrés, cultivée le week-end, ne nourrira jamais une famille, et l’ensemble des jardins d’une ville ne pèse presque rien face à ce qu’elle consomme. Présenter ces jardins comme une politique alimentaire, c’est s’exposer à les juger sur leurs récoltes, et donc à les condamner. Leur valeur est ailleurs : ils créent du voisinage, ils apprennent la patience des saisons, ils rendent un coin de ville à ceux qui l’habitent. C’est sur ce terrain qu’il faut les défendre, et les financer. »';
 
-/** Act 6: your exposé on the dossier, as delivered (about four minutes). */
+/** Act 6: your exposé on the dossier, as delivered (313 words, about two and a half minutes). */
 export const EXPOSE_TEXT =
   'Merci. Le dossier que j’ai choisi réunit trois documents sur les jardins partagés de Sainte-Albine : un extrait du bilan de la ville, le témoignage d’une jardinière et la tribune d’un agronome. Ces trois documents répondent, chacun à sa manière, à une même question : à quoi sert un jardin partagé ? La ville répond : à nourrir. L’agronome répond : à rassembler. Dès lors, on peut se demander si les jardins partagés nourrissent la ville ou s’ils la rassemblent. Je vous propose de la traiter en deux temps : d’abord ce que les jardins produisent, ensuite ce qu’ils font vraiment. ' +
   'Premier temps, donc, les récoltes. Pour ne pas dépasser mon temps, je passerai vite sur ce point, car les documents se rejoignent. La jardinière le dit elle-même : on récolte, mais pas de quoi remplir un frigo. L’agronome va plus loin : l’ensemble des jardins pèse très peu face à ce que la ville consomme. Seul le bilan municipal en fait une politique alimentaire, et il ne donne aucun chiffre de production. ' +

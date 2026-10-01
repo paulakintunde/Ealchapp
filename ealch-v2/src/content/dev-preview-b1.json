@@ -37933,7 +37933,7 @@
           "id": "act7",
           "title": "Contredire avec égards",
           "opener": {
-            "line": "Ta directrice a choisi le vendredi, et les chiffres disent autre chose : ici tu contredis avec égards, une formule, puis l’argument. EN: Your director chose the Friday and the figures say otherwise: here you contradict with regard, one formula, then the argument.",
+            "line": "Ta directrice a choisi le vendredi, et Karim n’est pas d’accord : ici tu contredis avec égards, une formule, puis l’argument. EN: Your director chose the Friday and Karim disagrees: here you contradict with regard, one formula, then the argument.",
             "imageRef": "lessons/nuancer-oral/act07.jpg"
           },
           "sections": [
@@ -38023,7 +38023,7 @@
           "id": "act11",
           "title": "Entendre la nuance",
           "opener": {
-            "line": "Lyon rappelle : un oui, et beaucoup de peut-être : ici tu entends ce que les nuances des autres veulent dire, et tu leur demandes une date. EN: Lyon calls back: one yes and many maybes: here you hear what other people’s hedges mean, and ask them for a date.",
+            "line": "Lyon rappelle avec un oui et beaucoup de peut-être : ici tu entends ce que les nuances des autres veulent dire, et tu leur demandes une date. EN: Lyon calls back: one yes and many maybes: here you hear what other people’s hedges mean, and ask them for a date.",
             "imageRef": "lessons/nuancer-oral/act11.jpg"
           },
           "sections": [
@@ -38709,7 +38709,7 @@
               "layer": "deep",
               "render": "sheet",
               "title": "Une parenthèse, au bon endroit",
-              "body": "Une incise adoucit le mot qu’elle touche. Me semble-t-il présente un avis comme une impression ; si je ne m’abuse (soutenu) et si je ne me trompe (courant) signalent un fait dont tu crois te souvenir ; à ma connaissance limite ton affirmation à ce que tu sais. L’incise inversée se place après le verbe ou en fin de phrase, jamais en tête, et une seule suffit par doute. Les formules d’approximation (en quelque sorte, pour ainsi dire, à proprement parler) préviennent que le mot est une image ou ne convient pas tout à fait : elles rendent la phrase plus précise. EN: One aside, next to the doubt; approximation formulas make you more precise."
+              "body": "Une incise adoucit le mot qu’elle touche. Me semble-t-il présente un avis comme une impression ; si je ne m’abuse (soutenu) et si je ne me trompe (courant) signalent un fait dont tu crois te souvenir ; à ma connaissance limite ton affirmation à ce que tu sais. L’incise inversée se place dans la phrase (après le sujet ou le verbe) ou à la fin, jamais en tête, et une seule suffit par doute. Les formules d’approximation (en quelque sorte, pour ainsi dire, à proprement parler) préviennent que le mot est une image ou ne convient pas tout à fait : elles rendent la phrase plus précise. EN: One aside, next to the doubt; approximation formulas make you more precise."
             },
             {
               "type": "table",
@@ -38726,7 +38726,7 @@
                 [
                   "me semble-t-il",
                   "un avis",
-                  "soutenu ; après le verbe ou en fin de phrase"
+                  "soutenu ; dans la phrase ou à la fin"
                 ],
                 [
                   "si je ne m’abuse",
@@ -38941,7 +38941,7 @@
               "layer": "deep",
               "render": "sheet",
               "title": "Une critique qui se fait entendre",
-              "body": "Ce qui marche d’abord, sincèrement. Puis un point précis, pris à ton compte : ce qui me gêne un peu, c’est... Puis une suggestion au conditionnel : je me demande si on ne gagnerait pas à... Enfin, une porte laissée à l’autre : c’est ton texte. L’erreur de fait se dit sans détour. La litote nie le contraire (ce n’est pas mauvais du tout = c’est bon) ; la retenue minimise (un peu long = parfois beaucoup trop long). Au Québec, c’est pas pire est un compliment ; pas terrible veut dire médiocre en France comme au Québec. EN: Four steps for a criticism; litote and understatement, with their regional codes."
+              "body": "Ce qui marche d’abord, sincèrement. Puis un point précis, pris à ton compte : ce qui me gêne un peu, c’est... Puis une suggestion au conditionnel : je me demande si on ne gagnerait pas à... Enfin, une porte laissée à l’autre : c’est ton texte. L’erreur de fait se dit sans détour. La litote nie le contraire (ce n’est pas mauvais du tout = c’est bon) ; la retenue minimise (un peu long = parfois beaucoup trop long). Au Québec, c’est pas pire veut dire pas mal, assez bien : le plus souvent un compliment ; pas terrible veut dire médiocre en France comme au Québec. EN: Four steps for a criticism; litote and understatement, with their regional codes."
             },
             {
               "type": "table",
@@ -39235,7 +39235,7 @@
         "litote": {
           "term": "la litote",
           "title": "Dire moins pour dire plus",
-          "body": "La litote nie le contraire de ce qu’elle veut dire : ce n’est pas mauvais du tout veut dire c’est bon. La retenue minimise : un peu long peut vouloir dire beaucoup trop long. Au Québec, c’est pas pire est un compliment. EN: Saying less so that more is heard; the regional codes matter.",
+          "body": "La litote nie le contraire de ce qu’elle veut dire : ce n’est pas mauvais du tout veut dire c’est bon. La retenue minimise : un peu long peut vouloir dire beaucoup trop long. Au Québec, c’est pas pire veut dire pas mal, assez bien : le plus souvent un compliment. EN: Saying less so that more is heard; the regional codes matter.",
           "examples": [
             {
               "itemId": "fr.c1.nuances-et-registres.1115",
@@ -39863,14 +39863,14 @@
           ],
           "questions": [
             {
-              "q": "De quoi Hélène doute-t-elle en annonçant l’ouverture ?",
+              "q": "En annonçant l’ouverture, de quoi la personne doute-t-elle ?",
               "opts": [
+                "du thème",
                 "du lieu",
-                "de la date",
-                "du thème"
+                "de la date"
               ],
-              "correct": 1,
-              "why": "Elle ajoute « si je ne m’abuse » juste après la date : c’est un souvenir à vérifier. EN: the date."
+              "correct": 2,
+              "why": "La personne ajoute « si je ne m’abuse » juste après la date : c’est un souvenir à vérifier. EN: the date."
             },
             {
               "q": "L’incise sur le vendredi exprime...",
@@ -39888,16 +39888,16 @@
                 "Pas à la connaissance de la personne qui parle."
               ],
               "correct": 1,
-              "why": "« À ma connaissance, aucune » : elle limite son affirmation à ce qu’elle sait. EN: not as far as she knows."
+              "why": "« À ma connaissance, aucune » : la personne limite son affirmation à ce qu’elle sait. EN: not as far as the speaker knows."
             },
             {
               "q": "Que propose-t-on pour le vendredi ?",
               "opts": [
-                "de l’ouvrir aux écoles",
                 "de fermer ce jour-là",
-                "de le garder pour le vernissage"
+                "de le garder pour le vernissage",
+                "de l’ouvrir aux écoles"
               ],
-              "correct": 2,
+              "correct": 1,
               "why": "Le vernissage le vendredi, les classes dès le lundi suivant. EN: the opening night."
             },
             {
@@ -39952,7 +39952,7 @@
               "label": "me semble-t-il",
               "fr": "me semble-t-il",
               "sub": "[muh sahⁿbl-TEEL]",
-              "body": "Après le verbe ou en fin de phrase, jamais en tête. La leçon 24 du B2 t’a montré « semble-t-il » à l’écrit ; ici, c’est ton propre avis. EN: your opinion as an impression."
+              "body": "Après le sujet, après le verbe ou en fin de phrase, jamais en tête. La leçon 24 du B2 t’a montré « semble-t-il » à l’écrit ; ici, c’est ton propre avis. EN: your opinion as an impression."
             },
             {
               "head": "Un souvenir, soutenu",
@@ -40218,7 +40218,7 @@
                 "q": "Me semble-t-il se place...",
                 "opts": [
                   "en tête de phrase",
-                  "après le verbe ou en fin de phrase"
+                  "dans la phrase ou à la fin"
                 ],
                 "correct": 1,
                 "why": "Une incise inversée ne commence pas la phrase. EN: never first."
@@ -40517,7 +40517,7 @@
           "title": "Six paris mal construits",
           "rule": {
             "title": "Le pari garde l’indicatif",
-            "body": "Fort à parier, permis de penser, tout porte à croire : une probabilité, donc l’indicatif. Ces tournures sont figées, comme ma main au feu. Et rien n’indique se suffit : jamais de pas. EN: probability takes the indicative; the formulas are fixed."
+            "body": "Fort à parier, permis de penser : une probabilité ou une opinion, donc l’indicatif. Ces tournures sont figées, comme ma main au feu. Et rien n’indique se suffit : jamais de pas. EN: probability takes the indicative; the formulas are fixed."
           },
           "cards": [
             {
@@ -40556,11 +40556,11 @@
               "tip": "Rien porte déjà la négation : rien n’indique, sans pas. EN: no pas with rien."
             },
             {
-              "promptLabel": "croire + subjonctif",
-              "promptSound": "D’ici là, tout porte à croire que la salle principale suffise.",
-              "fr": "D’ici là, tout porte à croire que la salle principale suffira.",
-              "ipa": "/di.si la tu pɔʁt a kʁwaʁ kə la sal pʁɛ̃.si.pal sy.fi.ʁa/",
-              "tip": "Tout porte à croire présente un fait probable : suffira. EN: indicative."
+              "promptLabel": "permis que",
+              "promptSound": "Il est permis que le thème attirera des familles.",
+              "fr": "Il est permis de penser que le thème attirera des familles.",
+              "ipa": "/i.lɛ pɛʁ.mi də pɑ̃.se kə lə tɛm a.ti.ʁə.ʁa de fa.mij/",
+              "tip": "Il est permis que parle d’une autorisation. Pour une opinion raisonnable : il est permis de penser que. EN: de penser que."
             }
           ],
           "drill": [
@@ -40597,20 +40597,20 @@
               "correct": 0
             },
             {
-              "promptSay": "Tout porte à croire que nous ... à temps.",
+              "promptSay": "Il est permis de penser que nous ... à temps.",
               "opts": [
-                "finissions",
-                "finirons"
+                "finirons",
+                "finissions"
               ],
-              "correct": 1
+              "correct": 0
             },
             {
               "promptSay": "Il y a fort ... parier que les écoles réserveront.",
               "opts": [
-                "à",
-                "de"
+                "de",
+                "à"
               ],
-              "correct": 0
+              "correct": 1
             },
             {
               "promptSay": "Rien ... que les travaux bloquent l’entrée.",
@@ -40841,8 +40841,8 @@
               "en": "That must be him, the white truck on the pavement."
             },
             {
-              "fr": "Sur le bon de livraison, il y a l’adresse de Lyon.",
-              "en": "The delivery note has the Lyon address on it."
+              "fr": "Sur le bon de livraison, il y a l’adresse de Lyon, et le transport n’est pas encore payé.",
+              "en": "The delivery note has the Lyon address on it, and the transport has not been paid yet."
             },
             {
               "fr": "Il doit y avoir un malentendu sur l’adresse.",
@@ -40853,8 +40853,8 @@
               "en": "You must be mistaken: we paid for the transport yesterday."
             },
             {
-              "fr": "Ah, pardon, vous avez raison : je devais regarder l’ancien dossier.",
-              "en": "Ah, sorry, you are right: I must have been looking at the old file."
+              "fr": "Ah, pardon, vous avez raison : je devais avoir l’ancien dossier sous les yeux.",
+              "en": "Ah, sorry, you are right: I must have had the old file in front of me."
             },
             {
               "fr": "Il était midi passé quand le camion est enfin arrivé.",
@@ -40882,10 +40882,10 @@
               "why": "Elle ne lui ordonne rien : elle suppose où il se trouve. EN: a guess, not an order."
             },
             {
-              "q": "Comment l’employée parle-t-elle de l’adresse de Lyon ?",
+              "q": "Comment l’Institut répond-il à l’histoire de l’adresse de Lyon ?",
               "opts": [
-                "Elle dit que le client a menti.",
-                "Elle accuse un malentendu, pas une personne."
+                "Il dit que l’employée a menti.",
+                "Il accuse un malentendu, pas une personne."
               ],
               "correct": 1,
               "why": "« Il doit y avoir un malentendu » : personne n’est accusé. EN: a misunderstanding, not a culprit."
@@ -40897,7 +40897,7 @@
                 "l’employée"
               ],
               "correct": 1,
-              "why": "Elle reconnaît qu’elle regardait sans doute l’ancien dossier. EN: she did."
+              "why": "Elle disait le transport impayé, puis reconnaît qu’elle devait avoir l’ancien dossier sous les yeux. EN: she did."
             },
             {
               "q": "Quand le camion est-il arrivé ?",
@@ -41448,7 +41448,7 @@
           "title": "Six à-peu-près ratés",
           "rule": {
             "title": "Approcher ou restreindre, sans se tromper de formule",
-            "body": "En quelque sorte et pour ainsi dire approchent : le mot est une image. À proprement parler restreint : au sens strict. Un tant soit peu veut dire très peu. Les formes sont figées : parler, dire, soit. EN: approximate or restrict; fixed forms."
+            "body": "En quelque sorte et pour ainsi dire approchent : le mot est une image. À proprement parler restreint : au sens strict. Un tant soit peu veut dire très peu. Les formes sont figées : parler, dire, tant, soit, quelque. EN: approximate or restrict; fixed forms."
           },
           "cards": [
             {
@@ -41480,18 +41480,18 @@
               "tip": "Soit, du verbe être au subjonctif : un tant soit peu. EN: soit."
             },
             {
-              "promptLabel": "beaucoup",
-              "promptSound": "Est-ce qu’il te reste un tant soit peu de temps ? Il me faut trois semaines.",
+              "promptLabel": "un temps",
+              "promptSound": "Est-ce qu’il te reste un temps soit peu de temps cette semaine ?",
               "fr": "Est-ce qu’il te reste un tant soit peu de temps cette semaine ?",
               "ipa": "/ɛs.kil tə ʁɛst œ̃ tɑ̃ swa pø də tɑ̃ sɛt sə.mɛn/",
-              "tip": "Un tant soit peu, c’est un minimum, pas trois semaines. EN: a minimum, not a lot."
+              "tip": "Tant, pas temps : un tant soit peu. Les deux mots se prononcent pareil. EN: tant, not temps."
             },
             {
-              "promptLabel": "le sens strict",
-              "promptSound": "L’affiche est, à proprement parler, une coupe de la ville.",
+              "promptLabel": "quelle sorte",
+              "promptSound": "L’affiche est, en quelle sorte, une coupe de la ville.",
               "fr": "L’affiche est, en quelque sorte, une coupe de la ville.",
               "ipa": "/la.fi.ʃɛ ɑ̃ kɛl.kə sɔʁt yn kup də la vil/",
-              "tip": "Coupe est une image : en quelque sorte, pas à proprement parler. EN: approximation, not strict sense."
+              "tip": "La formule est figée : en quelque sorte, avec quelque. EN: quelque, not quelle."
             }
           ],
           "drill": [
@@ -41939,7 +41939,7 @@
           "title": "Six demandes qui déraillent",
           "rule": {
             "title": "Savoir gré, être amené à, être en mesure de",
-            "body": "On sait gré à quelqu’un de quelque chose : je vous saurais gré de. Saurais et serais sonnent presque pareil. On est amené à faire, en mesure de faire. Après il se pourrait que, le subjonctif. EN: savoir gré de; amené à; en mesure de."
+            "body": "On sait gré à quelqu’un de quelque chose : je vous saurais gré de. Saurais et serais sonnent presque pareil. On est amené à faire, en mesure de faire (jamais à mesure de). EN: savoir gré de; amené à; en mesure de."
           },
           "cards": [
             {
@@ -41978,11 +41978,11 @@
               "tip": "Être en mesure de + infinitif. EN: de."
             },
             {
-              "promptLabel": "l’indicatif",
-              "promptSound": "Il se pourrait que nous sommes amenés à prolonger l’exposition.",
-              "fr": "Il se pourrait que nous soyons amenés à prolonger l’exposition.",
-              "ipa": "/il sə pu.ʁɛ kə nu swa.jɔ̃.za.mə.ne a pʁɔ.lɔ̃.ʒe lɛks.po.zi.sjɔ̃/",
-              "tip": "Il se pourrait que + subjonctif : soyons. EN: subjunctive."
+              "promptLabel": "à mesure",
+              "promptSound": "Seriez-vous à mesure de nous transmettre ces chiffres d’ici la fin du mois ?",
+              "fr": "Seriez-vous en mesure de nous transmettre ces chiffres d’ici la fin du mois ?",
+              "ipa": "/sə.ʁje.vu ɑ̃ mə.zyʁ də nu tʁɑ̃s.mɛtʁ se ʃifʁ di.si la fɛ̃ dy mwa/",
+              "tip": "En mesure de : capable de. À mesure que dit une progression. EN: en mesure de."
             }
           ],
           "drill": [
@@ -42011,10 +42011,10 @@
               "correct": 0
             },
             {
-              "promptSay": "Il se pourrait que nous ... amenés à partir plus tôt.",
+              "promptSay": "Nous ne sommes pas ... mesure de livrer avant lundi.",
               "opts": [
-                "soyons",
-                "sommes"
+                "en",
+                "à"
               ],
               "correct": 0
             },
@@ -42237,8 +42237,8 @@
               "en": "Without wishing to contradict you, last year’s figures rather point the other way."
             },
             {
-              "fr": "Avec tout le respect que je vous dois, Karim, ces chiffres concernaient une autre exposition.",
-              "en": "With all due respect, Karim, those figures were about another exhibition."
+              "fr": "Avec tout le respect que je vous dois, Hélène, ces chiffres concernaient une autre exposition.",
+              "en": "With all due respect, Hélène, those figures were about another exhibition."
             },
             {
               "fr": "C’est juste, mais le public des familles reste le même.",
@@ -42268,20 +42268,20 @@
               "why": "« Loin de moi l’idée de remettre en cause tout le calendrier » écarte cette intention, puis vient le vrai point. EN: only the Friday."
             },
             {
-              "q": "Sur quoi s’appuie-t-il pour contredire Hélène ?",
+              "q": "Sur quoi Hélène s’appuie-t-elle pour défendre le vendredi ?",
               "opts": [
                 "l’avis de Sophie",
                 "son goût personnel",
                 "les chiffres de l’an dernier"
               ],
               "correct": 2,
-              "why": "Sans vouloir vous contredire, il avance des chiffres. EN: last year’s figures."
+              "why": "Sans vouloir vous contredire, elle avance des chiffres. EN: last year’s figures."
             },
             {
-              "q": "Quand Hélène dit « avec tout le respect que je vous dois », que fait-elle ?",
+              "q": "Quand Karim répond « avec tout le respect que je vous dois », que fait-il ?",
               "opts": [
-                "Elle annonce un désaccord ferme.",
-                "Elle lui donne raison."
+                "Il annonce un désaccord ferme.",
+                "Il lui donne raison."
               ],
               "correct": 0,
               "why": "La formule prépare une objection : ces chiffres concernaient une autre exposition. EN: a firm disagreement."
@@ -42526,7 +42526,7 @@
             },
             {
               "wrong": "Sauf votre respect, avec tout le respect que je vous dois, sans vouloir vous contredire, ces chiffres concernaient une autre exposition.",
-              "right": "Avec tout le respect que je vous dois, Karim, ces chiffres concernaient une autre exposition.",
+              "right": "Avec tout le respect que je vous dois, Hélène, ces chiffres concernaient une autre exposition.",
               "why": "Chaque formule est correcte ; empilées, elles sonnent moqueuses. Une seule, puis l’argument. EN: one formula, then the point."
             },
             {
@@ -42718,7 +42718,7 @@
           "questionsInModal": true,
           "title": "Les commentaires d’Hélène",
           "frSub": "Une critique qui se fait entendre",
-          "text": "Bureau d’Hélène, jeudi. Karim lui a envoyé le texte du premier panneau de l’exposition. Elle lui fait ses commentaires. Hélène : Merci, Karim. J’ai lu ton texte deux fois, et il y a de très bonnes choses. L’ouverture sur le ruisseau disparu de ton enfance, j’aime beaucoup : on entre tout de suite dans le sujet. Karim : Tant mieux. J’avais peur que ce soit trop personnel. Hélène : Non, au contraire. Ce qui me gêne un peu, c’est la longueur : les visiteurs lisent debout. Le panneau fait quatre cents mots. Je me demande si on ne gagnerait pas à couper le deuxième paragraphe. Karim : Celui sur l’histoire des égouts ? Il est un peu technique, c’est vrai. Hélène : Je ne dis pas qu’il est inutile, je dis qu’il serait mieux sur le deuxième panneau. Ici, il ralentit l’entrée. Karim : D’accord. Et le reste ? Hélène : La fin, me semble-t-il, gagnerait à être plus nette. Tu termines sur trois questions ; une seule suffirait, et ce serait plus fort. Karim : Laquelle tu garderais ? Hélène : La dernière, peut-être : « Et si la rivière revenait ? » Mais c’est ton texte ; choisis la question qui te ressemble. Karim : Je vais essayer. Autre chose ? Hélène : Un détail, et celui-là n’est pas négociable : la date est fausse. Le ruisseau a été couvert en 1898, pas en 1890. Les visiteurs vérifient ce genre de choses. Karim : Oups. Je corrige tout de suite. Hélène : Pour le reste, tu as fait le plus dur. Le ton est juste, on a envie de lire la suite, et c’est exactement ce qu’on attend d’un premier panneau. Tu me renvoies une version lundi ? Karim : Lundi matin, promis.",
+          "text": "Bureau d’Hélène, jeudi. Karim lui a envoyé le texte du premier panneau de l’exposition. Elle lui fait ses commentaires. Hélène : Merci, Karim. J’ai lu votre texte deux fois, et il y a de très bonnes choses. L’ouverture sur le ruisseau disparu de votre enfance, j’aime beaucoup : on entre tout de suite dans le sujet. Karim : Tant mieux. J’avais peur que ce soit trop personnel. Hélène : Non, au contraire. Ce qui me gêne un peu, c’est la longueur : les visiteurs lisent debout. Le panneau fait quatre cents mots. Je me demande si on ne gagnerait pas à couper le deuxième paragraphe. Karim : Celui sur l’histoire des égouts ? Il est un peu technique, c’est vrai. Hélène : Je ne dis pas qu’il est inutile, je dis qu’il serait mieux sur le deuxième panneau. Ici, il ralentit l’entrée. Karim : D’accord. Et le reste ? Hélène : La fin, me semble-t-il, gagnerait à être plus nette. Vous terminez sur trois questions ; une seule suffirait, et ce serait plus fort. Karim : Laquelle garderiez-vous ? Hélène : La dernière, peut-être : « Et si la rivière revenait ? » Mais c’est votre texte ; choisissez la question qui vous ressemble. Karim : Je vais essayer. Autre chose ? Hélène : Un détail, et celui-là n’est pas négociable : la date est fausse. Le ruisseau a été couvert en 1898, pas en 1890. Les visiteurs vérifient ce genre de choses. Karim : Oups. Je corrige tout de suite. Hélène : Pour le reste, vous avez fait le plus dur. Le ton est juste, on a envie de lire la suite, et c’est exactement ce qu’on attend d’un premier panneau. Vous me renvoyez une version lundi ? Karim : Lundi matin, promis.",
           "glossary": [
             {
               "word": "ralentit",
@@ -42728,8 +42728,8 @@
           ],
           "questions": [
             {
-              "q": "Devine le sens, sans dictionnaire : « choisis la question qui te ressemble ». Que veut dire Hélène ?",
-              "a": "Celle qui correspond à ta façon de penser et d’écrire : c’est à toi de décider."
+              "q": "Devine le sens, sans dictionnaire : « choisissez la question qui vous ressemble ». Que veut dire Hélène ?",
+              "a": "Celle qui correspond à la façon de penser et d’écrire de Karim : c’est à lui de décider."
             },
             {
               "q": "Par quoi Hélène commence-t-elle ?",
@@ -43471,7 +43471,7 @@
                 "opts": [
                   "La réunion était un tant soit peu longue.",
                   "La réunion était, disons, un peu longue.",
-                  "La réunion n’était pas courte du tout, du tout."
+                  "La réunion était interminable, franchement."
                 ],
                 "correct": 1,
                 "why": "La retenue : disons, un peu. EN: understatement."
@@ -44604,7 +44604,7 @@
             },
             {
               "q": "Quel point n’est pas nuancé, et pourquoi ?",
-              "a": "La date du transport : elle ne dépend pas de l’Institut, c’est la douane qui l’impose."
+              "a": "La date du transport : elle ne dépend pas de l’Institut, c’est une contrainte, pas un avis."
             },
             {
               "q": "Comment la personne explique-t-elle l’erreur de date sans accuser ?",
@@ -44902,8 +44902,8 @@
             "Je vous saurais gré de... avant jeudi.",
             "Si vous le souhaitez, nous pouvons en parler..."
           ],
-          "modelAnswer": "Bonjour Hélène, c’est moi, au sujet de votre message sur la soirée d’ouverture. Merci de nous consulter. Le programme me plaît beaucoup, et l’idée d’une visite libre après le discours est excellente : les invités verront l’exposition à leur rythme.\nJ’ai un point ferme, et deux suggestions. Le point ferme d’abord : la capacité de la salle, elle, ne se discute pas : cent quatre-vingts personnes, selon les normes de sécurité. Le chiffre de deux cent cinquante doit venir de l’ancienne salle. Il faudrait donc réduire la liste, ou ouvrir la petite salle en même temps, avec un écran pour le discours ; une deuxième séance, à vingt heures, serait aussi possible. Je peux vous préparer les deux options pour lundi.\nPremière suggestion, sur les écoles. Trois classes ont déjà réservé le samedi matin. Je me demande si nous ne gagnerions pas à garder la visite des écoles, quitte à la raccourcir. Annuler maintenant risquerait, me semble-t-il, de nous fâcher avec des enseignants qui viennent chaque année. Une visite d’une heure, à onze heures, laisserait l’après-midi libre à l’équipe ; Karim est d’accord pour m’accompagner.\nDeuxième suggestion, plus modeste : le discours. Vingt minutes debout, c’est un peu long, disons. Dix minutes suffiraient sans doute, et la visite commencerait plus tôt. Quant au buffet, il y a fort à parier qu’avec moins d’invités, le budget actuel suffira ; je ne doublerais donc pas la somme tout de suite.\nEnfin, une demande : je vous saurais gré de signer le formulaire d’assurance des maquettes avant jeudi ; je le dépose sur votre bureau ce soir.\nSi vous le souhaitez, nous pouvons en parler demain matin. Bonne fin de journée, Hélène.",
-          "modelAnswerEn": "Hello Hélène, it is me, about your message on the opening night. Thank you for consulting us. I really like the programme, and the idea of a free visit after the speech is excellent: the guests will see the exhibition at their own pace.\nI have one firm point and two suggestions. The firm point first: the capacity of the hall is not up for discussion: one hundred and eighty people, under the safety rules. The figure of two hundred and fifty must come from the old hall. So we would need to shorten the list, or open the small hall at the same time, with a screen for the speech; a second session at eight would also be possible. I can prepare both options for you for Monday.\nFirst suggestion, about the schools. Three classes have already booked the Saturday morning. I wonder whether we would not be better off keeping the school visit, even if we shorten it. Cancelling now might, it seems to me, upset teachers who come every year. A one-hour visit at eleven would leave the afternoon free for the team; Karim has agreed to come with me.\nSecond suggestion, a more modest one: the speech. Twenty minutes standing is a little long, let us say. Ten minutes would probably be enough, and the visit would start earlier. As for the buffet, the odds are that with fewer guests the current budget will be enough; so I would not double the amount just yet.\nFinally, a request: I would be grateful if you could sign the insurance form for the models before Thursday; I will leave it on your desk this evening.\nIf you like, we can talk about it tomorrow morning. Have a good evening, Hélène.",
+          "modelAnswer": "Bonjour Hélène, c’est moi, au sujet de votre message sur la soirée d’ouverture. Merci de nous consulter. Le programme me plaît beaucoup, et l’idée d’une visite libre après le discours est excellente : les invités verront l’exposition à leur rythme.\nJ’ai un point ferme, et deux suggestions. Le point ferme d’abord. La capacité de la salle, elle, ne se discute pas : cent quatre-vingts personnes, selon les normes de sécurité. Le chiffre de deux cent cinquante doit venir de l’ancienne salle. Il faudrait donc réduire la liste, ou ouvrir la petite salle en même temps, avec un écran pour le discours ; une deuxième séance, à vingt heures, serait aussi possible. Je peux vous préparer les deux options pour lundi.\nPremière suggestion, sur les écoles. Trois classes ont déjà réservé le samedi matin. Je me demande si nous ne gagnerions pas à garder la visite des écoles, quitte à la raccourcir. Annuler maintenant risquerait, me semble-t-il, de nous fâcher avec des enseignants qui viennent chaque année. Une visite d’une heure, à onze heures, laisserait l’après-midi libre à l’équipe, et je peux m’en charger.\nDeuxième suggestion, plus modeste : le discours. Vingt minutes debout, c’est un peu long, disons. Dix minutes suffiraient sans doute, et la visite commencerait plus tôt. Quant au buffet, il y a fort à parier qu’avec moins d’invités, le budget actuel suffira ; je ne doublerais donc pas la somme tout de suite.\nEnfin, une demande : je vous saurais gré de signer le formulaire d’assurance des maquettes avant jeudi ; je le dépose sur votre bureau ce soir.\nSi vous le souhaitez, nous pouvons en parler demain matin. Bonne fin de journée, Hélène.",
+          "modelAnswerEn": "Hello Hélène, it is me, about your message on the opening night. Thank you for consulting us. I really like the programme, and the idea of a free visit after the speech is excellent: the guests will see the exhibition at their own pace.\nI have one firm point and two suggestions. The firm point first. The capacity of the hall is not up for discussion: one hundred and eighty people, under the safety rules. The figure of two hundred and fifty must come from the old hall. So we would need to shorten the list, or open the small hall at the same time, with a screen for the speech; a second session at eight would also be possible. I can prepare both options for you for Monday.\nFirst suggestion, about the schools. Three classes have already booked the Saturday morning. I wonder whether we would not be better off keeping the school visit, even if we shorten it. Cancelling now might, it seems to me, upset teachers who come every year. A one-hour visit at eleven would leave the afternoon free for the team, and I can take care of it.\nSecond suggestion, a more modest one: the speech. Twenty minutes standing is a little long, let us say. Ten minutes would probably be enough, and the visit would start earlier. As for the buffet, the odds are that with fewer guests the current budget will be enough; so I would not double the amount just yet.\nFinally, a request: I would be grateful if you could sign the insurance form for the models before Thursday; I will leave it on your desk this evening.\nIf you like, we can talk about it tomorrow morning. Have a good evening, Hélène.",
           "watchFor": [
             {
               "pattern": "The capacity limit hedged (il me semble que la salle serait peut-être limitée...), or presented as an opinion.",
@@ -45455,7 +45455,9 @@
                   "accept": [
                     "Il y a fort à parier que nous dépasserons ce chiffre.",
                     "Il y a fort à parier que nous allons dépasser ce chiffre.",
-                    "dépasserons"
+                    "dépasserons",
+                    "nous dépasserons",
+                    "allons dépasser"
                   ],
                   "why": "Fort à parier + indicatif, ici le futur. EN: future indicative.",
                   "ref": "a3-piege"
@@ -45468,7 +45470,8 @@
                   "accept": [
                     "Il est permis de penser que le thème attirera des familles.",
                     "Il est permis de penser que le thème va attirer des familles.",
-                    "attirera"
+                    "attirera",
+                    "va attirer"
                   ],
                   "why": "Il est permis de penser que + indicatif. EN: indicative.",
                   "ref": "a3-tableau"
@@ -45559,7 +45562,9 @@
                   "answer": "Il doit être devant l’entrée nord, celle des bureaux.",
                   "accept": [
                     "Il doit être devant l’entrée nord, celle des bureaux.",
-                    "Il doit se trouver devant l’entrée nord, celle des bureaux."
+                    "Il doit se trouver devant l’entrée nord, celle des bureaux.",
+                    "doit être",
+                    "il doit être"
                   ],
                   "why": "Devoir au présent pour une supposition sur maintenant. EN: present devoir.",
                   "ref": "a4-cartes"
@@ -45571,7 +45576,10 @@
                   "answer": "Ça doit être lui, le camion blanc sur le trottoir.",
                   "accept": [
                     "Ça doit être lui, le camion blanc sur le trottoir.",
-                    "Ce doit être lui, le camion blanc sur le trottoir."
+                    "Ce doit être lui, le camion blanc sur le trottoir.",
+                    "doit être",
+                    "ça doit être lui",
+                    "ce doit être lui"
                   ],
                   "why": "Ça doit être lui. EN: that must be him.",
                   "ref": "a4-trier"
@@ -46200,9 +46208,13 @@
                   "answer": "En revanche, l’exposition ouvre le douze : nous aurions besoin d’un nouveau tirage avant le huit.",
                   "accept": [
                     "En revanche, l’exposition ouvre le douze : nous aurions besoin d’un nouveau tirage avant le huit.",
-                    "avant"
+                    "avant",
+                    "pour",
+                    "d’ici",
+                    "En revanche, l’exposition ouvre le douze : nous aurions besoin d’un nouveau tirage pour le huit.",
+                    "En revanche, l’exposition ouvre le douze : nous aurions besoin d’un nouveau tirage d’ici le huit."
                   ],
-                  "why": "Avant le huit : une date, pas un si jamais. EN: avant.",
+                  "why": "Avant le huit : une date, pas un si jamais. Pour le huit et d’ici le huit disent aussi une date nette. EN: avant.",
                   "ref": "a10-tableau"
                 },
                 {
@@ -46303,7 +46315,9 @@
                     "Si je vous comprends bien, les vitrines posent un problème à votre conservatrice ?",
                     "comprends",
                     "suis",
-                    "Si je vous suis bien, les vitrines posent un problème à votre conservatrice ?"
+                    "entends",
+                    "Si je vous suis bien, les vitrines posent un problème à votre conservatrice ?",
+                    "Si je vous entends bien, les vitrines posent un problème à votre conservatrice ?"
                   ],
                   "why": "Reformuler pour vérifier. Si je vous suis bien est aussi juste. EN: comprends.",
                   "ref": "a11-scenario"
@@ -46754,7 +46768,7 @@
           },
           {
             "id": "rec-c1-06-livraison-ecoute",
-            "desc": "REQUIRED FOR THE EAR MISSION (act 4): ten lines, ONE TAKE, in authored order, a phone call. TWO VOICES: the Institute speaker (Québec French, calm, firm) and the logistics employee (France French, friendly, a little flustered), phone-line feel on the employee. Lines 1, 2, 6, 8 and 10 are the Institute speaker; 3, 4, 5, 7 and 9 the employee. « Il doit y avoir un malentendu » and « vous devez faire erreur » are said without irritation."
+            "desc": "REQUIRED FOR THE EAR MISSION (act 4): ten lines, ONE TAKE, in authored order, a phone call. TWO VOICES: the Institute speaker (Québec French, calm, firm) and the logistics employee (France French, friendly, a little flustered), phone-line feel on the employee. Lines 1, 2, 5, 7, 8 and 10 are the Institute speaker (line 5 looking out of the window; line 10 a short closing remark); 3, 4, 6 and 9 the employee. « Il doit y avoir un malentendu » and « vous devez faire erreur » are said without irritation."
           },
           {
             "id": "rec-c1-06-affiche",
@@ -46774,7 +46788,7 @@
           },
           {
             "id": "rec-c1-06-vendredi-ecoute",
-            "desc": "REQUIRED FOR THE EAR MISSION (act 7): nine lines, ONE TAKE, in authored order, a team meeting. TWO VOICES: Karim (Québec French) speaks lines 1 to 4 and 6; Hélène (Québec French) speaks 5, 7, 8 and 9. Neither raises their voice. « Avec tout le respect que je vous dois » is said evenly, NOT with an ironic stress; « loin de moi l’idée de » is sincere."
+            "desc": "REQUIRED FOR THE EAR MISSION (act 7): nine lines, ONE TAKE, in authored order, a team meeting. TWO VOICES, who say vous to each other: Karim (Québec French) speaks lines 1, 2, 3, 5, 7 and 8; Hélène (Québec French, his director) speaks 4, 6 and 9. Neither raises their voice. « Avec tout le respect que je vous dois » is said evenly, NOT with an ironic stress; « loin de moi l’idée de » is sincere."
           },
           {
             "id": "rec-c1-06-retour",
@@ -47479,7 +47493,7 @@
           "title": "Une seule clôture",
           "format": "mcq",
           "coach": "Un texte ne se ferme qu’une fois. EN: close once.",
-          "q": "Combien de marqueurs de clôture dans une conclusion ?",
+          "q": "Combien de marqueurs de clôture dans la phrase finale ?",
           "opts": [
             "un seul",
             "trois"
@@ -47979,7 +47993,7 @@
               "layer": "deep",
               "render": "sheet",
               "title": "Un texte ne se ferme qu’une fois",
-              "body": "Tu connais « en somme », « en définitive » et « pour conclure ». Le C1 distingue le verdict (« tout bien considéré »), le compte qui relativise (« somme toute ») et l’annonce d’une dernière remarque (« en guise de conclusion »). Choisis un seul geste de clôture, et fais-le suivre d’une phrase qui décide. EN: Choose one closing gesture, followed by a sentence that decides."
+              "body": "Tu connais « en somme », « en définitive » et « pour conclure ». Le C1 distingue le verdict (« tout bien considéré »), le compte qui relativise (« somme toute ») et l’annonce d’une dernière remarque (« en guise de conclusion »). Pour la phrase qui ferme, choisis un seul geste de clôture, et fais-le suivre d’une décision ; « somme toute » glissé en chemin relativise, il ne ferme pas. EN: For the closing sentence, choose one closing gesture, followed by a decision."
             },
             {
               "type": "table",
@@ -48067,7 +48081,7 @@
               "rows": [
                 [
                   "du coup",
-                  "« On évitera également de faire de du coup un simple adverbe de discours sans sens particulier. »",
+                  "« On ne peut donc pas employer systématiquement du coup […] en lieu et place de donc, de ce fait, ou par conséquent. On évitera également de faire de du coup un simple adverbe de discours sans sens particulier. »",
                   "pas de fiche trouvée",
                   "donc, de ce fait, par conséquent"
                 ],
@@ -48287,7 +48301,7 @@
         "cloture": {
           "term": "la clôture",
           "title": "Fermer le texte, une fois",
-          "body": "Trois gestes de clôture, trois nuances. « Tout bien considéré » rend un verdict après avoir pesé le pour et le contre. « Somme toute » fait le compte et ramène souvent les choses à leur juste mesure. « En guise de conclusion » (soutenu) annonce une dernière remarque. Choisis-en un : un texte ne se ferme qu’une fois. EN: Weigh and decide, sum up and relativise, or announce a last remark: once.",
+          "body": "Trois gestes de clôture, trois nuances. « Tout bien considéré » rend un verdict après avoir pesé le pour et le contre. « Somme toute » fait le compte et ramène souvent les choses à leur juste mesure. « En guise de conclusion » (soutenu) annonce une dernière remarque. Pour la phrase qui ferme, choisis-en un : un texte ne se ferme qu’une fois. EN: Weigh and decide, sum up and relativise, or announce a last remark: once.",
           "examples": [
             {
               "itemId": "fr.c1.connecteurs-logiques.2699",
@@ -49442,7 +49456,7 @@
               "say": "Je parle de sobriété ; j’entends par là garder nos appareils plus longtemps.",
               "detail": {
                 "title": "j’entends par là",
-                "body": "Tu fixes le sens d’un mot vague pour ton texte, sans prétendre définir le dictionnaire. Variante : « nous entendons par là ». EN: your own definition of a vague word.",
+                "body": "La leçon 22 du B2 définissait un terme en introduction (« par…, nous entendons ») ; ici, tu fixes le sens d’un mot au fil du texte, juste après l’avoir employé. EN: defining a word in passing, right after using it.",
                 "say": "Quand je dis « durable », j’entends par là réparable."
               }
             },
@@ -49510,7 +49524,7 @@
             {
               "wrong": "Certains appareils, en l’occurrence la perceuse, seront prêtés, parmi d’autres.",
               "right": "Certains appareils, par exemple la perceuse, seront prêtés.",
-              "why": "Normal : « in this case » et « for instance » se croisent en anglais. Mais en l’occurrence désigne le seul cas dont on parle. EN: en l’occurrence is the case, not an example."
+              "why": "Normal : le tour sonne comme un « par exemple » plus soutenu. Mais en l’occurrence désigne le seul cas dont on parle. EN: en l’occurrence is the case, not an example."
             },
             {
               "wrong": "Sur ce point, à cet égard, rien n’est décidé.",
@@ -50317,7 +50331,7 @@
               "promptSound": "L’essai a duré six mois, sans compter que les deux mois d’étude.",
               "fr": "L’essai a duré six mois, sans compter les deux mois d’étude.",
               "ipa": "/le.sɛ a dy.ʁe si mwa sɑ̃ kɔ̃.te le dø mwa de.tyd/",
-              "tip": "Devant un nom : sans compter, sans que. EN: before a noun, no « que »."
+              "tip": "Devant un nom : « sans compter » tout court, sans « que ». EN: before a noun, no « que »."
             },
             {
               "promptLabel": "deux ajouts",
@@ -50851,7 +50865,7 @@
                   "d’ailleurs"
                 ],
                 "correct": 1,
-                "why": "La demande des usagers prouve l’utilité : d’ailleurs. Par ailleurs passerait à un autre sujet. EN: same point, d’ailleurs."
+                "why": "La demande des usagers prouve l’utilité : d’ailleurs. Par ailleurs en ferait un argument à part. EN: same point, d’ailleurs."
               }
             },
             {
@@ -51046,8 +51060,8 @@
               "a": "Ils le sont si l’on compte les personnes, pas si l’on compte les moments : chacun, un jour, est gêné."
             },
             {
-              "q": "Quel a fortiori va dans l’autre sens, des bien-portants vers les fragiles ?",
-              "a": "« Si une rampe sert ceux qui marchent bien, elle sert a fortiori ceux qui marchent mal. »"
+              "q": "Après « L’inverse est vrai aussi », quel a fortiori l’auteur tire-t-il de la rampe ?",
+              "a": "« Si une rampe sert ceux qui marchent bien, elle sert a fortiori ceux qui marchent mal » : toujours du cas le moins attendu vers le cas évident."
             },
             {
               "q": "Quelle est sa conclusion ?",
@@ -51590,7 +51604,7 @@
               "say": "Dès lors que le budget est voté, les travaux peuvent commencer.",
               "detail": {
                 "title": "Dès lors que",
-                "body": "Une condition remplie, une raison posée : aujourd’hui surtout causal. Toujours l’indicatif. EN: once, since; indicative.",
+                "body": "Une condition remplie, une raison posée : aujourd’hui surtout causal. Jamais le subjonctif : l’indicatif, ou le conditionnel dans un discours rapporté. EN: once, since; indicative, never subjunctive.",
                 "say": "Dès lors qu’un tiers des fonds était réuni, le chantier pouvait démarrer."
               }
             },
@@ -52286,7 +52300,7 @@
             },
             {
               "q": "Que fait « En guise de conclusion » au début du texte ?",
-              "a": "Il annonce la dernière remarque du rapport : revenir sur la question qui a le plus divisé."
+              "a": "Il annonce la dernière partie du rapport : revenir sur la question qui a le plus divisé. La phrase qui ferme, plus loin, n’a qu’un marqueur : « Tout bien considéré »."
             },
             {
               "q": "Dans « il est, somme toute, limité », que fait « somme toute » ?",
@@ -52515,7 +52529,7 @@
           "title": "Six fins qui ne ferment pas",
           "rule": {
             "title": "Un texte ne se ferme qu’une fois",
-            "body": "Un seul marqueur de clôture, suivi d’une phrase qui décide. Pas d’empilement, pas d’argument nouveau, pas d’annonce sans remarque. EN: One closing marker, then a sentence that decides; no stacking, no new argument."
+            "body": "La phrase qui ferme porte un seul marqueur de clôture, et elle décide. Pas d’empilement, pas d’argument nouveau, pas d’annonce sans remarque. EN: The closing sentence carries one closing marker and decides; no stacking, no new argument."
           },
           "cards": [
             {
@@ -52587,7 +52601,7 @@
               "correct": 1
             },
             {
-              "promptSay": "Ta conclusion contient…",
+              "promptSay": "Ta phrase finale contient…",
               "opts": [
                 "un seul marqueur de clôture",
                 "trois marqueurs, pour insister"
@@ -52772,9 +52786,9 @@
               "label": "Combien",
               "items": [],
               "check": {
-                "q": "Combien de marqueurs de clôture dans un texte ?",
+                "q": "Combien de marqueurs de clôture dans la phrase qui ferme ton texte ?",
                 "opts": [
-                  "autant que de paragraphes",
+                  "trois, pour insister",
                   "un seul",
                   "deux au moins"
                 ],
@@ -52804,7 +52818,7 @@
           "questionsInModal": true,
           "title": "Dit, puis écrit",
           "frSub": "Le même passage, deux versions",
-          "text": "VERSION ORALE · Extrait du podcast « Fournées », épisode 12, transcrit tel quel. Noah Petit, cofondateur de la boulangerie coopérative Le Levain, répond à l’animatrice. « Alors, du coup, on a ouvert il y a deux ans. Au début, au niveau de la clientèle, c’était surtout les voisins. Par contre, depuis l’article dans le journal, on a des gens qui viennent de tout le département. En termes de production, on est passés de deux cents à six cents pains par jour, voire même huit cents le samedi. Suite à ça, on a embauché deux personnes. Au final, on a gardé le même four, mais on a ajouté une équipe de nuit. Du coup, c’est plus fatigant, mais on est contents. » VERSION ÉCRITE · Le même passage, rédigé pour la lettre d’information de la coopérative. Le Levain a ouvert ses portes il y a deux ans. Sa clientèle se composait d’abord surtout d’habitants du quartier ; depuis la parution d’un article dans la presse locale, elle vient en revanche de tout le département. En matière de production, la boulangerie est passée de deux cents à six cents pains par jour, voire huit cents le samedi. À la suite de cette croissance, la coopérative a embauché deux personnes. Elle a finalement conservé le même four, mais a créé une équipe de nuit. Le travail est donc plus fatigant, mais l’équipe s’en dit satisfaite. Rien n’a été retiré ni ajouté : seule la forme a changé.",
+          "text": "VERSION ORALE · Extrait du podcast « Fournées », épisode 12, transcrit tel quel. Noah Petit, cofondateur de la boulangerie coopérative Le Levain, répond à l’animatrice. « Alors, du coup, on a ouvert il y a deux ans. Au début, au niveau de la clientèle, c’était surtout les voisins. Par contre, depuis l’article dans le journal, on a des gens qui viennent de tout le département. En termes de production, on est passés de deux cents à six cents pains par jour, voire même huit cents le samedi. Suite à ça, on a embauché deux personnes. Au final, on a gardé le même four, mais on a ajouté une équipe de nuit. Du coup, c’est plus fatigant, mais on est contents. » VERSION ÉCRITE · Le même passage, rédigé pour la lettre d’information de la coopérative. Le Levain a ouvert ses portes il y a deux ans. À ses débuts, sa clientèle se composait surtout d’habitants du quartier ; depuis la parution d’un article dans la presse locale, elle vient en revanche de tout le département. En matière de production, la boulangerie est passée de deux cents à six cents pains par jour, voire huit cents le samedi. À la suite de cette croissance, la coopérative a embauché deux personnes. Elle a finalement conservé le même four, mais a créé une équipe de nuit. Le travail est donc plus fatigant, mais l’équipe s’en dit satisfaite. Rien n’a été retiré ni ajouté : seule la forme a changé.",
           "glossary": [
             {
               "word": "fournées",
@@ -52823,7 +52837,7 @@
             },
             {
               "q": "Que devient « au niveau de la clientèle » à l’écrit ?",
-              "a": "La phrase change de sujet : « Sa clientèle se composait d’abord surtout d’habitants du quartier »."
+              "a": "La phrase change de sujet : « À ses débuts, sa clientèle se composait surtout d’habitants du quartier »."
             },
             {
               "q": "Que devient « Par contre » ?",
@@ -52875,7 +52889,7 @@
               "say": "On a raté le dernier métro, du coup on est rentrés à pied.",
               "detail": {
                 "title": "du coup",
-                "body": "L’Académie : « On évitera également de faire de du coup un simple adverbe de discours sans sens particulier. » Nous n’avons trouvé aucune fiche de l’OQLF sur ce mot. EN: the Académie warns against it as a filler; no OQLF entry was found.",
+                "body": "L’Académie : on ne peut pas l’employer « systématiquement » pour « donc, de ce fait, ou par conséquent », ni en faire « un simple adverbe de discours sans sens particulier ». Aucune fiche de l’OQLF trouvée. EN: not a stand-in for donc, nor a filler; no OQLF entry was found.",
                 "say": "Nous avons manqué le dernier métro ; nous sommes donc rentrés à pied."
               }
             },
@@ -53008,7 +53022,7 @@
               "label": "selon le texte",
               "fr": "À la suite de la panne, le train a été supprimé.",
               "sub": "[a la SWEET duh la PANN | luh TREHⁿ a ay-tay sü-pree-MAY]",
-              "body": "Dans un courrier administratif, les deux l’admettent. Pour dire une cause, l’OQLF le déconseille et l’Académie le réserve au courrier : écris « à la suite de ». EN: fine in letters; for a cause, à la suite de."
+              "body": "La leçon 15 du B2 t’a donné « à la suite de ». Les verdicts : dans un courrier administratif, les deux l’admettent ; pour dire une cause, l’OQLF le déconseille et l’Académie le réserve au courrier. EN: fine in letters; for a cause, à la suite de."
             }
           ]
         },
@@ -53547,8 +53561,8 @@
             "Tout bien considéré,",
             "Je propose donc que…"
           ],
-          "modelAnswer": "Je souhaite que la salle des fêtes de la rue des Tanneurs rouvre, et plus exactement qu’elle rouvre par étapes, dès que la rénovation le permettra. Fermée depuis trois ans, elle manque au quartier. On pourrait croire que ce manque est surtout culturel ; à vrai dire, il est plus large. Quand je parle de culture, j’entends par là un lieu où l’on joue, où l’on répète et où l’on se retrouve sans rien consommer. Depuis la fermeture, ce lieu n’existe plus. Dès lors, les associations se sont dispersées, sans compter que les habitants se voient beaucoup moins. Les besoins sont précis. La salle rendrait un lieu de répétition aux jeunes musiciens, qui n’en ont aucun ; qui plus est, elle permettrait aux anciens, qui ne sortent plus le soir, de retrouver un endroit proche de chez eux. Si la salle manque aux associations, qui peuvent se réunir ailleurs, elle manque a fortiori aux anciens. Je sais que la rénovation a un coût, et que tout n’est pas réglé, loin s’en faut. Mais la moitié du budget serait déjà trouvée grâce à une subvention régionale ; la mairie avait d’ailleurs parlé elle-même d’une rénovation. La question n’est donc plus de savoir s’il faut agir, mais comment. Rouvrons la salle, quitte à le faire progressivement : d’abord pour les répétitions et les réunions des associations, ensuite pour les fêtes. En tout état de cause, le quartier ne peut pas rester sans lieu commun. Tout bien considéré, la réouverture de la salle des fêtes est modeste, en partie financée et attendue par tous. Je propose donc que le conseil en étudie le calendrier dès sa prochaine séance.",
-          "modelAnswerEn": "I would like the community hall on rue des Tanneurs to reopen, and more precisely to reopen in stages, as soon as the renovation allows. Closed for three years, it is missed by the neighbourhood. One might think this is mainly a cultural loss; to tell the truth, it is wider. When I speak of culture, by that I mean a place where people perform, rehearse and meet without having to buy anything. Since the closure, that place no longer exists. From then on, the associations have scattered, not to mention that residents see much less of each other. The needs are precise. The hall would give back a rehearsal space to young musicians, who have none; what is more, it would let older residents, who no longer go out at night, find a place close to home again. If the associations, who can meet elsewhere, miss the hall, the older residents miss it all the more. I know that the renovation has a cost, and that not everything is settled, far from it. But half the budget has reportedly already been found thanks to a regional grant; the town hall itself had in fact spoken of a renovation. So the question is no longer whether to act, but how. Let us reopen the hall, even if it means doing so gradually: first for rehearsals and association meetings, then for parties. In any case, the neighbourhood cannot remain without a common space. All things considered, reopening the community hall is a modest project, partly funded and awaited by all. I therefore propose that the council study its timetable at its next meeting.",
+          "modelAnswer": "Je souhaite que la salle des fêtes de la rue des Tanneurs rouvre, et plus exactement qu’elle rouvre par étapes, dès que la rénovation le permettra. Fermée depuis trois ans, elle manque au quartier. On pourrait croire que ce manque est surtout culturel ; à vrai dire, il est plus large. Quand je parle de culture, j’entends par là un lieu où l’on joue, où l’on répète et où l’on se retrouve sans rien consommer. Depuis la fermeture, ce lieu n’existe plus. Dès lors, les associations se sont dispersées, sans compter que les habitants se voient beaucoup moins. Les besoins sont précis. La salle rendrait un lieu de répétition aux jeunes musiciens, qui n’en ont aucun ; qui plus est, elle permettrait aux anciens, qui ne sortent plus le soir, de retrouver un endroit proche de chez eux. Si la salle manque aux associations, qui peuvent se réunir ailleurs, elle manque a fortiori aux anciens. Je sais que la rénovation a un coût, et que tout n’est pas réglé, loin s’en faut. Mais la moitié du budget serait déjà trouvée grâce à une subvention régionale ; la mairie avait d’ailleurs parlé elle-même d’une rénovation. La question n’est donc plus de savoir s’il faut agir, mais comment. Rouvrons la salle, quitte à le faire progressivement : d’abord pour les répétitions et les réunions des associations, ensuite pour les fêtes. En tout état de cause, le quartier ne peut pas rester sans lieu commun. Tout bien considéré, la réouverture de la salle des fêtes est modeste, en partie financée et utile à tous les âges. Je propose donc que le conseil en étudie le calendrier dès sa prochaine séance.",
+          "modelAnswerEn": "I would like the community hall on rue des Tanneurs to reopen, and more precisely to reopen in stages, as soon as the renovation allows. Closed for three years, it is missed by the neighbourhood. One might think this is mainly a cultural loss; to tell the truth, it is wider. When I speak of culture, by that I mean a place where people perform, rehearse and meet without having to buy anything. Since the closure, that place no longer exists. From then on, the associations have scattered, not to mention that residents see much less of each other. The needs are precise. The hall would give back a rehearsal space to young musicians, who have none; what is more, it would let older residents, who no longer go out at night, find a place close to home again. If the associations, who can meet elsewhere, miss the hall, the older residents miss it all the more. I know that the renovation has a cost, and that not everything is settled, far from it. But half the budget has reportedly already been found thanks to a regional grant; the town hall itself had in fact spoken of a renovation. So the question is no longer whether to act, but how. Let us reopen the hall, even if it means doing so gradually: first for rehearsals and association meetings, then for parties. In any case, the neighbourhood cannot remain without a common space. All things considered, reopening the community hall is a modest project, partly funded and useful to every age group. I therefore propose that the council study its timetable at its next meeting.",
           "watchFor": [
             {
               "pattern": "Contested markers kept from the transcript in the written text (du coup, au final, suite à for a cause, en termes de, voire même, au niveau de).",
@@ -53991,7 +54005,8 @@
                   "prompt": "Il faut agir, et plus … rouvrir la salle dès septembre.",
                   "answer": "exactement",
                   "accept": [
-                    "exactement"
+                    "exactement",
+                    "précisément"
                   ],
                   "why": "Plus exactement resserre « agir ». EN: more precisely.",
                   "ref": "a1-scene"
@@ -54197,7 +54212,8 @@
                   "accept": [
                     "j’entends par là",
                     "je veux dire",
-                    "j’entends"
+                    "j’entends",
+                    "je veux dire par là"
                   ],
                   "why": "Ta définition du mot. EN: by that I mean.",
                   "ref": "a3-sens"
@@ -54304,7 +54320,8 @@
                   "accept": [
                     "loin s’en faut",
                     "tant s’en faut",
-                    "il s’en faut"
+                    "il s’en faut",
+                    "loin de là"
                   ],
                   "why": "Une restriction renforcée. EN: far from it.",
                   "ref": "a4-deux"
@@ -54760,7 +54777,9 @@
                     "par conséquent",
                     "en conséquence",
                     "de ce fait",
-                    "donc"
+                    "donc",
+                    "dans ces conditions",
+                    "c’est pourquoi"
                   ],
                   "why": "Par conséquent ne dit que la cause. EN: unambiguous.",
                   "ref": "a8-sens"
@@ -54776,7 +54795,11 @@
                     "depuis",
                     "depuis ce jour",
                     "depuis ce jour-là",
-                    "à partir de là"
+                    "à partir de là",
+                    "à partir de ce moment",
+                    "à partir de ce moment-là",
+                    "depuis ce moment",
+                    "dès ce moment"
                   ],
                   "why": "Le départ dans le temps. EN: from then on.",
                   "ref": "a8-trier"
@@ -54883,7 +54906,9 @@
                     "quoi qu’il en soit",
                     "en tout cas",
                     "dans tous les cas",
-                    "de toute façon"
+                    "de toute façon",
+                    "en tous les cas",
+                    "de toute manière"
                   ],
                   "why": "Un point ferme. EN: in any case.",
                   "ref": "a9-cr"
@@ -55103,7 +55128,9 @@
                     "Rien ne change en ce qui concerne les horaires.",
                     "Les horaires ne changent pas.",
                     "Rien ne change pour les horaires.",
-                    "Concernant les horaires, rien ne change."
+                    "Concernant les horaires, rien ne change.",
+                    "S’agissant des horaires, rien ne change.",
+                    "En matière d’horaires, rien ne change."
                   ],
                   "why": "L’OQLF et l’Académie préfèrent « en ce qui concerne ». EN: as regards.",
                   "ref": "a11-sept"
@@ -57215,9 +57242,9 @@
               "kind": "bubble",
               "from": "them",
               "speaker": "Bastien, ton voisin au conseil",
-              "fr": "C’était magnifique. Je propose qu’on vote la piscine tout de suite.",
+              "fr": "C’était magnifique. Je propose qu’on vote pour la piscine tout de suite.",
               "en": "That was magnificent. I suggest we vote for the pool right away.",
-              "respell": "[say-teh ma-nyee-FEEK zhuh pro-POZ kohⁿ vot la pee-SEEN toot SWEET]",
+              "respell": "[say-teh ma-nyee-FEEK zhuh pro-POZ kohⁿ vot poor la pee-SEEN toot SWEET]",
               "stage": "Il applaudit encore.",
               "size": "md",
               "audio": {
@@ -59071,7 +59098,7 @@
           "questionsInModal": true,
           "title": "Deux tracts pour un dimanche",
           "frSub": "La médiathèque ouverte le dimanche",
-          "text": "TRACT A · Pour la médiathèque le dimanche. « Ouvrir les bibliothèques le dimanche, c’est doubler la lecture chez les adolescents. » Ce n’est pas nous qui le disons : c’est Clémence Arbaud, la romancière que toute la France lit cet été. Les experts sont unanimes : le dimanche est le jour de la culture. Et les grandes villes l’ont compris depuis longtemps. Imaginez des collégiens qui révisent au chaud, des familles qui empruntent des livres en sortant du marché, des retraités qui lisent le journal au lieu de rester seuls chez eux. Ouvrir le dimanche, c’est toute la ville qui y gagne. Votez pour la médiathèque le dimanche ! TRACT B · Ce que disent les chiffres. L’Observatoire régional de la lecture publique a suivi pendant deux ans neuf médiathèques de la région ouvertes le dimanche. Sa conclusion est prudente : la fréquentation du dimanche vient surtout de familles et d’étudiants, et une partie des visiteurs du samedi se déplace simplement au dimanche. Sur l’ensemble de la semaine, ces médiathèques ont tout de même gagné environ un dixième de visiteurs, dont certains venaient pour la première fois. L’effet sur la lecture des adolescents n’a pas été mesuré. L’étude est financée par la région et, en partie, par l’association des bibliothécaires, qui milite pour des horaires élargis ; le rapport complet est en ligne, établissement par établissement. Nadège Pellerin, directrice de notre médiathèque, ajoute : « Ouvrir le dimanche demande deux postes de plus. Je pense que cela en vaut la peine, mais je ne vous promets pas que les adolescents liront deux fois plus. »",
+          "text": "TRACT A · Pour la médiathèque le dimanche. « Ouvrir les bibliothèques le dimanche, c’est doubler la lecture chez les adolescents. » Ce n’est pas nous qui le disons : c’est Hortense Vallier, la romancière que toute la France lit cet été. Les experts sont unanimes : le dimanche est le jour de la culture. Et les grandes villes l’ont compris depuis longtemps. Imaginez des collégiens qui révisent au chaud, des familles qui empruntent des livres en sortant du marché, des retraités qui lisent le journal au lieu de rester seuls chez eux. Ouvrir le dimanche, c’est toute la ville qui y gagne. Votez pour la médiathèque le dimanche ! TRACT B · Ce que disent les chiffres. L’Observatoire régional de la lecture publique a suivi pendant deux ans neuf médiathèques de la région ouvertes le dimanche. Sa conclusion est prudente : la fréquentation du dimanche vient surtout de familles et d’étudiants, et une partie des visiteurs du samedi se déplace simplement au dimanche. Sur l’ensemble de la semaine, ces médiathèques ont tout de même gagné environ un dixième de visiteurs, dont certains venaient pour la première fois. L’effet sur la lecture des adolescents n’a pas été mesuré. L’étude est financée par la région et, en partie, par l’association des bibliothécaires, qui milite pour des horaires élargis ; le rapport complet est en ligne, établissement par établissement. Nadège Pellerin, directrice de notre médiathèque, ajoute : « Ouvrir le dimanche demande deux postes de plus. Je pense que cela en vaut la peine, mais je ne vous promets pas que les adolescents liront deux fois plus. »",
           "glossary": [
             {
               "word": "horaires élargis",
@@ -59400,7 +59427,7 @@
               "correct": 1
             },
             {
-              "promptSay": "Clémence Arbaud fait autorité sur les ... .",
+              "promptSay": "Hortense Vallier fait autorité sur les ... .",
               "opts": [
                 "romans",
                 "horaires des bibliothèques"
@@ -59743,7 +59770,7 @@
                 }
               ],
               "check": {
-                "q": "Laquelle repose sur une ressemblance de surface ?",
+                "q": "Laquelle suppose ce qu’elle devrait prouver ?",
                 "opts": [
                   "le budget et le gâteau",
                   "la médiathèque et le parc",
@@ -60755,7 +60782,7 @@
                 "demande combien ils sont"
               ],
               "correct": 0,
-              "why": "La forme négative affirme ; aucun fait ne l’appuie. EN: the negative form asserts without a fact."
+              "why": "Elle s’indigne qu’on les oublie, sans un seul fait pour le montrer. EN: it asserts indignation without a fact."
             },
             {
               "q": "Combien de vraies questions, qui attendent une information, as-tu entendues ?",
@@ -60936,7 +60963,7 @@
           "questionsInModal": true,
           "title": "Le discours de Samir",
           "frSub": "Pour le jardin des Tanneurs",
-          "text": "Je serai bref, et je vous parlerai de terre. Ce parking, je le traverse chaque matin avec mes enfants. C’est un rectangle de goudron, trois voitures, des flaques ; le soir, personne ne s’y attarde, et le dimanche, il reste vide. Voici ce que nous vous proposons à la place. Un jardin où les enfants de l’école sèmeront leurs radis. Un jardin où les retraités auront enfin un banc à l’ombre. Un jardin où des voisins qui ne se parlent pas se prêteront un arrosoir. On nous dit que c’est peu de chose. C’est vrai : au départ, c’est une graine, bientôt une parcelle, et un jour une rue qui change de visage. Je ne vous promets pas une révolution. Je vous promets des tomates en août, et des voisins qui se connaissent. Nous avons fait les comptes. Le jardin coûte trente-cinq mille euros, dont vingt mille pour retirer le goudron ; les services techniques ont vérifié que la terre, dessous, pourra être cultivée après une année de compost. L’association prend l’entretien en charge. Quarante-trois familles ont signé notre lettre, et vingt-huit se sont déjà inscrites pour une parcelle ; les autres pourront venir aux ateliers du samedi, ouverts à tous. Si, dans deux ans, le jardin est vide, vous aurez le droit de nous le reprocher. Ce que nous demandons, ce n’est pas votre émotion : c’est votre voix. Votez pour le jardin, votez pour la rue, votez pour ceux qui y vivront après nous.",
+          "text": "Je serai bref, et je vous parlerai de terre. Ce parking, je le traverse chaque matin avec mes enfants. C’est un rectangle de goudron, trois voitures, des flaques ; le soir, personne ne s’y attarde, et le dimanche, il reste vide. Voici ce que nous vous proposons à la place. Un jardin où les enfants de l’école sèmeront leurs radis. Un jardin où les retraités auront enfin un banc à l’ombre. Un jardin où des voisins qui ne se parlent pas se prêteront un arrosoir. On nous dit que c’est peu de chose. C’est vrai : au départ, c’est une graine, bientôt une parcelle, et un jour une rue qui change de visage. Je ne vous promets pas une révolution. Je vous promets des tomates en août, et des voisins qui se connaissent. Nous avons fait les comptes. Le jardin coûte trente-cinq mille euros, dont vingt mille pour retirer le goudron ; les services techniques ont vérifié que la terre, dessous, pourra être cultivée après une année de compost. L’association prend l’entretien en charge. Quarante-trois voisins ont signé notre lettre, et vingt-huit familles se sont déjà inscrites pour une parcelle ; les autres pourront venir aux ateliers du samedi, ouverts à tous. Si, dans deux ans, le jardin est vide, vous aurez le droit de nous le reprocher. Ce que nous demandons, ce n’est pas votre émotion : c’est votre voix. Votez pour le jardin, votez pour la rue, votez pour ceux qui y vivront après nous.",
           "glossary": [
             {
               "word": "flaques",
@@ -61464,7 +61491,7 @@
             },
             {
               "q": "La dernière phrase oppose « une idée » et « un service ». Que lui reprocher ?",
-              "a": "Un faux choix, que la leçon 23 du B2 t’a appris à repérer : le budget finance cinq projets, pas un seul."
+              "a": "Un faux choix, que la leçon 23 du B2 t’a appris à repérer : cinq projets sont en lice, pas deux, et le budget peut en financer plusieurs."
             }
           ],
           "audio": {
@@ -62337,7 +62364,7 @@
                 "q": "Tu n’as pas de chiffre sur un point. Tu...",
                 "opts": [
                   "le dis",
-                  "en estimes un"
+                  "en inventes un"
                 ],
                 "correct": 0,
                 "why": "Un chiffre inventé ruine tous les autres. EN: an invented figure ruins the rest."
@@ -63288,11 +63315,11 @@
                   "q": "Écoute. Cet ethos est-il gagné ou emprunté ?",
                   "say": "Sur le coût, fiez-vous au rapport des services techniques, pas à moi.",
                   "opts": [
-                    "emprunté : l’oratrice se grandit",
-                    "gagné : l’oratrice reconnaît sa limite"
+                    "emprunté : la phrase grandit l’orateur",
+                    "gagné : la phrase reconnaît une limite"
                   ],
                   "correct": 1,
-                  "why": "Elle renvoie au rapport sur ce qu’elle ne sait pas. EN: she points to the report.",
+                  "why": "Sur ce que l’orateur ne sait pas, il renvoie au rapport. EN: it points to the report.",
                   "ref": "a2-ethos"
                 }
               ]
@@ -63381,6 +63408,8 @@
                   "accept": [
                     "« La piscine est vieille, donc elle est dangereuse » : le lien manque.",
                     "« La piscine est vieille, donc elle est dangereuse » : le lien n’est pas prouvé.",
+                    "« La piscine est vieille, donc elle est dangereuse » : le lien n’est pas démontré.",
+                    "« La piscine est vieille, donc elle est dangereuse » : le lien fait défaut.",
                     "« La piscine est vieille, donc elle est dangereuse » : le lien est absent."
                   ],
                   "why": "Vieille ne veut pas dire dangereuse sans preuve. EN: the link is missing.",
@@ -63484,7 +63513,8 @@
                   "accept": [
                     "Joëlle dit « Je vous demande de compter », puis « Votez avec votre cœur » : elle se contredit.",
                     "Joëlle dit « Je vous demande de compter », puis « Votez avec votre cœur » : elle est incohérente.",
-                    "Joëlle dit « Je vous demande de compter », puis « Votez avec votre cœur » : elle ne reste pas cohérente."
+                    "Joëlle dit « Je vous demande de compter », puis « Votez avec votre cœur » : elle ne reste pas cohérente.",
+                    "Joëlle dit « Je vous demande de compter », puis « Votez avec votre cœur » : elle n’est pas cohérente."
                   ],
                   "why": "Compter, puis voter avec le cœur : la fin efface ce qu’elle venait de dire. EN: she contradicts herself.",
                   "ref": "a4-ecoute"
@@ -63512,7 +63542,7 @@
               "questions": [
                 {
                   "format": "mcq",
-                  "q": "Clémence Arbaud fait autorité quand elle parle...",
+                  "q": "Hortense Vallier fait autorité quand elle parle...",
                   "opts": [
                     "de la fréquentation des bibliothèques",
                     "des horaires d’ouverture",
@@ -63590,7 +63620,9 @@
                   "prompt": "La directrice promet que les adolescents liront deux fois plus.",
                   "answer": "La directrice ne promet pas que les adolescents liront deux fois plus.",
                   "accept": [
-                    "La directrice ne promet pas que les adolescents liront deux fois plus."
+                    "La directrice ne promet pas que les adolescents liront deux fois plus.",
+                    "La directrice ne garantit pas que les adolescents liront deux fois plus.",
+                    "La directrice se garde de promettre que les adolescents liront deux fois plus."
                   ],
                   "why": "Elle ne promet pas ce qui n’a pas été mesuré. EN: she promises nothing unmeasured.",
                   "ref": "a5-tracts"
@@ -63884,7 +63916,9 @@
                     "Qui a envie de voir la piscine fermer ?",
                     "Qui souhaite voir la piscine fermer ?",
                     "Qui souhaite voir fermer la piscine ?",
-                    "Qui a envie de voir fermer la piscine ?"
+                    "Qui a envie de voir fermer la piscine ?",
+                    "Qui veut que la piscine ferme ?",
+                    "Qui voudrait que la piscine ferme ?"
                   ],
                   "why": "« Personne » devient « qui ». EN: nobody becomes who.",
                   "ref": "a8-produire"
@@ -64086,7 +64120,7 @@
                     "compare deux chiffres"
                   ],
                   "correct": 0,
-                  "why": "Le budget finance cinq projets, pas un seul : c’est le faux dilemme de la leçon 23 du B2. EN: a false dilemma.",
+                  "why": "Cinq projets sont en lice, pas deux, et le budget peut en financer plusieurs : c’est le faux dilemme de la leçon 23 du B2. EN: a false dilemma.",
                   "ref": "a10-discours"
                 },
                 {
@@ -64664,7 +64698,7 @@
         "The formal floor toward a jury: reformulating the whole question, asking for a precision, answering first, checking (ai-je répondu à votre question ?)",
         "Buying time without filling the silence (permettez-moi d’y réfléchir un instant, je distinguerais deux choses, en première analyse), admitting a gap without inventing, and the anglicisms that surface under pressure",
         "Conceding in public without losing the thesis: granting the point, naming its scope, narrowing (je ne dis pas que…, je dis que…), maintaining (je maintiens néanmoins que)",
-        "Questions outside the dossier, the personal view (à titre personnel), the hypothesis and the false choice, with the B2 moods kept under load",
+        "Questions outside the dossier, the personal view (à titre personnel), the hypothesis and the false choice, and the moods a jury provokes past B2 lesson 6 (negated or questioned opinion, que ce soit… ou…, quoi qu’on en dise, si convaincant que soit, à supposer que / en admettant que, le fait que)",
         "Closing the interview on one sentence that restates the thread, what the exchange clarified and thanks",
         "A three-to-five-minute spoken exposé from a printed dossier in the app’s own format, self-checked against an annotated model and a six-criterion grid"
       ],
@@ -64790,7 +64824,7 @@
           "id": "act6",
           "title": "Tenir le plan",
           "opener": {
-            "line": "Quatre minutes sans notes à relire, et un jury qui doit savoir à chaque instant où tu en es : ici tu apprends les balises de l’oral. EN: Four minutes with no notes to read and a jury that must know where you are at every moment: here you learn the signposts of a talk.",
+            "line": "Trois à cinq minutes sans notes à relire, et un jury qui doit savoir à chaque instant où tu en es : ici tu apprends les balises de l’oral. EN: Three to five minutes with no notes to read and a jury that must know where you are at every moment: here you learn the signposts of a talk.",
             "imageRef": "lessons/expose-jury/act06.jpg"
           },
           "sections": [
@@ -65049,7 +65083,7 @@
         },
         {
           "id": "hors-dossier",
-          "description": "Refuses questions outside the dossier or the personal view, accepts a false choice, or loses the mood under pressure (bien que + indicatif, je pense que + subjonctif).",
+          "description": "Refuses questions outside the dossier or the personal view, accepts a false choice, or loses the mood a jury provokes (je ne pense pas que + indicatif, oui je pense qu’ils soient, quoi qu’on en dit, à supposer que + indicatif).",
           "detectOn": [
             "a10-construire",
             "a10-piege",
@@ -65300,17 +65334,17 @@
           "id": "d-pousser",
           "title": "Le bon mode sous pression",
           "format": "mcq",
-          "coach": "Doute, nécessité, concession : subjonctif. Opinion affirmée : indicatif. EN: moods under load.",
-          "q": "Bien que le dossier ne ... rien des toits…",
+          "coach": "Opinion niée, concession, hypothèse accordée : subjonctif. Réponse affirmative : indicatif. EN: the moods a jury provokes.",
+          "q": "« Pensez-vous vraiment que ce soit utile ? » Oui, je pense que c’… utile.",
           "opts": [
-            "dise",
-            "dit"
+            "est",
+            "soit"
           ],
           "correct": 0,
-          "why": "Bien que + subjonctif. EN: dise.",
+          "why": "La question peut prendre le subjonctif ; la réponse affirmative revient à l’indicatif. EN: est.",
           "items": [
-            "fr.c1.discours-dexamen.1329",
             "fr.c1.discours-dexamen.1335",
+            "fr.c1.discours-dexamen.1336",
             "fr.c1.discours-dexamen.1337",
             "fr.c1.discours-dexamen.1338",
             "fr.c1.discours-dexamen.1339",
@@ -65552,6 +65586,7 @@
           "fr.c1.discours-dexamen.1339",
           "fr.c1.discours-dexamen.1340",
           "fr.c1.discours-dexamen.1341",
+          "fr.c1.discours-dexamen.1362",
           "fr.b2.opinions-et-avis.1773",
           "fr.c1.discours-dexamen.1437",
           "fr.c1.discours-dexamen.1465"
@@ -65915,6 +65950,21 @@
                   "le faux choix",
                   "Je ne crois pas qu’il faille choisir entre… et…",
                   "choisir au hasard"
+                ],
+                [
+                  "concéder à voix haute",
+                  "Quoi qu’on en dise, … ; si convaincant que soit cet argument, …",
+                  "quoiqu’on en dit"
+                ],
+                [
+                  "le fait que",
+                  "Le fait que la liste soit si longue montre un vrai besoin.",
+                  "les deux modes se disent ; subjonctif surtout en tête"
+                ],
+                [
+                  "accorder une hypothèse",
+                  "À supposer que (en admettant que) la ville n’ait plus de budget, …",
+                  "à supposer que + indicatif"
                 ],
                 [
                   "clore",
@@ -67861,12 +67911,12 @@
                 }
               ],
               "check": {
-                "q": "Après « Selon l’auteur, », que vient-il ?",
+                "q": "Après « Selon l’auteur, », qu’est-ce qui suit ?",
                 "opts": [
-                  "l’idée elle-même : une parcelle ne nourrira jamais une famille",
-                  "un deuxième verbe de parole : il dit que…"
+                  "un deuxième verbe de parole : il dit que…",
+                  "l’idée elle-même : une parcelle ne nourrira jamais une famille"
                 ],
-                "correct": 0,
+                "correct": 1,
                 "why": "« Selon » attribue déjà : un second « il dit » répète l’attribution. EN: selon already attributes."
               }
             },
@@ -67941,7 +67991,7 @@
               "promptSound": "Le bilan insiste que les jardins sont pleins.",
               "fr": "Le bilan insiste sur le fait que les jardins sont pleins.",
               "ipa": "/lə bi.lɑ̃ ɛ̃.sist syʁ lə fɛ kə le ʒaʁ.dɛ̃ sɔ̃ plɛ̃/",
-              "tip": "Insister sur le fait que ; « insister que » vient de l’anglais. EN: insister sur."
+              "tip": "Insister sur le fait que (ou insister pour que, pour une demande) ; « insister que » est critiqué comme un calque de to insist that. EN: insister sur."
             },
             {
               "promptLabel": "souligner comment",
@@ -67955,10 +68005,10 @@
             {
               "promptSay": "Le bilan insiste ... le fait que les listes sont longues.",
               "opts": [
-                "que",
-                "sur"
+                "sur",
+                "que"
               ],
-              "correct": 1
+              "correct": 0
             },
             {
               "promptSay": "Selon l’agronome, ... jardin nourrit peu la ville.",
@@ -67969,12 +68019,12 @@
               "correct": 0
             },
             {
-              "promptSay": "Elle souligne ... le jardin compte pour elle.",
+              "promptSay": "Elle souligne ... le jardin est important pour elle.",
               "opts": [
-                "à quel point",
-                "comment"
+                "comment",
+                "à quel point"
               ],
-              "correct": 0
+              "correct": 1
             },
             {
               "promptSay": "L’agronome ... que les jardins nourrissent peu la ville.",
@@ -67995,18 +68045,18 @@
             {
               "promptSay": "Il met en garde ... un discours trop optimiste.",
               "opts": [
-                "que",
-                "contre"
+                "contre",
+                "que"
               ],
-              "correct": 1
+              "correct": 0
             },
             {
               "promptSay": "Le bilan ... une idée sans la chiffrer.",
               "opts": [
-                "avance",
-                "démontre"
+                "démontre",
+                "avance"
               ],
-              "correct": 0
+              "correct": 1
             },
             {
               "promptSay": "Elle insiste ... l’importance des voisins.",
@@ -68597,10 +68647,10 @@
               "check": {
                 "q": "« La question n’est pas tant de savoir si… que de savoir… » sert à…",
                 "opts": [
-                  "poser deux questions sans lien",
-                  "écarter une question facile pour une question plus juste"
+                  "écarter une question facile pour une question plus juste",
+                  "poser deux questions sans lien"
                 ],
-                "correct": 1,
+                "correct": 0,
                 "why": "Tu montres la fausse question, puis la vraie. EN: dismiss the easy question."
               }
             }
@@ -68624,7 +68674,7 @@
           "layer": "core",
           "questionsInModal": true,
           "title": "Ton exposé, tel que tu l’as dit",
-          "frSub": "Les jardins, en quatre minutes",
+          "frSub": "Le dossier des jardins, à voix haute",
           "text": "Merci. Le dossier que j’ai choisi réunit trois documents sur les jardins partagés de Sainte-Albine : un extrait du bilan de la ville, le témoignage d’une jardinière et la tribune d’un agronome. Ces trois documents répondent, chacun à sa manière, à une même question : à quoi sert un jardin partagé ? La ville répond : à nourrir. L’agronome répond : à rassembler. Dès lors, on peut se demander si les jardins partagés nourrissent la ville ou s’ils la rassemblent. Je vous propose de la traiter en deux temps : d’abord ce que les jardins produisent, ensuite ce qu’ils font vraiment. Premier temps, donc, les récoltes. Pour ne pas dépasser mon temps, je passerai vite sur ce point, car les documents se rejoignent. La jardinière le dit elle-même : on récolte, mais pas de quoi remplir un frigo. L’agronome va plus loin : l’ensemble des jardins pèse très peu face à ce que la ville consomme. Seul le bilan municipal en fait une politique alimentaire, et il ne donne aucun chiffre de production. Je viens de montrer ce que les jardins produisent ; voyons ce qu’ils font vraiment. Mireille Kassab le raconte mieux qu’aucun rapport : on vient pour les tomates, on reste pour les voisins. Un retraité qui apprend à deux adolescents à greffer un pommier, cela ne se mesure pas en kilos. L’agronome en tire une conséquence que je partage : si l’on juge les jardins sur leurs récoltes, on finira par les condamner ; si on les juge sur ce qu’ils rassemblent, on comprend pourquoi trois cents personnes attendent une parcelle. Je reviens à ma question de départ. Ma réponse tient en une phrase : un jardin partagé nourrit peu la ville, mais il la rassemble, et c’est à ce titre qu’une municipalité peut le financer. Reste une question que le dossier laisse ouverte : qui ne demande même pas de parcelle ? Je vous remercie ; je me tiens à votre disposition pour vos questions.",
           "glossary": [
             {
@@ -68765,11 +68815,11 @@
               "check": {
                 "q": "Tu as fini ta première partie. Que dis-tu ?",
                 "opts": [
+                  "Je vous remercie ; je me tiens à votre disposition pour vos questions.",
                   "Premier temps, donc, les récoltes.",
-                  "Je viens de montrer ce que les jardins produisent ; voyons ce qu’ils font vraiment.",
-                  "Je vous remercie ; je me tiens à votre disposition pour vos questions."
+                  "Je viens de montrer ce que les jardins produisent ; voyons ce qu’ils font vraiment."
                 ],
-                "correct": 1,
+                "correct": 2,
                 "why": "Elle ferme ce que tu viens de montrer et ouvre la suite ; les autres ouvrent ou terminent l’exposé. EN: close one part, open the next."
               }
             },
@@ -68798,10 +68848,10 @@
               "check": {
                 "q": "Il te reste deux minutes et une partie entière. Tu dis…",
                 "opts": [
-                  "Il me reste deux minutes ; je vais à l’essentiel.",
-                  "Excusez-moi, je n’ai pas eu le temps de tout préparer."
+                  "Excusez-moi, je n’ai pas eu le temps de tout préparer.",
+                  "Il me reste deux minutes ; je vais à l’essentiel."
                 ],
-                "correct": 0,
+                "correct": 1,
                 "why": "Tu montres que tu gères ton temps ; l’excuse attire l’attention sur ce qui manque. EN: manage time, do not apologise."
               }
             },
@@ -68923,11 +68973,11 @@
               "check": {
                 "q": "Laquelle passe la parole au jury avec netteté ?",
                 "opts": [
-                  "Bon, je crois que j’ai fini.",
                   "Voilà, c’est tout.",
-                  "Je vous remercie ; je me tiens à votre disposition pour vos questions."
+                  "Je vous remercie ; je me tiens à votre disposition pour vos questions.",
+                  "Bon, je crois que j’ai fini."
                 ],
-                "correct": 2,
+                "correct": 1,
                 "why": "Elle remercie et ouvre l’entretien ; les deux autres laissent le jury sans conclusion. EN: thank and hand over."
               }
             },
@@ -68937,10 +68987,10 @@
               "check": {
                 "q": "L’ouverture qui précède ta dernière phrase…",
                 "opts": [
-                  "ajoute un troisième argument",
-                  "pose une question que le dossier laisse ouverte"
+                  "pose une question que le dossier laisse ouverte",
+                  "ajoute un troisième argument"
                 ],
-                "correct": 1,
+                "correct": 0,
                 "why": "Elle élargit sans rouvrir la démonstration. EN: it widens, it does not add an argument."
               }
             }
@@ -69350,7 +69400,7 @@
               "userEn": "Then my answer is no: the dossier shows that a garden feeds the city little. Have I answered your question? (Answer, source, check.)",
               "alts": [
                 {
-                  "fr": "Dans ce cas, non : même l’agronome le dit, une parcelle ne nourrira jamais une famille.",
+                  "fr": "Dans ce cas, non : l’agronome le dit lui-même, une parcelle ne nourrira jamais une famille.",
                   "en": "In that case, no: even the agronomist says so, a plot will never feed a family."
                 },
                 {
@@ -69779,14 +69829,14 @@
               "promptSound": "Je vais revenir à vous sur ce point.",
               "fr": "J’y reviens dans un instant.",
               "ipa": "/ʒi ʁə.vjɛ̃ dɑ̃.zœ̃.nɛ̃s.tɑ̃/",
-              "tip": "Pour get back to you, « revenir à vous » calque l’anglais : dis j’y reviens, ou je reviendrai vers vous. EN: j’y reviens."
+              "tip": "Pour get back to you, « revenir à vous » calque l’anglais, et l’Académie condamne aussi « revenir vers vous ». Dis j’y reviens, ou je reprendrai ce point. EN: j’y reviens."
             },
             {
               "promptLabel": "address",
               "promptSound": "Je vais adresser cette question en deux temps.",
               "fr": "Je vais traiter cette question en deux temps.",
               "ipa": "/ʒə vɛ tʁɛ.te sɛt kɛs.tjɔ̃ ɑ̃ dø tɑ̃/",
-              "tip": "On adresse une lettre ; une question, on la traite. EN: traiter une question."
+              "tip": "Adresser une question à quelqu’un, c’est la lui poser ; une question qu’on examine, on la traite. EN: traiter une question."
             },
             {
               "promptLabel": "as a matter of fact",
@@ -70337,7 +70387,7 @@
             {
               "wrong": "Pardon, pardon, je me suis complètement trompé.",
               "right": "Sur ce point, je me suis sans doute mal fait comprendre.",
-              "why": "Par politesse, on s’excuse ; mais l’excuse répétée transforme une précision en échec. Dis que tu t’es mal fait comprendre, puis précise. EN: reframe, do not apologise."
+              "why": "Par politesse, on s’excuse ; mais l’excuse répétée transforme une précision en échec. Si l’objection vient d’un malentendu, dis que tu t’es mal fait comprendre, puis précise. EN: reframe, do not apologise."
             }
           ],
           "audio": {
@@ -70777,74 +70827,66 @@
           "id": "a10-piege",
           "layer": "core",
           "swipe": true,
-          "title": "Six modes qui lâchent sous pression",
+          "title": "Six modes que le jury provoque",
           "rule": {
-            "title": "Sous pression, garde le bon mode",
-            "body": "Doute, nécessité, faible probabilité, concession : le subjonctif (douter que, il faut que, il est peu probable que, bien que, à moins que). Opinion affirmée : l’indicatif (je pense que). C’est la leçon 6 du B2, sous la pression du jury. EN: B2 moods, under load."
+            "title": "Le mode de la réponse, pas celui de la question",
+            "body": "Opinion niée : subjonctif. Réponse affirmative à « Pensez-vous que… ? » : indicatif. Concéder ou supposer : que ce soit, quoi qu’on en dise, si… que soit, à supposer que, au subjonctif. Le fait que : les deux modes. Base : la leçon 6 du B2. EN: jury moods."
           },
           "cards": [
             {
-              "promptLabel": "douter que",
-              "promptSound": "Je doute que les jardins font baisser le prix des légumes.",
-              "fr": "Je doute que les jardins fassent baisser le prix des légumes.",
-              "ipa": "/ʒə dut kə le ʒaʁ.dɛ̃ fas be.se lə pʁi de le.gym/",
-              "tip": "Douter que appelle le subjonctif : fassent. EN: fassent."
+              "promptLabel": "opinion niée",
+              "promptSound": "Je ne pense pas que la ville doit tout payer.",
+              "fr": "Je ne pense pas que la ville doive tout payer.",
+              "ipa": "/ʒə nə pɑ̃s pa kə la vil dwav tu pe.je/",
+              "tip": "Une opinion niée appelle le subjonctif dans un registre soutenu ; l’indicatif s’entend à l’oral familier, pas devant un jury. EN: doive."
             },
             {
-              "promptLabel": "il faut que",
-              "promptSound": "Il faut que la ville paiera l’eau et les clôtures.",
-              "fr": "Il faut que la ville paie l’eau et les clôtures.",
-              "ipa": "/il fo kə la vil pɛ lo e le klo.tyʁ/",
-              "tip": "Il faut que : toujours le subjonctif, jamais le futur. EN: paie."
+              "promptLabel": "pensez-vous… ?",
+              "promptSound": "Pensez-vous vraiment qu’ils soient utiles ? Oui, je pense qu’ils soient utiles.",
+              "fr": "Oui, je pense qu’ils sont utiles, et je vais vous dire à quoi.",
+              "ipa": "/wi ʒə pɑ̃s kil sɔ̃.ty.til e ʒə vɛ vu diʁ a kwa/",
+              "tip": "La question du jury peut prendre le subjonctif ; ta réponse affirmative, non : je pense qu’ils sont. EN: an affirmative answer takes the indicative."
             },
             {
-              "promptLabel": "penser que",
-              "promptSound": "À titre personnel, je pense que ce soit une bonne idée.",
-              "fr": "À titre personnel, je pense que c’est une bonne idée.",
-              "ipa": "/a titʁ pɛʁ.sɔ.nɛl ʒə pɑ̃s kə sɛ.tyn bɔ.ni.de/",
-              "tip": "Penser que, à la forme affirmative : l’indicatif. EN: indicative after an affirmative penser."
+              "promptLabel": "que ce soit",
+              "promptSound": "Que c’est la ville ou les habitants, quelqu’un doit payer l’eau.",
+              "fr": "Que ce soit la ville ou les habitants, quelqu’un doit payer l’eau.",
+              "ipa": "/kə sə swa la vil u le.za.bi.tɑ̃ kɛl.kœ̃ dwa pe.je lo/",
+              "tip": "Que ce soit… ou… : subjonctif figé, pour écarter une alternative. EN: whether it is… or…"
             },
             {
-              "promptLabel": "bien que",
-              "promptSound": "Bien que le dossier ne dit rien des toits, la question se pose.",
-              "fr": "Bien que le dossier ne dise rien des toits, la question se pose.",
-              "ipa": "/bjɛ̃ kə lə do.sje nə diz ʁjɛ̃ de twa la kɛs.tjɔ̃ sə poz/",
-              "tip": "Bien que : subjonctif, dise. EN: dise."
+              "promptLabel": "quoi qu’on en dise",
+              "promptSound": "Quoiqu’on en dit, les jardins rassemblent.",
+              "fr": "Quoi qu’on en dise, les jardins rassemblent.",
+              "ipa": "/kwa kɔ̃.nɑ̃ diz le ʒaʁ.dɛ̃ ʁa.sɑ̃bl/",
+              "tip": "Quoi que, en deux mots (whatever), puis le subjonctif : quoi qu’on en dise. EN: dise."
             },
             {
-              "promptLabel": "à moins que",
-              "promptSound": "À moins que la ville peut payer l’eau, le projet restera fragile.",
-              "fr": "À moins que la ville ne puisse payer l’eau, le projet restera fragile.",
-              "ipa": "/a mwɛ̃ kə la vil nə pɥis pe.je lo lə pʁɔ.ʒɛ ʁɛs.tə.ʁa fʁa.ʒil/",
-              "tip": "À moins que + subjonctif, souvent avec un ne explétif. EN: puisse."
+              "promptLabel": "si… que soit",
+              "promptSound": "Si convaincant que cet argument est, il ne tranche pas la question.",
+              "fr": "Si convaincant que soit cet argument, il ne tranche pas la question.",
+              "ipa": "/si kɔ̃.vɛ̃.kɑ̃ kə swa sɛ.taʁ.gy.mɑ̃ il nə tʁɑ̃ʃ pa la kɛs.tjɔ̃/",
+              "tip": "Si + adjectif + que : subjonctif, souvent avec le sujet après le verbe. EN: soit."
             },
             {
-              "promptLabel": "peu probable que",
-              "promptSound": "Il est peu probable que les toits sont plus faciles à cultiver.",
-              "fr": "Il est peu probable que les toits soient plus faciles à cultiver.",
-              "ipa": "/il ɛ pø pʁɔ.babl kə le twa swa ply fa.sil a kyl.ti.ve/",
-              "tip": "Il est peu probable que : subjonctif, soient. EN: soient."
+              "promptLabel": "à supposer que",
+              "promptSound": "À supposer que la ville n’a plus de budget, je garderais les parcelles collectives.",
+              "fr": "À supposer que la ville n’ait plus de budget, je garderais les parcelles collectives.",
+              "ipa": "/a sy.po.ze kə la vil nɛ ply də byd.ʒɛ ʒə gaʁ.də.ʁɛ le paʁ.sɛl kɔ.lɛk.tiv/",
+              "tip": "Accorder une hypothèse : à supposer que, en admettant que, toujours au subjonctif. EN: ait."
             }
           ],
           "drill": [
             {
-              "promptSay": "Je doute que les jardins ... baisser les prix.",
+              "promptSay": "Devant le jury : je ne pense pas que la ville ... tout payer.",
               "opts": [
-                "fassent",
-                "font"
-              ],
-              "correct": 0
-            },
-            {
-              "promptSay": "Il faut que la ville ... l’eau.",
-              "opts": [
-                "paiera",
-                "paie"
+                "doit",
+                "doive"
               ],
               "correct": 1
             },
             {
-              "promptSay": "Je pense que c’... une bonne idée.",
+              "promptSay": "« Pensez-vous vraiment que ce soit utile ? » Oui, je pense que c’... utile.",
               "opts": [
                 "est",
                 "soit"
@@ -70852,7 +70894,15 @@
               "correct": 0
             },
             {
-              "promptSay": "Bien que le dossier ne ... rien des toits, la question se pose.",
+              "promptSay": "... la ville ou les habitants, quelqu’un doit payer l’eau.",
+              "opts": [
+                "Que c’est",
+                "Que ce soit"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "Quoi qu’on en ..., les jardins rassemblent.",
               "opts": [
                 "dit",
                 "dise"
@@ -70860,36 +70910,36 @@
               "correct": 1
             },
             {
-              "promptSay": "À moins que la ville ne ... payer l’eau, le projet restera fragile.",
+              "promptSay": "Si convaincant que ... cet argument, il ne tranche pas la question.",
               "opts": [
-                "peut",
-                "puisse"
-              ],
-              "correct": 1
-            },
-            {
-              "promptSay": "Je crains que le budget ne ... pas.",
-              "opts": [
-                "suffise",
-                "suffit"
+                "soit",
+                "est"
               ],
               "correct": 0
             },
             {
-              "promptSay": "Il est possible que la ville ... d’autres jardins.",
+              "promptSay": "En admettant que la liste ... trop longue, que proposeriez-vous ?",
               "opts": [
-                "ouvre",
-                "ouvrira"
-              ],
-              "correct": 0
-            },
-            {
-              "promptSay": "Il est clair que ces chiffres ... justes.",
-              "opts": [
-                "soient",
-                "sont"
+                "est",
+                "soit"
               ],
               "correct": 1
+            },
+            {
+              "promptSay": "Je ne crois pas qu’il ... choisir entre nourrir et rassembler.",
+              "opts": [
+                "faut",
+                "faille"
+              ],
+              "correct": 1
+            },
+            {
+              "promptSay": "« Le fait que la liste soit longue » et « le fait que la liste est longue » : lesquels se disent ?",
+              "opts": [
+                "les deux",
+                "seulement le premier"
+              ],
+              "correct": 0
             }
           ],
           "steps": [
@@ -70946,9 +70996,9 @@
                   "note": "un avis, en ton nom"
                 },
                 {
-                  "fr": "À titre personnel, je pense que c’est une bonne idée.",
+                  "fr": "Oui, je pense qu’ils sont utiles, et je vais vous dire à quoi.",
                   "itemId": "fr.c1.discours-dexamen.1337",
-                  "en": "Speaking personally, I think it is a good idea.",
+                  "en": "Yes, I think they are useful, and I will tell you what for.",
                   "note": "une opinion, à l’indicatif"
                 },
                 {
@@ -70974,10 +71024,10 @@
               "check": {
                 "q": "Après ton avis, tu…",
                 "opts": [
-                  "donnes une raison et reviens à ta question",
-                  "t’arrêtes là"
+                  "t’arrêtes là",
+                  "donnes une raison et reviens à ta question"
                 ],
-                "correct": 0,
+                "correct": 1,
                 "why": "Même hors du dossier, le fil tient. EN: back to the thread."
               }
             }
@@ -71010,10 +71060,10 @@
               "check": {
                 "q": "Une question sur un sujet absent du dossier, tu…",
                 "opts": [
-                  "refuses d’y répondre",
-                  "le dis, puis réponds"
+                  "le dis, puis réponds",
+                  "refuses d’y répondre"
                 ],
-                "correct": 1,
+                "correct": 0,
                 "why": "Le jury teste ta pensée, pas ta mémoire du dossier. EN: flag it, then answer."
               }
             },
@@ -71037,11 +71087,11 @@
               "check": {
                 "q": "Laquelle est correcte ?",
                 "opts": [
-                  "Bien que le dossier ne dise rien des toits, la question se pose.",
-                  "Bien que le dossier ne dit rien des toits, la question se pose."
+                  "Que c’est la ville ou les habitants, quelqu’un doit payer l’eau.",
+                  "Que ce soit la ville ou les habitants, quelqu’un doit payer l’eau."
                 ],
-                "correct": 0,
-                "why": "Bien que + subjonctif. EN: subjunctive."
+                "correct": 1,
+                "why": "Que ce soit… ou… : subjonctif figé. EN: whether it is… or…"
               }
             }
           ],
@@ -71244,10 +71294,10 @@
               "check": {
                 "q": "Ces deux phrases sont correctes. Laquelle redit une position ?",
                 "opts": [
-                  "Ainsi s'achève mon exposé, mais le débat, lui, ne fait que commencer.",
-                  "Au vu de l'ensemble des arguments avancés, ma position reste favorable, mais prudente."
+                  "Au vu de l'ensemble des arguments avancés, ma position reste favorable, mais prudente.",
+                  "Ainsi s'achève mon exposé, mais le débat, lui, ne fait que commencer."
                 ],
-                "correct": 1,
+                "correct": 0,
                 "why": "Favorable, mais prudente : une position nuancée. L’autre clôt l’exposé sans rien dire de la thèse. EN: one restates a position."
               }
             },
@@ -72081,6 +72131,7 @@
             "fr.c1.discours-dexamen.1338",
             "fr.c1.discours-dexamen.1339",
             "fr.c1.discours-dexamen.1340",
+            "fr.c1.discours-dexamen.1362",
             "fr.c1.discours-dexamen.1342",
             "fr.c1.discours-dexamen.1343",
             "fr.c1.discours-dexamen.1344",
@@ -72320,7 +72371,8 @@
                   "prompt": "Le dossier que j’ai choisi ___ les marchés de nuit. (porter, au présent, avec sa préposition)",
                   "answer": "Le dossier que j’ai choisi porte sur les marchés de nuit.",
                   "accept": [
-                    "Le dossier que j’ai choisi porte sur les marchés de nuit."
+                    "Le dossier que j’ai choisi porte sur les marchés de nuit.",
+                    "porte sur"
                   ],
                   "why": "Porter sur : être au sujet de. EN: porter sur.",
                   "ref": "a2-erreurs"
@@ -72331,7 +72383,8 @@
                   "prompt": "Je vais d’abord vous dire en une phrase ce qu’ils ont en ___ . (in common)",
                   "answer": "Je vais d’abord vous dire en une phrase ce qu’ils ont en commun.",
                   "accept": [
-                    "Je vais d’abord vous dire en une phrase ce qu’ils ont en commun."
+                    "Je vais d’abord vous dire en une phrase ce qu’ils ont en commun.",
+                    "commun"
                   ],
                   "why": "Avoir en commun. EN: en commun.",
                   "ref": "a2-cartes"
@@ -72426,7 +72479,8 @@
                   "prompt": "Le témoignage et le bilan de la ville vont dans le même ___ . (direction)",
                   "answer": "Le témoignage et le bilan de la ville vont dans le même sens.",
                   "accept": [
-                    "Le témoignage et le bilan de la ville vont dans le même sens."
+                    "Le témoignage et le bilan de la ville vont dans le même sens.",
+                    "sens"
                   ],
                   "why": "Aller dans le même sens. EN: to point the same way.",
                   "ref": "a3-exemples"
@@ -72437,7 +72491,8 @@
                   "prompt": "L’agronome prend le contre-___ du bilan municipal.",
                   "answer": "L’agronome prend le contre-pied du bilan municipal.",
                   "accept": [
-                    "L’agronome prend le contre-pied du bilan municipal."
+                    "L’agronome prend le contre-pied du bilan municipal.",
+                    "pied"
                   ],
                   "why": "Prendre le contre-pied de. EN: the opposite line.",
                   "ref": "a3-exemples"
@@ -72507,11 +72562,11 @@
                   "q": "Laquelle est correcte ?",
                   "opts": [
                     "Elle souligne combien que le jardin compte pour le quartier.",
-                    "Elle souligne comment le jardin compte pour le quartier.",
+                    "Elle souligne comment le jardin est important pour le quartier.",
                     "Elle souligne à quel point le jardin compte pour le quartier."
                   ],
                   "correct": 2,
-                  "why": "Souligner à quel point. EN: à quel point.",
+                  "why": "Pour un degré, souligner à quel point (ou combien) ; « comment » dit la manière, et « combien que » n’existe pas. EN: à quel point for degree.",
                   "ref": "a4-piege"
                 },
                 {
@@ -72521,7 +72576,9 @@
                   "answer": "L’agronome soutient que les jardins nourrissent peu la ville.",
                   "accept": [
                     "L’agronome soutient que les jardins nourrissent peu la ville.",
-                    "L’agronome maintient que les jardins nourrissent peu la ville."
+                    "L’agronome maintient que les jardins nourrissent peu la ville.",
+                    "maintient",
+                    "soutient"
                   ],
                   "why": "Soutenir que + indicatif. EN: soutenir.",
                   "ref": "a4-tableau"
@@ -72532,7 +72589,8 @@
                   "prompt": "Il met en garde ___ un discours qui en ferait une politique alimentaire.",
                   "answer": "Il met en garde contre un discours qui en ferait une politique alimentaire.",
                   "accept": [
-                    "Il met en garde contre un discours qui en ferait une politique alimentaire."
+                    "Il met en garde contre un discours qui en ferait une politique alimentaire.",
+                    "contre"
                   ],
                   "why": "Mettre en garde contre + nom. EN: contre.",
                   "ref": "a4-tableau"
@@ -72562,7 +72620,10 @@
                   "accept": [
                     "Le bilan insiste sur le fait que les jardins sont pleins.",
                     "Le bilan souligne que les jardins sont pleins.",
-                    "Le bilan affirme que les jardins sont pleins."
+                    "Le bilan affirme que les jardins sont pleins.",
+                    "Le bilan rappelle que les jardins sont pleins.",
+                    "Le bilan constate que les jardins sont pleins.",
+                    "Le bilan souligne le fait que les jardins sont pleins."
                   ],
                   "why": "Insister sur le fait que. EN: insister sur.",
                   "ref": "a4-piege"
@@ -72631,7 +72692,8 @@
                   "prompt": "On peut se demander ___ la ville doit financer ces jardins. (whether)",
                   "answer": "On peut se demander si la ville doit financer ces jardins.",
                   "accept": [
-                    "On peut se demander si la ville doit financer ces jardins."
+                    "On peut se demander si la ville doit financer ces jardins.",
+                    "si"
                   ],
                   "why": "Si, dans une question indirecte. EN: si.",
                   "ref": "a5-erreurs"
@@ -72642,7 +72704,8 @@
                   "prompt": "On peut se demander ___ les habitants attendent vraiment de ces jardins. (what)",
                   "answer": "On peut se demander ce que les habitants attendent vraiment de ces jardins.",
                   "accept": [
-                    "On peut se demander ce que les habitants attendent vraiment de ces jardins."
+                    "On peut se demander ce que les habitants attendent vraiment de ces jardins.",
+                    "ce que"
                   ],
                   "why": "Ce que, pas qu’est-ce que. EN: ce que.",
                   "ref": "a5-erreurs"
@@ -72745,7 +72808,9 @@
                   "answer": "J’en viens à mon second temps, qui répond à ma question.",
                   "accept": [
                     "J’en viens à mon second temps, qui répond à ma question.",
-                    "J’en viens à mon deuxième temps, qui répond à ma question."
+                    "J’en viens à mon deuxième temps, qui répond à ma question.",
+                    "deuxième",
+                    "second"
                   ],
                   "why": "Second temps, ou deuxième. EN: second.",
                   "ref": "a6-construire"
@@ -72756,7 +72821,8 @@
                   "prompt": "Je reviens à ma question de ___ . (starting point)",
                   "answer": "Je reviens à ma question de départ.",
                   "accept": [
-                    "Je reviens à ma question de départ."
+                    "Je reviens à ma question de départ.",
+                    "départ"
                   ],
                   "why": "La question de départ. EN: starting question.",
                   "ref": "a6-lecture"
@@ -72838,7 +72904,8 @@
                   "prompt": "Si je comprends bien, vous me ___ si les jardins méritent un budget municipal. (demander)",
                   "answer": "Si je comprends bien, vous me demandez si les jardins méritent un budget municipal.",
                   "accept": [
-                    "Si je comprends bien, vous me demandez si les jardins méritent un budget municipal."
+                    "Si je comprends bien, vous me demandez si les jardins méritent un budget municipal.",
+                    "demandez"
                   ],
                   "why": "Vous me demandez si… EN: demandez.",
                   "ref": "a7-cartes"
@@ -72849,7 +72916,8 @@
                   "prompt": "___ -je répondu à votre question ? (avoir, avec inversion)",
                   "answer": "Ai-je répondu à votre question ?",
                   "accept": [
-                    "Ai-je répondu à votre question ?"
+                    "Ai-je répondu à votre question ?",
+                    "Ai-"
                   ],
                   "why": "Ai-je répondu… EN: ai-je.",
                   "ref": "a7-cartes"
@@ -72945,7 +73013,9 @@
                   "answer": "Permettez-moi d’y réfléchir un instant.",
                   "accept": [
                     "Permettez-moi d’y réfléchir un instant.",
-                    "Permettez-moi d’y penser un instant."
+                    "Permettez-moi d’y penser un instant.",
+                    "penser",
+                    "réfléchir"
                   ],
                   "why": "Réfléchir. EN: réfléchir.",
                   "ref": "a8-tableau"
@@ -72956,7 +73026,8 @@
                   "prompt": "Je n’ai pas le chiffre exact en ___ , mais l’ordre de grandeur est clair.",
                   "answer": "Je n’ai pas le chiffre exact en tête, mais l’ordre de grandeur est clair.",
                   "accept": [
-                    "Je n’ai pas le chiffre exact en tête, mais l’ordre de grandeur est clair."
+                    "Je n’ai pas le chiffre exact en tête, mais l’ordre de grandeur est clair.",
+                    "tête"
                   ],
                   "why": "Avoir en tête. EN: en tête.",
                   "ref": "a8-tableau"
@@ -72973,7 +73044,7 @@
                     "Je vais examiner cette question en deux temps.",
                     "Je vais étudier cette question en deux temps."
                   ],
-                  "why": "On traite une question. EN: traiter.",
+                  "why": "Adresser une question, c’est la poser à quelqu’un ; pour l’examiner, on la traite. EN: traiter.",
                   "ref": "a8-piege"
                 },
                 {
@@ -73056,7 +73127,9 @@
                   "answer": "Je vous accorde que trois cents noms en attente, c’est beaucoup.",
                   "accept": [
                     "Je vous accorde que trois cents noms en attente, c’est beaucoup.",
-                    "Je vous concède que trois cents noms en attente, c’est beaucoup."
+                    "Je vous concède que trois cents noms en attente, c’est beaucoup.",
+                    "concède",
+                    "accorde"
                   ],
                   "why": "Accorder que. EN: accorder.",
                   "ref": "a9-tableau"
@@ -73067,7 +73140,8 @@
                   "prompt": "Votre remarque m’___ à préciser ma pensée. (obliger)",
                   "answer": "Votre remarque m’oblige à préciser ma pensée.",
                   "accept": [
-                    "Votre remarque m’oblige à préciser ma pensée."
+                    "Votre remarque m’oblige à préciser ma pensée.",
+                    "oblige"
                   ],
                   "why": "Obliger à. EN: oblige.",
                   "ref": "a9-tableau"
@@ -73155,60 +73229,67 @@
                 {
                   "format": "typeIn",
                   "q": "Complète et écris toute la phrase. EN: Complete it and write the whole sentence.",
-                  "prompt": "Je doute que les jardins ___ baisser le prix des légumes. (faire)",
-                  "answer": "Je doute que les jardins fassent baisser le prix des légumes.",
+                  "prompt": "Devant le jury : je ne pense pas que la ville ___ tout payer. (devoir)",
+                  "answer": "Je ne pense pas que la ville doive tout payer.",
                   "accept": [
-                    "Je doute que les jardins fassent baisser le prix des légumes."
+                    "Je ne pense pas que la ville doive tout payer.",
+                    "Je ne crois pas que la ville doive tout payer.",
+                    "doive"
                   ],
-                  "why": "Douter que + subjonctif. EN: fassent.",
+                  "why": "Une opinion niée, en registre soutenu : subjonctif. EN: doive.",
                   "ref": "a10-piege"
                 },
                 {
                   "format": "typeIn",
                   "q": "Complète et écris toute la phrase. EN: Complete it and write the whole sentence.",
-                  "prompt": "Bien que le dossier ne ___ rien des toits, la question se pose. (dire)",
-                  "answer": "Bien que le dossier ne dise rien des toits, la question se pose.",
+                  "prompt": "Si convaincant que ___ cet argument, il ne tranche pas la question. (être)",
+                  "answer": "Si convaincant que soit cet argument, il ne tranche pas la question.",
                   "accept": [
-                    "Bien que le dossier ne dise rien des toits, la question se pose."
+                    "Si convaincant que soit cet argument, il ne tranche pas la question.",
+                    "Si convaincant que cet argument soit, il ne tranche pas la question.",
+                    "Aussi convaincant que soit cet argument, il ne tranche pas la question.",
+                    "Quelque convaincant que soit cet argument, il ne tranche pas la question.",
+                    "soit"
                   ],
-                  "why": "Bien que + subjonctif. EN: dise.",
+                  "why": "Si + adjectif + que : subjonctif. EN: soit.",
                   "ref": "a10-piege"
                 },
                 {
                   "format": "errorSpot",
                   "q": "Quelque chose ne va pas. Écris la phrase correcte. EN: Something is wrong; write the sentence correctly.",
-                  "prompt": "À titre personnel, je pense que ce soit une bonne idée.",
-                  "answer": "À titre personnel, je pense que c’est une bonne idée.",
+                  "prompt": "Quoi qu’on en dit, les jardins rassemblent.",
+                  "answer": "Quoi qu’on en dise, les jardins rassemblent.",
                   "accept": [
-                    "À titre personnel, je pense que c’est une bonne idée."
+                    "Quoi qu’on en dise, les jardins rassemblent."
                   ],
-                  "why": "Penser que, à l’affirmatif : indicatif. EN: c’est.",
+                  "why": "Quoi que + subjonctif : quoi qu’on en dise. EN: dise.",
                   "ref": "a10-piege"
                 },
                 {
                   "format": "errorSpot",
                   "q": "Quelque chose ne va pas. Écris la phrase correcte. EN: Something is wrong; write the sentence correctly.",
-                  "prompt": "Il faut que la ville paiera l’eau et les clôtures.",
-                  "answer": "Il faut que la ville paie l’eau et les clôtures.",
+                  "prompt": "À supposer que la ville n’a plus de budget, je garderais les parcelles collectives.",
+                  "answer": "À supposer que la ville n’ait plus de budget, je garderais les parcelles collectives.",
                   "accept": [
-                    "Il faut que la ville paie l’eau et les clôtures.",
-                    "Il faut que la ville paye l’eau et les clôtures."
+                    "À supposer que la ville n’ait plus de budget, je garderais les parcelles collectives.",
+                    "En admettant que la ville n’ait plus de budget, je garderais les parcelles collectives.",
+                    "Supposons que la ville n’ait plus de budget, je garderais les parcelles collectives."
                   ],
-                  "why": "Il faut que + subjonctif. EN: paie.",
+                  "why": "À supposer que + subjonctif. EN: ait.",
                   "ref": "a10-piege"
                 },
                 {
                   "format": "listenChoose",
-                  "q": "Écoute. Dans quel cas la candidate se place-t-elle ?",
-                  "say": "Dans ce cas, je garderais les parcelles collectives, qui rassemblent le plus.",
+                  "q": "Écoute. Quel mode suit « le fait que », et est-ce correct ?",
+                  "say": "Le fait que la liste soit si longue montre un vrai besoin.",
                   "opts": [
-                    "dans le dossier",
-                    "dans la situation actuelle de la ville",
-                    "dans l’hypothèse d’une ville sans budget"
+                    "l’indicatif, la seule forme possible",
+                    "le subjonctif, une faute : il faut l’indicatif",
+                    "le subjonctif, correct et fréquent en tête de phrase"
                   ],
                   "correct": 2,
-                  "why": "Le conditionnel répond à l’hypothèse. EN: the hypothesis.",
-                  "ref": "a10-ecoute"
+                  "why": "Le fait que admet les deux modes ; le subjonctif domine quand la phrase commence par lui. EN: both moods are possible.",
+                  "ref": "a10-piege"
                 }
               ]
             },
@@ -73261,7 +73342,8 @@
                   "prompt": "Vos questions m’ont ___ de préciser un point : l’accès. (permettre)",
                   "answer": "Vos questions m’ont permis de préciser un point : l’accès.",
                   "accept": [
-                    "Vos questions m’ont permis de préciser un point : l’accès."
+                    "Vos questions m’ont permis de préciser un point : l’accès.",
+                    "permis"
                   ],
                   "why": "Permettre de. EN: permis.",
                   "ref": "a11-ecoute"
@@ -73272,7 +73354,8 @@
                   "prompt": "J’ai nuancé ma réponse ; je n’ai pas changé de ___ .",
                   "answer": "J’ai nuancé ma réponse ; je n’ai pas changé de question.",
                   "accept": [
-                    "J’ai nuancé ma réponse ; je n’ai pas changé de question."
+                    "J’ai nuancé ma réponse ; je n’ai pas changé de question.",
+                    "question"
                   ],
                   "why": "Changer de question. EN: question.",
                   "ref": "a11-focus"
@@ -73280,14 +73363,14 @@
                 {
                   "format": "errorSpot",
                   "q": "Quelque chose ne va pas. Écris la phrase correcte. EN: Something is wrong; write the sentence correctly.",
-                  "prompt": "Si vous n’avez pas d’autres questions, je résumerais ma position en une phrase.",
+                  "prompt": "Si vous n’auriez pas d’autres questions, je résumerai ma position en une phrase.",
                   "answer": "Si vous n’avez pas d’autres questions, je résumerai ma position en une phrase.",
                   "accept": [
                     "Si vous n’avez pas d’autres questions, je résumerai ma position en une phrase.",
                     "Si vous n’avez pas d’autres questions, je résume ma position en une phrase.",
                     "Si vous n’avez pas d’autres questions, je vais résumer ma position en une phrase."
                   ],
-                  "why": "Si + présent, puis futur. EN: résumerai.",
+                  "why": "Après le si de condition, jamais de conditionnel : si vous n’avez pas. EN: n’avez.",
                   "ref": "a11-construire"
                 },
                 {
@@ -73377,7 +73460,8 @@
                   "prompt": "Là où ils ___ , c’est sur la manière d’obtenir le calme. (diverger)",
                   "answer": "Là où ils divergent, c’est sur la manière d’obtenir le calme.",
                   "accept": [
-                    "Là où ils divergent, c’est sur la manière d’obtenir le calme."
+                    "Là où ils divergent, c’est sur la manière d’obtenir le calme.",
+                    "divergent"
                   ],
                   "why": "Diverger : se séparer sur un point. EN: divergent.",
                   "ref": "a12-annote"
@@ -73388,7 +73472,8 @@
                   "prompt": "Mon exposé ___ deux temps : ce qu’une règle peut obtenir, puis ce qu’elle ne peut pas obtenir. (suivre, au futur)",
                   "answer": "Mon exposé suivra deux temps : ce qu’une règle peut obtenir, puis ce qu’elle ne peut pas obtenir.",
                   "accept": [
-                    "Mon exposé suivra deux temps : ce qu’une règle peut obtenir, puis ce qu’elle ne peut pas obtenir."
+                    "Mon exposé suivra deux temps : ce qu’une règle peut obtenir, puis ce qu’elle ne peut pas obtenir.",
+                    "suivra"
                   ],
                   "why": "Suivra : futur de suivre. EN: suivra.",
                   "ref": "a12-annote"
@@ -73662,6 +73747,7 @@
         "fr.c1.discours-dexamen.1339",
         "fr.c1.discours-dexamen.1340",
         "fr.c1.discours-dexamen.1341",
+        "fr.c1.discours-dexamen.1362",
         "fr.c1.discours-dexamen.1342",
         "fr.c1.discours-dexamen.1343",
         "fr.c1.discours-dexamen.1344",
@@ -73762,7 +73848,7 @@
           },
           {
             "id": "rec-c1-09-expose",
-            "desc": "Your exposé (act 6), ONE VOICE, one take, a candidate of about thirty (Québec French), about four minutes: spoken, addressed, natural pace, a clear breath at each signpost (Premier temps, donc ; Je viens de montrer… ; Je reviens à ma question de départ)."
+            "desc": "Your exposé (act 6), ONE VOICE, one take, a candidate of about thirty (Québec French), about two and a half minutes (313 words): spoken, addressed, natural pace, a clear breath at each signpost (Premier temps, donc ; Je viens de montrer… ; Je reviens à ma question de départ)."
           },
           {
             "id": "rec-c1-09-question",
@@ -73786,7 +73872,7 @@
           },
           {
             "id": "rec-c1-09-piege-modes",
-            "desc": "The audio step plays each card’s CORRECT sentence. Read the six plainly and identically in pace; the wrong versions in promptSound are never spoken. « fassent », « paie », « dise », « puisse », « soient » are clearly articulated."
+            "desc": "The audio step plays each card’s CORRECT sentence. Read the six plainly and identically in pace; the wrong versions in promptSound are never spoken. « doive », « sont », « que ce soit », « dise », « soit », « ait » are clearly articulated."
           },
           {
             "id": "rec-c1-09-cloture-ecoute",
@@ -73794,7 +73880,7 @@
           },
           {
             "id": "rec-c1-09-modele",
-            "desc": "The model exposé (act 12), ONE VOICE, one take, a woman in her thirties (France French), about three minutes: natural C1 exam pace, addressed to a jury, a short breath at each signpost. Spoken, not read."
+            "desc": "The model exposé (act 12), ONE VOICE, one take, a woman in her thirties (France French), a little over two minutes (281 words): natural C1 exam pace, addressed to a jury, a short breath at each signpost. Spoken, not read."
           }
         ]
       }
@@ -90400,7 +90486,7 @@
       "grammarPoints": [
         "nuance-oral"
       ],
-      "notes": "Une incise : ton avis, présenté comme une impression. Elle se glisse après le verbe ou en fin de phrase."
+      "notes": "Une incise : ton avis, présenté comme une impression. Elle se glisse dans la phrase (après le sujet ou le verbe) ou à la fin, jamais en tête."
     },
     {
       "id": "fr.c1.nuances-et-registres.1013",
@@ -90732,7 +90818,7 @@
       ],
       "cardType": "grammar",
       "prompt": "Tu doutes de la date, pas du lieu. Où mets-tu « si je ne m’abuse » ?",
-      "notes": "Près de la date : L’ouverture est le douze, si je ne m’abuse, à la grande salle."
+      "notes": "Près de la date : l’ouverture est le douze, si je ne m’abuse, à la grande salle."
     },
     {
       "id": "fr.c1.nuances-et-registres.1027",
@@ -91263,10 +91349,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "nuances-et-registres",
-      "fr": "Sur le bon de livraison, il y a l’adresse de Lyon.",
-      "en": "The delivery note has the Lyon address on it.",
-      "ipa": "/syʁ lə bɔ̃ də li.vʁɛ.zɔ̃ il ja la.dʁɛs də ljɔ̃/",
-      "respell": "sür luh BOHⁿ duh lee-vreh-ZOHⁿ | eel ya la-DREHSS duh LYOHⁿ",
+      "fr": "Sur le bon de livraison, il y a l’adresse de Lyon, et le transport n’est pas encore payé.",
+      "en": "The delivery note has the Lyon address on it, and the transport has not been paid yet.",
+      "ipa": "/syʁ lə bɔ̃ də li.vʁɛ.zɔ̃ il ja la.dʁɛs də ljɔ̃ e lə tʁɑ̃s.pɔʁ nɛ pa.zɑ̃.kɔʁ pe.je/",
+      "respell": "sür luh BOHⁿ duh lee-vreh-ZOHⁿ | eel ya la-DREHSS duh LYOHⁿ | ay luh trahⁿss-POR | neh pa-zahⁿ-kor pay-YAY",
       "tags": [
         "appel"
       ],
@@ -91335,10 +91421,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "nuances-et-registres",
-      "fr": "Ah, pardon, vous avez raison : je devais regarder l’ancien dossier.",
-      "en": "Ah, sorry, you are right: I must have been looking at the old file.",
-      "ipa": "/a paʁ.dɔ̃ vu.za.ve ʁɛ.zɔ̃ ʒə də.vɛ ʁə.gaʁ.de lɑ̃.sjɛ̃ dɔ.sje/",
-      "respell": "A | par-DOHⁿ | voo-za-vay reh-ZOHⁿ | zhuh duh-VEH ruh-gar-DAY | lahⁿ-syehⁿ do-SYAY",
+      "fr": "Ah, pardon, vous avez raison : je devais avoir l’ancien dossier sous les yeux.",
+      "en": "Ah, sorry, you are right: I must have had the old file in front of me.",
+      "ipa": "/a paʁ.dɔ̃ vu.za.ve ʁɛ.zɔ̃ ʒə də.vɛ.za.vwaʁ lɑ̃.sjɛ̃ dɔ.sje su le.zjø/",
+      "respell": "A | par-DOHⁿ | voo-za-vay reh-ZOHⁿ | zhuh duh-veh-za-VWAR | lahⁿ-syehⁿ do-SYAY | soo lay-ZYEU",
       "tags": [
         "devoir"
       ],
@@ -92222,10 +92308,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "nuances-et-registres",
-      "fr": "Avec tout le respect que je vous dois, Karim, ces chiffres concernaient une autre exposition.",
-      "en": "With all due respect, Karim, those figures were about another exhibition.",
-      "ipa": "/a.vɛk tu lə ʁɛs.pɛ kə ʒə vu dwa ka.ʁim se ʃifʁ kɔ̃.sɛʁ.nɛ.ty.notʁ ɛks.po.zi.sjɔ̃/",
-      "respell": "a-vehk too luh rehs-PEH kuh zhuh voo DWA | ka-REEM | say SHEEFR kohⁿ-sehr-neh-tü-NOHTR ehks-po-zee-SYOHⁿ",
+      "fr": "Avec tout le respect que je vous dois, Hélène, ces chiffres concernaient une autre exposition.",
+      "en": "With all due respect, Hélène, those figures were about another exhibition.",
+      "ipa": "/a.vɛk tu lə ʁɛs.pɛ kə ʒə vu dwa e.lɛn se ʃifʁ kɔ̃.sɛʁ.nɛ.ty.notʁ ɛks.po.zi.sjɔ̃/",
+      "respell": "a-vehk too luh rehs-PEH kuh zhuh voo DWA | ay-LENN | say SHEEFR kohⁿ-sehr-neh-tü-NOHTR ehks-po-zee-SYOHⁿ",
       "tags": [
         "egards"
       ],
@@ -92437,10 +92523,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "nuances-et-registres",
-      "fr": "J’ai lu ton texte deux fois, et il y a de très bonnes choses.",
+      "fr": "J’ai lu votre texte deux fois, et il y a de très bonnes choses.",
       "en": "I read your text twice, and there are some very good things in it.",
-      "ipa": "/ʒe ly tɔ̃ tɛkst dø fwa e il ja də tʁɛ bɔn ʃoz/",
-      "respell": "zhay LÜ tohⁿ TEHKST deu FWA | ay eel ya duh treh BONN SHOZ",
+      "ipa": "/ʒe ly vɔ.tʁə tɛkst dø fwa e il ja də tʁɛ bɔn ʃoz/",
+      "respell": "zhay LÜ vo-truh TEHKST deu FWA | ay eel ya duh treh BONN SHOZ",
       "tags": [
         "critique"
       ],
@@ -92554,10 +92640,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "nuances-et-registres",
-      "fr": "Mais c’est ton texte ; choisis la question qui te ressemble.",
+      "fr": "Mais c’est votre texte ; choisissez la question qui vous ressemble.",
       "en": "But it is your text; choose the question that sounds like you.",
-      "ipa": "/mɛ sɛ tɔ̃ tɛkst ʃwa.zi la kɛs.tjɔ̃ ki tə ʁə.sɑ̃bl/",
-      "respell": "meh seh tohⁿ TEHKST | shwa-ZEE la kehs-TYOHⁿ | kee tuh ruh-SAHⁿBL",
+      "ipa": "/mɛ sɛ vɔ.tʁə tɛkst ʃwa.zi.se la kɛs.tjɔ̃ ki vu ʁə.sɑ̃bl/",
+      "respell": "meh seh vo-truh TEHKST | shwa-zee-SAY la kehs-TYOHⁿ | kee voo ruh-SAHⁿBL",
       "tags": [
         "critique"
       ],
@@ -92602,10 +92688,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "nuances-et-registres",
-      "fr": "Pour le reste, tu as fait le plus dur.",
+      "fr": "Pour le reste, vous avez fait le plus dur.",
       "en": "As for the rest, you have done the hardest part.",
-      "ipa": "/puʁ lə ʁɛst ty a fɛ lə ply dyʁ/",
-      "respell": "poor luh REHST | tü a feh luh plü DÜR",
+      "ipa": "/puʁ lə ʁɛst vu.za.ve fɛ lə ply dyʁ/",
+      "respell": "poor luh REHST | voo-za-VAY feh luh plü DÜR",
       "tags": [
         "critique"
       ],
@@ -95997,10 +96083,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "connecteurs-logiques",
-      "fr": "En tout état de cause ferme le débat sur un point ferme.",
+      "fr": "En tout état de cause clôt le débat sur un point ferme.",
       "en": "En tout état de cause closes the debate on a firm point.",
-      "ipa": "/ɑ̃ tu.te.ta də koz fɛʁm lə de.ba sy.ʁœ̃ pwɛ̃ fɛʁm/",
-      "respell": "ahⁿ too-tay-ta duh KOHZ | fehrm luh day-BA | sü-ruhⁿ pwehⁿ FEHRM",
+      "ipa": "/ɑ̃ tu.te.ta də koz klo lə de.ba sy.ʁœ̃ pwɛ̃ fɛʁm/",
+      "respell": "ahⁿ too-tay-ta duh KOHZ | kloh luh day-BA | sü-ruhⁿ pwehⁿ FEHRM",
       "tags": [
         "trancher",
         "methode"
@@ -102747,7 +102833,7 @@
       ],
       "cardType": "grammar",
       "prompt": "Ta conclusion orale commence par quoi ?",
-      "notes": "Par la question de départ : le jury l’a peut-être perdue de vue en dix minutes."
+      "notes": "Par la question de départ : le jury l’a peut-être perdue de vue en quelques minutes."
     },
     {
       "id": "fr.c1.discours-dexamen.1278",
@@ -104115,10 +104201,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "discours-dexamen",
-      "fr": "Je doute que les jardins fassent baisser le prix des légumes.",
-      "en": "I doubt the gardens bring down the price of vegetables.",
-      "ipa": "/ʒə dut kə le ʒaʁ.dɛ̃ fas be.se lə pʁi de le.gym/",
-      "respell": "zhuh DOOT | kuh lay zhar-DEHⁿ FASS | beh-SAY luh PREE | day lay-GÜM",
+      "fr": "Je ne pense pas que la ville doive tout payer.",
+      "en": "I do not think the city has to pay for everything.",
+      "ipa": "/ʒə nə pɑ̃s pa kə la vil dwav tu pe.je/",
+      "respell": "zhuh nuh PAHⁿSS pa | kuh la VEEL DWAV | too pay-YAY",
       "tags": [
         "subjonctif",
         "trap"
@@ -104139,10 +104225,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "discours-dexamen",
-      "fr": "Il faut que la ville paie l’eau et les clôtures.",
-      "en": "The city has to pay for the water and the fences.",
-      "ipa": "/il fo kə la vil pɛ lo e le klo.tyʁ/",
-      "respell": "eel FOH | kuh la VEEL PEH | LOH | ay lay kloh-TÜR",
+      "fr": "Que ce soit la ville ou les habitants, quelqu’un doit payer l’eau.",
+      "en": "Whether it is the city or the residents, someone has to pay for the water.",
+      "ipa": "/kə sə swa la vil u le.za.bi.tɑ̃ kɛl.kœ̃ dwa pe.je lo/",
+      "respell": "kuh suh SWA | la VEEL | oo lay-za-bee-TAHⁿ | kehl-KUHⁿ dwa pay-YAY LOH",
       "tags": [
         "subjonctif",
         "trap"
@@ -104163,12 +104249,12 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "discours-dexamen",
-      "fr": "À titre personnel, je pense que c’est une bonne idée.",
-      "en": "Speaking personally, I think it is a good idea.",
-      "ipa": "/a titʁ pɛʁ.sɔ.nɛl ʒə pɑ̃s kə sɛ.tyn bɔ.ni.de/",
-      "respell": "a teetr pehr-so-NEHL | zhuh PAHⁿSS | kuh seh-tün bo-nee-DAY",
+      "fr": "Oui, je pense qu’ils sont utiles, et je vais vous dire à quoi.",
+      "en": "Yes, I think they are useful, and I will tell you what for.",
+      "ipa": "/wi ʒə pɑ̃s kil sɔ̃.ty.til e ʒə vɛ vu diʁ a kwa/",
+      "respell": "WEE | zhuh pahⁿss keel sohⁿ-tü-TEEL | ay zhuh veh voo DEER a KWA",
       "tags": [
-        "subjonctif",
+        "indicatif",
         "trap"
       ],
       "drills": [
@@ -104187,13 +104273,14 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "discours-dexamen",
-      "fr": "Bien que le dossier ne dise rien des toits, la question se pose.",
-      "en": "Although the dossier says nothing about roofs, the question arises.",
-      "ipa": "/bjɛ̃ kə lə do.sje nə diz ʁjɛ̃ de twa la kɛs.tjɔ̃ sə poz/",
-      "respell": "byehⁿ kuh luh do-SYAY | nuh deez RYEHⁿ | day TWA | la kehs-TYOHⁿ suh POHZ",
+      "fr": "Quoi qu’on en dise, les jardins rassemblent.",
+      "en": "Whatever people may say, the gardens bring people together.",
+      "ipa": "/kwa kɔ̃.nɑ̃ diz le ʒaʁ.dɛ̃ ʁa.sɑ̃bl/",
+      "respell": "kwa kohⁿ-nahⁿ DEEZ | lay zhar-DEHⁿ ra-SAHⁿBL",
       "tags": [
         "subjonctif",
-        "trap"
+        "trap",
+        "concession"
       ],
       "drills": [
         "flashcard",
@@ -104211,13 +104298,14 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "discours-dexamen",
-      "fr": "À moins que la ville ne puisse payer l’eau, le projet restera fragile.",
-      "en": "Unless the city can pay for the water, the project will remain fragile.",
-      "ipa": "/a mwɛ̃ kə la vil nə pɥis pe.je lo lə pʁɔ.ʒɛ ʁɛs.tə.ʁa fʁa.ʒil/",
-      "respell": "a MWEHⁿ | kuh la VEEL nuh PWEESS | pay-YAY LOH | luh pro-ZHEH | rehs-tuh-RA fra-ZHEEL",
+      "fr": "Si convaincant que soit cet argument, il ne tranche pas la question.",
+      "en": "However convincing this argument may be, it does not settle the question.",
+      "ipa": "/si kɔ̃.vɛ̃.kɑ̃ kə swa sɛ.taʁ.gy.mɑ̃ il nə tʁɑ̃ʃ pa la kɛs.tjɔ̃/",
+      "respell": "see kohⁿ-vehⁿ-KAHⁿ kuh SWA | seh-tar-gü-MAHⁿ | eel nuh TRAHⁿSH pa | la kehs-TYOHⁿ",
       "tags": [
         "subjonctif",
-        "trap"
+        "trap",
+        "concession"
       ],
       "drills": [
         "flashcard",
@@ -104235,13 +104323,14 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "discours-dexamen",
-      "fr": "Il est peu probable que les toits soient plus faciles à cultiver.",
-      "en": "It is unlikely that roofs are easier to cultivate.",
-      "ipa": "/il ɛ pø pʁɔ.babl kə le twa swa ply fa.sil a kyl.ti.ve/",
-      "respell": "eel eh peu pro-BABL | kuh lay TWA | swa plü fa-SEEL | a kül-tee-VAY",
+      "fr": "À supposer que la ville n’ait plus de budget, je garderais les parcelles collectives.",
+      "en": "Supposing the city had no budget left, I would keep the shared plots.",
+      "ipa": "/a sy.po.ze kə la vil nɛ ply də byd.ʒɛ ʒə gaʁ.də.ʁɛ le paʁ.sɛl kɔ.lɛk.tiv/",
+      "respell": "a sü-poh-ZAY | kuh la VEEL neh plü duh büd-ZHEH | zhuh gar-duh-REH | lay par-SEHL ko-lehk-TEEV",
       "tags": [
         "subjonctif",
-        "trap"
+        "trap",
+        "hypothese"
       ],
       "drills": [
         "flashcard",
@@ -104278,6 +104367,30 @@
       "cardType": "grammar",
       "prompt": "Le jury te demande ton avis personnel. C’est un piège ?",
       "notes": "Non : il veut voir ta pensée hors du dossier. Dis que tu en sors, puis donne un avis motivé."
+    },
+    {
+      "id": "fr.c1.discours-dexamen.1362",
+      "kind": "sentence",
+      "level": "c1",
+      "theme": "discours-dexamen",
+      "fr": "Le fait que la liste soit si longue montre un vrai besoin.",
+      "en": "The fact that the list is so long shows a real need.",
+      "ipa": "/lə fɛ kə la list swa si lɔ̃g mɔ̃tʁ œ̃ vʁɛ bə.zwɛ̃/",
+      "respell": "luh FEH | kuh la LEEST swa see LOHⁿG | mohⁿtr uhⁿ vreh buh-ZWEHⁿ",
+      "tags": [
+        "subjonctif",
+        "le-fait-que"
+      ],
+      "drills": [
+        "flashcard",
+        "voiceflash",
+        "review"
+      ],
+      "version": 1,
+      "register": "soutenu",
+      "grammarPoints": [
+        "expose-jury"
+      ]
     },
     {
       "id": "fr.c1.discours-dexamen.1342",

@@ -160,6 +160,13 @@
 //      blunt verdict, an over-wrapped criticism, a hedged fact), as b2.26
 //      does; each why says « correct, mais ». Quiz errorSpots never do this:
 //      every errorSpot prompt carries a real form error. Keep the cards?
+//
+//   PRE-REVIEW 2026-10-01 (reviewer's calls): 3 kept, wording aligned on
+//   Usito (« pas pire », fam., Q: « plus ou moins bien », syn. pas mal).
+//   4 kept (OQLF: subjunctive after a negated declarative verb). 8 kept:
+//   every such card says « correct, mais » in its why; trapDrill cards are
+//   now form errors only, except act 10's, whose rule says they are correct.
+//   Hélène and Karim say vous to each other in acts 7 and 8.
 
 import type {
   Lesson, LessonSection, LessonAct, LessonDrill, SectionAudio, ReferenceSheet,
@@ -496,9 +503,9 @@ const A2_ECOUTE: Sec<'listening'> = {
     ln(E(1021)), ln(E(1022)), ln(E(1023)), ln(E(1024)), ln(E(1025)),
   ],
   questions: [
-    { q: 'De quoi Hélène doute-t-elle en annonçant l’ouverture ?', opts: ['de la date', 'du lieu', 'du thème'], correct: 0, why: 'Elle ajoute « si je ne m’abuse » juste après la date : c’est un souvenir à vérifier. EN: the date.' },
+    { q: 'En annonçant l’ouverture, de quoi la personne doute-t-elle ?', opts: ['de la date', 'du lieu', 'du thème'], correct: 0, why: 'La personne ajoute « si je ne m’abuse » juste après la date : c’est un souvenir à vérifier. EN: the date.' },
     { q: 'L’incise sur le vendredi exprime...', opts: ['un avis', 'un fait certain'], correct: 0, why: '« Me semble-t-il » présente une opinion comme une impression. EN: an opinion.' },
-    { q: 'Les écoles ont-elles déjà réservé ?', opts: ['Pas à la connaissance de la personne qui parle.', 'Oui, toutes.'], correct: 0, why: '« À ma connaissance, aucune » : elle limite son affirmation à ce qu’elle sait. EN: not as far as she knows.' },
+    { q: 'Les écoles ont-elles déjà réservé ?', opts: ['Pas à la connaissance de la personne qui parle.', 'Oui, toutes.'], correct: 0, why: '« À ma connaissance, aucune » : la personne limite son affirmation à ce qu’elle sait. EN: not as far as the speaker knows.' },
     { q: 'Que propose-t-on pour le vendredi ?', opts: ['de le garder pour le vernissage', 'de fermer ce jour-là', 'de l’ouvrir aux écoles'], correct: 0, why: 'Le vernissage le vendredi, les classes dès le lundi suivant. EN: the opening night.' },
     { q: 'Combien d’incises par phrase, en général ?', opts: ['une, là où est le doute', 'deux ou trois'], correct: 0, why: 'Chaque incise porte sur un seul point. EN: one, where the doubt is.' },
   ],
@@ -512,7 +519,7 @@ const A2_CARTES: Sec<'cardDeck'> = {
   audio: AUDIO, say: REFRAME, terms: ['incise'],
   cards: [
     card(E(1012), 'Un avis, adouci', 'me semble-t-il',
-      `Après le verbe ou en fin de phrase, jamais en tête. ${Cap(CRITIQUE_REF)} t’a montré « semble-t-il » à l’écrit ; ici, c’est ton propre avis. EN: your opinion as an impression.`),
+      `Après le sujet, après le verbe ou en fin de phrase, jamais en tête. ${Cap(CRITIQUE_REF)} t’a montré « semble-t-il » à l’écrit ; ici, c’est ton propre avis. EN: your opinion as an impression.`),
     card(E(1013), 'Un souvenir, soutenu', 'si je ne m’abuse',
       'Pour une date, un nom, un chiffre dont tu crois te souvenir. Le ne seul, sans pas : c’est la tournure figée. EN: a fact you believe you remember.'),
     card(E(1014), 'Le même, en courant', 'si je ne me trompe',
@@ -577,7 +584,7 @@ const A2_ATOI = aToi('a2-atoi', 'Une incise, au bon endroit', [
 const A2_CHECK = actCheck('a2-check', 'Le point : acte 2', [
   ctl('Le souvenir', 'Pour une date dont tu crois te souvenir, en soutenu :', ['si je ne m’abuse', 'me semble-t-il'], 0,
     'Si je ne m’abuse : un fait que tu crois connaître. EN: a remembered fact.'),
-  ctl('La place', 'Me semble-t-il se place...', ['en tête de phrase', 'après le verbe ou en fin de phrase'], 1,
+  ctl('La place', 'Me semble-t-il se place...', ['en tête de phrase', 'dans la phrase ou à la fin'], 1,
     'Une incise inversée ne commence pas la phrase. EN: never first.'),
   ctl('La dose', 'Combien d’incises pour un seul doute ?', ['une', 'trois', 'autant que possible'], 0,
     'Une incise par doute. EN: one.'),
@@ -672,7 +679,7 @@ const A3_PIEGE: Sec<'trapDrill'> = {
   title: 'Six paris mal construits',
   rule: {
     title: 'Le pari garde l’indicatif',
-    body: 'Fort à parier, permis de penser, tout porte à croire : une probabilité, donc l’indicatif. Ces tournures sont figées, comme ma main au feu. Et rien n’indique se suffit : jamais de pas. EN: probability takes the indicative; the formulas are fixed.',
+    body: 'Fort à parier, permis de penser : une probabilité ou une opinion, donc l’indicatif. Ces tournures sont figées, comme ma main au feu. Et rien n’indique se suffit : jamais de pas. EN: probability takes the indicative; the formulas are fixed.',
   },
   cards: [
     trap('le subjonctif', 'Il y a fort à parier que nous dépassions ce chiffre.', E(1035), 'Un pari n’est pas un doute : nous dépasserons. EN: indicative, not subjunctive.'),
@@ -680,14 +687,14 @@ const A3_PIEGE: Sec<'trapDrill'> = {
     trap('permis à', 'Il est permis à penser que le thème attirera des familles.', E(1036), 'Il est permis de + infinitif. EN: permis de.'),
     trap('dans le feu', 'Je ne mettrais pas ma main dans le feu sur le chiffre exact.', E(1038), 'L’expression est figée : mettre sa main au feu. EN: au feu.'),
     trap('rien... pas', 'Pour l’instant, rien n’indique pas que les travaux bloquent l’entrée du public.', E(1037), 'Rien porte déjà la négation : rien n’indique, sans pas. EN: no pas with rien.'),
-    trap('croire + subjonctif', 'D’ici là, tout porte à croire que la salle principale suffise.', E(1042), 'Tout porte à croire présente un fait probable : suffira. EN: indicative.'),
+    trap('permis que', 'Il est permis que le thème attirera des familles.', E(1036), 'Il est permis que parle d’une autorisation. Pour une opinion raisonnable : il est permis de penser que. EN: de penser que.'),
   ],
   drill: [
     { promptSay: 'Il y a fort à parier qu’il ... demain.', opts: ['pleuvra', 'pleuve'], correct: 0 },
     { promptSay: 'Il est ... de penser que le projet plaira.', opts: ['permis', 'possible à'], correct: 0 },
     { promptSay: 'Il est permis de penser que le thème ... des familles.', opts: ['attirera', 'attire-t-il'], correct: 0 },
     { promptSay: 'Je n’en mettrais pas ma main ... .', opts: ['au feu', 'dans le feu'], correct: 0 },
-    { promptSay: 'Tout porte à croire que nous ... à temps.', opts: ['finirons', 'finissions'], correct: 0 },
+    { promptSay: 'Il est permis de penser que nous ... à temps.', opts: ['finirons', 'finissions'], correct: 0 },
     { promptSay: 'Il y a fort ... parier que les écoles réserveront.', opts: ['à', 'de'], correct: 0 },
     { promptSay: 'Rien ... que les travaux bloquent l’entrée.', opts: ['n’indique', 'n’indique pas'], correct: 0 },
     { promptSay: 'Le festival ? Je ne ... pas là-dessus.', opts: ['parierais', 'parierait'], correct: 0 },
@@ -758,8 +765,8 @@ const A4_ECOUTE: Sec<'listening'> = {
   questions: [
     { q: 'Que pense l’employée du livreur, au début ?', opts: ['Il s’est sans doute trompé d’entrée.', 'Il a refusé de livrer.', 'Il est en vacances.'], correct: 0, why: '« Il a dû se tromper d’entrée » : une supposition sur le passé. EN: a guess.' },
     { q: '« Il doit être devant l’entrée nord » : c’est...', opts: ['une supposition', 'un ordre'], correct: 0, why: 'Elle ne lui ordonne rien : elle suppose où il se trouve. EN: a guess, not an order.' },
-    { q: 'Comment l’employée parle-t-elle de l’adresse de Lyon ?', opts: ['Elle accuse un malentendu, pas une personne.', 'Elle dit que le client a menti.'], correct: 0, why: '« Il doit y avoir un malentendu » : personne n’est accusé. EN: a misunderstanding, not a culprit.' },
-    { q: 'Qui avait tort sur le paiement du transport ?', opts: ['l’employée', 'l’Institut'], correct: 0, why: 'Elle reconnaît qu’elle regardait sans doute l’ancien dossier. EN: she did.' },
+    { q: 'Comment l’Institut répond-il à l’histoire de l’adresse de Lyon ?', opts: ['Il accuse un malentendu, pas une personne.', 'Il dit que l’employée a menti.'], correct: 0, why: '« Il doit y avoir un malentendu » : personne n’est accusé. EN: a misunderstanding, not a culprit.' },
+    { q: 'Qui avait tort sur le paiement du transport ?', opts: ['l’employée', 'l’Institut'], correct: 0, why: 'Elle disait le transport impayé, puis reconnaît qu’elle devait avoir l’ancien dossier sous les yeux. EN: she did.' },
     { q: 'Quand le camion est-il arrivé ?', opts: ['après midi', 'à neuf heures', 'le lendemain'], correct: 0, why: '« Il était midi passé » : plus tard que prévu. EN: after noon.' },
   ],
   audio: REC('rec-c1-06-livraison-ecoute'), say: REFRAME, terms: ['hypothese'],
@@ -924,15 +931,15 @@ const A5_PIEGE: Sec<'trapDrill'> = {
   title: 'Six à-peu-près ratés',
   rule: {
     title: 'Approcher ou restreindre, sans se tromper de formule',
-    body: 'En quelque sorte et pour ainsi dire approchent : le mot est une image. À proprement parler restreint : au sens strict. Un tant soit peu veut dire très peu. Les formes sont figées : parler, dire, soit. EN: approximate or restrict; fixed forms.',
+    body: 'En quelque sorte et pour ainsi dire approchent : le mot est une image. À proprement parler restreint : au sens strict. Un tant soit peu veut dire très peu. Les formes sont figées : parler, dire, tant, soit, quelque. EN: approximate or restrict; fixed forms.',
   },
   cards: [
     trap('proprement dit', 'Ce n’est pas, à proprement dit, une carte : les rivières ne sont pas à l’échelle.', E(1062), 'La formule est à proprement parler. EN: parler, not dit.'),
     trap('parlé', 'Ce n’est pas une vidéo à proprement parlé, plutôt une respiration.', E(1065), 'Un infinitif : parler. Le participe parlé n’a rien à faire ici. EN: infinitive.'),
     trap('ainsi parler', 'La bande bleue est, pour ainsi parler, le personnage principal.', E(1063), 'La formule est pour ainsi dire. EN: dire, not parler.'),
     trap('soi', 'Si le passant s’intéresse un tant soi peu à son quartier, il cherchera sa rue.', E(1064), 'Soit, du verbe être au subjonctif : un tant soit peu. EN: soit.'),
-    trap('beaucoup', 'Est-ce qu’il te reste un tant soit peu de temps ? Il me faut trois semaines.', E(1066), 'Un tant soit peu, c’est un minimum, pas trois semaines. EN: a minimum, not a lot.'),
-    trap('le sens strict', 'L’affiche est, à proprement parler, une coupe de la ville.', E(1061), 'Coupe est une image : en quelque sorte, pas à proprement parler. EN: approximation, not strict sense.'),
+    trap('un temps', 'Est-ce qu’il te reste un temps soit peu de temps cette semaine ?', E(1066), 'Tant, pas temps : un tant soit peu. Les deux mots se prononcent pareil. EN: tant, not temps.'),
+    trap('quelle sorte', 'L’affiche est, en quelle sorte, une coupe de la ville.', E(1061), 'La formule est figée : en quelque sorte, avec quelque. EN: quelque, not quelle.'),
   ],
   drill: [
     { promptSay: 'Ce n’est pas, à proprement ..., un musée.', opts: ['parler', 'dit'], correct: 0 },
@@ -1053,7 +1060,7 @@ const A6_PIEGE: Sec<'trapDrill'> = {
   title: 'Six demandes qui déraillent',
   rule: {
     title: 'Savoir gré, être amené à, être en mesure de',
-    body: 'On sait gré à quelqu’un de quelque chose : je vous saurais gré de. Saurais et serais sonnent presque pareil. On est amené à faire, en mesure de faire. Après il se pourrait que, le subjonctif. EN: savoir gré de; amené à; en mesure de.',
+    body: 'On sait gré à quelqu’un de quelque chose : je vous saurais gré de. Saurais et serais sonnent presque pareil. On est amené à faire, en mesure de faire (jamais à mesure de). EN: savoir gré de; amené à; en mesure de.',
   },
   cards: [
     trap('serais gré', 'Je vous serais gré de bien vouloir me confirmer cette date.', E(1073), 'Savoir gré : je vous saurais gré. Être gré n’existe pas. EN: saurais.'),
@@ -1061,13 +1068,13 @@ const A6_PIEGE: Sec<'trapDrill'> = {
     trap('gré à', 'Je vous saurais gré à me confirmer cette date.', E(1073), 'Savoir gré de + infinitif. EN: de.'),
     trap('amenés de', 'Pour des raisons de sécurité, nous serons amenés d’exposer les maquettes sous vitrine.', E(1075), 'Être amené à + infinitif. EN: à.'),
     trap('en mesure à', 'Seriez-vous en mesure à nous transmettre ces chiffres d’ici la fin du mois ?', E(1074), 'Être en mesure de + infinitif. EN: de.'),
-    trap('l’indicatif', 'Il se pourrait que nous sommes amenés à prolonger l’exposition.', E(1076), 'Il se pourrait que + subjonctif : soyons. EN: subjunctive.'),
+    trap('à mesure', 'Seriez-vous à mesure de nous transmettre ces chiffres d’ici la fin du mois ?', E(1074), 'En mesure de : capable de. À mesure que dit une progression. EN: en mesure de.'),
   ],
   drill: [
     { promptSay: 'Je vous ... gré de me répondre avant lundi.', opts: ['saurais', 'serais'], correct: 0 },
     { promptSay: 'Nous serons amenés ... fermer la salle à dix-sept heures.', opts: ['à', 'de'], correct: 0 },
     { promptSay: 'Seriez-vous en mesure ... nous rappeler ?', opts: ['de', 'à'], correct: 0 },
-    { promptSay: 'Il se pourrait que nous ... amenés à partir plus tôt.', opts: ['soyons', 'sommes'], correct: 0 },
+    { promptSay: 'Nous ne sommes pas ... mesure de livrer avant lundi.', opts: ['en', 'à'], correct: 0 },
     { promptSay: 'Je vous saurais gré ... bien vouloir signer ce formulaire.', opts: ['de', 'à', 'pour'], correct: 0 },
     { promptSay: 'À ta colocataire : ... ranger ta vaisselle ?', opts: ['Tu pourrais', 'Je vous saurais gré de'], correct: 0 },
     { promptSay: 'Au partenaire : ... me confirmer la date ?', opts: ['Seriez-vous en mesure de', 'Tu peux'], correct: 0 },
@@ -1131,8 +1138,8 @@ const A7_ECOUTE: Sec<'listening'> = {
   ],
   questions: [
     { q: 'Karim remet-il en cause tout le calendrier ?', opts: ['Non, seulement le choix du vendredi.', 'Oui, tout.'], correct: 0, why: '« Loin de moi l’idée de remettre en cause tout le calendrier » écarte cette intention, puis vient le vrai point. EN: only the Friday.' },
-    { q: 'Sur quoi s’appuie-t-il pour contredire Hélène ?', opts: ['les chiffres de l’an dernier', 'son goût personnel', 'l’avis de Sophie'], correct: 0, why: 'Sans vouloir vous contredire, il avance des chiffres. EN: last year’s figures.' },
-    { q: 'Quand Hélène dit « avec tout le respect que je vous dois », que fait-elle ?', opts: ['Elle annonce un désaccord ferme.', 'Elle lui donne raison.'], correct: 0, why: 'La formule prépare une objection : ces chiffres concernaient une autre exposition. EN: a firm disagreement.' },
+    { q: 'Sur quoi Hélène s’appuie-t-elle pour défendre le vendredi ?', opts: ['les chiffres de l’an dernier', 'son goût personnel', 'l’avis de Sophie'], correct: 0, why: 'Sans vouloir vous contredire, elle avance des chiffres. EN: last year’s figures.' },
+    { q: 'Quand Karim répond « avec tout le respect que je vous dois », que fait-il ?', opts: ['Il annonce un désaccord ferme.', 'Il lui donne raison.'], correct: 0, why: 'La formule prépare une objection : ces chiffres concernaient une autre exposition. EN: a firm disagreement.' },
     { q: 'Sur quoi les deux finissent-ils par s’accorder ?', opts: ['le public des familles', 'la date', 'le budget'], correct: 0, why: 'Je vous rejoins sur le public ; je ne vous suis pas sur la date. EN: the audience.' },
     { q: 'Comment la discussion se termine-t-elle ?', opts: ['par une proposition qui partage les deux soirs', 'par un vote', 'sans solution'], correct: 0, why: 'Le vendredi pour les partenaires, le samedi pour le public. EN: a shared proposal.' },
   ],
@@ -1282,7 +1289,7 @@ const ACT7: ActDef = {
   act: {
     id: 'act7', title: 'Contredire avec égards',
     opener: {
-      line: 'Ta directrice a choisi le vendredi, et les chiffres disent autre chose : ici tu contredis avec égards, une formule, puis l’argument. EN: Your director chose the Friday and the figures say otherwise: here you contradict with regard, one formula, then the argument.',
+      line: 'Ta directrice a choisi le vendredi, et Karim n’est pas d’accord : ici tu contredis avec égards, une formule, puis l’argument. EN: Your director chose the Friday and Karim disagrees: here you contradict with regard, one formula, then the argument.',
       imageRef: 'lessons/nuancer-oral/act07.jpg',
     },
     sections: [],
@@ -1308,7 +1315,7 @@ const A8_LECTURE: Sec<'reading'> = {
     { word: 'ralentit', en: 'slows down', note: 'Du verbe ralentir : le paragraphe freine l’entrée dans le sujet.' },
   ],
   questions: [
-    { q: 'Devine le sens, sans dictionnaire : « choisis la question qui te ressemble ». Que veut dire Hélène ?', a: 'Celle qui correspond à ta façon de penser et d’écrire : c’est à toi de décider.' },
+    { q: 'Devine le sens, sans dictionnaire : « choisissez la question qui vous ressemble ». Que veut dire Hélène ?', a: 'Celle qui correspond à la façon de penser et d’écrire de Karim : c’est à lui de décider.' },
     { q: 'Par quoi Hélène commence-t-elle ?', a: 'Par ce qui marche : l’ouverture sur le ruisseau de l’enfance de Karim.' },
     { q: 'Combien de critiques fait-elle, et comment les présente-t-elle ?', a: 'Deux : la longueur (ce qui me gêne un peu, je me demande si) et la fin (me semble-t-il, gagnerait à).' },
     { q: 'Quel point n’est pas nuancé, et pourquoi ?', a: 'La date fausse : c’est un fait, pas une opinion. « Celui-là n’est pas négociable. »' },
@@ -1550,7 +1557,7 @@ const A9_ATOI = aToi('a9-atoi', 'Dire moins, au bon moment', [
     ['Ce n’est pas mauvais du tout, ton texte.', 'Ton texte n’est pas terrible.'], 0,
     'Pas mauvais du tout, c’est bon ; pas terrible, c’est médiocre. EN: positive litote.'),
   ctl('Un reproche adouci', 'La réunion a duré trois heures ; tu le dis à un collègue, sans t’emporter :',
-    ['La réunion était, disons, un peu longue.', 'La réunion était un tant soit peu longue.', 'La réunion n’était pas courte du tout, du tout.'], 0,
+    ['La réunion était, disons, un peu longue.', 'La réunion était un tant soit peu longue.', 'La réunion était interminable, franchement.'], 0,
     'La retenue : disons, un peu. EN: understatement.'),
   ctl('Une invitation', 'On te propose de refaire une soirée ; tu es plutôt partant, sans t’engager :',
     ['Je ne dis pas non.', 'Je dis non.'], 0,
@@ -1874,7 +1881,7 @@ const ACT11: ActDef = {
   act: {
     id: 'act11', title: 'Entendre la nuance',
     opener: {
-      line: 'Lyon rappelle : un oui, et beaucoup de peut-être : ici tu entends ce que les nuances des autres veulent dire, et tu leur demandes une date. EN: Lyon calls back: one yes and many maybes: here you hear what other people’s hedges mean, and ask them for a date.',
+      line: 'Lyon rappelle avec un oui et beaucoup de peut-être : ici tu entends ce que les nuances des autres veulent dire, et tu leur demandes une date. EN: Lyon calls back: one yes and many maybes: here you hear what other people’s hedges mean, and ask them for a date.',
       imageRef: 'lessons/nuancer-oral/act11.jpg',
     },
     sections: [],
@@ -1903,7 +1910,7 @@ const A12_MODELE: Sec<'reading'> = {
   questions: [
     { q: 'Devine le sens, sans dictionnaire : « quitte à garder la version longue pour notre site ». Que propose la personne ?', a: 'Couper dans le catalogue, même si cela veut dire mettre la version longue ailleurs, sur le site.' },
     { q: 'Quelles critiques sont nuancées, et comment ?', a: 'La longueur (il me semble que, gagnerait à) et le vocabulaire (me semble-t-il), chacune avec une suggestion.' },
-    { q: 'Quel point n’est pas nuancé, et pourquoi ?', a: 'La date du transport : elle ne dépend pas de l’Institut, c’est la douane qui l’impose.' },
+    { q: 'Quel point n’est pas nuancé, et pourquoi ?', a: 'La date du transport : elle ne dépend pas de l’Institut, c’est une contrainte, pas un avis.' },
     { q: 'Comment la personne explique-t-elle l’erreur de date sans accuser ?', a: 'Avec devoir et un pari : la date doit venir d’un ancien calendrier ; il y a fort à parier que le courriel n’est pas arrivé.' },
     { q: 'Comment le message se termine-t-il ?', a: 'Par une demande précise avec une date (je vous saurais gré de... d’ici la fin de la semaine), une porte ouverte et un remerciement.' },
   ],
@@ -2090,7 +2097,7 @@ const A12_MISSION: Sec<'task'> = {
     'Si vous le souhaitez, nous pouvons en parler...',
   ],
   modelAnswer: TASK_MODEL,
-  modelAnswerEn: 'Hello Hélène, it is me, about your message on the opening night. Thank you for consulting us. I really like the programme, and the idea of a free visit after the speech is excellent: the guests will see the exhibition at their own pace.\nI have one firm point and two suggestions. The firm point first: the capacity of the hall is not up for discussion: one hundred and eighty people, under the safety rules. The figure of two hundred and fifty must come from the old hall. So we would need to shorten the list, or open the small hall at the same time, with a screen for the speech; a second session at eight would also be possible. I can prepare both options for you for Monday.\nFirst suggestion, about the schools. Three classes have already booked the Saturday morning. I wonder whether we would not be better off keeping the school visit, even if we shorten it. Cancelling now might, it seems to me, upset teachers who come every year. A one-hour visit at eleven would leave the afternoon free for the team; Karim has agreed to come with me.\nSecond suggestion, a more modest one: the speech. Twenty minutes standing is a little long, let us say. Ten minutes would probably be enough, and the visit would start earlier. As for the buffet, the odds are that with fewer guests the current budget will be enough; so I would not double the amount just yet.\nFinally, a request: I would be grateful if you could sign the insurance form for the models before Thursday; I will leave it on your desk this evening.\nIf you like, we can talk about it tomorrow morning. Have a good evening, Hélène.',
+  modelAnswerEn: 'Hello Hélène, it is me, about your message on the opening night. Thank you for consulting us. I really like the programme, and the idea of a free visit after the speech is excellent: the guests will see the exhibition at their own pace.\nI have one firm point and two suggestions. The firm point first. The capacity of the hall is not up for discussion: one hundred and eighty people, under the safety rules. The figure of two hundred and fifty must come from the old hall. So we would need to shorten the list, or open the small hall at the same time, with a screen for the speech; a second session at eight would also be possible. I can prepare both options for you for Monday.\nFirst suggestion, about the schools. Three classes have already booked the Saturday morning. I wonder whether we would not be better off keeping the school visit, even if we shorten it. Cancelling now might, it seems to me, upset teachers who come every year. A one-hour visit at eleven would leave the afternoon free for the team, and I can take care of it.\nSecond suggestion, a more modest one: the speech. Twenty minutes standing is a little long, let us say. Ten minutes would probably be enough, and the visit would start earlier. As for the buffet, the odds are that with fewer guests the current budget will be enough; so I would not double the amount just yet.\nFinally, a request: I would be grateful if you could sign the insurance form for the models before Thursday; I will leave it on your desk this evening.\nIf you like, we can talk about it tomorrow morning. Have a good evening, Hélène.',
   watchFor: [
     {
       pattern: 'The capacity limit hedged (il me semble que la salle serait peut-être limitée...), or presented as an opinion.',
@@ -2270,9 +2277,9 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('Le plus sûr des trois :', ['J’en mettrais ma main au feu.', 'Il est permis de penser que oui.', 'Rien n’indique que ce soit le cas.'], 0, 'La main au feu : presque certain, en familier. EN: near certainty.', 'a3-tableau'),
         mc('Aucun indice ne montre que la salle sera trop petite. Tu dis :', ['Rien n’indique que la salle soit trop petite.', 'Il y a fort à parier que la salle est trop petite.'], 0, 'Rien n’indique : aucun indice. EN: no evidence.', 'a3-construire'),
         tI('Complète au futur : Il y a fort à parier que nous (dépasser) ce chiffre.', fr(E(1035)), 'Fort à parier + indicatif, ici le futur. EN: future indicative.', 'a3-piege',
-          ['Il y a fort à parier que nous allons dépasser ce chiffre.', 'dépasserons']),
+          ['Il y a fort à parier que nous allons dépasser ce chiffre.', 'dépasserons', 'nous dépasserons', 'allons dépasser']),
         tI('Complète au futur : Il est permis de penser que le thème (attirer) des familles.', fr(E(1036)), 'Il est permis de penser que + indicatif. EN: indicative.', 'a3-tableau',
-          ['Il est permis de penser que le thème va attirer des familles.', 'attirera']),
+          ['Il est permis de penser que le thème va attirer des familles.', 'attirera', 'va attirer']),
         eS('Il y a fort à parier qu’il pleuve le jour de l’ouverture.', 'Il y a fort à parier qu’il pleuvra le jour de l’ouverture.', 'Le pari est une probabilité : indicatif. EN: pleuvra.', 'a3-piege',
           ['Il y a fort à parier qu’il va pleuvoir le jour de l’ouverture.']),
         eS('Pour l’instant, rien n’indique pas que les travaux bloquent l’entrée du public.', fr(E(1037)), 'Rien porte déjà la négation : pas de pas. EN: no pas.', 'a3-piege'),
@@ -2286,9 +2293,9 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('Pour contredire un fournisseur sans l’accuser :', ['Il doit y avoir un malentendu sur l’adresse.', 'Vous vous trompez d’adresse.', 'C’est votre faute.'], 0, 'Le malentendu laisse une porte de sortie. EN: blame the misunderstanding.', 'a4-erreurs'),
         mc('Sa veste n’est plus sur la chaise. Une supposition sur une action passée :', ['Il a dû partir.', 'Il devra partir.', 'Il partira.'], 0, 'Il a dû : une supposition sur le passé, déjà vue au B1. EN: he must have left.', 'a4-trier'),
         tI('Avec devoir, au présent : Il est sans doute devant l’entrée nord, celle des bureaux.', fr(E(1047)), 'Devoir au présent pour une supposition sur maintenant. EN: present devoir.', 'a4-cartes',
-          ['Il doit se trouver devant l’entrée nord, celle des bureaux.']),
+          ['Il doit se trouver devant l’entrée nord, celle des bureaux.', 'doit être', 'il doit être']),
         tI('Avec devoir : C’est sans doute lui, le camion blanc sur le trottoir.', fr(E(1048)), 'Ça doit être lui. EN: that must be him.', 'a4-trier',
-          ['Ce doit être lui, le camion blanc sur le trottoir.']),
+          ['Ce doit être lui, le camion blanc sur le trottoir.', 'doit être', 'ça doit être lui', 'ce doit être lui']),
         eS('En ce moment, il a dû être en réunion : il ne répond jamais avant onze heures.', 'En ce moment, il doit être en réunion : il ne répond jamais avant onze heures.', 'En ce moment : une supposition sur maintenant, donc le présent. EN: present.', 'a4-erreurs',
           [fr(E(1054)), 'En ce moment, il doit se trouver en réunion : il ne répond jamais avant onze heures.']),
         eS('Ça doit lui, le camion blanc sur le trottoir.', fr(E(1048)), 'Devoir veut un infinitif : être. EN: être.', 'a4-erreurs',
@@ -2371,7 +2378,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('La meilleure première phrase d’un message vocal :', ['Je vous appelle au sujet des affiches livrées ce matin.', 'Je ne voudrais pas vous déranger, c’est peut-être moi, mais…'], 0, 'L’objet d’abord. EN: the purpose first.', 'a10-piege'),
         mc('Que risque un message trop enrobé ?', ['qu’on n’entende plus la demande', 'qu’on le trouve trop direct'], 0, 'Les précautions noient l’information. EN: the request disappears.', 'a10-lecture'),
         tI('Complète (au passé) : Il doit y avoir ___ un souci de réglage, et ce sont des choses qui arrivent.', fr(E(1125)), 'Il doit y avoir eu : une supposition sur le passé. EN: eu.', 'a10-lecture', ['eu']),
-        tI('Complète avec une date nette : En revanche, l’exposition ouvre le douze : nous aurions besoin d’un nouveau tirage ___ le huit.', fr(E(1126)), 'Avant le huit : une date, pas un si jamais. EN: avant.', 'a10-tableau', ['avant']),
+        tI('Complète avec une date nette : En revanche, l’exposition ouvre le douze : nous aurions besoin d’un nouveau tirage ___ le huit.', fr(E(1126)), 'Avant le huit : une date, pas un si jamais. Pour le huit et d’ici le huit disent aussi une date nette. EN: avant.', 'a10-tableau', ['avant', 'pour', 'd’ici', 'En revanche, l’exposition ouvre le douze : nous aurions besoin d’un nouveau tirage pour le huit.', 'En revanche, l’exposition ouvre le douze : nous aurions besoin d’un nouveau tirage d’ici le huit.']),
         eS('Le bleu est nettement plus foncé que sur l’épreuve que nous avions validé.', fr(E(1124)), 'Le participe s’accorde avec épreuve, placé avant : validée. EN: agreement.', 'a10-lecture'),
         lC('Écoute. Cette phrase est...', fr(E(1129)), ['une règle : les faits ne se nuancent pas', 'une excuse'], 0, 'Un fait, une date, une limite se disent nettement. EN: facts are not hedged.', 'a10-tableau'),
       ],
@@ -2385,7 +2392,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('« Nous en reparlerons » veut dire...', ['rien n’est réglé', 'c’est accepté'], 0, 'Remettre à plus tard n’est pas accepter. EN: not settled.', 'a11-erreurs'),
         tI('Complète (falloir, au conditionnel) : Il ___ voir avec notre conservatrice ; je vais y réfléchir.', fr(E(1139)), 'Il faudrait voir : rien n’est promis. EN: faudrait.', 'a11-exemples', ['faudrait']),
         tI('Complète : Si je vous ___ bien, les vitrines posent un problème à votre conservatrice ?', fr(E(1146)), 'Reformuler pour vérifier. Si je vous suis bien est aussi juste. EN: comprends.', 'a11-scenario',
-          ['comprends', 'suis', 'Si je vous suis bien, les vitrines posent un problème à votre conservatrice ?']),
+          ['comprends', 'suis', 'entends', 'Si je vous suis bien, les vitrines posent un problème à votre conservatrice ?', 'Si je vous entends bien, les vitrines posent un problème à votre conservatrice ?']),
         eS('Une prolongation de deux semaines, ce n’est pas exclue, mais pas avant l’été.', fr(E(1140)), 'Ce est neutre : exclu, sans e. EN: exclu.', 'a11-decoder'),
         lC('Écoute. Cette réponse est...', fr(E(1137)), ['un oui net', 'un refus poli'], 0, 'C’est entendu, aucun problème. EN: a clear yes.', 'a11-ecoute'),
       ],
@@ -2470,9 +2477,9 @@ const table = (id: string, title: string, cols: string[], rows: string[][]): Les
 const SHEET_LIST: ReferenceSheet[] = [
   sheet('sheet-incises', 'Incises et mots approximatifs', ['les incises', 'leur place', 'l’à-peu-près'], [
     teach('sheet-incises-teach', 'Une parenthèse, au bon endroit',
-      'Une incise adoucit le mot qu’elle touche. Me semble-t-il présente un avis comme une impression ; si je ne m’abuse (soutenu) et si je ne me trompe (courant) signalent un fait dont tu crois te souvenir ; à ma connaissance limite ton affirmation à ce que tu sais. L’incise inversée se place après le verbe ou en fin de phrase, jamais en tête, et une seule suffit par doute. Les formules d’approximation (en quelque sorte, pour ainsi dire, à proprement parler) préviennent que le mot est une image ou ne convient pas tout à fait : elles rendent la phrase plus précise. EN: One aside, next to the doubt; approximation formulas make you more precise.'),
+      'Une incise adoucit le mot qu’elle touche. Me semble-t-il présente un avis comme une impression ; si je ne m’abuse (soutenu) et si je ne me trompe (courant) signalent un fait dont tu crois te souvenir ; à ma connaissance limite ton affirmation à ce que tu sais. L’incise inversée se place dans la phrase (après le sujet ou le verbe) ou à la fin, jamais en tête, et une seule suffit par doute. Les formules d’approximation (en quelque sorte, pour ainsi dire, à proprement parler) préviennent que le mot est une image ou ne convient pas tout à fait : elles rendent la phrase plus précise. EN: One aside, next to the doubt; approximation formulas make you more precise.'),
     table('sheet-incises-table', 'Les formules', ['Formule', 'Porte sur', 'Registre, place'], [
-      ['me semble-t-il', 'un avis', 'soutenu ; après le verbe ou en fin de phrase'],
+      ['me semble-t-il', 'un avis', 'soutenu ; dans la phrase ou à la fin'],
       ['si je ne m’abuse', 'un fait dont tu te souviens', 'soutenu ; ne seul, sans pas'],
       ['si je ne me trompe', 'un fait dont tu te souviens', 'courant'],
       ['à ma connaissance', 'ce que tu sais', 'courant ; pour un fait, pas un goût'],
@@ -2514,7 +2521,7 @@ const SHEET_LIST: ReferenceSheet[] = [
   ]),
   sheet('sheet-critique', 'Critiquer, et dire moins', ['la critique en quatre temps', 'la litote', 'Québec et France'], [
     teach('sheet-critique-teach', 'Une critique qui se fait entendre',
-      'Ce qui marche d’abord, sincèrement. Puis un point précis, pris à ton compte : ce qui me gêne un peu, c’est... Puis une suggestion au conditionnel : je me demande si on ne gagnerait pas à... Enfin, une porte laissée à l’autre : c’est ton texte. L’erreur de fait se dit sans détour. La litote nie le contraire (ce n’est pas mauvais du tout = c’est bon) ; la retenue minimise (un peu long = parfois beaucoup trop long). Au Québec, c’est pas pire est un compliment ; pas terrible veut dire médiocre en France comme au Québec. EN: Four steps for a criticism; litote and understatement, with their regional codes.'),
+      'Ce qui marche d’abord, sincèrement. Puis un point précis, pris à ton compte : ce qui me gêne un peu, c’est... Puis une suggestion au conditionnel : je me demande si on ne gagnerait pas à... Enfin, une porte laissée à l’autre : c’est ton texte. L’erreur de fait se dit sans détour. La litote nie le contraire (ce n’est pas mauvais du tout = c’est bon) ; la retenue minimise (un peu long = parfois beaucoup trop long). Au Québec, c’est pas pire veut dire pas mal, assez bien : le plus souvent un compliment ; pas terrible veut dire médiocre en France comme au Québec. EN: Four steps for a criticism; litote and understatement, with their regional codes.'),
     table('sheet-critique-table', 'Formules et sens', ['Formule', 'Ce qu’elle fait', 'Ce qu’on entend'], [
       ['ce qui me gêne un peu, c’est', 'un point précis', 'une critique assumée'],
       ['je me demande si', 'une suggestion', 'je te conseille de'],
@@ -2613,14 +2620,14 @@ const REC_DESC: Record<string, string> = {
   'rec-c1-06-calendrier-ecoute': 'REQUIRED FOR THE EAR MISSION (act 2): ten lines, ONE TAKE, in authored order, a small team meeting. TWO VOICES alternating: Hélène (a Montréal woman in her fifties, Québec French, measured) and Karim (Québec French). Every aside (si je ne m’abuse, me semble-t-il, si je ne me trompe, à ma connaissance) is said on a slightly lower, quicker pitch, as asides are in speech. Natural C1 speed.',
     'rec-c1-06-prevision': 'Karim’s forecast (act 3), ONE VOICE, one take, Karim (Québec French) speaking at a team meeting, not reading: careful, confident on the bet, openly unsure on the festival. The title line is read neutrally as a caption.',
   'rec-c1-06-piege-pari': 'The audio step plays each card’s CORRECT sentence. Read the six plainly and identically in pace; the wrong versions in promptSound are never spoken. « dépasserons », « suffira » are clearly future.',
-  'rec-c1-06-livraison-ecoute': 'REQUIRED FOR THE EAR MISSION (act 4): ten lines, ONE TAKE, in authored order, a phone call. TWO VOICES: the Institute speaker (Québec French, calm, firm) and the logistics employee (France French, friendly, a little flustered), phone-line feel on the employee. Lines 1, 2, 6, 8 and 10 are the Institute speaker; 3, 4, 5, 7 and 9 the employee. « Il doit y avoir un malentendu » and « vous devez faire erreur » are said without irritation.',
+  'rec-c1-06-livraison-ecoute': 'REQUIRED FOR THE EAR MISSION (act 4): ten lines, ONE TAKE, in authored order, a phone call. TWO VOICES: the Institute speaker (Québec French, calm, firm) and the logistics employee (France French, friendly, a little flustered), phone-line feel on the employee. Lines 1, 2, 5, 7, 8 and 10 are the Institute speaker (line 5 looking out of the window; line 10 a short closing remark); 3, 4, 6 and 9 the employee. « Il doit y avoir un malentendu » and « vous devez faire erreur » are said without irritation.',
 
   'rec-c1-06-affiche': 'Sophie’s rehearsal (act 5), ONE VOICE, one take, a Montréal woman in her late twenties (Québec French), rehearsing aloud: engaged, thinking as she speaks. Each approximation formula (en quelque sorte, à proprement parler, pour ainsi dire) is said lightly, as a speaker qualifies a word, never stressed.',
   'rec-c1-06-piege-apeupres': 'The audio step plays each card’s CORRECT sentence. Read the six plainly and identically in pace; the wrong versions in promptSound are never spoken.',
   'rec-c1-06-appel': 'Hélène’s voice message to Lyon (act 6), ONE VOICE, one take, Hélène (Québec French, fifties), leaving a formal message on a partner’s answering machine: warm, precise, unhurried. Each request has a short breath before it. The caption line is read neutrally.',
   'rec-c1-06-piege-distance': 'The audio step plays each card’s CORRECT sentence. Read the six plainly and identically in pace; the wrong versions in promptSound are never spoken. « saurais » [so.ʁɛ] is articulated clearly, never like « serais ».',
 
-  'rec-c1-06-vendredi-ecoute': 'REQUIRED FOR THE EAR MISSION (act 7): nine lines, ONE TAKE, in authored order, a team meeting. TWO VOICES: Karim (Québec French) speaks lines 1 to 4 and 6; Hélène (Québec French) speaks 5, 7, 8 and 9. Neither raises their voice. « Avec tout le respect que je vous dois » is said evenly, NOT with an ironic stress; « loin de moi l’idée de » is sincere.',
+  'rec-c1-06-vendredi-ecoute': 'REQUIRED FOR THE EAR MISSION (act 7): nine lines, ONE TAKE, in authored order, a team meeting. TWO VOICES, who say vous to each other: Karim (Québec French) speaks lines 1, 2, 3, 5, 7 and 8; Hélène (Québec French, his director) speaks 4, 6 and 9. Neither raises their voice. « Avec tout le respect que je vous dois » is said evenly, NOT with an ironic stress; « loin de moi l’idée de » is sincere.',
   'rec-c1-06-retour': 'Hélène’s feedback (act 8), TWO VOICES, one take, a dialogue in an office: Hélène (Québec French, warm, direct) and Karim (Québec French, relieved, curious). The caption line is read neutrally by a narrator or by Hélène’s voice. « Celui-là n’est pas négociable » is said kindly but firmly.',
 
   'rec-c1-06-vernissage-ecoute': 'REQUIRED FOR THE EAR MISSION (act 9): eight lines, ONE TAKE, in authored order, two colleagues chatting after an opening night. TWO VOICES: lines 1, 3, 5 and 7 a Montréal woman (Québec French, relaxed, a little teasing); lines 2, 4, 6 and 8 a Montréal man (Québec French). « C’est pas pire, hein » is said as warm praise, in a natural Québec familiar register. The litotes are said with a light smile in the voice, never sarcastic.',

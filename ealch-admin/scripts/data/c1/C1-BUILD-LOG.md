@@ -316,6 +316,24 @@ before the wave 2-3 import. c1.09 names no exam (FEI returned 403; the task is
 text edit: `fr.c1.francais-professionnel-avance.160` (subjunctive after « il y
 a fort à parier »), `fr.b1.pronoms-essentiels.1590` (« le moment auquel »).
 
+- **Wave 3 pre-review (one fresh reviewer per lesson, WebSearch), fixes
+  applied: 9 blockers.** c1.06 3 (a correct « à proprement parler » sentence
+  taught as an error; an act 4 listening nobody could follow; acts 7-8 broke the
+  lesson's own register rules, vous/tu flipping); two re-drills of B2 phrases
+  replaced; « c'est pas pire » aligned with Usito. c1.07 1 (an a fortiori
+  question about a direction the essay never takes); all 17 Académie / OQLF
+  verdicts match their live pages; no OQLF entry for « du coup » (Usito: fam.).
+  c1.08 2 (a false « why » against the lesson's own budget figures; two
+  defensible answers); « Clémence Arbaud » renamed « Hortense Vallier » (one
+  letter off c1.24's « Clémence Arnaud »). c1.09 3 (a correct « si… je
+  résumerais » taught as an error; « souligner comment » ambiguous; a tip
+  recommending the condemned « je reviendrai vers vous »); act 10's mood trapDrill
+  refocused on moods a jury provokes, past b2.06 (orchestrator call: never
+  re-teach); new row `.1362`; the DALF stays unnamed (only a 2005 BO annex found;
+  the app's 3-5 min task is far shorter). After: app checks 0, validators 0,
+  house tests 342/342, import dry run 1280 / 0 conflicts / 0 blockers. No act
+  or version change; image prompts untouched.
+
 ## Wave plan
 
 As `C1-BUILD-PLAN.md`: wave 1 c1.20 c1.21 c1.01 c1.24 → GATE C1-1 → waves 2-3 →
@@ -677,10 +695,10 @@ graded task), plus the wave 2 notes (scratch subfolder, report as text,
 | c1.03 | concordance-litteraire (recognition) | 83 | 11 | 11×8 | 11 | 5 | 150 new / 16 reused | 11 in | pre-reviewed, art in |
 | c1.04 | relatives-complexes | 85 | 11 | 12×8 | 12 | 5 | 162 new / 19 reused | 11 in | pre-reviewed, art in |
 | c1.05 | ellipse-reprise | 87 | 12 | 12×8 | 12 | 5 | 182 new / 28 reused | 12 in | pre-reviewed, art in |
-| c1.06 | nuancer-oral | 81 | 12 | 11×8 | 11 | 5 | 154 new / 38 reused | 12 pending | drafted, checks 0 |
-| c1.07 | reformuler-conclure | 77 | 12 | 11×8 | 11 | 5 | 132 new / 26 reused | 12 pending | drafted, checks 0 |
-| c1.08 | persuader | 77 | 12 | 11×8 | 11 | 5 | 178 new / 28 reused | 12 pending | drafted, checks 0 |
-| c1.09 | expose-jury | 79 | 12 | 11×8 | 11 | 5 | 162 new / 44 reused | 12 pending | drafted, checks 0 |
+| c1.06 | nuancer-oral | 81 | 12 | 11×8 | 11 | 5 | 154 new / 38 reused | 12 pending | pre-reviewed |
+| c1.07 | reformuler-conclure | 77 | 12 | 11×8 | 11 | 5 | 132 new / 26 reused | 12 pending | pre-reviewed |
+| c1.08 | persuader | 77 | 12 | 11×8 | 11 | 5 | 178 new / 28 reused | 12 pending | pre-reviewed |
+| c1.09 | expose-jury | 79 | 12 | 11×8 | 11 | 5 | 163 new / 44 reused | 12 pending | pre-reviewed |
 
 ## Id ledger
 
@@ -702,7 +720,7 @@ graded task), plus the wave 2 notes (scratch subfolder, report as text,
 | `nuances-et-registres` (sub-theme « nuancer à l'oral ») | 1000-1199 | c1.06 nuancer-oral | .1000-.1156 (154; .1004/.1005/.1097 unused) |
 | `connecteurs-logiques` (widened a2-c1; sub-theme « reformuler et conclure ») | 2600-2799 | c1.07 reformuler-conclure | .2600-.2731 (132) |
 | `rhetorique` (sub-theme « persuader ») | 1000-1199 | c1.08 persuader | .1000-.1177 (178) |
-| `discours-dexamen` (sub-theme « l'exposé et le jury ») | 1200-1399 | c1.09 expose-jury | .1200-.1361 (162) |
+| `discours-dexamen` (sub-theme « l'exposé et le jury ») | 1200-1399 | c1.09 expose-jury | .1200-.1362 (163) |
 
 Later waves: proposed homes for all 24 are in `C1-RESEARCH-PLAN.md`; probe again
 and claim at each wave's dispatch. **Rule:** a block must be unused at EVERY level

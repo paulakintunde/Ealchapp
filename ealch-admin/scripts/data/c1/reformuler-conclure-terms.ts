@@ -132,7 +132,7 @@ export const REFORMULER_CONCLURE_TERMS: Record<string, LessonTerm> = {
   cloture: {
     term: 'la clôture',
     title: 'Fermer le texte, une fois',
-    body: "Trois gestes de clôture, trois nuances. « Tout bien considéré » rend un verdict après avoir pesé le pour et le contre. « Somme toute » fait le compte et ramène souvent les choses à leur juste mesure. « En guise de conclusion » (soutenu) annonce une dernière remarque. Choisis-en un : un texte ne se ferme qu’une fois. EN: Weigh and decide, sum up and relativise, or announce a last remark: once.",
+    body: "Trois gestes de clôture, trois nuances. « Tout bien considéré » rend un verdict après avoir pesé le pour et le contre. « Somme toute » fait le compte et ramène souvent les choses à leur juste mesure. « En guise de conclusion » (soutenu) annonce une dernière remarque. Pour la phrase qui ferme, choisis-en un : un texte ne se ferme qu’une fois. EN: Weigh and decide, sum up and relativise, or announce a last remark: once.",
     examples: [
       { itemId: E(2699), note: 'le verdict' },
       { itemId: E(2703), note: 'somme toute, au milieu' },

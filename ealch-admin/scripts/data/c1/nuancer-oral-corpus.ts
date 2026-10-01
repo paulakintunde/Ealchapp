@@ -184,7 +184,7 @@
 //          that often precedes « mais ».
 //       m. « sans vouloir te vexer » often introduces exactly the remark
 //          that may vex (usage claim, hedged « souvent »).
-//       n. QUÉBEC: « c’est pas pire » = pretty good, a compliment (U; legacy
+//       n. QUÉBEC: « c’est pas pire » = pretty good, a compliment (U: « pas pire », fam., Q, « plus ou moins bien », syn. pas mal, read 2026-10-01; legacy
 //          row .105 says the same); « pas terrible » = mediocre in France
 //          AND in Québec (R, U). The lesson never claims that one region is
 //          more or less polite; it tags usages only.
@@ -487,7 +487,7 @@ export const ACT1_ROWS: Row[] = [
 /* ── ACT 2 · L’INCISE QUI ADOUCIT ─────────────────────────────────────────── */
 
 export const ACT2_ROWS: Row[] = [
-  mv(1012, 'me semble-t-il', 'it seems to me (an aside)', '/mə sɑ̃bl.til/', 'muh sahⁿbl-TEEL', ['incise'], 'Une incise : ton avis, présenté comme une impression. Elle se glisse après le verbe ou en fin de phrase.', 'soutenu'),
+  mv(1012, 'me semble-t-il', 'it seems to me (an aside)', '/mə sɑ̃bl.til/', 'muh sahⁿbl-TEEL', ['incise'], 'Une incise : ton avis, présenté comme une impression. Elle se glisse dans la phrase (après le sujet ou le verbe) ou à la fin, jamais en tête.', 'soutenu'),
   mv(1013, 'si je ne m’abuse', 'if I am not mistaken', '/si ʒə nə ma.byz/', 'see zhuh nuh ma-BÜZ', ['incise'], 'Soutenu : pour un fait dont tu crois te souvenir, une date, un nom, un chiffre.', 'soutenu'),
   mv(1014, 'si je ne me trompe', 'if I am not wrong', '/si ʒə nə mə tʁɔ̃p/', 'see zhuh nuh muh TROHⁿP', ['incise'], 'Le même rôle que si je ne m’abuse, en courant.'),
   mv(1015, 'à ma connaissance', 'to my knowledge, as far as I know', '/a ma kɔ.nɛ.sɑ̃s/', 'a ma ko-neh-SAHⁿSS', ['incise'], 'Tu limites ton affirmation à ce que tu sais.'),
@@ -503,7 +503,7 @@ export const ACT2_ROWS: Row[] = [
   sent(1024, 'Dans ce cas, le plus sage serait, me semble-t-il, de garder le vendredi pour le vernissage.', 'In that case, the wisest thing, it seems to me, would be to keep the Friday for the opening night.', '/dɑ̃ sə ka lə ply saʒ sə.ʁɛ mə sɑ̃bl.til də gaʁ.de lə vɑ̃.dʁə.di puʁ lə vɛʁ.ni.saʒ/', 'dahⁿ suh KA | luh plü SAZH suh-REH | muh sahⁿbl-TEEL | duh gar-DAY luh vahⁿ-druh-DEE | poor luh vehr-nee-SAZH', ['incise']),
   sent(1025, 'Et d’ouvrir aux classes dès le lundi suivant. Ça me paraît raisonnable.', 'And to open to classes from the following Monday. That seems reasonable to me.', '/e du.vʁiʁ o klas dɛ lə lœ̃.di sɥi.vɑ̃ sa mə pa.ʁɛ ʁɛ.zɔ.nabl/', 'ay doo-VREER oh KLASS | deh luh luhⁿ-dee swee-VAHⁿ | sa muh pa-REH reh-zo-NABL', ['reunion']),
   sent(1026, 'L’incise se glisse là où se trouve le doute, jamais devant chaque phrase.', 'The aside slips in exactly where the doubt is, never in front of every sentence.', '/lɛ̃.siz sə glis la u sə tʁuv lə dut ʒa.mɛ də.vɑ̃ ʃak fʁaz/', 'lehⁿ-SEEZ suh GLEESS | la oo suh TROOV luh DOOT | zha-MEH duh-vahⁿ shak FRAZ', ['rule', 'incise'], ['flashcard'],
-    rule('Tu doutes de la date, pas du lieu. Où mets-tu « si je ne m’abuse » ?', 'Près de la date : L’ouverture est le douze, si je ne m’abuse, à la grande salle.')),
+    rule('Tu doutes de la date, pas du lieu. Où mets-tu « si je ne m’abuse » ?', 'Près de la date : l’ouverture est le douze, si je ne m’abuse, à la grande salle.')),
   sent(1027, 'Me semble-t-il nuance un avis ; si je ne m’abuse nuance un souvenir.', 'Me semble-t-il softens an opinion; si je ne m’abuse softens a memory.', '/mə sɑ̃bl.til nɥɑ̃s œ̃.na.vi si ʒə nə ma.byz nɥɑ̃s œ̃ suv.niʁ/', 'muh sahⁿbl-TEEL NWAHⁿSS uhⁿ-na-VEE | see zhuh nuh ma-BÜZ NWAHⁿSS uhⁿ soov-NEER', ['rule', 'incise'], ['flashcard'],
     rule('« Le budget n’est pas voté, si je ne m’abuse. » Avis ou fait ?', 'Un fait dont tu crois te souvenir. Pour un avis : c’est, me semble-t-il, trop tôt.')),
   sent(1028, 'Le budget, si je ne m’abuse, n’a pas encore été voté.', 'The budget, if I am not mistaken, has not been voted yet.', '/lə by.dʒɛ si ʒə nə ma.byz na pa.zɑ̃.kɔ.ʁe.te vɔ.te/', 'luh bü-DZHEH | see zhuh nuh ma-BÜZ | na pa-zahⁿ-ko-ray-TAY vo-TAY', ['incise']),
@@ -539,10 +539,10 @@ export const ACT4_ROWS: Row[] = [
   sent(1046, 'Le livreur a dû se tromper d’entrée : il y en a deux.', 'The driver must have gone to the wrong entrance: there are two.', '/lə li.vʁœʁ a dy sə tʁɔ̃.pe dɑ̃.tʁe il jɑ̃.na dø/', 'luh lee-VRUHR a DÜ | suh trohⁿ-PAY dahⁿ-TRAY | eel yahⁿ-na DEU', ['devoir'], FCVDR),
   sent(1047, 'Il doit être devant l’entrée nord, celle des bureaux.', 'He must be in front of the north entrance, the office one.', '/il dwa.tɛtʁ də.vɑ̃ lɑ̃.tʁe nɔʁ sɛl de by.ʁo/', 'eel dwa-TEHTR duh-vahⁿ lahⁿ-tray NOR | sehl day bü-ROH', ['devoir'], FCVDR),
   sent(1048, 'Ça doit être lui, le camion blanc sur le trottoir.', 'That must be him, the white truck on the pavement.', '/sa dwa.tɛtʁ lɥi lə ka.mjɔ̃ blɑ̃ syʁ lə tʁɔ.twaʁ/', 'sa dwa-tehtr LWEE | luh ka-myohⁿ BLAHⁿ | sür luh tro-TWAR', ['devoir']),
-  sent(1049, 'Sur le bon de livraison, il y a l’adresse de Lyon.', 'The delivery note has the Lyon address on it.', '/syʁ lə bɔ̃ də li.vʁɛ.zɔ̃ il ja la.dʁɛs də ljɔ̃/', 'sür luh BOHⁿ duh lee-vreh-ZOHⁿ | eel ya la-DREHSS duh LYOHⁿ', ['appel']),
+  sent(1049, 'Sur le bon de livraison, il y a l’adresse de Lyon, et le transport n’est pas encore payé.', 'The delivery note has the Lyon address on it, and the transport has not been paid yet.', '/syʁ lə bɔ̃ də li.vʁɛ.zɔ̃ il ja la.dʁɛs də ljɔ̃ e lə tʁɑ̃s.pɔʁ nɛ pa.zɑ̃.kɔʁ pe.je/', 'sür luh BOHⁿ duh lee-vreh-ZOHⁿ | eel ya la-DREHSS duh LYOHⁿ | ay luh trahⁿss-POR | neh pa-zahⁿ-kor pay-YAY', ['appel']),
   sent(1050, 'Il doit y avoir un malentendu sur l’adresse.', 'There must be a misunderstanding about the address.', '/il dwa.ti.ja.vwaʁ œ̃ ma.lɑ̃.tɑ̃.dy syʁ la.dʁɛs/', 'eel dwa-tee-ya-VWAR | uhⁿ ma-lahⁿ-tahⁿ-DÜ | sür la-DREHSS', ['devoir', 'tact'], FCVDR),
   sent(1051, 'Vous devez faire erreur : nous avons payé le transport hier.', 'You must be mistaken: we paid for the transport yesterday.', '/vu də.ve fɛ.ʁɛ.ʁœʁ nu.za.vɔ̃ pe.je lə tʁɑ̃s.pɔʁ jɛʁ/', 'voo duh-VAY feh-reh-RUHR | noo-za-vohⁿ pay-YAY luh trahⁿss-POR | YEHR', ['devoir', 'tact']),
-  sent(1052, 'Ah, pardon, vous avez raison : je devais regarder l’ancien dossier.', 'Ah, sorry, you are right: I must have been looking at the old file.', '/a paʁ.dɔ̃ vu.za.ve ʁɛ.zɔ̃ ʒə də.vɛ ʁə.gaʁ.de lɑ̃.sjɛ̃ dɔ.sje/', 'A | par-DOHⁿ | voo-za-vay reh-ZOHⁿ | zhuh duh-VEH ruh-gar-DAY | lahⁿ-syehⁿ do-SYAY', ['devoir']),
+  sent(1052, 'Ah, pardon, vous avez raison : je devais avoir l’ancien dossier sous les yeux.', 'Ah, sorry, you are right: I must have had the old file in front of me.', '/a paʁ.dɔ̃ vu.za.ve ʁɛ.zɔ̃ ʒə də.vɛ.za.vwaʁ lɑ̃.sjɛ̃ dɔ.sje su le.zjø/', 'A | par-DOHⁿ | voo-za-vay reh-ZOHⁿ | zhuh duh-veh-za-VWAR | lahⁿ-syehⁿ do-SYAY | soo lay-ZYEU', ['devoir']),
   sent(1053, 'Il était midi passé quand le camion est enfin arrivé.', 'It was past noon when the truck finally arrived.', '/i.lɛ.tɛ mi.di pa.se kɑ̃ lə ka.mjɔ̃ ɛ.tɑ̃.fɛ̃ a.ʁi.ve/', 'ee-leh-TEH mee-dee pa-SAY | kahⁿ luh ka-MYOHⁿ | eh-tahⁿ-FEHⁿ a-ree-VAY', ['appel']),
   sent(1054, 'Il doit être en réunion : il ne répond jamais avant onze heures.', 'He must be in a meeting: he never answers before eleven.', '/il dwa.tɛ.tʁɑ̃ ʁe.y.njɔ̃ il nə ʁe.pɔ̃ ʒa.mɛ a.vɑ̃ ɔ̃.zœʁ/', 'eel dwa-teh-trahⁿ ray-ü-NYOHⁿ | eel nuh ray-POHⁿ zha-MEH | a-vahⁿ ohⁿ-ZUHR', ['devoir']),
   sent(1055, 'Il devait être sept heures quand elle a quitté le bureau.', 'It must have been about seven when she left the office.', '/il də.vɛ.tɛ.tʁə sɛ.tœʁ kɑ̃.tɛ.la ki.te lə by.ʁo/', 'eel duh-veh-teh-truh seh-TUHR | kahⁿ-teh-la kee-TAY luh bü-ROH', ['devoir']),
@@ -601,7 +601,7 @@ export const ACT7_ROWS: Row[] = [
   sent(1086, 'Loin de moi l’idée de remettre en cause tout le calendrier.', 'Far be it from me to call the whole schedule into question.', '/lwɛ̃ də mwa li.de də ʁə.mɛ.tʁɑ̃ koz tu lə ka.lɑ̃.dʁi.je/', 'lwehⁿ duh MWA lee-DAY | duh ruh-meh-trahⁿ KOZ | too luh ka-lahⁿ-dree-YAY', ['egards'], FCVDR),
   sent(1087, 'Mais un vernissage le vendredi soir, c’est la soirée où les familles sortent le moins.', 'But an opening on a Friday evening is the night when families go out least.', '/mɛ œ̃ vɛʁ.ni.saʒ lə vɑ̃.dʁə.di swaʁ sɛ la swa.ʁe u le fa.mij sɔʁt lə mwɛ̃/', 'meh uhⁿ vehr-nee-SAZH | luh vahⁿ-druh-dee SWAR | seh la swa-RAY | oo lay fa-MEEY SORT luh MWEHⁿ', ['reunion']),
   sent(1088, 'Sans vouloir vous contredire, les chiffres de l’an dernier vont plutôt dans l’autre sens.', 'Without wishing to contradict you, last year’s figures rather point the other way.', '/sɑ̃ vu.lwaʁ vu kɔ̃.tʁə.diʁ le ʃifʁ də lɑ̃ dɛʁ.nje vɔ̃ ply.to dɑ̃ lotʁ sɑ̃s/', 'sahⁿ voo-LWAR voo kohⁿ-truh-DEER | lay SHEEFR duh lahⁿ dehr-NYAY | vohⁿ plü-TOH dahⁿ LOHTR SAHⁿSS', ['egards'], FCVDR),
-  sent(1089, 'Avec tout le respect que je vous dois, Karim, ces chiffres concernaient une autre exposition.', 'With all due respect, Karim, those figures were about another exhibition.', '/a.vɛk tu lə ʁɛs.pɛ kə ʒə vu dwa ka.ʁim se ʃifʁ kɔ̃.sɛʁ.nɛ.ty.notʁ ɛks.po.zi.sjɔ̃/', 'a-vehk too luh rehs-PEH kuh zhuh voo DWA | ka-REEM | say SHEEFR kohⁿ-sehr-neh-tü-NOHTR ehks-po-zee-SYOHⁿ', ['egards']),
+  sent(1089, 'Avec tout le respect que je vous dois, Hélène, ces chiffres concernaient une autre exposition.', 'With all due respect, Hélène, those figures were about another exhibition.', '/a.vɛk tu lə ʁɛs.pɛ kə ʒə vu dwa e.lɛn se ʃifʁ kɔ̃.sɛʁ.nɛ.ty.notʁ ɛks.po.zi.sjɔ̃/', 'a-vehk too luh rehs-PEH kuh zhuh voo DWA | ay-LENN | say SHEEFR kohⁿ-sehr-neh-tü-NOHTR ehks-po-zee-SYOHⁿ', ['egards']),
   sent(1090, 'C’est juste, mais le public des familles reste le même.', 'That is fair, but the family audience stays the same.', '/sɛ ʒyst mɛ lə py.blik de fa.mij ʁɛst lə mɛm/', 'seh ZHÜST | meh luh pü-BLEEK day fa-MEEY | rehst luh MEM', ['reunion']),
   sent(1091, 'Je vous rejoins sur le public ; je ne vous suis pas sur la date.', 'I agree with you on the audience; I do not follow you on the date.', '/ʒə vu ʁə.ʒwɛ̃ syʁ lə py.blik ʒə nə vu sɥi pa syʁ la dat/', 'zhuh voo ruh-ZHWEHⁿ | sür luh pü-BLEEK | zhuh nuh voo swee PA | sür la DAT', ['egards']),
   sent(1092, 'Et si nous gardions le vendredi pour les partenaires, et le samedi pour le public ?', 'And what if we kept the Friday for the partners and the Saturday for the public?', '/e si nu gaʁ.djɔ̃ lə vɑ̃.dʁə.di puʁ le paʁ.tə.nɛʁ e lə sam.di puʁ lə py.blik/', 'ay see noo gar-DYOHⁿ | luh vahⁿ-druh-DEE poor lay par-tuh-NEHR | ay luh sam-DEE poor luh pü-BLEEK', ['reunion']),
@@ -617,14 +617,14 @@ export const ACT7_ROWS: Row[] = [
 export const ACT8_ROWS: Row[] = [
   mv(1096, 'gagner à', 'to benefit from, to be the better for', '/ga.ɲe a/', 'ga-NYAY A', ['critique'], 'Ton texte gagnerait à être plus court : une critique dite comme une amélioration possible.'),
   mv(1098, 'ce qui me gêne un peu, c’est', 'what bothers me a little is', '/sə ki mə ʒɛn œ̃ pø sɛ/', 'suh kee muh ZHENN uhⁿ PEU | SEH', ['critique'], 'Tu nommes UN point précis, et tu le prends à ton compte.'),
-  sent(1099, 'J’ai lu ton texte deux fois, et il y a de très bonnes choses.', 'I read your text twice, and there are some very good things in it.', '/ʒe ly tɔ̃ tɛkst dø fwa e il ja də tʁɛ bɔn ʃoz/', 'zhay LÜ tohⁿ TEHKST deu FWA | ay eel ya duh treh BONN SHOZ', ['critique']),
+  sent(1099, 'J’ai lu votre texte deux fois, et il y a de très bonnes choses.', 'I read your text twice, and there are some very good things in it.', '/ʒe ly vɔ.tʁə tɛkst dø fwa e il ja də tʁɛ bɔn ʃoz/', 'zhay LÜ vo-truh TEHKST deu FWA | ay eel ya duh treh BONN SHOZ', ['critique']),
   sent(1100, 'Ce qui me gêne un peu, c’est la longueur : les visiteurs lisent debout.', 'What bothers me a little is the length: visitors read standing up.', '/sə ki mə ʒɛn œ̃ pø sɛ la lɔ̃.gœʁ le vi.zi.tœʁ liz də.bu/', 'suh kee muh ZHENN uhⁿ PEU | seh la lohⁿ-GUHR | lay vee-zee-TUHR leez duh-BOO', ['critique'], FCVDR),
   sent(1101, 'Je me demande si on ne gagnerait pas à couper le deuxième paragraphe.', 'I wonder whether we would not be better off cutting the second paragraph.', '/ʒə mə də.mɑ̃d si ɔ̃ nə ga.ɲə.ʁɛ pa a ku.pe lə dø.zjɛm pa.ʁa.gʁaf/', 'zhuh muh duh-MAHⁿD | see ohⁿ nuh ga-nyuh-REH PA | a koo-PAY luh deu-zyemm pa-ra-GRAF', ['critique'], FCVDR),
   sent(1102, 'Je ne dis pas qu’il est inutile, je dis qu’il serait mieux sur le deuxième panneau.', 'I am not saying it is useless, I am saying it would be better on the second panel.', '/ʒə nə di pa ki.lɛ.ti.ny.til ʒə di kil sə.ʁɛ mjø syʁ lə dø.zjɛm pa.no/', 'zhuh nuh dee PA | kee-leh-tee-nü-TEEL | zhuh DEE | keel suh-REH MYEU | sür luh deu-zyemm pa-NOH', ['critique']),
   sent(1103, 'La fin, me semble-t-il, gagnerait à être plus nette.', 'The ending, it seems to me, would be better for being sharper.', '/la fɛ̃ mə sɑ̃bl.til ga.ɲə.ʁɛ a ɛtʁ ply nɛt/', 'la FEHⁿ | muh sahⁿbl-TEEL | ga-nyuh-REH a ehtr plü NEHT', ['critique']),
-  sent(1104, 'Mais c’est ton texte ; choisis la question qui te ressemble.', 'But it is your text; choose the question that sounds like you.', '/mɛ sɛ tɔ̃ tɛkst ʃwa.zi la kɛs.tjɔ̃ ki tə ʁə.sɑ̃bl/', 'meh seh tohⁿ TEHKST | shwa-ZEE la kehs-TYOHⁿ | kee tuh ruh-SAHⁿBL', ['critique']),
+  sent(1104, 'Mais c’est votre texte ; choisissez la question qui vous ressemble.', 'But it is your text; choose the question that sounds like you.', '/mɛ sɛ vɔ.tʁə tɛkst ʃwa.zi.se la kɛs.tjɔ̃ ki vu ʁə.sɑ̃bl/', 'meh seh vo-truh TEHKST | shwa-zee-SAY la kehs-TYOHⁿ | kee voo ruh-SAHⁿBL', ['critique']),
   sent(1105, 'Un détail, et celui-là n’est pas négociable : la date est fausse.', 'One detail, and that one is not negotiable: the date is wrong.', '/œ̃ de.taj e sə.lɥi.la nɛ pa ne.gɔ.sjabl la da.tɛ fos/', 'uhⁿ day-TAHY | ay suh-lwee-LA neh pa nay-go-SYABL | la da-teh FOHSS', ['critique', 'ferme'], FCVDR),
-  sent(1106, 'Pour le reste, tu as fait le plus dur.', 'As for the rest, you have done the hardest part.', '/puʁ lə ʁɛst ty a fɛ lə ply dyʁ/', 'poor luh REHST | tü a feh luh plü DÜR', ['critique']),
+  sent(1106, 'Pour le reste, vous avez fait le plus dur.', 'As for the rest, you have done the hardest part.', '/puʁ lə ʁɛst vu.za.ve fɛ lə ply dyʁ/', 'poor luh REHST | voo-za-VAY feh luh plü DÜR', ['critique']),
   sent(1107, 'Reconnaître, préciser, suggérer : et le point ferme reste ferme.', 'Acknowledge, pinpoint, suggest: and the firm point stays firm.', '/ʁə.kɔ.nɛtʁ pʁe.si.ze syg.ʒe.ʁe e lə pwɛ̃ fɛʁm ʁɛst fɛʁm/', 'ruh-ko-NEHTR | pray-see-ZAY | süg-zhay-RAY | ay luh pwehⁿ FEHRM rehst FEHRM', ['rule', 'critique'], ['flashcard'],
     rule('Une critique enveloppée, en quatre temps ?', 'Ce qui marche, un point précis, une suggestion au conditionnel ; et l’erreur de fait dite sans détour.')),
   sent(1108, 'Sans vouloir te vexer annonce souvent exactement ce qui va vexer.', 'Sans vouloir te vexer often announces exactly what is going to hurt.', '/sɑ̃ vu.lwaʁ tə vɛk.se a.nɔ̃s su.vɑ̃ ɛg.zak.tə.mɑ̃ sə ki va vɛk.se/', 'sahⁿ voo-LWAR tuh vehk-SAY | a-NOHⁿSS soo-VAHⁿ | ehg-zak-tuh-MAHⁿ | suh kee va vehk-SAY', ['rule', 'critique'], ['flashcard'],
@@ -760,19 +760,19 @@ export const APPEL_TEXT =
 /** Act 8: Hélène’s feedback to Karim on the first panel, transcribed. */
 export const RETOUR_TEXT =
   'Bureau d’Hélène, jeudi. Karim lui a envoyé le texte du premier panneau de l’exposition. Elle lui fait ses commentaires. ' +
-  'Hélène : Merci, Karim. J’ai lu ton texte deux fois, et il y a de très bonnes choses. L’ouverture sur le ruisseau disparu de ton enfance, j’aime beaucoup : on entre tout de suite dans le sujet. ' +
+  'Hélène : Merci, Karim. J’ai lu votre texte deux fois, et il y a de très bonnes choses. L’ouverture sur le ruisseau disparu de votre enfance, j’aime beaucoup : on entre tout de suite dans le sujet. ' +
   'Karim : Tant mieux. J’avais peur que ce soit trop personnel. ' +
   'Hélène : Non, au contraire. Ce qui me gêne un peu, c’est la longueur : les visiteurs lisent debout. Le panneau fait quatre cents mots. Je me demande si on ne gagnerait pas à couper le deuxième paragraphe. ' +
   'Karim : Celui sur l’histoire des égouts ? Il est un peu technique, c’est vrai. ' +
   'Hélène : Je ne dis pas qu’il est inutile, je dis qu’il serait mieux sur le deuxième panneau. Ici, il ralentit l’entrée. ' +
   'Karim : D’accord. Et le reste ? ' +
-  'Hélène : La fin, me semble-t-il, gagnerait à être plus nette. Tu termines sur trois questions ; une seule suffirait, et ce serait plus fort. ' +
-  'Karim : Laquelle tu garderais ? ' +
-  'Hélène : La dernière, peut-être : « Et si la rivière revenait ? » Mais c’est ton texte ; choisis la question qui te ressemble. ' +
+  'Hélène : La fin, me semble-t-il, gagnerait à être plus nette. Vous terminez sur trois questions ; une seule suffirait, et ce serait plus fort. ' +
+  'Karim : Laquelle garderiez-vous ? ' +
+  'Hélène : La dernière, peut-être : « Et si la rivière revenait ? » Mais c’est votre texte ; choisissez la question qui vous ressemble. ' +
   'Karim : Je vais essayer. Autre chose ? ' +
   'Hélène : Un détail, et celui-là n’est pas négociable : la date est fausse. Le ruisseau a été couvert en 1898, pas en 1890. Les visiteurs vérifient ce genre de choses. ' +
   'Karim : Oups. Je corrige tout de suite. ' +
-  'Hélène : Pour le reste, tu as fait le plus dur. Le ton est juste, on a envie de lire la suite, et c’est exactement ce qu’on attend d’un premier panneau. Tu me renvoies une version lundi ? Karim : Lundi matin, promis.';
+  'Hélène : Pour le reste, vous avez fait le plus dur. Le ton est juste, on a envie de lire la suite, et c’est exactement ce qu’on attend d’un premier panneau. Vous me renvoyez une version lundi ? Karim : Lundi matin, promis.';
 
 /** Act 10: two versions of one voice message to the printer. */
 export const DOSE_TEXT =
@@ -801,8 +801,8 @@ export const TASK_FACTS =
 /** The annotated model answer to the task, about two and a half minutes. */
 export const TASK_MODEL =
   'Bonjour Hélène, c’est moi, au sujet de votre message sur la soirée d’ouverture. Merci de nous consulter. Le programme me plaît beaucoup, et l’idée d’une visite libre après le discours est excellente : les invités verront l’exposition à leur rythme.\n' +
-  'J’ai un point ferme, et deux suggestions. Le point ferme d’abord : la capacité de la salle, elle, ne se discute pas : cent quatre-vingts personnes, selon les normes de sécurité. Le chiffre de deux cent cinquante doit venir de l’ancienne salle. Il faudrait donc réduire la liste, ou ouvrir la petite salle en même temps, avec un écran pour le discours ; une deuxième séance, à vingt heures, serait aussi possible. Je peux vous préparer les deux options pour lundi.\n' +
-  'Première suggestion, sur les écoles. Trois classes ont déjà réservé le samedi matin. Je me demande si nous ne gagnerions pas à garder la visite des écoles, quitte à la raccourcir. Annuler maintenant risquerait, me semble-t-il, de nous fâcher avec des enseignants qui viennent chaque année. Une visite d’une heure, à onze heures, laisserait l’après-midi libre à l’équipe ; Karim est d’accord pour m’accompagner.\n' +
+  'J’ai un point ferme, et deux suggestions. Le point ferme d’abord. La capacité de la salle, elle, ne se discute pas : cent quatre-vingts personnes, selon les normes de sécurité. Le chiffre de deux cent cinquante doit venir de l’ancienne salle. Il faudrait donc réduire la liste, ou ouvrir la petite salle en même temps, avec un écran pour le discours ; une deuxième séance, à vingt heures, serait aussi possible. Je peux vous préparer les deux options pour lundi.\n' +
+  'Première suggestion, sur les écoles. Trois classes ont déjà réservé le samedi matin. Je me demande si nous ne gagnerions pas à garder la visite des écoles, quitte à la raccourcir. Annuler maintenant risquerait, me semble-t-il, de nous fâcher avec des enseignants qui viennent chaque année. Une visite d’une heure, à onze heures, laisserait l’après-midi libre à l’équipe, et je peux m’en charger.\n' +
   'Deuxième suggestion, plus modeste : le discours. Vingt minutes debout, c’est un peu long, disons. Dix minutes suffiraient sans doute, et la visite commencerait plus tôt. Quant au buffet, il y a fort à parier qu’avec moins d’invités, le budget actuel suffira ; je ne doublerais donc pas la somme tout de suite.\n' +
   'Enfin, une demande : je vous saurais gré de signer le formulaire d’assurance des maquettes avant jeudi ; je le dépose sur votre bureau ce soir.\n' +
   'Si vous le souhaitez, nous pouvons en parler demain matin. Bonne fin de journée, Hélène.';
