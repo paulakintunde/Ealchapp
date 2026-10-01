@@ -1,7 +1,9 @@
 # C1 build plan
 
 Drafted 2026-09-30, while B2 wave 6 was being written, so C1 can start the day B2
-completes (gate B2-4). NOTHING here is built yet. The factory is B1's and B2's
+completes (gate B2-4). **Updated 2026-09-30 after Phase 0:** Paul's four decisions are
+recorded in `C1-BUILD-LOG.md`, the corrected id homes for all 24 lessons are in
+`C1-RESEARCH-PLAN.md`, and Phase 0 (wave 0) is done. No lesson is authored yet. The factory is B1's and B2's
 unchanged: read `../b2/B2-BUILD-LOG.md` (what B2 changed), then
 `../b1/B1-BUILD-PLAYBOOK.md`. This file records only what is different at C1, the
 id homes, the pack layout and the decisions Paul has to make first (end of file).
@@ -18,7 +20,7 @@ lessons a C1 act 1 or 2 must cite by trail position and go past, never re-teach.
 | **Unit 1** | **Expert grammar as interpretation** | | | |
 | c1.01 | C1 grammar overview: diagnose gaps, productive priorities vs recognition-only forms | W (diagnostic) | all of B2 | |
 | c1.02 | Passé antérieur: its sequence function in literary narrative | R | b2.08 (passé simple), b2.01 | |
-| c1.03 | Literary subjunctive tenses: tense agreement and stylistic effect | R | **b2.09** (see decision 1) | |
+| c1.03 | Literary subjunctive tenses: tense agreement and stylistic effect | R | **b2.09** (kept, refocused) | |
 | c1.04 | Advanced relative clauses: complex antecedents, prepositions, embedded reference | G | b1.11-13 (qui/que, dont/où, lequel) | |
 | c1.05 | Ellipsis and anaphora: track omitted and substituted material | G | b2.11, b2.10 | |
 | **Unit 2** | **Discourse and rhetoric** | | | |
@@ -37,7 +39,7 @@ lessons a C1 act 1 or 2 must cite by trail position and go past, never re-teach.
 | c1.16 | Abstract vocabulary 2: memory, truth, beauty, ethics | V | | |
 | c1.17 | Advanced synonyms and antonyms: intensity, register, connotation, collocation | V | b1.25 (registers) | |
 | c1.18 | False friends: frequent high-level calques | V | b2.33 | |
-| **Unit 5** | **Interpretation and mediation** (name proposed: Paul's list gives none) | | | |
+| **Unit 5** | **Interprétation et médiation** (approved by Paul, 2026-09-30) | | | |
 | c1.19 | Stylistic devices: explain the effect, not only the name | W | b2.30 | |
 | c1.20 | Reading between the lines: stance, irony, presupposition, omission | W | b2.24 | **CE@c1** (6 tasks published) |
 | c1.21 | Debates and interviews: turn-taking, interruption, fillers, allusion | W | b2.25 | **CO@c1** (6 tasks published) |
@@ -70,7 +72,7 @@ and a publish, so learners get C1 in slices.
 About 55 agent dispatches for authors and pre-reviewers, and about 270 images
 (11 to 12 per lesson) for Paul.
 
-## Wave 0: enablers, before the first C1 lesson
+## Wave 0: enablers, before the first C1 lesson (DONE 2026-09-30, see C1-BUILD-LOG.md)
 
 1. **The pipeline takes `--band c1`.** `Band` in `b1-import.logic.ts` is
    `'b1' | 'b2'`: add `'c1'`, a `C1_SLUGS` list, lessons loading from `data/c1/`,
@@ -87,14 +89,20 @@ About 55 agent dispatches for authors and pre-reviewers, and about 270 images
    `EXAM_PREP_TARGETS` (`ealch-v2/src/store/progress.logic.ts`) when those
    lessons publish; `PE@c1 → c1.10` and `PO@c1 → c1.09` once C1 PE/PO tasks
    exist (none are published; DALF C1 papers would add them).
-4. **The seed cut and the trail.** `seed-cut.config.ts` lists each published
+4. **The seed cut and the trail.** (Checked in Phase 0: under packs no unit list is
+   needed, TEST_CUT carries every band.) Was: `seed-cut.config.ts` lists each published
    c1 unit, as it does b2; the core carries every c1 unit as a skeleton (the
    paywall outline) and the c1 pack carries the bodies. The Den's C1 tab shows
    its units once the first ones publish; check it on the Pixel at gate C1-1.
 5. **Art:** Paul draws it in ChatGPT from each lesson's `-image-prompts.md`, as
    at B2. No Fal.
 
-## Id homes (proposed; probe before claiming, as at B2)
+## Id homes (SUPERSEDED: the probed, corrected table is in C1-RESEARCH-PLAN.md)
+
+The probe found collisions below: c1.02/c1.03 `litterature` 1400-1799 (b2.30 holds
+1400-1576, so 1600 and 1800) and c1.04/c1.05 `langue-soignee` 1800 (b2.33 holds 1800-1999,
+so c1.04 goes to `pronoms-essentiels` 2000 and c1.05 to `langue-soignee` 2000). Wave 1's four
+blocks are claimed in the C1 log's ledger. The original proposal is kept for the record.
 
 Ids are `fr.c1.<theme>.<n>`. The existing C1 rows use 1 to 165 in every theme,
 so C1 lessons claim **blocks of 200 from 1000**, one block per lesson, never a
@@ -120,7 +128,7 @@ number used at another level of the same theme (the B2 rule).
 ## Pack layout
 
 - **The c1 pack exists already** (`PACK_ORDER` a2, b1, b2, c1, c2, exam): today
-  0 lessons and 913 items, 0.35 MiB, kept at v79. Nothing in the pack code
+  0 lessons and 913 items (all published, carried by the Speak trail's world 6), 0.35 MiB, kept at v79. Nothing in the pack code
   changes for C1.
 - **Size:** B2 at 21 lessons is 10.49 MiB, about 0.5 MiB a lesson; C1 at 24
   lessons comes to about 12.5 MiB, far under the 80 MiB ceiling. The legacy full
@@ -148,7 +156,7 @@ number used at another level of the same theme (the B2 rule).
 - **Recognition stays recognition** (c1.02, c1.03), as b2.08 and b2.09 did.
 - **Cite by trail position** (« la leçon 20 du B2 »), never a raw id.
 
-## Decisions for Paul before wave 1
+## Decisions for Paul before wave 1 (ANSWERED 2026-09-30: all four as recommended; see C1-BUILD-LOG.md)
 
 1. **Overlap with B2.** Five C1 lessons sit on ground B2 now covers:
    - c1.03 (literary subjunctive) on b2.09;
