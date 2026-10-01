@@ -2090,11 +2090,11 @@ export function ListeningView({ s }: { s: ListeningSec }) {
           onPress={playAll}
           disabled={playsLeft <= 0 || playingAll}
           accessibilityState={{ disabled: playsLeft <= 0 || playingAll }}
-          accessibilityLabel={playsLeft > 0 ? T.lsPlayRecording.replace('{n}', String(playsLeft)) : T.lsPlaysSpent}
+          accessibilityLabel={playingAll ? T.rpListening : playsLeft > 0 ? T.lsPlayRecording.replace('{n}', String(playsLeft)) : T.lsPlaysSpent}
           style={{ borderRadius: 14, borderWidth: 1, borderColor: playingAll ? t.acc : t.accA(45), backgroundColor: playingAll ? t.accA(14) : 'transparent', padding: 14, marginBottom: 12, alignItems: 'center' }}
         >
-          <TX font="semi" role="body" color={playsLeft > 0 ? t.accTx : t.txMuted}>
-            {playsLeft > 0 ? T.lsPlayRecording.replace('{n}', String(playsLeft)) : T.lsPlaysSpent}
+          <TX font="semi" role="body" color={playsLeft > 0 || playingAll ? t.accTx : t.txMuted}>
+            {playingAll ? T.rpListening : playsLeft > 0 ? T.lsPlayRecording.replace('{n}', String(playsLeft)) : T.lsPlaysSpent}
           </TX>
         </Press>
       ) : null}

@@ -211,6 +211,15 @@ reuses the B1/B2 factory whole; this file records only what is different.
   « PREVIEW · C1 DRAFTS » and all four lessons; c1.20's openers render with art.
   Afterwards: restore with `npx tsx scripts/data/b1/_preview-b1.ts`.
 
+- **GATE C1-1 PASSED (Paul, 2026-10-01): « Check on device and its okay ».**
+  No change to the C1 voice (length, tone, difficulty), so the wave 2-6 briefs
+  keep the wave 1 shape: workshop, 70-90 missions in 11-12 acts, readings of
+  about 300 words, unsimplified French with authored English. Orchestrator
+  device check on the Pixel 6: c1.21 act 10's capped listening shows one
+  « Play the recording (1) » control, lines hidden, no per-line dots, and locks
+  after one play; while it plays it now says « Listening… » (it said « done »
+  during playback).
+
 ## Wave plan
 
 As `C1-BUILD-PLAN.md`: wave 1 c1.20 c1.21 c1.01 c1.24 → GATE C1-1 → waves 2-3 →
