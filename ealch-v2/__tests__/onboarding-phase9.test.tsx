@@ -1,6 +1,6 @@
 /// <reference types="jest" />
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react-native';
+import { fireEvent, render, screen, waitFor, within } from '@testing-library/react-native';
 import Onboarding from '../app/onboarding';
 import SignIn from '../app/signin';
 import { useStore } from '@/store/useStore';
@@ -115,5 +115,26 @@ test('denied microphone records only a category and allows retry or skip', async
   await waitFor(() => expect(stt.listen).toHaveBeenCalledTimes(2));
   await fireEvent.press(screen.getByRole('button', { name: 'Continue without mic check' }));
   expect(useStore.getState().wizardStep).toBe(10);
+  await view.unmount();
+});
+
+// G-09-19: on a tall layout (Pixel 9 with 3-button navigation, large text) the
+// actions of steps 8 and 9 started below the fold. They are pinned outside the
+// scroll area now, so they are on screen however long the step is.
+test('reminder and mic-check actions are pinned outside the scroll area', async () => {
+  useStore.setState({ wizardId: 'wizard-pinned', wizardStep: 8, notifs: { daily: true, report: true, nudge: false } });
+  const view = await render(wrap(<Onboarding />));
+  const scroll = screen.getByTestId('onboarding-scroll');
+  expect(screen.getByRole('button', { name: 'Enable reminders' })).toBeTruthy();
+  expect(within(scroll).queryByRole('button', { name: 'Enable reminders' })).toBeNull();
+  expect(within(scroll).queryByRole('button', { name: 'Continue without reminders' })).toBeNull();
+  await fireEvent.press(screen.getByRole('button', { name: 'Continue without reminders' }));
+
+  jest.spyOn(stt, 'listen').mockResolvedValue({ ok: false, available: true, transcript: '', confidence: -1, score: 0, verdict: 'none', source: 'none', error: 'no-speech' });
+  await fireEvent.press(screen.getByRole('button', { name: 'Start recording' }));
+  await waitFor(() => expect(screen.getByRole('button', { name: 'Try microphone again' })).toBeTruthy());
+  const micScroll = screen.getByTestId('onboarding-scroll');
+  expect(within(micScroll).queryByRole('button', { name: 'Try microphone again' })).toBeNull();
+  expect(within(micScroll).queryByRole('button', { name: 'Continue without mic check' })).toBeNull();
   await view.unmount();
 });

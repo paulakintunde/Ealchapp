@@ -271,6 +271,28 @@ export default function Onboarding() {
 
   const showHead = step >= 1 && step <= 10;
 
+  const micFailed = calib === 'done' && !!calibHeard && !calibHeard.ok;
+  const micError = !micFailed ? null
+    : calibHeard!.error === 'not-allowed' ? T.obMicDenied
+      : !calibHeard!.available ? T.micUnavail
+        : T.obMicTransient;
+  useEffect(() => {
+    if (micError) AccessibilityInfo.announceForAccessibility(micError);
+  }, [micError]);
+
+  // The mic check gates nothing: it can always be skipped.
+  const stepActions = step === 8 ? (
+    <>
+      {s.notifs.daily ? <Button label={T.enableReminders} onPress={() => void enableReminders()} /> : null}
+      <Button label={T.obSkipReminders} variant={s.notifs.daily ? 'outline' : 'primary'} onPress={skipReminders} />
+    </>
+  ) : step === 9 ? (
+    <>
+      {micFailed ? <Button label={T.obMicRetry} onPress={() => void doCalib()} /> : null}
+      <Button label={calibHeard?.ok ? T.continueT : T.obMicSkip} variant={calibHeard?.ok ? 'primary' : 'outline'} onPress={next} />
+    </>
+  ) : null;
+
   return (
     <View style={{ flex: 1, backgroundColor: t.bg }}>
       <RadialGlow color={t.acc} opacity={0.11} height={320} />
@@ -292,7 +314,8 @@ export default function Onboarding() {
       ) : null}
 
       <ScrollView
-        contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 28, paddingBottom: insets.bottom + 40 }}
+        testID="onboarding-scroll"
+        contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 28, paddingBottom: stepActions ? 16 : insets.bottom + 40 }}
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}
       >
@@ -573,10 +596,6 @@ export default function Onboarding() {
                 );
               })}
             </View>
-            {s.notifs.daily ? (
-              <Button label={T.enableReminders} onPress={() => void enableReminders()} style={{ marginTop: 'auto' }} />
-            ) : null}
-            <Button label={T.obSkipReminders} variant={s.notifs.daily ? 'outline' : 'primary'} onPress={skipReminders} style={{ marginTop: s.notifs.daily ? 16 : 'auto' }} />
           </View>
         ) : null}
 
@@ -613,13 +632,11 @@ export default function Onboarding() {
                     </TX>
                   </>
                 ) : (
-                  <TX role="bodySm" color={t.txMuted}>
-                    {calibHeard.error === 'not-allowed'
-                      ? T.obMicDenied
-                      : !calibHeard.available
-                        ? T.micUnavail
-                        : T.obMicTransient}
-                  </TX>
+                  <View accessibilityLiveRegion="polite">
+                    <TX role="body" color={t.txMuted}>
+                      {micError}
+                    </TX>
+                  </View>
                 )}
               </View>
             ) : null}
@@ -638,16 +655,6 @@ export default function Onboarding() {
               </TX>
             </View>
 
-            {/* The mic check gates nothing — it can always be skipped. */}
-            {calib === 'done' && calibHeard && !calibHeard.ok ? (
-              <Button label={T.obMicRetry} onPress={() => void doCalib()} style={{ marginTop: 24 }} />
-            ) : null}
-            <Button
-              label={calibHeard?.ok ? T.continueT : T.obMicSkip}
-              variant={calibHeard?.ok ? 'primary' : 'outline'}
-              onPress={next}
-              style={{ marginTop: 'auto' }}
-            />
           </View>
         ) : null}
 
@@ -711,6 +718,14 @@ export default function Onboarding() {
           </View>
         ) : null}
       </ScrollView>
+      {/* Steps 8 and 9 are taller than the screen on some phones (3-button
+          navigation, large text). Their actions stay pinned above the system
+          bar so the skip route is always visible (G-09-19). */}
+      {stepActions ? (
+        <View style={{ paddingHorizontal: 28, paddingTop: 12, paddingBottom: insets.bottom + 16, gap: 12, backgroundColor: t.bg }}>
+          {stepActions}
+        </View>
+      ) : null}
     </View>
   );
 }
