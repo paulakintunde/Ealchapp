@@ -56,9 +56,14 @@ export const B2_SLUGS: readonly string[] = [
   'style-academique', 'argumentation', 'lecture-critique', 'ecoute-vitesse-reelle', 'reunions-negociation',
 ];
 
+/** Every C1 lesson authored so far, in trail order (files in data/c1/). Empty
+ *  until wave 1 lands; a wave adds its slugs here. */
+export const C1_SLUGS: readonly string[] = [];
+
 /** The bands this pipeline imports. Each band's lessons live in data/<band>/. */
-export type Band = 'b1' | 'b2';
-export const BAND_SLUGS: Record<Band, readonly string[]> = { b1: B1_SLUGS, b2: B2_SLUGS };
+export const BANDS = ['b1', 'b2', 'c1'] as const;
+export type Band = (typeof BANDS)[number];
+export const BAND_SLUGS: Record<Band, readonly string[]> = { b1: B1_SLUGS, b2: B2_SLUGS, c1: C1_SLUGS };
 
 /** `--band b2` picks the band (default b1, so every B1 command runs as before);
  *  `rest` is argv without the flag and its value. */
@@ -66,8 +71,10 @@ export function parseBand(argv: readonly string[]): { band: Band; rest: string[]
   const i = argv.indexOf('--band');
   if (i < 0) return { band: 'b1', rest: [...argv] };
   const band = argv[i + 1];
-  if (band !== 'b1' && band !== 'b2') throw new Error(`--band must be b1 or b2, got ${band ?? '(nothing)'}`);
-  return { band, rest: argv.filter((_, j) => j !== i && j !== i + 1) };
+  if (!(BANDS as readonly (string | undefined)[]).includes(band)) {
+    throw new Error(`--band must be ${BANDS.join(', ')}, got ${band ?? '(nothing)'}`);
+  }
+  return { band: band as Band, rest: argv.filter((_, j) => j !== i && j !== i + 1) };
 }
 
 export type Obj = Record<string, unknown>;

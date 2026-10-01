@@ -29,7 +29,8 @@ import { BAND_SLUGS, type Band } from '../../b1-import.logic.ts';
  *  run the merge, then rebuild this fixture. */
 const SLUGS = BAND_SLUGS;
 // B2 drafts ride in the same fixture (2026-09-27): one overlay, one bypass list
-// (DRAFT_LESSON_IDS), and the Den unlocks whichever band carries drafts.
+// (DRAFT_LESSON_IDS), and the Den unlocks whichever band carries drafts. C1
+// drafts join the same way (C1_SLUGS, data/c1/) and sort after B2.
 
 /** Lesson ids already in the seed, which are therefore no longer drafts. Seed
  *  plus the packs layer: under premium packs seed.json is only the free core,

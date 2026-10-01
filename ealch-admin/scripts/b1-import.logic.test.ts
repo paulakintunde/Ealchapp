@@ -371,12 +371,15 @@ test('addMissingThemes carries a Postgres-only theme into the catalogue, in slug
 test('parseBand defaults to b1 and strips the flag and its value from the slugs', () => {
   deepStrictEqual(parseBand(['medias', '--apply']), { band: 'b1', rest: ['medias', '--apply'] });
   deepStrictEqual(parseBand(['--band', 'b2', 'argumentation', '--apply']), { band: 'b2', rest: ['argumentation', '--apply'] });
-  throws(() => parseBand(['--band', 'c1']));
+  deepStrictEqual(parseBand(['--band', 'c1', '--dry']), { band: 'c1', rest: ['--dry'] });
+  throws(() => parseBand(['--band', 'c2']));
   throws(() => parseBand(['--band']));
   strictEqual(BAND_SLUGS.b1, B1_SLUGS);
+  deepStrictEqual(Object.keys(BAND_SLUGS), ['b1', 'b2', 'c1']);
 });
 
 test('unitBody takes the level from the unit id, so a b1 unit is unchanged and a b2 unit says b2', () => {
   deepStrictEqual(unitBody({ id: 'b1.07', title: 'T' }, 'b1.07.l1'), { id: 'b1.07', title: 'T', level: 'b1', lessonIds: ['b1.07.l1'] });
   strictEqual(unitBody({ id: 'b2.23' }, 'b2.23.l1').level, 'b2');
+  strictEqual(unitBody({ id: 'c1.20' }, 'c1.20.l1').level, 'c1');
 });
