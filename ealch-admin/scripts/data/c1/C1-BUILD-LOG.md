@@ -303,6 +303,19 @@ by an outside process with single-quoted alt lines (each prompt's « The subject
 is » sentence). Per lesson files = require = alt, 0 duplicates, all JPEG; the
 registry diff is exactly 92 added lines. ART_PENDING cleared.
 
+**WAVE 3 DRAFTED (2026-10-01).** c1.06, c1.07, c1.08, c1.09 written by four
+fresh authors; slugs in `C1_SLUGS` in trail order, the four in the three house
+tests and in `ART_PENDING` (48 openers). App checks `--band c1 --all` TOTAL 0;
+validators 0; house tests 342/342; C1 import dry run 1279 to insert (waves 2 +
+3; wave 1's 602 identical), 0 conflicts, 0 blockers, eight floors clear.
+Postgres-only reused rows grew a lot (c1.06 20, c1.07 14 incl. 7 at level
+« sons », c1.08 9, c1.09 18): the merge carries them, the gate preview needs
+them, and the decision 13 typography edit must be extended to every listed id
+before the wave 2-3 import. c1.09 names no exam (FEI returned 403; the task is
+« le format de l'application »). Published legacy rows with defects noted for a
+text edit: `fr.c1.francais-professionnel-avance.160` (subjunctive after « il y
+a fort à parier »), `fr.b1.pronoms-essentiels.1590` (« le moment auquel »).
+
 ## Wave plan
 
 As `C1-BUILD-PLAN.md`: wave 1 c1.20 c1.21 c1.01 c1.24 → GATE C1-1 → waves 2-3 →
@@ -664,10 +677,10 @@ graded task), plus the wave 2 notes (scratch subfolder, report as text,
 | c1.03 | concordance-litteraire (recognition) | 83 | 11 | 11×8 | 11 | 5 | 150 new / 16 reused | 11 in | pre-reviewed, art in |
 | c1.04 | relatives-complexes | 85 | 11 | 12×8 | 12 | 5 | 162 new / 19 reused | 11 in | pre-reviewed, art in |
 | c1.05 | ellipse-reprise | 87 | 12 | 12×8 | 12 | 5 | 182 new / 28 reused | 12 in | pre-reviewed, art in |
-| c1.06 | nuancer-oral | | | | | | | | dispatched |
-| c1.07 | reformuler-conclure | | | | | | | | dispatched |
-| c1.08 | persuader | | | | | | | | dispatched |
-| c1.09 | expose-jury | | | | | | | | dispatched |
+| c1.06 | nuancer-oral | 81 | 12 | 11×8 | 11 | 5 | 154 new / 38 reused | 12 pending | drafted, checks 0 |
+| c1.07 | reformuler-conclure | 77 | 12 | 11×8 | 11 | 5 | 132 new / 26 reused | 12 pending | drafted, checks 0 |
+| c1.08 | persuader | 77 | 12 | 11×8 | 11 | 5 | 178 new / 28 reused | 12 pending | drafted, checks 0 |
+| c1.09 | expose-jury | 79 | 12 | 11×8 | 11 | 5 | 162 new / 44 reused | 12 pending | drafted, checks 0 |
 
 ## Id ledger
 
@@ -686,10 +699,10 @@ graded task), plus the wave 2 notes (scratch subfolder, report as text,
 | `litterature` (sub-theme « la concordance littéraire ») | 1800-1999 | c1.03 concordance-litteraire | .1800-.1982 (150) |
 | `pronoms-essentiels` (widened a1-c1; sub-theme « les relatives complexes ») | 2000-2199 | c1.04 relatives-complexes | .2000-.2191 (162) |
 | `langue-soignee` (widened a2-c1; sub-theme « l'ellipse et la reprise ») | 2000-2199 | c1.05 ellipse-reprise | .2000-.2192 (182) |
-| `nuances-et-registres` (sub-theme « nuancer à l'oral ») | 1000-1199 | c1.06 nuancer-oral | |
-| `connecteurs-logiques` (widened a2-c1; sub-theme « reformuler et conclure ») | 2600-2799 | c1.07 reformuler-conclure | |
-| `rhetorique` (sub-theme « persuader ») | 1000-1199 | c1.08 persuader | |
-| `discours-dexamen` (sub-theme « l'exposé et le jury ») | 1200-1399 | c1.09 expose-jury | |
+| `nuances-et-registres` (sub-theme « nuancer à l'oral ») | 1000-1199 | c1.06 nuancer-oral | .1000-.1156 (154; .1004/.1005/.1097 unused) |
+| `connecteurs-logiques` (widened a2-c1; sub-theme « reformuler et conclure ») | 2600-2799 | c1.07 reformuler-conclure | .2600-.2731 (132) |
+| `rhetorique` (sub-theme « persuader ») | 1000-1199 | c1.08 persuader | .1000-.1177 (178) |
+| `discours-dexamen` (sub-theme « l'exposé et le jury ») | 1200-1399 | c1.09 expose-jury | .1200-.1361 (162) |
 
 Later waves: proposed homes for all 24 are in `C1-RESEARCH-PLAN.md`; probe again
 and claim at each wave's dispatch. **Rule:** a block must be unused at EVERY level
