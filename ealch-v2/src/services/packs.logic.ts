@@ -295,6 +295,28 @@ export function heldBands(loaded: Iterable<PackName>): Set<string> {
   return out;
 }
 
+/**
+ * The bands a pack trial must treat as held: the packs in the trial, plus
+ * every band whose LESSONS the base already carries.
+ *
+ * A legacy FULL snapshot holds every band's lessons. Judged with only the
+ * trial's packs as held, its paid units lost their lessonIds in the view while
+ * their lessons stayed, so the base failed on its own ("lesson a2.30.l1 is not
+ * listed in any unit's lessonIds", 98 issues) and no pack could ever land on
+ * it. With exam-only access that is a deadlock: the full snapshot waits for the
+ * exam pack before adopting the core, and the exam pack fails against the full
+ * snapshot (pack replay, v85 dry run, 2026-10-01). A core carries no paid
+ * lesson, so for a core this is exactly heldBands.
+ */
+export function trialBands(loaded: Iterable<PackName>, base: Pick<Corpus, 'lessons'>): Set<string> {
+  const out = heldBands(loaded);
+  for (const l of base.lessons) {
+    const b = bandOfId(l.id);
+    if (b !== null) out.add(b);
+  }
+  return out;
+}
+
 /** The band an id names: `fr.<band>.…` for an item, `<band>.<nn>…` for a
  *  unit or lesson, `sc.<band>.…` for a scenario. */
 function bandOfId(id: string): string | null {

@@ -14,7 +14,7 @@
 import {
   PACK_ORDER,
   composeCorpus,
-  heldBands,
+  trialBands,
   partialValidationView,
   shouldAdoptCore,
   trialPacks,
@@ -101,7 +101,7 @@ export function replayUpgrade(args: {
       const set = trial(loaded, { name, corpus: body }, [...unlanded]);
       const order = PACK_ORDER.filter((p) => set.has(p));
       const merged = composeCorpus(base, set, order);
-      const issues = validate(partialValidationView(merged, { bands: heldBands(order), exam: order.includes('exam') }));
+      const issues = validate(partialValidationView(merged, { bands: trialBands(order, base), exam: order.includes('exam') }));
       if (issues.length) {
         rejections.push({ launch, pack: name, issues: issues.length, sample: issues.slice(0, 3).map(describe) });
         continue;

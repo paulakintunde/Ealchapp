@@ -110,6 +110,28 @@ test('replay: a legacy full snapshot waits for its packs, then takes the core', 
   deepStrictEqual(r.rejections, []);
 });
 
+test('replay: an exam-only phone on the legacy full snapshot takes a changed exam pack (the v85 deadlock)', () => {
+  // v85 dry run, 2026-10-01: the first exam-pack change since packs. The full
+  // snapshot waits for the exam pack before adopting the core, and the exam
+  // pack was judged with only the free bands held, so the snapshot's own paid
+  // lessons read as orphans ("not listed in any unit's lessonIds") on every
+  // launch. trialBands counts the bands whose lessons the base carries.
+  const examBody = { pack: 'exam', version: 10, units: [], lessons: [], items: [], examTasks: [], examPapers: [] } as unknown as Corpus;
+  const examEntry = { name: 'exam' as PackName, version: 10, path: 'exam/v10.json', checksum: 'exam-v10', bytes: 1 };
+  const withExam: Target = {
+    manifest: { ...v10.manifest, packs: [...v10.manifest.packs.filter((p) => p.name !== 'exam'), examEntry] },
+    core: v10.core,
+    packs: new Map(v10.bodies).set('exam', examBody),
+  };
+  const oldExam: HeldPack = { version: 9, checksum: 'exam-v9', corpus: { ...examBody, version: 9 } as Corpus };
+  const legacy: DeviceState = { label: 'full v9 + exam v9', base: corpus(9), baseKind: 'full', baseVersion: 9, packs: new Map([['exam', oldExam]]) };
+  const strict = (c: Corpus) => validateCorpus(c).filter((i) => /unknown|not listed in any unit/i.test(i.message));
+  const r = replayUpgrade({ device: legacy, target: withExam, entitled: ['exam'], validate: strict, describe });
+  deepStrictEqual(r.rejections, [], 'the exam pack is judged against what the full snapshot really holds');
+  strictEqual(r.converged, true);
+  strictEqual(r.launches, 1);
+});
+
 test('replay: a free device only takes the core', () => {
   const free: DeviceState = { ...onV9(), label: 'free on v9', packs: new Map() };
   const r = replayUpgrade({ device: free, target, entitled: [], validate, describe });

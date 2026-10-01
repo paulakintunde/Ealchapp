@@ -10,6 +10,7 @@ import {
   composeCorpus,
   entitledPacks,
   heldBands,
+  trialBands,
   isPacksManifest,
   missingLessonState,
   packsComplete,
@@ -199,6 +200,29 @@ test('partialValidationView: exam targets into an unheld band are dropped, targe
 
 test('heldBands never counts the exam pack as a band', () => {
   deepStrictEqual([...heldBands(['exam', 'a2'])].sort(), ['a1', 'a2', 'sons']);
+});
+
+test('trialBands: a core base adds nothing; a legacy full base holds the bands whose lessons it carries', () => {
+  // The v85 dry-run deadlock (2026-10-01): an exam-only phone on the legacy full
+  // snapshot judged the exam pack with only the free bands held, so the
+  // snapshot's own paid lessons read as orphans and the pack never landed.
+  const lesson = (id: string) => ({ id, unitId: id.slice(0, id.lastIndexOf('.')), seq: 1, title: id, level: id.split('.')[0], tag: 't', intro: 'i', sections: [{ type: 'teach', title: 'T', body: 'B' }], itemIds: [], version: 1 });
+  const full = {
+    version: 82,
+    units: [
+      { id: 'a1.01', track: 'a1', seq: 1, title: 'A', sub: 'a', lessonIds: ['a1.01.l1'] },
+      { id: 'b1.01', seq: 1, title: 'B', sub: 'b', lessonIds: ['b1.01.l1'] },
+    ],
+    lessons: [lesson('a1.01.l1'), lesson('b1.01.l1')],
+    items: [item('fr.a1.cafe.001', 'a1')],
+    examTasks: [],
+  } as unknown as Corpus;
+  deepStrictEqual([...trialBands(['exam'], skeletonCorpus())].sort(), [...heldBands(['exam'])].sort(), 'a core carries no paid lesson');
+  deepStrictEqual([...trialBands(['exam'], full)].sort(), ['a1', 'b1', 'sons']);
+  const orphans = (bands: Set<string>) =>
+    validateCorpus(partialValidationView(full, { bands, exam: true })).filter((i) => /not listed in any unit/.test(i.message));
+  ok(orphans(heldBands(['exam'])).length > 0, 'the old view makes the full snapshot fail on its own');
+  deepStrictEqual(orphans(trialBands(['exam'], full)), [], 'judged as what it holds, it passes');
 });
 
 /* ─── composition ─── */

@@ -32,7 +32,7 @@ import {
   applyRetention,
   composeCorpus,
   entitledPacks,
-  heldBands,
+  trialBands,
   isPackName,
   isPacksManifest,
   packsComplete,
@@ -230,8 +230,11 @@ async function fetchOne(entry: PackEntry, stillQueued: readonly PackName[] = [])
       // one must not fail the candidate (see trialPacks).
       const trial = trialPacks(loaded, { name: entry.name, corpus: v.corpus }, stillQueued);
       const order = PACK_ORDER.filter((p) => trial.has(p));
-      const merged = composeCorpus(host.base(), trial, order);
-      const issues = validateCorpus(partialValidationView(merged, { bands: heldBands(order), exam: order.includes('exam') }));
+      const base = host.base();
+      const merged = composeCorpus(base, trial, order);
+      // trialBands, not heldBands: a legacy full base holds every band's
+      // lessons, and judging it as if it did not deadlocked exam-only devices.
+      const issues = validateCorpus(partialValidationView(merged, { bands: trialBands(order, base), exam: order.includes('exam') }));
       if (issues.length > 0) {
         unlink(staged);
         return false;
