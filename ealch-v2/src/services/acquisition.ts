@@ -7,6 +7,7 @@ import { firstOpenRecord, isD1Return, parseReferrer, type Attribution, type Firs
 const FIRST_KEY = 'ealch-acquisition-first-open';
 const D1_KEY = 'ealch-acquisition-d1-return';
 const ATTRIBUTION_KEY = 'ealch-acquisition-attribution';
+const ATTRIBUTION_ATTEMPTS = 5;
 let work: Promise<void> = Promise.resolve();
 
 function queue(now: Date): Promise<void> {
@@ -79,15 +80,23 @@ export async function recordInstallAttribution(
   try {
     const id = await installId();
     const oldRaw = await AsyncStorage.getItem(ATTRIBUTION_KEY);
+    let previous: Attribution['status'] | null = null;
+    let attempts = 0;
     try {
       if (oldRaw) {
-        const old = JSON.parse(oldRaw) as { installId: string; result: Attribution };
-        if (old.installId === id && old.result?.status !== 'lookup_failed') return;
+        const old = JSON.parse(oldRaw) as { installId: string; result: Attribution; attempts?: number };
+        if (old.installId === id) {
+          if (old.result?.status !== 'lookup_failed') return;
+          previous = old.result.status;
+          attempts = Number.isInteger(old.attempts) ? old.attempts! : 1;
+          if (attempts >= ATTRIBUTION_ATTEMPTS) return; // the Play service is not going to answer this install
+        }
       }
     } catch { /* Invalid saved attribution gets one fresh lookup. */ }
     const result: Attribution = platform === 'ios' ? { status: 'unavailable' } : parseReferrer(await lookup(platform));
-    await AsyncStorage.setItem(ATTRIBUTION_KEY, JSON.stringify({ installId: id, result }));
-    track('install_attribution', result);
+    await AsyncStorage.setItem(ATTRIBUTION_KEY, JSON.stringify({ installId: id, result, attempts: attempts + 1 }));
+    // A repeated failure was already reported; only a changed status is news.
+    if (result.status !== previous) track('install_attribution', result);
   } catch {
     // Acquisition is optional and must never delay onboarding.
   }

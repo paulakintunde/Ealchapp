@@ -203,6 +203,11 @@ export default function Onboarding() {
     }
   };
 
+  // Android reads the live region; iOS needs an explicit announcement. Focus stays in the field.
+  useEffect(() => {
+    if (acctErr) AccessibilityInfo.announceForAccessibility(acctErr);
+  }, [acctErr]);
+
   const continueAsGuest = () => {
     setAcctErr(null);
     setSignupFailed(false);
@@ -322,14 +327,16 @@ export default function Onboarding() {
             <Field placeholder={T.emailPh} value={s.email} onChangeText={(v) => s.setField('email', v)} keyboardType="email-address" autoCapitalize="none" />
             <PasswordField placeholder={T.passwordPh} value={password} onChangeText={setPassword} onSubmitEditing={() => void submitAccount()} />
             {acctErr ? (
-              <TX role="label" color={t.danger} style={{ marginTop: 2, marginBottom: 10 }}>
-                {acctErr}
-              </TX>
+              <View accessibilityLiveRegion="polite" style={{ marginTop: 4, marginBottom: 8 }}>
+                <TX role="body" color={t.danger}>
+                  {acctErr}
+                </TX>
+              </View>
             ) : null}
             <Button label={signupFailed ? T.obSignupRetry : T.obCreateAccount} onPress={submitAccount} disabled={acctPending} style={{ minHeight: 54, marginTop: 6 }} />
             {/* Consent is disclosed at the moment of account creation. */}
             <LegalConsent />
-            <Press accessibilityRole="button" onPress={continueAsGuest} style={{ alignItems: 'center', marginTop: 18 }}>
+            <Press accessibilityRole="button" onPress={continueAsGuest} style={{ alignItems: 'center', justifyContent: 'center', minHeight: 44, marginTop: 16 }}>
               <TX font="semi" role="bodySm" color={t.accTx}>
                 {T.continueGuest}
               </TX>

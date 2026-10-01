@@ -29,6 +29,7 @@ import { useAuthSession } from '@/services/session';
 import { useForegroundSync } from '@/services/sync';
 import { useEntitlementSync } from '@/services/purchases';
 import { recordAppForeground, recordAppLaunch, recordInstallAttribution } from '@/services/acquisition';
+import { flushAnalyticsOutbox } from '@/services/analytics';
 
 SplashScreen.preventAutoHideAsync().catch(() => {});
 
@@ -92,8 +93,12 @@ export default function RootLayout() {
 
   useEffect(() => {
     void recordAppLaunch().then(() => recordInstallAttribution());
+    void flushAnalyticsOutbox();
     const subscription = AppState.addEventListener('change', (next) => {
-      if (next === 'active' && lastAppState.current !== 'active') void recordAppForeground();
+      if (next === 'active' && lastAppState.current !== 'active') {
+        void recordAppForeground();
+        void flushAnalyticsOutbox();
+      }
       lastAppState.current = next;
     });
     return () => subscription.remove();

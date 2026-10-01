@@ -56,6 +56,12 @@ export function firstOutcome(current: PlacementOutcome | null, outcome: Placemen
   return current ?? outcome;
 }
 
+/** D-05/D-07: a result is the initial funnel result only when this attempt's result was the first terminal outcome.
+ *  A result after a skip, an abandoned attempt or a terminal load failure is a later outcome. */
+export function isInitialResult(outcome: PlacementOutcome | null, attemptId: string): boolean {
+  return outcome?.kind === 'result' && outcome.attemptId === attemptId;
+}
+
 export function firstResult(current: PlacementResult | null, result: PlacementResult): PlacementResult {
   return current ?? result;
 }

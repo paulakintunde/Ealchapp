@@ -85,7 +85,8 @@ export function Button({
 }: {
   label: string;
   onPress?: () => void;
-  variant?: 'primary' | 'ghost' | 'outline';
+  /** `danger` is the outline form in the danger colour, for a confirmed destructive action. */
+  variant?: 'primary' | 'ghost' | 'outline' | 'danger';
   cue?: Cue | null;
   disabled?: boolean;
   style?: StyleProp<ViewStyle>;
@@ -93,8 +94,8 @@ export function Button({
 }) {
   const t = useTheme();
   const bg =
-    variant === 'primary' ? t.acc : variant === 'outline' ? 'transparent' : t.line(6);
-  const fg = variant === 'primary' ? t.accInk : t.txPrimary;
+    variant === 'primary' ? t.acc : variant === 'outline' || variant === 'danger' ? 'transparent' : t.line(6);
+  const fg = variant === 'primary' ? t.accInk : variant === 'danger' ? t.danger : t.txPrimary;
   return (
     <Press
       cue={cue}
@@ -112,8 +113,8 @@ export function Button({
           flexDirection: 'row',
           gap: 8,
           backgroundColor: bg,
-          borderWidth: variant === 'outline' ? 1.5 : 0,
-          borderColor: t.accA(50),
+          borderWidth: variant === 'outline' || variant === 'danger' ? 1.5 : 0,
+          borderColor: variant === 'danger' ? t.danger : t.accA(50),
           opacity: disabled ? 0.4 : 1,
         },
         style,

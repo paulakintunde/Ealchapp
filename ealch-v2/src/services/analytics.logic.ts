@@ -94,6 +94,8 @@ export function milestoneKey(event: AnalyticsEvent, props: Record<string, unknow
   switch (event) {
     case 'first_open': return `${event}:${installId}`;
     case 'd1_return': return `${event}:${installId}`;
+    // A Play lookup that keeps failing is retried on later launches; report each status once.
+    case 'install_attribution': return `${event}:${installId}:${props.status}`;
     case 'signup_completed': return `${event}:${props.account_id}`;
     case 'onboarding_started': case 'onboarding_completed': return `${event}:${props.wizard_id}`;
     case 'onboarding_step_completed': return `${event}:${props.wizard_id}:${props.step_index}`;
@@ -138,24 +140,69 @@ export function identityCaptureBody(
   };
 }
 
-/** HTTP acknowledgement only; an ingestion warning still requires a test-project check. */
+/** A capture body as it waits for a retry. The public key is re-added at send time, never stored. */
+export type OutboxEntry = Omit<CaptureBody, 'api_key'>;
+export const OUTBOX_LIMIT = 200;
+export const OUTBOX_MAX_AGE_MS = 14 * 24 * 60 * 60 * 1000;
+
+/** Offline, throttled and server failures are worth another try. A 4xx rejection is a defect to fix, not to repeat. */
+export function retryableCapture(diagnostic: CaptureDiagnostic): boolean {
+  const { status } = diagnostic;
+  return status === 'offline' || status === 408 || status === 429 || (typeof status === 'number' && status >= 500);
+}
+
+/** Drops entries too old to be worth sending; their original timestamp would mislead a funnel. */
+export function pruneOutbox(outbox: readonly OutboxEntry[], now: number): OutboxEntry[] {
+  return outbox.filter((entry) => {
+    const at = Date.parse(entry.timestamp);
+    return Number.isFinite(at) && now - at <= OUTBOX_MAX_AGE_MS;
+  });
+}
+
+/** One copy per event ID. When full, the oldest entries win: first_open and onboarding milestones come first. */
+export function enqueueOutbox(outbox: readonly OutboxEntry[], entry: OutboxEntry, now: number): OutboxEntry[] {
+  const kept = pruneOutbox(outbox, now);
+  if (kept.some((queued) => queued.uuid === entry.uuid) || kept.length >= OUTBOX_LIMIT) return kept;
+  return [...kept, entry];
+}
+
+/** Stored entries are untrusted: one malformed element must not block every later flush. */
+export function validOutbox(value: unknown): OutboxEntry[] {
+  if (!Array.isArray(value)) return [];
+  return value.filter((entry): entry is OutboxEntry => !!entry && typeof entry === 'object'
+    && typeof (entry as OutboxEntry).uuid === 'string' && typeof (entry as OutboxEntry).event === 'string'
+    && typeof (entry as OutboxEntry).distinct_id === 'string' && typeof (entry as OutboxEntry).timestamp === 'string'
+    && !!(entry as OutboxEntry).properties && typeof (entry as OutboxEntry).properties === 'object');
+}
+
+export const CAPTURE_TIMEOUT_MS = 10_000;
+
+/** HTTP acknowledgement only; an ingestion warning still requires a test-project check.
+ *  A 2xx whose body is not PostHog's JSON (a captive-portal login page) never reached
+ *  PostHog, so it counts as offline and the event stays queued. */
 export async function captureHttp(
   fetcher: (url: string, init: RequestInit) => Promise<Response>, host: string, body: CaptureBody,
+  timeoutMs: number = CAPTURE_TIMEOUT_MS,
 ): Promise<CaptureDiagnostic> {
   if (!body.api_key) return { event_id: body.uuid, event: body.event, status: 'no_key', accepted: false };
+  const controller = typeof AbortController === 'function' ? new AbortController() : null;
+  const timer = controller ? setTimeout(() => controller.abort(), timeoutMs) : null;
   try {
     const response = await fetcher(`${host}/capture/`, {
       method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body),
+      ...(controller ? { signal: controller.signal } : {}),
     });
-    let rejectedInBody = false;
-    if (response.ok) {
-      try {
-        const value = await response.json() as { status?: unknown; error?: unknown };
-        rejectedInBody = value.status === 0 || value.status === 'error' || value.error != null;
-      } catch { /* 204 and empty successful responses are valid. */ }
-    }
-    return { event_id: body.uuid, event: body.event, status: response.status, accepted: response.ok && !rejectedInBody };
+    if (!response.ok) return { event_id: body.uuid, event: body.event, status: response.status, accepted: false };
+    let value: unknown;
+    try { value = await response.json(); } catch { value = null; }
+    if (!value || typeof value !== 'object') return { event_id: body.uuid, event: body.event, status: 'offline', accepted: false };
+    const { status, error } = value as { status?: unknown; error?: unknown };
+    const rejectedInBody = status === 0 || status === 'error' || error != null;
+    return { event_id: body.uuid, event: body.event, status: response.status, accepted: !rejectedInBody };
   } catch {
+    // Network failure or the timeout above.
     return { event_id: body.uuid, event: body.event, status: 'offline', accepted: false };
+  } finally {
+    if (timer) clearTimeout(timer);
   }
 }

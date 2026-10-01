@@ -7,9 +7,10 @@ import { useStore } from '@/store/useStore';
 import { setPracticeDayListener } from '@/store/useProgress';
 import { practicedDayMilestone } from './engagement.logic';
 import {
-  captureHttp, carryGuestMilestones, claimOnce, distinctId, identityCaptureBody, milestoneKey, safeProperties, verifiedSignup,
+  captureHttp, carryGuestMilestones, claimOnce, distinctId, enqueueOutbox, identityCaptureBody, milestoneKey, pruneOutbox,
+  retryableCapture, safeProperties, validOutbox, verifiedSignup,
   type AnalyticsEvent, type CaptureBody, type CaptureDiagnostic, type EventProperties,
-  type NoPropsEvent, type PendingSignup, type PropsEvent, type VerifiedUser,
+  type NoPropsEvent, type OutboxEntry, type PendingSignup, type PropsEvent, type VerifiedUser,
 } from './analytics.logic';
 
 export type { AnalyticsEvent, EventProperties } from './analytics.logic';
@@ -19,6 +20,7 @@ const JOURNEY_KEY = 'ealch-analytics-journey-id';
 const CLAIMS_KEY = 'ealch-analytics-milestones';
 const SIGNUP_KEY = 'ealch-analytics-pending-signup';
 const LINKED_KEY = 'ealch-analytics-linked-signups';
+const OUTBOX_KEY = 'ealch-analytics-outbox';
 let installCache: string | null = null;
 let journeyCache: string | null = null;
 let installPending: Promise<string> | null = null;
@@ -103,6 +105,67 @@ async function transferGuestMilestones(guestId: string, accountId: string): Prom
   } catch { /* Analytics storage never blocks signup. */ }
 }
 
+// Unknown until the first read, so the first send after launch checks storage.
+let outboxPending = true;
+
+async function readOutbox(): Promise<OutboxEntry[]> {
+  try {
+    return validOutbox(JSON.parse((await AsyncStorage.getItem(OUTBOX_KEY)) ?? '[]'));
+  } catch { return []; }
+}
+
+async function writeOutbox(entries: OutboxEntry[]): Promise<void> {
+  outboxPending = entries.length > 0;
+  try {
+    if (entries.length) await AsyncStorage.setItem(OUTBOX_KEY, JSON.stringify(entries));
+    else await AsyncStorage.removeItem(OUTBOX_KEY);
+  } catch { /* A lost retry is a QA failure, never a learner-facing one. */ }
+}
+
+async function enqueue(body: CaptureBody): Promise<void> {
+  const { api_key: _key, ...entry } = body;
+  await writeOutbox(enqueueOutbox(await readOutbox(), entry, Date.now()));
+}
+
+/** A milestone is claimed before sending, so a failed send waits in the outbox instead of vanishing.
+ *  Earlier failures go first: while anything is still queued, a new event queues behind it, so a
+ *  queued `$identify` still reaches PostHog before the `signup_completed` that follows it. */
+async function deliver(body: CaptureBody): Promise<void> {
+  if (outboxPending) {
+    await flushOutbox();
+    if (outboxPending) {
+      recordDiagnostic({ event_id: body.uuid, event: body.event, status: 'offline', accepted: false });
+      await enqueue(body);
+      return;
+    }
+  }
+  const diagnostic = await captureHttp(fetch, ENV.posthogHost, body);
+  recordDiagnostic(diagnostic);
+  if (diagnostic.accepted || !retryableCapture(diagnostic)) return;
+  await enqueue(body);
+}
+
+/** Resend in original order with the original event ID and timestamp; stop at the first retryable
+ *  failure. Progress is saved after each entry, so a crash mid-flush cannot resend what went out. */
+async function flushOutbox(): Promise<void> {
+  const entries = pruneOutbox(await readOutbox(), Date.now());
+  let next = 0;
+  for (; next < entries.length; next++) {
+    const diagnostic = await captureHttp(fetch, ENV.posthogHost, { ...entries[next], api_key: ENV.posthogKey });
+    recordDiagnostic(diagnostic);
+    if (!diagnostic.accepted && retryableCapture(diagnostic)) break;
+    await writeOutbox(entries.slice(next + 1));
+  }
+  await writeOutbox(entries.slice(next));
+}
+
+/** Called on launch and on each return to foreground. Never awaited by a learner action. */
+export function flushAnalyticsOutbox(): Promise<void> {
+  if (!ENV.posthogKey) return Promise.resolve();
+  taskTail = taskTail.then(flushOutbox).catch(() => {});
+  return taskTail;
+}
+
 async function send<E extends AnalyticsEvent>(event: E, input: EventProperties[E], userId: string | null): Promise<void> {
   try {
     const [install_id, journey_id] = await Promise.all([installId(), guestJourneyId()]);
@@ -116,8 +179,7 @@ async function send<E extends AnalyticsEvent>(event: E, input: EventProperties[E
       properties: { ...properties, event_id, install_id, journey_id, $lib: 'ealch-app', platform: Platform.OS },
       timestamp: new Date().toISOString(),
     };
-    const diagnostic = await captureHttp(fetch, ENV.posthogHost, body);
-    recordDiagnostic(diagnostic);
+    await deliver(body);
   } catch { /* Analytics cannot interrupt the app. */ }
 }
 
@@ -177,8 +239,7 @@ async function applyAuthTransition(event: string, user: VerifiedUser | null): Pr
     const [install_id] = await Promise.all([installId()]);
     const event_id = Crypto.randomUUID();
     const body = identityCaptureBody(ENV.posthogKey, user.id, pending.guestJourneyId, install_id, event_id, new Date().toISOString());
-    const diagnostic = await captureHttp(fetch, ENV.posthogHost, body);
-    recordDiagnostic(diagnostic);
+    await deliver(body);
   }).then(() => send('signup_completed', { method: 'email', account_id: user.id }, user.id)).catch(() => {});
 }
 

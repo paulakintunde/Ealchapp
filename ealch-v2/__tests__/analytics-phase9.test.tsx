@@ -21,7 +21,7 @@ jest.mock('@/services/env', () => ({ ENV: {
 jest.mock('@/store/useStore', () => ({ useStore: { getState: () => ({ userId: mockUserId, freeze: 1 }) } }));
 
 import {
-  getCaptureDiagnostics, guestJourneyId, handleAuthTransition,
+  flushAnalyticsOutbox, getCaptureDiagnostics, guestJourneyId, handleAuthTransition,
   prepareEmailSignup, recordAcceptedEmailSignup, track,
 } from '@/services/analytics';
 import { useProgress } from '@/store/useProgress';
@@ -45,9 +45,11 @@ test('track returns immediately; configured capture records HTTP acceptance and 
   track('paywall_viewed', { from: 'home' });
   track('paywall_viewed', { from: 'settings' });
   await flush();
-  expect(getCaptureDiagnostics().map((d) => [d.status, d.accepted])).toEqual([
-    [400, false], ['offline', false], [200, true],
+  // The offline event waits in the outbox and goes out first, ahead of the next live event.
+  expect(getCaptureDiagnostics().map((d) => [d.event, d.status, d.accepted])).toEqual([
+    ['paywall_viewed', 400, false], ['paywall_viewed', 'offline', false], ['paywall_viewed', 200, true], ['paywall_viewed', 200, true],
   ]);
+  expect(calls.map((call) => call.properties.from)).toEqual(['direct', 'home', 'home', 'settings']);
   expect(calls[0].properties).toHaveProperty('install_id');
   expect(calls[0].properties).toHaveProperty('journey_id');
   expect(JSON.stringify(calls)).not.toContain('offline private detail');
@@ -125,4 +127,90 @@ test('verified guest signup keeps first lesson once, while an existing sign-in s
   expect(lessonEvents[0].distinct_id).toBe(guest);
   expect(lessonEvents[1].distinct_id).not.toBe(guest);
   expect(lessonEvents[2].distinct_id).toBe('existing-account');
+});
+
+test('an offline milestone waits in the outbox and is resent with its original ID and time; a 400 is not retried', async () => {
+  mockStorage.delete('ealch-analytics-outbox');
+  const sent: Array<{ event: string; uuid: string; timestamp: string; api_key: string }> = [];
+  let online = false;
+  globalThis.fetch = jest.fn(async (_url: string, init: RequestInit) => {
+    if (!online) throw new Error('offline');
+    const body = JSON.parse(String(init.body));
+    sent.push(body);
+    return body.event === 'paywall_viewed'
+      ? { ok: false, status: 400, json: async () => ({}) }
+      : { ok: true, status: 200, json: async () => ({ status: 1 }) };
+  }) as unknown as typeof fetch;
+
+  track('first_open', { local_day: '2026-09-30', opened_at: '2026-09-30T08:00:00.000Z' });
+  await flush();
+  const queued = JSON.parse(mockStorage.get('ealch-analytics-outbox') ?? '[]');
+  expect(queued.map((entry: { event: string }) => entry.event)).toEqual(['first_open']);
+  expect(JSON.stringify(queued)).not.toContain('public-test-key');
+
+  // The milestone stays claimed: a repeat call must not create a second event.
+  track('first_open', { local_day: '2026-09-30', opened_at: '2026-09-30T08:00:00.000Z' });
+  await flush();
+  expect(JSON.parse(mockStorage.get('ealch-analytics-outbox') ?? '[]')).toHaveLength(1);
+
+  online = true;
+  await flushAnalyticsOutbox();
+  expect(sent.map((body) => body.event)).toEqual(['first_open']);
+  expect(sent[0].uuid).toBe(queued[0].uuid);
+  expect(sent[0].timestamp).toBe(queued[0].timestamp);
+  expect(sent[0].api_key).toBe('public-test-key');
+  expect(mockStorage.has('ealch-analytics-outbox')).toBe(false);
+
+  // A rejected request is a defect for QA, not something to resend forever.
+  track('paywall_viewed', { from: 'home' });
+  await flush();
+  expect(mockStorage.has('ealch-analytics-outbox')).toBe(false);
+});
+
+test('a 5xx stops a flush partway, keeps the rest in order, and new events queue behind them', async () => {
+  mockStorage.delete('ealch-analytics-outbox');
+  const sent: string[] = [];
+  let mode: 'offline' | 'second-fails' | 'online' = 'offline';
+  globalThis.fetch = jest.fn(async (_url: string, init: RequestInit) => {
+    if (mode === 'offline') throw new Error('offline');
+    const body = JSON.parse(String(init.body));
+    if (mode === 'second-fails' && sent.length === 1) return { ok: false, status: 503, json: async () => ({}) };
+    sent.push(body.properties.plan);
+    return { ok: true, status: 200, json: async () => ({ status: 1 }) };
+  }) as unknown as typeof fetch;
+  track('plan_selected', { plan: 'mo' });
+  track('plan_selected', { plan: 'yr' });
+  await flush();
+  expect(JSON.parse(mockStorage.get('ealch-analytics-outbox') ?? '[]')).toHaveLength(2);
+
+  mode = 'second-fails';
+  await flushAnalyticsOutbox();
+  expect(sent).toEqual(['mo']);
+  const left = JSON.parse(mockStorage.get('ealch-analytics-outbox') ?? '[]');
+  expect(left.map((entry: { properties: { plan: string } }) => entry.properties.plan)).toEqual(['yr']);
+
+  // Still failing: a new event must not overtake the queued one.
+  mode = 'offline';
+  track('plan_selected', { plan: 'mo' });
+  await flush();
+  expect(JSON.parse(mockStorage.get('ealch-analytics-outbox') ?? '[]').map((entry: { properties: { plan: string } }) => entry.properties.plan)).toEqual(['yr', 'mo']);
+
+  mode = 'online';
+  await flushAnalyticsOutbox();
+  expect(sent).toEqual(['mo', 'yr', 'mo']);
+  expect(mockStorage.has('ealch-analytics-outbox')).toBe(false);
+});
+
+test('a malformed stored entry is skipped instead of blocking the outbox', async () => {
+  mockStorage.set('ealch-analytics-outbox', JSON.stringify([null, 'junk', { uuid: 7 }]));
+  const sent: string[] = [];
+  globalThis.fetch = jest.fn(async (_url: string, init: RequestInit) => {
+    sent.push(JSON.parse(String(init.body)).event);
+    return { ok: true, status: 200, json: async () => ({ status: 1 }) };
+  }) as unknown as typeof fetch;
+  await flushAnalyticsOutbox();
+  expect(mockStorage.has('ealch-analytics-outbox')).toBe(false);
+  track('plan_selected', { plan: 'yr' });
+  await flush();
+  expect(sent).toEqual(['plan_selected']);
 });

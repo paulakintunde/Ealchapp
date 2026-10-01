@@ -107,3 +107,43 @@ test('recorded result is emitted once and retake gets a new attempt ID', async (
   expect(useStore.getState().firstPlacementResult?.attemptId).toBe('result-placement');
   await view.unmount();
 });
+
+test('a result after an initial skip is reported as a later result, matching its started event', async () => {
+  const [a, b] = sample();
+  useStore.setState({
+    firstPlacementOutcome: { kind: 'skipped', attemptId: null },
+    placementAttempt: answerAttempt(createAttempt('after-skip', [{ itemId: a.id, optionIds: [b.id, a.id] }]), 1),
+  });
+  const view = await render(wrap(<Placement />));
+  await fireEvent.press(screen.getByRole('button', { name: /Continue/ }));
+  await waitFor(() => expect(useStore.getState().placementAttempt?.status).toBe('completed'));
+  const results = (track as jest.Mock).mock.calls.filter(([event]) => event === 'placement_result');
+  expect(results).toHaveLength(1);
+  expect(results[0][1].initial_result).toBe(false);
+  expect(useStore.getState().firstPlacementOutcome?.kind).toBe('skipped');
+  await view.unmount();
+});
+
+test('a first result is reported as the initial result', async () => {
+  const [a, b] = sample();
+  useStore.setState({ placementAttempt: answerAttempt(createAttempt('first-ever', [{ itemId: a.id, optionIds: [b.id, a.id] }]), 1) });
+  const view = await render(wrap(<Placement />));
+  await fireEvent.press(screen.getByRole('button', { name: /Continue/ }));
+  await waitFor(() => expect(useStore.getState().placementAttempt?.status).toBe('completed'));
+  const results = (track as jest.Mock).mock.calls.filter(([event]) => event === 'placement_result');
+  expect(results[0][1].initial_result).toBe(true);
+  await view.unmount();
+});
+
+test('a checkpoint that no longer matches the corpus starts a fresh check, not a load failure', async () => {
+  const [a] = sample();
+  useStore.setState({ placementAttempt: createAttempt('outdated', [{ itemId: a.id, optionIds: [a.id, 'item-removed-by-update'] }]) });
+  const view = await render(wrap(<Placement />));
+  await waitFor(() => expect(useStore.getState().placementAttempt?.attemptId).toBe('placement-new-uuid'));
+  expect(useStore.getState().placementAttempt?.status).toBe('in_progress');
+  expect(screen.queryByText('Quick check unavailable')).toBeNull();
+  expect((track as jest.Mock).mock.calls.some(([event]) => event === 'placement_load_failed')).toBe(false);
+  // The discarded attempt already counted as a start, so the redraw is a later start.
+  expect(track).toHaveBeenCalledWith('placement_started', { attempt_id: 'placement-new-uuid', source: 'later' });
+  await view.unmount();
+});

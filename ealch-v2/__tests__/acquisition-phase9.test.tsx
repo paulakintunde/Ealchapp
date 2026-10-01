@@ -71,3 +71,12 @@ test('Android unsupported and retryable errors map to different statuses', async
     ['install_attribution', { status: 'campaign', medium: 'cpc' }],
   ]);
 });
+
+test('a lookup that keeps failing is reported once and retried at most five times', async () => {
+  const lookup = jest.fn(async () => ({ status: 'failed' as const }));
+  for (let launch = 0; launch < 8; launch++) await recordInstallAttribution('android', lookup);
+  expect(lookup).toHaveBeenCalledTimes(5);
+  expect((track as jest.Mock).mock.calls.filter(([event]) => event === 'install_attribution')).toEqual([
+    ['install_attribution', { status: 'lookup_failed' }],
+  ]);
+});

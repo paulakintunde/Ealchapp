@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import { deepStrictEqual, strictEqual } from 'node:assert';
-import { answerAttempt, completeAttempt, createAttempt, firstOutcome, firstResult, restoreAttempt } from './placement.logic.ts';
+import { answerAttempt, completeAttempt, createAttempt, firstOutcome, firstResult, isInitialResult, restoreAttempt } from './placement.logic.ts';
 import type { Item } from '@/content/schema';
 
 const items = [
@@ -38,4 +38,17 @@ test('first terminal outcome and first completed result stay immutable across la
   deepStrictEqual(firstOutcome(skip, { kind: 'result', attemptId: 'later', level: 'A2' }), skip);
   const result = { attemptId: 'later', level: 'A2' as const, correctCount: 9, questionCount: 12 };
   deepStrictEqual(firstResult(result, { ...result, attemptId: 'retake', level: 'A1' }), result);
+});
+
+test('initial_result is true only when this attempt was the first terminal outcome', () => {
+  strictEqual(isInitialResult({ kind: 'result', attemptId: 'first', level: 'A1' }, 'first'), true);
+  // Retake after a first result.
+  strictEqual(isInitialResult({ kind: 'result', attemptId: 'first', level: 'A1' }, 'retake'), false);
+  // D-05: a result after a voluntary skip is a later outcome.
+  strictEqual(isInitialResult({ kind: 'skipped', attemptId: null }, 'later'), false);
+  // D-07: a result after an abandoned attempt is a later outcome.
+  strictEqual(isInitialResult({ kind: 'abandoned', attemptId: 'gave-up' }, 'later'), false);
+  // D-08: Continue after a failed load made load_failed the initial outcome.
+  strictEqual(isInitialResult({ kind: 'load_failed', attemptId: 'empty' }, 'later'), false);
+  strictEqual(isInitialResult(null, 'any'), false);
 });

@@ -11,7 +11,7 @@ import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
 import { useProgress, useSessionLog } from '@/store/useProgress';
 import { placementEstimate, type PlacementAnswer } from '@/store/progress.logic';
-import { createAttempt, restoreAttempt, type PlacementAttempt, type PlacementQuestion } from '@/store/placement.logic';
+import { createAttempt, isInitialResult, restoreAttempt, type PlacementAttempt, type PlacementQuestion } from '@/store/placement.logic';
 import { content, useContent } from '@/services/content';
 import { sound, tts } from '@/services';
 import type { Item, Track } from '@/content/schema';
@@ -95,6 +95,7 @@ export default function Placement() {
   const [resumed, setResumed] = useState(false);
   const questionHeadingRef = useRef<View>(null);
   const exitHeadingRef = useRef<View>(null);
+  const unavailableHeadingRef = useRef<View>(null);
   const est = attempt?.status === 'completed' ? attempt.result : null;
 
   useFocusEffect(useCallback(() => {
@@ -114,6 +115,16 @@ export default function Placement() {
     }, 80);
     return () => clearTimeout(timer);
   }, [resumed, qIx]);
+
+  // UI-SPEC: focus the heading of a newly shown recovery state before its actions.
+  useEffect(() => {
+    if (questions.length !== 0 || !attempt) return;
+    const timer = setTimeout(() => {
+      const node = findNodeHandle(unavailableHeadingRef.current);
+      if (node) AccessibilityInfo.setAccessibilityFocus(node);
+    }, 80);
+    return () => clearTimeout(timer);
+  }, [questions.length, attempt?.attemptId]);
 
   useEffect(() => {
     if (!showExitConfirm) return;
@@ -135,10 +146,14 @@ export default function Placement() {
       setSel(restored.nextQuestionIndex === restored.questions.length ? restored.answers[ix] : null);
       return;
     }
-    const fresh = createAttempt(Crypto.randomUUID(), saved && !restored ? [] : buildQuickCheck(items));
+    // A checkpoint that no longer matches the corpus (an update removed one of
+    // its items) is discarded and a fresh check drawn. It is not a load failure:
+    // the questions exist, only the old draw does not. Any saved attempt already
+    // counted as this learner's start, so the redraw is reported as a later one.
+    const fresh = createAttempt(Crypto.randomUUID(), buildQuickCheck(items));
     setPlacementAttempt(fresh);
-    if (fresh.status === 'in_progress') trackEvent('placement_started', { attempt_id: fresh.attemptId, source: firstPlacementOutcome ? 'later' : 'initial' });
-    else trackEvent('placement_load_failed', { attempt_id: fresh.attemptId, reason: saved && !restored ? 'other' : items.length ? 'empty_bank' : 'content_unavailable' });
+    if (fresh.status === 'in_progress') trackEvent('placement_started', { attempt_id: fresh.attemptId, source: firstPlacementOutcome || saved ? 'later' : 'initial' });
+    else trackEvent('placement_load_failed', { attempt_id: fresh.attemptId, reason: items.length ? 'empty_bank' : 'content_unavailable' });
     // A route entry starts at most one attempt; Retry and Retake create later ones.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hydrated]);
@@ -180,7 +195,7 @@ export default function Placement() {
     setField('level', graded);
     logSession('placement');
     if (finishPlacement({ attemptId: attempt.attemptId, level: graded, correctCount, questionCount: n })) {
-      trackEvent('placement_result', { attempt_id: attempt.attemptId, level: graded, correct_count: correctCount, question_count: n, initial_result: !useStore.getState().firstPlacementResult || useStore.getState().firstPlacementResult?.attemptId === attempt.attemptId });
+      trackEvent('placement_result', { attempt_id: attempt.attemptId, level: graded, correct_count: correctCount, question_count: n, initial_result: isInitialResult(useStore.getState().firstPlacementOutcome, attempt.attemptId) });
     }
     // Paywall trigger point 1 (master plan): placement just wrote a level.
     // When the graded plan reaches past the free bands, the result screen
@@ -255,8 +270,10 @@ export default function Placement() {
         </TX>
 
         {n === 0 ? (
-          <View style={{ paddingTop: 30, gap: 16 }}>
-            <TX font="semi" role="titleLg" center>{T.plUnavailableTitle}</TX>
+          <View style={{ paddingTop: 32, gap: 16 }}>
+            <View ref={unavailableHeadingRef} accessible accessibilityRole="header" accessibilityLabel={T.plUnavailableTitle}>
+              <TX font="semi" role="titleLg" center>{T.plUnavailableTitle}</TX>
+            </View>
             <TX role="body" color={t.txSecondary} center>{T.plUnavailableBody}</TX>
             <Button label={T.plRetry} onPress={redo} style={{ marginTop: 8 }} />
             <Button label={T.plContinueWithout} variant="outline" onPress={continueWithout} />
@@ -404,7 +421,7 @@ export default function Placement() {
             </View>
             <TX role="body" color={t.txSecondary}>{T.plExitBody}</TX>
             <Button label={T.plKeepChecking} onPress={keepChecking} />
-            <Button label={T.plEndCheck} variant="outline" onPress={endCheck} />
+            <Button label={T.plEndCheck} variant="danger" onPress={endCheck} />
           </View>
         </View>
       </Modal>
