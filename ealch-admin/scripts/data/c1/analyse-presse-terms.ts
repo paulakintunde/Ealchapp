@@ -47,7 +47,7 @@ export const ANALYSE_PRESSE_TERMS: Record<string, LessonTerm> = {
   chapo: {
     term: 'le chapô',
     title: 'Le chapô, ou chapeau',
-    body: "Le court texte, souvent en gras, entre le titre et l’article. La presse l’écrit souvent « chapô » ; le dictionnaire dit aussi « chapeau ». Il résume l’article et en donne l’angle : deux chapôs différents sur le même fait annoncent déjà deux lectures. EN: The bold standfirst under the headline; it sums up and sets the angle.",
+    body: "Le court texte, souvent en gras, entre le titre et l’article. Le dictionnaire dit « chapeau » ; dans les rédactions, on l’écrit souvent « chapô ». Il résume l’article et en donne l’angle : deux chapôs différents sur le même fait annoncent déjà deux lectures. EN: The bold standfirst under the headline; it sums up and sets the angle.",
     examples: [
       { itemId: E(2031), note: 'les deux orthographes' },
       { itemId: E(2036), note: 'ce qu’il fait' },
@@ -83,7 +83,7 @@ export const ANALYSE_PRESSE_TERMS: Record<string, LessonTerm> = {
   signature: {
     term: 'la signature',
     title: 'Qui signe, et au nom de qui',
-    body: "Une dépêche porte le sigle d’une agence ; un reportage, le nom du journaliste ; une chronique, le nom et souvent la photo de son auteur ; une tribune, le nom et la fonction d’une personne extérieure. L’éditorial, lui, parle au nom du journal : en France, il paraît souvent sans signature ; au Québec, il est souvent signé par un éditorialiste. EN: The byline tells you on whose behalf a text speaks.",
+    body: "Une dépêche porte le sigle d’une agence ; un reportage, le nom du journaliste ; une chronique, le nom et souvent la photo de son auteur ; une tribune, le nom et la fonction d’une personne extérieure. L’éditorial, lui, parle au nom du journal, signé ou non : certains journaux le publient sans signature, d’autres le font signer par le rédacteur en chef ou, comme souvent au Québec, par un éditorialiste. EN: The byline tells you on whose behalf a text speaks.",
     examples: [
       { itemId: E(2069), note: 'sans signature' },
       { itemId: E(2081), note: 'le « je » d’une signature' },

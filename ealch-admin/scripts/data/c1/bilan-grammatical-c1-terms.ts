@@ -17,7 +17,7 @@ import { E } from './bilan-grammatical-c1-corpus.ts';
 
 export const BILAN_GRAMMATICAL_TERMS: Record<string, LessonTerm> = {
   produire: {
-    term: 'à produire',
+    term: 'produire',
     title: 'Ce que tu dois écrire et dire',
     body: "Une structure à produire, tu dois pouvoir l'employer seul, à l'écrit comme à l'oral, sans y penser et sans te tromper, même quand tu écris vite. Au C1, c'est le cas de presque toute la grammaire du B2. EN: A structure to produce is one you must use unprompted, in writing and speech, without slipping.",
     examples: [
@@ -28,7 +28,7 @@ export const BILAN_GRAMMATICAL_TERMS: Record<string, LessonTerm> = {
   },
 
   reconnaitre: {
-    term: 'à reconnaître',
+    term: 'reconnaître',
     title: 'Ce que tu dois comprendre, sans l’écrire',
     body: "Une structure à reconnaître, tu la comprends quand tu la lis ou l'entends, et tu sais la redire en français d'aujourd'hui. Tu n'as pas à l'écrire : le passé simple, le subjonctif imparfait, le passé antérieur ou ne… point restent dans les livres. EN: A structure to recognise is one you understand and can restate in today's French, without writing it.",
     examples: [

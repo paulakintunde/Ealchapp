@@ -124,6 +124,33 @@ reuses the B1/B2 factory whole; this file records only what is different.
   import; c1.20 proposes its rule cards .1808 .1827 .1842 .1866 .1888 .1906
   .1930 .1942 .1949 .1974 .1985 .1998 as CE targets.
 
+- **Pre-review (one fresh reviewer per lesson, WebSearch fact check), fixes
+  applied: 36 blockers.** c1.01 11 (a correct « devaient » and two superlative
+  keys taught as errors against b2.06, « faute de » routed to lesson 19 not 15,
+  errorSpots with no wrong form; « Théâtre de la Rive » is a real venue, renamed
+  « Théâtre de l'Anse-Grise »; « revenir vers vous » calque replaced; 9 facts).
+  c1.20 5 (the app's mock CE format presented as the real exam: real TCF Canada
+  CE 39 items / 60 min, TEF 40 / 60; a reading key the text contradicts;
+  « s'en appuyer »; typeIns refusing reprend/renie/fait/loin; « bien parti »
+  ambiguous) plus two passages that echoed TCF/TEF blanc-01 word for word,
+  reworded (rows .1806, .1880, .1895, same ids); 8 facts. c1.21 14 (typeIns and
+  all 11 errorSpots refusing correct French, a reportage question unanswerable
+  from hidden audio, mock format presented as the real exam, a false « every
+  concession is followed by mais »); acts 2 and 10 re-marked as B2 recap; 18
+  facts. c1.24 6 (« the editorial is often unsigned in France » false, now
+  hedged per OQLF / CLEMI; three keys the texts contradict; chapeau is the term,
+  chapô the jargon); 6 facts. c1.01's pile chips shortened to « produire »,
+  « reconnaître » (row was 39 of 37). After: app checks 0, house tests 310/310,
+  import dry run 602 / 0 conflicts / 0 twins / 0 blockers, floors clear.
+  Image prompts untouched; no act, id or version change.
+- **For Paul at gate C1-1** (each lesson header lists its own): c1.20 act 9's
+  billet re-runs b2.24 act 6's situation (rewrite after the art?) and
+  « sous-entendu » relabels b2.24's « présupposé »; c1.21's one-play cap is
+  declared, not enforced by the listening screen; c1.24's topic list (festival,
+  school calendar, urban works); Postgres-only reused rows (c1.20 9, c1.21 11,
+  c1.24 3) ride in through the merge; the TEF pack labels its reportage
+  « Section F », prep sources say G.
+
 ## Wave plan
 
 As `C1-BUILD-PLAN.md`: wave 1 c1.20 c1.21 c1.01 c1.24 → GATE C1-1 → waves 2-3 →
@@ -338,10 +365,10 @@ each agent gets the common block plus its own lesson block.
 
 | Lesson | Slug | Missions | Acts | Quiz | Drills | Sheets | Items | Art | State |
 |---|---|---|---|---|---|---|---|---|---|
-| c1.20 | lire-entre-les-lignes (CE target) | 81 | 12 | 11×8 | 11 | 5 | 200 new / 17 reused | 12 pending | drafted, checks 0 |
-| c1.21 | debats-entretiens (CO target) | 78 | 12 | 11×8 | 11 | 5 | 146 new / 21 reused | 12 pending | drafted, checks 0 |
-| c1.01 | bilan-grammatical-c1 (diagnostic) | 78 | 12 | 12×8 | 12 | 5 | 100 new / 86 reused | 12 pending | drafted, checks 0 |
-| c1.24 | analyse-presse | 78 | 12 | 11×8 | 11 | 5 | 156 new / 12 reused | 12 pending | drafted, checks 0 |
+| c1.20 | lire-entre-les-lignes (CE target) | 81 | 12 | 11×8 | 11 | 5 | 200 new / 17 reused | 12 pending | pre-reviewed, checks 0 |
+| c1.21 | debats-entretiens (CO target) | 78 | 12 | 11×8 | 11 | 5 | 146 new / 21 reused | 12 pending | pre-reviewed, checks 0 |
+| c1.01 | bilan-grammatical-c1 (diagnostic) | 78 | 12 | 12×8 | 12 | 5 | 100 new / 86 reused | 12 pending | pre-reviewed, checks 0 |
+| c1.24 | analyse-presse | 78 | 12 | 11×8 | 11 | 5 | 156 new / 12 reused | 12 pending | pre-reviewed, checks 0 |
 
 ## Id ledger
 

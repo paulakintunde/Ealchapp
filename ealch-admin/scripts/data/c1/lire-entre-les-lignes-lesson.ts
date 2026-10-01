@@ -150,6 +150,15 @@
 //      cardDeck?
 //   8. The task brief keeps `briefEn` (schema.ts says « B2 drops it »; the C1
 //      build log says English on every learner string). Keep?
+//   9. (Pre-review 2026-09-30.) Act 9's billet re-runs b2.24 act 6's blog:
+//      a counter closed for a digital service, a loop back to the phone
+//      number, mock modesty, the official word quoted, a sincere character at
+//      the end. The cards now cite b2.24 and lead with the C1 step (unmarked
+//      echo, the cue quoted). Rewrite the billet's situation once the act 9
+//      art is drawn?
+//  10. (Pre-review.) Act 8 relabels b2.24's « présupposé » (the unstated
+//      assumption) as « sous-entendu ». Linguistically right; it renames a
+//      term the learner holds from B2. Keep?
 
 import type {
   Lesson, LessonSection, LessonAct, LessonDrill, SectionAudio, ReferenceSheet,
@@ -259,8 +268,8 @@ const A1_SCENE: Sec<'scene'> = {
         { fr: src(E(1805)).fr, respell: rsOf(E(1805)), en: src(E(1805)).en, outcome: 'works', audio: AUDIO },
       ],
       followUp: {
-        works: 'Claire hoche la tête : « Ni plus, ni moins. » Elle entoure la phrase qui le prouve : « Je ne conclus pas qu’il faut supprimer les étoiles. »',
-        breaks: 'Claire pose le doigt sur l’avant-dernière phrase : « Je ne conclus pas qu’il faut supprimer les étoiles. » Au TCF, ta réponse était la première option piège.',
+        works: 'Claire hoche la tête : « Ni plus, ni moins. » Elle entoure la phrase qui le prouve : « Je ne propose pas de supprimer les étoiles. »',
+        breaks: 'Claire pose le doigt sur la fin de l’essai : « Je ne propose pas de supprimer les étoiles. » Au TCF, ta réponse était la première option piège.',
       },
     },
     {
@@ -296,7 +305,7 @@ const A1_LECTURE: Sec<'reading'> = {
   ],
   questions: [
     { q: 'Devine le sens, sans dictionnaire : « La note ne se contente pas de décrire : elle dresse. » Que fait une note qui « dresse » ?', a: 'Elle apprend aux gens à se conduire d’une certaine façon, comme on dresse un animal : des sourires obligatoires, des bouteilles offertes.' },
-    { q: 'Que concède l’auteure dans le premier paragraphe ?', a: 'Que les étoiles sont utiles : une très mauvaise note signale un vrai problème, et personne ne regrette le choix au hasard.' },
+    { q: 'Que concède l’auteure au début de l’essai ?', a: 'Que les étoiles sont utiles : une très mauvaise note signale un vrai problème, et personne ne regrette le choix au hasard.' },
     { q: 'Que répond-elle à l’objection sur les clients mécontents ?', a: '« C’est exact, et c’est précisément le problème » : elle accepte le fait et le retourne contre la note.' },
     { q: 'Que conclut-elle exactement ?', a: 'Qu’il faut garder les étoiles, mais cesser de les lire comme une mesure de la qualité.' },
     { q: 'Quelle image résume sa thèse, et que garde-t-elle de la note ?', a: 'L’alarme, utile quand elle sonne, muette le reste du temps : la note écarte le pire, elle ne classe pas le reste.' },
@@ -331,7 +340,7 @@ const A1_USAGES: Sec<'useCases'> = {
 };
 
 const A1_CHECK = actCheck('a1-check', 'Le point : acte 1', [
-  ctl('La conclusion', '« Je ne conclus pas qu’il faut supprimer les étoiles. » L’auteure...', ['garde les étoiles et en change la lecture', 'veut supprimer les étoiles', 'ne conclut rien du tout'], 0,
+  ctl('La conclusion', '« Je ne propose pas de supprimer les étoiles. » L’auteure...', ['garde les étoiles et en change la lecture', 'veut supprimer les étoiles', 'ne conclut rien du tout'], 0,
     'Elle refuse la conclusion forte et en pose une plus étroite. EN: she rejects the strong conclusion and states a narrower one.'),
   ctl('Le geste', '« C’est exact, et c’est précisément le problème. » L’auteure...', ['rejette l’objection', 'accepte le fait et le retourne contre l’objection'], 1,
     'Elle accorde, puis s’en sert. EN: she grants the fact, then uses it.'),
@@ -386,7 +395,7 @@ const A2_CHARNIERE: Sec<'cardDeck'> = {
   audio: REC('rec-c1-20-charniere'), say: REFRAME, terms: ['restreindre'],
   cards: [
     { head: 'Accorder pour de bon', label: 'certes, c’est exact, sans doute', fr: src(E(1816)).fr, sub: rsOf(E(1816)),
-      body: 'À l’écrit soutenu, la concession n’est pas une feinte : ce qu’elle accorde, l’auteur le tient pour vrai. Ne le lui fais pas rejeter. EN: in essay prose the concession is real.' },
+      body: 'À l’écrit soutenu, la concession n’est pas une feinte : ce qu’elle accorde, l’auteur le tient pour vrai. Seuls « mettons que » et « admettons » accordent pour l’hypothèse. EN: in essay prose the concession is real, unless it is hypothetical.' },
     { head: 'Restreindre', label: 'reste que, il n’en demeure pas moins', fr: src(E(1817)).fr, sub: rsOf(E(1817)),
       body: 'La restriction ne nie pas ce qui précède : elle en limite la portée. C’est dans cette limite que vit la thèse. EN: the restriction limits what was granted; the thesis lives there.' },
     { head: 'Le constat oui, la conclusion non', label: 'le geste le plus fréquent', fr: src(E(1818)).fr, sub: rsOf(E(1818)),
@@ -523,7 +532,7 @@ const A3_REGLAGES: Sec<'tapTable'> = {
     { cells: ['si, sauf si, dès que', 'sauf si l’on fait un plan', 'la condition'], say: src(E(1848)).fr,
       detail: { title: 'La condition', body: 'Une conclusion privée de sa condition devient fausse : l’effet disparaît quand le lecteur fait un plan. EN: drop the condition and the claim becomes false.', say: src(E(1834)).fr } },
     { cells: ['pas tous, pas toujours', 'tous n’ont pas réussi', 'la négation partielle'], say: src(E(1843)).fr,
-      detail: { title: 'La négation partielle', body: '« Tous… ne… pas » veut dire « pas tous », jamais « aucun ». EN: tous… ne… pas means not all, never none.', say: src(E(1844)).fr } },
+      detail: { title: 'La négation partielle', body: '« Tous… ne… pas » se lit « pas tous ». Pour dire « aucun », un texte soigné écrit « aucun… ne ». EN: tous… ne… pas reads as not all; careful prose says none with aucun… ne.', say: src(E(1844)).fr } },
     { cells: ['non pas X mais Y, moins X que Y', 'moins la lecture que la structure', 'l’objet exact'], say: src(E(1847)).fr,
       detail: { title: 'L’objet exact', body: 'Ces tours déplacent la cible : ce que l’auteure critique n’est pas ce qu’on croyait. EN: these shift the target of the claim.', say: src(E(1846)).fr } },
   ],
@@ -539,7 +548,7 @@ const A3_TROIS: Sec<'groupDrill'> = {
         'Elle garde le nombre (les réguliers), le verbe (se disent) et la limite (au début). EN: it keeps who, how and how long.')),
     grp('L’éclairage', [it(E(1853), 'la source')],
       chk('Et ici ?', [src(E(1854)).fr, src(E(1856)).fr, src(E(1855)).fr], 2,
-        'La première invente une cause, la deuxième oublie le résultat. EN: the first invents a cause; the second drops the result.')),
+        '« Fait baisser » invente une cause ; « quelques communes ont essayé » oublie le résultat. EN: one invents a cause, one drops the result.')),
     ctl('Trop loin', 'Une collègue résume l’essai sur les écrans en une phrase définitive. Tu lui réponds poliment...', [src('fr.c1.rhetorique.005').fr, 'Tu as parfaitement raison.', 'Je n’ai pas lu le texte.'], 0,
       'On accorde le fond et on refuse la portée. EN: grant the gist, refuse the scope.'),
   ],
@@ -551,7 +560,7 @@ const A3_NEGATION: Sec<'trapDrill'> = {
   title: 'Six négations qui changent la portée',
   rule: {
     title: 'La négation a une portée, elle aussi',
-    body: '« Tous… ne… pas » veut dire pas tous ; « ne… que » restreint ; « pas seulement » élargit ; « non pas… mais » déplace la cible. Lis la négation avec ce qu’elle touche. EN: read a negation with what it applies to.',
+    body: '« Tous… ne… pas » se lit pas tous ; « ne… que » restreint ; « pas seulement » élargit ; « non pas… mais » déplace la cible. Lis la négation avec ce qu’elle touche. EN: read a negation with what it applies to.',
   },
   cards: [
     { promptLabel: 'tous… ne… pas', promptSound: 'Aucun élève n’a réussi.', fr: src(E(1843)).fr, ipa: ipaOf(E(1843)), tip: 'Certains ont réussi, d’autres non. EN: some did, some did not.' },
@@ -595,7 +604,7 @@ const A3_CHECK = actCheck('a3-check', 'Le point : acte 3', [
   ctl('Trop faible', 'Un résumé oublie le résultat net et ne garde que « parfois ». Il...', ['exagère', 'reste en deçà'], 1,
     'Il affaiblit ce que le texte établit. EN: it weakens what the text establishes.'),
   ctl('La négation', '« Tous n’ont pas réussi » veut dire...', ['aucun n’a réussi', 'certains n’ont pas réussi'], 1,
-    'Pas tous, jamais aucun. EN: not all, never none.'),
+    'Pas tous : pour dire aucun, le texte écrirait « aucun n’a réussi ». EN: not all; none would be aucun… ne.'),
 ], ['portee']);
 
 const ACT3: ActDef = {
@@ -678,14 +687,14 @@ const A4_SORTE: Sec<'groupDrill'> = {
 /** `hideLines`: the questions are about what the ear caught. */
 const A4_ECOUTE: Sec<'listening'> = {
   type: 'listening', id: 'a4-ecoute', layer: 'core', hideLines: true,
-  title: 'Terrasses chauffées', frSub: 'Une émission de quartier, trois voix',
+  title: 'Terrasses chauffées', frSub: 'Une animatrice, un riverain, une patronne de café',
   lines: [ln(E(1872)), ln(E(1873)), ln(E(1874)), ln(E(1875)), ln(E(1876)), ln(E(1877)), ln(E(1878)), ln(E(1879))],
   questions: [
-    { q: 'Sur quoi la cafetière et le riverain sont-ils d’accord ?', opts: ['qu’un chauffage consomme beaucoup', 'que le trottoir est trop étroit', 'que le café doit fermer'], correct: 0, why: 'Elle ne conteste pas la consommation : c’est le point accordé. EN: she grants the energy point.' },
+    { q: 'Sur quoi la patronne du café et le riverain sont-ils d’accord ?', opts: ['qu’un chauffage consomme beaucoup', 'que le trottoir est trop étroit', 'que le café doit fermer'], correct: 0, why: 'Elle ne conteste pas la consommation : c’est le point accordé. EN: she grants the energy point.' },
     { q: 'De quoi le riverain parle-t-il d’abord ?', opts: ['de bruit', 'd’énergie'], correct: 1, why: 'Il ouvre sur la consommation, l’objet déclaré. EN: energy, the stated object.' },
-    { q: 'Que reproche la cafetière au riverain ?', opts: ['de mentir sur les chiffres', 'de cacher sous l’énergie une question de place'], correct: 1, why: 'Elle nomme ce qu’elle croit être l’objet réel. EN: she names what she thinks is the real object.' },
+    { q: 'Que reproche la patronne du café au riverain ?', opts: ['de mentir sur les chiffres', 'de cacher sous l’énergie une question de place'], correct: 1, why: 'Elle nomme ce qu’elle croit être l’objet réel. EN: she names what she thinks is the real object.' },
     { q: 'Que montre la poussette ?', opts: ['que le riverain aime marcher', 'qu’il a des enfants, rien de plus', 'que l’espace est son vrai sujet'], correct: 2, why: 'Il ne nie pas : il parle de place, pas d’énergie. EN: his issue is space.' },
-    { q: 'Qui formule le vrai sujet ?', opts: ['l’animatrice', 'le riverain', 'la cafetière'], correct: 0, why: 'Elle conclut : à qui appartient le trottoir l’hiver. EN: the host names it.' },
+    { q: 'Qui formule le vrai sujet ?', opts: ['l’animatrice', 'le riverain', 'la patronne du café'], correct: 0, why: 'Elle conclut : à qui appartient le trottoir l’hiver. EN: the host names it.' },
   ],
   audio: REC('rec-c1-20-terrasses'), say: REFRAME, terms: ['differend'],
 };
@@ -764,7 +773,7 @@ const A5_FONCTIONS: Sec<'tapTable'> = {
       detail: { title: 'Délimiter l’objet', body: 'L’auteur précise ce dont il parle vraiment, et écarte ce dont il ne parle pas. EN: the writer narrows the object of the claim.', say: src(E(1882)).fr } },
     { cells: ['illustrer', 'prenons un cas', 'paragraphe 3'], say: src(E(1891)).fr,
       detail: { title: 'Illustrer', body: 'Un cas rend la thèse concrète ; il ne la prouve pas à lui seul. EN: an example makes the thesis concrete.', say: src(E(1884)).fr } },
-    { cells: ['se faire une objection', 'on objectera que', 'paragraphe 4'], say: src(E(1895)).fr,
+    { cells: ['se faire une objection', 'dira-t-on, je l’accorde', 'paragraphe 4'], say: src(E(1895)).fr,
       detail: { title: 'Se faire une objection', body: 'L’auteur donne la parole à la critique, l’accepte, puis en limite la portée. EN: the writer voices a criticism, grants it, then limits it.', say: src(E(1883)).fr } },
     { cells: ['écarter un contresens', 'qu’on ne s’y trompe pas', 'paragraphe 5'], say: src(E(1892)).fr,
       detail: { title: 'Écarter un contresens', body: 'L’auteur prévient une lecture trop forte de sa thèse. C’est souvent là qu’elle est dite le plus exactement. EN: the writer blocks an overstated reading.', say: src(E(1885)).fr } },
@@ -812,7 +821,7 @@ const A5_ERREURS: Sec<'commonErrors'> = {
     { wrong: 'Dans le paragraphe 3, l’auteur parle des visiteurs de Corvelle.', right: 'Dans le paragraphe 3, l’auteur illustre sa thèse par une expérience.',
       why: 'Normal : on répond par le contenu, qu’on vient de lire. Mais la question demande le rôle. EN: the question asks for the role, not the content.' },
     { wrong: 'Dans le paragraphe 4, l’auteur pense qu’un mois ne prouve rien.', right: 'Dans le paragraphe 4, l’auteur se fait une objection, l’accepte, puis en limite la portée.',
-      why: '« On objectera » donne la parole à un autre. L’attribuer à l’auteur, c’est le prendre pour l’autre camp. EN: on objectera voices someone else.' },
+      why: '« Dira-t-on » donne la parole à un autre. L’attribuer à l’auteur, c’est le prendre pour l’autre camp. EN: dira-t-on voices someone else.' },
     { wrong: 'Le paragraphe 5 prouve qu’il faut garder les explications.', right: 'Le paragraphe 5 écarte un contresens sur la thèse.',
       why: 'Il ne prouve rien : il précise ce que l’auteur ne soutient pas. EN: it clarifies, it does not prove.' },
     { wrong: 'Dans le paragraphe 6, l’auteur donne son avis.', right: 'Dans le paragraphe 6, l’auteur élargit sa thèse à d’autres expériences que le musée.',
@@ -934,7 +943,7 @@ const A6_ERREURS: Sec<'commonErrors'> = {
     { wrong: 'L’auteur reconnaît que son analogie est fausse.', right: 'L’auteur reconnaît une limite à son image, puis la retourne en argument.',
       why: 'Dire la limite d’une image, ce n’est pas l’abandonner. EN: stating a limit is not giving up the image.' },
     { wrong: 'La dernière phrase résume le billet.', right: 'La dernière phrase retourne la promesse du début.',
-      why: '« On nous promettait » reprend l’ouverture : la chute renverse, elle ne résume pas. EN: it reverses, it does not sum up.' },
+      why: '« Le monde entier dans la main » reprend la « fenêtre ouverte sur le monde » du début : la chute renverse, elle ne résume pas. EN: it reverses, it does not sum up.' },
     { wrong: 'Selon l’auteur, il faut couper toutes les notifications.', right: 'L’auteur décrit ce que les notifications nous ont appris à désirer, sans rien prescrire.',
       why: 'Ajouter un conseil que le billet ne donne pas, c’est grossir sa portée. EN: adding advice inflates the scope.' },
   ],
@@ -1038,7 +1047,7 @@ const A7_TRIER: Sec<'groupDrill'> = {
       free('Le rapport a raison de pointer le coût ; il a tort d’en faire le seul critère.', 'The report is right to point out the cost; it is wrong to make it the only criterion.', 'un autre essai'),
     ], chk('Dans la phrase B, l’auteur...', ['réfute le rapport', 'lui donne raison sur un point et tort sur un autre'], 1,
       'A raison de… a tort de… : deux verdicts. EN: two verdicts.')),
-    ctl('Phrase C', '« Même la fédération des commerçants admet que la rue piétonne attire du monde. » L’auteur...', ['cite l’autre camp pour s’en appuyer', 'se range du côté des commerçants', 'réfute la fédération'], 0,
+    ctl('Phrase C', '« Même la fédération des commerçants admet que la rue piétonne attire du monde. » L’auteur...', ['cite l’autre camp à l’appui de sa thèse', 'se range du côté des commerçants', 'réfute la fédération'], 0,
       'Même… admet : l’adversaire devient témoin. EN: the opponent becomes a witness.'),
   ],
   audio: AUDIO, say: REFRAME, terms: ['posture'],
@@ -1177,8 +1186,8 @@ const A8_PIEGE: Sec<'trapDrill'> = {
   ],
   drill: [
     { promptSay: '« Il a cessé de pleuvoir » présuppose qu’il ... .', opts: ['pleuvait', 'pleuvra'], correct: 0 },
-    { promptSay: '« Elle regrette que le train soit parti » : le train est ... .', opts: ['peut-être parti', 'bien parti'], correct: 1 },
-    { promptSay: '« Elle croit que le train est parti » : le train est ... .', opts: ['peut-être parti', 'bien parti'], correct: 0 },
+    { promptSay: '« Elle regrette que le train soit parti » : le train est ... .', opts: ['peut-être parti', 'vraiment parti'], correct: 1 },
+    { promptSay: '« Elle croit que le train est parti » : le train est ... .', opts: ['peut-être parti', 'vraiment parti'], correct: 0 },
     { promptSay: '« La baisse des ventes inquiète » présuppose qu’il y a eu une ... .', opts: ['hausse', 'baisse', 'enquête'], correct: 1 },
     { promptSay: '« Il a encore oublié ses clés » : il les avait ... oubliées.', opts: ['jamais', 'déjà'], correct: 1 },
     { promptSay: 'Le présupposé survit à la ... .', opts: ['négation', 'traduction'], correct: 0 },
@@ -1266,9 +1275,9 @@ const A9_SIGNAUX: Sec<'cardDeck'> = {
   audio: REC('rec-c1-20-signaux'), say: REFRAME, terms: ['ironie'],
   cards: [
     { head: 'L’écho', label: 'reprendre les mots de l’autre', fr: src(E(1946)).fr, sub: rsOf(E(1946)),
-      body: 'L’auteure reprend un mot de la note pour le faire sonner faux. L’indice : le mot vient d’ailleurs, et il est déplacé. EN: echo irony repeats someone else’s word to make it ring hollow.' },
+      body: `${Cap(CRITIQUE_REF)} repérait le mot de l’autre entre guillemets. Ici, pas de guillemets : « centrée » vient de la note, et il est déplacé. C’est l’indice. EN: echo irony with no quotation marks; the borrowed word is the cue.` },
     { head: 'L’éloge impossible', label: 'l’antiphrase et son indice', fr: src(E(1947)).fr, sub: rsOf(E(1947)),
-      body: 'L’éloge est contredit par la situation : quarante minutes d’attente. Sans cette situation, la phrase serait sincère. EN: the situation contradicts the praise.' },
+      body: 'L’antiphrase est un acquis du B2. Au C1, cite l’indice : quarante minutes d’attente. Sans elles, la phrase serait sincère. EN: antiphrasis is known; at C1, quote the cue that proves it.' },
     { head: 'La fausse modestie', label: 'je ne voudrais pas paraître', fr: src(E(1948)).fr, sub: rsOf(E(1948)),
       body: 'On feint de se reprocher ce qu’on reproche à l’autre. La critique reste entière, sous une forme polie. EN: feigned self-reproach keeps the criticism intact.' },
     { head: 'Pas d’indice, pas d’ironie', label: 'la règle', fr: src(E(1949)).fr, sub: rsOf(E(1949)),
@@ -1284,7 +1293,7 @@ const A9_DEGRE: Sec<'groupDrill'> = {
       it(E(1951), 'la promesse tenue'),
       it(E(1952), 'l’excuse'),
       it(E(1955), 'la conseillère'),
-    ], chk('Laquelle de ces trois lectures est au premier degré ?', ['la troisième', 'la première', 'la deuxième'], 0,
+    ], chk('Laquelle de ces trois phrases se lit au premier degré ?', ['la troisième', 'la première', 'la deuxième'], 0,
       'Rien ne contredit la phrase de la conseillère : elle est sincère. EN: nothing contradicts it.')),
     grp('Dans d’autres textes', [
       free('Merci pour ce délai de six mois, il nous a laissé tout le temps de réfléchir.', 'Thank you for this six-month delay, it gave us all the time in the world to think.', 'texte A'),
@@ -1304,7 +1313,7 @@ const A9_SUJET: Sec<'listening'> = {
   lines: [ln(E(1958)), ln(E(1957)), ln(E(1959)), ln(E(1960)), ln(E(1961)), ln(E(1962)), ln(E(1963)), ln(E(1964))],
   questions: [
     { q: 'Quelle est la thèse du chroniqueur ?', opts: ['l’ironie est cruelle', 'à l’écrit, l’ironie doit laisser un indice dans les mots', 'il faut éviter l’ironie au travail'], correct: 1, why: 'Sans la voix, seuls les mots peuvent porter l’écart. EN: in writing, only words can carry it.' },
-    { q: 'De quoi dépend la lecture d’un « Bravo, vraiment » ?', opts: ['de ce que le collègue sait déjà', 'de la longueur du message'], correct: 0, why: 'Le contexte partagé décide. EN: shared context decides.' },
+    { q: 'De quoi dépend la lecture d’un « Merci pour ta rapidité » ?', opts: ['de ce que le collègue sait déjà', 'de la longueur du message'], correct: 0, why: 'Le contexte partagé décide. EN: shared context decides.' },
     { q: 'Que pense-t-il du petit visage qui cligne de l’œil ?', opts: ['qu’il est ridicule', 'qu’il remplace bien la voix', 'qu’il avoue que la phrase seule ne suffisait pas'], correct: 2, why: 'Il ne s’en moque pas : il y voit un aveu. EN: he reads it as an admission.' },
     { q: 'Que font les bons ironistes ?', opts: ['ils laissent un détail qui contredit l’éloge', 'ils ajoutent des guillemets'], correct: 0, why: 'Le détail est l’indice que le lecteur trouve. EN: the detail is the cue.' },
     { q: 'Le chroniqueur est-il lui-même ironique ?', opts: ['oui, d’un bout à l’autre', 'non : il parle de l’ironie sans en faire'], correct: 1, why: 'L’ironie est ici le sujet, pas le procédé. EN: irony is the topic here, not the device.' },
@@ -1641,9 +1650,9 @@ const A12_TRIBUNE: Sec<'reading'> = {
     { q: 'Que concède l’auteur, et que fait-il de cette concession ?', a: 'Que les programmes sont chargés ; il restreint par « il n’en demeure pas moins », sans dire quelle heure disparaîtrait.' },
     { q: 'Que présuppose la question d’ouverture ?', a: 'Que les adolescents ne savent pas cuisiner, et qu’ils savaient autrefois (« plus »).' },
     { q: 'Comment traite-t-il l’enquête Hestia et Sophie Andrieux ?', a: 'Il force l’enquête (41 % qui « disent » ne pas savoir deviennent « la moitié […] incapable ») et écarte l’objection d’Andrieux par une comparaison.' },
-    { q: 'Que ne dit-il pas ?', a: 'Le coût, qui enseignerait, quelle matière perdrait une heure, et qu’il dirige lui-même des ateliers de cuisine.' },
+    { q: 'Que ne dit-il pas ?', a: 'Le coût, qui enseignerait, quelle matière perdrait une heure, ni l’intérêt qu’il peut y avoir, lui qui dirige des ateliers de cuisine.' },
   ],
-  audio: REC('rec-c1-20-cuisine'), say: REFRAME, terms: ['restreindre', 'presuppose', 'posture'],
+  audio: REC('rec-c1-20-cuisine'), say: REFRAME, terms: ['restreindre', 'presuppose', 'portee'],
 };
 
 const A12_PLAN: Sec<'steps'> = {
@@ -1688,7 +1697,7 @@ const A12_SCENARIO: Sec<'scenario'> = {
       ai: 'Il cite une enquête, pourtant : la moitié des jeunes ne sait pas cuisiner.', en: 'He quotes a survey, though: half of young people cannot cook.',
       user: src(E(1993)).fr, userEn: 'Forty-one per cent is not half. (The source stretched, named.)',
       alts: [
-        { fr: src(E(1994)).fr, en: 'Saying you cannot is not being incapable. (Self-reported, not measured.)' },
+        { fr: src(E(1994)).fr, en: 'Saying you don’t know how is not the same as being unable. (Self-reported, not measured.)' },
         { fr: src(E(1992)).fr, en: 'He makes the survey say more than it says. (His stance toward the source.)' },
       ],
     },
@@ -1783,8 +1792,8 @@ const A12_MISSION: Sec<'task'> = {
     'L’objection est écartée par…',
     'Au total,',
   ],
-  modelAnswer: 'Dans sa tribune, Romain Desforges soutient qu’il faut imposer une heure de cuisine par semaine à tous les élèves du secondaire, dès la rentrée prochaine, au motif que cuisiner serait une « compétence de base », au même titre que la lecture. La thèse est nette ; sa défense l’est beaucoup moins. L’auteur concède que « les programmes scolaires sont déjà chargés », mais il restreint aussitôt cette concession par « il n’en demeure pas moins » et une série d’exemples, la natation ou le vélo. L’objection reste pourtant sans réponse : il ne dit jamais quelle heure disparaîtrait de l’emploi du temps. Le texte repose aussi sur ce qu’il tient pour acquis. Sa question d’ouverture, « Pourquoi les adolescents ne savent-ils plus cuisiner ? », présuppose à la fois qu’ils ne savent pas et qu’ils savaient autrefois, ce que rien ne montre. De même, « le retour du repas familial » suppose que celui-ci a disparu. Sa posture face aux sources est révélatrice. Il cite l’enquête de l’Observatoire Hestia, selon laquelle 41 % des 15-17 ans « disent ne pas savoir » préparer un repas simple, puis en conclut que « la moitié d’une génération est incapable » de se nourrir : il arrondit le chiffre et transforme une déclaration en incapacité. Quant à l’objection de la nutritionniste Sophie Andrieux, il la résume en une phrase et l’écarte par une comparaison avec les cours d’histoire, sans discuter ses arguments. Enfin, le texte passe sous silence l’essentiel : ce que coûterait la mesure, qui enseignerait, avec quelle formation, et si les cuisines des cantines peuvent vraiment accueillir des classes entières. Ce silence pèse d’autant plus que l’auteur dirige lui-même des ateliers de cuisine. Au total, l’idée mérite sans doute d’être discutée, mais le texte la défend mal : il dramatise, force sa principale source et répond aux objections par des images plutôt que par des arguments.',
-  modelAnswerEn: 'In his op-ed, Romain Desforges argues that one hour of cooking a week should be required of every secondary pupil from next school year, on the grounds that cooking is a « basic skill », just like reading. The thesis is clear; his defence of it much less so. The writer concedes that « the curriculum is already full », but immediately restricts the concession with « il n’en demeure pas moins » and a series of examples, swimming or cycling. The objection is left unanswered: he never says which hour would disappear from the timetable. The text also rests on what it takes for granted. His opening question, « Why can teenagers no longer cook? », presupposes both that they cannot and that they once could, which nothing shows. Likewise, « the return of the family meal » assumes that it has disappeared. His stance toward his sources is telling. He quotes the Hestia Observatory survey, according to which 41% of 15 to 17 year olds « say they cannot » prepare a simple meal, then concludes that « half a generation is incapable » of feeding itself: he rounds the figure up and turns a statement into an incapacity. As for the objection of the nutritionist Sophie Andrieux, he sums it up in one sentence and dismisses it with a comparison to history lessons, without discussing her arguments. Finally, the text says nothing about the essentials: what the measure would cost, who would teach, with what training, and whether canteen kitchens can really take whole classes. That silence weighs all the more as the writer himself runs cooking workshops. All in all, the idea no doubt deserves discussion, but the text defends it badly: it dramatises, stretches its main source and answers objections with images rather than arguments.',
+  modelAnswer: 'Dans sa tribune, Romain Desforges soutient qu’il faut imposer une heure de cuisine par semaine à tous les élèves du secondaire, dès la rentrée prochaine, au motif que cuisiner serait une « compétence de base », au même titre que la lecture. La thèse est nette ; sa défense l’est beaucoup moins. L’auteur concède que « les programmes scolaires sont déjà chargés », mais il restreint aussitôt cette concession par « il n’en demeure pas moins » et une série d’exemples, la natation ou le vélo. L’objection reste pourtant sans réponse : il ne dit jamais quelle heure disparaîtrait de l’emploi du temps. Le texte repose aussi sur ce qu’il tient pour acquis. Sa question d’ouverture, « Pourquoi les adolescents ne savent-ils plus cuisiner ? », présuppose à la fois qu’ils ne savent pas et qu’ils savaient autrefois, ce que rien ne montre. De même, « le retour du repas familial » suppose que celui-ci a disparu. Sa posture face aux sources est révélatrice. Il cite l’enquête de l’Observatoire Hestia, selon laquelle 41 % des 15-17 ans « disent ne pas savoir » préparer un repas simple, puis en conclut que « la moitié d’une génération est incapable » de se nourrir : il gonfle le chiffre et transforme une déclaration en incapacité. Quant à l’objection de la nutritionniste Sophie Andrieux, il la résume en une phrase et l’écarte par une comparaison avec les cours d’histoire, sans discuter ses arguments. Enfin, le texte passe sous silence l’essentiel : ce que coûterait la mesure, qui enseignerait, avec quelle formation, et si les cuisines des cantines peuvent vraiment accueillir des classes entières. Ce silence pèse d’autant plus que l’auteur dirige lui-même des ateliers de cuisine. Au total, l’idée mérite sans doute d’être discutée, mais le texte la défend mal : il dramatise, force sa principale source et répond aux objections par des images plutôt que par des arguments.',
+  modelAnswerEn: 'In his op-ed, Romain Desforges argues that one hour of cooking a week should be required of every secondary pupil from next school year, on the grounds that cooking is a « basic skill », just like reading. The thesis is clear; his defence of it much less so. The writer concedes that « the curriculum is already full », but immediately restricts the concession with « il n’en demeure pas moins » and a series of examples, swimming or cycling. The objection is left unanswered: he never says which hour would disappear from the timetable. The text also rests on what it takes for granted. His opening question, « Why can teenagers no longer cook? », presupposes both that they cannot and that they once could, which nothing shows. Likewise, « the return of the family meal » assumes that it has disappeared. His stance toward his sources is telling. He quotes the Hestia Observatory survey, according to which 41% of 15 to 17 year olds « say they cannot » prepare a simple meal, then concludes that « half a generation is incapable » of feeding itself: he inflates the figure and turns a statement into an incapacity. As for the objection of the nutritionist Sophie Andrieux, he sums it up in one sentence and dismisses it with a comparison to history lessons, without discussing her arguments. Finally, the text says nothing about the essentials: what the measure would cost, who would teach, with what training, and whether canteen kitchens can really take whole classes. That silence weighs all the more as the writer himself runs cooking workshops. All in all, the idea no doubt deserves discussion, but the text defends it badly: it dramatises, stretches its main source and answers objections with images rather than arguments.',
   watchFor: [
     { pattern: 'The topic given instead of the thesis (« il parle de la cuisine à l’école »), or the thesis without its scope (one hour, all secondary pupils, next year).', criterion: 'these', feedback: 'Tu donnes le sujet. Dis ce que l’auteur soutient, et jusqu’où : une heure par semaine, pour tous, dès la rentrée.', ref: 'a3-analyse' },
     { pattern: 'The thesis inflated (« il veut remplacer une matière par la cuisine ») or weakened (« il aimerait qu’on parle de cuisine »).', criterion: 'these', feedback: 'Ta reformulation va plus loin, ou reste en deçà. Garde le nombre, la durée et le moment.', ref: 'a3-reglages' },
@@ -1803,7 +1812,7 @@ const A12_MISSION: Sec<'task'> = {
   graderNotes: [
     'Word count: 250 to 400, with 10% tolerance (225 to 440) before the criteria lose points for length. A title does not count.',
     'The task marks the ANALYSIS of the text, not an opinion on cooking classes. A learner who supports the proposal can score full marks if scope, concession, presupposition, omission and stance are analysed.',
-    'Accept any presupposition with its trigger: « ne savent-ils plus » (plus), « l’ampleur du désastre » (definite article), « le retour du repas familial » (le retour), « que chacun appelle de ses vœux » (chacun). « Le constat est connu, et il s’aggrave » is a bare assertion: accept it under omission or posture, not as a presupposition.',
+    'Accept any presupposition with its trigger: « ne savent-ils plus » (plus), « l’ampleur du désastre » (definite article), « le retour du repas familial » (le retour), « que chacun appelle de ses vœux » (the relative clause presupposes a shared wish). « Le constat est connu, et il s’aggrave » is a bare assertion: accept it under omission or posture, not as a presupposition.',
     'Accept any precise omission: cost, staff and training, the hour removed from another subject, hygiene and the real availability of canteen kitchens, evidence for the benefits « connus de tous », the writer’s stake.',
     'The stake must be named without an accusation; an ad hominem loses the point under « posture ».',
     'Quotations: three to ten words, exact, in guillemets (French or straight). Over twenty words counts as copying, not quoting.',
@@ -1868,8 +1877,8 @@ const tI = (q: string, prompt: string, answer: string, why: string, ref: string,
   ({ format: 'typeIn', q, prompt, answer, accept: [answer, ...more], why, ref });
 const mc = (q: string, opts: string[], correct: number, why: string, ref: string): QQ =>
   ({ format: 'mcq', q, opts, correct, why, ref });
-const eS = (prompt: string, answer: string, why: string, ref: string): QQ =>
-  ({ format: 'errorSpot', q: 'Une partie de la phrase trahit le texte. Écris la phrase juste. EN: Part of the sentence betrays the text; write it correctly.', prompt, answer, accept: [answer], why, ref });
+const eS = (prompt: string, answer: string, why: string, ref: string, more: string[] = []): QQ =>
+  ({ format: 'errorSpot', q: 'Une partie de la phrase trahit le texte. Écris la phrase juste. EN: Part of the sentence betrays the text; write it correctly.', prompt, answer, accept: [answer, ...more], why, ref });
 const lC = (q: string, say: string, opts: string[], correct: number, why: string, ref: string): QQ =>
   ({ format: 'listenChoose', q, say, opts, correct, why, ref });
 
@@ -1884,8 +1893,8 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('« Sans doute la demande est-elle difficile à mesurer. » « Sans doute » signifie ici...', ['certainement', 'probablement, je l’accorde'], 1, 'Une concession, pas une certitude. EN: a concession, not a certainty.', 'a2-piege'),
         mc('Que conteste l’auteur dans l’argument du coût ?', ['que l’aménagement coûte cher', 'la conclusion qu’on en tire', 'que les budgets soient serrés'], 1, 'Il accorde le coût et refuse la conséquence. EN: he grants the cost, refuses the inference.', 'a2-analyse'),
         tI('Complète avec la charnière qui restreint. Un mot.', 'C’est exact. ... qu’un lieu qui accueille tout le monde finit par exclure certains.', 'Reste', 'Reste que : la limite après l’accord. EN: reste que restricts.', 'a2-charniere'),
-        tI('Complète. Un mot.', 'Ce qu’un auteur concède, il ne le ... pas.', 'retire', 'La concession reste acquise. EN: granted stays granted.', 'a2-piege'),
-        eS('L’auteur nie que les budgets soient serrés, et il en conteste la conséquence.', 'L’auteur concède que les budgets sont serrés, et il en conteste la conséquence.', 'Il l’accorde : « Certes ». EN: he grants it.', 'a2-analyse'),
+        tI('Complète. Un mot.', 'Ce qu’un auteur concède, il ne le ... pas.', 'retire', 'La concession reste acquise. EN: granted stays granted.', 'a2-piege', ['reprend', 'renie']),
+        eS('L’auteur nie que les budgets soient serrés, et il en conteste la conséquence.', 'L’auteur concède que les budgets sont serrés, et il en conteste la conséquence.', 'Il l’accorde : « Certes ». EN: he grants it.', 'a2-analyse', ['L’auteur accorde que les budgets sont serrés, et il en conteste la conséquence.', 'L’auteur admet que les budgets sont serrés, et il en conteste la conséquence.', 'L’auteur reconnaît que les budgets sont serrés, et il en conteste la conséquence.']),
         lC('Écoute. Cette phrase accorde-t-elle ou restreint-elle ?', src(E(1817)).fr, ['elle restreint', 'elle accorde'], 0, 'Reste que limite ce qui précède. EN: it restricts.', 'a2-charniere'),
       ],
     },
@@ -1893,12 +1902,12 @@ const A12_QUIZ: Sec<'quiz'> = {
       id: 'r2-portee', label: 'La portée exacte', targets: ['portee-forcee'],
       questions: [
         mc('Que conclut exactement la chroniqueuse sur les écrans ?', ['L’écran nous rend moins bons lecteurs.', 'Sur écran, on saisit moins bien la structure des textes longs, sauf si l’on fait un plan.', 'L’écran n’a aucun effet sur la lecture.', 'Il faut interdire les tablettes au lycée.'], 1, 'Les autres exagèrent, affaiblissent ou ajoutent une mesure que le texte ne propose pas. EN: the others overstate, understate or add a measure.', 'a3-chronique'),
-        mc('« Tous les élèves n’ont pas réussi » veut dire...', ['qu’aucun n’a réussi', 'que certains n’ont pas réussi'], 1, 'Pas tous, jamais aucun. EN: not all, never none.', 'a3-negation'),
+        mc('« Tous les élèves n’ont pas réussi » veut dire...', ['qu’aucun n’a réussi', 'que certains n’ont pas réussi'], 1, 'Pas tous : pour dire aucun, on écrit « aucun… ne ». EN: not all; none would be aucun… ne.', 'a3-negation'),
         mc('« Les utilisateurs réguliers se disent moins stressés, du moins les deux premiers mois. » La reformulation exacte :', ['La méditation guérit le stress.', 'Les réguliers se disent moins stressés, au moins au début.', 'Certaines personnes aiment méditer.'], 1, 'Elle garde qui, comment et combien de temps. EN: who, how and how long.', 'a3-trois'),
         mc('Une reformulation qui supprime « sauf si l’on fait un plan »...', ['va plus loin que le texte', 'reste exacte', 'reste en deçà du texte'], 0, 'Sans sa condition, l’effet devient général. EN: without its condition, the effect generalises.', 'a3-reglages'),
         tI('Complète. Un mot.', 'Cette reformulation reste en ... du texte.', 'deçà', 'Rester en deçà : affaiblir le texte. EN: to fall short of the text.', 'a3-negation'),
         tI('Complète avec la négation restrictive. Un mot.', 'L’étude ne portait ... sur des textes longs.', 'que', 'Ne… que limite le domaine. EN: only.', 'a3-reglages'),
-        eS('Selon la chronique, l’écran nous rend moins bons lecteurs.', 'Selon la chronique, on saisit moins bien sur écran la structure des textes longs.', 'Le titre exagère ; la chronique corrige. EN: the headline overstates.', 'a3-analyse'),
+        eS('Selon la chronique, l’écran nous rend moins bons lecteurs.', 'Selon la chronique, on saisit moins bien sur écran la structure des textes longs.', 'Le titre exagère ; la chronique corrige. EN: the headline overstates.', 'a3-analyse', ['Selon la chronique, sur écran, on saisit moins bien la structure des textes longs.', 'Selon la chronique, on saisit moins bien la structure des textes longs sur écran.']),
         lC('Écoute. Cette reformulation est-elle trop forte ?', src(E(1835)).fr, ['oui, elle va plus loin que l’étude', 'non, elle est exacte'], 0, 'Elle oublie le domaine et la condition. EN: it drops the domain and the condition.', 'a3-chronique'),
       ],
     },
@@ -1908,23 +1917,23 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('À Saint-Aubert, sur quoi porte réellement la querelle ?', ['sur la consommation d’eau', 'sur ce qu’un jardin dit de celui qui l’entretient', 'sur le prix des maisons', 'sur les tiques'], 1, 'L’eau, les tiques et les maisons sont l’objet déclaré. EN: those are the stated object.', 'a4-chronique'),
         mc('Quel est l’indice que le désaccord est ailleurs ?', ['les deux camps s’accordent sur les faits', 'les deux camps citent des chiffres différents'], 0, 'Mêmes faits, querelle ailleurs. EN: same facts, quarrel elsewhere.', 'a4-objets'),
         mc('« Pour lui, tôt veut dire avant sept heures ; pour elle, avant neuf. » Le désaccord porte sur...', ['un fait', 'un mot', 'qui décide'], 1, 'Le même mot, deux sens. EN: one word, two meanings.', 'a4-sorte'),
-        mc('Dans l’émission sur les terrasses, qui nomme le vrai sujet ?', ['l’animatrice', 'le riverain', 'la cafetière', 'personne'], 0, 'Elle conclut sur le trottoir l’hiver. EN: the host names it.', 'a4-ecoute'),
-        tI('Complète. Un mot.', 'La querelle porte en ... sur ce qu’un jardin dit de son propriétaire.', 'réalité', 'En réalité : le signal de l’objet réel. EN: en réalité signals the real object.', 'a4-objets'),
+        mc('Dans l’émission sur les terrasses, qui nomme le vrai sujet ?', ['l’animatrice', 'le riverain', 'la patronne du café', 'personne'], 0, 'Elle conclut sur le trottoir l’hiver. EN: the host names it.', 'a4-ecoute'),
+        tI('Complète. Un mot.', 'La querelle porte en ... sur ce qu’un jardin dit de son propriétaire.', 'réalité', 'En réalité : le signal de l’objet réel. EN: en réalité signals the real object.', 'a4-objets', ['fait']),
         tI('Complète. Un mot.', 'Si l’on s’accorde sur les faits, le désaccord est ... .', 'ailleurs', 'La règle de l’acte. EN: elsewhere.', 'a4-objets'),
-        eS('Les deux camps se disputent sur la quantité d’eau consommée.', 'Les deux camps s’accordent sur la quantité d’eau consommée.', 'Personne ne conteste ce fait. EN: nobody disputes it.', 'a4-chronique'),
+        eS('Les deux camps se disputent sur la quantité d’eau consommée.', 'Les deux camps s’accordent sur la quantité d’eau consommée.', 'Personne ne conteste ce fait. EN: nobody disputes it.', 'a4-chronique', ['Les deux camps sont d’accord sur la quantité d’eau consommée.']),
         lC('Écoute. Que reproche cette phrase à l’autre ?', src(E(1877)).fr, ['de cacher sous l’énergie une question de place', 'de mentir sur les chiffres'], 0, 'Elle nomme l’objet réel. EN: it names the real object.', 'a4-ecoute'),
       ],
     },
     {
       id: 'r4-fonction', label: 'Ce que fait un paragraphe', targets: ['contenu-pour-fonction'],
       questions: [
-        mc('Dans l’essai sur les musées, que fait le paragraphe qui commence par « On objectera » ?', ['Il se fait une objection, l’accepte et en limite la portée.', 'Il donne la thèse de l’auteur.', 'Il illustre la thèse par une expérience.', 'Il élargit la question.'], 0, 'On objectera, l’objection est juste, pourtant : trois temps. EN: objection, acceptance, limit.', 'a5-fonctions'),
+        mc('Dans l’essai sur les musées, que fait le paragraphe qui commence par « Un mois et une salle » ?', ['Il se fait une objection, l’accepte et en limite la portée.', 'Il donne la thèse de l’auteur.', 'Il illustre la thèse par une expérience.', 'Il élargit la question.'], 0, 'Dira-t-on, je l’accorde, l’essentiel n’en sort pas entamé : trois temps. EN: objection, acceptance, limit.', 'a5-fonctions'),
         mc('« Qu’on ne s’y trompe pas : il ne s’agit pas de supprimer les explications. » Ce passage...', ['écarte un contresens', 'pose le constat', 'illustre la thèse'], 0, 'Il bloque une lecture trop forte. EN: it blocks an overstated reading.', 'a5-fonctions'),
         mc('Que fait le dernier paragraphe de l’essai ?', ['Il résume l’expérience.', 'Il élargit la thèse à d’autres expériences que le musée.', 'Il réfute l’objection.'], 1, 'La question dépasse d’ailleurs les musées. EN: it widens the thesis.', 'a5-essai'),
         mc('Laquelle est une réponse sur la fonction ?', ['Il parle des visiteurs.', 'Il illustre la thèse par un cas.'], 1, 'Un verbe de rôle, pas un contenu. EN: a role verb, not content.', 'a5-erreurs'),
-        tI('Complète le verbe de fonction. Un mot.', 'Prenons un cas : l’auteur ... sa thèse.', 'illustre', 'Prenons introduit un cas. EN: prenons introduces a case.', 'a5-associer'),
+        tI('Complète le verbe de fonction. Un mot.', 'Prenons un cas : l’auteur ... sa thèse.', 'illustre', 'Prenons introduit un cas. EN: prenons introduces a case.', 'a5-associer', ['étaye']),
         tI('Complète. Un mot.', 'Le contenu dit de quoi parle le paragraphe ; la ... dit à quoi il sert.', 'fonction', 'La règle de l’acte. EN: the function.', 'a5-consignes'),
-        eS('Dans le paragraphe 4, l’auteur pense qu’un mois ne prouve rien.', 'Dans le paragraphe 4, l’auteur se fait une objection, puis il en limite la portée.', '« On objectera » donne la parole à un autre. EN: someone else’s voice.', 'a5-erreurs'),
+        eS('Dans le paragraphe 4, l’auteur pense qu’un mois ne prouve rien.', 'Dans le paragraphe 4, l’auteur se fait une objection, puis il en limite la portée.', '« Dira-t-on » donne la parole à un autre. EN: someone else’s voice.', 'a5-erreurs', ['Dans le paragraphe 4, l’auteur se fait une objection, puis en limite la portée.', 'Dans le paragraphe 4, l’auteur se fait une objection, l’accepte, puis en limite la portée.']),
         lC('Écoute. Que fait cette phrase dans un essai ?', src(E(1893)).fr, ['elle élargit la question', 'elle pose le constat', 'elle écarte un contresens'], 0, 'D’ailleurs, au-delà : la thèse s’étend. EN: it widens the question.', 'a5-fonctions'),
       ],
     },
@@ -1933,11 +1942,11 @@ const A12_QUIZ: Sec<'quiz'> = {
       questions: [
         mc('Dans le billet, qu’est-ce que l’analogie compare exactement ?', ['le bruit du téléphone et celui d’une sonnette', 'le fait d’interrompre sans rien transmettre', 'la forme du téléphone', 'les visiteurs et les amis'], 1, 'Un trait, pas tout. EN: one feature, not everything.', 'a6-roles'),
         mc('Que fait l’auteur de la limite de son image ?', ['il l’ignore', 'il la retourne en argument', 'il abandonne l’analogie'], 1, 'Si personne ne coupe, c’est qu’on désire être interrompu. EN: he turns the limit into an argument.', 'a6-billet'),
-        mc('« Nous avons surtout obtenu des visiteurs qui ne disent pas leur nom. » Cette chute...', ['résume le billet', 'retourne la promesse du début', 'ouvre une question', 'donne un conseil'], 1, '« On nous promettait » reprend l’ouverture. EN: it reverses the opening promise.', 'a6-roles'),
+        mc('« Nous avons surtout obtenu des visiteurs qui ne disent pas leur nom. » Cette chute...', ['résume le billet', 'retourne la promesse du début', 'ouvre une question', 'donne un conseil'], 1, '« Le monde entier dans la main » reprend la « fenêtre ouverte sur le monde » du début. EN: it reverses the opening promise.', 'a6-roles'),
         mc('« Un CV ressemble moins à un portrait qu’à une vitrine. » Le trait comparé :', ['on y montre ce qui doit attirer', 'il est beau', 'il est encadré'], 0, 'Une vitrine expose pour séduire. EN: a window displays to attract.', 'a6-tester'),
-        tI('Complète. Un mot.', 'Une analogie compare un ..., jamais tout.', 'trait', 'La règle de l’acte. EN: one feature.', 'a6-roles'),
+        tI('Complète. Un mot.', 'Une analogie compare un ..., jamais tout.', 'trait', 'La règle de l’acte. EN: one feature.', 'a6-roles', ['aspect']),
         tI('Complète le nom de la dernière phrase d’un essai. Un mot.', 'la ... d’un essai', 'chute', 'La chute : résumer, retourner, ouvrir, ironiser. EN: the closing line.', 'a6-roles'),
-        eS('L’auteur reconnaît que son analogie est fausse.', 'L’auteur reconnaît une limite à son image, puis la retourne en argument.', 'Dire une limite n’est pas abandonner l’image. EN: a limit is not a retraction.', 'a6-erreurs'),
+        eS('L’auteur reconnaît que son analogie est fausse.', 'L’auteur reconnaît une limite à son image, puis la retourne en argument.', 'Dire une limite n’est pas abandonner l’image. EN: a limit is not a retraction.', 'a6-erreurs', ['L’auteur reconnaît une limite à son image, puis il la retourne en argument.', 'L’auteur reconnaît les limites de son image, puis les retourne en argument.']),
         lC('Écoute. Que fait cette chute ?', src(E(1911)).fr, ['elle ouvre une question', 'elle résume la thèse'], 0, '« Reste à savoir » laisse la question au lecteur. EN: it opens a question.', 'a6-tester'),
       ],
     },
@@ -1948,9 +1957,9 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('Envers Henri Vautrel, l’auteure...', ['accorde l’argument et en déplace la conclusion', 'le réfute entièrement', 'se range entièrement à son avis'], 0, 'L’argument est sérieux ; la conclusion change. EN: she grants it and shifts the conclusion.', 'a7-postures'),
         mc('« Même les défenseurs les plus fervents des devoirs le reconnaissent. » Ce tour sert à...', ['citer l’autre camp pour s’appuyer sur lui', 'changer de sujet', 'réfuter les défenseurs'], 0, 'L’adversaire devient témoin. EN: the opponent becomes a witness.', 'a7-postures'),
         mc('« Le rapport a raison de pointer le coût ; il a tort d’en faire le seul critère. » L’auteur...', ['réfute le rapport', 'lui donne raison sur un point et tort sur un autre'], 1, 'Deux verdicts en une phrase. EN: two verdicts in one sentence.', 'a7-trier'),
-        tI('Complète la formule de réfutation polie. Un mot.', 'C’est aller un peu ... .', 'vite', 'Une formule polie pour un désaccord net. EN: a polite rejection.', 'a7-postures'),
-        tI('Complète. Un mot.', 'La synthèse dit en ... autre chose.', 'réalité', 'Corriger un usage : la source dit autre chose. EN: correcting a misuse.', 'a7-postures'),
-        eS('L’auteure réfute la synthèse de l’Institut Corvelle.', 'L’auteure défend la synthèse de l’Institut Corvelle contre ceux qui la citent de travers.', 'Elle lui donne raison. EN: she sides with the source.', 'a7-analyse'),
+        tI('Complète la formule de réfutation polie. Un mot.', 'C’est aller un peu ... .', 'vite', 'Une formule polie pour un désaccord net. EN: a polite rejection.', 'a7-postures', ['loin']),
+        tI('Complète. Un mot.', 'La synthèse dit en ... autre chose.', 'réalité', 'Corriger un usage : la source dit autre chose. EN: correcting a misuse.', 'a7-postures', ['fait']),
+        eS('L’auteure réfute la synthèse de l’Institut Corvelle.', 'L’auteure défend la synthèse de l’Institut Corvelle contre ceux qui la citent de travers.', 'Elle lui donne raison. EN: she sides with the source.', 'a7-analyse', ['L’auteure défend la synthèse de l’Institut Corvelle contre ceux qui la citent mal.']),
         lC('Écoute. La chroniqueuse est-elle d’accord avec les auteurs de l’étude ?', src(E(1926)).fr, ['pas sur ce point : ils ont tort de parler de révolution', 'oui, entièrement'], 0, 'Raison sur un point, tort sur un autre. EN: right on one point, wrong on another.', 'a7-ecoute'),
       ],
     },
@@ -1976,7 +1985,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('Dans la chronique radio sur l’ironie à l’écrit, le chroniqueur...', ['est ironique d’un bout à l’autre', 'parle de l’ironie sans en faire', 'se moque des émoticônes', 'refuse toute ironie'], 1, 'L’ironie est le sujet, pas le procédé. EN: irony is the topic.', 'a9-sujet'),
         tI('Complète. Un mot.', 'Pas d’..., pas d’ironie.', 'indice', 'La règle de l’acte. EN: no cue, no irony.', 'a9-signaux'),
         tI('Complète. Un mot.', 'Lire une phrase au ... degré, c’est la prendre au pied de la lettre.', 'premier', 'Premier degré : sens littéral. EN: literally.', 'a9-degre'),
-        eS('L’auteure trouve que le pôle expérience est une réussite.', 'L’auteure se moque du pôle expérience en reprenant le mot de la note.', 'Tout le billet contredit l’éloge. EN: the whole text contradicts the praise.', 'a9-erreurs'),
+        eS('L’auteure trouve que le pôle expérience est une réussite.', 'L’auteure se moque du pôle expérience en reprenant le mot de la note.', 'Tout le billet contredit l’éloge. EN: the whole text contradicts the praise.', 'a9-erreurs', ['L’auteure se moque du pôle expérience.', 'L’auteure trouve que le pôle expérience est un échec.']),
         lC('Écoute. Que font les bons ironistes, selon le chroniqueur ?', src(E(1963)).fr, ['ils laissent un détail qui contredit l’éloge', 'ils ajoutent un visage qui cligne de l’œil'], 0, 'Le détail est l’indice. EN: the detail is the cue.', 'a9-sujet'),
       ],
     },
@@ -1986,10 +1995,10 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('« Les sorties scolaires sont suspendues jusqu’à nouvel ordre. » Ce qui manque :', ['qui les suspend', 'quand', 'pourquoi', 'combien'], 0, 'Le passif sans agent. EN: the agentless passive.', 'a10-procedes'),
         mc('« Une réévaluation des priorités budgétaires a été effectuée. » Le procédé :', ['une nominalisation au passif', 'une question', 'une concession'], 0, 'Le nom et le passif effacent celui qui réévalue. EN: noun plus passive.', 'a10-procedes'),
         mc('Dans « il a été jugé préférable », le « il »...', ['désigne le directeur', 'ne désigne personne'], 1, 'Un il impersonnel. EN: an impersonal il.', 'a10-piege'),
-        mc('L’auteure accuse-t-elle le rédacteur de mentir ?', ['oui', 'non : elle critique l’effet du style, pas l’intention'], 1, 'Elle concède l’intention. EN: she grants the intent.', 'a10-chronique'),
+        mc('L’auteure accuse-t-elle le rédacteur de mentir ?', ['oui', 'non : elle critique l’effet du style, pas l’intention'], 1, 'Elle lui accorde sa bonne foi. EN: she grants his good faith.', 'a10-chronique'),
         tI('Complète la question à poser. Deux mots.', 'Suspendues ... ?', 'par qui', 'Par qui : le complément d’agent qui manque. EN: by whom.', 'a10-procedes'),
         tI('Complète. Un mot.', 'On peut contester une décision. Un ..., on le subit.', 'événement', 'Le style transforme la décision en événement. EN: an event.', 'a10-chronique'),
-        eS('Selon l’auteure, le rédacteur a voulu tromper les parents.', 'Selon l’auteure, le rédacteur n’a sans doute rien voulu cacher.', 'Elle critique l’effet, pas l’intention. EN: the effect, not the intent.', 'a10-chronique'),
+        eS('Selon l’auteure, le rédacteur a voulu tromper les parents.', 'Selon l’auteure, le rédacteur n’a sans doute rien voulu cacher.', 'Elle critique l’effet, pas l’intention. EN: the effect, not the intent.', 'a10-chronique', ['Selon l’auteure, le rédacteur n’a sans doute pas voulu tromper les parents.', 'Selon l’auteure, le rédacteur n’a pas voulu tromper les parents.']),
         lC('Écoute. Qui décide dans cette phrase ?', src(E(1975)).fr, ['personne n’est nommé : la situation sert de sujet', 'le conseil d’établissement'], 0, 'Un sujet abstrait cache le décideur. EN: an abstract subject hides the decider.', 'a10-retrouver'),
       ],
     },
@@ -2000,9 +2009,9 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('Format TCF. Document 2 : sur quoi porte réellement le désaccord ?', ['l’écologie', 'qui stocke les bouteilles', 'la nostalgie', 'le prix du verre'], 1, 'L’écologie est l’objet déclaré, la nostalgie un cliché écarté. EN: stated object and cliché.', 'a11-items-b'),
         mc('Une option dit la même chose que le texte, en plus fort. C’est...', ['une exagération', 'le sujet pour la thèse', 'vrai mais secondaire', 'l’autre camp'], 0, 'Même idée, plus de force. EN: same idea, more force.', 'a11-familles'),
         mc('Une option reprend ce qui suit « on objectera ». C’est souvent...', ['la thèse', 'l’autre camp'], 1, 'L’auteur cite l’objection pour la limiter. EN: the objection, not the thesis.', 'a11-familles'),
-        mc('Format TEF. Dans le document 1, que fait le paragraphe qui commence par « On aurait tort, pourtant » ?', ['Il limite la portée des effets constatés.', 'Il illustre les premiers effets.', 'Il élargit la question.'], 0, 'Après les effets accordés, les limites. EN: after the granted effects, the limits.', 'a11-items-a'),
+        mc('Question type TEF. Dans le document 1, que fait le paragraphe qui commence par « On aurait tort, pourtant » ?', ['Il limite la portée des effets constatés.', 'Il illustre les premiers effets.', 'Il élargit la question.'], 0, 'Après les effets accordés, les limites. EN: after the granted effects, the limits.', 'a11-items-a'),
         tI('Complète le nom de la famille. Un mot.', 'vrai mais ...', 'secondaire', 'Dans le texte, hors de la question. EN: true but secondary.', 'a11-familles'),
-        eS('Le document 2 présente le débat comme une querelle entre écologistes et nostalgiques.', 'Le document 2 refuse de présenter le débat comme une querelle entre écologistes et nostalgiques.', 'Il cite ce cliché pour l’écarter : « Il n’en est rien. » EN: he quotes the cliché to reject it.', 'a11-epreuve'),
+        eS('Le document 2 présente le débat comme une querelle entre écologistes et nostalgiques.', 'Le document 2 refuse de présenter le débat comme une querelle entre écologistes et nostalgiques.', 'Il cite ce cliché pour l’écarter : « Il n’en est rien. » EN: he quotes the cliché to reject it.', 'a11-epreuve', ['Le document 2 refuse de voir dans le débat une querelle entre écologistes et nostalgiques.', 'Le document 2 conteste que le débat soit une querelle entre écologistes et nostalgiques.']),
         lC('Écoute. Cette phrase est-elle ironique ?', src(E(1988)).fr, ['oui : la réserve manque, justement', 'non, l’auteur attend vraiment'], 0, 'L’impatience feinte confronte la promesse au manque de place. EN: feigned impatience.', 'a11-items-b'),
       ],
     },
@@ -2010,12 +2019,12 @@ const A12_QUIZ: Sec<'quiz'> = {
       id: 'r11-analyse', label: 'Ton analyse', targets: ['analyse-incomplete'],
       questions: [
         mc('Format TCF. Dans la tribune sur la cuisine, que propose exactement l’auteur ?', ['une heure de cuisine par semaine pour tous les élèves du secondaire', 'la fin des plats surgelés', 'des cours de cuisine pour les étudiants', 'la fermeture des cantines l’après-midi'], 0, 'Les autres vont plus loin, changent de public ou inventent une mesure. EN: the others overstate or change the target.', 'a12-tribune'),
-        mc('« Selon une enquête, 41 % disent ne pas savoir préparer un repas simple. Autrement dit, la moitié est incapable de se nourrir. » L’auteur...', ['force sa source', 'cite sa source fidèlement'], 0, 'Il arrondit et change une déclaration en incapacité. EN: he stretches it.', 'a12-tribune'),
-        mc('Que présuppose « le retour du repas familial » ?', ['que le repas familial a disparu', 'que le repas familial n’a jamais existé', 'que chacun cuisine'], 0, '« Le retour » pose une disparition. EN: le retour presupposes a disappearance.', 'a12-scenario'),
+        mc('« Selon une enquête, 41 % disent ne pas savoir préparer un repas simple. Autrement dit, la moitié est incapable de se nourrir. » L’auteur...', ['force sa source', 'cite sa source fidèlement'], 0, 'Il gonfle le chiffre et change une déclaration en incapacité. EN: he stretches it.', 'a12-tribune'),
+        mc('Que présuppose « le retour du repas familial » ?', ['que le repas familial a disparu', 'que le repas familial n’a jamais existé', 'que chacun cuisine'], 0, '« Le retour » pose une disparition. EN: le retour presupposes a disappearance.', 'a12-tribune'),
         mc('Comment l’auteur traite-t-il l’objection de Sophie Andrieux ?', ['il la discute point par point', 'il la résume et l’écarte par une comparaison', 'il l’accepte entièrement', 'il ne la mentionne pas'], 1, 'Une phrase, puis une image. EN: one sentence, then an image.', 'a12-tribune'),
         mc('Laquelle est une omission du texte ?', ['le coût et qui enseignerait', 'l’enquête Hestia', 'les programmes chargés'], 0, 'Les deux autres sont dans le texte. EN: the others are in the text.', 'a12-plan'),
         tI('Complète la phrase d’analyse. Un mot.', 'Le texte ne dit ... du coût.', 'rien', 'Nommer une omission précise. EN: name a precise omission.', 'a12-plan'),
-        eS('L’auteur prouve que les adolescents savaient cuisiner autrefois.', 'L’auteur tient pour acquis que les adolescents savaient cuisiner autrefois.', 'Il le présuppose, il ne le prouve pas. EN: presupposed, not proved.', 'a12-tribune'),
+        eS('L’auteur prouve que les adolescents savaient cuisiner autrefois.', 'L’auteur tient pour acquis que les adolescents savaient cuisiner autrefois.', 'Il le présuppose, il ne le prouve pas. EN: presupposed, not proved.', 'a12-tribune', ['L’auteur présuppose que les adolescents savaient cuisiner autrefois.', 'L’auteur suppose que les adolescents savaient cuisiner autrefois.']),
         lC('Écoute. Cette phrase analyse-t-elle la tribune ?', src(E(1999)).fr, ['oui : elle juge l’idée et la défense', 'non : c’est un avis sur la cuisine'], 0, 'Elle sépare l’idée de sa défense. EN: it separates the idea from its defence.', 'a12-plan'),
       ],
     },
@@ -2139,7 +2148,7 @@ const SHEET_LIST: ReferenceSheet[] = [
       ['c’est exact, j’en conviens', 'reste que', 'C’est exact. Reste qu’un lieu qui accueille tout le monde…'],
       ['sans doute (= probablement)', 'il n’en demeure pas moins que', 'Sans doute la demande est-elle difficile à mesurer.'],
       ['il est vrai que', 'toujours est-il que', 'Toujours est-il que la salle était pleine en avril.'],
-      ['on objectera que', 'l’objection n’enlève pas l’essentiel', 'L’objection est juste. Elle n’enlève pourtant pas l’essentiel.'],
+      ['dira-t-on, je l’accorde', 'l’essentiel n’en sort pas entamé', 'Je l’accorde sans peine. L’essentiel n’en sort pas entamé.'],
       ['admettons, mettons que', 'encore faut-il que', 'Encore faut-il s’entendre sur ce que l’on reproche.'],
     ]),
     table('sheet-charpente-portee', 'Les réglages de la portée', ['Ce qu’on règle', 'Marques', 'Trop fort si…', 'Trop faible si…'], [
@@ -2164,7 +2173,7 @@ const SHEET_LIST: ReferenceSheet[] = [
       ['poser le constat', 'un chiffre, « on constate »', 'Il pose le constat de départ.'],
       ['délimiter l’objet', 'encore faut-il s’entendre, en réalité', 'Il précise ce qu’on reproche vraiment.'],
       ['illustrer', 'prenons un cas, ainsi', 'Il illustre la thèse par un exemple.'],
-      ['se faire une objection', 'on objectera, on dira que', 'Il s’objecte une critique et en limite la portée.'],
+      ['se faire une objection', 'on objectera, dira-t-on', 'Il s’objecte une critique et en limite la portée.'],
       ['écarter un contresens', 'qu’on ne s’y trompe pas, il ne s’agit pas de', 'Il écarte une lecture fausse de sa thèse.'],
       ['élargir', 'la question dépasse, d’ailleurs', 'Il étend la thèse à d’autres domaines.'],
       ['conclure, retourner', 'donc, au fond, une dernière phrase brève', 'Il retourne la promesse du début.'],
@@ -2190,7 +2199,7 @@ const SHEET_LIST: ReferenceSheet[] = [
     table('sheet-voix-ironie', 'L’ironie au C1', ['Procédé', 'Exemple', 'L’indice'], [
       ['l’écho', 'J’ai donc appelé, en adhérente centrée.', 'le mot vient de la note de la direction'],
       ['l’éloge impossible', 'une musique que j’ai eu tout le loisir d’apprécier', 'quarante minutes d’attente'],
-      ['la fausse modestie', 'Je ne voudrais pas paraître ingrate.', 'il n’y a rien dont être reconnaissante'],
+      ['la fausse modestie', 'Je ne voudrais pas paraître ingrate.', 'elle n’a aucune raison d’être reconnaissante'],
       ['la feinte indulgence', 'Le vocabulaire est en avance sur les faits.', 'l’excuse est elle-même une critique'],
       ['l’ironie comme sujet', 'À l’écrit, l’ironie n’a que les mots.', 'le texte parle de l’ironie, sans en faire'],
       ['le premier degré', 'Passez à l’agence tant qu’elle est ouverte.', 'rien ne contredit la phrase'],
@@ -2211,7 +2220,7 @@ const SHEET_LIST: ReferenceSheet[] = [
     table('sheet-implicite-test', 'Le test de la négation', ['Phrase', 'Sa négation', 'Ce qui survit'], [
       ['Paul a cessé de fumer.', 'Paul n’a pas cessé de fumer.', 'Paul fumait : un présupposé'],
       ['Elle sait que le musée est fermé.', 'Elle ne sait pas que le musée est fermé.', 'le musée est fermé : un présupposé'],
-      ['Elle croit que le musée est fermé.', 'Elle ne croit pas que le musée est fermé.', 'rien : croire n’est pas factif'],
+      ['Elle croit que le musée est fermé.', 'Elle ne croit pas que le musée soit fermé.', 'rien : croire n’est pas factif'],
       ['Il est déjà 22 heures.', 'Il n’est pas encore 22 heures.', 'rien : « tu devrais partir » était un sous-entendu'],
     ]),
     table('sheet-implicite-agent', 'Six façons de cacher qui agit', ['Procédé', 'Exemple', 'Question à poser'], [
@@ -2225,7 +2234,7 @@ const SHEET_LIST: ReferenceSheet[] = [
   ]),
   sheet('sheet-epreuve', 'L’épreuve et l’analyse', ['le format TCF et TEF', 'les quatre distracteurs', 'le plan de l’analyse'], [
     teach('sheet-epreuve-teach', 'Ce que demande la compréhension écrite C1',
-      'Au TCF Canada, deux textes d’environ 300 mots, quatre questions puis trois, en douze minutes. Au TEF Canada, un article et huit questions. On te demande la thèse exacte, ce que l’auteur concède, l’objet réel d’un débat, ce que fait un passage, sa posture face à une source, le sens d’une chute. EN: Two essays with four and three items, or one article with eight.'),
+      'Les deux épreuves sont longues : 39 questions en 60 minutes au TCF Canada, 40 au TEF Canada, de difficulté croissante. Dans nos épreuves blanches, la partie C1 donne deux textes d’environ 300 mots (quatre questions puis trois, en douze minutes) ou un article de huit questions. On te demande la thèse exacte, ce que l’auteur concède, l’objet réel d’un débat, ce que fait un passage, sa posture face à une source, le sens d’une chute. EN: The real papers run 39 or 40 items in 60 minutes; our mock C1 part has two essays with four and three items, or one article with eight.'),
     table('sheet-epreuve-distracteurs', 'Les quatre distracteurs', ['Famille', 'Ce qu’elle fait', 'Comment l’écarter'], [
       ['l’exagération', 'dit la même chose, en plus fort', 'compare le nombre, la force, la condition'],
       ['le sujet pour la thèse', 'parle du thème, pas de ce qu’en dit l’auteur', 'cherche le verbe qui prend position'],
@@ -2299,7 +2308,7 @@ export const DECK_TRANCHE: string[][] = (() => {
 const REC_IDS = [...new Set(JSON.stringify(SECTIONS).match(/rec-c1-20-[a-z0-9-]+/g) ?? [])];
 
 const REC_DESC: Record<string, string> = {
-  'rec-c1-20-avis': 'The ratings essay (act 1), ONE VOICE, one take, standard France French, the even pace of an essay read aloud on a culture programme, not slowed. « C’est exact, et c’est précisément le problème » at ordinary weight; the final paragraph with no emphasis on « Je ne conclus pas »: the learner must find the scope in the words.',
+  'rec-c1-20-avis': 'The ratings essay (act 1), ONE VOICE, one take, standard France French, the even pace of an essay read aloud on a culture programme, not slowed. « C’est exact, et c’est précisément le problème » at ordinary weight; the final paragraph with no emphasis on « Je ne propose pas »: the learner must find the scope in the words.',
   'rec-c1-20-biblio': 'The librarian’s tribune (act 2), ONE VOICE, one take, a man in his fifties, Québec French, reading his own piece, warm and firm. The hinges (« C’est exact. Reste que », « Certes », « Encore faudrait-il », « Sans doute », « Il n’en demeure pas moins ») at exactly the pace of the rest.',
   'rec-c1-20-charniere': 'The four hinge cards, read plainly. Card one: a clear stop after « C’est exact. ».',
   'rec-c1-20-piege-charpente': 'The audio step plays each card’s CORRECT sentence. Read the six plainly and identically in pace; the wrong versions in promptSound are never spoken.',
@@ -2307,7 +2316,7 @@ const REC_DESC: Record<string, string> = {
   'rec-c1-20-piege-portee': 'The audio step plays each card’s CORRECT sentence. Read the six plainly and identically in pace; the wrong versions in promptSound are never spoken. The negations at ordinary weight: no stress on « pas », « que » or « seulement ».',
   'rec-c1-20-pelouse': 'The lawn chronicle (act 4), ONE VOICE, one take, a Québec woman columnist, amused and even. « Prairie en cours. » read as a sign, flat. No emphasis on « en réalité »: the turn is in the words.',
   'rec-c1-20-objets': 'The four cards on the object of a disagreement, read plainly.',
-  'rec-c1-20-terrasses': 'REQUIRED FOR THE EAR MISSION (act 4): eight lines, ONE TAKE, THREE VOICES, in authored order, as a local radio segment. Lines 1 and 8: the host, neutral. Lines 2, 4 and 7: a resident, a man in his thirties, calm. Lines 3, 5 and 6: a café owner, a woman, quick and firm. No line may signal the real object by tone; the learner hears it in the words. Successive turns, no overlap.',
+  'rec-c1-20-terrasses': 'REQUIRED FOR THE EAR MISSION (act 4): eight lines, ONE TAKE, THREE VOICES, in authored order, as a local radio segment. Lines 1 and 8: the host, neutral. Lines 2, 4 and 7: a resident, a man in his thirties, calm. Lines 3, 5 and 6: the café owner (« la patronne du café »), a woman, quick and firm. No line may signal the real object by tone; the learner hears it in the words. Successive turns, no overlap.',
   'rec-c1-20-musee': 'The museum essay (act 5), ONE VOICE, one take, a man, France French, the measured pace of an essay. Say the paragraph numbers (« un », « deux »…) as brief labels before each paragraph, with a pause after each.',
   'rec-c1-20-notif': 'The doorbell billet (act 6), ONE VOICE, one take, a man in his thirties, wry but never laughing. The last two sentences slightly slower, with no special emphasis on « visiteurs ».',
   'rec-c1-20-roles': 'The four cards on analogy and closing lines, read plainly.',
@@ -2318,7 +2327,7 @@ const REC_DESC: Record<string, string> = {
   'rec-c1-20-piege-presuppose': 'The audio step plays each card’s CORRECT sentence. Read the six plainly and identically in pace, with no stress on the trigger word (encore, cessé, aussi, regrette, sait): the learner must find it.',
   'rec-c1-20-pole': 'The insurer billet (act 9), ONE VOICE, one take, a Québec woman in her forties reading her own billet, DEADPAN throughout: the irony lives in the words, never in a laugh or a sigh. The adviser’s quoted sentence in a lower, sincere voice; the last two sentences plainly.',
   'rec-c1-20-signaux': 'The four irony cards, read deadpan, with no ironic intonation: the cue is in the text.',
-  'rec-c1-20-ironie-ecrit': 'REQUIRED FOR THE EAR MISSION (act 9): eight lines, ONE TAKE, ONE VOICE, in authored order, a radio chronicler talking ABOUT irony, entirely serious and warm. « Bravo, vraiment » read flat, as a quoted message: the chronicler is not being ironic.',
+  'rec-c1-20-ironie-ecrit': 'REQUIRED FOR THE EAR MISSION (act 9): eight lines, ONE TAKE, ONE VOICE, in authored order, a radio chronicler talking ABOUT irony, entirely serious and warm. « Merci pour ta rapidité » read flat, as a quoted message: the chronicler is not being ironic.',
   'rec-c1-20-sorties': 'The school-email chronicle (act 10), ONE VOICE, one take, a Québec woman columnist, precise and calm. The quoted email phrases with the slight lift of a quotation; the rewritten sentence with an agent read a touch more firmly.',
   'rec-c1-20-piege-agent': 'The audio step plays each card’s CORRECT sentence (the original agentless phrasing). Read the six plainly, in the flat tone of an administrative message.',
   'rec-c1-20-epreuve': 'The two exam documents (act 11), ONE VOICE, one take, read like an exam audio script: even, clear, standard French, no performance. Say « Document 1 » and « Document 2 » as labels, with a two-second pause between documents.',

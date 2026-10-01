@@ -124,9 +124,12 @@
 //   1. Topics (research plan decision 7): a festival, a school calendar,
 //      urban works (a market square, a bus detour, a riverside project, a
 //      bridge for pedestrians, bikes and buses). Approve the list?
-//   2. The one France / Québec sentence is about the editorial’s signature
-//      (unsigned in France, often signed by an editorial writer in Québec),
-//      not about the tribune. Keep it, after the fact check (§A.7a)?
+//   2. ANSWERED BY THE PRE-REVIEW (2026-09-30): « unsigned in France » was
+//      not supported (OQLF: « signé ou non signé »; CLEMI fiches: « souvent
+//      signé du rédacteur en chef »). The sentence now reads « Signé ou
+//      non, l’éditorial parle au nom du journal : certains journaux le
+//      publient sans signature, d’autres le font signer par le rédacteur
+//      en chef ou, comme souvent au Québec, par un éditorialiste. »
 //   3. Three reused rows (fr.b2.journalisme.037, .050, fr.b2.litterature.071)
 //      are published in Postgres but absent from the seed cut, so they ride
 //      in `DB_ONLY_ROWS`. The preview fixture cannot resolve them until the
@@ -520,7 +523,7 @@ const A3_PARTIES: Sec<'tapTable'> = {
   cols: ['Partie', 'Où', 'Ce qu’elle fait'],
   rows: [
     { cells: ['le surtitre', 'au-dessus du titre', 'situe le sujet'], say: src(E(2030)).fr,
-      detail: { title: 'Le surtitre', body: 'Un ou deux mots en petit : la rubrique ou le thème. Il dit dans quel tiroir le journal range l’article. EN: the small label above the headline.', say: 'Festival.' } },
+      detail: { title: 'Le surtitre', body: 'Un mot ou une courte phrase en petit, au-dessus du titre : le thème, le lieu, ou une précision qui complète le titre. Il situe le sujet avant même le titre. EN: the small line above the headline that sets the subject.', say: 'Festival.' } },
     { cells: ['le titre', 'en gros', 'informe ou accroche'], say: src(E(2042)).fr,
       detail: { title: 'Le titre', body: 'Informatif, il dit ce qui s’est passé ; incitatif, il pose une question ou joue sur les mots pour donner envie de lire. EN: informative or teaser.', say: src(E(2043)).fr } },
     { cells: ['le chapô', 'sous le titre, en gras', 'résume et donne l’angle'], say: src(E(2036)).fr,
@@ -567,7 +570,7 @@ const A3_PIEGE: Sec<'trapDrill'> = {
   cards: [
     { promptLabel: 'le chapô pris pour l’attaque', promptSound: 'L’article commence par « Pour sa seizième édition, le festival relève ses prix ».', fr: src(E(2036)).fr, ipa: ipaOf(E(2036)), tip: 'Ces lignes en gras, sous le titre, sont le chapô. L’attaque vient après, avec la file de 10 h 07. EN: that is the standfirst.' },
     { promptLabel: 'la chute prise pour une conclusion', promptSound: 'L’article conclut que le festival doit changer de nom.', fr: src(E(2039)).fr, ipa: ipaOf(E(2039)), tip: 'Il pose la question sans y répondre. EN: it asks, it does not conclude.' },
-    { promptLabel: 'le surtitre pris pour le titre', promptSound: 'Le titre de l’article est « Festival ».', fr: src(E(2042)).fr, ipa: ipaOf(E(2042)), tip: '« Festival » est le surtitre, la rubrique. Le titre est la phrase en gros. EN: Festival is the kicker.' },
+    { promptLabel: 'le surtitre pris pour le titre', promptSound: 'Le titre de l’article est « Festival ».', fr: src(E(2042)).fr, ipa: ipaOf(E(2042)), tip: '« Festival » est le surtitre : il situe le sujet. Le titre est la phrase en gros. EN: Festival is the kicker.' },
     { promptLabel: 'la légende prise pour un fait neutre', promptSound: 'La photo montre simplement une file d’attente.', fr: src(E(2113)).fr, ipa: ipaOf(E(2113)), tip: 'La légende relie l’image à Chloé : elle en fait un témoignage. EN: the caption turns it into testimony.' },
     { promptLabel: 'un titre incitatif lu comme un fait', promptSound: 'Le journal affirme que le festival est devenu un luxe.', fr: src(E(2037)).fr, ipa: ipaOf(E(2037)), tip: 'Un titre en question n’affirme pas ; il donne envie de lire. EN: a question headline does not assert.' },
     { promptLabel: 'l’attaque oubliée', promptSound: 'L’article commence par les chiffres de la billetterie.', fr: src(E(2038)).fr, ipa: ipaOf(E(2038)), tip: 'Il commence par une scène ; les chiffres arrivent plus loin. EN: it opens on a scene.' },
@@ -680,7 +683,7 @@ const A4_TRIER: Sec<'groupDrill'> = {
     grp('Ce que le reportage choisit', [
       it(E(2049), 'qui parle'),
       it(E(2051), 'montrer ou résumer'),
-    ], chk('La journaliste a rencontré quatre commerçants et aucun habitant. Son reportage...', ['montre surtout le marché vu par ceux qui y travaillent', 'montre toute la ville'], 0,
+    ], chk('Imagine : la journaliste n’a rencontré que quatre commerçants, et aucun habitant. Son reportage...', ['montre surtout le marché vu par ceux qui y travaillent', 'montre toute la ville'], 0,
       'Le reportage est vrai et partiel : il montre ce que la journaliste a vu et entendu. EN: true, and partial.')),
     ctl('Le présent', 'Pourquoi le reportage est-il au présent ?', ['pour faire vivre la scène au lecteur', 'parce que tout se passe aujourd’hui'], 0,
       'C’est un présent de narration : il installe le lecteur sur place. EN: a narrative present.'),
@@ -711,7 +714,7 @@ const A4_BUS: Sec<'listening'> = {
 const A4_COMPARE = pourTaComparaison('a4-comparer', 'Qui le reportage rencontre', [
   grp('Deux phrases sur le reportage', [
     free('Le reportage montre le marché pendant les travaux.', 'The report shows the market during the works.', 'le sujet'),
-    free('Le reportage ne fait parler que des commerçants et un ouvrier ; aucun habitant qui a cessé de venir.', 'The report only lets shopkeepers and a worker speak; no resident who has stopped coming.', 'les voix, et l’absent'),
+    free('Le reportage fait surtout parler les commerçants et le chef de chantier ; une seule cliente, et aucun habitant qui a cessé de venir.', 'The report mostly lets the shopkeepers and the site foreman speak; one customer, and no resident who has stopped coming.', 'les voix, et l’absent'),
   ], chk('Laquelle nourrit une comparaison ?', ['la première', 'la seconde'], 1,
     'Dire qui parle, et qui manque, c’est décrire le cadre. EN: who speaks and who is missing.')),
   grp('Un genre, un effet', [
@@ -779,7 +782,7 @@ const A5_VOIX: Sec<'cardDeck'> = {
   audio: REC('rec-c1-24-voix'), say: REFRAME, terms: ['genre', 'signature'],
   cards: [
     { head: 'Pas de nom', label: 'la signature', fr: src(E(2069)).fr, sub: rsOf(E(2069)),
-      body: 'En France, l’éditorial paraît souvent sans signature ; au Québec, il est souvent signé par un éditorialiste. Dans les deux cas, il parle au nom du journal. EN: unsigned or signed, it speaks for the paper.' },
+      body: 'Signé ou non, l’éditorial parle au nom du journal : certains journaux le publient sans signature, d’autres le font signer par le rédacteur en chef ou, comme souvent au Québec, par un éditorialiste. EN: signed or not, it speaks for the paper.' },
     { head: 'Le « nous »', label: 'qui parle', fr: src(E(2071)).fr, sub: rsOf(E(2071)),
       body: '« Nous l’avons écrit ici même » : ce n’est pas un journaliste, c’est la rédaction. EN: the « nous » is the newsroom.' },
     { head: 'Des verbes qui prescrivent', label: 'ce qu’il fait', fr: src(E(2063)).fr, sub: rsOf(E(2063)),
@@ -862,8 +865,8 @@ const A5_COMPARE = pourTaComparaison('a5-comparer', 'Le genre de chaque texte', 
 const A5_CHECK = actCheck('a5-check', 'Le point : acte 5', [
   ctl('La voix', 'Un éditorial exprime...', ['la position du journal', 'l’avis d’un lecteur', 'une information neutre'], 0,
     'Il porte la ligne éditoriale. EN: the paper’s line.'),
-  ctl('La signature', 'En France, un éditorial est souvent...', ['signé d’un lecteur', 'sans signature personnelle'], 1,
-    'Au Québec, il est souvent signé par un éditorialiste ; il parle toujours au nom du journal. EN: unsigned in France, often signed in Québec.'),
+  ctl('La signature', 'Un éditorial sans signature...', ['est l’avis d’un lecteur', 'est la voix du journal'], 1,
+    'Signé ou non, par le rédacteur en chef ou, souvent au Québec, par un éditorialiste, il parle au nom du journal. EN: signed or not, it is the paper’s voice.'),
   ctl('Les verbes', '« Il faut », « doit », « qu’il le fasse » signalent...', ['un récit', 'une recommandation'], 1,
     'L’éditorial juge et recommande. EN: it recommends.'),
 ], ['genre', 'signature']);
@@ -969,7 +972,7 @@ const A6_COMPARE = pourTaComparaison('a6-comparer', 'À qui attribuer un avis', 
     'Un billet s’attribue à son auteure, par son nom. EN: attribute a billet to its author.')),
   grp('Le genre dans ta comparaison', [
     it(E(2081), 'la règle'),
-    free('Le premier texte est un billet d’humeur signé ; le second, une dépêche.', 'The first text is a signed humorous piece; the second, a dispatch.', 'deux genres, deux voix'),
+    free('Le premier texte est un billet d’humeur signé ; le second, une dépêche.', 'The first text is a signed billet d’humeur, a short witty opinion piece; the second, a dispatch.', 'deux genres, deux voix'),
   ], chk('Pourquoi nommer le genre au début de ta comparaison ?', ['Parce qu’il dit qui parle et ce que le texte cherche à faire.', 'Pour faire plus de mots.'], 0,
     'Le genre explique déjà une part des différences. EN: genre explains part of the difference.')),
 ], ['genre', 'signature']);
@@ -1167,8 +1170,8 @@ const A8_ORDRE: Sec<'groupDrill'> = {
       free('« C’est long, mais c’est pour six mois, et le nouveau trajet est plus calme », estime Paul Girard.', '"It is long, but it is for six months, and the new route is quieter," says Paul Girard.', 'en premier, cette fois'),
       it(E(2098), 'au milieu'),
       it(E(2097), 'en dernier'),
-    ], chk('Ouvert par le retraité et fermé par l’usagère, l’article laisse surtout l’impression...', ['d’un détour supportable qui fâche certains usagers', 'd’une colère générale'], 0,
-      'Mêmes voix, autre ordre : autre impression. EN: same voices, other order, other impression.')),
+    ], chk('Ouvert par le retraité, l’article prend d’abord le ton...', ['d’un détour supportable, que certains usagers contestent', 'd’une colère générale'], 0,
+      'La première voix donne le ton : mêmes voix, autre ordre, autre lecture. EN: the first voice sets the tone; same voices, other order, other reading.')),
     grp('Citer ou résumer', [
       free('Selon la société, le détour est provisoire.', 'According to the company, the detour is temporary.', 'résumé'),
       free('« Ce détour est provisoire, et nous le regrettons autant que vous », explique la directrice du réseau.', '"This detour is temporary, and we regret it as much as you do," explains the network director.', 'cité, avec une voix'),
@@ -1268,7 +1271,7 @@ const A9_CHIFFRES: Sec<'reading'> = {
   ],
   questions: [
     { q: 'Devine le sens : « la fréquentation frôle la jauge maximale ». Que veut dire « frôler » ici ?', a: 'S’en approcher de très près sans l’atteindre.' },
-    { q: 'Les deux textes donnent-ils des chiffres différents ?', a: 'Non : les mêmes (42 000 entrées, +5 %, 38 plaintes, un sur trois ou deux sur trois), présentés autrement.' },
+    { q: 'Les deux textes donnent-ils des chiffres différents ?', a: 'Ils partagent les chiffres clés (+5 %, 38 plaintes, un sur trois ou deux sur trois), présentés autrement ; chacun en ajoute qui servent son récit (42 000 entrées et 6 % du budget pour A, la subvention en hausse de 15 % pour B).' },
     { q: '« Près d’un festivalier sur trois venait d’ailleurs » et « deux festivaliers sur trois habitent la région » : est-ce contradictoire ?', a: 'Non : c’est la même proportion, vue de deux côtés.' },
     { q: 'Les plaintes « ont triplé » ; c’est « moins d’une plainte pour mille entrées ». Lequel est vrai ?', a: 'Les deux : de 12 à 38, c’est un triplement ; rapporté aux entrées, c’est peu. Chaque texte choisit sa base.' },
     { q: 'Que dit chaque photo, avec sa légende ?', a: 'Le Courrier montre la foule du samedi soir ; L’Hebdo, un riverain et les déchets du dimanche matin. Chaque photo choisit son moment.' },
@@ -1319,7 +1322,7 @@ const A9_ERREURS: Sec<'commonErrors'> = {
   type: 'commonErrors', id: 'a9-erreurs', layer: 'core', swipe: true, size: 'lg',
   title: 'Quatre chiffres mal lus',
   errors: [
-    { wrong: 'Les deux journaux donnent des chiffres différents.', right: 'Les deux journaux donnent les mêmes chiffres, présentés autrement.',
+    { wrong: 'Les deux journaux donnent des chiffres contradictoires.', right: 'Les deux journaux partagent les chiffres clés, présentés autrement.',
       why: 'Normal : « un sur trois » et « deux sur trois » sonnent comme une contradiction. C’est la même proportion. EN: the same proportion.' },
     { wrong: 'Le festival est trois fois plus bruyant.', right: 'Les plaintes ont triplé, de douze à trente-huit, pour quarante-deux mille entrées.',
       why: 'Le triplement est réel, sur une petite base. EN: real, on a small base.' },
@@ -1432,7 +1435,7 @@ const A10_NEUTRE: Sec<'groupDrill'> = {
       it(E(2128), 'la règle'),
     ], chk('« Pas moins de trois cents » et « à peine trois cents »...', ['donnent deux nombres différents', 'donnent le même nombre et deux jugements'], 1,
       'Le nombre ne change pas ; le petit mot choisit le camp. EN: the small word picks the side.')),
-    ctl('Les guillemets', '« ce qu’elle appelle pudiquement un « réaménagement » » : ici, les guillemets...', ['citent un expert', 'reprennent le mot de la mairie pour s’en distancier'], 1,
+    ctl('Les guillemets', 'Le journal écrit : ce qu’elle appelle pudiquement un « réaménagement ». Ici, les guillemets...', ['citent un expert', 'reprennent le mot de la mairie pour s’en distancier'], 1,
       'Le journal cite le mot pour ne pas le reprendre à son compte. EN: quoted to keep distance.'),
   ],
   audio: AUDIO, say: REFRAME, terms: ['motcharge'],
@@ -1518,7 +1521,7 @@ const A11_METHODE: Sec<'steps'> = {
   type: 'steps', id: 'a11-methode', layer: 'core', sheetId: 'sheet-comparer',
   title: 'Six étapes pour comparer deux traitements',
   steps: [
-    '1. Pars des faits communs : la décision, la date, le chiffre. EN: start from the shared facts.',
+    `1. Pars des faits communs, comme dans ${CRITIQUE_REF} : la décision, la date, le chiffre. EN: start from the shared facts.`,
     '2. Nomme le genre et la place de chaque texte : la une ou la page 5, article ou éditorial. EN: genre and placement.',
     '3. Compare les titres, les chapôs, les photos et leurs légendes. EN: headlines, standfirsts, photos and captions.',
     '4. Compte les voix : qui parle en premier, qui a le dernier mot, qui manque. EN: count the voices.',
@@ -1626,7 +1629,7 @@ const A12_TEXTES: Sec<'reading'> = {
     { q: 'Quel est le genre de chaque texte ? Comment le sais-tu ?', a: 'A : un reportage signé, au présent, avec des scènes et des voix. B : un éditorial, rubrique « Éditorial », le « nous » du journal, des demandes.' },
     { q: 'Qui parle dans chaque texte ?', a: 'A : une mère, un fleuriste, l’adjointe aux mobilités, tous satisfaits. B : personne n’est cité ; le journal parle pour « ceux que la municipalité a choisi d’oublier ».' },
     { q: 'Relève un mot chargé de chaque côté.', a: 'A : « piétonnisation », « appartient aux piétons ». B : « fermeture », « frontière », « une poignée de cyclistes », « bouchons ».' },
-    { q: 'Que laisse chaque texte hors champ ?', a: 'A : les automobilistes détournés, les commerçants inquiets, la circulation. B : le bus, le vote d’avril, les quatre mille cyclistes, les commerces contents.' },
+    { q: 'Que laisse chaque texte hors champ ?', a: 'A : les automobilistes détournés, les commerçants inquiets, la circulation. B : le vote d’avril, les quatre mille passages de vélos, le fleuriste ravi. Le bus, lui, est cité, mais pour être écarté.' },
   ],
   audio: REC('rec-c1-24-pont'), say: REFRAME, terms: ['genre', 'cadrage', 'horschamp'],
 };
@@ -1741,7 +1744,7 @@ const A12_MISSION: Sec<'task'> = {
         '1 : Aucun mot chargé, ou des mots relevés sans analyse.',
       ] },
       { key: 'horschamp', label: 'Ce que chacun laisse hors champ', maxPoints: 3, descriptors: [
-        '3 : Pour chaque texte, au moins une omission précise, dite sans accuser (les automobilistes détournés ; le bus et les quatre mille cyclistes).',
+        '3 : Pour chaque texte, au moins une omission précise, dite sans accuser (les automobilistes détournés ; le vote d’avril et les quatre mille passages de vélos).',
         '2 : Une omission pour un seul texte, ou des omissions vagues.',
         '1 : Rien sur ce que les textes laissent de côté, ou une accusation de mensonge.',
       ] },
@@ -1768,8 +1771,8 @@ const A12_MISSION: Sec<'task'> = {
     'En revanche, l’éditorial ne dit rien de...',
     'En somme,',
   ],
-  modelAnswer: 'Les deux textes rapportent le même événement, le premier dimanche où le pont des Saules est réservé aux piétons, aux vélos et au bus, mais ils ne le cadrent pas du tout de la même façon. Le Courrier choisit le reportage, à la une : la journaliste était sur place, raconte au présent et fait voir une scène de fête, entre enfants à vélo, accordéoniste et fanfare. L’Hebdo, lui, publie un éditorial, c’est-à-dire la position du journal : il ne décrit pas, il juge et propose. Le choix des voix confirme ces angles. Le reportage ne donne la parole qu’à des personnes satisfaites, une mère de la rive est, un fleuriste et l’adjointe aux mobilités ; l’éditorial ne cite personne et parle au nom de « ceux que la municipalité a choisi d’oublier ». Les chiffres suivent la même logique : quatre mille passages de vélos d’un côté, un détour de vingt minutes, dont on ignore la source, de l’autre. Les mots, surtout, révèlent le cadrage. Le Courrier reprend « piétonnisation », le terme de la mairie, quand L’Hebdo écrit « fermeture » ; et « une poignée de cyclistes enthousiastes » réduit d’emblée les partisans du projet à une minorité négligeable, alors que le reportage décrit un pont qui « appartient aux piétons ». Enfin, chacun laisse hors champ ce qui dérange son récit. Le reportage ne dit rien des automobilistes détournés, des commerçants inquiets de la rive est ni des reports de trafic ; l’éditorial passe sous silence le bus qui traverse toujours le pont, le vote du conseil en avril et les commerces qui se réjouissent. Aucun des deux ne ment, mais aucun ne suffit : il faut les lire ensemble pour se faire une idée juste de ce premier dimanche sans voitures.',
-  modelAnswerEn: 'Both texts report the same event, the first Sunday on which the pont des Saules is reserved for pedestrians, bikes and buses, but they frame it in completely different ways. Le Courrier chooses a report, on its front page: the journalist was there, writes in the present and shows a festive scene, with children on bikes, an accordion player and a brass band. L’Hebdo publishes an editorial, that is, the paper’s own position: it does not describe, it judges and proposes. The choice of voices confirms these angles. The report only lets satisfied people speak, a mother from the east bank, a florist and the deputy mayor for transport; the editorial quotes no one and speaks for "those the council chose to forget". The figures follow the same logic: four thousand bike crossings on one side, a twenty-minute detour of unknown source on the other. Above all, the words reveal the framing. Le Courrier uses "piétonnisation", the town hall’s term, while L’Hebdo writes "fermeture"; and "a handful of enthusiastic cyclists" reduces the project’s supporters at once to a negligible minority, whereas the report describes a bridge that "belongs to pedestrians". Finally, each leaves out whatever disturbs its story. The report says nothing about diverted drivers, worried shopkeepers on the east bank or displaced traffic; the editorial is silent on the bus that still crosses the bridge, the council vote in April and the shops that are pleased. Neither lies, but neither is enough: they must be read together to get a fair idea of that first car-free Sunday.',
+  modelAnswer: 'Les deux textes rapportent le même événement, le premier dimanche où le pont des Saules est réservé aux piétons, aux vélos et au bus, mais ils ne le cadrent pas du tout de la même façon. Le Courrier choisit le reportage, à la une : la journaliste était sur place, raconte au présent et fait voir une scène de fête, entre enfants à vélo, accordéoniste et fanfare. L’Hebdo, lui, publie un éditorial, c’est-à-dire la position du journal : il ne décrit pas, il juge et propose. Le choix des voix confirme ces angles. Le reportage ne donne la parole qu’à des personnes satisfaites, une mère de la rive est, un fleuriste et l’adjointe aux mobilités ; l’éditorial ne cite personne et parle au nom de « ceux que la municipalité a choisi d’oublier ». Les chiffres suivent la même logique : quatre mille passages de vélos d’un côté, un détour de vingt minutes, dont on ignore la source, de l’autre. Les mots, surtout, révèlent le cadrage. Le Courrier reprend « piétonnisation », le terme de la mairie, quand L’Hebdo écrit « fermeture » ; et « une poignée de cyclistes enthousiastes » réduit d’emblée les partisans du projet à une minorité négligeable, alors que le reportage décrit un pont qui « appartient aux piétons ». Enfin, chacun laisse hors champ ce qui dérange son récit. Le reportage ne dit rien des automobilistes détournés, des commerçants inquiets de la rive est ni des reports de trafic ; l’éditorial passe sous silence le vote du conseil en avril, les quatre mille passages de vélos et le fleuriste ravi, et n’évoque le bus que pour l’écarter. Aucun des deux ne ment, mais aucun ne suffit : il faut les lire ensemble pour se faire une idée juste de ce premier dimanche sans voitures.',
+  modelAnswerEn: 'Both texts report the same event, the first Sunday on which the pont des Saules is reserved for pedestrians, bikes and buses, but they frame it in completely different ways. Le Courrier chooses a report, on its front page: the journalist was there, writes in the present and shows a festive scene, with children on bikes, an accordion player and a brass band. L’Hebdo publishes an editorial, that is, the paper’s own position: it does not describe, it judges and proposes. The choice of voices confirms these angles. The report only lets satisfied people speak, a mother from the east bank, a florist and the deputy mayor for transport; the editorial quotes no one and speaks for "those the council chose to forget". The figures follow the same logic: four thousand bike crossings on one side, a twenty-minute detour of unknown source on the other. Above all, the words reveal the framing. Le Courrier uses "piétonnisation", the town hall’s term, while L’Hebdo writes "fermeture"; and "a handful of enthusiastic cyclists" reduces the project’s supporters at once to a negligible minority, whereas the report describes a bridge that "belongs to pedestrians". Finally, each leaves out whatever disturbs its story. The report says nothing about diverted drivers, worried shopkeepers on the east bank or displaced traffic; the editorial is silent on the council vote in April, the four thousand bike crossings and the delighted florist, and mentions the bus only to dismiss it. Neither lies, but neither is enough: they must be read together to get a fair idea of that first car-free Sunday.',
   watchFor: [
     { pattern: 'The two genres not named, or the editorial treated as an ordinary news article.', criterion: 'genre', feedback: 'Nomme les genres : un reportage d’un côté, un éditorial du journal de l’autre, et dis ce que cela change.', ref: 'a5-voix' },
     { pattern: 'The report treated as neutral or « more true » because it shows rather than judges.', criterion: 'genre', feedback: 'Le reportage montre, mais il choisit ce qu’il montre : dis-le.', ref: 'a4-comparer' },
@@ -1779,7 +1782,7 @@ const A12_MISSION: Sec<'task'> = {
     { pattern: 'Photo and caption ignored, or headlines and placement (front page, editorial slot) not used.', criterion: 'cadrage', feedback: 'Regarde aussi la photo, sa légende, le titre et la place de chaque texte.', ref: 'a3-parties' },
     { pattern: 'Loaded words named without quotation marks or without saying what they add (piétonnisation / fermeture, fête / frontière, une poignée).', criterion: 'mots', feedback: 'Cite le mot entre guillemets, puis dis ce qu’il ajoute au fait.', ref: 'a10-comparer' },
     { pattern: 'The town hall’s word « piétonnisation » treated as the neutral one.', criterion: 'mots', feedback: '« Piétonnisation » est le mot de la mairie : il n’est pas neutre non plus.', ref: 'a10-paires' },
-    { pattern: 'Omissions given for one text only, or vague (« il manque des choses »).', criterion: 'horschamp', feedback: 'Pour chaque texte, nomme une omission précise : les automobilistes, le bus, les cyclistes.', ref: 'a11-grille' },
+    { pattern: 'Omissions given for one text only, or vague (« il manque des choses »).', criterion: 'horschamp', feedback: 'Pour chaque texte, nomme une omission précise : les automobilistes, le vote d’avril, les cyclistes.', ref: 'a11-grille' },
     { pattern: 'A text accused of lying, or of manipulation, instead of an omission named.', criterion: 'horschamp', feedback: 'Une omission n’est pas un mensonge : nomme ce qui manque, sans accuser.', ref: 'a11-comparer' },
     { pattern: 'The learner’s own opinion on the bridge replacing the analysis of the texts.', criterion: 'structure', feedback: 'On te demande de comparer les textes, pas de juger le pont. Ton avis peut venir en une phrase, à la fin.', ref: 'a11-erreurs' },
     { pattern: 'The same general verbs repeated (dit, montre, parle) instead of the vocabulary of analysis.', criterion: 'langue', feedback: 'Varie : met en avant, relègue, passe sous silence, relaie, cadre.', ref: 'a12-plan' },
@@ -1788,7 +1791,7 @@ const A12_MISSION: Sec<'task'> = {
     'Word count: 250 to 400, with 10% tolerance (225 to 440) before the criteria lose points for length. A title does not count.',
     'The task marks the ANALYSIS of the two texts. A learner who supports or opposes the bridge closure may score full marks if both texts are analysed fairly; a learner who only argues about the bridge scores low on « structure » and « cadrage ».',
     'Loaded words to accept (any two, quoted and analysed): piétonnisation / fermeture; fête / frontière; « appartient aux piétons » / « la ville coupée en deux »; « une poignée de cyclistes enthousiastes »; « bouchons »; « choisi d’oublier »; « s’émerveille », « n’en revient pas ». Any other well-chosen evaluative word counts if quoted and analysed.',
-    'Omissions to accept (one per text at least, true of the texts as printed): the report leaves out the diverted drivers, the worried shopkeepers of the east bank and any traffic data; the editorial leaves out the bus that still crosses, the council vote in April, the four thousand bike crossings and the pleased shopkeepers. « Le reportage ne parle pas des inconvénients » is too vague for full marks.',
+    'Omissions to accept (one per text at least, true of the texts as printed): the report leaves out the diverted drivers, the worried shopkeepers of the east bank and any traffic data; the editorial leaves out the council vote in April, the four thousand bike crossings and the delighted florist. The editorial DOES mention the bus (« On nous répond que le bus continue de passer »), to dismiss it: do not reward « l’éditorial ne parle pas du bus » as an omission; « il écarte l’argument du bus en une phrase » is a good framing point. « Le reportage ne parle pas des inconvénients » is too vague for full marks.',
     'Calling either text a lie, or « de la propagande », loses the point under « horschamp » it seems to earn. Saying that a text « manipule » with no textual proof counts the same.',
     'Genre: the second text is an editorial of the paper; « article d’opinion » is accepted, « tribune » is not (it is not signed by an outside author). The first is a report (« reportage »); « article » alone earns 2 under « genre ».',
     'Quotations: three to twelve words, exact, in guillemets. Accept straight or French quotation marks.',
@@ -1854,8 +1857,9 @@ const tI = (q: string, prompt: string, answer: string, why: string, ref: string,
   ({ format: 'typeIn', q, prompt, answer, accept: [answer, ...more], why, ref });
 const mc = (q: string, opts: string[], correct: number, why: string, ref: string): QQ =>
   ({ format: 'mcq', q, opts, correct, why, ref });
-const eS = (prompt: string, answer: string, why: string, ref: string): QQ =>
-  ({ format: 'errorSpot', q: 'Une partie de la phrase trahit le texte. Écris la phrase juste. EN: Part of the sentence betrays the text; write it correctly.', prompt, answer, accept: [answer], why, ref });
+const ES_Q = 'Une partie de la phrase trahit le texte. Écris la phrase juste. EN: Part of the sentence betrays the text; write it correctly.';
+const eS = (prompt: string, answer: string, why: string, ref: string, more: string[] = [], q: string = ES_Q): QQ =>
+  ({ format: 'errorSpot', q, prompt, answer, accept: [answer, ...more], why, ref });
 const lC = (q: string, say: string, opts: string[], correct: number, why: string, ref: string): QQ =>
   ({ format: 'listenChoose', q, say, opts, correct, why, ref });
 
@@ -1871,7 +1875,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('« Seule ombre au tableau » annonce...', ['une réserve, placée en fin de texte', 'l’information principale'], 0, 'La formule minimise ce qui suit. EN: it minimises what follows.', 'a1-lecture'),
         tI('Complète la question à poser. Deux mots.', 'Qu’est-ce que l’article laisse ... ?', 'hors champ', 'Ce que le cadre laisse dehors. EN: what the frame leaves out.', 'a1-usages', ['hors-champ']),
         tI('Complète. Un mot.', 'J’ai lu un journal, pas l’... .', 'événement', 'Un article est un cadre posé sur l’événement. EN: you read a frame.', 'a1-scene', ['evenement']),
-        eS('Le Courrier et L’Hebdo donnent deux chiffres différents.', 'Le Courrier et L’Hebdo donnent le même chiffre.', 'Quarante-deux mille entrées dans les deux textes. EN: the same figure.', 'a1-lecture'),
+        eS('Le Courrier et L’Hebdo donnent deux chiffres différents.', 'Le Courrier et L’Hebdo donnent le même chiffre.', 'Quarante-deux mille entrées dans les deux textes. EN: the same figure.', 'a1-lecture', ['Le Courrier et L’Hebdo donnent le même nombre d’entrées.', 'Le Courrier et L’Hebdo donnent le même chiffre d’entrées.']),
         lC('Écoute ce titre. Quel journal a pu l’écrire ?', src(E(2001)).fr, ['L’Hebdo des Rives', 'Le Courrier de Montrivage'], 0, 'Le titre met les riverains en avant. EN: the residents first.', 'a1-lecture'),
       ],
     },
@@ -1884,7 +1888,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('Selon la dépêche, le nouveau calendrier est-il définitif ?', ['Oui, il a été voté mardi.', 'Non, l’autorité régionale doit encore le valider.'], 1, 'L’étape de procédure arrive tard, et elle compte. EN: the procedure matters.', 'a2-erreurs'),
         tI('Complète. Un mot.', 'La pyramide ... met l’essentiel en haut.', 'inversée', 'Le haut porte l’événement, le bas le contexte. EN: inverted.', 'a2-pyramide', ['inversee']),
         tI('Complète. Un mot.', 'Dans une dépêche, l’ordre dit l’... .', 'importance', 'L’ordre est une hiérarchie. EN: order is ranking.', 'a2-pyramide'),
-        eS('La dépêche est contre la réforme, puisqu’elle cite le syndicat.', 'La dépêche rapporte l’avis du syndicat.', 'Citer n’est pas prendre parti. EN: quoting is not endorsing.', 'a2-erreurs'),
+        eS('La dépêche est contre la réforme, puisqu’elle cite le syndicat.', 'La dépêche rapporte l’avis du syndicat.', 'Citer n’est pas prendre parti. EN: quoting is not endorsing.', 'a2-erreurs', ['La dépêche n’est pas contre la réforme, même si elle cite le syndicat.', 'La dépêche ne prend pas parti, même si elle cite le syndicat.', 'La dépêche rapporte l’avis du syndicat, sans prendre parti.']),
         lC('Écoute. Où cette phrase se place-t-elle dans le flash ?', src(E(2029)).fr, ['à la fin : c’est le contexte', 'au début : c’est l’essentiel'], 0, 'Un chiffre de contexte, rangé en bas. EN: context goes last.', 'a2-flash'),
       ],
     },
@@ -1892,7 +1896,7 @@ const A12_QUIZ: Sec<'quiz'> = {
       id: 'r3-parties', label: 'Les parties d’un article', targets: ['parties-confondues'],
       questions: [
         mc('Le texte en gras entre le titre et l’article s’appelle...', ['le chapô', 'l’attaque', 'la chute'], 0, 'Il résume et donne l’angle. EN: the standfirst.', 'a3-parties'),
-        mc('« Festival », en petit au-dessus du titre, c’est...', ['le surtitre', 'l’intertitre', 'la légende'], 0, 'Il situe la rubrique. EN: the kicker.', 'a3-parties'),
+        mc('« Festival », en petit au-dessus du titre, c’est...', ['le surtitre', 'l’intertitre', 'la légende'], 0, 'Il situe le sujet. EN: the kicker.', 'a3-parties'),
         mc('L’article sur les prix s’ouvre sur...', ['une scène : la file de 10 h 07', 'un chiffre de la billetterie', 'une question'], 0, 'Une attaque sur une scène. EN: a scene.', 'a3-article'),
         mc('« Le festival, un luxe ? » est un titre...', ['incitatif', 'informatif'], 0, 'Il donne envie de lire sans affirmer. EN: a teaser.', 'a3-attaques'),
         tI('Comment s’appelle la dernière phrase d’un article ? Un mot.', 'La dernière phrase s’appelle la ... .', 'chute', 'Elle laisse une impression. EN: the closing line.', 'a3-parties'),
@@ -1905,12 +1909,12 @@ const A12_QUIZ: Sec<'quiz'> = {
       id: 'r4-reportage', label: 'Le reportage', targets: ['reportage-pris-pour-tout'],
       questions: [
         mc('Lequel est un signe de reportage ?', ['une heure, une odeur, des voix entendues sur place', 'le sigle d’une agence', 'un « nous » qui recommande'], 0, 'Le journaliste y était. EN: the reporter was there.', 'a4-signes'),
-        mc('Le reportage sur le marché fait parler...', ['des commerçants et un ouvrier', 'la mairie', 'des urbanistes'], 0, 'Ceux que la journaliste a rencontrés. EN: those she met.', 'a4-reportage'),
+        mc('Le reportage sur le marché fait parler...', ['des commerçants, une cliente et le chef de chantier', 'la mairie', 'des urbanistes'], 0, 'Ceux que la journaliste a rencontrés. EN: those she met.', 'a4-reportage'),
         mc('Le chiffre de la boulangère, « près d’un tiers », est...', ['son estimation, non vérifiée', 'un chiffre officiel'], 0, '« Assure », entre guillemets. EN: her own estimate.', 'a4-reportage'),
         mc('Dans le bus de 7 h 12, quelle voix le reporter met-il en avant ?', ['une infirmière pressée', 'deux lycéens', 'le chauffeur'], 0, 'Une citation entière, contre une demi-phrase. EN: his main voice.', 'a4-bus'),
         tI('Complète. Un mot.', 'Le reportage raconte au ..., comme si tu y étais.', 'présent', 'Un présent de narration. EN: the present.', 'a4-signes', ['present']),
         tI('Complète. Un mot.', 'Le journaliste choisit qui il rencontre, et donc qui ... .', 'parle', 'Le choix des voix cadre déjà. EN: choosing voices frames.', 'a4-trier'),
-        eS('Le reportage montre tout le quartier pendant les travaux.', 'Le reportage montre le marché vu par ceux qui y travaillent.', 'Vrai, et partiel. EN: true and partial.', 'a4-comparer'),
+        eS('Le reportage montre tout le quartier pendant les travaux.', 'Le reportage montre le marché vu par ceux qui y travaillent.', 'Vrai, et partiel. EN: true and partial.', 'a4-comparer', ['Le reportage montre le marché pendant les travaux.', 'Le reportage montre le marché vu par ses commerçants.', 'Le reportage montre seulement le marché pendant les travaux.']),
         lC('Écoute. Quel genre de texte commence ainsi ?', src(E(2047)).fr, ['un reportage', 'une dépêche', 'un éditorial'], 0, 'Une heure, une odeur : on y est. EN: on the spot.', 'a4-signes'),
       ],
     },
@@ -1923,7 +1927,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('« Le conseil scolaire doit maintenant convaincre les familles. » C’est...', ['une recommandation du journal', 'une annonce du conseil'], 0, '« Doit » : le journal conseille. EN: a recommendation.', 'a5-piege'),
         tI('Complète. Un mot.', 'L’article informe ; l’éditorial prend ... .', 'position', 'Il juge et recommande. EN: it takes a stand.', 'a5-qui'),
         tI('Complète. Un mot.', 'L’éditorial exprime la ligne ... du journal.', 'éditoriale', 'La ligne du journal. EN: the editorial line.', 'a5-voix', ['editoriale']),
-        eS('Le journaliste pense que le calendrier va dans le bon sens.', 'Le journal estime que le calendrier va dans le bon sens.', 'Un éditorial s’attribue au journal. EN: the paper, not a reporter.', 'a5-piege'),
+        eS('Le journaliste pense que le calendrier va dans le bon sens.', 'Le journal estime que le calendrier va dans le bon sens.', 'Un éditorial s’attribue au journal. EN: the paper, not a reporter.', 'a5-piege', ['Le journal pense que le calendrier va dans le bon sens.', 'Le Courrier estime que le calendrier va dans le bon sens.', 'Le Courrier pense que le calendrier va dans le bon sens.']),
         lC('Écoute. Cette phrase vient plutôt...', src(E(2062)).fr, ['d’un éditorial', 'd’une dépêche'], 0, '« Nous l’avons écrit ici même » : la voix du journal. EN: the paper’s voice.', 'a5-voix'),
       ],
     },
@@ -1936,7 +1940,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('« L’an prochain, je viendrai à pied. J’habite à onze kilomètres. » C’est...', ['une chute humoristique', 'un projet sérieux'], 0, 'Un trait d’esprit. EN: a joke.', 'a6-erreurs'),
         tI('Complète. Un mot.', 'Ce billet n’engage que son ... .', 'auteure', 'Pas le journal. EN: only its author.', 'a6-trier', ['auteur', 'autrice']),
         tI('Complète. Un mot.', 'Un billet tient sur une idée et finit sur un trait d’... .', 'esprit', 'Une pointe finale. EN: a witty line.', 'a6-je'),
-        eS('Le journal critique l’horaire de la navette.', 'La chroniqueuse critique l’horaire de la navette.', 'Un « je » signé n’est pas la rédaction. EN: the columnist.', 'a6-erreurs'),
+        eS('Le journal critique l’horaire de la navette.', 'La chroniqueuse critique l’horaire de la navette.', 'Un « je » signé n’est pas la rédaction. EN: the columnist.', 'a6-erreurs', ['Odile Vasseur critique l’horaire de la navette.', 'L’auteure critique l’horaire de la navette.', 'L’auteure du billet critique l’horaire de la navette.']),
         lC('Écoute. Qui parle ?', src(E(2076)).fr, ['une chroniqueuse, en son nom', 'la rédaction'], 0, 'Un « je » : une signature. EN: a byline.', 'a6-trier'),
       ],
     },
@@ -1947,9 +1951,9 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('Qui signe la lettre ouverte ?', ['un collectif de parents', 'la présidente du conseil', 'le journal'], 0, 'Trois parents, pour le collectif. EN: a parents’ group.', 'a7-lettre'),
         mc('À qui la lettre ouverte s’adresse-t-elle ?', ['à la présidente du conseil scolaire, sous les yeux du public', 'aux enseignants seulement'], 0, 'Un destinataire, un public. EN: one addressee, a public.', 'a7-lettre'),
         mc('Une tribune contre le pont est signée par le gérant d’un parking. Tu...', ['notes son intérêt sans rejeter ses arguments', 'rejettes tout le texte', 'ignores la signature'], 0, 'Un intérêt se note ; il ne réfute rien. EN: note the stake.', 'a7-signatures'),
-        tI('Complète. Un mot.', 'Les opinions exprimées n’engagent que leurs ... .', 'auteurs', 'La note de la rédaction. EN: the disclaimer.', 'a7-signes'),
+        tI('Complète. Un mot.', 'Les opinions exprimées n’engagent que leurs ... .', 'auteurs', 'La note de la rédaction. EN: the disclaimer.', 'a7-signes', ['auteures', 'autrices']),
         tI('Complète. Un mot.', 'Une lettre ... s’adresse à une personne mais vise le public.', 'ouverte', 'Publiée pour peser. EN: an open letter.', 'a7-signes'),
-        eS('Le journal demande une consultation avant l’été.', 'Le collectif demande une consultation avant l’été.', 'La demande vient des signataires. EN: the group asks.', 'a7-lettre'),
+        eS('Le journal demande une consultation avant l’été.', 'Le collectif demande une consultation avant l’été.', 'La demande vient des signataires. EN: the group asks.', 'a7-lettre', ['Le collectif de parents demande une consultation avant l’été.', 'Les parents demandent une consultation avant l’été.']),
         lC('Écoute. De quel genre vient cette phrase ?', src(E(2086)).fr, ['une lettre ouverte', 'une dépêche', 'un reportage'], 0, 'Un destinataire nommé, un « nous » collectif. EN: an open letter.', 'a7-signes'),
       ],
     },
@@ -1962,7 +1966,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('Le chiffre de huit cents signatures est...', ['annoncé par les organisateurs, au conditionnel', 'vérifié par le journal'], 0, '« Aurait », « selon ses organisateurs ». EN: unverified.', 'a8-article'),
         tI('Complète. Un mot.', 'La première voix donne le ... .', 'ton', 'Le lecteur regarde à travers elle. EN: the tone.', 'a8-voix'),
         tI('Complète. Un mot.', 'Compte les voix, puis regarde leur ... .', 'ordre', 'L’ordre fait le cadre. EN: order.', 'a8-piege'),
-        eS('L’article est neutre, puisqu’il cite tout le monde.', 'L’article penche, même s’il cite tout le monde.', 'L’ordre et la place comptent. EN: order and space matter.', 'a8-piege'),
+        eS('L’article est neutre, puisqu’il cite tout le monde.', 'L’article penche, même s’il cite tout le monde.', 'L’ordre et la place comptent. EN: order and space matter.', 'a8-piege', ['L’article n’est pas neutre, même s’il cite tout le monde.', 'L’article n’est pas forcément neutre, même s’il cite tout le monde.']),
         lC('Écoute. Dans l’article, cette voix arrive...', src(E(2097)).fr, ['au début : elle donne le ton', 'à la fin : elle nuance'], 0, 'La première citation de l’article. EN: the first quote.', 'a8-ordre'),
       ],
     },
@@ -1975,7 +1979,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('La photo de L’Hebdo montre...', ['un riverain devant des gobelets, dimanche matin', 'la foule du samedi soir'], 0, 'Un autre moment, une autre lecture. EN: another moment.', 'a9-chiffres'),
         tI('Complète. Un mot.', 'Un chiffre ne parle jamais seul : regarde sa ... et sa comparaison.', 'base', 'Sur combien ? EN: the base.', 'a9-regles'),
         tI('Complète. Un mot.', 'Une ... dit comment regarder la photo.', 'légende', 'Elle oriente l’image. EN: the caption.', 'a9-regles', ['legende']),
-        eS('Le festival est trois fois plus bruyant que l’an dernier.', 'Les plaintes pour bruit ont triplé, de douze à trente-huit.', 'Le triplement porte sur les plaintes, et sur une petite base. EN: complaints, on a small base.', 'a9-erreurs'),
+        eS('Le festival est trois fois plus bruyant que l’an dernier.', 'Les plaintes pour bruit ont triplé, de douze à trente-huit.', 'Le triplement porte sur les plaintes, et sur une petite base. EN: complaints, on a small base.', 'a9-erreurs', ['Les plaintes pour bruit ont triplé.', 'Les plaintes ont triplé.', 'Les plaintes pour bruit ont triplé par rapport à l’an dernier.', 'Les plaintes pour bruit sont trois fois plus nombreuses que l’an dernier.']),
         lC('Écoute. Ce chiffre est présenté pour...', src(E(2110)).fr, ['relativiser les plaintes', 'les grossir'], 0, 'Rapportées aux entrées, elles paraissent rares. EN: to play them down.', 'a9-lire'),
       ],
     },
@@ -1986,9 +1990,9 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('« Une poignée de défenseurs du projet » : « une poignée »...', ['réduit le camp à presque rien', 'donne un chiffre précis'], 0, 'Le mot dose à la place du nombre. EN: it shrinks the side.', 'a10-paires'),
         mc('« Pas moins de trois cents » et « à peine trois cents »...', ['donnent le même nombre et deux jugements', 'donnent deux nombres'], 0, 'Le petit mot choisit le camp. EN: the small word picks a side.', 'a10-dosage'),
         mc('Lequel est le mot de la mairie ?', ['réaménagement', 'bétonnage'], 0, 'Le mot officiel n’est pas neutre non plus. EN: official, not neutral.', 'a10-article'),
-        tI('Récris avec un verbe neutre. Un mot.', 'La municipalité s’entête. → La municipalité ... son projet.', 'maintient', 'Maintenir dit la décision, sans l’obstination. EN: keeps.', 'a10-paires'),
+        tI('Récris avec un verbe neutre. Un mot.', 'La municipalité s’entête. → La municipalité ... son projet.', 'maintient', 'Maintenir dit la décision, sans l’obstination. EN: keeps.', 'a10-paires', ['garde', 'conserve', 'poursuit', 'confirme']),
         tI('Complète. Un mot.', 'Le fait est le même ; le mot choisit le ... .', 'camp', 'Le jugement est dans le mot. EN: the side.', 'a10-neutre'),
-        eS('Les engins ont envahi les berges dès lundi.', 'Les travaux ont commencé lundi sur les berges.', 'Remplace le mot chargé : il reste le fait. EN: the neutral version.', 'a10-neutre'),
+        eS('Les engins ont envahi les berges dès lundi.', 'Les travaux ont commencé lundi sur les berges.', 'Remplace le mot chargé : il reste le fait. EN: the neutral version.', 'a10-neutre', ['Les travaux ont commencé sur les berges dès lundi.', 'Les travaux ont commencé sur les berges lundi.', 'Les engins sont arrivés sur les berges dès lundi.', 'Les engins sont arrivés sur les berges lundi.', 'Les travaux ont débuté lundi sur les berges.'], 'Un mot de la phrase juge au lieu de décrire. Récris la phrase en mots neutres. EN: One word judges instead of describing; rewrite the sentence neutrally.'),
         lC('Écoute. Cette expression est-elle neutre ?', src(E(2121)).fr, ['Non : « bétonnage » juge le projet.', 'Oui : c’est le nom officiel.'], 0, 'Un mot chargé contre le projet. EN: loaded against it.', 'a10-paires'),
       ],
     },
@@ -2001,7 +2005,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('Dans les textes du pont, « piétonnisation » et « fermeture »...', ['désignent le même fait avec deux jugements', 'désignent deux décisions différentes'], 0, 'Une paire chargée. EN: a loaded pair.', 'a12-textes'),
         mc('Le reportage du pont ne dit rien...', ['des automobilistes détournés', 'des enfants à vélo', 'de l’adjointe aux mobilités'], 0, 'Son hors-champ. EN: what it leaves out.', 'a12-textes'),
         tI('Complète. Un mot.', 'Ni l’un ni l’autre ne ment : chacun ... .', 'choisit', 'La conclusion juste. EN: each chooses.', 'a11-erreurs'),
-        eS('L’Hebdo ment sur la réunion de jeudi.', 'L’Hebdo laisse hors champ que la proposition venait du festival.', 'Une omission n’est pas un mensonge. EN: name the omission.', 'a11-erreurs'),
+        eS('L’Hebdo ment sur la réunion de jeudi.', 'L’Hebdo laisse hors champ que la proposition venait du festival.', 'Une omission n’est pas un mensonge. EN: name the omission.', 'a11-erreurs', ['L’Hebdo ne dit pas que la proposition venait du festival.', 'L’Hebdo omet que la proposition venait du festival.', 'L’Hebdo passe sous silence que la proposition venait du festival.']),
         lC('Écoute. De quel texte du pont vient cette phrase ?', 'Une poignée de cyclistes enthousiastes ne fait pas une politique des transports.', ['de l’éditorial de L’Hebdo', 'du reportage du Courrier'], 0, '« Une poignée » : le mot qui réduit un camp. EN: the editorial.', 'a12-textes'),
       ],
     },
@@ -2134,8 +2138,8 @@ const SHEET_LIST: ReferenceSheet[] = [
       ['un sigle d’agence (AHP)', 'une dépêche, reprise telle quelle'],
       ['le nom d’un journaliste', 'un article ou un reportage de la rédaction'],
       ['« Par X, envoyée spéciale »', 'un reportage, sur place'],
-      ['aucun nom, ou le nom du journal', 'un éditorial, en France'],
-      ['le nom d’un éditorialiste', 'un éditorial, souvent au Québec : il parle au nom du journal'],
+      ['aucun nom, ou le nom du journal', 'un éditorial non signé : la voix du journal'],
+      ['le rédacteur en chef ou un éditorialiste', 'un éditorial signé (au Québec, souvent un éditorialiste) : il parle au nom du journal'],
       ['un nom et une fonction (urbaniste, collectif)', 'une tribune : d’où l’auteur parle'],
     ]),
   ]),
@@ -2148,7 +2152,7 @@ const SHEET_LIST: ReferenceSheet[] = [
       ['la base', 'contexte, précédents, histoire', 'on la coupe en premier'],
     ]),
     table('sheet-structure-parties', 'Les parties de la page', ['Partie', 'Où', 'Ce qu’elle fait'], [
-      ['le surtitre', 'au-dessus du titre, en petit', 'situe la rubrique ou le thème'],
+      ['le surtitre', 'au-dessus du titre, en petit', 'situe le sujet : thème, lieu, précision'],
       ['le titre', 'en gros', 'informe (le fait) ou incite (une question, un jeu de mots)'],
       ['le chapô (ou chapeau)', 'sous le titre, souvent en gras', 'résume et donne l’angle'],
       ['l’attaque', 'les premières lignes', 'fait entrer : scène, citation, chiffre, question'],
@@ -2307,7 +2311,7 @@ export const LESSON: Lesson = {
   skill: 'CE',
   grammarAssumed: [MEDIAS_UNIT, CRITIQUE_UNIT, NOMINAL_UNIT, PASSIF_UNIT],
   grammarIntroduced: [
-    'Press genres and their signals: dépêche, article, reportage, éditorial (unsigned in France, often signed in Québec, always the paper’s voice), chronique and billet (a signed « je »), tribune and lettre ouverte (an outside author, the paper’s disclaimer)',
+    'Press genres and their signals: dépêche, article, reportage, éditorial (signed or unsigned, by the editor or, often in Québec, an editorial writer, always the paper’s voice), chronique and billet (a signed « je »), tribune and lettre ouverte (an outside author, the paper’s disclaimer)',
     'The inverted pyramid: the order of a dispatch as a ranking of facts',
     'The parts of a page and what each steers: surtitre, titre (informatif or incitatif), chapô, attaque, intertitre, chute, légende',
     'Framing by the choice, order, length and style (direct or indirect) of sources, and by absent voices; by figures (base, comparison, proportion seen from either side, quantity words); by the photo and its caption',

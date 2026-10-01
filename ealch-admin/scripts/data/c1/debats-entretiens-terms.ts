@@ -117,7 +117,7 @@ export const DEBATS_ENTRETIENS_TERMS: Record<string, LessonTerm> = {
   ecoute: {
     term: 'une écoute',
     title: 'Une seule écoute',
-    body: "À l'épreuve C1, chaque document passe une seule fois, et tu as vingt-huit à trente secondes pour lire les questions avant. Lis le mot-clé de chaque question (accord, désaccord, concession, réponse), prévois la forme de l'échange, puis écoute avec un mot par question. EN: Each recording plays once, after 28 to 30 seconds to read; spot each question's key word and predict the shape.",
+    body: "Dans les épreuves blanches C1 de l'application, chaque document passe une seule fois, et tu as vingt-huit à trente secondes pour lire les questions avant. Lis le mot-clé de chaque question (accord, désaccord, concession, réponse), prévois la forme de l'échange, puis écoute avec un mot par question. EN: In the app's C1 mock papers each recording plays once, after 28 to 30 seconds to read; spot each question's key word and predict the shape.",
     examples: [
       { itemId: E(1500), note: 'le format' },
       { itemId: E(1501), note: 'le mot de la question' },
@@ -129,7 +129,7 @@ export const DEBATS_ENTRETIENS_TERMS: Record<string, LessonTerm> = {
   piege: {
     term: 'le piège',
     title: 'Les pièges du QCM',
-    body: "Au TCF Canada C1, trois documents, trois questions puis deux puis deux. La bonne option reformule ce qui a été dit ; les pièges répètent un mot entendu sans son sens, disent plus que l'intervenant, donnent la position de l'autre camp, ou disent une chose vraie mais secondaire. EN: The right option rephrases; traps echo a word, say too much, switch sides, or state something true but secondary.",
+    body: "Dans l'épreuve blanche TCF Canada C1 de l'application, trois documents : trois questions, puis deux, puis deux. La bonne option reformule ce qui a été dit ; les pièges répètent un mot entendu sans son sens, disent plus que l'intervenant, donnent la position de l'autre camp, ou disent une chose vraie mais secondaire. EN: The right option rephrases; traps echo a word, say too much, switch sides, or state something true but secondary.",
     examples: [
       { itemId: E(1516), note: 'reformuler contre répéter' },
       { itemId: E(1515), note: 'l’option qui dit trop' },
@@ -141,7 +141,7 @@ export const DEBATS_ENTRETIENS_TERMS: Record<string, LessonTerm> = {
   idee: {
     term: 'idée centrale',
     title: "L'idée centrale d'un reportage",
-    body: "Au TEF Canada, un reportage d'environ deux minutes, une écoute, une question : l'idée principale. Elle n'est presque jamais le premier chiffre. Elle arrive avec le retournement (« mais ») et revient dans la dernière phrase du narrateur ; c'est elle qui donne un sens à tous les détails. EN: The main idea comes with the turn and the narrator's last line; it is what makes sense of every detail.",
+    body: "Dans l'épreuve blanche TEF Canada de l'application, un reportage d'environ deux minutes, une écoute, une question : l'idée principale. Elle n'est presque jamais le premier chiffre. Elle arrive avec le retournement (« mais ») et revient dans la dernière phrase du narrateur ; c'est elle qui donne un sens à tous les détails. EN: The main idea comes with the turn and the narrator's last line; it is what makes sense of every detail.",
     examples: [
       { itemId: E(1525), note: 'idée et détails' },
       { itemId: E(1523), note: 'le mais du reportage' },

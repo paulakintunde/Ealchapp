@@ -163,6 +163,16 @@
 //     readWindowS 25, one main-idea item). They are phrased « dans les
 //     épreuves blanches de l'application »; the official FEI / CCI Paris
 //     timings are NOT checked (source E in the research plan).
+//     PRE-REVIEW 2026-09-30: the official totals were checked (TCF Canada CO
+//     39 items in 35 min, france-education-international.fr; TEF Canada CO
+//     40 items in 40 min, lefrancaisdesaffaires.fr), and they do NOT match a
+//     « three documents » or « one reportage, one item » paper, so every
+//     format statement (terms, cards, sheet, intro) now names the app's mock
+//     papers. Prep sources put TEF reportages in section G, not F: the
+//     exam pack's « Section F » label is a question for the pack, not here.
+//     Idioms checked against Académie 9e / Larousse / Expressio; the bottle
+//     (beer bottles average about 19 refills), nap (INSV) and green-roof
+//     (Cerema) claims hold as speakers' claims.
 //     Every other figure (attendance, budgets, percentages, Vernay's 40 % and
 //     70 %, Val-Brume's one employee in three) is invented and belongs to an
 //     invented place. No quotation from any published text.
@@ -770,7 +780,7 @@ export const TESSERE_LINES: Line[] = voiced([
  *  Castonguay (corner-shop owner). About 75 seconds. */
 export const CONSIGNE_VOICES = ['animateur', 'Élodie', 'animateur', 'Rémi', 'Élodie', 'Rémi', 'Élodie', 'Rémi', 'Élodie', 'animateur', 'Rémi'];
 export const CONSIGNE_LINES: Line[] = voiced([
-  F('La région veut rétablir la consigne sur les bouteilles en verre : vingt-cinq cents par bouteille, rendus au retour. Élodie Faucher, vous avez travaillé sur le projet.', 'The region wants to bring back the deposit on glass bottles: twenty-five cents a bottle, refunded on return. Élodie Faucher, you worked on the project.'),
+  F('La région veut rétablir la consigne sur les bouteilles en verre : vingt-cinq cents par bouteille, rendus au retour. Élodie Faucher, vous êtes ingénieure et vous avez travaillé sur le projet.', 'The region wants to bring back the deposit on glass bottles: twenty-five cents a bottle, refunded on return. Élodie Faucher, you are an engineer and you worked on the project.'),
   F("Une bouteille consignée est lavée et remplie à nouveau une vingtaine de fois. Recyclée, elle est fondue à chaque passage. Le calcul est vite fait.", 'A deposit bottle is washed and refilled about twenty times. Recycled, it is melted down every time. The sum is quickly done.'),
   F('Rémi Castonguay, vous tenez une épicerie de quartier. Votre objection ?', 'Rémi Castonguay, you run a corner shop. Your objection?'),
   F("Elle est simple : les gens ne rapporteront pas leurs bouteilles. Ils les jettent déjà dans le bac de recyclage, c'est plus commode.", 'It is simple: people will not bring their bottles back. They already throw them in the recycling bin, it is easier.'),
@@ -828,7 +838,7 @@ export const TOITS_LINES: Line[] = voiced([
 export const CUISINE_VOICES = ['modérateur', 'Manon', 'Julien', 'Manon', 'Julien', 'Manon'];
 export const CUISINE_LINES: Line[] = voiced([
   F('Des cours de cuisine obligatoires au collège : bonne idée ? Manon Fortier, diététicienne, et Julien Ayotte, professeur de mathématiques.', 'Compulsory cooking classes in secondary school: a good idea? Manon Fortier, dietitian, and Julien Ayotte, maths teacher.'),
-  F("Je ne soutiens pas que l'école doit apprendre à cuisiner. Je soutiens quelque chose de plus étroit : qu'un élève sache lire une étiquette et préparer trois repas simples.", 'I am not arguing that school must teach cooking. I am arguing for something narrower: that a pupil can read a label and prepare three simple meals.'),
+  F("Je ne soutiens pas que l'école doive apprendre à cuisiner. Je soutiens quelque chose de plus étroit : qu'un élève sache lire une étiquette et préparer trois repas simples.", 'I am not arguing that school must teach cooking. I am arguing for something narrower: that a pupil can read a label and prepare three simple meals.'),
   F("Trois repas, j'accorde que c'est modeste. Mais chaque heure ajoutée est prise à une autre matière.", 'Three meals, I grant that it is modest. But every hour added is taken from another subject.'),
   F('Pas forcément : on peut lire une étiquette en cours de mathématiques. Les pourcentages sont dessus.', 'Not necessarily: you can read a label in a maths lesson. The percentages are on it.'),
   F("Vous prêchez un converti : c'est exactement ce que je fais déjà avec mes élèves.", 'You are preaching to the converted: that is exactly what I already do with my pupils.'),
@@ -876,15 +886,16 @@ export const SIESTE_LINES: Line[] = voiced([
 
 /** Act 11, TEF Canada section F format: a reportage in Vernay, heard once,
  *  one main-idea item. A narrator, Mme Delorme (a resident), Marc Fayolle
- *  (a garage owner). About 110 seconds (302 words). */
+ *  (a garage owner), each named by the narrator before her or his first
+ *  turn. About 115 seconds (315 words). */
 export const VERNAY_VOICES = ['narratrice', 'narratrice', 'narratrice', 'Mme Delorme', 'Mme Delorme', 'narratrice', 'Marc', 'Marc', 'narratrice', 'narratrice', 'Mme Delorme', 'narratrice', 'Marc', 'narratrice'];
 export const VERNAY_LINES: Line[] = voiced([
   F("Vernay, deux mille quatre cents habitants. Depuis deux ans, entre minuit et cinq heures du matin, l'éclairage public s'éteint dans toutes les rues, sauf la grand-rue.", 'Vernay, two thousand four hundred residents. For two years, between midnight and five in the morning, the street lights have gone off in every street except the high street.'),
   F("Au départ, une seule raison : la facture d'électricité de la commune, qui avait doublé en un hiver.", "At the start, one reason only: the town's electricity bill, which had doubled in a single winter."),
-  F('La mesure a été votée en une soirée, sans grand débat, et elle a provoqué dès le premier mois une pétition de deux cents signatures.', 'The measure was voted through in one evening, without much debate, and within the first month it prompted a petition with two hundred signatures.'),
+  F('La mesure a été votée en une soirée, sans grand débat, et elle a provoqué dès le premier mois une pétition de deux cents signatures. Mireille Delorme, retraitée, l\'a signée.', 'The measure was voted through in one evening, without much debate, and within the first month it prompted a petition with two hundred signatures. Mireille Delorme, a retired resident, signed it.'),
   F("J'étais contre. J'ai signé la pétition. Je me disais : on va se faire cambrioler, on va tomber dans le noir.", 'I was against it. I signed the petition. I thought: we will be burgled, we will fall over in the dark.'),
   F('Et puis, au bout de trois mois, je me suis rendu compte que je ne sortais jamais entre minuit et cinq heures.', 'And then, after three months, I realised that I never went out between midnight and five.'),
-  F("Les cambriolages, justement : sur deux ans, les gendarmes n'en ont pas compté davantage.", 'Burglaries, precisely: over two years, the police have not counted any more of them.'),
+  F("Les cambriolages, justement : sur deux ans, les gendarmes n'en ont pas compté davantage. Marc Fayolle tient le garage de la grand-rue.", 'Burglaries, precisely: over two years, the police have not counted any more of them. Marc Fayolle runs the garage on the high street.'),
   F("Le chiffre, je le connais. Mais ce qui a changé pour moi, ce n'est pas la facture, c'est le ciel. Mon fils de dix ans a vu la Voie lactée pour la première fois, depuis le jardin.", 'I know the figure. But what changed for me is not the bill, it is the sky. My ten-year-old son saw the Milky Way for the first time, from the garden.'),
   F("Des gens viennent maintenant de la ville voisine, le samedi soir, avec des jumelles. Pour mon garage, ce ne sont pas des clients ; pour le café d'en face, si.", 'People now come from the next town on Saturday nights, with binoculars. For my garage they are not customers; for the café opposite, they are.'),
   F("La commune a économisé environ quarante pour cent sur l'éclairage, une somme qui a servi à refaire le toit de l'école.", 'The town saved about forty per cent on lighting, a sum that went towards redoing the school roof.'),

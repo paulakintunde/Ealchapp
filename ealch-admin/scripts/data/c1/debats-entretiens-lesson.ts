@@ -4,8 +4,9 @@
 // C1-BUILD-LOG.md and this lesson's section of C1-RESEARCH-PLAN.md. The C1
 // sequel of b2.25 « Écouter à vitesse réelle » (../b2/ecoute-vitesse-reelle-*):
 // same file layout, same helpers, same act loop, same closing act. The C1 CO
-// remediation target: `CO@c1 → c1.21.l1` in EXAM_PREP_TARGETS (inert for
-// closed tasks, see the C1 build log, open items).
+// remediation target: `CO@c1 → c1.21.l1` in EXAM_PREP_TARGETS (live for
+// closed tasks too since commit 085b98d: a failed closed CO task offers
+// this lesson).
 //
 // Not imported, not merged into seed.json, not published. The `task` section
 // is real (in SECTION_TYPES), so the validators run on `LESSON` itself;
@@ -152,6 +153,10 @@
 //      co_mcq.006: one 123 s reportage, one item), phrased as « dans les
 //      épreuves blanches ». The official FEI / CCI timings are in the fact
 //      check list (corpus §A.7), unchecked.
+//      PRE-REVIEW: checked; the official papers are 39 (TCF) and 40 (TEF)
+//      items, so the terms, card heads, intro and sheet now all name the
+//      app's mock papers. Still Paul's: the exam pack labels its reportage
+//      « Section F » while prep sources put reportages in section G.
 //   6. The roundup cites « la leçon 20 du C1 » (c1.20, same wave) as the
 //      reading twin. If c1.20 does not publish with this lesson, swap for
 //      « la leçon 24 du B2 » alone.
@@ -415,7 +420,7 @@ const A1_USAGES: Sec<'useCases'> = {
     { situation: 'Une note pour ta direction après un débat public', fr: S(1405).fr, en: S(1405).en },
     { situation: 'Une réunion entre trois services', fr: "Ils sont d'accord sur le but ; ils divergent sur le calendrier.", en: 'They agree on the aim; they differ on the timetable.' },
     { situation: 'Une émission de radio pendant ton trajet', fr: S(1403).fr, en: S(1403).en },
-    { situation: "L'épreuve d'écoute du TCF Canada, niveau C1", fr: S(1513).fr, en: S(1513).en },
+    { situation: "Une épreuve blanche d'écoute du TCF Canada, niveau C1", fr: S(1513).fr, en: S(1513).en },
   ],
   audio: AUDIO,
   say: REFRAME,
@@ -497,7 +502,7 @@ const A2_GESTES: Sec<'tapTable'> = {
       detail: { title: 'Présenter par le rôle', body: "Directrice, économiste, déléguée : le rôle annonce souvent la position. Note-le à côté du nom. EN: the role often announces the position.", say: 'Sophie Lavallée, vous représentez le personnel.' } },
     { cells: ['donne la parole', 'on ne vous a pas encore entendue', 'une nouvelle voix'],
       say: S(1413).fr,
-      detail: { title: 'Donner la parole', body: "Le nom vient avant la voix : c'est ton repère quand trois personnes parlent. EN: the name comes before the voice.", say: 'Sophie Lavallée, on ne vous a pas encore entendue.' } },
+      detail: { title: 'Donner la parole', body: `Rappel de ${ECOUTE_B2_REF} : le nom vient avant la voix. À trois invités, c'est ton premier repère. EN: a recap from B2: the name comes before the voice.`, say: 'Sophie Lavallée, on ne vous a pas encore entendue.' } },
     { cells: ['relance', 'vous partagez cet enthousiasme ?', 'il cherche un désaccord'],
       say: S(1414).fr,
       detail: { title: 'Relancer', body: "Une relance oppose un invité au précédent : la réponse dira où il se place. EN: a relaunch sets one guest against the last.", say: S(1414).fr } },
@@ -595,9 +600,9 @@ const A2_NOTE = pourTonCompteRendu('a2-note', 'Le rôle à côté du nom', [
 ], ['moderateur']);
 
 const A2_CHECK = actCheck('a2-check', 'Le point : acte 2', [
-  ctl('Les noms', 'Trois invités, une seule voix de synthèse à la radio. Ton repère principal ?',
-    ['le nom donné par le modérateur avant chaque réponse', 'le ton de chaque voix'], 0,
-    "Le modérateur nomme avant de donner la parole : note le nom, puis la position. EN: the moderator names each speaker first."),
+  ctl('Le rôle', "« Malik Ouédraogo, vous êtes économiste du travail. » Ce rôle te sert à...",
+    ['prévoir sa position probable, puis la vérifier', 'rien : seul le nom compte'], 0,
+    "Le rôle annonce souvent la position ; sa réponse la confirme ou la corrige. EN: the role predicts a position you then check."),
   ctl('La synthèse', "« Si je résume... » Le modérateur donne...",
     ['son avis', 'une hypothèse sur les positions, à vérifier', 'la conclusion du débat'], 1,
     "Un invité peut encore la corriger, comme la déléguée l'a fait. EN: a guest can still correct it."),
@@ -1003,7 +1008,7 @@ const A5_HEURE: Sec<'listening'> = {
     { q: 'Sur quoi la chercheuse ne le suit-elle pas ?', opts: ['la lumière du soir', 'les courses'], correct: 1,
       why: "Elle le suit sur la lumière, pas sur les courses : on ne règle pas une horloge pour un chiffre d'affaires. EN: not on the shopping." },
     { q: 'Que concède-t-il volontiers ?', opts: ["qu'il a tort sur la lumière", "que son argument n'est pas un argument de santé", "que la règle est incompréhensible"], correct: 1,
-      why: "Ce n'est pas son métier, dit-il. La concession porte sur la nature de l'argument, pas sur sa valeur. EN: not a health argument." },
+      why: "« Je vous concède volontiers que ce n'est pas un argument de santé. » La concession porte sur la nature de l'argument, pas sur sa valeur. EN: not a health argument." },
     { q: "Selon l'animateur, où est le désaccord réel ?", opts: ['sur la distinction elle-même', "sur le poids à donner à ce que les gens ressentent"], correct: 1,
       why: "La distinction est accordée ; ils divergent sur le ressenti. Le commerçant confirme. EN: on the weight of what people feel." },
   ],
@@ -1036,7 +1041,7 @@ const A5_FORMULES: Sec<'tapTable'> = {
     { cells: ['le point est accordé...', 'le point', 'il ne règle rien'],
       say: S(1451).fr,
       detail: { title: 'Accordé, mais pas réglé', body: "Il accorde un point et dit lui-même qu'il ne tranche pas le débat. EN: granted, and explicitly not decisive.", say: S(1451).fr } },
-    { cells: ['je le concède', 'un fait', 'un reste que'],
+    { cells: ['je le concède', 'un fait', 'sa vraie position'],
       say: 'Cette statistique, je le concède, ne dit rien des réalités vécues sur le terrain.',
       detail: { title: 'Je le concède', body: "La concession est glissée au milieu de la phrase : la suite porte sa vraie position. EN: the concession sits mid-sentence; the rest carries the position.", say: "La réforme part d'une bonne intention, je le concède, mais l'intention ne suffit pas." } },
   ],
@@ -1060,7 +1065,7 @@ const A5_PORTEE: Sec<'groupDrill'> = {
     ], chk(
       "Dans ces trois phrases, l'intervenant change-t-il d'avis ?",
       ['Oui, il cède.', 'Non : il accorde un point et garde sa position.'], 1,
-      "Chaque concession est suivie d'un « mais » ou d'un « n'empêche » qui maintient la position. EN: each is followed by a but that keeps the position.")),
+      "Chacune accorde un point précis (l'intention, le travail, la portée d'un chiffre) ; la position, elle, reste. EN: each grants one precise point; the position stays.")),
     grp("Jusqu'où va la concession ?", [
       free('Je vous suis sur le coût, je ne vous suis pas sur le calendrier.', 'I follow you on the cost, not on the timetable.', 'accordé : le coût'),
       free("J'accorde la distinction entre un prêt et un don. Elle ne change rien au montant.", 'I grant the distinction between a loan and a gift. It changes nothing about the amount.', 'accordé : la distinction'),
@@ -1858,10 +1863,10 @@ const A10_FORMATS: Sec<'cardDeck'> = {
   say: REFRAME,
   terms: ['piege', 'ecoute'],
   cards: [
-    { head: 'Le TCF Canada, niveau C1', label: 'trois documents',
+    { head: 'Épreuve blanche TCF Canada C1', label: 'trois documents',
       fr: S(1511).fr, sub: rsOf(E(1511)),
       body: "Trois enregistrements d'une minute et demie à deux minutes, une écoute chacun, une trentaine de secondes pour lire avant ; trois questions, puis deux, puis deux. EN: three recordings, one play each, 3 + 2 + 2 items." },
-    { head: 'Le TEF Canada, section F', label: 'un reportage',
+    { head: 'Épreuve blanche TEF Canada', label: 'un reportage',
       fr: S(1522).fr, sub: rsOf(E(1522)),
       body: "Un reportage d'environ deux minutes, une écoute, une seule question : l'idée principale. EN: one reportage, one play, one main-idea question." },
     { head: 'Les questions types', label: 'six formes',
@@ -1869,7 +1874,7 @@ const A10_FORMATS: Sec<'cardDeck'> = {
       body: "Sur quoi s'accordent-ils ? Quel est le désaccord réel ? Que concède-t-il ? Comment répond-elle à l'objection ? Que veut dire la comparaison ? EN: agreement, real disagreement, concession, objection, comparison." },
     { head: 'Les pièges', label: 'quatre familles',
       fr: S(1516).fr, sub: rsOf(E(1516)),
-      body: "L'écho (un mot entendu, sans son sens), l'excès (plus que ce qui est dit), l'autre camp, et le vrai mais secondaire. EN: echo, excess, the other camp, true but secondary." },
+      body: `L'écho et l'autre camp, tu les connais depuis ${ECOUTE_B2_REF}. Le C1 ajoute l'excès (plus que ce qui est dit) et le vrai mais secondaire. EN: echo and the other camp are B2 recap; C1 adds excess and true but secondary.` },
   ],
 };
 
@@ -1891,7 +1896,7 @@ const A10_DISTRACTEURS: Sec<'groupDrill'> = {
       "L'option « Il a étudié le latin avec bonheur » est...",
       ['fausse', 'vraie, mais elle ne répond pas à la question'], 1,
       "Il l'a dit, mais ce n'est pas la raison de son hésitation. EN: true, but not the reason.")),
-    grp("L'écho", [
+    grp("L'écho et l'excès", [
       it(E(1515), "l'excès"),
       it(E(1516), 'la règle'),
     ], chk(
@@ -1949,9 +1954,9 @@ const A10_CHECK = actCheck('a10-check', 'Le point : acte 10', [
   ctl('Le format', 'Au TCF C1 des épreuves blanches, trois documents donnent...',
     ['trois questions, puis deux, puis deux', 'une question chacun', 'cinq questions chacun'], 0,
     "Sept questions pour trois documents, une seule écoute chacun. EN: 3 + 2 + 2."),
-  ctl("L'écho", "Une option reprend un mot entendu mot pour mot. Tu...",
-    ['la choisis', 'vérifies le sens : souvent, c’est un piège'], 1,
-    "La bonne option reformule ; l'écho répète sans le sens. EN: the right option rephrases."),
+  ctl('Le secondaire', "Une option dit une chose vraie, entendue dans le document, mais qui ne répond pas à la question. C'est...",
+    ['la bonne réponse, puisque c’est vrai', 'le piège du secondaire'], 1,
+    "Vrai ne suffit pas : l'option doit répondre à la question posée. EN: true is not enough; it must answer the question."),
   ctl("L'excès", "« Elle rejette toute obligation » alors qu'elle a dit « sur la rédaction, je vous suis ». C'est...",
     ['le piège de l’excès', 'la bonne réponse'], 0,
     "« Toute », « jamais », « rien » : l'option dit plus que l'intervenante. EN: the option says too much."),
@@ -2539,8 +2544,8 @@ const tI = (q: string, prompt: string, answer: string, why: string, ref: string,
   ({ format: 'typeIn', q, prompt, answer, accept: [answer, ...more], why, ref });
 const mc = (q: string, opts: string[], correct: number, why: string, ref: string): QQ =>
   ({ format: 'mcq', q, opts, correct, why, ref });
-const eS = (prompt: string, answer: string, why: string, ref: string): QQ =>
-  ({ format: 'errorSpot', q: "Une partie de la phrase trahit ce que tu as entendu. Écris la phrase juste. EN: Part of the sentence betrays what you heard; write the right sentence.", prompt, answer, accept: [answer], why, ref });
+const eS = (prompt: string, answer: string, why: string, ref: string, more: string[] = []): QQ =>
+  ({ format: 'errorSpot', q: "Une partie de la phrase trahit ce que tu as entendu. Écris la phrase juste. EN: Part of the sentence betrays what you heard; write the right sentence.", prompt, answer, accept: [answer, ...more], why, ref });
 const lC = (q: string, say: string, opts: string[], correct: number, why: string, ref: string): QQ =>
   ({ format: 'listenChoose', q, say, opts, correct, why, ref });
 
@@ -2558,9 +2563,9 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('« Si je résume, trois positions se dégagent. » Qui parle, le plus souvent ?', ['le modérateur', 'un invité', "l'économiste"], 0, "La synthèse est un geste du modérateur. EN: the moderator, summing up.", 'a2-gestes'),
         mc('La synthèse du modérateur, c’est...', ['son avis', 'une hypothèse sur les positions', 'la conclusion du débat'], 1, "Un invité peut encore la corriger. EN: a hypothesis a guest may correct.", 'a2-erreurs'),
         mc('« Vous partagez cet enthousiasme ? » Le modérateur...', ['relance pour faire apparaître un désaccord', 'donne son avis', 'clôt le débat'], 0, "Une relance oppose un invité au précédent. EN: a relaunch looks for disagreement.", 'a2-gestes'),
-        tI('Complète le geste du modérateur. Un mot.', 'Restons sur la question de ... .', 'départ', "Recentrer : revenir à la question posée au début. EN: the original question.", 'a2-gestes'),
-        tI('Complète. Un mot.', "Je partage le constat, pas l'... .", 'enthousiasme', "Accord sur les faits, pas sur la conclusion. EN: the finding, not the enthusiasm.", 'a2-table'),
-        eS("L'animateur pense que l'économiste a raison d'attendre.", "L'animateur résume : l'économiste veut attendre.", "Il rapporte une position, il ne la juge pas. EN: he reports, he does not judge.", 'a2-erreurs'),
+        tI('Complète le geste du modérateur, qui ramène à la question posée au début. Un mot.', 'Restons sur la question de ... .', 'départ', "Recentrer : revenir à la question posée au début. EN: the original question.", 'a2-gestes'),
+        tI("Complète la réponse de l'économiste à « Vous partagez cet enthousiasme ? ». Un mot.", "Je partage le constat, pas l'... .", 'enthousiasme', "Accord sur les faits, pas sur la conclusion. EN: the finding, not the enthusiasm.", 'a2-table'),
+        eS("L'animateur pense que l'économiste veut attendre.", "L'animateur résume : l'économiste veut attendre.", "Il rapporte une position, il ne la tient pas. EN: he reports, he does not hold it.", 'a2-erreurs', ["L'animateur dit que l'économiste veut attendre.", "L'animateur rapporte que l'économiste veut attendre.", "L'animateur résume que l'économiste veut attendre."]),
         lC('Écoute. Qui parle ?', S(1413).fr, ['le modérateur', 'une invitée'], 0, "Il donne la parole à une voix qu'on n'a pas encore entendue. EN: the moderator, giving the floor.", 'a2-qui'),
         lC("Écoute. Que fait l'animateur ?", S(1411).fr, ['il recentre le débat', 'il conclut', 'il prend parti'], 0, "Retour à la question de départ. EN: he refocuses.", 'a2-gestes'),
       ],
@@ -2572,8 +2577,8 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('« Même diagnostic, deux remèdes. » Ils s’accordent sur...', ['le problème', 'la solution'], 0, "Le diagnostic est commun ; les remèdes divergent. EN: the problem.", 'a3-formules'),
         mc('Dans le débat sur le bonus réparation, la ligne passe...', ['sur le gaspillage', 'sur qui paie', 'sur le café de réparation'], 1, "Le contribuable ou le fabricant. EN: on who pays.", 'a3-reparer'),
         tI('Complète. Un mot.', 'Là où nos chemins se ..., c’est sur qui paie.', 'séparent', "La séparation, dite en toutes lettres. EN: where our paths part.", 'a3-formules'),
-        tI('Complète. Un mot.', 'Jusque-là, je vous suis sans ... .', 'réserve', "Jusque-là pose une borne. EN: without reservation, up to a point.", 'a3-formules'),
-        eS("Les deux invités s'opposent sur le gaspillage.", "Les deux invités s'accordent sur le gaspillage.", "On jette trop : c'est leur point commun ; la ligne est ailleurs. EN: waste is the shared ground.", 'a3-reparer'),
+        tI('Complète. Un mot qui veut dire « entièrement, sans restriction ».', 'Jusque-là, je vous suis sans ... .', 'réserve', "Jusque-là pose une borne. EN: without reservation, up to a point.", 'a3-formules', ['réserves']),
+        eS("Les deux invités s'opposent sur le gaspillage.", "Les deux invités s'accordent sur le gaspillage.", "On jette trop : c'est leur point commun ; la ligne est ailleurs. EN: waste is the shared ground.", 'a3-reparer', ["Les deux invités sont d'accord sur le gaspillage.", "Les deux invités s'entendent sur le gaspillage."]),
         lC('Écoute. La personne...', S(1423).fr, ["suit l'autre jusqu'à un point", 'refuse tout', 'conclut le débat'], 0, "Une borne : après, elle ne suivra plus. EN: she follows up to a point.", 'a3-formules'),
         lC('Écoute. Elle accorde...', ECHANGES_LINES[3].fr, ["l'argument de la planète", "l'argument de la santé"], 0, "Pour la planète, oui ; pour la santé, non. EN: the planet argument.", 'a3-echanges'),
       ],
@@ -2584,9 +2589,9 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('« Le mot me gêne. » Le désaccord porte sur...', ['le nom donné aux faits', 'les faits eux-mêmes', 'la personne'], 0, "Les faits peuvent être accordés ; le nom est refusé. EN: the name.", 'a4-mot'),
         mc("« Si l'on entend par là que le village sature en août, alors oui. » Elle accepte le mot...", ['sous une définition précise', 'sans réserve'], 0, "Une seule définition est acceptée. EN: under one definition.", 'a4-mot'),
         mc("Pourquoi, selon la géographe, n'est-ce pas une querelle de mots ?", ['le nom décide du remède', 'les touristes comptent', 'elle aime la précision'], 0, "Nombre : limiter ; concentration : étaler. EN: the name decides the remedy.", 'a4-port'),
-        tI('Complète. Un mot.', "Tout dépend de ce qu'on met derrière le ... .", 'mot', "Le débat passe des faits à la définition. EN: behind the word.", 'a4-mot'),
-        tI('Complète. Un mot.', "Le problème n'est pas le nombre, c'est la ... .", 'concentration', "Tout le monde au même endroit, aux mêmes semaines. EN: concentration.", 'a4-port'),
-        eS('La géographe nie le problème de Port-Aurel.', 'La géographe conteste le mot, pas le problème.', "Elle refuse le nom, pas la saturation d'août. EN: she disputes the word.", 'a4-piege'),
+        tI('Complète. Un mot.', "Tout dépend de ce qu'on met derrière le ... .", 'mot', "Le débat passe des faits à la définition. EN: behind the word.", 'a4-mot', ['terme', 'nom']),
+        tI('Complète la phrase de la géographe. Un mot : tout le monde au même endroit, aux mêmes semaines.', "Le problème n'est pas le nombre, c'est la ... .", 'concentration', "Tout le monde au même endroit, aux mêmes semaines. EN: concentration.", 'a4-port'),
+        eS('La géographe nie le problème de Port-Aurel.', 'La géographe conteste le nom du problème de Port-Aurel.', "Elle refuse le nom, pas la saturation d'août. EN: she disputes the word.", 'a4-piege', ['La géographe ne nie pas le problème de Port-Aurel.', 'La géographe reconnaît le problème de Port-Aurel.', 'La géographe conteste le mot, pas le problème.', 'La géographe conteste le mot, pas le problème de Port-Aurel.', 'La géographe conteste le mot surtourisme, pas le problème de Port-Aurel.']),
         lC('Écoute. Le désaccord porte sur...', S(1434).fr, ['un mot', 'un chiffre'], 0, "Un nom est refusé. EN: a word.", 'a4-definir'),
         lC('Écoute. Pourquoi le nom compte-t-il ?', S(1443).fr, ['il change le remède', 'il change les faits', 'il ne compte pas'], 0, "Un autre nom, un autre remède. EN: it changes the remedy.", 'a4-piege'),
       ],
@@ -2597,9 +2602,9 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc("« J'accorde la distinction, elle est juste. » Ensuite, tu attends...", ['un « mais » sur autre chose', 'un ralliement'], 0, "La distinction est accordée ; la position, non. EN: a but.", 'a5-formules'),
         mc('« Je vous suis sur la lumière, je ne vous suis pas sur les courses. » Elle accorde...', ['la lumière du soir', 'les courses', 'tout'], 0, "Un point oui, un point non. EN: the evening light.", 'a5-heure'),
         mc('« Je vous concède volontiers que... » Ce qui est accordé est souvent...', ['un point mineur', "l'essentiel"], 0, "Volontiers : ça ne coûte rien. EN: a minor point.", 'a5-formules'),
-        tI('Complète. Un mot.', "Je vous ... volontiers que ce n'est pas un argument de santé.", 'concède', "La concession porte sur la nature de l'argument. EN: I concede.", 'a5-formules'),
-        tI('Complète la formule. Un mot.', "J'... la distinction, elle est juste.", 'accorde', "Accorder une distinction, pas une position. EN: I grant.", 'a5-formules'),
-        eS('« Admettons » : elle lui donne entièrement raison.', '« Admettons » : elle accepte son idée pour un temps.', "Une hypothèse de travail, pas un aveu. EN: for now, not for good.", 'a5-erreurs'),
+        tI('Complète. Un mot.', "Je vous ... volontiers que ce n'est pas un argument de santé.", 'concède', "La concession porte sur la nature de l'argument. EN: I concede.", 'a5-formules', ['accorde']),
+        tI('Complète la formule. Un mot.', "J'... la distinction, elle est juste.", 'accorde', "Accorder une distinction, pas une position. EN: I grant.", 'a5-formules', ['admets', 'accepte']),
+        eS('« Admettons » : elle lui donne entièrement raison.', '« Admettons » : elle lui donne raison pour un temps.', "Une hypothèse de travail, pas un aveu. EN: for now, not for good.", 'a5-erreurs', ['« Admettons » : elle accepte son idée pour un temps.', '« Admettons » : elle lui donne provisoirement raison.', '« Admettons » : elle accepte son idée provisoirement.', '« Admettons » : elle ne lui donne pas entièrement raison.']),
         lC('Écoute. Que fait la personne ?', S(1451).fr, ['elle accorde un point sans trancher', "elle change d'avis"], 0, "Accordé, mais pas réglé. EN: granted, not settled.", 'a5-portee'),
         lC('Écoute. Elle accepte...', S(1450).fr, ["l'idée, pour avancer", "tout ce qu'il a dit", 'rien'], 0, "Admettons : pour un temps. EN: for now, to move on.", 'a5-portee'),
       ],
@@ -2611,8 +2616,8 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('Dans « Je ne dis pas que X ; je dis que Y », la thèse est...', ['X', 'Y', 'X et Y'], 1, "X est refusé ; Y est la thèse. EN: Y.", 'a6-large'),
         mc('Arnaud Petit réfute la thèse du titre. A-t-il réfuté Héloïse Marchand ?', ['Oui', 'Non : sa thèse est plus étroite'], 1, "Il réfute une thèse qu'elle ne tient pas. EN: no, hers is narrower.", 'a6-tessere'),
         tI('Complète. Un mot.', "La thèse que vous réfutez n'est pas la ... .", 'mienne', "Elle refuse la version qu'on lui prête. EN: not mine.", 'a6-exemples'),
-        tI('Complète. Un mot.', 'Ma thèse est plus ... .', 'modeste', "Réduire la portée pour mieux la tenir. EN: more modest.", 'a6-exemples'),
-        eS('Héloïse Marchand soutient que le télétravail tue la créativité.', 'Héloïse Marchand soutient que les idées nouvelles naissent moins en visioconférence.', "Le titre n'est pas sa thèse. EN: her narrow thesis.", 'a6-tessere'),
+        tI('Complète. Un mot qui veut dire « moins ambitieuse ».', 'Ma thèse est plus ... .', 'modeste', "Réduire la portée pour mieux la tenir. EN: more modest.", 'a6-exemples', ['limitée', 'restreinte', 'étroite']),
+        eS('Héloïse Marchand soutient que le télétravail tue la créativité.', 'Héloïse Marchand soutient que les idées nouvelles naissent moins en visioconférence.', "Le titre n'est pas sa thèse. EN: her narrow thesis.", 'a6-tessere', ['Héloïse Marchand soutient que les idées nouvelles naissent moins en visio.', 'Héloïse Marchand ne soutient pas que le télétravail tue la créativité.']),
         lC("Écoute. L'intervenante...", S(1465).fr, ["refuse une thèse qu'on lui prête", 'change de thèse'], 0, "Ne me faites pas dire... EN: she refuses an attributed thesis.", 'a6-large'),
         lC('Écoute. Que fait-il ?', S(1472).fr, ['il resserre sa thèse', 'il la renforce', 'il cède'], 0, "Un mot trop fort retiré. EN: he narrows it.", 'a6-exemples'),
       ],
@@ -2623,9 +2628,9 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc("« On m'objectera que... » Ce qui suit est...", ["l'objection qu'il va réfuter", 'sa propre thèse'], 0, "Il l'annonce pour y répondre. EN: the objection he will answer.", 'a7-reponses'),
         mc("« L'objection porte, mais pas là où vous le pensez. » Elle...", ["retourne l'objection", 'la reconnaît', 'la déplace'], 0, "L'argument de l'autre devient le sien. EN: she turns it round.", 'a7-reponses'),
         mc('« Cela ne contredit pas le principe. » Elle...', ["déplace l'objection", "retourne l'objection", 'cède'], 0, "L'objection vise autre chose que le principe. EN: she shifts it.", 'a7-reponses'),
-        tI('Complète. Un mot.', "Là, vous avez raison, et c'est une vraie ... .", 'difficulté', "Une vraie concession, puis une réponse concrète. EN: a real difficulty.", 'a7-reponses'),
-        tI('Complète. Un mot.', "C'est précisément mon ... .", 'argument', "Retourner l'objection. EN: my argument.", 'a7-strategies'),
-        eS("L'ingénieure pense que les gens ne rapporteront pas leurs bouteilles.", "L'ingénieure répond à l'objection selon laquelle les gens ne rapporteront pas leurs bouteilles.", "L'objection n'est pas sa position. EN: she answers the objection.", 'a7-piege'),
+        tI("Complète la concession de l'ingénieure. Un mot qui veut dire « un obstacle, un problème ».", "Là, vous avez raison, et c'est une vraie ... .", 'difficulté', "Une vraie concession, puis une réponse concrète. EN: a real difficulty.", 'a7-reponses'),
+        tI("Complète. Un mot : ce qu'on avance pour défendre sa thèse.", "C'est précisément mon ... .", 'argument', "Retourner l'objection. EN: my argument.", 'a7-strategies', ['propos']),
+        eS("L'ingénieure pense que les gens ne rapporteront pas leurs bouteilles.", "L'ingénieure pense que les gens rapporteront leurs bouteilles.", "L'objection est celle de l'épicier ; elle y répond : à vingt-cinq cents, on rapporte. EN: the objection is the grocer's; she answers it.", 'a7-piege', ["L'épicier pense que les gens ne rapporteront pas leurs bouteilles.", "L'ingénieure répond à l'objection selon laquelle les gens ne rapporteront pas leurs bouteilles.", "L'ingénieure pense que les gens rapporteront leurs bouteilles à vingt-cinq cents."]),
         lC("Écoute. L'épicier...", S(1478).fr, ['admet un point pour avancer une objection', 'se rallie'], 0, "Admettons que... : la suite est une nouvelle objection. EN: one point granted to raise the next.", 'a7-strategies'),
         lC('Écoute. Que fait-elle ?', S(1476).fr, ['elle reconnaît une difficulté', "elle retourne l'objection", 'elle refuse la critique'], 0, "Une concession réelle. EN: she acknowledges it.", 'a7-reponses'),
       ],
@@ -2638,7 +2643,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc("« Comparaison n'est pas raison » veut dire...", ['une image ne prouve rien seule', 'il ne faut jamais comparer', 'la raison compare'], 0, "Une comparaison illustre, elle ne prouve pas. EN: an image proves nothing alone.", 'a8-decoder'),
         tI('Complète le proverbe. Un mot.', 'Le remède serait pire que le ... .', 'mal', "La solution aggraverait le problème. EN: worse than the disease.", 'a8-images'),
         tI("Complète l'expression. Un mot.", 'Mettre la charrue avant les ... .', 'bœufs', "Faire les choses dans le mauvais ordre. EN: the cart before the horse.", 'a8-images', ['boeufs']),
-        eS('Il dit que les écoles ont des tonneaux percés.', 'Il dit que rénover les écoles ne finira jamais.', "Traduis l'allusion en argument. EN: renovating never ends.", 'a8-erreurs'),
+        eS('Il dit que les écoles ont des tonneaux percés.', 'Il dit que rénover les écoles ne finira jamais.', "Traduis l'allusion en argument. EN: renovating never ends.", 'a8-erreurs', ['Il dit que rénover les écoles une à une ne finira jamais.', 'Il dit que les rénovations des écoles ne finiront jamais.', 'Il dit que les réparations des écoles ne finiront jamais.', 'Il dit que les réparations des écoles ne finissent jamais.']),
         lC('Écoute. Que veut dire cette image ?', S(1487).fr, ['la structure est saine, seules des parties ont vieilli', 'les écoles sont des voitures'], 0, "L'analogie porte un argument. EN: sound structure, worn parts.", 'a8-ecoles'),
         lC('Écoute. Il attaque...', S(1488).fr, ["l'analogie", 'les faits', 'la personne'], 0, "Une école n'est pas une voiture. EN: the analogy.", 'a8-decoder'),
       ],
@@ -2649,9 +2654,9 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('Avant une écoute unique, les trente secondes servent à...', ['lire les questions et repérer leur mot-clé', 'relire la consigne générale'], 0, "Le mot-clé te dit où écouter. EN: read the questions.", 'a9-methode'),
         mc("Tu rates une réponse pendant l'écoute unique. Tu...", ['passes à la suivante', 'arrêtes pour y réfléchir', 'abandonnes'], 0, "On avance, on élimine ensuite. EN: move on.", 'a9-methode'),
         mc('La question « Que concède-t-elle ? » te fait guetter...', ["« j'accorde », « je vous suis sur »", 'le premier chiffre'], 0, "Une question de concession, une formule de concession. EN: concession formulas.", 'a9-predire'),
-        tI('Complète. Un mot.', 'Une écoute, un mot-... par question.', 'clé', "Un mot par question, pas de transcription. EN: one key word.", 'a9-predire'),
+        tI('Complète. Un mot.', 'Une écoute, un mot-... par question.', 'clé', "Un mot par question, pas de transcription. EN: one key word.", 'a9-predire', ['clef']),
         tI('Complète la méthode. Un mot.', 'Une seule écoute : lis, prévois, écoute, ... .', 'élimine', "Après l'écoute, on écarte les pièges. EN: eliminate.", 'a9-predire'),
-        eS("Après l'écoute, je garde les options qui disent le plus.", "Après l'écoute, j'élimine les options qui disent trop.", "L'option qui dit trop est fausse. EN: rule out what says too much.", 'a9-predire'),
+        eS("Après l'écoute, je garde les options qui disent le plus.", "Après l'écoute, j'élimine les options qui disent trop.", "L'option qui dit trop est fausse. EN: rule out what says too much.", 'a9-predire', ["Après l'écoute, j'élimine les options qui disent le plus.", "Après l'écoute, j'écarte les options qui disent trop.", "Après l'écoute, j'écarte les options qui disent le plus."]),
         lC("Écoute. Sur quoi les deux intervenants s'accordent-ils ?", TOITS_LINES[1].fr, ["un toit végétalisé retient l'eau et rafraîchit", "l'obligation est nécessaire"], 0, "Ce qui les réunit, dit d'entrée. EN: the shared ground.", 'a9-toits'),
         lC('Écoute. Que défend-elle exactement ?', CUISINE_LINES[1].fr, ['lire une étiquette et préparer trois repas simples', "apprendre à cuisiner à l'école", 'supprimer une matière'], 0, "Sa thèse resserrée. EN: the narrow claim.", 'a9-cuisine'),
       ],
@@ -2662,9 +2667,9 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('Au TCF C1 des épreuves blanches, combien de questions pour trois documents ?', ['sept', 'trois', 'neuf'], 0, "Trois, puis deux, puis deux. EN: seven.", 'a10-formats'),
         mc("Une option dit plus que l'intervenant (« toujours », « toute »). C'est...", ["le piège de l'excès", "le piège de l'écho", 'la bonne réponse'], 0, "Elle élargit ce qui a été dit. EN: excess.", 'a10-formats'),
         mc("Une option vraie qui ne répond pas à la question, c'est...", ['le piège du secondaire', 'la bonne réponse'], 0, "Vrai, mais à côté. EN: the secondary trap.", 'a10-distracteurs'),
-        tI('Complète la règle. Un mot.', 'La bonne option ... ; le piège répète.', 'reformule', "La bonne réponse dit la même chose autrement. EN: rephrases.", 'a10-formats'),
-        tI('Complète. Un mot.', "Il ne conteste pas les études ; il conteste qu'une salle ... .", 'suffise', "Le subjonctif après contester que. EN: is enough.", 'a10-sieste'),
-        eS("Le chef d'entreprise conteste les études sur la sieste.", "Le chef d'entreprise conteste qu'une salle de sieste suffise.", "Les études étaient dans une négation : l'écho piégé. EN: not the studies.", 'a10-sieste'),
+        tI('Complète. Un mot.', "L'option qui dit plus que l'intervenant tombe dans le piège de l'... .", 'excès', "Elle élargit ce qui a été dit. EN: the excess trap.", 'a10-formats', ['exagération']),
+        tI('Complète. Un verbe qui veut dire « être assez ».', "Il ne conteste pas les études ; il conteste qu'une salle ... .", 'suffise', "Le subjonctif après contester que. EN: is enough.", 'a10-sieste'),
+        eS("Le chef d'entreprise conteste les études sur la sieste.", "Le chef d'entreprise conteste qu'une salle de sieste suffise.", "Les études étaient dans une négation : l'écho piégé. EN: not the studies.", 'a10-sieste', ["Le chef d'entreprise ne conteste pas les études sur la sieste.", "Le chef d'entreprise accepte les études sur la sieste.", "Le chef d'entreprise conteste qu'une salle suffise."]),
         lC('Écoute. Que conteste-t-il ?', SIESTE_LINES[3].fr, ["qu'une salle suffise", 'les études'], 0, "Je ne conteste pas les études. EN: that a room is enough.", 'a10-sieste'),
         lC('Écoute. Quelle difficulté oppose-t-il ?', LATIN_LINES[5].fr, ["trop peu d'élèves", 'le latin ne sert à rien', 'le manque de professeurs'], 0, "Quatre élèves. EN: too few pupils.", 'a10-latin'),
       ],
@@ -2675,9 +2680,9 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc("L'idée principale d'un reportage arrive souvent...", ['avec le retournement et dans la dernière phrase', 'avec le premier chiffre'], 0, "Le mais et la phrase finale. EN: with the turn and the last line.", 'a11-idee'),
         mc('« La facture avait doublé » est, dans le reportage de Vernay...', ['le point de départ, secondaire', "l'idée principale", 'faux'], 0, "Vrai, mais ce n'est pas ce que le reportage montre. EN: the starting point.", 'a11-trier'),
         mc("Quelle est l'idée principale du reportage de Vernay ?", ["Une mesure d'économie a été gardée pour d'autres raisons.", 'Éteindre fait baisser les cambriolages.', "La facture d'électricité a doublé."], 0, "De l'économie au mode de vie. EN: kept for other reasons.", 'a11-vernay'),
-        tI('Complète. Un mot.', "L'idée principale n'est pas le premier ... .", 'chiffre', "Le premier chiffre pose le départ. EN: the first figure.", 'a11-idee'),
+        tI('Complète. Un mot : un nombre cité.', "L'idée principale n'est pas le premier ... .", 'chiffre', "Le premier chiffre pose le départ. EN: the first figure.", 'a11-idee', ['nombre']),
         tI('Complète. Un mot.', "Une mesure d'économie devenue un choix de mode de ... .", 'vie', "La dernière phrase de la narratrice. EN: a lifestyle choice.", 'a11-trier'),
-        eS("Le reportage montre qu'éteindre l'éclairage fait baisser les cambriolages.", "Le reportage montre qu'une mesure prise pour économiser a été gardée pour d'autres raisons.", "Pas davantage n'est pas moins ; et ce n'est qu'un détail. EN: a detail, overstated.", 'a11-pieges'),
+        eS("Le reportage montre qu'éteindre l'éclairage fait baisser les cambriolages.", "Le reportage montre qu'une mesure prise pour économiser a été gardée pour d'autres raisons.", "Pas davantage n'est pas moins ; et ce n'est qu'un détail. EN: a detail, overstated.", 'a11-pieges', ["Le reportage montre qu'éteindre l'éclairage ne fait pas augmenter les cambriolages.", "Le reportage montre qu'éteindre l'éclairage ne fait pas monter les cambriolages.", "Le reportage montre qu'une mesure d'économie a été gardée pour d'autres raisons."]),
         lC('Écoute. Cette phrase donne...', VERNAY_LINES[VERNAY_LINES.length - 1].fr, ["l'idée principale", 'un détail'], 0, "La phrase finale redit l'idée. EN: the main idea.", 'a11-idee'),
         lC('Écoute. Cette phrase est...', VERNAY_LINES[1].fr, ['le point de départ', "l'idée principale", 'la conclusion'], 0, "Au départ, une seule raison. EN: the starting point.", 'a11-trier'),
       ],
@@ -2689,8 +2694,8 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('Que conteste Thomas Lefebvre ?', ['le mot « droit » pour une interdiction', 'la surcharge du soir'], 0, "Un désaccord sur le nom. EN: the word right for a ban.", 'a12-debat'),
         mc('Que soutient exactement Aïcha Diallo ?', ["qu'on ne puisse sanctionner personne pour ne pas avoir répondu le soir", "l'interdiction des courriels", 'le droit à la déconnexion en général'], 0, "Sa thèse resserrée. EN: no penalty for evening silence.", 'a12-debat'),
         mc("Comment Isabelle Nadeau répond-elle à l'objection de la « lettre morte » ?", ['par un serveur qui retient les messages', 'par des sanctions contre les cadres', 'en renonçant à la règle'], 0, "Une solution technique. EN: a server that holds messages.", 'a12-debat'),
-        tI('Complète le verbe du compte rendu. Un mot.', 'Aïcha Diallo ... sa thèse : pas de sanction pour un silence le soir.', 'resserre', "Elle réduit ce qu'elle défend. EN: narrows.", 'a12-plan', ['précise', 'restreint']),
-        eS('Dans le compte rendu : « Thomas Lefebvre a raison, la règle est mal nommée. »', 'Dans le compte rendu : « Thomas Lefebvre conteste le nom de la règle. »', "Un compte rendu rapporte, il ne juge pas. EN: report, do not judge.", 'a12-plan'),
+        tI('Complète le verbe du compte rendu. Un mot : elle rend sa thèse plus étroite.', 'Aïcha Diallo ... sa thèse : pas de sanction pour un silence le soir.', 'resserre', "Elle réduit ce qu'elle défend. EN: narrows.", 'a12-plan', ['précise', 'restreint', 'limite', 'réduit']),
+        eS('Dans le compte rendu : « Thomas Lefebvre a raison, la règle est mal nommée. »', 'Dans le compte rendu : « Thomas Lefebvre conteste le nom de la règle. »', "Un compte rendu rapporte, il ne juge pas. EN: report, do not judge.", 'a12-plan', ['Dans le compte rendu : « Thomas Lefebvre estime que la règle est mal nommée. »', 'Dans le compte rendu : « Selon Thomas Lefebvre, la règle est mal nommée. »', 'Dans le compte rendu : « Pour Thomas Lefebvre, la règle est mal nommée. »', 'Thomas Lefebvre conteste le nom de la règle.', 'Thomas Lefebvre estime que la règle est mal nommée.', 'Selon Thomas Lefebvre, la règle est mal nommée.', 'Pour Thomas Lefebvre, la règle est mal nommée.']),
         lC('Écoute. Que veut dire cette image ?', DEBAT_LINES[15].fr, ['sans protection contre les sanctions, on passera par le téléphone', 'il faut aérer les bureaux'], 0, "Fermer la porte, laisser la fenêtre. EN: people will use the phone.", 'a12-debat'),
         lC('Écoute. Que fait la directrice ?', DEBAT_LINES[10].fr, ['elle annonce une objection pour y répondre', 'elle change de position', 'elle conclut'], 0, "On m'objectera que... puis sa réponse. EN: she voices an objection to answer it.", 'a12-debat'),
       ],
@@ -2882,7 +2887,7 @@ const SHEET_LIST: ReferenceSheet[] = [
       "Dans les épreuves blanches C1 de l'application, chaque document passe une seule fois, après trente secondes environ pour lire les questions. Lis le mot-clé de chaque question, prévois la forme de l'échange (un accord, puis la ligne, puis une objection et sa réponse), note un mot par question pendant l'écoute, puis élimine les options qui répètent, élargissent ou changent de camp. EN: One play after about thirty seconds to read; spot the key word, predict the shape, one word per question, then eliminate."),
     table('sheet-epreuve-formats', 'Les épreuves blanches de l’application, au C1', ['Épreuve', 'Ce que tu entends', 'Les questions'], [
       ['TCF Canada, compréhension orale C1', "trois enregistrements d'environ une minute et demie à deux minutes, une écoute chacun", 'trois, puis deux, puis deux'],
-      ['TEF Canada, section F', "un reportage d'environ deux minutes, une écoute", "une seule : l'idée principale"],
+      ['TEF Canada, épreuve blanche (section F)', "un reportage d'environ deux minutes, une écoute", "une seule : l'idée principale"],
     ]),
     table('sheet-epreuve-questions', 'Les questions types et le moment à guetter', ['La question', 'Le moment à guetter'], [
       ["Sur quoi s'accordent-ils ?", "le début : « sur le constat », « personne ne conteste »"],
@@ -2996,7 +3001,7 @@ export const LESSON: Lesson = {
   title: UNIT.sub,
   level: LEVEL,
   tag: 'C1 · LEÇON 21',
-  intro: "At B2 you learned to follow a fast debate by its frame: the plan, who holds which position, and the tone. At C1 that is not enough: the speakers usually agree on most things, and what separates them is a narrow line. Over twelve radio debates, interviews and a reportage, with up to three guests and a moderator, you learn to hear the agreement before the disagreement, a dispute over a single word, exactly what a concession grants, a claim being narrowed, an objection being answered, and an analogy or allusion decoded from context. From act 9 you listen once only, as in the TCF and TEF Canada C1 papers. It ends with a written account of a two-and-a-half-minute debate.",
+  intro: "At B2 you learned to follow a fast debate by its frame: the plan, who holds which position, and the tone. At C1 that is not enough: the speakers usually agree on most things, and what separates them is a narrow line. Over twelve radio debates, interviews and a reportage, with up to three guests and a moderator, you learn to hear the agreement before the disagreement, a dispute over a single word, exactly what a concession grants, a claim being narrowed, an objection being answered, and an analogy or allusion decoded from context. From act 9 you listen once only, as in the app's TCF and TEF Canada C1 mock papers. It ends with a written account of a two-and-a-half-minute debate.",
   skill: 'CO',
   grammarAssumed: [ECOUTE_B2_UNIT, ECOUTE_B1_UNIT],
   grammarIntroduced: [
@@ -3004,12 +3009,12 @@ export const LESSON: Lesson = {
     'Locating the real disagreement: announced agreement before disagreement (sur le constat, nous sommes d’accord ; là où nos chemins se séparent), and disputes over a word or a definition (le mot me gêne ; si l’on entend par là)',
     'C1 concession formulas by ear and their exact scope (j’accorde la distinction ; je vous suis sur..., je ne vous suis pas sur... ; je vous concède volontiers ; admettons), and a speaker narrowing a claim (je soutiens quelque chose de plus étroit ; je ne dis pas que..., je dis que...)',
     'Answering an objection (on m’objectera que ; à cela je réponds ; l’objection porte, mais pas là où... ; cela ne contredit pas...), and decoding analogy and allusion from context (le tonneau des Danaïdes, déshabiller Pierre pour habiller Paul, l’arbre qui cache la forêt)',
-    'One-play listening with a 28 to 30 second read window; the TCF Canada C1 three-recording format and its distractors; the TEF Canada reportage main-idea item; the written account (compte rendu) of a debate',
+    'One-play listening with a 28 to 30 second read window; the three-recording format of the app’s TCF Canada C1 mock papers and its distractors; the reportage main-idea item of the app’s TEF Canada mock paper; the written account (compte rendu) of a debate',
   ],
   overview: {
     titleEn: UNIT.title,
     subFr: UNIT.sub,
-    introFr: "Au B2, tu suivais un débat rapide par sa charpente : le plan, les positions, le ton. Au C1, ça ne suffit plus : les intervenants s'accordent souvent sur l'essentiel, et ce qui les sépare est une ligne étroite. Dans douze débats, entretiens et reportages, avec jusqu'à trois invités et un modérateur, tu entends l'accord avant le désaccord, la querelle sur un mot, ce qu'une concession accorde exactement, une thèse qui se resserre, une objection et sa réponse, une analogie ou une allusion. Dès l'acte 9, une seule écoute, comme au TCF et au TEF Canada. À la fin, tu écris le compte rendu d'un vrai débat.",
+    introFr: "Au B2, tu suivais un débat rapide par sa charpente : le plan, les positions, le ton. Au C1, ça ne suffit plus : les intervenants s'accordent souvent sur l'essentiel, et ce qui les sépare est une ligne étroite. Dans douze débats, entretiens et reportages, avec jusqu'à trois invités et un modérateur, tu entends l'accord avant le désaccord, la querelle sur un mot, ce qu'une concession accorde exactement, une thèse qui se resserre, une objection et sa réponse, une analogie ou une allusion. Dès l'acte 9, une seule écoute, comme dans les épreuves blanches TCF et TEF Canada de l'application. À la fin, tu écris le compte rendu d'un vrai débat.",
     minutes: 180,
     difficulty: 5,
     glyph: 'débat',

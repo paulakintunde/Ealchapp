@@ -134,12 +134,19 @@
 //
 //   1. TAG. RESOLVED by the wave runner: 'C1 · LEÇON 1', unpadded as B2
 //      shipped ('B2 · LEÇON 1').
-//   2. PILE VERDICTS at C1. The audit moves five B1 recognition-only forms
+//   2. PILE VERDICTS at C1. RESOLVED at pre-review (2026-09-30): agreed,
+//      every key matches the written norm. The audit moves four B1 recognition-only forms
 //      to « à produire » at C1 (depuis + imparfait, the hearsay
 //      conditional, ne… guère in formal writing, or) and keeps « après
 //      qu'il soit parti » as « à reconnaître » (the written norm is the
 //      indicative). « Ayant fini » and the ne explétif are « à produire à
-//      l'écrit » and « à reconnaître, facultatif » respectively. Agree?
+//      l'écrit » and « à reconnaître, facultatif » respectively. The
+//      après que card now says the subjunctive is frequent even in
+//      writing (Grevisse), while the key keeps the indicative norm.
+//   PRE-REVIEW 2026-09-30: 11 blockers fixed (ambiguous keys, a superlative
+//      key and model answer that contradicted b2.06's published indicative
+//      row, faute de rerouted from lesson 19 to 15 in B2, three unkeyable
+//      quiz rewrites replaced); Théâtre de la Rive renamed (a real venue).
 //   3. THE TASK is a self-diagnosis, so the grader cannot know the
 //      learner's real weak spots. The rubric grades accuracy of the
 //      diagnosis (right lesson for the structure named, a correct example
@@ -552,11 +559,11 @@ const A2_DIAG: Sec<'groupDrill'> = {
   groups: [
     grp('Ce qui était déjà fait', [it(E(1015)), it(E(1019))], chk(
       'Complète : « Quand je suis arrivée, la réunion ... »',
-      ['avait déjà commencé', 'a déjà commencé', 'commençait déjà'], 0,
+      ['avait déjà commencé', 'a déjà commencé', 'commence déjà'], 0,
       `Déjà fait avant mon arrivée : le plus-que-parfait. Si tu as hésité, note-le et reprends ${R(B2.pqp)}. EN: done before my arrival.`)),
     grp('Ce qui sera accompli', [it(E(1016)), it(E(1017))], chk(
       'Complète : « Je t’écrirai dès que j’... le dossier. »',
-      ['aurai lu', 'ai lu', 'lirai'], 0,
+      ['aurai lu', 'ai lu', 'avais lu'], 0,
       `Accompli avant le moment où j'écrirai : le futur antérieur. Un doute ici renvoie à ${R(B2.futAnt)}. EN: completed before the future moment.`)),
     grp('Une durée en cours', [it(E(1018))], chk(
       'Complète : « Elle ... là depuis trois ans quand on lui a proposé ce poste. »',
@@ -744,7 +751,7 @@ const A3_PIEGE: Sec<'trapDrill'> = {
   cards: [
     { promptLabel: 'si + conditionnel', promptSound: "Si j'aurais su, je serais venu plus tôt.", fr: fr('fr.b2.recits-au-passe.1760'), ipa: ipaOf('fr.b2.recits-au-passe.1760'), tip: `Si, puis le plus-que-parfait : ${R(B2.siIrreel)}. EN: si + pluperfect.` },
     { promptLabel: 'deux passés', promptSound: "Si j'avais accepté ce poste, j'aurais habité à Genève aujourd'hui.", fr: fr(E(1024)), ipa: ipaOf(E(1024)), tip: `Aujourd'hui : la conséquence est présente. ${Cap(R(B2.siMixtes))}. EN: a present result.` },
-    { promptLabel: 'devaient', promptSound: 'Les élus devaient écouter les commerçants.', fr: fr(E(1025)), ipa: ipaOf(E(1025)), tip: `Le reproche passé : auraient dû. ${Cap(R(B2.condPasse))}. EN: should have.` },
+    { promptLabel: 'ont dû pour un reproche', promptSound: 'Les élus ont dû écouter les commerçants.', fr: fr(E(1025)), ipa: ipaOf(E(1025)), tip: `Ont dû dit qu'ils l'ont fait, ou qu'ils l'ont sans doute fait. Le reproche passé, c'est auraient dû. ${Cap(R(B2.condPasse))}. EN: ont dû says they did; the reproach is auraient dû.` },
     { promptLabel: 'même si + conditionnel', promptSound: "Même si le tramway n'aurait pas tout sauvé, il aurait freiné l'exode.", fr: fr(E(1026)), ipa: ipaOf(E(1026)), tip: `Même si suit la règle de si : le plus-que-parfait. ${Cap(R(B2.siIrreel))}. EN: même si follows si.` },
     { promptLabel: 'la rumeur affirmée', promptSound: "Le chiffre a été revu à la hausse, mais personne ne l'a confirmé.", fr: fr(E(1027)), ipa: ipaOf(E(1027)), tip: `Rien n'est confirmé : le conditionnel le dit. ${Cap(R(B1.medias))}. EN: unconfirmed takes the conditional.` },
     { promptLabel: 'si + conditionnel présent', promptSound: 'Si tu viendrais demain, on pourrait en parler.', fr: fr(E(1028)), ipa: ipaOf(E(1028)), tip: `Si + imparfait, comme dans ${R(B1.si)}. EN: si + imparfait.` },
@@ -752,7 +759,7 @@ const A3_PIEGE: Sec<'trapDrill'> = {
   drill: [
     { promptSay: 'Si j’... su, je serais venu.', opts: ['avais', 'aurais'], correct: 0 },
     { promptSay: 'Si nous avions gardé les rails, nous ... aujourd’hui un réseau envié.', opts: ['aurions', 'aurions eu'], correct: 0 },
-    { promptSay: 'Les élus ... écouter les commerçants.', opts: ['auraient dû', 'devaient'], correct: 0 },
+    { promptSay: 'Les élus ... écouter les commerçants ; ils ne l’ont jamais fait.', opts: ['auraient dû', 'ont dû'], correct: 0 },
     { promptSay: 'Le chiffre ... revu à la hausse, mais rien n’est confirmé.', opts: ['aurait été', 'a été'], correct: 0 },
     { promptSay: 'Même si le tramway n’... pas tout sauvé, il aurait freiné l’exode.', opts: ['avait', 'aurait'], correct: 0 },
     { promptSay: 'Si tu ... demain, on pourrait en parler.', opts: ['venais', 'viendrais'], correct: 0 },
@@ -881,7 +888,7 @@ const A4_QUESTIONS: Sec<'cardDeck'> = {
     {
       head: 'Après que ?', label: Cap(R(B1.subord)),
       fr: fr('fr.b1.connecteurs-logiques.1339'), sub: rsOf('fr.b1.connecteurs-logiques.1339'),
-      body: "La norme écrite garde l'indicatif après après que : un fait accompli. Le subjonctif s'entend à l'oral ; tu le reconnais sans le reprendre. EN: the written norm keeps the indicative; recognise the spoken subjunctive, do not copy it.",
+      body: "La norme écrite garde l'indicatif après après que : un fait accompli. Le subjonctif s'entend souvent, et s'écrit parfois ; tu le reconnais sans le reprendre. EN: the written norm keeps the indicative; recognise the frequent subjunctive, do not copy it.",
     },
   ],
 };
@@ -905,8 +912,8 @@ const A4_DIAG: Sec<'groupDrill'> = {
       `Espérer affirme une attente : l'indicatif. ${Cap(R(B2.subjInd))}. EN: espérer takes the indicative.`)),
     grp('Le superlatif et la chose cherchée', [it(E(1036)), it(E(1037))], chk(
       'Pourquoi « ait prise » et « puisse » sont-ils au subjonctif ?',
-      ['Le superlatif et la formule cherchée ne sont pas des faits affirmés.', 'Parce que les deux phrases sont au passé.'], 0,
-      `Un superlatif, une chose cherchée : on regarde, on n'affirme pas. ${Cap(R(B2.subjInd))}. EN: looked at, not asserted.`)),
+      ['Le superlatif porte un jugement, et la formule cherchée n’existe pas encore.', 'Parce que les deux phrases sont au passé.'], 0,
+      `Un superlatif qui juge, une chose cherchée : on regarde, on n'affirme pas. ${Cap(R(B2.subjInd))}. EN: looked at, not asserted.`)),
   ],
   audio: AUDIO,
   say: REFRAME,
@@ -1017,7 +1024,7 @@ const A5_LECTURE: Sec<'reading'> = {
   questions: [
     { q: 'Global : que vient annoncer le notaire, et comment la veuve réagit-elle ?', a: 'Les dettes du mari, qui obligent à vendre la maison. Elle reste digne : elle remercie le notaire d’être venu et ne pleure pas.' },
     { q: 'Détail : que fait le notaire dès qu’il a refermé la porte ?', a: '« Dès qu’il eut refermé la porte » : il ôte son chapeau, salue la veuve et demande une lampe.' },
-    { q: 'Inférence : « elle craignait qu’il ne fût venu lui annoncer la vente » : ce ne est-il une négation ?', a: 'Non. C’est un ne explétif : elle craignait qu’il soit venu pour cela.' },
+    { q: 'Inférence : « elle craignait qu’il ne fût venu lui annoncer la vente » : ce « ne » est-il une négation ?', a: 'Non. C’est un ne explétif : elle craignait qu’il soit venu pour cela.' },
     { q: 'Position : « Vous eussiez pu m’écrire » : que dit la veuve, en français d’aujourd’hui, et pourquoi ?', a: '« Vous auriez pu m’écrire. » Elle reconnaît la délicatesse du notaire, qui a préféré venir en personne.' },
     { q: 'Bilan : redis « Lorsqu’il eut fini, un long silence tomba sur la pièce » en français d’aujourd’hui.', a: '« Quand il a fini, un long silence est tombé sur la pièce. »' },
   ],
@@ -1217,8 +1224,8 @@ const ACT5: ActDef = {
  *  MEET: the summary of an evaluation report on a bike-share scheme.
  *  NOTICE: five ways to condense and their lessons. PRACTISE: condense
  *  without losing the meaning; four failed condensations. USE: condense a
- *  spoken report with Hélène (scenario). Routes to lessons 10, 14 and 19
- *  in B2.
+ *  spoken report with Hélène (scenario). Routes to lessons 10, 14 and 15
+ *  in B2 (faute de: lesson 15, as lesson 19's own header says).
  * ══════════════════════════════════════════════════════════════════════════ */
 
 const A6_LECTURE: Sec<'reading'> = {
@@ -1277,14 +1284,14 @@ const A6_DIAG: Sec<'groupDrill'> = {
     grp('Un nom pour une phrase', [it(E(1046)), it(E(1047)), it(E(1051))], chk(
       '« Les loyers ont beaucoup augmenté, et les étudiants s’inquiètent. » La meilleure version condensée ?',
       ['La forte hausse des loyers inquiète les étudiants.', 'La hausse de l’augmentation des loyers inquiète les étudiants.', 'Les loyers en hausse, ça inquiète les étudiants.'], 0,
-      `Un nom, un verbe : précis et lisible. L'autre version empile deux noms qui disent la même chose. ${Cap(R(B2.nominal))}. EN: one noun, one verb.`)),
+      `Un nom, un verbe : précis et lisible. Une version empile deux noms qui disent la même chose ; l'autre retombe dans l'oral. ${Cap(R(B2.nominal))}. EN: one noun, one verb.`)),
     grp('Faire faire, et le bon sujet', [it(E(1048)), it(E(1050))], chk(
       'Dans la seconde phrase, qui a connu un démarrage lent ?',
       ['la fréquentation, le sujet du verbe principal', 'la Ville'], 0,
       `L'infinitif prend le sujet du verbe principal. ${Cap(R(B2.infinitif))}. EN: the infinitive takes the main subject.`)),
     ctl('Faute de', `« ${fr(E(1049))} » Ici, faute de veut dire...`,
       ['parce qu’il manquait', 'malgré'], 0,
-      `Faute de + nom : une cause par manque, en deux mots. ${Cap(R(B2.restriction))}. EN: for lack of.`),
+      `Faute de + nom : une cause par manque, en deux mots. ${Cap(R(B2.cause))}. EN: for lack of.`),
   ],
   audio: AUDIO,
   say: REFRAME,
@@ -1537,7 +1544,7 @@ const A7_BILAN = pourTonBilan('a7-bilan', 'Participes et gérondifs : tes trois 
     [PROD, RECO], 0,
     `À produire, avec son orthographe : fatigant, convaincant. Un point faible courant : ${R(B2.participe)}. EN: to produce, spelling included.`)),
   grp('Ayant ou étant + participe', [it('fr.b2.langue-soignee.1671')], chk(
-    'Reconnu au B2. Au C1, ce participe est...',
+    'Vu au B2. Au C1, ce participe est...',
     ['à produire à l’écrit soutenu', RECO], 0,
     `À produire à l'écrit ; à l'oral, une subordonnée suffit. ${Cap(R(B2.participe))}. EN: produce it in formal writing.`)),
 ], ['condenser', 'produire', 'pointFaible']);
@@ -1666,15 +1673,15 @@ const A8_PIEGE: Sec<'trapDrill'> = {
     { promptLabel: 'grâce à, une cause malheureuse', promptSound: "Grâce au verglas, l'école a fermé ses portes.", fr: fr(E(1072)), ipa: ipaOf(E(1072)), tip: `Grâce à salue une cause heureuse ; à cause de reste neutre ou négatif. ${Cap(R(B1.subord))}. EN: grâce à is for welcome causes.` },
     { promptLabel: 'aussi sans inversion', promptSound: 'Le dossier était incomplet. Aussi il a été renvoyé à son auteur.', fr: fr('fr.b2.connecteurs-logiques.1902'), ipa: ipaOf('fr.b2.connecteurs-logiques.1902'), tip: `Aussi en tête, au sens de donc, appelle l'inversion à l'écrit soutenu. ${Cap(R(B2.cause))}. EN: aussi at the head takes inversion.` },
     { promptLabel: 'par peur que', promptSound: "Il a menti par peur qu'il déçoive ses parents.", fr: fr('fr.b2.connecteurs-logiques.1864'), ipa: ipaOf('fr.b2.connecteurs-logiques.1864'), tip: `Un seul sujet : par peur de + infinitif. ${Cap(R(B2.cause))}. EN: one subject, de + infinitive.` },
-    { promptLabel: 'donc pour or', promptSound: "Beaucoup d'élèves révisent la nuit. Donc, c'est en dormant que la mémoire se consolide.", fr: fr(E(1073)), ipa: ipaOf(E(1073)), tip: `Le sommeil ne découle pas des révisions nocturnes : il va contre elles. C'est or. ${Cap(R(B1.or))}. EN: or, not donc.` },
+    { promptLabel: 'donc pour or', promptSound: "Beaucoup d'élèves révisent la nuit. Donc, c'est surtout en dormant que la mémoire se consolide.", fr: fr(E(1073)), ipa: ipaOf(E(1073)), tip: `Le sommeil ne découle pas des révisions nocturnes : il va contre elles. C'est or. ${Cap(R(B1.or))}. EN: or, not donc.` },
   ],
   drill: [
     { promptSay: 'La route était fermée, de sorte que nous ... le train.', opts: ['avons pris', 'ayons pris'], correct: 0 },
     { promptSay: 'Je t’écris ... tu saches la vérité.', opts: ['pour que', 'pour'], correct: 0 },
     { promptSay: '... la pluie, le match a été annulé.', opts: ['À cause de', 'Grâce à'], correct: 0 },
-    { promptSay: 'Le dossier était incomplet. Aussi ... renvoyé.', opts: ['a-t-il été', 'il a été'], correct: 0 },
+    { promptSay: 'À l’écrit soutenu : « Le dossier était incomplet. Aussi ... renvoyé. »', opts: ['a-t-il été', 'il a été'], correct: 0 },
     { promptSay: 'Il a menti par peur de ... ses parents.', opts: ['décevoir', 'qu’il déçoive'], correct: 0 },
-    { promptSay: 'Beaucoup d’élèves révisent la nuit. ..., c’est en dormant que la mémoire se consolide.', opts: ['Or', 'Donc'], correct: 0 },
+    { promptSay: 'Beaucoup d’élèves révisent la nuit. ..., c’est surtout en dormant que la mémoire se consolide.', opts: ['Or', 'Donc'], correct: 0 },
     { promptSay: 'La règle sera adaptée de sorte que chaque quartier ... choisir.', opts: ['puisse', 'peut'], correct: 0 },
     { promptSay: 'Les commerçants craignent que les vitrines n’... les cambrioleurs.', opts: ['attirent', 'attireront'], correct: 0 },
   ],
@@ -1746,7 +1753,7 @@ const A9_LECTURE: Sec<'reading'> = {
   id: 'a9-lecture',
   layer: 'core',
   questionsInModal: true,
-  title: 'Trois heures au Théâtre de la Rive',
+  title: 'Trois heures au Théâtre de l’Anse-Grise',
   frSub: 'Une critique qui accorde et retient',
   text: CRITIQUE_TEXT,
   glossary: [
@@ -1831,7 +1838,7 @@ const A9_ERREURS: Sec<'commonErrors'> = {
     {
       wrong: 'Malgré qu’il pleuve, nous sortirons.',
       right: 'Bien qu’il pleuve, nous sortirons.',
-      why: `On l'entend partout, et il ressemble à malgré. Mais l'Académie le déconseille : à l'écrit soutenu, préfère bien que. ${Cap(R(B2.concession))}. EN: widely heard, but advised against in writing.`,
+      why: `On l'entend partout, et il ressemble à malgré. Mais l'Académie le déconseille au sens de bien que : à l'écrit soutenu, préfère bien que. ${Cap(R(B2.concession))}. EN: widely heard, but advised against in writing.`,
     },
     {
       wrong: 'Quoi que la salle soit pleine, on trouvera une place.',
@@ -2481,8 +2488,8 @@ const A12_MISSION: Sec<'task'> = {
     'Ce que je laisse de côté.',
     'D’ici la fin du mois, j’aurai',
   ],
-  modelAnswer: "Mes points forts. Je maîtrise la concession et la restriction : bien que, quand bien même et ne… que me viennent naturellement, à l'écrit comme à l'oral. Je rattache correctement le gérondif au sujet du verbe principal, et je distingue l'adjectif verbal du participe présent, orthographe comprise. Enfin, je passe sans difficulté d'un récit oral à un compte rendu impersonnel : il a été décidé que, il reste à, il convient de.\n\nMes points faibles. Le premier concerne le futur antérieur. Quand j'écris vite, je calque l'anglais et j'écris « quand j'ai fini, je t'appellerai ». Je reprendrai donc la leçon 7 du B2, et je retiendrai : « Quand j'aurai fini le rapport, je te l'enverrai. »\n\nLe deuxième touche au subjonctif après un superlatif. J'écris encore « c'est le meilleur film que j'ai vu », sans voir que le superlatif ne pose pas un fait. La leçon 6 du B2 m'aidera à l'entendre : « C'est la décision la plus lourde que le conseil ait prise depuis l'ouverture. »\n\nLe troisième est plus discret : de sorte que. Je l'emploie toujours avec le subjonctif, même quand il exprime un résultat déjà obtenu. Je retravaillerai la leçon 15 du B2, avec cette paire : « La route était fermée, de sorte que nous avons pris le train » ; « La règle sera adaptée de sorte que chaque quartier puisse choisir. »\n\nCe que je laisse de côté. Le passé simple, le passé antérieur et le subjonctif imparfait restent dans ma pile à reconnaître : je les lis sans peine, et je n'ai pas à les écrire.\n\nMon objectif. D'ici le 31 octobre, j'aurai repris ces trois leçons, refait leurs exercices et réécrit deux de mes anciens rapports en corrigeant ces trois points. Je demanderai ensuite à ma tutrice de vérifier si ces erreurs ont disparu.",
-  modelAnswerEn: "My strengths. I have mastered concession and restriction: bien que, quand bien même and ne… que come naturally to me, in writing and in speech. I attach the gérondif correctly to the subject of the main verb, and I tell the verbal adjective from the present participle, spelling included. Finally, I move easily from a spoken account to impersonal minutes: il a été décidé que, il reste à, il convient de. My weak spots. The first concerns the futur antérieur. When I write fast, I copy English and write « quand j'ai fini, je t'appellerai ». So I will go back over lesson 7 in B2, and I will remember: « Quand j'aurai fini le rapport, je te l'enverrai. » The second concerns the subjunctive after a superlative. I still write « c'est le meilleur film que j'ai vu », without seeing that a superlative does not state a fact. Lesson 6 in B2 will help me hear it: « C'est la décision la plus lourde que le conseil ait prise depuis l'ouverture. » The third is subtler: de sorte que. I always use it with the subjunctive, even when it expresses a result already achieved. I will work on lesson 15 in B2 again, with this pair: « La route était fermée, de sorte que nous avons pris le train »; « La règle sera adaptée de sorte que chaque quartier puisse choisir. » What I leave aside. The passé simple, the passé antérieur and the imperfect subjunctive stay in my recognition pile: I read them easily, and I do not have to write them. My goal. By 31 October, I will have gone back over these three lessons, redone their exercises and rewritten two of my old reports correcting these three points. I will then ask my tutor to check whether these errors have gone.",
+  modelAnswer: "Mes points forts. Je maîtrise la concession et la restriction : bien que, quand bien même et ne… que me viennent naturellement, à l'écrit comme à l'oral. Je rattache correctement le gérondif au sujet du verbe principal, et je distingue l'adjectif verbal du participe présent, orthographe comprise. Enfin, je passe sans difficulté d'un récit oral à un compte rendu impersonnel : il a été décidé que, il reste à, il convient de.\n\nMes points faibles. Le premier concerne le futur antérieur. Quand j'écris vite, je calque l'anglais et j'écris « quand j'ai fini, je t'appellerai ». Je reprendrai donc la leçon 7 du B2, et je retiendrai : « Quand j'aurai fini le rapport, je te l'enverrai. »\n\nLe deuxième touche au mode après espérer. J'écris encore « j'espère qu'il vienne », parce qu'espérer me fait penser à souhaiter. La leçon 6 du B2 m'aidera à l'entendre : espérer affirme une attente, donc l'indicatif. « Nous espérons que vous tiendrez compte de cette expérience. »\n\nLe troisième est plus discret : de sorte que. Je l'emploie toujours avec le subjonctif, même quand il exprime un résultat déjà obtenu. Je retravaillerai la leçon 15 du B2, avec cette paire : « La route était fermée, de sorte que nous avons pris le train » ; « La règle sera adaptée de sorte que chaque quartier puisse choisir. »\n\nCe que je laisse de côté. Le passé simple, le passé antérieur et le subjonctif imparfait restent dans ma pile à reconnaître : je les lis sans peine, et je n'ai pas à les écrire.\n\nMon objectif. D'ici le 31 octobre, j'aurai repris ces trois leçons, refait leurs exercices et réécrit deux de mes anciens rapports en corrigeant ces trois points. Je demanderai ensuite à ma tutrice de vérifier si ces erreurs ont disparu.",
+  modelAnswerEn: "My strengths. I have mastered concession and restriction: bien que, quand bien même and ne… que come naturally to me, in writing and in speech. I attach the gérondif correctly to the subject of the main verb, and I tell the verbal adjective from the present participle, spelling included. Finally, I move easily from a spoken account to impersonal minutes: il a été décidé que, il reste à, il convient de. My weak spots. The first concerns the futur antérieur. When I write fast, I copy English and write « quand j'ai fini, je t'appellerai ». So I will go back over lesson 7 in B2, and I will remember: « Quand j'aurai fini le rapport, je te l'enverrai. » The second concerns the mood after espérer. I still write « j'espère qu'il vienne », because espérer makes me think of souhaiter. Lesson 6 in B2 will help me hear it: espérer states an expectation, so the indicative. « Nous espérons que vous tiendrez compte de cette expérience. » The third is subtler: de sorte que. I always use it with the subjunctive, even when it expresses a result already achieved. I will work on lesson 15 in B2 again, with this pair: « La route était fermée, de sorte que nous avons pris le train »; « La règle sera adaptée de sorte que chaque quartier puisse choisir. » What I leave aside. The passé simple, the passé antérieur and the imperfect subjunctive stay in my recognition pile: I read them easily, and I do not have to write them. My goal. By 31 October, I will have gone back over these three lessons, redone their exercises and rewritten two of my old reports correcting these three points. I will then ask my tutor to check whether these errors have gone.",
   watchFor: [
     { pattern: 'A weak spot named only as a domain (les temps, la grammaire, le subjonctif) with no structure and no error.', criterion: 'precision', feedback: "Nomme la structure exacte et l'erreur que tu fais : « quand j'ai fini » au lieu de « quand j'aurai fini ».", ref: 'a12-plan' },
     { pattern: 'A lesson cited by raw id, or a lesson that does not own the structure (e.g. lesson 3 in B2 for the subjunctive).', criterion: 'diagnostic', feedback: 'Vérifie la leçon dans la carte du bilan et cite-la par sa place : « la leçon 6 du B2 ».', ref: 'a12-cheat' },
@@ -2616,7 +2623,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         tI('Mets le verbe au bon temps et écris la phrase.', '« Quand j’(finir) le rapport, je te l’enverrai. »', 'Quand j’aurai fini le rapport, je te l’enverrai.', `Fini avant l'envoi : le futur antérieur, ${R(B2.futAnt)}. EN: the futur antérieur.`, 'a2-erreurs', ["Quand j'aurai fini le rapport, je te l'enverrai.", 'aurai fini']),
         tI('Mets le verbe au bon temps et écris la phrase.', '« Elle m’a dit qu’elle (lire) déjà le dossier. »', 'Elle m’a dit qu’elle avait déjà lu le dossier.', `Le discours rapporté recule d'un cran : ${R(B2.pqp)}. EN: reported speech shifts back.`, 'a2-erreurs', ["Elle m'a dit qu'elle avait déjà lu le dossier.", 'avait déjà lu', 'avait lu']),
         tI('Écris le mot qui manque.', '« Je travaillais là ... dix ans quand l’usine a fermé. »', 'depuis', `Une durée en cours : depuis, ${R(B1.depuis)}. EN: depuis.`, 'a2-erreurs'),
-        eS('Après avoir arrivé, elle a appelé sa mère.', 'Après être arrivée, elle a appelé sa mère.', `L'infinitif passé garde l'auxiliaire être : ${R(B2.infinitif)}. EN: the past infinitive keeps être.`, 'a2-erreurs', ['Après être arrivé, elle a appelé sa mère.']),
+        eS('Après avoir arrivé, elle a appelé sa mère.', 'Après être arrivée, elle a appelé sa mère.', `L'infinitif passé garde l'auxiliaire être : ${R(B2.infinitif)}. EN: the past infinitive keeps être.`, 'a2-erreurs'),
       ],
     },
     {
@@ -2637,11 +2644,11 @@ const A12_QUIZ: Sec<'quiz'> = {
       questions: [
         mc('Complète : « J’espère que tu ... ce soir. »', ['viendras', 'viennes'], 0, `Espérer affirme une attente : ${R(B2.subjInd)}. EN: espérer takes the indicative.`, 'a4-erreurs'),
         mc('Complète : « Il est probable que le budget ... serré. »', ['sera', 'soit'], 0, `Probable penche vers le vrai : ${R(B2.subjInd)}. EN: probable takes the indicative.`, 'a4-questions'),
-        mc('Complète : « C’est la décision la plus lourde que le conseil ... prise. »', ['ait', 'a', 'aurait'], 0, `Après un superlatif, le subjonctif : ${R(B2.subjInd)}. EN: subjunctive after a superlative.`, 'a4-diag'),
+        mc('Complète : « Il est possible que le budget ... serré. »', ['soit', 'sera'], 0, `Possible laisse le fait ouvert : le subjonctif, ${R(B2.subjInd)}. EN: possible takes the subjunctive.`, 'a4-questions'),
         lC('Écoute. Pourquoi l’indicatif après « après que » ?', fr(E(1038)), ['l’action est accomplie : la norme écrite garde l’indicatif', 'c’est une faute de registre', 'après que prend toujours le conditionnel'], 0, `La norme écrite garde l'indicatif : ${R(B1.subord)}. EN: the written norm keeps the indicative.`, 'a4-questions'),
         tI('Mets le verbe au bon mode et écris la phrase.', '« Je ne pense pas qu’il (avoir) raison. »', 'Je ne pense pas qu’il ait raison.', `La négation fait passer au doute : ${R(B2.subjInd)}. EN: a negated opinion verb takes the subjunctive.`, 'a4-erreurs', ["Je ne pense pas qu'il ait raison.", 'ait']),
         tI('Mets au subjonctif passé et écris la phrase.', '« Nous regrettons que cette décision (être prise) sans consultation. »', fr(E(1033)), `Un regret sur un fait accompli : ${R(B2.subjPasse)}. EN: the subjonctif passé.`, 'a4-diag', ['ait été prise']),
-        tI('Écris le verbe pouvoir à la bonne forme.', '« Nous cherchons une formule qui ... préserver l’accueil du dimanche. »', 'puisse', `Une chose cherchée, pas encore trouvée : ${R(B2.subjInd)}. EN: the subjunctive.`, 'a4-diag'),
+        tI('Écris le verbe pouvoir à la bonne forme.', '« Nous cherchons une formule qui ... préserver l’accueil du dimanche. »', 'puisse', `Une chose cherchée, pas encore trouvée : le subjonctif puisse, ${R(B2.subjInd)} ; le conditionnel pourrait se dit aussi. EN: the subjunctive (the conditional is also right).`, 'a4-diag', ['pourrait']),
         eS("Bien qu'il a plu toute la journée, le festival a attiré dix mille personnes.", fr('fr.b2.emotions.1350'), `Bien que prend toujours le subjonctif : ${R(B2.concession)}. EN: bien que takes the subjunctive.`, 'a4-erreurs', ['Bien qu’il ait plu toute la journée, le festival a attiré dix mille personnes.']),
       ],
     },
@@ -2655,7 +2662,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         tI('Dis-le en français d’aujourd’hui.', '« Vous eussiez pu m’écrire. »', 'Vous auriez pu m’écrire.', `Eussiez pu veut dire auriez pu : ${R(B2.subjLitt)}. EN: auriez pu.`, 'a5-bilan', ["Vous auriez pu m'écrire.", 'auriez pu']),
         tI('Dis-le en français d’aujourd’hui.', '« Je ne veux point de ce contrat. »', fr(E(1044)), `Point est littéraire : ${R(B2.negation)}. EN: ne… pas.`, 'a5-piege', ['pas']),
         tI('Dis-le en français d’aujourd’hui.', '« Il fallait que je le susse avant la réunion. »', fr(E(1040)), `Le subjonctif présent suffit : ${R(B2.subjLitt)}. EN: que je le sache.`, 'a5-piege', ['sache']),
-        eS('Hier, nous allâmes au cinéma avec les enfants.', fr(E(1041)), `À l'oral et dans un courriel, le passé composé : ${R(B2.passeSimple)}. EN: the passé composé.`, 'a5-piege'),
+        { format: 'errorSpot', q: 'Dans un courriel à un ami, une forme ne va pas. Écris la phrase correcte. EN: In an email to a friend, one form does not fit; write the sentence correctly.', prompt: 'Hier, nous allâmes au cinéma avec les enfants.', answer: fr(E(1041)), accept: [fr(E(1041))], why: `À l'oral et dans un courriel, le passé composé : ${R(B2.passeSimple)}. EN: the passé composé.`, ref: 'a5-piege' },
       ],
     },
     {
@@ -2663,12 +2670,12 @@ const A12_QUIZ: Sec<'quiz'> = {
       questions: [
         mc('Laquelle condense le mieux « les loyers ont beaucoup augmenté, et les étudiants s’inquiètent » ?', ['La forte hausse des loyers inquiète les étudiants.', 'La hausse de l’augmentation des loyers inquiète les étudiants.'], 0, `Un nom, un verbe : ${R(B2.nominal)}. EN: one noun, one verb.`, 'a6-diag'),
         mc('« La Ville a fait chiffrer ces mesures » : qui a fait le calcul ?', ['ses services techniques', 'la Ville elle-même', 'les usagers'], 0, `Faire + infinitif : quelqu'un d'autre agit, ${R(B2.infinitif)}. EN: someone else did it.`, 'a6-lecture'),
-        mc('« Faute de pièces de rechange » veut dire...', ['parce qu’il manquait des pièces', 'malgré les pièces', 'grâce aux pièces'], 0, `Une cause par manque : ${R(B2.restriction)}. EN: for lack of.`, 'a6-diag'),
+        mc('« Faute de pièces de rechange » veut dire...', ['parce qu’il manquait des pièces', 'malgré les pièces', 'grâce aux pièces'], 0, `Une cause par manque : ${R(B2.cause)}. EN: for lack of.`, 'a6-diag'),
         lC('Écoute. Qui a connu un démarrage lent ?', fr(E(1050)), ['la fréquentation', 'la Ville'], 0, `L'infinitif prend le sujet du verbe principal : ${R(B2.infinitif)}. EN: the main subject.`, 'a6-diag'),
         tI('Un seul sujet : réécris avec un infinitif.', '« Je suis parti sans que je dise au revoir. »', 'Je suis parti sans dire au revoir.', `Un seul sujet, l'infinitif : ${R(B2.infinitif)}. EN: sans + infinitive.`, 'a6-erreurs', ['sans dire au revoir']),
-        tI('Écris le verbe après faire.', '« La Ville a fait ... ces mesures. » (chiffrer)', 'chiffrer', `Après faire, toujours l'infinitif : ${R(B2.infinitif)}. EN: the infinitive after faire.`, 'a6-erreurs'),
+        tI('Mets le verbe à l’infinitif passé et écris la phrase.', '« Après (attendre) une heure, nous sommes repartis. »', fr('fr.b2.faits-et-procedures.1245'), `Un seul sujet, une action finie avant : après + infinitif passé, ${R(B2.infinitif)}. EN: après + past infinitive.`, 'a6-exemples', ['avoir attendu', 'Après avoir attendu une heure, nous sommes repartis.']),
         tI('Remplace la proposition par un nom.', '« Quand on a mis les stations en service, tout s’est bien passé. » → « La ... des stations s’est faite sans difficulté. »', 'mise en service', `Un nom pour une phrase : ${R(B2.nominal)}. EN: a noun for a clause.`, 'a6-exemples', ['La mise en service']),
-        eS('Après avoir fini le rapport, le directeur l’a lu.', 'Après avoir fini le rapport, je l’ai envoyé au directeur.', `L'infinitif prend le sujet du verbe principal : ${R(B2.infinitif)}. EN: the infinitive takes the main subject.`, 'a6-erreurs', ["Après avoir fini le rapport, je l'ai envoyé au directeur.", 'Après que j’ai fini le rapport, le directeur l’a lu.', "Après que j'ai fini le rapport, le directeur l'a lu."]),
+        eS('La Ville a fait chiffré ces mesures par ses services techniques.', fr(E(1048)), `Après faire, toujours l'infinitif : chiffrer, ${R(B2.infinitif)}. EN: the infinitive after faire.`, 'a6-erreurs'),
       ],
     },
     {
@@ -2692,7 +2699,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('« Or, d’après les chiffres… » : ce or introduit...', ['un fait qui va contre l’argument précédent', 'une conséquence', 'un exemple'], 0, `Or renverse : ${R(B1.or)}. EN: or turns things round.`, 'a8-diag'),
         lC('Écoute. Cette phrase exprime...', fr(E(1064)), ['un but', 'une cause'], 0, `Afin que + subjonctif : ${R(B2.but)}. EN: a purpose.`, 'a8-exemples'),
         tI('Écris le verbe pouvoir au bon mode.', '« La règle sera adaptée de sorte que chaque quartier ... choisir. »', 'puisse', `De sorte que + subjonctif : un but, ${R(B2.but)}. EN: a purpose.`, 'a8-diag'),
-        tI('Un seul sujet : réécris avec un infinitif.', '« J’ai éteint la lumière pour que je dorme mieux. »', fr(E(1071)), `Un seul sujet, pour + infinitif : ${R(B2.but)}. EN: pour + infinitive.`, 'a8-piege', ['J’ai éteint la lumière pour mieux dormir.', 'J’ai éteint la lumière pour dormir mieux.', "J'ai éteint la lumière pour dormir mieux."]),
+        tI('Un seul sujet : réécris avec un infinitif.', '« J’ai éteint la lumière pour que je dorme mieux. »', fr(E(1071)), `Un seul sujet, pour + infinitif : ${R(B2.but)}. EN: pour + infinitive.`, 'a8-piege', ['J’ai éteint la lumière pour mieux dormir.', 'J’ai éteint la lumière pour dormir mieux.', "J'ai éteint la lumière pour dormir mieux.", 'J’ai éteint la lumière afin de mieux dormir.', "J'ai éteint la lumière afin de mieux dormir."]),
         tI('Complète avec l’inversion.', '« Le dossier était incomplet. Aussi ... renvoyé à son auteur. »', 'a-t-il été', `Aussi en tête appelle l'inversion : ${R(B2.cause)}. EN: aussi + inversion.`, 'a8-piege'),
         eS('Il a menti par peur qu’il déçoive ses parents.', fr('fr.b2.connecteurs-logiques.1864'), `Un seul sujet : par peur de + infinitif, ${R(B2.cause)}. EN: de + infinitive.`, 'a8-piege'),
       ],
@@ -2720,20 +2727,20 @@ const A12_QUIZ: Sec<'quiz'> = {
         tI('Écris le verbe payer au bon mode.', '« Il n’est pas exclu que la région ... une partie des frais. »', 'paie', `Une possibilité : le subjonctif, ${R(B2.impersonnel)}. EN: the subjunctive.`, 'a10-diag', ['paye']),
         tI('Remets la politesse en ordre et écris la phrase.', '« Moi et mon mari vous remercions de votre accueil. »', fr('fr.b2.pronoms-essentiels.1877'), `Moi en dernier : ${R(B2.tonique)}. EN: mon mari et moi.`, 'a10-piege'),
         tI('Efface l’acteur.', '« La directrice a décidé de réduire le budget des sorties. » → « Il ... de réduire le budget des sorties. »', 'a été décidé', `L'impersonnel efface l'acteur : ${R(B2.impersonnel)}. EN: il a été décidé.`, 'a10-exemples', [fr(E(1089))]),
-        eS('Il a été décidé que la sortie soit annulée.', fr(E(1087)), `Une décision prise est un fait : ${R(B2.impersonnel)}. EN: the conditional, not the subjunctive.`, 'a10-piege'),
+        eS('Il a été décidé que la sortie soit annulée.', fr(E(1087)), `Une décision prise est un fait : l'indicatif ou le conditionnel, ${R(B2.impersonnel)}. EN: the indicative or the conditional, not the subjunctive.`, 'a10-piege', ['Il a été décidé que la sortie sera annulée.']),
       ],
     },
     {
       id: 'r11-registre', label: 'Le registre de l’écrit', targets: ['registre-plat'],
       questions: [
         mc('Pourquoi la version revue du paragraphe est-elle meilleure ?', ['elle dit la même chose avec exactitude', 'elle emploie plus de structures'], 0, "L'exactitude, pas la quantité. EN: exactness, not quantity.", 'a11-lecture'),
-        mc('« Encore qu’il soit moins net qu’on ne le dit » : ce ne est...', ['explétif', 'une négation', 'une faute de frappe'], 0, `Après un comparatif, un ne qui ne nie rien : ${R(B2.negation)}. EN: expletive.`, 'a11-diag'),
+        mc('« Encore qu’il soit moins net qu’on ne le dit » : ce « ne » est...', ['explétif', 'une négation', 'une faute de frappe'], 0, `Après un comparatif, un ne qui ne nie rien : ${R(B2.negation)}. EN: expletive.`, 'a11-diag'),
         mc('Dans un essai, laquelle convient ?', ['Certains y voient une menace ; cette crainte mérite d’être examinée.', 'Certains disent que c’est mauvais, mais ils ont tort.'], 0, `Répondre à l'objection : ${R(B2.argument)}. EN: answer the objection.`, 'a11-erreurs'),
         lC('Écoute. Que laisse entendre l’auteur ?', fr(E(1092)), ['que le télétravail à temps plein serait une erreur', 'que le télétravail est interdit'], 0, "L'implicite : le lecteur conclut. EN: the reader concludes.", 'a11-diag'),
         tI('Remplace la répétition par une reprise.', '« Le télétravail fait gagner du temps, et cet ... se double d’un bénéfice pour la planète. »', 'avantage', `Une reprise tient le fil : ${R(B2.academique)}. EN: a reprise.`, 'a11-erreurs'),
         tI('Écris la forme soutenue de pouvoir.', '« Le télétravail ne peut pas devenir la norme. » → « Le télétravail ne ... devenir la norme. »', 'saurait', `Ne saurait, au conditionnel : ${R(B2.negation)}. EN: ne saurait.`, 'a11-diag'),
-        tI('Réécris sans les mots de conversation.', '« Bref, le télétravail, c’est super. »', 'Le télétravail présente donc des avantages réels.', `Le registre jusqu'au bout : ${R(B2.academique)}. EN: keep the register.`, 'a11-erreurs', ['Le télétravail présente des avantages réels.', 'Le télétravail présente donc de réels avantages.', 'Le télétravail offre donc des avantages réels.']),
-        eS('Il est prouvé que le télétravail rend tout le monde plus heureux.', 'Le télétravail semble améliorer la satisfaction de nombreux salariés.', `Jamais plus sûr que ta preuve : ${R(B2.academique)}. EN: size the claim.`, 'a11-erreurs', ['Le télétravail semble rendre de nombreux salariés plus heureux.', 'Le télétravail semble rendre de nombreux salariés plus satisfaits.']),
+        tI('Écris le verbe soutenu qui remplace « c’est super ».', '« Bref, le télétravail, c’est super. » → « Le télétravail ... donc des avantages réels. »', 'présente', `Le registre jusqu'au bout : ${R(B2.academique)}. EN: keep the register.`, 'a11-erreurs', ['offre', 'comporte']),
+        eS("Cet avantage se double d'un bénéfice environnemental, encore qu'il est moins net qu'on ne le dit.", fr(E(1091)), `Encore que, comme bien que, prend le subjonctif : ${R(B2.concession)}. EN: encore que takes the subjunctive.`, 'a11-diag'),
       ],
     },
     {
@@ -2855,7 +2862,7 @@ const TRIGGERS: ErrorTrigger[] = [
   { id: 'c1-sans-tri', description: 'Treats every structure alike: tries to produce literary forms in everyday writing, or files a core B2 structure as recognition only.', detectOn: ['a1-piles', 'a1-check', 'a5-piege', 'a12-mission'], drill: 'd-piles', retest: 'd-piles' },
   { id: 'horloge-plate', description: 'Tells a sequence on one clock: passé composé for what had already happened or for what will be finished, pendant for a duration still under way.', detectOn: ['a2-diag', 'a2-erreurs', 'a2-check', 'a12-mission'], drill: 'd-horloges', retest: 'd-horloges' },
   { id: 'si-conditionnel', description: 'Puts the conditional after si or même si, puts a present result in the past conditional, or states an unconfirmed report as fact.', detectOn: ['a3-diag', 'a3-piege', 'a3-check', 'a12-mission'], drill: 'd-hypothese', retest: 'd-hypothese' },
-  { id: 'mode-automatique', description: 'Chooses the mood by habit: subjunctive after espérer, indicative after a negated opinion verb or bien que, no subjunctive after a superlative.', detectOn: ['a4-diag', 'a4-erreurs', 'a4-check', 'a12-mission'], drill: 'd-modes', retest: 'd-modes' },
+  { id: 'mode-automatique', description: 'Chooses the mood by habit: subjunctive after espérer, indicative after a negated opinion verb or bien que, no subjunctive after a superlative that judges.', detectOn: ['a4-diag', 'a4-erreurs', 'a4-check', 'a12-mission'], drill: 'd-modes', retest: 'd-modes' },
   { id: 'forme-des-livres', description: 'Misreads the passé simple, passé antérieur, literary subjunctive or ne… point, or produces them in modern writing.', detectOn: ['a5-diag', 'a5-piege', 'a5-check', 'a12-mission'], drill: 'd-aujourdhui', retest: 'd-aujourdhui' },
   { id: 'condensation-ratee', description: 'Gives an infinitive a subject other than the main verb’s, uses sans que with one subject, or stacks abstract nouns.', detectOn: ['a6-diag', 'a6-erreurs', 'a6-check', 'a12-mission'], drill: 'd-condenser', retest: 'd-condenser' },
   { id: 'participe-mal-rattache', description: 'Attaches a gérondif or participle to the wrong subject, makes a present participle agree, or confuses fatigant and fatiguant.', detectOn: ['a7-diag', 'a7-dictee', 'a7-check', 'a12-mission'], drill: 'd-participes', retest: 'd-participes' },
@@ -2889,7 +2896,7 @@ const SHEET_LIST: ReferenceSheet[] = [
       ['si + imparfait, puis conditionnel présent', 'à produire, la leçon 10 du B1', 'à produire, sans conditionnel après si'],
       ['ne… guère', 'à reconnaître, la leçon 20 du B1', 'à produire à l’écrit soutenu'],
       ['or (le fait qui change la donne)', 'à reconnaître, la leçon 30 du B1', 'à produire'],
-      ['après qu’il soit parti', 'entendu à l’oral, la leçon 31 du B1', 'à reconnaître ; à l’écrit, après qu’il est parti'],
+      ['après qu’il soit parti', 'fréquent, même à l’écrit, la leçon 31 du B1', 'à reconnaître ; à l’écrit, après qu’il est parti'],
       ['le conditionnel de l’information (l’incendie aurait fait deux blessés)', 'à reconnaître, la leçon 34 du B1', 'à produire'],
     ]),
   ]),
@@ -2927,7 +2934,7 @@ const SHEET_LIST: ReferenceSheet[] = [
       ['ayant ou étant + participe passé', 'Ayant travaillé trente ans dans un garage, elle connaît chaque pièce.', 'les leçons 12 et 13 du B2'],
     ]),
     table('sheet-condenser-pieges', 'Les erreurs qui résistent', ['Erreur', 'Correction'], [
-      ['Après avoir fini le rapport, le directeur l’a lu. (deux sujets)', 'Après avoir fini le rapport, je l’ai envoyé au directeur.'],
+      ['Après avoir fini le rapport, le directeur l’a lu. (quand c’est toi qui as fini)', 'Après avoir fini le rapport, je l’ai envoyé au directeur.'],
       ['une suite de noms abstraits (la mise en œuvre de la réduction de…)', 'un verbe pour faire avancer la phrase'],
       ['un travail fatiguant', 'un travail fatigant (adjectif) ; en se fatiguant (verbe)'],
       ['Je suis parti sans que je dise au revoir.', 'Je suis parti sans dire au revoir.'],
