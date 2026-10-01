@@ -339,17 +339,17 @@ export const IMPORT_IDS = [...new Set(Object.values(IMPORTED).flat())];
 /** The legacy c1 rows, NOT in the seed cut, read verbatim from Postgres on
  *  2026-09-30 (status published). `src()` in the lesson reads them here. */
 export const DB_ROWS: Record<string, { id: string; fr: string; en: string }> = Object.fromEntries(([
-  ['fr.c1.rhetorique.141', "S'il y a un point où je vous rejoins, c'est celui-là.", 'If there is one point where I agree with you, it is that one.'],
+  ['fr.c1.rhetorique.141', "S’il y a un point où je vous rejoins, c’est celui-là.", 'If there is one point where I agree with you, it is that one.'],
   ['fr.c1.discours-dexamen.067', 'Clarifions dès maintenant ce que recouvre cette expression.', 'Let us clarify right away what this expression actually covers.'],
-  ['fr.c1.discours-dexamen.098', "Il me paraît essentiel de distinguer d'emblée deux réalités que l'on confond souvent.", 'It seems essential to me to distinguish from the outset two realities that are often confused.'],
-  ['fr.c1.rhetorique.133', "C'est justement cette nuance qui change tout le débat.", 'It is precisely this nuance that changes the whole debate.'],
-  ['fr.c1.rhetorique.032', "La réforme part d'une bonne intention, je le concède, mais l'intention ne suffit pas.", 'The reform comes from a good intention, I concede that, but intention is not enough.'],
-  ['fr.c1.rhetorique.016', "Je vous l'accorde, il travaille, n'empêche qu'il arrive toujours en retard.", 'I grant you he works hard, still, he always shows up late.'],
+  ['fr.c1.discours-dexamen.098', "Il me paraît essentiel de distinguer d’emblée deux réalités que l’on confond souvent.", 'It seems essential to me to distinguish from the outset two realities that are often confused.'],
+  ['fr.c1.rhetorique.133', "C’est justement cette nuance qui change tout le débat.", 'It is precisely this nuance that changes the whole debate.'],
+  ['fr.c1.rhetorique.032', "La réforme part d’une bonne intention, je le concède, mais l’intention ne suffit pas.", 'The reform comes from a good intention, I concede that, but intention is not enough.'],
+  ['fr.c1.rhetorique.016', "Je vous l’accorde, il travaille, n’empêche qu’il arrive toujours en retard.", 'I grant you he works hard, still, he always shows up late.'],
   ['fr.c1.discours-dexamen.161', 'Cette statistique, je le concède, ne dit rien des réalités vécues sur le terrain.', 'This statistic, I concede, says nothing about the realities experienced on the ground.'],
-  ['fr.c1.rhetorique.139', "Ce n'est pas la réforme que je rejette, c'est sa brutalité.", 'It is not the reform I reject, it is its harshness.'],
-  ['fr.c1.rhetorique.092', "En admettant que les chiffres soient exacts, la conclusion ne s'impose pas forcément.", 'Even granting that the figures are accurate, the conclusion does not necessarily follow.'],
-  ['fr.c1.rhetorique.020', "Votre objection se tient, sauf qu'elle ignore complètement le principal intéressé.", 'Your objection holds up, except that it completely ignores the person most affected.'],
-  ['fr.c1.discours-dexamen.150', "On pourrait m'objecter que les jeunes s'adaptent plus vite, et c'est vrai en partie.", 'One could object that young people adapt faster, and that is partly true.'],
+  ['fr.c1.rhetorique.139', "Ce n’est pas la réforme que je rejette, c’est sa brutalité.", 'It is not the reform I reject, it is its harshness.'],
+  ['fr.c1.rhetorique.092', "En admettant que les chiffres soient exacts, la conclusion ne s’impose pas forcément.", 'Even granting that the figures are accurate, the conclusion does not necessarily follow.'],
+  ['fr.c1.rhetorique.020', "Votre objection se tient, sauf qu’elle ignore complètement le principal intéressé.", 'Your objection holds up, except that it completely ignores the person most affected.'],
+  ['fr.c1.discours-dexamen.150', "On pourrait m’objecter que les jeunes s’adaptent plus vite, et c’est vrai en partie.", 'One could object that young people adapt faster, and that is partly true.'],
 ] as const).map(([id, fr, en]) => [id, { id, fr, en }]));
 
 /** No `flashcard` drill: nameable, never releasable. The legacy c1 rows

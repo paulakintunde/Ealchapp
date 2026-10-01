@@ -1041,7 +1041,7 @@ const A5_FORMULES: Sec<'tapTable'> = {
       detail: { title: 'Accordé, mais pas réglé', body: "Il accorde un point et dit lui-même qu'il ne tranche pas le débat. EN: granted, and explicitly not decisive.", say: S(1451).fr } },
     { cells: ['je le concède', 'un fait', 'sa vraie position'],
       say: 'Cette statistique, je le concède, ne dit rien des réalités vécues sur le terrain.',
-      detail: { title: 'Je le concède', body: "La concession est glissée au milieu de la phrase : la suite porte sa vraie position. EN: the concession sits mid-sentence; the rest carries the position.", say: "La réforme part d'une bonne intention, je le concède, mais l'intention ne suffit pas." } },
+      detail: { title: 'Je le concède', body: "La concession est glissée au milieu de la phrase : la suite porte sa vraie position. EN: the concession sits mid-sentence; the rest carries the position.", say: "La réforme part d’une bonne intention, je le concède, mais l’intention ne suffit pas." } },
   ],
   audio: AUDIO,
   say: REFRAME,

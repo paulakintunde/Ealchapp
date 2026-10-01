@@ -324,7 +324,7 @@ export const IMPORT_IDS = [...new Set(Object.values(IMPORTED).flat())];
  *  copied verbatim on 2026-09-30, so `src()` can print them. */
 export const DB_ONLY_ROWS: { id: string; fr: string; en: string; drills: string[] }[] = [
   { id: 'fr.b2.journalisme.037', fr: 'la ligne éditoriale', en: 'editorial line', drills: ['flashcard', 'voiceflash'] },
-  { id: 'fr.b2.journalisme.050', fr: "un article d'opinion", en: 'an opinion piece', drills: ['flashcard', 'voiceflash'] },
+  { id: 'fr.b2.journalisme.050', fr: "un article d’opinion", en: 'an opinion piece', drills: ['flashcard', 'voiceflash'] },
   { id: 'fr.b2.litterature.071', fr: 'la connotation', en: 'the connotation', drills: ['flashcard', 'review'] },
 ];
 
