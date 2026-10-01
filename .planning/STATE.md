@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: Phase 09 code and automated audit green; 09-06 remains open on external device and capture evidence
+status: executing
 stopped_at: Phase 10 UI-SPEC approved
-last_updated: "2026-10-01T15:14:46.345Z"
-last_activity: 2026-10-01
+last_updated: "2026-10-01T16:01:28.115Z"
+last_activity: 2026-10-01 -- Phase 10 planning complete
 progress:
   total_phases: 26
   completed_phases: 10
-  total_plans: 89
+  total_plans: 101
   completed_plans: 78
-  percent: 88
+  percent: 77
 ---
 
 # Project State
@@ -32,13 +32,13 @@ Plan: 6/7 plans executed; next is 09-06 device and accepted-capture proof
   englishMode()/migrateLessonEnglishMode() in english.logic.ts, the v6-to-v7 store
   migration, Type.tsx's on-demand reveal, MissionRich's group-drill reveal,
   LanguageChip/LanguagePanel in app/lesson.tsx, and answers-not-glosses.test.ts.
-Status: Phase 09 code and automated audit green; 09-06 remains open on external device and capture evidence
+Status: Ready to execute
 NOTE: The frontmatter `percent` above measures written plans, not milestone
   progress. Phase 09 now has 1 unexecuted plan. The figure of record is
   in ROADMAP.md's "How to read this table". Do not re-add
   percent_basis/percent_note here; the handler has deleted them twice.
 Prior phase: 22.1 (bundle-exam-content-in-the-seed-so-exams-load-at-first-launc) — ALL PLANS EXECUTED, still awaiting close-out verification
-Last activity: 2026-09-28
+Last activity: 2026-10-01 -- Phase 10 planning complete
 
 Progress: [█████████░] 89%
 

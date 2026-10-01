@@ -367,7 +367,30 @@ Plans:
   4. A "Report a problem" flow (categorised options + free text) is reachable from Settings at any time and from the failure surfaces chosen in discussion. It writes to a developer-only destination with a rate limit, carries no answer text, transcripts or email, and is never shown as the alternative to rating.
   5. Android device evidence covers the review request at the trigger moment, the cap holding on a repeat trigger, and one report reaching the destination end to end.
 **Pitfall Watch**: Do not reintroduce sentiment gating ("Enjoying Ealch?" → store / form). It is prohibited on Play and a rejection risk on iOS (audit S1). The `/feedback` route name means Le Rapport, not the bug report.
-**Plans**: TBD (re-specified 2026-10-01, see `phases/10-feedback-rating-flow/10-PRE-DISCUSSION-AUDIT.md`; run `/gsd-discuss-phase 10` fresh)
+**Plans**: 12 plans (re-specified 2026-10-01, see `phases/10-feedback-rating-flow/10-PRE-DISCUSSION-AUDIT.md`)
+
+Plans:
+**Wave 1** *(parallel, no shared files)*
+- [ ] 10-01-PLAN.md -- All Phase 10 FR+EN copy, the 13 activity names with an exhaustive test, and the flag glyph
+- [ ] 10-02-PLAN.md -- Pure review decision/cap logic, expo-store-review install, reviewPromptOn flag with an online probe, review_requested event
+- [ ] 10-03-PLAN.md -- problem_reports schema, counters and retention, report-problem edge function, delete-account guest cleanup
+- [ ] 10-04-PLAN.md -- TDD: report wire contract, payload allowlist and outbox model
+
+**Wave 2** *(blocked on Wave 1)*
+- [ ] 10-05-PLAN.md -- Le Rapport: /report rename, exam-review exclusion, labels, ring a11y, Profile row, component test
+- [ ] 10-07-PLAN.md -- Review request wiring: score plumbing, arm on a perfect quiz, fire from trail focus, no-UI wiring test
+- [ ] 10-09-PLAN.md -- [BLOCKING, approval] Apply the schema block live, deploy report-problem and delete-account, smoke-test
+
+**Wave 3** *(blocked on 10-01, 10-04, 10-05)*
+- [ ] 10-06-PLAN.md -- Report service with outbox, the formSheet, Settings report and Rate rows, sheet test
+
+**Wave 4** *(blocked on Wave 3)*
+- [ ] 10-08-PLAN.md -- STT and mic-failure report entry on every failure surface
+- [ ] 10-10-PLAN.md -- Crash fallback inline panel, exam not-graded action, lesson content flag
+
+**Wave 5-6** *(device checkpoints)*
+- [ ] 10-11-PLAN.md -- Binary + fingerprint check, Pixel 9 rows for the review request and Le Rapport
+- [ ] 10-12-PLAN.md -- Pixel 9 rows for every report entry point, offline delivery, deletion, verdict and pre-App-Store gate
 **UI hint**: yes
 
 ### Phase 11: Brix Mascot Rive Animation Rollout — Core States
