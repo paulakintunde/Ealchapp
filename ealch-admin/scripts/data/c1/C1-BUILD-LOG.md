@@ -241,6 +241,16 @@ reuses the B1/B2 factory whole; this file records only what is different.
   12 states, valid, checksum 292a8b45..., packs b2/c1/exam at v85, a2 v81 and
   b1 v79 reused. Publish waits for the fix to reach phones (OTA).
 
+- **OTA with the fix (Paul's OK, 2026-10-01).** Built from a clean worktree of
+  HEAD (`../ealch-ota`, excluding another session's uncommitted Phase 9 work).
+  The worktree resolved runtime 5a6ae77, not 514c4cb: the main checkout's
+  eas.json / .easignore carry mixed line endings and the fingerprint hashes raw
+  bytes; copying those two files byte for byte gave 514c4cb (the Pixel 9's
+  preview build cd5a3e0d, installed 02:56). `eas update --channel preview
+  --environment preview --platform android`: group db63a24b, update 01a0f810,
+  runtime 514c4cb; bundle carries all 9 EXPO_PUBLIC values, the Supabase ref and
+  trialBands. Pixel 9: launch 1 downloaded 01a0f810, launch 2 runs it.
+
 ## Wave plan
 
 As `C1-BUILD-PLAN.md`: wave 1 c1.20 c1.21 c1.01 c1.24 → GATE C1-1 → waves 2-3 →
