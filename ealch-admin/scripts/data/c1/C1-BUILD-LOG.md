@@ -151,6 +151,16 @@ reuses the B1/B2 factory whole; this file records only what is different.
   c1.24 3) ride in through the merge; the TEF pack labels its reportage
   « Section F », prep sources say G.
 
+- **Trial merge (`b1-trial-merge.ts --band c1`, nothing written):** +4 units,
+  +4 lessons, +625 items (113 identical), validateCorpus 0, both seed files
+  restored byte-identical. App suite 5729 / 5734: two art tests (until the art
+  lands), c1.01 « (e.g. lesson 3 in B2 » read as a lowercase citation after a
+  full stop (fixed: « such as lesson 3 in B2 »), and a1.03's printed -tion count
+  (52 → 53): c1.24 reuses `fr.b2.litterature.071` « la connotation », published
+  but Postgres-only, which the merge carries into the seed. At the real merge:
+  re-measure and re-render a1.03 (`pnpm content:gender`,
+  `merge-noun-gender-into-seed.ts`; a text edit, no version bump).
+
 ## Wave plan
 
 As `C1-BUILD-PLAN.md`: wave 1 c1.20 c1.21 c1.01 c1.24 → GATE C1-1 → waves 2-3 →
