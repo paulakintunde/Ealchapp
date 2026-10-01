@@ -66,6 +66,11 @@ Filled by the planner/executor per task. Requirement-level map (from 10-RESEARCH
 | FEEDBACK-03 | Content report wiring in lesson.tsx / LessonPager (10-14) | wiring | `node --test src/services/contentFlagWiring.test.ts` | ❌ W0 | ⬜ pending |
 | FEEDBACK-03 | Every STT failure surface renders ReportProblemLink (10-08) | wiring | `node --test src/services/reportEntryWiring.test.ts` | ❌ W0 | ⬜ pending |
 | FEEDBACK-03 | Concurrent admission: 6 parallel guest reports → 3×201 + 3×429, usage and g:all +3 (10-09) | live smoke | curl + execute_sql, recorded in 10-DEVICE-EVIDENCE.md | n/a | ⬜ pending |
+| FEEDBACK-03 | D-40 hybrid quiz key + D-41 card key: format, 0 collisions per lesson over the seed, reorder-stable, edit-sensitive (10-16) | unit | `node --test src/content/quizItemKey.test.ts` | ❌ W0 | ⬜ pending |
+| FEEDBACK-02 | Seed deferred while useProgress not hydrated / content not ready; seeded stays false (10-07) | component | `npx jest __tests__/reviewPrompt-phase10.test.tsx -t "seed not hydrated"` | ❌ W0 | ⬜ pending |
+| FEEDBACK-02 | Spend write failure → requestReview not called (D-39 addendum, 10-07) | component | `npx jest __tests__/reviewPrompt-phase10.test.tsx -t "spend write failure"` | ❌ W0 | ⬜ pending |
+| FEEDBACK-03 | Delete-account clears the outbox; no flush recreates a row; install_id sent (D-20, 10-06) | component | `npx jest __tests__/delete-account-outbox-phase10.test.tsx` | ❌ W0 | ⬜ pending |
+| FEEDBACK-03 | Strict ISO client_created_at: '2026-10-01' and 'Oct 1 2026' rejected by client and server (D-18, 10-04/10-03) | unit | `node --test src/services/problemReport.contract.test.ts supabase/functions/report-problem/limits.test.ts` | ❌ W0 | ⬜ pending |
 | All | No em dash, no "honest" in new copy | existing | `npm test` | ✅ | ⬜ pending |
 
 *Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky*
@@ -74,7 +79,7 @@ Filled by the planner/executor per task. Requirement-level map (from 10-RESEARCH
 
 ## Wave 0 Requirements
 
-- [ ] `npx expo install expo-store-review` (57.x line, matches SDK 57)
+- [ ] `expo-store-review` (57.x line) is installed by 10-07 (wave 2, D-33), not wave 1
 - [ ] `src/services/reviewPrompt.logic.test.ts`, `src/services/problemReport.logic.test.ts`, `supabase/functions/report-problem/limits.test.ts`
 - [ ] `__tests__/report-phase10.test.tsx`, `__tests__/report-problem-phase10.test.tsx` (reuse `__tests__/helpers`, `settings.test.tsx` render pattern)
 - [ ] Wiring tests: route rename, "no UI near review call"

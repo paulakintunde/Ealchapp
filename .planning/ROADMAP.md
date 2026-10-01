@@ -364,38 +364,39 @@ Plans:
   1. Le Rapport (`app/feedback.tsx`, the learner performance report, not a feedback form) shows a localised label for every `Activity` it can render, computes accuracy without the exam-miss skew, has a component test, and is proven on device with a populated and an empty log (defects R1-R6 in `10-PRE-DISCUSSION-AUDIT.md`).
   2. The store review request uses the native API (`expo-store-review`) with **no in-app question before or around it** (Google Play In-App Review guideline; Apple 5.6.1). It fires only after a discussed positive milestone, never in a session with an error or crash, and never from a button.
   3. Review requests are capped at 3 per rolling 365 days per install, counted as requests (neither platform reports whether the sheet appeared), persisted, and covered by a unit test. Any "Rate Ealch" Settings row opens the store listing URL, not the review API.
-  4. A "Report a problem" flow (categorised options + free text) is reachable from Settings at any time and from the failure surfaces chosen in discussion. It writes to a developer-only destination with a rate limit, carries no answer text, transcripts or email, and is never shown as the alternative to rating.
+  4. A "Report a problem" flow (categorised options + free text) is reachable from Settings at any time and from the failure surfaces chosen in discussion. It writes to a developer-only destination with a rate limit, carries no answer text or transcripts and no email in the client payload (an opt-in contact email is attached server-side from the verified token only), and is never shown as the alternative to rating.
   5. Android device evidence covers the review request at the trigger moment, the cap holding on a repeat trigger, and one report reaching the destination end to end.
 **Pitfall Watch**: Do not reintroduce sentiment gating ("Enjoying Ealch?" → store / form). It is prohibited on Play and a rejection risk on iOS (audit S1). The `/feedback` route name means Le Rapport, not the bug report.
-**Plans**: 15 plans (re-specified 2026-10-01, see `phases/10-feedback-rating-flow/10-PRE-DISCUSSION-AUDIT.md`; revised after quality review, D-34..D-39)
+**Plans**: 16 plans (re-specified 2026-10-01, see `phases/10-feedback-rating-flow/10-PRE-DISCUSSION-AUDIT.md`; revised after quality and fresh reviews, D-34..D-41)
 
 Plans:
 **Wave 1** *(parallel, no shared files)*
 - [ ] 10-01-PLAN.md -- All Phase 10 FR+EN copy inserted by script with the D-36 NBSP test, 13 activity names, flag and more glyphs
-- [ ] 10-02-PLAN.md -- Pure review decision (no report input), cap, first-perfect arming, seed; expo-store-review; fail-safe offline signal; review_requested
-- [ ] 10-04-PLAN.md -- TDD: report wire contract, strict validator, shared fixture, claim-then-send outbox model with the 429 next-UTC-day rule
-- [ ] 10-15-PLAN.md -- [checkpoint] Play internal-track prerequisites for the review-sheet proof (D-32)
+- [ ] 10-02-PLAN.md -- Pure review decision (no report input), cap, first-only arming, 30-min in-memory arm, seed merge; fail-safe offline signal; review_requested (no native install)
+- [ ] 10-04-PLAN.md -- TDD: report wire contract with strict ISO timestamps, shared fixture, claim-then-send outbox model with the 429 next-UTC-day rule
+- [ ] 10-15-PLAN.md -- [checkpoint] Play internal-track build of HEAD installed on the Pixel 9 so install age accrues (D-32)
+- [ ] 10-16-PLAN.md -- TDD: D-40 hybrid quiz item key and D-41 card key, corpus collision test
 
 **Wave 2**
-- [ ] 10-03-PLAN.md -- Schema with atomic accepted-only problem_report_submit, report-problem edge function (deno check), delete-account cleanup
-- [ ] 10-05-PLAN.md -- Le Rapport: /report rename, headlineAttempts shared with the Profile StatCard, labels, ring a11y, Profile row, tests
-- [ ] 10-07-PLAN.md -- Review wiring on one queue: score plumbing, first-perfect arming, trail-focus firing, behaviour and wiring tests
+- [ ] 10-03-PLAN.md -- Schema with atomic accepted-only problem_report_submit, report-problem edge function (deno check), delete-account server cleanup
+- [ ] 10-05-PLAN.md -- Le Rapport: /report rename, headlineAttempts (src/store/report.logic.ts) shared with the Profile StatCard, labels, ring a11y, Profile row
+- [ ] 10-07-PLAN.md -- Installs expo-store-review (STATE.md runtime notice); review wiring on one queue, hydration-safe seed, trail-focus firing, behaviour tests
 
 **Wave 3**
-- [ ] 10-06-PLAN.md -- Report service: claim-then-send on one queue, launch/foreground flush, behaviour tests
-- [ ] 10-09-PLAN.md -- [BLOCKING, approval] Live schema apply, deploys, smoke incl. signed-in contact_email and g:all unchanged by 429
+- [ ] 10-06-PLAN.md -- Report service: claim-then-send, launch/foreground flush, delete-account clears the outbox and sends install_id, behaviour tests
+- [ ] 10-09-PLAN.md -- [BLOCKING, approval] Live schema apply, deploys, smoke incl. signed-in contact_email, concurrency, exact-key cleanup
 
 **Wave 4**
-- [ ] 10-13-PLAN.md -- Button loading, report sheet with every S1 state, ReportProblemLink, Settings report row and Android Rate row
+- [ ] 10-13-PLAN.md -- Button loading, report sheet (whole-sheet keyboard avoidance, double-submit guard, save-failed), ReportProblemLink, Settings rows
 
 **Wave 5** *(parallel)*
 - [ ] 10-08-PLAN.md -- Audio report link on all 7 STT surfaces; WordPractice numberOfLines removed
-- [ ] 10-10-PLAN.md -- ErrorScreen restructure with the inline crash panel; exam not-graded/audio-failed actions
-- [ ] 10-14-PLAN.md -- Lesson header overflow menu (Help + Report) and quiz-question plumbing
+- [ ] 10-10-PLAN.md -- ErrorScreen restructure with inline crash panel and save-failed state, dev-crash trigger, exam not-graded/audio-failed → Grading
+- [ ] 10-14-PLAN.md -- Lesson header overflow menu (Help + Report) with D-40/D-41 item keys
 
 **Wave 6-7** *(device checkpoints)*
-- [ ] 10-11-PLAN.md -- Internal-track + dev-client builds; review rows and Le Rapport rows on the Pixel 9
-- [ ] 10-12-PLAN.md -- Report rows for every entry point, background states, font-scale/keyboard rows, verdict, pre-App-Store gate
+- [ ] 10-11-PLAN.md -- Upgrade the wave-1 Play install through the internal track; R-01 with no clock move; seeded gate rows; Le Rapport rows
+- [ ] 10-12-PLAN.md -- Report rows for every entry point with exact-key usage resets, background states, keyboard/font-scale rows, verdict, launch gates
 **UI hint**: yes
 
 ### Phase 11: Brix Mascot Rive Animation Rollout — Core States
