@@ -251,6 +251,17 @@ reuses the B1/B2 factory whole; this file records only what is different.
   runtime 514c4cb; bundle carries all 9 EXPO_PUBLIC values, the Supabase ref and
   trialBands. Pixel 9: launch 1 downloaded 01a0f810, launch 2 runs it.
 
+- **v85 PUBLISHED (Paul's OK, 2026-10-01). C1 wave 1 is live.** `pnpm
+  content:publish --packs`: every gate passed, pack replay 0 deadlocks in 12
+  states, checksum 292a8b45...; uploaded core v85 (9.79 MiB), b2/c1/exam packs
+  v85; a2 v81 and b1 v79 reused; legacy snapshot untouched (retired). Pixel 9
+  (preview build + OTA 01a0f810): the C1 tab shows c1.01's unit and the trail
+  through c1.24's last acts, locked « PREMIÈRE » (that device is not entitled
+  today). Next: wave 2 (see the wave plan), from these briefs unchanged (gate
+  C1-1 kept the voice). Leftovers: the temporary worktree `../ealch-ota`
+  (delete when convenient); the Pixel 6 now runs the dev build; the TEF pack
+  divergence (decision 15) and the open items below stay open.
+
 ## Wave plan
 
 As `C1-BUILD-PLAN.md`: wave 1 c1.20 c1.21 c1.01 c1.24 → GATE C1-1 → waves 2-3 →
@@ -465,10 +476,10 @@ each agent gets the common block plus its own lesson block.
 
 | Lesson | Slug | Missions | Acts | Quiz | Drills | Sheets | Items | Art | State |
 |---|---|---|---|---|---|---|---|---|---|
-| c1.20 | lire-entre-les-lignes (CE target) | 81 | 12 | 11×8 | 11 | 5 | 200 new / 17 reused | 12 in | imported + merged |
-| c1.21 | debats-entretiens (CO target) | 78 | 12 | 11×8 | 11 | 5 | 146 new / 21 reused | 12 in | imported + merged |
-| c1.01 | bilan-grammatical-c1 (diagnostic) | 78 | 12 | 12×8 | 12 | 5 | 100 new / 86 reused | 12 in | imported + merged |
-| c1.24 | analyse-presse | 78 | 12 | 11×8 | 11 | 5 | 156 new / 12 reused | 12 in | imported + merged |
+| c1.20 | lire-entre-les-lignes (CE target) | 81 | 12 | 11×8 | 11 | 5 | 200 new / 17 reused | 12 in | LIVE v85 |
+| c1.21 | debats-entretiens (CO target) | 78 | 12 | 11×8 | 11 | 5 | 146 new / 21 reused | 12 in | LIVE v85 |
+| c1.01 | bilan-grammatical-c1 (diagnostic) | 78 | 12 | 12×8 | 12 | 5 | 100 new / 86 reused | 12 in | LIVE v85 |
+| c1.24 | analyse-presse | 78 | 12 | 11×8 | 11 | 5 | 156 new / 12 reused | 12 in | LIVE v85 |
 
 ## Id ledger
 
