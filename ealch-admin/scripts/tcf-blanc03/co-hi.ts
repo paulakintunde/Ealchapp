@@ -16,6 +16,7 @@
 // any theme, and pick-items reports that fallback rather than hiding it.
 import type { ExamTask } from '../../../ealch-v2/src/content/schema.ts';
 import { FORMAT, VARIANT, FORMAT_VERSION, NOTES_CLOSED, taskId, uniq, ITEMS } from './common.ts';
+import { C1_CO_TARGETS } from '../exam-c1-targets.ts';
 
 const base = {
   format: FORMAT,
@@ -283,7 +284,7 @@ export const CO_C1: ExamTask = {
   label: 'Compréhension orale · C1',
   prompt: 'Vous allez entendre trois documents. Pour chaque document, choisissez la bonne réponse.',
   timingS: 475,
-  targetItemIds: uniq(ITEMS.decouvertes.c1, ITEMS.argotClassique.c1, ITEMS.methodeScientifique.c1),
+  targetItemIds: [...C1_CO_TARGETS],
   parts: [
     {
       label: 'Document 30 · ce qu’une découverte doit à son époque',

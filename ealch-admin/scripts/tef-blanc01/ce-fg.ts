@@ -3,6 +3,7 @@
 // KEY ORDER. Authored key-first for review; scatterKeys() places it.
 import type { ExamTask } from '../../../ealch-v2/src/content/schema.ts';
 import { FORMAT, FORMAT_VERSION, VARIANT, NOTES_CLOSED, taskId, ITEMS, uniq } from './common.ts';
+import { C1_CE_TARGETS } from '../exam-c1-targets.ts';
 
 const base = {
   format: FORMAT,
@@ -232,7 +233,7 @@ export const CE_G: ExamTask = {
   label: 'Section G',
   prompt: 'Lisez l’article et répondez aux questions.',
   timingS: 780,
-  targetItemIds: uniq(ITEMS.transports, ITEMS.bureau, ITEMS.collegues, ITEMS.laVille),
+  targetItemIds: [...C1_CE_TARGETS],
   parts: [
     {
       label: 'Article · le trajet n’est pas le problème',

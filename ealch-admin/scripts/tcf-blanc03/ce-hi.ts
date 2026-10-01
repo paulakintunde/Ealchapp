@@ -12,6 +12,7 @@
 // is disagreeing with.
 import type { ExamTask } from '../../../ealch-v2/src/content/schema.ts';
 import { FORMAT, VARIANT, FORMAT_VERSION, NOTES_CLOSED, taskId, uniq, ITEMS } from './common.ts';
+import { C1_CE_TARGETS } from '../exam-c1-targets.ts';
 
 const base = {
   format: FORMAT,
@@ -258,7 +259,7 @@ export const CE_C1: ExamTask = {
   label: 'Compréhension écrite · C1',
   prompt: 'Lisez les deux documents et choisissez la bonne réponse.',
   timingS: 720,
-  targetItemIds: uniq(ITEMS.methodeScientifique.c1),
+  targetItemIds: [...C1_CE_TARGETS],
   parts: [
     {
       label: 'Document 30 · les limites des indicateurs de croissance',

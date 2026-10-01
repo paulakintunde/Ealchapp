@@ -8,6 +8,7 @@
 // because the exam runner renders authored order and never shuffles.
 import type { ExamTask } from '../../../ealch-v2/src/content/schema.ts';
 import { FORMAT, FORMAT_VERSION, VARIANT, NOTES_CLOSED, taskId, ITEMS, uniq } from './common.ts';
+import { C1_CO_TARGETS } from '../exam-c1-targets.ts';
 
 const base = {
   format: FORMAT,
@@ -157,7 +158,7 @@ export const CO_F: ExamTask = {
   label: 'Section F',
   prompt: 'Vous allez entendre un reportage. Répondez à la question.',
   timingS: 190,
-  targetItemIds: uniq(ITEMS.immigration, ITEMS.communaute, ITEMS.maison),
+  targetItemIds: [...C1_CO_TARGETS],
   parts: [
     {
       label: 'Reportage · une commune qui retient ceux qui arrivent',
