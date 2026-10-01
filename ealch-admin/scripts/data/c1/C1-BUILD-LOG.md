@@ -574,6 +574,84 @@ scratchpad; the report comes back as text.
   is the learner trap; ledit is administrative, comic in talk. Include one quiz
   round in CE format (« à quoi renvoie… »).
 
+## Wave 3 author briefs (dispatched 2026-10-01)
+
+Wave 3 setup (Paul's OK, 2026-10-01, `scratch/_c1w3_themes.mts`):
+connecteurs-logiques widened a2-b2 → a2-c1; sub-themes « nuancer à l'oral »
+(nuances-et-registres), « reformuler et conclure » (connecteurs-logiques),
+« persuader » (rhetorique), « l'exposé et le jury » (discours-dexamen); blocks
+re-probed free at every level. **Decisions (Paul, 2026-10-01):** 17. c1.07's
+contested markers (du coup, au final, suite à, en termes de, voire même, par
+contre, au niveau de) are « recognise, don't write », b2.16's pattern, each with
+the Académie and OQLF verdicts quoted (they differ). 18. c1.08 uses original
+texts only (no historical oratory); Aristotle and Fontanier cited for concepts.
+19. c1.09's task is a spoken exposé (responseSpec audio, about 180-300 s, as
+b2.26) from a printed dossier, with a scenario rehearsing the jury's questions.
+All four are WORKSHOPS: the wave 1 common block applies as written (70-90
+missions, 11-12 acts, one anchor text per act, quiz 11-12 × 8, 4-5 sheets, a
+graded task), plus the wave 2 notes (scratch subfolder, report as text,
+« The subject is » line per prompt, unpadded tag).
+
+- **c1.06 « Nuancer à l'oral »** (slug `nuancer-oral`): `nuances-et-registres`
+  1000-1199, unit c1.06. Model `../b2/reunions-negociation-*`. Builds on « la
+  leçon 9 du B1 » (request ladder), « la leçon 8 du B1 », « les leçons 25 et 26
+  du B1 », « la leçon 20 du B2 », « la leçon 22 du B2 » acts 5-6, « la leçon 24
+  du B2 » act 5, « la leçon 26 du B2 » act 5 (Paul's refocus: politeness and
+  distance in SPEECH, past b2.20 and b2.22). Already taught (never re-teach):
+  il semblerait que, il se pourrait que, vraisemblablement, tout porte à croire,
+  si je peux me permettre, je ne saurais, prétendument, sauf erreur. NEW: me
+  semble-t-il, si je ne m'abuse, en quelque sorte, il y a fort à parier, il est
+  permis de penser, je vous saurais gré de, un tant soit peu, à proprement
+  parler, loin de moi l'idée de, sans vouloir + infinitif, avec tout le
+  respect…, être amené à, rien n'indique que; epistemic devoir; litote and
+  understatement IN SPEECH (c1.17 owns connotation, c1.19 litote as a figure);
+  the hedged criticism. Traps: hedge stacking (teach dosage); « sans vouloir te
+  vexer » often introduces the opposite; Québec vs France politeness tagged and
+  fact-checked; euphemisms kept generic. Task: a short spoken or written reply
+  per the model's task shape, graded on dosage and register.
+- **c1.07 « Reformuler et conclure »** (slug `reformuler-conclure`):
+  `connecteurs-logiques` 2600-2799, unit c1.07. Model `../b2/style-academique-*`.
+  Builds on « les leçons 30, 31 et 32 du B1 », « la leçon 15 du B2 » (cause,
+  conséquence, du coup's register ladder), « la leçon 16 du B2 » (concession,
+  malgré que contested), « la leçon 22 du B2 » acts 3-4 and 7, « la leçon 26 du
+  B2 » acts 4 and 10. NEW (Paul's refocus): reframing (plus exactement, ou
+  plutôt, j'entends par là, en l'occurrence, à vrai dire, pour mieux dire) and
+  closure (somme toute, tout bien considéré, en guise de conclusion, en tout état
+  de cause); also qui plus est, au demeurant, à cet égard, dès lors (temporal vs
+  causal), du reste, d'ailleurs, a fortiori, à plus forte raison, quitte à, sans
+  compter que, loin s'en faut. Decision 17 for the contested markers. Traps:
+  connector stacking; ownership with c1.05 (reprise, live in this band) and the
+  future c1.10 (transitions inside an essay plan: do not teach plan transitions).
+  Task: 250-400 words, a text reframed and closed with markers chosen by
+  register.
+- **c1.08 « Persuader »** (slug `persuader`): `rhetorique` 1000-1199, unit
+  c1.08. Model `../b2/argumentation-*`. Builds on « la leçon 23 du B2 » (thesis,
+  concession, rebuttal, plans, six fallacies), « la leçon 24 du B2 », « la leçon
+  26 du B2 » act 9 (objection ladder), « la leçon 16 du B2 ». NEW: ethos / logos
+  / pathos named; prétérition, anaphore, gradation as persuasive figures; analogy
+  as an argument; framing and loaded wording in argument (c1.24, live, owns press
+  framing: cite « la leçon 24 du C1 »); « on m'objectera que… »; authority vs
+  expertise; producing a rhetorical question. Decision 18: original texts only,
+  no living politician, no historical speech. Teach judge-first (is this move
+  fair?), never a manipulation manual. c1.19 will own literary effect. Reuse the
+  published rhetorique c1 rows (concession formulas, rhetorical questions) after
+  reading them. Task: 250-400 words, a persuasive piece that names its own
+  moves and answers one objection fairly.
+- **c1.09 « L'exposé et le jury »** (slug `expose-jury`): `discours-dexamen`
+  1200-1399, unit c1.09. Model `../b2/reunions-negociation-*` (its spoken task
+  shape). Builds on « la leçon 26 du B2 » (chairing, floor, reformulating,
+  disagreeing, closing), « la leçon 23 du B2 » (plans, problématique), « la
+  leçon 25 du B2 », « la leçon 22 du B2 »; « la leçon 21 du C1 » (live) owns
+  debate LISTENING. NEW: the exposé genre; synthesis aloud from documents; the
+  spoken problématique; the formal floor toward a jury (vous to the jury, tu to
+  the learner); buying time under questioning; conceding in public without
+  losing the thesis; closing a Q&A. Reuse the published discours-dexamen c1 rows
+  (openings, plan, examples, closings; read `.145` and `.017` first). Decision
+  19: task responseSpec audio about 180-300 s, an exposé from a short printed
+  invented dossier on a generic question, plus a scenario of scripted jury
+  turns. Describe DALF C1 PO only with verified numbers (France Éducation
+  international) or call it the app's own format. c1.23 will own meetings.
+
 ## Status
 
 | Lesson | Slug | Missions | Acts | Quiz | Drills | Sheets | Items | Art | State |
@@ -586,6 +664,10 @@ scratchpad; the report comes back as text.
 | c1.03 | concordance-litteraire (recognition) | 83 | 11 | 11×8 | 11 | 5 | 150 new / 16 reused | 11 in | pre-reviewed, art in |
 | c1.04 | relatives-complexes | 85 | 11 | 12×8 | 12 | 5 | 162 new / 19 reused | 11 in | pre-reviewed, art in |
 | c1.05 | ellipse-reprise | 87 | 12 | 12×8 | 12 | 5 | 182 new / 28 reused | 12 in | pre-reviewed, art in |
+| c1.06 | nuancer-oral | | | | | | | | dispatched |
+| c1.07 | reformuler-conclure | | | | | | | | dispatched |
+| c1.08 | persuader | | | | | | | | dispatched |
+| c1.09 | expose-jury | | | | | | | | dispatched |
 
 ## Id ledger
 
@@ -604,6 +686,10 @@ scratchpad; the report comes back as text.
 | `litterature` (sub-theme « la concordance littéraire ») | 1800-1999 | c1.03 concordance-litteraire | .1800-.1982 (150) |
 | `pronoms-essentiels` (widened a1-c1; sub-theme « les relatives complexes ») | 2000-2199 | c1.04 relatives-complexes | .2000-.2191 (162) |
 | `langue-soignee` (widened a2-c1; sub-theme « l'ellipse et la reprise ») | 2000-2199 | c1.05 ellipse-reprise | .2000-.2192 (182) |
+| `nuances-et-registres` (sub-theme « nuancer à l'oral ») | 1000-1199 | c1.06 nuancer-oral | |
+| `connecteurs-logiques` (widened a2-c1; sub-theme « reformuler et conclure ») | 2600-2799 | c1.07 reformuler-conclure | |
+| `rhetorique` (sub-theme « persuader ») | 1000-1199 | c1.08 persuader | |
+| `discours-dexamen` (sub-theme « l'exposé et le jury ») | 1200-1399 | c1.09 expose-jury | |
 
 Later waves: proposed homes for all 24 are in `C1-RESEARCH-PLAN.md`; probe again
 and claim at each wave's dispatch. **Rule:** a block must be unused at EVERY level
