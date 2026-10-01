@@ -202,6 +202,15 @@ reuses the B1/B2 factory whole; this file records only what is different.
   require, 12 alt, 0 duplicates. ART_PENDING cleared. Suites: admin 1027 pass /
   0 fail / 1 skipped, app 5735/5735.
 
+- **Gate C1-1 preview ON THE PIXEL 6 (2026-10-01).** The Pixel 6 held a release
+  build (installed 2026-09-30 21:45); with Paul's OK it was uninstalled and the
+  2026-09-30 debug APK installed. Temporary fixture `scratch/_gate-c1-1-preview.mts`
+  (4 lessons, 48 acts, 738 items: +113 reused rows from seed+packs, +23 from
+  Postgres with the decision 13 typography applied; 0 missing) written over
+  dev-preview-b1.json, NOT committed; Metro 8082 `--clear`. The C1 tab shows
+  « PREVIEW · C1 DRAFTS » and all four lessons; c1.20's openers render with art.
+  Afterwards: restore with `npx tsx scripts/data/b1/_preview-b1.ts`.
+
 ## Wave plan
 
 As `C1-BUILD-PLAN.md`: wave 1 c1.20 c1.21 c1.01 c1.24 → GATE C1-1 → waves 2-3 →
