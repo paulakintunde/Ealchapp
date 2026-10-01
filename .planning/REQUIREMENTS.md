@@ -73,8 +73,9 @@ Requirements for this milestone (full completion: content gaps + launch-readines
 
 ### Feedback
 
-- [ ] **FEEDBACK-01**: The existing performance-report screen ("Le Rapport," `app/feedback.tsx`) is verified/fixed if anything is broken
-- [ ] **FEEDBACK-02**: The app prompts users to rate their experience; a positive rating routes to the store review prompt (App Store/Play Store), a negative rating routes to an in-app "tell us more" flow (categorized problem options + free-text box) that reports to the developer instead of the public store (does not exist today)
+- [ ] **FEEDBACK-01**: The performance-report screen ("Le Rapport," `app/feedback.tsx`) labels every activity in the UI language, computes accuracy without the exam-miss skew, has a component test, and is device-proven (populated + empty log)
+- [ ] **FEEDBACK-02**: The app requests a native store review (no in-app pre-question, per Play In-App Review guidelines and Apple 5.6.1) only at a positive milestone, capped at 3 requests per rolling 365 days per install
+- [ ] **FEEDBACK-03**: A "Report a problem" flow (categorized options + free text) is always reachable from Settings and chosen failure surfaces, and reports privately to the developer; it is independent of the rating request (does not exist today)
 
 ### UI/UX Polish
 
@@ -144,6 +145,7 @@ Which phases cover which requirements. Updated during roadmap creation and revis
 | QA-02 | Phase 9 | Pending |
 | FEEDBACK-01 | Phase 10 | Pending |
 | FEEDBACK-02 | Phase 10 | Pending |
+| FEEDBACK-03 | Phase 10 | Pending |
 | ANIM-01 | Phase 11 (core states) + Phase 12 (delight states) | Pending |
 | NAV-01 | Phase 07.1 | In progress (1/11 plans, content prerequisite only) |
 | UX-01 | Phase 13 | Pending |
@@ -157,8 +159,8 @@ Which phases cover which requirements. Updated during roadmap creation and revis
 | CONTENT-02 | Phase 22.1 | Pending |
 
 **Coverage:**
-- v1 requirements: 33 total (29 original + TEST-04, added 2026-09-22 when Phase 18's discuss-phase surfaced that only 2 of 49 screens would ever get component-render coverage under the original 29-requirement scope — see `22-SCREEN-COVERAGE-AUDIT.md`; + BUG-04 and BUG-05, added 2026-09-22, surfaced by Phase 7's own device verification of BUG-02 — see `07-VALIDATION.md`/`07-05-SUMMARY.md`)
-- Mapped to phases: 33, now spanning 23 phases (up from 22 — Phase 23 appended for BUG-04/BUG-05)
+- v1 requirements: 34 total (29 original + TEST-04, added 2026-09-22 when Phase 18's discuss-phase surfaced that only 2 of 49 screens would ever get component-render coverage under the original 29-requirement scope — see `22-SCREEN-COVERAGE-AUDIT.md`; + BUG-04 and BUG-05, added 2026-09-22, surfaced by Phase 7's own device verification of BUG-02 — see `07-VALIDATION.md`/`07-05-SUMMARY.md`; + FEEDBACK-03, added 2026-10-01 when Phase 10's pre-discussion audit split report-a-problem out of the rating flow, see `10-PRE-DISCUSSION-AUDIT.md`)
+- Mapped to phases: 34, now spanning 23 phases (up from 22 — Phase 23 appended for BUG-04/BUG-05)
 - Unmapped: 0 ✓
 - Note: ANIM-01 and CONTENT-01 are the two ORIGINAL requirements mapped to more than one phase. During the 2026-09-19 roadmap revision, Phase 11 was split into Phase 11 (core states) and Phase 12 (delight states); the two phases jointly, not redundantly, deliver ANIM-01's full scope. CONTENT-01 closed as "audited, gaps found and scoped" against Phase 2 itself, and its two phase-worthy follow-up findings (GAP-06, GAP-07) were promoted to Phase 20 and Phase 21 rather than left untracked in GAPS.md. TEST-04 (added 2026-09-22) is a genuinely new requirement, not a follow-up of an existing one — it was never implicitly covered by TEST-01/02/03, which only ever committed to 2 of 49 screens. BUG-04 and BUG-05 (added 2026-09-22) are genuinely new requirements surfaced by Phase 7's own device-verification pass, not pre-existing gaps in BUG-01/02/03 — they were given their own phase (23) rather than folded into Phase 7, since Phase 7's plans and CONTEXT.md were already scoped and written against the original three bugs.
 
