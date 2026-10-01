@@ -1,5 +1,5 @@
 {
-  "version": 83,
+  "version": 84,
   "domains": [
     {
       "slug": "fondations",
@@ -8086,6 +8086,75 @@
       ]
     },
     {
+      "id": "b2.31",
+      "seq": 31,
+      "sub": "Les accents et le français régional",
+      "canDo": "Can understand speakers of French from Québec, Belgium, Switzerland, the south of France, West and Central Africa, the Antilles, La Réunion, Acadia and the Maghreb, recognise the main features of their accents and the everyday words of their regions, tell a French word from a Creole one, handle an unfamiliar accent with polite strategies without switching to English, and write about a misunderstanding with respect for every variety",
+      "level": "b2",
+      "title": "Accents and Regional French",
+      "lessonIds": [
+        "b2.31.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.25",
+        "b1.26",
+        "b1.38",
+        "b2.25"
+      ],
+      "outline": [
+        {
+          "lessonId": "b2.31.l1",
+          "title": "Les accents et le français régional",
+          "acts": [
+            {
+              "title": "Pardon, je n’ai pas bien saisi",
+              "cards": 15
+            },
+            {
+              "title": "Une langue, plusieurs centres",
+              "cards": 17
+            },
+            {
+              "title": "Le Québec à l’oreille",
+              "cards": 19
+            },
+            {
+              "title": "Le Québec, les mots",
+              "cards": 35
+            },
+            {
+              "title": "La Belgique et la Suisse",
+              "cards": 24
+            },
+            {
+              "title": "En France aussi, des accents",
+              "cards": 16
+            },
+            {
+              "title": "Le français en Afrique",
+              "cards": 25
+            },
+            {
+              "title": "Les langues en contact",
+              "cards": 21
+            },
+            {
+              "title": "Quand tu ne comprends pas",
+              "cards": 27
+            },
+            {
+              "title": "Respect et institutions",
+              "cards": 17
+            },
+            {
+              "title": "Ta lettre",
+              "cards": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "b2.13",
       "seq": 13,
       "sub": "Participe présent ou adjectif verbal",
@@ -8522,6 +8591,74 @@
             {
               "title": "Ton compte rendu",
               "cards": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2.32",
+      "seq": 32,
+      "sub": "Le verlan et l’argot d’aujourd’hui",
+      "canDo": "Can recognise verlan, clipped and resuffixed words, borrowings, intensifiers and texting abbreviations in speech and messages, place each on the register ladder, say who can use it with whom and when it would embarrass or offend, and rewrite a slang-filled exchange as a neutral email",
+      "level": "b2",
+      "title": "Verlan and Modern Slang",
+      "lessonIds": [
+        "b2.32.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.25",
+        "b1.26",
+        "b1.39"
+      ],
+      "outline": [
+        {
+          "lessonId": "b2.32.l1",
+          "title": "Le verlan et l’argot d’aujourd’hui",
+          "acts": [
+            {
+              "title": "L’échelle",
+              "cards": 24
+            },
+            {
+              "title": "Le verlan",
+              "cards": 27
+            },
+            {
+              "title": "Les verlans qui sont restés",
+              "cards": 18
+            },
+            {
+              "title": "Couper les mots",
+              "cards": 27
+            },
+            {
+              "title": "Changer la fin",
+              "cards": 20
+            },
+            {
+              "title": "Les mots venus d’ailleurs",
+              "cards": 23
+            },
+            {
+              "title": "Les intensifs et les tics",
+              "cards": 22
+            },
+            {
+              "title": "Ce qui date, ce qui dure",
+              "cards": 17
+            },
+            {
+              "title": "Les textos",
+              "cards": 12
+            },
+            {
+              "title": "Traduire vers le neutre",
+              "cards": 21
+            },
+            {
+              "title": "À toi d’écrire",
+              "cards": 9
             }
           ]
         }
@@ -9036,143 +9173,6 @@
             {
               "title": "Ton commentaire",
               "cards": 11
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "b2.31",
-      "seq": 31,
-      "sub": "Les accents et le français régional",
-      "canDo": "Can understand speakers of French from Québec, Belgium, Switzerland, the south of France, West and Central Africa, the Antilles, La Réunion, Acadia and the Maghreb, recognise the main features of their accents and the everyday words of their regions, tell a French word from a Creole one, handle an unfamiliar accent with polite strategies without switching to English, and write about a misunderstanding with respect for every variety",
-      "level": "b2",
-      "title": "Accents and Regional French",
-      "lessonIds": [
-        "b2.31.l1"
-      ],
-      "prereqUnitIds": [
-        "b1.25",
-        "b1.26",
-        "b1.38",
-        "b2.25"
-      ],
-      "outline": [
-        {
-          "lessonId": "b2.31.l1",
-          "title": "Les accents et le français régional",
-          "acts": [
-            {
-              "title": "Pardon, je n’ai pas bien saisi",
-              "cards": 15
-            },
-            {
-              "title": "Une langue, plusieurs centres",
-              "cards": 17
-            },
-            {
-              "title": "Le Québec à l’oreille",
-              "cards": 19
-            },
-            {
-              "title": "Le Québec, les mots",
-              "cards": 35
-            },
-            {
-              "title": "La Belgique et la Suisse",
-              "cards": 24
-            },
-            {
-              "title": "En France aussi, des accents",
-              "cards": 16
-            },
-            {
-              "title": "Le français en Afrique",
-              "cards": 25
-            },
-            {
-              "title": "Les langues en contact",
-              "cards": 21
-            },
-            {
-              "title": "Quand tu ne comprends pas",
-              "cards": 27
-            },
-            {
-              "title": "Respect et institutions",
-              "cards": 17
-            },
-            {
-              "title": "Ta lettre",
-              "cards": 10
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "b2.32",
-      "seq": 32,
-      "sub": "Le verlan et l’argot d’aujourd’hui",
-      "canDo": "Can recognise verlan, clipped and resuffixed words, borrowings, intensifiers and texting abbreviations in speech and messages, place each on the register ladder, say who can use it with whom and when it would embarrass or offend, and rewrite a slang-filled exchange as a neutral email",
-      "level": "b2",
-      "title": "Verlan and Modern Slang",
-      "lessonIds": [
-        "b2.32.l1"
-      ],
-      "prereqUnitIds": [
-        "b1.25",
-        "b1.26",
-        "b1.39"
-      ],
-      "outline": [
-        {
-          "lessonId": "b2.32.l1",
-          "title": "Le verlan et l’argot d’aujourd’hui",
-          "acts": [
-            {
-              "title": "L’échelle",
-              "cards": 24
-            },
-            {
-              "title": "Le verlan",
-              "cards": 27
-            },
-            {
-              "title": "Les verlans qui sont restés",
-              "cards": 18
-            },
-            {
-              "title": "Couper les mots",
-              "cards": 27
-            },
-            {
-              "title": "Changer la fin",
-              "cards": 20
-            },
-            {
-              "title": "Les mots venus d’ailleurs",
-              "cards": 23
-            },
-            {
-              "title": "Les intensifs et les tics",
-              "cards": 22
-            },
-            {
-              "title": "Ce qui date, ce qui dure",
-              "cards": 17
-            },
-            {
-              "title": "Les textos",
-              "cards": 12
-            },
-            {
-              "title": "Traduire vers le neutre",
-              "cards": 21
-            },
-            {
-              "title": "À toi d’écrire",
-              "cards": 9
             }
           ]
         }

@@ -169,6 +169,22 @@ They never ask the learner to produce the form.
 
 ## Progress
 
+**B2 COMPLETE: v84 PUBLISHED, 2026-09-30.** All 34 B2 lessons are live (waves 7 + 8, b2.27 to
+b2.34). Gate B2-4 passed (Paul, Pixel 6, temporary preview holding B2 1-34). Before publishing, b2.30's
+Hugo quote lost its « / » (device TTS reads a slash aloud): a line break marks the verse; reapplied as a
+text edit. Checksum 4955ae37... matches the final dry run. Uploaded core/v84 and content-packs/b2/v84 (34
+lessons, 15.22 MiB) and manifest-v2; manifest.json stays on v82 (snapshot kept, retention pruned v74).
+Pack replay onto v84: 12 upgrades, 0 deadlocks. App 5724/5724.
+
+**Open follow-ups after B2:**
+- b2.28 row .1118 « Au Québec, le 811 permet… »: Paul heard the sentence with « 811 » not spoken (the app
+  passes the corpus `fr` unchanged to `tts.speak`, MissionRich.tsx:570). Find which voice drops it (device
+  fr-FR TTS or the ElevenLabs provider) and give it a speakable form (« huit-un-un »). Same check for
+  « 911 », « 144 », « 112 », « 15 » in that lesson and the digit rows of b2.29 (.1094, .1108).
+- b2.27's invented Montréal phone contract (« suspendu sans préavis ») may clash with the CRTC Wireless
+  Code: drop « à Montréal » if Paul prefers.
+- Speech scoring of digit rows in voiceflash (b2.29 « 384 000 », « 3,5 % »).
+
 **WAVES 7 + 8 IMPORTED AND MERGED, 2026-09-30; v84 dry run ready, NOT published.** `--apply`: 1514
 rows + 16 unit/lesson rows, read back identical. Merged into the packs layer (8 skeletons in the core),
 seed cut lists b2.27-34. App 5724/5724, admin 1009/1010 (0 fail). `--packs --dry-run`: v84, checksum
@@ -544,14 +560,14 @@ its `EXPO_PUBLIC_` values from the EAS environment, so grep the `.hbc` before an
 | b2.19 | restriction | 87 | 12 | 12x8 | 12 | 5 | 12 | 189 | 12 images, registered + alt | DONE, v83 |
 | b2.20 | tournures-impersonnelles | 88 | 12 | 12x8 | 12 | 5 | 13 | 191 | 12 images, registered + alt | DONE, v83 |
 | b2.21 | negations-combinees | 87 | 11 | 11x8 | 11 | 5 | 15 | 181 | 11 images, registered + alt | DONE, v83 |
-| b2.27 | langage-juridique (vocab/workshop) | 87 | 12 | 12x8 | 12 | 5 | 13 | 193 | 12 images, registered + alt | MERGED, v84 dry run |
-| b2.28 | francais-soins (vocab/workshop) | 88 | 12 | 12x8 | 12 | 5 | | 194 | 12 images, registered + alt | MERGED, v84 dry run |
-| b2.29 | science-pour-tous (vocab/workshop) | 87 | 12 | 12x8 | 12 | 5 | 14 | 191 | 12 images, registered + alt | MERGED, v84 dry run |
-| b2.30 | lire-litterature (workshop) | 88 | 12 | 12x8 | 12 | 5 | 13 | 177 | 12 images, registered + alt | MERGED, v84 dry run |
-| b2.31 | francais-regional (workshop, CO) | 81 | 11 | 11x8 | 11 | 5 | 11 | 193 | 11 images, registered + alt | MERGED, v84 dry run |
-| b2.32 | verlan-argot (vocab) | 81 | 11 | 11x8 | 11 | 4 | 12 | 200 | 11 images, registered + alt | MERGED, v84 dry run |
-| b2.33 | traduire-sans-calquer (workshop) | 89 | 12 | 12x8 | 12 | 5 | | 200 | 12 images, registered + alt | MERGED, v84 dry run |
-| b2.34 | proverbes (vocab) | 88 | 12 | 12x8 | 12 | 5 | 25 | 166 | 12 images, registered + alt | MERGED, v84 dry run |
+| b2.27 | langage-juridique (vocab/workshop) | 87 | 12 | 12x8 | 12 | 5 | 13 | 193 | 12 images, registered + alt | DONE, v84 |
+| b2.28 | francais-soins (vocab/workshop) | 88 | 12 | 12x8 | 12 | 5 | | 194 | 12 images, registered + alt | DONE, v84 |
+| b2.29 | science-pour-tous (vocab/workshop) | 87 | 12 | 12x8 | 12 | 5 | 14 | 191 | 12 images, registered + alt | DONE, v84 |
+| b2.30 | lire-litterature (workshop) | 88 | 12 | 12x8 | 12 | 5 | 13 | 177 | 12 images, registered + alt | DONE, v84 |
+| b2.31 | francais-regional (workshop, CO) | 81 | 11 | 11x8 | 11 | 5 | 11 | 193 | 11 images, registered + alt | DONE, v84 |
+| b2.32 | verlan-argot (vocab) | 81 | 11 | 11x8 | 11 | 4 | 12 | 200 | 11 images, registered + alt | DONE, v84 |
+| b2.33 | traduire-sans-calquer (workshop) | 89 | 12 | 12x8 | 12 | 5 | | 200 | 12 images, registered + alt | DONE, v84 |
+| b2.34 | proverbes (vocab) | 88 | 12 | 12x8 | 12 | 5 | 25 | 166 | 12 images, registered + alt | DONE, v84 |
 
 Rows b2.01 to b2.08: Items is the source-authored count from the 2026-09-29
 trial merge (the published rows each lesson reuses are not counted); Links

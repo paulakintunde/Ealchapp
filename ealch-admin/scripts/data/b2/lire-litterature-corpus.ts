@@ -935,8 +935,9 @@ export const Q_NELLIGAN_2: Quote = {
   source: 'Émile Nelligan, « Le Vaisseau d’or »',
 };
 export const Q_HUGO: Quote = {
-  fr: 'Demain, dès l’aube, à l’heure où blanchit la campagne, / Je partirai.',
-  en: 'Tomorrow, at dawn, at the hour when the countryside whitens, / I will set out.',
+  // A line break, not « / », marks the verse: device TTS reads a slash aloud.
+  fr: 'Demain, dès l’aube, à l’heure où blanchit la campagne,\nJe partirai.',
+  en: 'Tomorrow, at dawn, at the hour when the countryside whitens,\nI will set out.',
   source: 'Victor Hugo, Les Contemplations, 1856',
 };
 export const Q_BAUDELAIRE: Quote = {
