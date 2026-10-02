@@ -634,6 +634,20 @@ missions, 11-12 acts, one anchor text per act, quiz 11-12 × 8, 4-5 sheets, a
 graded task), plus the wave 2 notes (scratch subfolder, report as text,
 « The subject is » line per prompt, unpadded tag).
 
+20. (2026-10-02, Paul) The two published legacy rows are fixed in the waves 2-3
+import: `scripts/c1-legacy-fixes.ts` (dry by default, `--apply`, guarded on the
+reviewed text). .160 « se fasse » becomes « se fera »; .1590 « le moment auquel »
+becomes « le moment où » (the B1 où/dont lesson's rule), IPA and respell follow.
+Neither row has recorded audio.
+21. (2026-10-02, Paul) c1.07 keeps its 7 recognition-marker rows at level « sons ».
+22. (2026-10-02, Paul) Task lengths stay as authored: c1.05 250-320 words, c1.06
+120-240 s (lesson tasks shorter than the workshop and exam tasks, as in B2).
+
+- **Wave 3 art registered** (36dc575): 48 openers, files = require = alt, ART_PENDING
+  empty, house tests 342/342, app suite 5748/5748. Gate C1-2 preview on the Pixel 6
+  (dev build): 12 lessons, 142 acts, 2195 items, 245 reused rows from seed+packs and
+  68 from Postgres, 0 missing.
+
 - **c1.06 « Nuancer à l'oral »** (slug `nuancer-oral`): `nuances-et-registres`
   1000-1199, unit c1.06. Model `../b2/reunions-negociation-*`. Builds on « la
   leçon 9 du B1 » (request ladder), « la leçon 8 du B1 », « les leçons 25 et 26
