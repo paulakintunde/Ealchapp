@@ -334,6 +334,17 @@ a fort à parier »), `fr.b1.pronoms-essentiels.1590` (« le moment auquel »).
   house tests 342/342, import dry run 1280 / 0 conflicts / 0 blockers. No act
   or version change; image prompts untouched.
 
+- **Waves 2-3 trial merge (2026-10-01, nothing written).** +8 units, +8
+  lessons, +1348 items, validateCorpus 0, both seed files restored
+  byte-identical. It caught one real defect: c1.04's three explicative rows
+  (.2116, .2118, .2127) differed from their determinative twins only by commas,
+  which the theme duplicate test (the flashhub's view) counts as one card. They
+  now read « Nos candidats / locataires / employés, qui… », which keeps the
+  comma contrast without hinting « tous ». After: app suite 5743 / 5748, the 5
+  left being a1.03's printed figures (re-measure at the merge) and the art tests
+  (wave 3 art pending). `c1-legacy-typography.ts` now computes every
+  Postgres-only reused row (dry run: 91 rows, 35 would change).
+
 ## Wave plan
 
 As `C1-BUILD-PLAN.md`: wave 1 c1.20 c1.21 c1.01 c1.24 → GATE C1-1 → waves 2-3 →

@@ -23206,8 +23206,8 @@
             },
             {
               "from": "user",
-              "fr": "Les candidats, qui ont échoué, pourront repasser l’épreuve en juin.",
-              "en": "The candidates, who all failed, may resit the exam in June."
+              "fr": "Nos candidats, qui ont échoué, pourront repasser l’épreuve en juin.",
+              "en": "Our candidates, who all failed, may resit the exam in June."
             },
             {
               "from": "coach",
@@ -23274,8 +23274,8 @@
             {
               "head": "Combien sont concernés",
               "label": "avec un pluriel",
-              "fr": "Les locataires qui ont un chien paient un supplément. · Les locataires, qui ont un chien, paient un supplément.",
-              "sub": "[lay lo-ka-TEHR | kee ohⁿ-tuhⁿ SHYEHⁿ | peh uhⁿ sü-play-MAHⁿ] · [lay lo-ka-TEHR | kee ohⁿ-tuhⁿ SHYEHⁿ | peh uhⁿ sü-play-MAHⁿ]",
+              "fr": "Les locataires qui ont un chien paient un supplément. · Nos locataires, qui ont un chien, paient un supplément.",
+              "sub": "[lay lo-ka-TEHR | kee ohⁿ-tuhⁿ SHYEHⁿ | peh uhⁿ sü-play-MAHⁿ] · [noh lo-ka-TEHR | kee ohⁿ-tuhⁿ SHYEHⁿ | peh uhⁿ sü-play-MAHⁿ]",
               "body": "La leçon 11 du B1 t’a donné la règle des virgules. Au C1, mesure l’effet : sans virgules, certains locataires ; avec, tous. EN: no commas, some tenants; commas, all of them."
             },
             {
@@ -23351,21 +23351,21 @@
               "label": "Tous, avec un commentaire",
               "items": [
                 {
-                  "fr": "Les candidats, qui ont échoué, pourront repasser l’épreuve en juin.",
+                  "fr": "Nos candidats, qui ont échoué, pourront repasser l’épreuve en juin.",
                   "itemId": "fr.c1.pronoms-essentiels.2116",
-                  "en": "The candidates, who all failed, may resit the exam in June.",
+                  "en": "Our candidates, who all failed, may resit the exam in June.",
                   "note": "tous ont échoué"
                 },
                 {
-                  "fr": "Les locataires, qui ont un chien, paient un supplément.",
+                  "fr": "Nos locataires, qui ont un chien, paient un supplément.",
                   "itemId": "fr.c1.pronoms-essentiels.2118",
-                  "en": "The tenants, who all have a dog, pay a supplement.",
+                  "en": "Our tenants, who all have a dog, pay a supplement.",
                   "note": "tous ont un chien"
                 },
                 {
-                  "fr": "Les employés, qui avaient été prévenus, ne sont pas venus.",
+                  "fr": "Nos employés, qui avaient été prévenus, ne sont pas venus.",
                   "itemId": "fr.c1.pronoms-essentiels.2127",
-                  "en": "The employees, who had all been warned, did not come.",
+                  "en": "Our employees, who had all been warned, did not come.",
                   "note": "tous avaient été prévenus"
                 },
                 {
@@ -23376,7 +23376,7 @@
                 }
               ],
               "check": {
-                "q": "« Les employés, qui avaient été prévenus, ne sont pas venus. » Combien d’employés avaient été prévenus ?",
+                "q": "« Nos employés, qui avaient été prévenus, ne sont pas venus. » Combien d’employés avaient été prévenus ?",
                 "opts": [
                   "tous",
                   "seulement certains"
@@ -23452,20 +23452,20 @@
               "en": "The candidates who failed may resit the exam in June."
             },
             {
-              "fr": "Les candidats, qui ont échoué, pourront repasser l’épreuve en juin.",
-              "en": "The candidates, who all failed, may resit the exam in June."
+              "fr": "Nos candidats, qui ont échoué, pourront repasser l’épreuve en juin.",
+              "en": "Our candidates, who all failed, may resit the exam in June."
             },
             {
               "fr": "Les locataires qui ont un chien paient un supplément.",
               "en": "Tenants who have a dog pay a supplement."
             },
             {
-              "fr": "Les locataires, qui ont un chien, paient un supplément.",
-              "en": "The tenants, who all have a dog, pay a supplement."
+              "fr": "Nos locataires, qui ont un chien, paient un supplément.",
+              "en": "Our tenants, who all have a dog, pay a supplement."
             },
             {
-              "fr": "Les employés, qui avaient été prévenus, ne sont pas venus.",
-              "en": "The employees, who had all been warned, did not come."
+              "fr": "Nos employés, qui avaient été prévenus, ne sont pas venus.",
+              "en": "Our employees, who had all been warned, did not come."
             },
             {
               "fr": "Les employés qui avaient été prévenus ne sont pas venus.",
@@ -23564,13 +23564,13 @@
             {
               "promptLabel": "tous ont un chien",
               "promptSound": "Les locataires qui ont un chien paient un supplément.",
-              "fr": "Les locataires, qui ont un chien, paient un supplément.",
-              "ipa": "/le lɔ.ka.tɛʁ ki ɔ̃.tœ̃ ʃjɛ̃ pɛ œ̃ sy.ple.mɑ̃/",
+              "fr": "Nos locataires, qui ont un chien, paient un supplément.",
+              "ipa": "/no lɔ.ka.tɛʁ ki ɔ̃.tœ̃ ʃjɛ̃ pɛ œ̃ sy.ple.mɑ̃/",
               "tip": "Tous : des virgules. EN: commas."
             },
             {
               "promptLabel": "seulement certains employés",
-              "promptSound": "Les employés, qui avaient été prévenus, ne sont pas venus.",
+              "promptSound": "Nos employés, qui avaient été prévenus, ne sont pas venus.",
               "fr": "Les employés qui avaient été prévenus ne sont pas venus.",
               "ipa": "/le.zɑ̃.plwa.je ki a.vɛ.te.te pʁe.və.ny nə sɔ̃ pa və.ny/",
               "tip": "Certains seulement : pas de virgules. EN: no commas."
@@ -25969,7 +25969,7 @@
             {
               "k": "les virgules",
               "v": "tous, ou certains",
-              "say": "Les candidats, qui ont échoué, pourront repasser l’épreuve en juin.",
+              "say": "Nos candidats, qui ont échoué, pourront repasser l’épreuve en juin.",
               "detail": {
                 "title": "Explicative ou déterminative",
                 "body": "Avec virgules : tous, et souvent une raison. Sans : un tri. EN: all, or some.",
@@ -26756,7 +26756,7 @@
                 {
                   "format": "listenChoose",
                   "q": "Écoute bien les pauses. Tous les locataires ont-ils un chien ?",
-                  "say": "Les locataires, qui ont un chien, paient un supplément.",
+                  "say": "Nos locataires, qui ont un chien, paient un supplément.",
                   "opts": [
                     "oui, tous",
                     "non, seulement certains"
@@ -27347,7 +27347,7 @@
             {
               "front": "avec ou sans virgules",
               "back": "tous, ou seulement certains",
-              "say": "Les candidats, qui ont échoué, pourront repasser l’épreuve en juin."
+              "say": "Nos candidats, qui ont échoué, pourront repasser l’épreuve en juin."
             },
             {
               "front": "une opinion dans la relative",
@@ -84164,10 +84164,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "pronoms-essentiels",
-      "fr": "Les candidats, qui ont échoué, pourront repasser l’épreuve en juin.",
-      "en": "The candidates, who all failed, may resit the exam in June.",
-      "ipa": "/le kɑ̃.di.da ki ɔ̃.te.ʃu.e pu.ʁɔ̃ ʁə.pa.se le.pʁœv ɑ̃ ʒɥɛ̃/",
-      "respell": "lay kahⁿ-dee-DA | kee ohⁿ-tay-shoo-AY | poo-rohⁿ ruh-pa-SAY lay-PRUHV | ahⁿ ZHWEHⁿ",
+      "fr": "Nos candidats, qui ont échoué, pourront repasser l’épreuve en juin.",
+      "en": "Our candidates, who all failed, may resit the exam in June.",
+      "ipa": "/no kɑ̃.di.da ki ɔ̃.te.ʃu.e pu.ʁɔ̃ ʁə.pa.se le.pʁœv ɑ̃ ʒɥɛ̃/",
+      "respell": "noh kahⁿ-dee-DA | kee ohⁿ-tay-shoo-AY | poo-rohⁿ ruh-pa-SAY lay-PRUHV | ahⁿ ZHWEHⁿ",
       "tags": [
         "explicative",
         "pluriel"
@@ -84212,10 +84212,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "pronoms-essentiels",
-      "fr": "Les locataires, qui ont un chien, paient un supplément.",
-      "en": "The tenants, who all have a dog, pay a supplement.",
-      "ipa": "/le lɔ.ka.tɛʁ ki ɔ̃.tœ̃ ʃjɛ̃ pɛ œ̃ sy.ple.mɑ̃/",
-      "respell": "lay lo-ka-TEHR | kee ohⁿ-tuhⁿ SHYEHⁿ | peh uhⁿ sü-play-MAHⁿ",
+      "fr": "Nos locataires, qui ont un chien, paient un supplément.",
+      "en": "Our tenants, who all have a dog, pay a supplement.",
+      "ipa": "/no lɔ.ka.tɛʁ ki ɔ̃.tœ̃ ʃjɛ̃ pɛ œ̃ sy.ple.mɑ̃/",
+      "respell": "noh lo-ka-TEHR | kee ohⁿ-tuhⁿ SHYEHⁿ | peh uhⁿ sü-play-MAHⁿ",
       "tags": [
         "explicative",
         "pluriel"
@@ -84435,10 +84435,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "pronoms-essentiels",
-      "fr": "Les employés, qui avaient été prévenus, ne sont pas venus.",
-      "en": "The employees, who had all been warned, did not come.",
-      "ipa": "/le.zɑ̃.plwa.je ki a.vɛ.te.te pʁe.və.ny nə sɔ̃ pa və.ny/",
-      "respell": "lay-zahⁿ-plwa-YAY | kee a-veh-tay-tay pray-vuh-NÜ | nuh sohⁿ pa vuh-NÜ",
+      "fr": "Nos employés, qui avaient été prévenus, ne sont pas venus.",
+      "en": "Our employees, who had all been warned, did not come.",
+      "ipa": "/no.zɑ̃.plwa.je ki a.vɛ.te.te pʁe.və.ny nə sɔ̃ pa və.ny/",
+      "respell": "noh-zahⁿ-plwa-YAY | kee a-veh-tay-tay pray-vuh-NÜ | nuh sohⁿ pa vuh-NÜ",
       "tags": [
         "explicative",
         "cause"

@@ -1309,7 +1309,7 @@ const A7_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(2118), 'tous ont un chien'),
       it(E(2127), 'tous avaient été prévenus'),
       it(E(2129), 'tous ont été surpris'),
-    ], chk('« Les employés, qui avaient été prévenus, ne sont pas venus. » Combien d’employés avaient été prévenus ?',
+    ], chk('« Nos employés, qui avaient été prévenus, ne sont pas venus. » Combien d’employés avaient été prévenus ?',
       ['tous', 'seulement certains'], 0,
       'Entre virgules : tout le groupe. EN: all of them.')),
     grp('Une raison ou une concession', [
@@ -1351,7 +1351,7 @@ const A7_PIEGE: Sec<'trapDrill'> = {
   cards: [
     { promptLabel: 'seulement ceux qui ont échoué', promptSound: 'Les candidats, qui ont échoué, pourront repasser l’épreuve en juin.', fr: fr(E(2115)), ipa: ipaOf(E(2115)), tip: 'Certains seulement : pas de virgules. EN: no commas.' },
     { promptLabel: 'tous ont un chien', promptSound: 'Les locataires qui ont un chien paient un supplément.', fr: fr(E(2118)), ipa: ipaOf(E(2118)), tip: 'Tous : des virgules. EN: commas.' },
-    { promptLabel: 'seulement certains employés', promptSound: 'Les employés, qui avaient été prévenus, ne sont pas venus.', fr: fr(E(2128)), ipa: ipaOf(E(2128)), tip: 'Certains seulement : pas de virgules. EN: no commas.' },
+    { promptLabel: 'seulement certains employés', promptSound: 'Nos employés, qui avaient été prévenus, ne sont pas venus.', fr: fr(E(2128)), ipa: ipaOf(E(2128)), tip: 'Certains seulement : pas de virgules. EN: no commas.' },
     { promptLabel: 'tous les touristes', promptSound: 'Les touristes que la pluie avait surpris se sont réfugiés au musée.', fr: fr(E(2129)), ipa: ipaOf(E(2129)), tip: 'Tous ont été surpris : des virgules. EN: commas.' },
     { promptLabel: 'la ville d’aujourd’hui', promptSound: 'Le Montréal, où j’ai grandi, a beaucoup changé.', fr: fr(E(2122)), ipa: ipaOf(E(2122)), tip: 'Une seule ville : pas d’article, des virgules. EN: no article.' },
     { promptLabel: 'ton seul frère', promptSound: 'Mon frère qui ne boit jamais a pris le volant au retour.', fr: fr(E(2119)), ipa: ipaOf(E(2119)), tip: 'Sans virgules, tu aurais plusieurs frères. EN: commas for an only brother.' },
