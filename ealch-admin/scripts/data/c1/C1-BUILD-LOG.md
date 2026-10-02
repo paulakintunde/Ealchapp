@@ -651,7 +651,7 @@ Neither row has recorded audio.
   Postgres: typography 35 rows, .160/.1590 fixed, 1280 rows + 16 unit/lesson rows
   (c46ec45). Merge additive. Publish v86: dry run 0 pack-replay deadlocks; c1 pack
   4.51 MiB, exam pack kept at v85; a1.03 figures match after publish; app 5748/5748,
-  admin 1060 + 1 skipped. Still to do: C1 tab check on the Pixel 9; delete ../ealch-ota.
+  admin 1060 + 1 skipped. Pixel 9 (preview build cd5a3e0d reinstalled over a dev build another session had installed): all 12 C1 unit headings on the C1 tab, locked Première for a guest. ../ealch-ota worktree removed.
 
 - **c1.06 « Nuancer à l'oral »** (slug `nuancer-oral`): `nuances-et-registres`
   1000-1199, unit c1.06. Model `../b2/reunions-negociation-*`. Builds on « la
