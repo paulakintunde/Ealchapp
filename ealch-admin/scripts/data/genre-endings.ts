@@ -554,7 +554,8 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
         // 1044 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71.
         // 1045 since 2026-09-27: the B1 band (b1.05 to b1.37) CARRIES published rows into the seed: le tutoiement and le vouvoiement (b1.26), la consigne and la biodiversité (b1.33); zero B1-authored rows join this population.
         // 1043 since 2026-10-01: four orphan rows in `sons.jours-et-mois`, referenced by no lesson, were removed from the seed by their owning merges.
-    items: 1043,
+        // 1044 since 2026-10-02: four orphan rows in `sons.jours-et-mois`, referenced by no lesson, were removed from the seed by their owning merges.
+    items: 1044,
     bothWays: [
       { id: 'fr.a1.ecole.029', fr: 'le livre', en: 'the book' },
       { id: 'fr.a1.maison.015', fr: 'la table', en: 'the table' },

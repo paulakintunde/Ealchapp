@@ -9676,6 +9676,581 @@
           ]
         }
       ]
+    },
+    {
+      "id": "c1.02",
+      "seq": 2,
+      "sub": "Le passé antérieur",
+      "canDo": "Can recognise the passé antérieur in unsimplified literary narrative, with avoir and être and in pronominal verbs, tell it from a passive or a simple past of avoir, follow the immediate anteriority it marks after a time hinge, after « à peine… que » and in a main clause with bientôt, contrast it with the plus-que-parfait, say what it does to the pace of a page, map it to today’s French, and recognise the passé surcomposé as its spoken counterpart without using it",
+      "level": "c1",
+      "title": "The Passé Antérieur",
+      "lessonIds": [
+        "c1.02.l1"
+      ],
+      "prereqUnitIds": [
+        "b2.01",
+        "b2.08",
+        "b2.09",
+        "b2.18",
+        "b1.21"
+      ],
+      "outline": [
+        {
+          "lessonId": "c1.02.l1",
+          "title": "Le passé antérieur",
+          "acts": [
+            {
+              "title": "Un cran avant",
+              "cards": 17
+            },
+            {
+              "title": "Eut fini, fut parti",
+              "cards": 11
+            },
+            {
+              "title": "Il se fut assis",
+              "cards": 8
+            },
+            {
+              "title": "Fut + participe",
+              "cards": 9
+            },
+            {
+              "title": "La charnière",
+              "cards": 8
+            },
+            {
+              "title": "À peine eut-il… que",
+              "cards": 8
+            },
+            {
+              "title": "Il eut bientôt fini",
+              "cards": 8
+            },
+            {
+              "title": "Avait fini, eut fini",
+              "cards": 10
+            },
+            {
+              "title": "Le rythme du récit",
+              "cards": 8
+            },
+            {
+              "title": "Aujourd’hui, tu dirais",
+              "cards": 7
+            },
+            {
+              "title": "Le surcomposé, à l’oreille",
+              "cards": 8
+            },
+            {
+              "title": "Raconte-le au club",
+              "cards": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c1.03",
+      "seq": 3,
+      "sub": "La concordance littéraire",
+      "canDo": "Can follow the classical sequence of tenses in an unsimplified literary text, under a present, past or conditional main verb, tell simultaneity, posteriority and anteriority apart, read hypothetical and concessive inversion (eût-il su, fût-il roi), recognise a deliberate break in the sequence and say what it means, and explain the register effect (solemnity, irony, pastiche) while mapping each form to today’s usage",
+      "level": "c1",
+      "title": "Literary Sequence of Tenses",
+      "lessonIds": [
+        "c1.03.l1"
+      ],
+      "prereqUnitIds": [
+        "b2.05",
+        "b2.06",
+        "b2.08",
+        "b2.09"
+      ],
+      "outline": [
+        {
+          "lessonId": "c1.03.l1",
+          "title": "La concordance littéraire",
+          "acts": [
+            {
+              "title": "La note et l’écart",
+              "cards": 16
+            },
+            {
+              "title": "La grille",
+              "cards": 12
+            },
+            {
+              "title": "Le moment de l’action",
+              "cards": 10
+            },
+            {
+              "title": "Je voudrais qu’il vînt",
+              "cards": 12
+            },
+            {
+              "title": "Eût-il su",
+              "cards": 10
+            },
+            {
+              "title": "Fût-il roi",
+              "cards": 11
+            },
+            {
+              "title": "La discordance qui parle",
+              "cards": 7
+            },
+            {
+              "title": "Aujourd’hui",
+              "cards": 9
+            },
+            {
+              "title": "L’effet",
+              "cards": 8
+            },
+            {
+              "title": "Lire une page entière",
+              "cards": 6
+            },
+            {
+              "title": "Présente la page",
+              "cards": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c1.04",
+      "seq": 4,
+      "sub": "Les relatives complexes",
+      "canDo": "Can build and decode relative clauses with partitive dont, preposition + quoi, an infinitive, lequel as subject and abstract antecedents, can tell which noun a relative clause hangs on in a long noun group and repair an ambiguous one, can use the comma to change who is concerned, and can lighten a chain of relatives in formal writing",
+      "level": "c1",
+      "title": "Complex Relative Clauses",
+      "lessonIds": [
+        "c1.04.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.11",
+        "b1.12",
+        "b1.13",
+        "b2.06"
+      ],
+      "outline": [
+        {
+          "lessonId": "c1.04.l1",
+          "title": "Les relatives complexes",
+          "acts": [
+            {
+              "title": "Le bon crochet",
+              "cards": 25
+            },
+            {
+              "title": "Une partie du tout",
+              "cards": 16
+            },
+            {
+              "title": "Ce à quoi, sans quoi",
+              "cards": 20
+            },
+            {
+              "title": "Un endroit où dormir",
+              "cards": 19
+            },
+            {
+              "title": "À quel nom ?",
+              "cards": 17
+            },
+            {
+              "title": "Lequel, pour lever le doute",
+              "cards": 13
+            },
+            {
+              "title": "Avec ou sans virgules",
+              "cards": 16
+            },
+            {
+              "title": "Où, ou dans lequel",
+              "cards": 15
+            },
+            {
+              "title": "Des relatives emboîtées",
+              "cards": 14
+            },
+            {
+              "title": "Alléger la chaîne",
+              "cards": 12
+            },
+            {
+              "title": "Ta notice",
+              "cards": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c1.05",
+      "seq": 5,
+      "sub": "L’ellipse et la reprise",
+      "canDo": "Can follow and build chains of reference across a long text: pick up an adjective or a whole clause with the neutral le, stand in for a verb with faire, leave out a repeated verb or the rest of a question, take up a noun with celui de or celle que, with a broader noun or with a noun that sums up, use ledit and le cas échéant in administrative writing, and repair a pronoun two nouns could answer, in reading (CE « à quoi renvoie… ») as in writing",
+      "level": "c1",
+      "title": "Ellipsis and Reference",
+      "lessonIds": [
+        "c1.05.l1"
+      ],
+      "prereqUnitIds": [
+        "b2.11",
+        "b2.10",
+        "b1.37"
+      ],
+      "outline": [
+        {
+          "lessonId": "c1.05.l1",
+          "title": "L’ellipse et la reprise",
+          "acts": [
+            {
+              "title": "Dire une fois",
+              "cards": 20
+            },
+            {
+              "title": "Le neutre : il l’est",
+              "cards": 20
+            },
+            {
+              "title": "Le neutre : comme je l’ai dit",
+              "cards": 20
+            },
+            {
+              "title": "Faire, le verbe qui remplace",
+              "cards": 16
+            },
+            {
+              "title": "Pierre lit Proust ; Marie, Zola",
+              "cards": 20
+            },
+            {
+              "title": "Je ne sais pas qui",
+              "cards": 15
+            },
+            {
+              "title": "Celui de, celle que",
+              "cards": 20
+            },
+            {
+              "title": "Un autre nom pour la même chose",
+              "cards": 18
+            },
+            {
+              "title": "Ledit, susdit, le cas échéant",
+              "cards": 18
+            },
+            {
+              "title": "Qui est « elle » ?",
+              "cards": 18
+            },
+            {
+              "title": "Suivre le fil",
+              "cards": 15
+            },
+            {
+              "title": "Ton compte rendu",
+              "cards": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c1.06",
+      "seq": 6,
+      "sub": "Nuancer à l’oral",
+      "canDo": "Can soften, distance and calibrate claims and requests in speech at C1: add a hedging aside where the doubt lies, grade a forecast from a firm bet to no evidence, make a supposition with devoir, approximate a word precisely, make a formal request, contradict and criticise with regard while keeping firm points firm, use and hear litote and understatement, decode the polite brush-off, and set the dose of hedging for the person and the stakes; can leave a two to four minute spoken message that does all of this",
+      "level": "c1",
+      "title": "Nuance in Speech",
+      "lessonIds": [
+        "c1.06.l1"
+      ],
+      "prereqUnitIds": [
+        "b2.26",
+        "b2.20"
+      ],
+      "outline": [
+        {
+          "lessonId": "c1.06.l1",
+          "title": "Nuancer à l’oral",
+          "acts": [
+            {
+              "title": "La remarque de trop",
+              "cards": 19
+            },
+            {
+              "title": "L’incise qui adoucit",
+              "cards": 19
+            },
+            {
+              "title": "Parier sans jurer",
+              "cards": 15
+            },
+            {
+              "title": "Le devoir qui suppose",
+              "cards": 16
+            },
+            {
+              "title": "Le mot à peu près juste",
+              "cards": 12
+            },
+            {
+              "title": "Demander de loin",
+              "cards": 14
+            },
+            {
+              "title": "Contredire avec égards",
+              "cards": 16
+            },
+            {
+              "title": "La critique enveloppée",
+              "cards": 13
+            },
+            {
+              "title": "Dire moins pour dire plus",
+              "cards": 14
+            },
+            {
+              "title": "La bonne dose",
+              "cards": 10
+            },
+            {
+              "title": "Entendre la nuance",
+              "cards": 13
+            },
+            {
+              "title": "À toi de nuancer",
+              "cards": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c1.07",
+      "seq": 7,
+      "sub": "Reformuler et conclure",
+      "canDo": "Can steer a long text or talk with expert discourse markers: correct and narrow a statement while moving on, say what a word means here and name the actual case, add the argument that weighs, argue from the stronger case, read dès lors in time or in logic, accept a cost, close with one marker chosen by register, recognise the contested markers of speech and write their safe equivalents",
+      "level": "c1",
+      "title": "Reframing and Concluding",
+      "lessonIds": [
+        "c1.07.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.30",
+        "b1.31",
+        "b1.32",
+        "b2.15",
+        "b2.16",
+        "b2.22",
+        "b2.26"
+      ],
+      "outline": [
+        {
+          "lessonId": "c1.07.l1",
+          "title": "Reformuler et conclure",
+          "acts": [
+            {
+              "title": "Le discours qui tourne en rond",
+              "cards": 18
+            },
+            {
+              "title": "Rectifier en avançant",
+              "cards": 13
+            },
+            {
+              "title": "Ce que j’entends par là",
+              "cards": 13
+            },
+            {
+              "title": "À vrai dire",
+              "cards": 15
+            },
+            {
+              "title": "L’argument qui pèse",
+              "cards": 11
+            },
+            {
+              "title": "L’argument en passant",
+              "cards": 12
+            },
+            {
+              "title": "Du cas le plus fort",
+              "cards": 9
+            },
+            {
+              "title": "Dès lors",
+              "cards": 14
+            },
+            {
+              "title": "Accepter le prix",
+              "cards": 11
+            },
+            {
+              "title": "Fermer le texte",
+              "cards": 13
+            },
+            {
+              "title": "Les marqueurs contestés",
+              "cards": 16
+            },
+            {
+              "title": "Ta version écrite",
+              "cards": 11
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c1.08",
+      "seq": 8,
+      "sub": "Persuader",
+      "canDo": "Can recognise and use credibility, reasoning, emotion, authority, analogy, framing, the rhetorical question, anaphora, gradation, paralipsis and the pre-empted objection, judge whether each persuasive move is fair, and write a persuasive piece that names its own moves and answers an objection fairly",
+      "level": "c1",
+      "title": "Rhetoric and Persuasion",
+      "lessonIds": [
+        "c1.08.l1"
+      ],
+      "prereqUnitIds": [
+        "b2.16",
+        "b2.23",
+        "b2.24",
+        "b2.26"
+      ],
+      "outline": [
+        {
+          "lessonId": "c1.08.l1",
+          "title": "Persuader",
+          "acts": [
+            {
+              "title": "Le discours qui marche trop bien",
+              "cards": 17
+            },
+            {
+              "title": "L’ethos",
+              "cards": 11
+            },
+            {
+              "title": "Le logos",
+              "cards": 12
+            },
+            {
+              "title": "Le pathos",
+              "cards": 18
+            },
+            {
+              "title": "L’autorité et l’expertise",
+              "cards": 11
+            },
+            {
+              "title": "L’analogie",
+              "cards": 15
+            },
+            {
+              "title": "Les mots qui cadrent",
+              "cards": 16
+            },
+            {
+              "title": "La question rhétorique",
+              "cards": 21
+            },
+            {
+              "title": "Anaphore et gradation",
+              "cards": 15
+            },
+            {
+              "title": "La prétérition",
+              "cards": 13
+            },
+            {
+              "title": "L’objection prévenue",
+              "cards": 17
+            },
+            {
+              "title": "Ton plaidoyer",
+              "cards": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c1.09",
+      "seq": 9,
+      "sub": "L’exposé et le jury",
+      "canDo": "Can deliver a structured spoken exposé of three to five minutes from a dossier of documents, presenting them in synthesis rather than one by one, stating a spoken problématique and a plan and holding to them aloud; can then defend the exposé before a jury: take the floor formally, reformulate a question, buy time without filling the silence, admit what one does not know, concede a point in public without abandoning the thesis, handle questions outside the dossier and close the exchange",
+      "level": "c1",
+      "title": "The Exposé and the Jury",
+      "lessonIds": [
+        "c1.09.l1"
+      ],
+      "prereqUnitIds": [
+        "b2.26",
+        "b2.23"
+      ],
+      "outline": [
+        {
+          "lessonId": "c1.09.l1",
+          "title": "L’exposé et le jury",
+          "acts": [
+            {
+              "title": "L’exposé qui résume",
+              "cards": 24
+            },
+            {
+              "title": "Un genre qui se parle",
+              "cards": 14
+            },
+            {
+              "title": "Lire le dossier",
+              "cards": 13
+            },
+            {
+              "title": "Synthétiser à voix haute",
+              "cards": 16
+            },
+            {
+              "title": "La question, à voix haute",
+              "cards": 16
+            },
+            {
+              "title": "Tenir le plan",
+              "cards": 14
+            },
+            {
+              "title": "Devant le jury",
+              "cards": 14
+            },
+            {
+              "title": "Gagner du temps",
+              "cards": 18
+            },
+            {
+              "title": "Concéder sans lâcher son fil",
+              "cards": 18
+            },
+            {
+              "title": "Quand le jury pousse",
+              "cards": 19
+            },
+            {
+              "title": "Clore l’entretien",
+              "cards": 9
+            },
+            {
+              "title": "À toi, devant le jury",
+              "cards": 11
+            }
+          ]
+        }
+      ]
     }
   ],
   "lessons": [
@@ -41473,7 +42048,7 @@
               "head": "Nouns ending in e are feminine",
               "fr": "la table · la porte · la voiture",
               "sub": "three that obey it",
-              "body": "You have almost certainly been given this one. Over the 1043 nouns in this app that end in e, it is right 70% of the time."
+              "body": "You have almost certainly been given this one. Over the 1044 nouns in this app that end in e, it is right 70% of the time."
             },
             {
               "label": "What that costs",
@@ -41520,12 +42095,12 @@
               "cells": [
                 "-e",
                 "70%",
-                "1043"
+                "1044"
               ],
               "say": "le livre, la table",
               "detail": {
                 "title": "-e",
-                "body": "The rule every course gives you. Right seven times in ten, across 1043 nouns. le livre is masculine and la table is feminine, and nothing on the page separates them.",
+                "body": "The rule every course gives you. Right seven times in ten, across 1044 nouns. le livre is masculine and la table is feminine, and nothing on the page separates them.",
                 "say": "le livre, la table"
               }
             },
@@ -42423,7 +42998,7 @@
             {
               "wrong": "Trusting « ends in e, so feminine » on le livre.",
               "right": "Treating the final e as a lean and checking anything you are about to say.",
-              "why": "It is right seven times in ten over 1043 nouns, which makes you wrong about one in three."
+              "why": "It is right seven times in ten over 1044 nouns, which makes you wrong about one in three."
             },
             {
               "wrong": "Reading « l’escalier » and moving straight on.",
@@ -42827,7 +43402,7 @@
                     "it is never right"
                   ],
                   "correct": 2,
-                  "why": "Seven in ten across 1043 nouns, which makes you wrong about one noun in three.",
+                  "why": "Seven in ten across 1044 nouns, which makes you wrong about one noun in three.",
                   "ref": "s04-finale"
                 },
                 {
