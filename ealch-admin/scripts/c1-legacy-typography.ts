@@ -6,9 +6,10 @@
  *   pnpm tsx scripts/c1-legacy-typography.ts           DRY RUN: prints before / after
  *   pnpm tsx scripts/c1-legacy-typography.ts --apply   writes, in one transaction
  *
- * The ids are the 23 rows c1.20, c1.21 and c1.24 reuse that exist only in
- * Postgres (published, outside the seed cut); rows already clean are left
- * alone. The c1 merge then carries the corrected text into the seed.
+ * The ids are the 23 rows wave 1 reused (fixed list, applied at v85) plus every
+ * row any C1 lesson references that is neither authored by it nor in seed +
+ * packs (computed); rows already clean are left alone. The c1 merge then
+ * carries the corrected text into the seed. Run it BEFORE the merge.
  */
 import './env';
 import { Pool } from 'pg';
@@ -28,6 +29,27 @@ export const LEGACY_IDS = [
 ];
 const FIELDS = ['fr', 'example', 'notes', 'prompt'] as const;
 
+/** Every row a C1 lesson references that it does not author and that is not in
+ *  seed + packs: the published rows that live only in Postgres. Computed, so
+ *  each new wave is covered without editing a list (the wave 1 ids above are
+ *  in the seed since v85 and drop out of this set). */
+export async function referencedPostgresOnlyIds(): Promise<string[]> {
+  const { C1_SLUGS } = await import('./b1-import.logic.ts');
+  const { itemsReferencedBy } = await import('./seed-cut.logic.ts');
+  const { seedPlusPacks } = await import('../../ealch-v2/src/content/seed-plus-packs.ts');
+  const bundled = new Set<string>((seedPlusPacks<{ items: { id: string }[] }>().items ?? []).map((i) => i.id));
+  const out = new Set<string>();
+  for (const slug of C1_SLUGS) {
+    const C = await import(`./data/c1/${slug}-corpus.ts`);
+    const L = await import(`./data/c1/${slug}-lesson.ts`);
+    const own = new Set<string>(C.ALL_ROWS.map((r: { id: string }) => r.id));
+    for (const id of [...(L.LESSON.itemIds ?? []), ...itemsReferencedBy(L.LESSON)]) {
+      if (!own.has(id) && !bundled.has(id)) out.add(id);
+    }
+  }
+  return [...out].sort();
+}
+
 /** The curly apostrophe the C1 lessons use. A plain space before ? and ! is
  *  the corpus convention (1108 published rows, none with a no-break space), so
  *  question marks are left alone. */
@@ -43,10 +65,14 @@ async function main() {
   const c = await pool.connect();
   try {
     await c.query(APPLY ? 'begin' : 'begin transaction read only');
+    const ids = [...new Set([...LEGACY_IDS, ...(await referencedPostgresOnlyIds())])].sort();
     const r = await c.query<Record<string, string | null> & { id: string; status: string }>(
       `select id, status::text as status, fr, example, notes, prompt from content_items where id = any($1::text[]) order by id`,
-      [LEGACY_IDS]);
-    if (r.rows.length !== LEGACY_IDS.length) throw new Error(`found ${r.rows.length} of ${LEGACY_IDS.length} rows; nothing written`);
+      [ids]);
+    if (r.rows.length !== ids.length) {
+      const found = new Set(r.rows.map((x) => x.id));
+      throw new Error(`found ${r.rows.length} of ${ids.length} rows (missing: ${ids.filter((i) => !found.has(i)).join(', ')}); nothing written`);
+    }
     let changed = 0;
     for (const row of r.rows) {
       if (row.status !== 'published') throw new Error(`${row.id} is ${row.status}, not published; nothing written`);
@@ -62,7 +88,7 @@ async function main() {
       }
     }
     await c.query('commit');
-    console.log(`\n  ${changed} row(s) ${APPLY ? 'updated' : 'would change'} of ${LEGACY_IDS.length}.${APPLY ? '' : ' DRY RUN COMPLETE, nothing written.'}`);
+    console.log(`\n  ${changed} row(s) ${APPLY ? 'updated' : 'would change'} of ${r.rows.length}.${APPLY ? '' : ' DRY RUN COMPLETE, nothing written.'}`);
   } catch (e) {
     await c.query('rollback').catch(() => {});
     throw e;
