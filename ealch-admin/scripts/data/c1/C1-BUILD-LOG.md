@@ -647,6 +647,11 @@ Neither row has recorded audio.
   empty, house tests 342/342, app suite 5748/5748. Gate C1-2 preview on the Pixel 6
   (dev build): 12 lessons, 142 acts, 2195 items, 245 reused rows from seed+packs and
   68 from Postgres, 0 missing.
+- **Gate C1-2 passed (Paul, no changes). Waves 2-3 LIVE at v86 (2026-10-02).**
+  Postgres: typography 35 rows, .160/.1590 fixed, 1280 rows + 16 unit/lesson rows
+  (c46ec45). Merge additive. Publish v86: dry run 0 pack-replay deadlocks; c1 pack
+  4.51 MiB, exam pack kept at v85; a1.03 figures match after publish; app 5748/5748,
+  admin 1060 + 1 skipped. Still to do: C1 tab check on the Pixel 9; delete ../ealch-ota.
 
 - **c1.06 « Nuancer à l'oral »** (slug `nuancer-oral`): `nuances-et-registres`
   1000-1199, unit c1.06. Model `../b2/reunions-negociation-*`. Builds on « la
