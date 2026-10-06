@@ -24,7 +24,7 @@ act’s first mission (`LessonAct.opener.imageRef`).
   someone who was not in it. The busy reader who leaves in act 1, the house of
   six rooms in act 2, threads back to the source in act 3, the canteen nobody can
   reach in act 4, one scale for three boxes in act 5, the sheet slid across the
-  table in act 6, the single glowing page in act 7, five equal voices gathered in
+  table in act 6, the single glowing page in act 7, four equal voices gathered in
   act 8, the bound register in act 9, the ribbons narrowed to three in act 10,
   the lamp and magnifying glass in act 11, and the empty chair waiting for the
   reader in act 12. Conceptual images (acts 2, 3, 5, 7, 10) alternate with quiet
@@ -88,7 +88,7 @@ A conceptual illustration about the one page that matters. A thick stack of blan
 
 **Save the image as:** `C:/Users/harki/Downloads/gitbuild appealch/Ealchapp/ealch-v2/assets/lessons/rapports-comptes-rendus/act08.jpg`
 
-A quiet scene about recording a meeting without taking sides. A round table seen from above at a gentle angle, five figures shown small seated around it, each with a small rounded speech shape above them in a different colour, all of the same size, empty inside. A sixth figure, slightly apart at a side desk, writes in a notebook, and the five coloured shapes drift in a line towards the notebook, all kept the same size. The subject is a secretary gathering five equal voices from a round table into one notebook. Flat editorial vector illustration, in the style of a modern French language textbook. Muted warm palette: cream and bone backgrounds, dusty slate blue, terracotta, warm ochre, sage green. Soft rounded geometric figures with simple calm faces, no black outlines, gentle flat shading. Subtle paper grain texture over the whole image. Warm even light. No text unless explicitly described. Uncluttered composition with generous empty space. Absolutely no lettering, captions, watermarks or logos beyond what is described.
+A quiet scene about recording a meeting without taking sides. A round table seen from above at a gentle angle, four figures shown small seated around it, each with a small rounded speech shape above them in a different colour, all of the same size, empty inside. A fifth figure, slightly apart at a side desk, writes in a notebook, and the four coloured shapes drift in a line towards the notebook, all kept the same size. The subject is a secretary gathering four equal voices from a round table into one notebook. Flat editorial vector illustration, in the style of a modern French language textbook. Muted warm palette: cream and bone backgrounds, dusty slate blue, terracotta, warm ochre, sage green. Soft rounded geometric figures with simple calm faces, no black outlines, gentle flat shading. Subtle paper grain texture over the whole image. Warm even light. No text unless explicitly described. Uncluttered composition with generous empty space. Absolutely no lettering, captions, watermarks or logos beyond what is described.
 
 ## Act 09 · Le procès-verbal · `act09.jpg`
 

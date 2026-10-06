@@ -109,7 +109,7 @@ export const RAPPORTS_COMPTES_RENDUS_TERMS: Record<string, LessonTerm> = {
   compterendu: {
     term: 'compte rendu',
     title: 'L’essentiel d’une réunion',
-    body: 'Le compte rendu présente l’essentiel des discussions et des décisions d’une réunion. Il est rédigé au présent, avec des verbes qui rapportent (rappeler, souligner, s’inquiéter, proposer), et le secrétaire n’y donne pas son avis. Il est ensuite approuvé par les participants. EN: The essence of a meeting’s discussions and decisions, in the present, without judging.',
+    body: 'Le compte rendu présente l’essentiel des discussions et des décisions d’une réunion. Il est rédigé au présent, avec des verbes qui rapportent (rappeler, souligner, s’inquiéter, proposer), et le secrétaire n’y donne pas son avis. Il peut être approuvé à la réunion suivante, sans obligation : c’est d’abord un aide-mémoire. EN: The essence of a meeting’s discussions and decisions, in the present, without judging.',
     examples: [
       { itemId: E(1290), note: 'ce qu’il contient' },
       { itemId: E(1292), note: 'un verbe qui rapporte' },
@@ -121,7 +121,7 @@ export const RAPPORTS_COMPTES_RENDUS_TERMS: Record<string, LessonTerm> = {
   procesverbal: {
     term: 'procès-verbal',
     title: 'Le document officiel',
-    body: 'Le procès-verbal consigne officiellement ce qui a été discuté et décidé, point par point, dans l’ordre du jour, au présent et à la forme impersonnelle. On l’approuve à la séance suivante. En France, le mot désigne aussi l’acte d’un agent public, et « un PV », souvent, une amende. EN: The official record, tied to the agenda and approved at the next meeting.',
+    body: 'Le procès-verbal consigne officiellement ce qui a été discuté et décidé, point par point, en suivant l’ordre du jour, au présent et à la forme impersonnelle. On l’approuve à la séance suivante. En France, le mot désigne aussi l’acte d’un agent public, et « un PV », souvent, une amende. EN: The official record, tied to the agenda and approved at the next meeting.',
     examples: [
       { itemId: E(1307), note: 'officiel' },
       { itemId: E(1308), note: 'point par point' },

@@ -131,7 +131,7 @@
 //     Lyon), their canteen, the comité de la cantine, the conseil
 //     d’administration, the shuttle of the Lyon site; Martine Pelletier,
 //     Bruno Lachance, Aïcha Benali, Thomas Girard, Nora Demers, Paul-Émile
-//     Roy, Lucie Vasseur. Real places appear only as places (Sherbrooke,
+//     Roy, Lucie Vasseur, Hélène Fortin, Marc Dubé. Real places appear only as places (Sherbrooke,
 //     Lyon). No real institution is said to have produced a figure. Every
 //     figure is internal to the lesson and marked invented in the header of
 //     the task brief.
@@ -174,8 +174,9 @@
 //        https://vitrinelinguistique.oqlf.gouv.qc.ca/fiche-gdt/fiche/8869101/sommaire-de-gestion):
 //        « Condensé d’un document, généralement un rapport, rédigé à
 //        l’intention des gestionnaires » ; privileged « sommaire de gestion »,
-//        « sommaire décisionnel » ; accepted in some contexts « résumé »,
-//        « sommaire », « synthèse » ; DÉCONSEILLÉ « sommaire exécutif » (in
+//        « sommaire décisionnel » ; « termes utilisés dans certains
+//        contextes » (wider sense, NOT « acceptés ») « résumé »,
+//        « sommaire », « synthèse » (pre-review: act 7 card reworded); DÉCONSEILLÉ « sommaire exécutif » (in
 //        French « exécutif » concerns the execution of laws); the note says
 //        it usually runs to no more than 400 words. The lesson says « en
 //        France comme au Québec, on dit aussi synthèse ou résumé » (synthèse
@@ -187,9 +188,16 @@
 //        ordinateur d’un système d’exploitation ou… » (a computing sense);
 //        implémenter: « Réaliser l’implémentation ». The lesson says only
 //        that the word comes from computing and that for a plan or a measure
-//        a careful report writes « mettre en œuvre ». NO OQLF fiche was found
-//        (search returned none, 2026-10-06), and no Académie verdict is
-//        quoted. Pre-review: confirm, or soften to « jargon ».
+//        a careful report writes « mettre en œuvre ». PRE-REVIEW (2026-10-06):
+//        GDT « implémentation » (OQLF 2003, informatique) « Opération qui
+//        consiste à réaliser la phase finale d’élaboration d’un système »,
+//        privileged terms implémentation, MISE EN ŒUVRE; it warns not to
+//        confuse it with « implantation » (installing software), so the
+//        lesson no longer glosses it « installer un programme ». GDT
+//        « implémenter » (FranceTerme 2007, informatique, langage
+//        professionnel). No BDL verdict on the general sense; no Académie
+//        entry found. The lesson keeps « mettre en œuvre » as the careful
+//        choice for a measure, never calls implémenter an error.
 //     i. ITEM and ADRESSER are cited from « la leçon 26 du B2 » and « la
 //        leçon 33 du B2 » (BDL « Emploi déconseillé de l’emprunt adresser »,
 //        quoted in b2.33's corpus header); no new claim here.
@@ -197,9 +205,21 @@
 //        rédaction d’un compte rendu ou d’un procès-verbal »: souligner,
 //        préciser, signaler, rappeler, proposer, recommander, s’inquiéter,
 //        craindre, objecter, contester, approuver, appuyer are on the list
-//        (rappeler is GK as a reporting verb; the page lists « appeler,
-//        attirer » for facts: pre-review check). The present tense of the
-//        compte rendu is GK (the BDL states it for the procès-verbal).
+//        (PRE-REVIEW: « rappeler » is NOT on the list, which is « non
+//        exhaustive »; it stays as GK; « estimer » is GK too). TENSE: BDL
+//        « Rédaction d’un compte rendu » (22825): « Il est conseillé
+//        d’utiliser le temps présent » (advised, not required); the same
+//        page: « Il n’a pas à être soumis pour approbation lors d’une
+//        prochaine réunion. Il s’agit plutôt d’un aide-mémoire à usage
+//        interne. » The lesson now says the compte rendu's approval is
+//        optional (act 8 check, act 9 table, sheet, term); the canteen
+//        committee still chooses to approve its own.
+//     j2. ADOPTER LE PROCÈS-VERBAL IN FRANCE: standard in the Sénat
+//        (compte rendu intégral 28 April 2014: « Le procès-verbal est
+//        adopté sous les réserves d’usage. »). The OQLF prefers approuver
+//        but does not condemn adopter (not in its « Vocabulaire des
+//        réunions » table of déconseillé forms). Every closed item keyed on
+//        approuvé / adopté now opens « Selon l’Office québécois ».
 //     k. FRANCE: « procès-verbal » first names an official written act
 //        drawn up by a magistrate, an officer or an agent (Larousse: « Acte
 //        écrit rédigé par un magistrat, un officier ou agent… »); « un PV »
@@ -211,7 +231,13 @@
 //     l. QUÉBEC: « Sur proposition de…, appuyée par…, il est résolu
 //        que… » as the shape of a resolution in a Québec procès-verbal (GK,
 //        widespread in municipal and association minutes; the BDL page
-//        mentions « résolutions »). Pre-review: confirm the wording.
+//        mentions « résolutions »). PRE-REVIEW: the BDL model PV
+//        (Proces-verbal.rtf) writes « Sur la proposition de M. Blais,
+//        appuyée par Mme Girard, le procès-verbal est […] approuvé » and
+//        « Il est proposé par Mme Costa que… » ; the BDL requires naming
+//        « les personnes qui ont proposé et appuyé la proposition », so the
+//        act 9 PV now names both (invented administrators), and the chair no
+//        longer moves the resolution. « il est résolu » itself is GK.
 //     m. MOODS: « il est recommandé que » + subjonctif; « nous préconisons
 //        que » + subjonctif; « il conviendrait de », « il y aurait lieu de »
 //        + infinitif (Grevisse, Le Bon usage, verbs of will and
@@ -637,7 +663,7 @@ export const ACT9_ROWS: Row[] = [
   sent(1316, 'Pour nos réunions d’équipe, on fait plutôt un compte rendu.', 'For our team meetings, we tend to write a compte rendu.', '/puʁ no ʁe.y.njɔ̃ de.kip ɔ̃ fɛ ply.to œ̃ kɔ̃t ʁɑ̃.dy/', 'poor noh ray-ü-NYOHⁿ day-KEEP | ohⁿ feh plü-TOH | uhⁿ kohⁿt rahⁿ-DÜ', ['ecoute', 'france']),
   sent(1317, 'Et quand on manque de temps, un simple relevé de décisions.', 'And when time is short, a simple record of decisions.', '/e kɑ̃.tɔ̃ mɑ̃k də tɑ̃ œ̃ sɛ̃pl ʁəl.ve də de.si.zjɔ̃/', 'ay kahⁿ-tohⁿ MAHⁿK duh TAHⁿ | uhⁿ SEHⁿPL | ruhl-VAY duh day-see-ZYOHⁿ', ['ecoute', 'france']),
   sent(1318, 'Ce qu’on ne dit pas, en tout cas, c’est « les minutes ».', 'What we do not say, in any case, is « les minutes ».', '/sə kɔ̃ nə di pa ɑ̃ tu ka sɛ le mi.nyt/', 'suh kohⁿ nuh dee PA | ahⁿ too KA | seh lay mee-NÜT', ['ecoute', 'anglicisme']),
-  sent(1319, 'À Sherbrooke non plus, d’ailleurs : l’Office le déconseille.', 'Not in Sherbrooke either, in fact: the Office advises against it.', '/a ʃɛʁ.bʁuk nɔ̃ ply da.jœʁ lɔ.fis lə de.kɔ̃.sɛj/', 'a sher-BROOK | nohⁿ PLÜ | da-YUHR | lo-FEESS | luh day-kohⁿ-SEY', ['ecoute', 'quebec']),
+  sent(1319, 'À Sherbrooke, on l’entend parfois, mais l’Office le déconseille.', 'In Sherbrooke you sometimes hear it, but the Office advises against it.', '/a ʃɛʁ.bʁuk ɔ̃ lɑ̃.tɑ̃ paʁ.fwa mɛ lɔ.fis lə de.kɔ̃.sɛj/', 'a sher-BROOK | ohⁿ lahⁿ-TAHⁿ par-FWA | meh lo-FEESS | luh day-kohⁿ-SEY', ['ecoute', 'quebec']),
   sent(1320, 'Pour désigner le procès-verbal, l’emprunt « minutes » est déconseillé.', 'To refer to the minutes, the borrowing « minutes » is advised against.', '/puʁ de.zi.ɲe lə pʁɔ.sɛ.vɛʁ.bal lɑ̃.pʁœ̃ mi.nyt ɛ de.kɔ̃.se.je/', 'poor day-zee-NYAY | luh pro-seh-vehr-BAL | lahⁿ-PRUHⁿ mee-NÜT | eh day-kohⁿ-say-YAY', ['anglicisme', 'quebec']),
 ];
 
@@ -757,11 +783,11 @@ export const SOMMAIRE_TEXT =
 
 /** Act 8: the compte rendu of the canteen committee. */
 export const CR_TEXT =
-  'Ateliers Corvelle. Comité de la cantine. Compte rendu de la réunion du 18 mars. Présents : Bruno Lachance, gérant de la cantine ; Aïcha Benali, ressources humaines ; Nora Demers et Paul-Émile Roy, représentants du personnel ; Thomas Girard, secrétaire. Point 1. Les horaires. Bruno Lachance rappelle que la cantine ferme à 13 h 30 et que son équipe ne peut pas assurer un second service sans renfort. Aïcha Benali souligne que l’équipe du soir n’a pas été consultée lors du changement d’horaires et propose de l’associer à l’essai. Nora Demers estime qu’un service jusqu’à 19 h suffirait, la pause du soir ayant lieu entre 18 h et 19 h. Plusieurs membres s’inquiètent du coût d’un second service. Bruno Lachance conteste le chiffre de deux cuisiniers avancé dans une première estimation : selon lui, un cuisinier à temps partiel suffit. Point 2. La précommande. Le comité propose un essai de précommande dès avril. Paul-Émile Roy demande que la borne de l’entrée reste disponible pour les salariés sans téléphone. Personne ne s’oppose à la proposition. Point 3. Les prix. La question est reportée à la prochaine réunion, en attendant l’évaluation du service des finances. Décisions. Le comité recommande à la direction l’essai de six mois. Aïcha Benali prépare l’offre d’emploi du cuisinier à temps partiel pour le 25 mars. Thomas Girard diffuse le présent compte rendu aux membres avant la prochaine réunion. Prochaine réunion : le 15 avril, à 15 h. Le compte rendu sera soumis à l’approbation du comité au début de cette réunion.';
+  'Ateliers Corvelle. Comité de la cantine. Compte rendu de la réunion du 18 mars. Présents : Bruno Lachance, gérant de la cantine ; Aïcha Benali, ressources humaines, en visioconférence depuis Lyon ; Nora Demers et Paul-Émile Roy, représentants du personnel ; Thomas Girard, secrétaire. Point 1. Les horaires. Bruno Lachance rappelle que la cantine ferme à 13 h 30 et que son équipe ne peut pas assurer un second service sans renfort. Aïcha Benali souligne que l’équipe du soir n’a pas été consultée lors du changement d’horaires et propose de l’associer à l’essai. Nora Demers estime qu’un service jusqu’à 19 h suffirait, la pause du soir ayant lieu entre 18 h et 19 h. Plusieurs membres s’inquiètent du coût d’un second service. Bruno Lachance conteste le chiffre de deux cuisiniers avancé dans une première estimation : selon lui, un cuisinier à temps partiel suffit. Point 2. La précommande. Le comité propose un essai de précommande dès avril. Paul-Émile Roy demande que la borne de l’entrée reste disponible pour les salariés sans téléphone. Personne ne s’oppose à la proposition. Point 3. Les prix. La question est reportée à la prochaine réunion, en attendant l’évaluation du service des finances. Décisions. Le comité recommande à la direction l’essai de six mois. Aïcha Benali prépare l’offre d’emploi du cuisinier à temps partiel pour le 25 mars. Thomas Girard diffuse le présent compte rendu aux membres avant la prochaine réunion. Prochaine réunion : le 15 avril, à 15 h. Le compte rendu sera soumis à l’approbation du comité au début de cette réunion.';
 
 /** Act 9: an extract from the board's procès-verbal. */
 export const PV_TEXT =
-  'Ateliers Corvelle. Procès-verbal de la séance du conseil d’administration tenue le 26 mars, au siège social de Sherbrooke. Sont présents : Lucie Vasseur, présidente ; cinq administrateurs ; Martine Pelletier, directrice générale ; Thomas Girard, secrétaire de séance. 1. Ouverture de la séance. La présidente constate le quorum et ouvre la séance à 18 h. 2. Adoption de l’ordre du jour. L’ordre du jour est adopté tel que présenté. 3. Approbation du procès-verbal de la séance du 20 février. Le procès-verbal de la dernière séance est approuvé à l’unanimité, sans modification. 4. Cantine du site de Sherbrooke. La directrice générale présente le rapport sur la cantine et sa recommandation d’un essai de six mois. Un administrateur demande ce qui se passera si l’essai échoue ; la directrice générale répond que la fermeture sera alors réexaminée. Sur proposition de Lucie Vasseur, appuyée par un administrateur, il est résolu d’autoriser l’essai d’avril à septembre et d’en confier le suivi à la directrice générale. La résolution est adoptée à l’unanimité. 5. Questions diverses. Aucune. 6. Clôture de la séance. L’ordre du jour étant épuisé, la séance est levée à 19 h 10. Note du secrétaire, en marge du procès-verbal. Contrairement au compte rendu du comité, ce document ne rapporte pas toutes les opinions : il consigne les décisions officielles, point par point, dans l’ordre du jour. Il sera approuvé à la prochaine séance, signé par la présidente et par le secrétaire, puis conservé. Je l’ai intitulé « procès-verbal », et non « minutes », comme le recommande l’Office québécois de la langue française.';
+  'Ateliers Corvelle. Procès-verbal de la séance du conseil d’administration tenue le 26 mars, au siège social de Sherbrooke. Sont présents : Lucie Vasseur, présidente ; cinq administrateurs ; Martine Pelletier, directrice générale ; Thomas Girard, secrétaire de séance. 1. Ouverture de la séance. La présidente constate le quorum et ouvre la séance à 18 h. 2. Adoption de l’ordre du jour. L’ordre du jour est adopté tel que présenté. 3. Approbation du procès-verbal de la séance du 20 février. Le procès-verbal de la dernière séance est approuvé à l’unanimité, sans modification. 4. Cantine du site de Sherbrooke. La directrice générale présente le rapport sur la cantine et sa recommandation d’un essai de six mois. Un administrateur demande ce qui se passera si l’essai échoue ; la directrice générale répond que la fermeture sera alors réexaminée. Sur proposition d’Hélène Fortin, administratrice, appuyée par Marc Dubé, administrateur, il est résolu d’autoriser l’essai d’avril à septembre et d’en confier le suivi à la directrice générale. La résolution est adoptée à l’unanimité. 5. Questions diverses. Aucune. 6. Clôture de la séance. L’ordre du jour étant épuisé, la séance est levée à 19 h 10. Note du secrétaire, en marge du procès-verbal. Contrairement au compte rendu du comité, ce document ne rapporte pas toutes les opinions : il consigne les décisions officielles, point par point, en suivant l’ordre du jour. Il sera approuvé à la prochaine séance, signé par la présidente et par le secrétaire, puis conservé. Je l’ai intitulé « procès-verbal », et non « minutes », comme le recommande l’Office québécois de la langue française.';
 
 /** Act 10: the record of decisions, rewritten. */
 export const RELEVE_TEXT =

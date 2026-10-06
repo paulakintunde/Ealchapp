@@ -138,15 +138,18 @@
 //      writes « mettre en œuvre » for a measure. Accept, or drop the word?
 //   2. ADOPTER / APPROUVER: the lesson keys « on approuve un procès-verbal »
 //      to the OQLF page; « adopter le procès-verbal » is also heard in
-//      Québec and France. One quiz item and one check depend on it. Keep the
-//      OQLF line as the key?
+//      Québec and France (the Sénat: « Le procès-verbal est adopté sous les
+//      réserves d’usage »). PRE-REVIEW: every closed item keyed on it now
+//      opens « Selon l’Office québécois », and act 9's table and the sheet
+//      say adopté is also read in France. Keep the OQLF line as the key?
 //   3. SEVEN LEGACY c1 ROWS of this theme (.003, .011, .019, .040, .078,
 //      .086, .120) are reused named only ({sentence, review}); none carries
 //      a straight apostrophe. Keep them?
 //   4. THE TENSE OF A COMPTE RENDU: the present is taught as the
 //      convention (the OQLF states it for the procès-verbal; for the compte
-//      rendu it is general practice). One typeIn asks for « rappelle »;
-//      no errorSpot marks the passé composé as an error. Accept?
+//      rendu the BDL says « Il est conseillé d’utiliser le temps présent »).
+//      One typeIn asks for « rappelle »; no errorSpot marks the passé
+//      composé as an error. Accept?
 //   5. RUBRIC: six criteria, 20 points (decision 14 pattern), the model
 //      answer about 330 words. Keep the grid?
 //   6. The roundup names no next lesson by number (c1.12 is drafted in the
@@ -295,7 +298,7 @@ const A1_LECTURE: Sec<'reading'> = {
     { q: 'Devine le sens, sans dictionnaire : « Il était assez découragé ». Que veut dire « découragé » ?', a: 'Il avait perdu courage : il ne croyait plus que la situation pouvait s’améliorer.' },
     { q: 'Dans quel ordre la note est-elle écrite ?', a: 'Dans l’ordre de la semaine, du lundi au vendredi. La conclusion arrive à la dernière ligne.' },
     { q: 'Où se trouvent les deux chiffres les plus importants ?', a: 'Au milieu du vendredi : cent dix repas contre soixante-dix, et un déficit de trente-huit mille dollars.' },
-    { q: 'Quelles phrases mêlent une opinion aux faits ?', a: '« Il était assez découragé », « le plat du jour plutôt bon », « Moi, je pense que le prix est trop élevé », « peut-être un quart des plats, je ne sais pas exactement ».' },
+    { q: 'Quelles phrases mêlent une opinion aux faits ?', a: '« Il était assez découragé », « le plat du jour plutôt bon », « Moi, je pense que le prix de 8,25 $ est trop élevé », « peut-être un quart des plats, je ne sais pas exactement ».' },
     { q: 'Quelle est, d’après les faits de la note, la cause la plus probable ?', a: 'Les horaires : l’équipe du soir commence à quatorze heures, après la fermeture de la cantine.' },
     { q: 'Que demande la note à la direction ?', a: 'Rien de précis : « il faudrait peut-être changer quelque chose, mais c’est à la direction de voir ».' },
   ],
@@ -603,7 +606,7 @@ const A3_VERSION = pourTonRapport('a3-version', 'Le premier chiffre de ton const
     'Un chiffre, une comparaison, une source : le lecteur peut vérifier. EN: a figure, a comparison, a source.')),
   grp('L’impression de Bruno', [
     it(E(1233), 'la règle'),
-  ], chk('Bruno pense que le menu décourage les jeunes, sans chiffres. Dans ton constat, tu...', ['la signales comme une impression du gérant', 'l’écris comme un fait'], 0,
+  ], chk('Bruno pense que le menu décourage les jeunes, sans chiffres. Dans ton constat, tu...', ['signales cette idée comme une impression du gérant', 'écris cette idée comme un fait'], 0,
     'Elle peut figurer, présentée comme telle : « selon le gérant, sans données à l’appui ». EN: flag it as his impression.')),
 ], ['constat']);
 
@@ -1049,7 +1052,7 @@ const A7_TROIS: Sec<'cardDeck'> = {
     { head: 'Écrite en dernier', label: 'la méthode', fr: src(E(1286)).fr, sub: rsOf(E(1286)),
       body: 'Tu ne peux résumer qu’un rapport fini. Puis tu la mets en tête, pour le lecteur pressé. EN: write it last, place it first.' },
     { head: 'Le nom', label: 'Québec et France', fr: src(E(1279)).fr, sub: rsOf(E(1279)),
-      body: 'Au Québec, l’Office privilégie « sommaire de gestion » ; « synthèse » et « résumé » sont aussi admis, et c’est « synthèse » qu’on lit le plus en France. EN: sommaire de gestion (Québec), synthèse.' },
+      body: 'Au Québec, l’Office privilégie « sommaire de gestion » ; « synthèse » et « résumé », plus généraux, s’emploient aussi, et c’est « synthèse » qu’on lit le plus en France. EN: sommaire de gestion (Québec), synthèse.' },
   ],
 };
 
@@ -1198,7 +1201,7 @@ const A8_PIEGE: Sec<'trapDrill'> = {
     { promptSay: 'Le secrétaire ne donne pas son … .', opts: ['avis', 'nom'], correct: 0 },
     { promptSay: 'Personne ne s’… à la proposition.', opts: ['oppose', 'opposait'], correct: 0 },
     { promptSay: 'Le comité … un essai de précommande dès avril.', opts: ['propose', 'impose'], correct: 0 },
-    { promptSay: 'Le compte rendu sera soumis à l’… du comité.', opts: ['approbation', 'adoption'], correct: 0 },
+    { promptSay: 'Le compte rendu sera soumis à l’… du comité.', opts: ['approbation', 'approuvation'], correct: 0 },
   ],
   steps: [
     { label: 'La règle', kind: 'rule', title: 'Rapporter, sans juger' },
@@ -1245,15 +1248,15 @@ const A8_CHECK = actCheck('a8-check', 'Le point : acte 8', [
     'L’essentiel, et les décisions. EN: the essence and the decisions.'),
   ctl('Le temps', 'On le rédige...', ['au passé composé, dans l’ordre', 'au présent'], 1,
     'Le présent rapporte sans raconter. EN: in the present.'),
-  ctl('La suite', 'Une fois diffusé, le compte rendu est...', ['approuvé par les participants', 'signé par un notaire', 'gardé secret'], 0,
-    'On l’approuve, souvent au début de la réunion suivante. EN: approved by the participants.'),
+  ctl('La suite', 'Contrairement au procès-verbal, le compte rendu...', ['n’a pas à être approuvé : c’est un aide-mémoire interne', 'doit être signé par un notaire', 'reste secret'], 0,
+    'Pour l’Office québécois, il n’a pas à être approuvé ; un comité peut le faire, comme celui de la cantine. EN: approval is optional.'),
 ], ['compterendu']);
 
 const ACT8: ActDef = {
   act: {
     id: 'act8', title: 'Le compte rendu',
     opener: {
-      line: 'Ils étaient six autour de la table ; le compte rendu parle pour tous, et pour ceux qui n’y étaient pas. Ici tu rapportes sans juger. EN: Six people sat round the table; the compte rendu speaks for all of them, and for those who were absent. Here you report without judging.',
+      line: 'Ils étaient cinq autour de la table ; le compte rendu parle pour tous, et pour ceux qui n’y étaient pas. Ici tu rapportes sans juger. EN: Five people sat round the table; the compte rendu speaks for all of them, and for those who were absent. Here you report without judging.',
       imageRef: 'lessons/rapports-comptes-rendus/act08.jpg',
     },
     sections: [],
@@ -1282,7 +1285,7 @@ const A9_LECTURE: Sec<'reading'> = {
   ],
   questions: [
     { q: 'Devine le sens : « L’ordre du jour étant épuisé, la séance est levée ». Que veut dire « épuisé » ici ?', a: 'Terminé : tous les points ont été traités.' },
-    { q: 'Comment le procès-verbal est-il organisé ?', a: 'Point par point, dans l’ordre du jour : ouverture, ordre du jour, procès-verbal précédent, cantine, questions diverses, clôture.' },
+    { q: 'Comment le procès-verbal est-il organisé ?', a: 'Point par point, en suivant l’ordre du jour : ouverture, ordre du jour, procès-verbal précédent, cantine, questions diverses, clôture.' },
     { q: 'Quel verbe s’emploie pour l’ordre du jour, et lequel pour le procès-verbal précédent ?', a: 'On adopte l’ordre du jour ; on approuve le procès-verbal.' },
     { q: 'Comment la décision sur la cantine est-elle formulée ?', a: 'En résolution : « Sur proposition de…, appuyée par…, il est résolu d’autoriser l’essai… », adoptée à l’unanimité.' },
     { q: 'Qu’est-ce qui distingue ce document du compte rendu du comité, selon le secrétaire ?', a: 'Il ne rapporte pas toutes les opinions : il consigne les décisions officielles, point par point ; il sera approuvé, signé et conservé.' },
@@ -1308,9 +1311,9 @@ const A9_TROIS: Sec<'tapTable'> = {
     { cells: ['Temps', 'le présent', 'le présent, forme impersonnelle'],
       say: src(E(1295)).fr,
       detail: { title: 'Le temps', body: 'Les deux s’écrivent au présent ; le procès-verbal, à la forme impersonnelle : « il est résolu », « le procès-verbal est approuvé ». EN: present tense; impersonal for the procès-verbal.', say: src(E(1309)).fr } },
-    { cells: ['Approbation', 'par les participants', 'par l’assemblée, à la séance suivante'],
+    { cells: ['Approbation', 'facultative', 'par l’assemblée, à la séance suivante'],
       say: src(E(1311)).fr,
-      detail: { title: 'Adopter, approuver', body: 'On adopte un ordre du jour ; on approuve un procès-verbal et un compte rendu (Office québécois de la langue française). EN: adopt an agenda, approve minutes.', say: src(E(1305)).fr } },
+      detail: { title: 'Adopter, approuver', body: 'L’Office québécois : on adopte un ordre du jour, on approuve un procès-verbal. En France, on lit aussi « le procès-verbal est adopté », au Sénat par exemple. EN: adopt an agenda, approve minutes (OQLF); « adopté » is also used in France.', say: src(E(1305)).fr } },
     { cells: ['Et en France', 'pour les réunions d’équipe', 'aussi l’acte d’un agent public'],
       say: src(E(1316)).fr,
       detail: { title: 'En France', body: 'Le mot y désigne aussi l’acte écrit d’un agent public, et « un PV », souvent une amende. Pour une réunion courante, on fait un compte rendu ou un relevé de décisions. EN: in France, also an official’s report; a PV is often a fine.', say: src(E(1317)).fr } },
@@ -1332,8 +1335,8 @@ const A9_ECOUTE: Sec<'listening'> = {
       why: 'Le procès-verbal de l’agent, donc souvent une contravention. EN: often a fine.' },
     { q: 'Pour les réunions d’équipe, que rédige-t-on plutôt à Lyon ?', opts: ['un compte rendu', 'un procès-verbal signé'], correct: 0,
       why: 'Un document de travail suffit. EN: a compte rendu.' },
-    { q: 'Quel mot ne dit-on ni à Lyon ni à Sherbrooke ?', opts: ['« les minutes »', '« le compte rendu »', '« le relevé »'], correct: 0,
-      why: 'Un emprunt à l’anglais, que l’Office déconseille. EN: an advised-against borrowing.' },
+    { q: 'Quel mot Aïcha écarte-t-elle, pour Lyon comme pour Sherbrooke ?', opts: ['« les minutes »', '« le compte rendu »', '« le relevé »'], correct: 0,
+      why: 'À Lyon, on ne le dit pas ; à Sherbrooke, on l’entend parfois, mais l’Office déconseille cet emprunt. EN: an advised-against borrowing, sometimes heard in Québec.' },
   ],
   audio: REC('rec-c1-11-aicha'), say: REFRAME, terms: ['procesverbal'],
 };
@@ -1346,9 +1349,9 @@ const A9_TRIER: Sec<'groupDrill'> = {
       it(E(1309), 'le procès-verbal précédent'),
       it(E(1310), 'une résolution'),
       it(E(1328), 'le dernier point'),
-    ], chk('« Le procès-verbal de la dernière séance est … à l’unanimité. »', ['approuvé', 'adopté'], 0,
+    ], chk('Selon l’Office québécois : « Le procès-verbal de la dernière séance est … à l’unanimité. »', ['approuvé', 'adopté'], 0,
       'L’Office québécois réserve « approuver » au procès-verbal et « adopter » à l’ordre du jour. EN: approve the minutes.')),
-    ctl('L’ordre du jour', '« L’ordre du jour est … tel que présenté. »', ['adopté', 'approuvé', 'résolu'], 0,
+    ctl('L’ordre du jour', 'Selon l’Office québécois : « L’ordre du jour est … tel que présenté. »', ['adopté', 'approuvé', 'résolu'], 0,
       'On adopte l’ordre du jour en début de séance. EN: adopt the agenda.'),
     ctl('Le document', 'La réunion d’équipe de lundi, sans vote ni résolution, demande...', ['un compte rendu', 'un procès-verbal signé', 'un sommaire de gestion'], 0,
       'Un document de travail suffit ; le procès-verbal a un caractère officiel. EN: a compte rendu.'),
@@ -1372,7 +1375,7 @@ const A9_VERSION = pourTonRapport('a9-version', 'Citer la décision du conseil',
 const A9_CHECK = actCheck('a9-check', 'Le point : acte 9', [
   ctl('Le caractère', 'Le procès-verbal se distingue du compte rendu surtout par...', ['son caractère officiel', 'sa longueur', 'son registre familier'], 0,
     'Selon l’Office québécois de la langue française. EN: its official character.'),
-  ctl('Les verbes', 'On approuve...', ['l’ordre du jour', 'le procès-verbal'], 1,
+  ctl('Les verbes', 'Selon l’Office québécois, on approuve...', ['l’ordre du jour', 'le procès-verbal'], 1,
     'On adopte l’ordre du jour, on approuve le procès-verbal. EN: approve the minutes.'),
   ctl('En France', '« Un PV », dans la rue, c’est souvent...', ['une amende', 'une réunion', 'un rapport annuel'], 0,
     'Le procès-verbal d’un agent public. EN: a fine.'),
@@ -1439,11 +1442,11 @@ const A10_ERREURS: Sec<'commonErrors'> = {
     { wrong: 'Deadline : 30 avril.', right: 'Échéance : 30 avril.',
       why: 'On l’entend partout au bureau ; l’Office le déconseille, et le français a date limite, échéance, date butoir. EN: an advised-against borrowing.' },
     { wrong: 'Implémenter la précommande en avril.', right: 'Mettre en œuvre la précommande en avril.',
-      why: 'Le mot vient de l’informatique, où il désigne l’installation d’un programme. Pour une mesure, un rapport soigné écrit « mettre en œuvre ». EN: a computing word; « mettre en œuvre » for a measure.' },
+      why: 'Le mot vient de l’informatique, où il désigne la réalisation d’un système. Pour une mesure, un rapport soigné écrit « mettre en œuvre ». EN: a computing word; « mettre en œuvre » for a measure.' },
     { wrong: 'Minutes de la rencontre du 18 mars', right: 'Relevé de décisions de la réunion du 18 mars',
       why: 'C’est l’anglais « minutes » ; l’Office déconseille cet emprunt. Choisis le document que tu écris vraiment. EN: name the real document.' },
     { wrong: 'Varia : aucune.', right: src(E(1328)).fr,
-      why: 'Courant dans les réunions au Québec, « varia » est un emprunt à l’anglais que l’Office déconseille. EN: questions diverses or divers.' },
+      why: 'Courant dans les réunions au Québec, « varia » est, dans ce sens, un emprunt à l’anglais que l’Office déconseille (le mot désigne en français un recueil de textes variés). EN: questions diverses or divers.' },
   ],
   audio: AUDIO, say: REFRAME, terms: ['calque', 'releve'],
 };
@@ -1975,7 +1978,7 @@ const A12_QUIZ: Sec<'quiz'> = {
       questions: [
         mc('« Il est recommandé que la cantine … ouverte jusqu’à 19 h. »', ['soit', 'est', 'sera'], 0, 'Subjonctif après « il est recommandé que ». EN: subjunctive.', 'a6-echelle'),
         mc('« Il conviendrait … proposer deux plats. »', ['de', 'que', 'à'], 0, 'Il conviendrait de + infinitif. EN: de + infinitive.', 'a6-echelle'),
-        mc('Laquelle est une recommandation complète ?', ['Les ressources humaines recrutent un cuisinier à temps partiel avant le 1er avril.', 'Il faudrait faire quelque chose pour la cantine.', 'La cantine est un vrai problème.'], 0, 'Qui, quoi, pour quand. EN: who, what, when.', 'a6-lecture'),
+        mc('Laquelle est une recommandation complète ?', ['Nous recommandons que les ressources humaines recrutent un cuisinier à temps partiel avant le 1er avril.', 'Il faudrait faire quelque chose pour la cantine.', 'La cantine est un vrai problème.'], 0, 'Qui, quoi, pour quand. EN: who, what, when.', 'a6-lecture'),
         tI('Complète. Un mot.', 'Nous … un essai de six mois.', 'préconisons', 'Préconiser : recommander vivement, en langue soutenue. EN: we recommend.', 'a6-lecture', ['recommandons', 'proposons']),
         tI('Mets le verbe au mode qui convient. Un mot.', 'Il est recommandé que chaque salarié (pouvoir) commander la veille.', 'puisse', 'Le subjonctif de pouvoir. EN: puisse.', 'a6-piege'),
         tI('Complète. Un mot.', 'Il y aurait … de revoir les prix à la baisse.', 'lieu', 'Il y aurait lieu de : il serait justifié de. EN: grounds.', 'a6-echelle'),
@@ -2013,8 +2016,8 @@ const A12_QUIZ: Sec<'quiz'> = {
     {
       id: 'r9-proces-verbal', label: 'Le procès-verbal', targets: ['pv-confondu'],
       questions: [
-        mc('« L’ordre du jour est … tel que présenté. »', ['adopté', 'approuvé', 'résolu'], 0, 'On adopte l’ordre du jour (Office québécois). EN: adopted.', 'a9-trois'),
-        mc('« Le procès-verbal de la dernière séance est … à l’unanimité. »', ['approuvé', 'adopté'], 0, 'On approuve le procès-verbal (Office québécois). EN: approved.', 'a9-trier'),
+        mc('Selon l’Office québécois : « L’ordre du jour est … tel que présenté. »', ['adopté', 'approuvé', 'résolu'], 0, 'On adopte l’ordre du jour (Office québécois). EN: adopted.', 'a9-trois'),
+        mc('Selon l’Office québécois : « Le procès-verbal de la dernière séance est … à l’unanimité. »', ['approuvé', 'adopté'], 0, 'On approuve le procès-verbal (Office québécois). EN: approved.', 'a9-trier'),
         mc('Qu’est-ce qui distingue surtout le procès-verbal du compte rendu ?', ['son caractère officiel', 'sa longueur', 'sa langue'], 0, 'Selon l’Office québécois de la langue française. EN: its official character.', 'a9-lecture'),
         tI('Complète. Un mot.', '5. Questions … : aucune.', 'diverses', 'Le dernier point : questions diverses. EN: any other business.', 'a9-lecture'),
         tI('Complète. Un mot.', 'Le procès-verbal suit l’ordre du …, point par point.', 'jour', 'L’ordre du jour, plus étroitement que le compte rendu. EN: agenda.', 'a9-trois'),
@@ -2135,7 +2138,7 @@ const DRILL_LIST: LessonDrill[] = [
   { id: 'd-recommander', title: 'Le bon mode', format: 'mcq' as const, coach: 'Après « il est recommandé que », le subjonctif. EN: subjunctive.', q: '« Il est recommandé que la cantine … ouverte jusqu’à 19 h. »', opts: ['soit', 'est'], correct: 0, why: 'Subjonctif. EN: soit.', items: [E(1265), E(1266), E(1267), E(1269), E(1273), E(1278)], audio: AUDIO },
   { id: 'd-synthese', title: 'Résumer, pas annoncer', format: 'flashcard' as const, coach: 'Dis chaque phrase à voix haute : une synthèse donne déjà la réponse. EN: a summary answers.', items: [E(1279), E(1280), E(1281), E(1282), E(1285), E(1286)], audio: AUDIO },
   { id: 'd-compte-rendu', title: 'Rapporter sans juger', format: 'mcq' as const, coach: 'Un verbe qui rapporte, au présent, sans ton avis. EN: report, do not judge.', q: '« Bruno Lachance … que la cantine ferme à 13 h 30. »', opts: ['rappelle', 'a raison de dire'], correct: 0, why: 'Rappeler rapporte sans juger. EN: rappelle.', items: [E(1290), E(1291), E(1292), E(1293), E(1297), E(1298)], audio: AUDIO },
-  { id: 'd-proces-verbal', title: 'Adopter, approuver', format: 'mcq' as const, coach: 'On adopte l’ordre du jour ; on approuve le procès-verbal. EN: adopt the agenda, approve the minutes.', q: '« Le procès-verbal de la dernière séance est … . »', opts: ['approuvé', 'adopté'], correct: 0, why: 'Selon l’Office québécois. EN: approved.', items: [E(1303), E(1304), E(1305), E(1306), E(1307), E(1309)], audio: AUDIO },
+  { id: 'd-proces-verbal', title: 'Adopter, approuver', format: 'mcq' as const, coach: 'On adopte l’ordre du jour ; on approuve le procès-verbal. EN: adopt the agenda, approve the minutes.', q: 'Selon l’Office québécois : « Le procès-verbal de la dernière séance est … . »', opts: ['approuvé', 'adopté'], correct: 0, why: 'Selon l’Office québécois. EN: approved.', items: [E(1303), E(1304), E(1305), E(1306), E(1307), E(1309)], audio: AUDIO },
   { id: 'd-calques', title: 'Les mots soignés', format: 'flashcard' as const, coach: 'Lis chaque phrase à voix haute : ce sont les mots qui remplacent ceux du bureau. EN: the careful replacements.', items: [E(1321), E(1322), E(1323), E(1324), E(1326), E(1327)], audio: AUDIO },
   { id: 'd-relire', title: 'Neutre et impersonnel', format: 'flashcard' as const, coach: 'Dis chaque phrase à voix haute : la voix du rapport. EN: the report’s voice.', items: [E(1338), E(1339), E(1341), E(1342), E(1344), E(1347)], audio: AUDIO },
 ];
@@ -2205,13 +2208,13 @@ const SHEET_LIST: ReferenceSheet[] = [
   ]),
   sheet('sheet-reunion', 'Les documents d’une réunion', ['compte rendu, procès-verbal, relevé de décisions', 'les verbes qui rapportent', 'France et Québec'], [
     teach('sheet-reunion-teach', 'Trois documents, aucun avis',
-      `Le compte rendu présente l’essentiel des discussions et des décisions ; le procès-verbal, plus étroitement lié à l’ordre du jour, a un caractère officiel et consigne aussi les résolutions ; le relevé de décisions ne garde que les décisions. Les trois s’écrivent au présent, sans l’avis du rédacteur. On adopte un ordre du jour, on approuve un procès-verbal et un compte rendu (Office québécois de la langue française). ${Cap(DEBATS_REF)} t’a fait rendre compte d’un débat ; ici, c’est une réunion. EN: Three documents, present tense, no opinion; adopt an agenda, approve minutes.`),
+      `Le compte rendu présente l’essentiel des discussions et des décisions ; le procès-verbal, plus étroitement lié à l’ordre du jour, a un caractère officiel et consigne aussi les résolutions ; le relevé de décisions ne garde que les décisions. Les trois s’écrivent au présent, sans l’avis du rédacteur. On adopte un ordre du jour, on approuve un procès-verbal et un compte rendu (Office québécois de la langue française) ; en France, on lit aussi « le procès-verbal est adopté ». Le compte rendu, lui, n’a pas à être approuvé. ${Cap(DEBATS_REF)} t’a fait rendre compte d’un débat ; ici, c’est une réunion. EN: Three documents, present tense, no opinion; adopt an agenda, approve minutes.`),
     table('sheet-reunion-table', 'Compte rendu, procès-verbal, relevé', ['Point', 'Compte rendu', 'Procès-verbal', 'Relevé de décisions'], [
       ['caractère', 'document de travail', 'document officiel', 'aide-mémoire'],
       ['contenu', 'l’essentiel des discussions et des décisions', 'discussions, décisions, résolutions, nominations', 'les décisions seulement'],
       ['plan', 'souple', 'l’ordre du jour, point par point', 'une ligne par décision'],
       ['temps', 'présent', 'présent, forme impersonnelle', 'phrases nominales, présent'],
-      ['approbation', 'par les participants', 'à la séance suivante, puis signé et conservé', 'aucune en général'],
+      ['approbation', 'facultative (aide-mémoire interne)', 'à la séance suivante, puis signé et conservé', 'aucune en général'],
       ['à éviter', 'l’avis du secrétaire', '« les minutes »', '« deadline », « varia »'],
     ]),
     table('sheet-reunion-verbes', 'Les verbes qui rapportent', ['Verbe', 'Ce qu’il dit de l’intervention'], [
@@ -2230,7 +2233,7 @@ const SHEET_LIST: ReferenceSheet[] = [
       `Le rapport parle au nom d’un service : « il apparaît que », « on constate », « le présent rapport », et « nous » pour recommander. Les mots restent neutres et les conclusions mesurées : ${ACADEMIQUE_REF} disait « ${B222_REFRAME} » ${Cap(CALQUES_REF)} te mettait en garde contre « adresser » et « supporter » ; les écrits de bureau ajoutent leurs propres calques. EN: An impersonal, neutral, measured voice, free of office calques.`),
     table('sheet-mots-table', 'Les calques du bureau', ['Au bureau, on entend', 'Dans un document soigné', 'Pourquoi'], [
       ['deadline', 'date limite, échéance, date butoir', 'emprunt déconseillé par l’Office'],
-      ['implémenter une mesure', 'mettre en œuvre', 'terme d’informatique (installer un programme)'],
+      ['implémenter une mesure', 'mettre en œuvre', 'terme d’informatique (réaliser un système)'],
       ['les minutes', 'le procès-verbal, le compte rendu', 'emprunt déconseillé par l’Office'],
       ['varia', 'questions diverses, divers', 'emprunt déconseillé par l’Office'],
       ['sommaire exécutif', 'sommaire de gestion, synthèse', 'calque déconseillé : « exécutif » renvoie à l’exécution des lois'],
