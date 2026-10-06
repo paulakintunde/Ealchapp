@@ -663,6 +663,37 @@ in the brief; the synthèse is practised ungraded in an earlier act.
 then); it also legalises the 322 a1 rows.
 28. c1.13 home: `culture-profonde` 1000-1199; no new history theme.
 
+**DALF C1 added (Paul, 2026-10-06), alongside decision 23 (TEF/TCF C1 tasks stay).**
+Format facts (Ministry BO 2005 table, an FEI-format sample, the FEI PO grid, FEI's
+2021 kit; FEI pages block bots): CO about 40 min (one long document heard twice,
+short items once, 10 min audio max), CE 50 min (one 1500-2000 word text), PE 2 h 30
+(synthèse about 220 words, 200-240, from about 1000 words of documents, 13 pts;
+essai about 250 words, 12 pts), PO 1 h prep + 30 min (exposé 8-10 min from a dossier,
+then 15-20 min entretien). 4 x 25, pass 50/100, 5/25 floor. No domain choice since
+March 2020 (do not copy the old two-domain split from pre-2020 papers). To verify in
+a browser before authoring: synthèse range wording, essai « environ » vs « minimum »,
+CO item counts (FEI demo paper: /document/dalf-c1sujet-demo-candidat-indiv).
+
+29. Five DALF C1 papers, like DELF B2 (paper 1 free in core, 2-5 in the exam pack;
+the packs layer needs no per-format change).
+30. Dossier documents render as separate document cards: text-only `parts` allowed
+on open tasks (relax schema.ts open-task-parts rule), drawn with the `Document`
+component above the writing box or recorder; the grader's stimulus concatenates
+prompt + parts. No DB change (`parts` is already a column).
+31. CO/CE include short typed answers (new optional short-answer shape on QcmItem,
+a text input in the runner, a scoring branch).
+32. Typed answers are marked by key words first, then the AI grader only when the
+key words are missing (fair to rewording, cheap).
+33. The PO entretien reuses `po_debate` (examiner pushes back on the exposé's
+thesis); the exposé is `po_monologue` with `prepS` 3600. No new task type.
+34. DALF work runs ALONGSIDE waves 4-6; v87 ships the lessons and DALF together.
+35. Mandatory scoring fix first: `DELF_BAND_MARK` (delf.logic.ts) is anchored to
+b2, so B2 work would pass a C1 paper. Make the band-to-mark table relative to the
+task's target level, with a test that b2 work fails a C1 paper. The DB change is
+one drizzle migration `ALTER TYPE exam_format ADD VALUE 'dalf_c1'` (pattern of
+0021_po_debate.sql; Paul's OK before it runs). Name used nominatively with the
+existing not-affiliated disclaimer.
+
 - **Wave 3 art registered** (36dc575): 48 openers, files = require = alt, ART_PENDING
   empty, house tests 342/342, app suite 5748/5748. Gate C1-2 preview on the Pixel 6
   (dev build): 12 lessons, 142 acts, 2195 items, 245 reused rows from seed+packs and
