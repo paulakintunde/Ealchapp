@@ -901,6 +901,15 @@ grader sees it (enforced by paper-rules).
 
 **DALF papers 1-2 dispatched** (two authors, `scripts/dalf-blanc01/`, `dalf-blanc02/`).
 
+**Wave 4 drafted (4af46a1, fbe4a61) and DALF papers 1-2 drafted (46d4c4c), 2026-10-06.**
+c1.10 77 missions / 171 rows; c1.11 77 / 158; c1.12 87 / 146; c1.13 81 / 170. Wave 4:
+house tests 358/358, app checks TOTAL 0, import dry run 645 rows / 0 conflicts / 0
+blockers. Four agents were cut off by the account session limit and resumed from disk.
+DALF: both first drafts had an A-B-C key rotation inside one part and paper 1 was short
+of STANDARD §6-7 lengths; fixed, and paper-rules now checks both (shared
+`scripts/dalf/scatter.ts`). Pre-review dispatched: one reviewer per lesson and per paper.
+Art folders created for the four wave 4 lessons.
+
 ## Status
 
 | Lesson | Slug | Missions | Acts | Quiz | Drills | Sheets | Items | Art | State |
