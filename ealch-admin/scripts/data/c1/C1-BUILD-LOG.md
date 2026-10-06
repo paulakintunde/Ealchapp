@@ -812,6 +812,78 @@ existing not-affiliated disclaimer.
   turns. Describe DALF C1 PO only with verified numbers (France Éducation
   international) or call it the app's own format. c1.23 will own meetings.
 
+## Wave 4 (c1.10-c1.13), set up and dispatched 2026-10-06
+
+Setup (Paul's OK, `scratch/_c1w4_themes.mts --apply`): blocks re-probed free at
+every level; sub-themes « la dissertation et la synthèse » (discours-dexamen),
+« le rapport et le compte rendu » (francais-professionnel-avance), « les concepts
+et leurs distinctions » (philosophie), « les références historiques »
+(culture-profonde). No widening. Each author gets the wave 1 common block plus the
+wave 2 notes (shape = the structural model's; scratch in a `<slug>/` subfolder;
+report as text; « The subject is » line per prompt; unpadded tag).
+
+- **c1.10 « Dissertation et synthèse »** (slug `dissertation-synthese`, workshop,
+  skill PE): `discours-dexamen` 1600-1799, unit c1.10. Model `../b2/argumentation-*`
+  (b2.23). Builds on « la leçon 22 du B2 » and « la leçon 23 du B2 » (problématique
+  as « la question que ton texte va trancher », dialectical and thematic plans,
+  transitions): one recap card, never re-taught. NEW: the problématique as a
+  tension or paradox; defining the sujet's terms; analytical and comparative
+  plans; choosing a plan FROM the problématique; transitions-bilan; conclusion with
+  ouverture; the synthèse of documents (one new text, own words, no opinion, no
+  added idea, key words reusable but not whole sentences, 200-240 words, practised
+  UNGRADED in an act). Decision 24: the graded task is ONE essai argumenté of
+  250-400 words built on a short dossier (2-3 original documents, about 400-600
+  words in all, inlined in `brief`), in a real genre (lettre ouverte, article,
+  contribution). Rubric adds lexical precision and argument structure to b2.23's
+  four. Do not name the DALF in learner text. Invented sources only; any figure
+  marked invented.
+- **c1.11 « Rapports et comptes rendus »** (slug `rapports-comptes-rendus`,
+  workshop, skill PE): `francais-professionnel-avance` 1200-1399, unit c1.11.
+  Model `../b2/style-academique-*` (b2.22). Builds on « la leçon 39 du B1 », « la
+  leçon 22 du B2 », « la leçon 26 du B2 », « la leçon 10 du B2 » (minutes condense
+  into nouns). NEW: report architecture (objet, contexte, constat, analyse,
+  recommandations, annexes); compte rendu vs procès-verbal (fact-check France vs
+  Québec, OQLF « Le français au bureau »); case analysis (problème, causes,
+  options, critères, choix); recommendation register (nous préconisons, il
+  conviendrait de, il est recommandé que + subjonctif); executive summary
+  (synthèse en tête). Traps: les minutes, item, adresser, implémenter, deadline
+  (b2.33 owns supporter / adresser / réaliser: cite it). Task: a short report or
+  compte rendu, 250-400 words, from facts given in the brief.
+- **c1.12 « Le vocabulaire des idées »** (slug `vocabulaire-idees`, vocabulary
+  lesson, skill CE): `philosophie` 1000-1199, unit c1.12. Model
+  `../b2/langage-juridique-*` (b2.27) and the vocab shape in
+  B1-WORKSHOP-AND-VOCAB-SHAPES §2. Builds on « la leçon 22 du B2 », « la leçon 23 du
+  B2 », « la leçon 10 du B2 » (-ité, -isme). About 320 b2 `philosophie` bank nouns
+  were never taught: reuse them as known, teach collocation and contrast. OWNS the
+  epistemic and logical pairs (nécessité / contingence, cause / raison, croyance /
+  connaissance, expliquer / justifier, prémisse / conclusion, sophisme, a priori /
+  a posteriori, condition nécessaire / suffisante); c1.15 owns political and social
+  headwords, c1.16 moral, aesthetic and memorial ones. No name-dropping; any short
+  line from Descartes, Pascal, Montaigne or Rousseau verified word for word on
+  Wikisource; check every attribution (the « Voltaire » free-speech line is Evelyn
+  Beatrice Hall's). Read any b2 row carrying an attribution before reuse.
+- **c1.13 « Les références qui comptent »** (slug `references-historiques`,
+  workshop, skill CE): `culture-profonde` 1000-1199, unit c1.13 (decision 28). Model
+  `../b2/francais-regional-*` (b2.31). Builds on « la leçon 31 du B2 », « la leçon 24
+  du B2 » (stance), « la leçon 34 du B2 » (fixed expressions: « franchir le Rubicon »
+  is b2.34's kind, « un Waterloo » is this lesson's). NEW: recognise and explain the
+  references press and speech take for granted (les Lumières, 1789, la loi de 1905,
+  l'appel du 18 juin, mai 68, la Révolution tranquille, la Négritude…) and what
+  invoking one MEANS, without endorsing a reading. At least one act each for Québec,
+  Belgium, Switzerland and francophone Africa. Contested history (Vichy, Algeria
+  and its naming, colonisation, laïcité 1905 vs Loi 21, the Acadian deportation, the
+  Conquest): literacy, named sources, no verdict. Apocrypha only as apocrypha
+  (« L'État, c'est moi », « qu'ils mangent de la brioche »). Fact-check every date,
+  number, quotation and law against an official source (Légifrance, Assemblée
+  nationale, Encyclopédie canadienne, Dictionnaire historique de la Suisse,
+  belgium.be, UNESCO); date-stamp anything "today". Task: a short written
+  explanation of a reference used in an invented article, 250-400 words.
+
+**DALF step 3 (same day, one agent):** `exam-blueprints/BLUEPRINT-dalf-c1.md`,
+`STANDARD-dalf-c1.md`, `TOPICS-dalf-c1.md`, `VOICES-dalf-c1.md`, and
+`scripts/dalf/paper-rules.ts` + test, modelled on the DELF B2 set and the verified
+facts above.
+
 ## Status
 
 | Lesson | Slug | Missions | Acts | Quiz | Drills | Sheets | Items | Art | State |
