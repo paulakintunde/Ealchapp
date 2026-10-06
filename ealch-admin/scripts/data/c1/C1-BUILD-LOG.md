@@ -910,6 +910,70 @@ of STANDARD §6-7 lengths; fixed, and paper-rules now checks both (shared
 `scripts/dalf/scatter.ts`). Pre-review dispatched: one reviewer per lesson and per paper.
 Art folders created for the four wave 4 lessons.
 
+**Wave 4 pre-reviewed (bbc452e, f87acec, d3a2dea, 5829c31, d956ef0); DALF papers 1-2
+reviewed (a54c97f, d660b7b).** Blockers: c1.10 5, c1.11 7, c1.12 4, c1.13 4; blanc-01 7
+keyword sets, blanc-02 3 + 6 keyword sets. App-wide: a typed answer with a negation is
+never marked right on key words (shortAnswer.logic negates()). Exam papers keep a plain
+space before ? ! ; : (every published paper does). c1.11 act 8 art: five at the table.
+After review: app checks TOTAL 0, import dry run 645 / 0 conflicts / 0 blockers.
+DALF papers 3-4 dispatched (blanc-03: DALF-03/13/15/34/43/52/56; blanc-04:
+DALF-04/16/17/35/44/54/57).
+
+## Wave 5 (c1.14-c1.17), set up and dispatched 2026-10-06
+
+Setup (Paul's OK, `scratch/_c1w5_themes.mts --apply`): blocks free at every level;
+sub-themes « l'analyse des œuvres » (culture-profonde), « les notions politiques et
+sociales » (ethique), « les notions morales et esthétiques » (philosophie), « synonymes et
+nuances » (nuances-et-registres). No widening. Each author gets the wave 1 common block,
+the wave 2 notes, and these **review lessons from wave 4** (every wave 4 lesson had 4-7
+blockers of these kinds): never teach correct French as an error (check the OQLF /
+Académie / Larousse before marking anything wrong, and allow France and Québec usage);
+no item with two defensible answers; a model answer never copies a whole source
+sentence or adds a figure the source lacks; invented facts never contradict each other
+(dates, headcounts, durations); every listening names its speakers in the text; explain a
+nuance as a precision choice, not a rule, when both forms are correct French.
+
+- **c1.14 « Analyser une œuvre »** (slug `analyser-oeuvre`, workshop, skill CE):
+  `culture-profonde` 1200-1399, unit c1.14. Model `../b2/lire-litterature-*` (b2.30) and
+  the reviewed C1 workshop `references-historiques-*`. Builds on « la leçon 30 du B2 »
+  (narrator, focalisation, analepse, ellipse, tonalités, incipit and chute, commentary
+  formulas): one recap card. NEW: from « j'ai aimé » to argued analysis; film language
+  (plan, cadrage, champ / contrechamp, plan-séquence, montage, hors-champ, bande-son);
+  visual arts (composition, touche, clair-obscur, perspective); music and stage in
+  outline; the critique genre weighing strengths and weaknesses. Films and post-1950
+  works are described in original prose, never quoted; no named living director in art
+  prompts; canon balance with verified Québec, Belgian, Swiss and African references.
+  Task: a short critique, 250-400 words, of a work described in the brief (invented).
+- **c1.15 « Justice, liberté, identité, pouvoir »** (slug `notions-politiques`,
+  vocabulary lesson, skill CE): `ethique` 1000-1199, unit c1.15. Model: the reviewed
+  `vocabulaire-idees-*` (c1.12) and B1-WORKSHOP-AND-VOCAB-SHAPES §2. Builds on « la leçon
+  27 du B2 » (legal-procedural sense) and « la leçon 33 du B1 ». Owns the political and
+  social headwords: équité / égalité, libertés publiques, pouvoir / puissance / autorité,
+  contre-pouvoir, légitimité / légalité, l'État de droit, impunité, identité in its abstract
+  sense, multiculturalisme vs interculturalisme. Loaded terms (identité nationale,
+  laïcité, communautarisme) presented as uses, not positions. Article numbers of the 1789
+  Déclaration, the Charte canadienne (1982) and the Charte québécoise (1975) checked on
+  Légifrance / Justice Canada / LégisQuébec. Reuse b2 `ethique` and `valeurs` bank rows
+  after reading each (Postgres; check attributions).
+- **c1.16 « Mémoire, vérité, beauté, éthique »** (slug `notions-morales`, vocabulary
+  lesson, skill CE): `philosophie` 1200-1399, unit c1.16. Model: the reviewed
+  `vocabulaire-idees-*` (c1.12). Builds on « les leçons 28 et 29 du B2 » (ethics in care
+  and research). Owns the moral, aesthetic and memorial headwords: sincérité / véracité /
+  vraisemblance; morale / éthique / déontologie; le beau / le sublime / le joli; mémoire /
+  souvenir / commémoration / devoir de mémoire; infox (FranceTerme) vs fausse nouvelle
+  (OQLF), both marked. Ricœur may be cited, never quoted; any Boileau line verified on
+  Gallica / Wikisource. Memorial laws: literacy only, no verdict. Do not reuse c1.12's
+  epistemic pairs (croyance / connaissance etc.): cite « la leçon 12 du C1 ».
+- **c1.17 « Synonymes et nuances »** (slug `synonymes-nuances`, vocabulary lesson,
+  skill CE): `nuances-et-registres` 1200-1399, unit c1.17. Model: the reviewed
+  `vocabulaire-idees-*` (c1.12). Builds on « la leçon 25 du B1 » (three registers), « la
+  leçon 26 du B1 », « la leçon 33 du B2 » act 12, « la leçon 32 du B2 », and c1.06
+  « Nuancer à l'oral » (« la leçon 6 du C1 », which owns euphemism and litote in speech:
+  cite, never re-teach). NEW: intensity scales (agacer < irriter < exaspérer), connotation
+  (positive / neutral / pejorative), collocation (verify each in a dictionary or corpus,
+  never by intuition), antonymy that matches the sense (« un temps doux » vs « un caractère
+  doux »). Québec register labels (char, blonde, magasiner) anchored in Usito / OQLF.
+
 ## Status
 
 | Lesson | Slug | Missions | Acts | Quiz | Drills | Sheets | Items | Art | State |
