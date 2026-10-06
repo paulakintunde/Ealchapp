@@ -59,9 +59,10 @@ export const B2_SLUGS: readonly string[] = [
 /** Every C1 lesson authored so far, in trail order (files in data/c1/). A
  *  wave adds its slugs here. */
 export const C1_SLUGS: readonly string[] = [
-  // trail order: wave 1 (c1.01, c1.20, c1.21, c1.24), wave 2 (c1.02-c1.05), wave 3 (c1.06-c1.09)
+  // trail order: wave 1 (c1.01, c1.20, c1.21, c1.24), wave 2 (c1.02-c1.05), wave 3 (c1.06-c1.09), wave 4 (c1.10-c1.13)
   'bilan-grammatical-c1', 'passe-anterieur', 'concordance-litteraire', 'relatives-complexes', 'ellipse-reprise',
   'nuancer-oral', 'reformuler-conclure', 'persuader', 'expose-jury',
+  'dissertation-synthese', 'rapports-comptes-rendus', 'references-historiques',
   'lire-entre-les-lignes', 'debats-entretiens', 'analyse-presse',
 ];
 
