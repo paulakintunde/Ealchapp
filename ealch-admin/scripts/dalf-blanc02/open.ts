@@ -184,18 +184,18 @@ const SYNTHESE_RUBRIC: Rubric = {
   ],
 };
 
-// 220 words by the FEI count (paper.test.ts and paper-rules check 200-240).
+// 222 words by the FEI count (paper.test.ts and paper-rules check 200-240).
 const SYNTHESE_MODEL =
   'Retirer les panneaux publicitaires des rues n’est pas un simple geste esthétique : c’est un arbitrage entre la qualité du regard commun et le financement des équipements urbains.\n\n' +
   'Les effets visibles plaident d’abord en faveur de cette décision. Là où l’affichage a été réduit des trois quarts, les habitants se disent largement satisfaits, ' +
   'décrivent des rues plus lisibles et redécouvrent des façades longtemps masquées. ' +
-  'Cette adhésion tient à la nature particulière de l’affiche : contrairement à un journal ou à un écran personnel, elle s’impose à tous, enfants compris, ' +
+  'Ce constat rejoint une analyse de la nature particulière de l’affiche : contrairement à un journal ou à un écran personnel, elle s’impose à tous, enfants compris, ' +
   'et capte une attention que personne ne lui a concédée, plus encore lorsqu’elle devient numérique et animée.\n\n' +
   'Cette reconquête a toutefois un prix, que les contrats d’affichage dissimulent. ' +
   'Fondés sur l’échange de mobilier urbain contre de l’espace publicitaire, ils donnent l’illusion de la gratuité, alors que le consommateur en supporte le coût. ' +
   'Renoncer à la publicité revient donc à transférer cette charge au budget communal, ce qu’une grande ville peut assumer, mais pas toujours une petite commune.\n\n' +
   'Reste à déterminer quels messages conserver. Si certains commerces de proximité gagnent en visibilité lorsque les grandes affiches disparaissent, ' +
-  'd’autres, plus excentrés, y perdent ; d’où l’idée de distinguer les signes liés au lieu des campagnes conçues ailleurs. ' +
+  'd’autres, plus excentrés, y perdent. On propose aussi de distinguer les signes liés au lieu des campagnes conçues ailleurs. ' +
   'Enfin, un tel choix suppose que les communes évaluent et rendent public ce qu’elles échangent réellement.';
 
 export const PE_SYNTHESE: ExamTask = {
@@ -293,7 +293,7 @@ const ESSAI_RUBRIC: Rubric = {
   ],
 };
 
-// 348 words by the FEI count (essai models run 280-350).
+// 347 words by the FEI count (essai models run 280-350).
 const ESSAI_MODEL =
   'Lettre ouverte à Madame la Maire de Brévillon\n\n' +
   'Madame la Maire,\n\n' +
@@ -311,7 +311,7 @@ const ESSAI_MODEL =
   'Certains y verront le renoncement à une recette commode. ' +
   'J’y vois au contraire l’occasion de décider enfin, en connaissance de cause, de ce que nous voulons voir en sortant de chez nous. ' +
   'Une ville ne se résume pas à ses façades, mais elle se lit à travers elles, et c’est à ses habitants, non à des annonceurs lointains, qu’il revient d’en écrire le texte. ' +
-  'D’autres communes ont franchi ce pas sans que leurs rues ne deviennent tristes : elles sont devenues lisibles.\n\n' +
+  'D’autres communes ont franchi ce pas sans que leurs rues deviennent tristes : elles sont devenues lisibles.\n\n' +
   'Je vous prie d’agréer, Madame la Maire, l’expression de ma haute considération.\n\n' +
   'Un habitant du quartier de la gare';
 
@@ -857,7 +857,7 @@ const PO2_DOC_1 =
   // INVENTED: three million family carers, most of them women over fifty.
   'Près de trois millions de personnes, en majorité des femmes de plus de cinquante ans, ' +
   'accompagnent régulièrement un parent âgé, souvent au détriment de leur propre santé et de leur vie professionnelle. ' +
-  'L’allongement de la vie se traduit donc aussi par une charge nouvelle pour la génération qui le précède immédiatement.\n\n' +
+  'L’allongement de la vie se traduit donc aussi par une charge nouvelle pour la génération qui suit, celle des enfants.\n\n' +
   'Le tableau n’est pas uniformément sombre. ' +
   'Deux personnes de plus de soixante-dix ans sur trois jugent aujourd’hui leur santé bonne ou très bonne, contre une sur deux il y a vingt ans. ' +
   'Les seniors sont plus actifs, voyagent davantage, s’engagent plus souvent dans des associations.\n\n' +

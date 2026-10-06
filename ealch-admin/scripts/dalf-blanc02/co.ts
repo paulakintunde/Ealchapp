@@ -99,7 +99,7 @@ const INTERVIEW =
   'On mesure la demande là où on a déjà décidé qu’elle se trouvait. ' +
   'Les zones d’entrepôts, au nord, ne sont desservies par aucune ligne de nuit. Personne ne les a jamais comptées.\n' +
   'UNE JOURNALISTE : Venons-en à l’éclairage, parce que c’est là que votre étude a fait réagir. ' +
-  'Beaucoup de communes éteignent une partie de leurs lampadaires au milieu de la nuit, pour économiser l’énergie, pour la biodiversité aussi. Vous êtes contre ?\n' +
+  'Beaucoup de communes éteignent une partie de leurs lampadaires au milieu de la nuit, pour économiser l’énergie, pour limiter la pollution lumineuse aussi. Vous êtes contre ?\n' +
   'UN URBANISTE : Non, et je tiens à le dire clairement, parce qu’on m’a fait dire le contraire. ' +
   'L’extinction, sur le principe, je la trouve défendable. On a éclairé pendant des décennies des rues où personne ne passait, c’était du gaspillage. ' +
   'Ce que je conteste, c’est la manière dont on choisit ce qu’on éteint. ' +
@@ -185,7 +185,7 @@ export const CO_PART1: ExamTask = {
           opts: [],
           correct: -1,
           keywords: [
-            ['44', 'quarante', 'moitie', 'majorite', 'plupart', 'premier'],
+            ['44', 'quarante', 'moitie'],
             ['travail', 'travaill', 'emploi', 'boulot', 'laborieu', 'professionn'],
           ],
           model: 'Près de la moitié des personnes interrogées (44 %) vont au travail ou en reviennent : la nuit est d’abord une nuit de travail, bien plus que de fête.',
@@ -225,7 +225,7 @@ export const CO_PART1: ExamTask = {
           opts: [],
           correct: -1,
           keywords: [
-            ['principe', 'accept', 'defend', 'favorable', 'pas contre', 'approuv', 'justifi', 'legitim', 'bonne idee'],
+            ['principe', 'accept', 'defendable', 'favorable', 'pas contre', 'approuv', 'justifi', 'legitim', 'bonne idee'],
             ['choix', 'choisi', 'monument', 'cathedrale', 'arret', 'lesquel', 'priorit', 'select', 'manier', 'ou on', 'quelles rues', 'resident'],
           ],
           model: 'Il l’accepte dans son principe, mais il conteste le choix de ce qu’on éteint : les rues résidentielles et les arrêts plutôt que les monuments.',
@@ -240,7 +240,7 @@ export const CO_PART1: ExamTask = {
           correct: -1,
           keywords: [
             ['image', 'carte postale', 'touris', 'prestige', 'vitrine', 'apparen', 'decor', 'esthet'],
-            ['gens', 'personne', 'habitant', 'usager', 'travaill', 'arret', 'besoin', 'compt', 'pieton'],
+            ['habitant', 'usager', 'travaill', 'arret', 'besoin', 'pieton', 'qui comptent', 'attend', 'circul', 'passant'],
           ],
           model: 'Que la ville privilégie son image touristique plutôt que les besoins des personnes qui circulent vraiment la nuit : c’est un choix sur les gens qui comptent.',
           why: '« Pour l’image… Ce n’est pas un choix technique, c’est un choix sur les gens qui comptent. »',
@@ -280,7 +280,7 @@ export const CO_PART1: ExamTask = {
           correct: -1,
           keywords: [
             ['fete', 'festi', 'bar', 'loisir', 'police', 'exploitant'],
-            ['travaill', 'interim', 'agent', 'represent', 'absent', 'exclu', 'table', 'oubli', 'organis', 'entendu', 'consult'],
+            ['travailleur', 'salari', 'interim', 'agent', 'entretien', 'entrepot', 'represent', 'absent', 'exclu', 'table', 'oubli', 'organis', 'entendu', 'consult'],
           ],
           model: 'Il ne travaille qu’avec les bars, les festivals et la police ; les travailleurs de nuit, qui ne sont pas organisés, ne sont pas représentés. C’est un maire de la nuit festive.',
           why: '« Ceux qui ne sont pas organisés ne sont pas autour de la table. Donc on a créé un maire de la nuit festive. »',
@@ -350,7 +350,7 @@ const FLASH =
   'Depuis six mois, deux après-midi par semaine, des étudiants du conservatoire jouent en direct dans deux salles d’attente, ' +
   'celle des urgences adultes et celle de la pédiatrie. Violon, guitare, flûte : uniquement des instruments acoustiques, ' +
   'et des morceaux choisis pour rester discrets. ' +
-  'L’expérience, financée par la fondation Ritournelle, devait durer trois mois. Elle vient d’être prolongée jusqu’à l’été. ' +
+  'L’expérience, financée par la fondation Ritournelle, devait s’achever ce mois-ci. Elle vient d’être prolongée jusqu’à l’été. ' +
   'Les premiers résultats expliquent ce choix. ' +
   'Sur quatre cents patients interrogés, ceux qui ont attendu pendant un concert estiment leur attente plus courte d’une vingtaine de minutes que les autres, ' +
   'alors que la durée réelle est restée la même. ' +
@@ -358,7 +358,7 @@ const FLASH =
   'Tout n’a pas été simple pour autant. Au début, certains patients se sont plaints d’un volume trop élevé, ' +
   'et les musiciens se sont d’abord installés trop près du bureau des infirmiers. ' +
   'Ils jouent désormais sans aucune amplification, dans un coin de la salle, et s’arrêtent dès qu’un soignant appelle un patient. ' +
-  'La directrice de l’établissement, Nadine Courtil, tient pourtant à mettre en garde contre tout malentendu. ' +
+  'La directrice de l’établissement, Nadine Courtil, tient pourtant à mettre en garde contre tout malentendu.\n' +
   'UNE DIRECTRICE D’HÔPITAL : La musique rend l’attente plus supportable, c’est déjà beaucoup. ' +
   'Mais elle ne raccourcit pas d’une minute le temps qu’on passe ici. ' +
   'Ce qui raccourcit l’attente, ce sont des médecins et des infirmiers en nombre suffisant. ' +
@@ -439,7 +439,7 @@ export const CO_PART2: ExamTask = {
             'De la confier désormais à des musiciens professionnels',
           ],
           correct: 0,
-          why: 'Prévue pour trois mois, elle « vient d’être prolongée jusqu’à l’été ». Elle reste limitée à deux salles ; ce sont d’autres hôpitaux qui s’y intéressent.',
+          why: 'Elle « devait s’achever ce mois-ci » et « vient d’être prolongée jusqu’à l’été ». Elle reste limitée à deux salles ; ce sont d’autres hôpitaux qui s’y intéressent.',
           band: 'c1',
           points: 1,
         },

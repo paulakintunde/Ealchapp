@@ -172,7 +172,7 @@ export const CE_TASK: ExamTask = {
           opts: [],
           correct: -1,
           keywords: [
-            ['resultat', 'facade', 'certitude', 'produit fini', 'conclusions'],
+            ['resultat', 'facade', 'certitude', 'produit fini', 'conclusions', 'habitu'],
             ['chantier', 'debat', 'querelle', 'controverse', 'coulisse', 'chemin', 'travail', 'processus', 'dispute', 'fabrication', 'hypothese', 'recherche'],
           ],
           model: 'Le public n’avait l’habitude de voir que les résultats de la science, pas les débats et les controverses qui y mènent ; ce travail est désormais exposé en direct.',
@@ -187,7 +187,7 @@ export const CE_TASK: ExamTask = {
           opts: ['Vrai', 'Faux'],
           correct: 0,
           quotes: [
-            'cinquante-huit pour cent des personnes interrogées déclarent que voir des experts se contredire diminue leur confiance',
+            'cinquante-huit pour cent des personnes interrogées déclarent que voir des experts se contredire diminue leur confiance « dans la science en général »',
             'diminue leur confiance « dans la science en général », et non dans les seuls experts concernés',
           ],
           why: 'Cinquante-huit pour cent, et la confiance « dans la science en général ».',
@@ -216,7 +216,7 @@ export const CE_TASK: ExamTask = {
           opts: [],
           correct: -1,
           keywords: [
-            ['retien', 'choisi', 'propre verite', 'sa verite', 'chacun', 'prefer', 'convient', 'arrang', 'selon son'],
+            ['reten', 'retien', 'choisi', 'propre verite', 'sa verite', 'ce qu il veut', 'avis qui', 'prefer', 'convient', 'arrang', 'selon son'],
             ['vite', 'rapid', 'urgen', 'decision', 'agir', 'action', 'compris', 'clair', 'confus'],
           ],
           model: 'Parce que, lorsqu’une décision doit être prise vite, des avis divergents permettent à chacun de retenir celui qui lui convient, et l’action commune devient impossible.',
@@ -259,7 +259,7 @@ export const CE_TASK: ExamTask = {
           correct: -1,
           keywords: [
             ['marge', 'frontiere', 'limite', 'detail', 'point precis', 'partiel', 'bord', 'petit'],
-            ['essentiel', 'accord', 'partag', 'commun', 'socle', 'base', 'connaissance', 'savaient', 'savoir'],
+            ['essentiel', 'accord', 'partag', 'commun', 'socle', 'base'],
           ],
           model: 'Il montre que les deux experts partageaient l’essentiel des connaissances et ne divergeaient que sur une marge : il réfute ainsi l’idée que leur dispute prouverait que tout se vaut.',
           why: 'L’exemple, déjà connu du lecteur, devient un argument : accord sur l’essentiel, désaccord sur « une marge ».',
@@ -314,9 +314,9 @@ export const CE_TASK: ExamTask = {
           opts: [],
           correct: -1,
           keywords: [
-            ['front', 'seule voix', 'unique', 'relativ', 'tout se vaut', 'deux reponses', 'ecart', 'refut', 'rejet', 'critique'],
-            ['normal', 'ordinaire', 'fonctionnement', 'methode', 'sain'],
-            ['present', 'forme', 'format', 'expliqu', 'commencer', 'accord', 'lisible', 'mise en scene'],
+            ['front', 'seule voix', 'unique', 'huis clos', 'consensus', 'relativ', 'tout se vaut', 'deux reponses'],
+            ['normal', 'ordinaire', 'fonctionnement', 'sain'],
+            ['presentation', 'format', 'explication', 'expliquer', 'commencer par', 'accord', 'lisible', 'mise en scene', 'transparen', 'opacit'],
           ],
           model: 'Partie d’un épisode qui semble prouver une crise de confiance, elle écarte deux réponses, le front uni et l’idée que tout se vaut, puis soutient que le désaccord est le fonctionnement normal de la science et qu’il faut en changer la présentation en commençant par l’accord.',
           why: 'Épisode, deux réponses rapportées et discutées, thèse (fonctionnement ordinaire), proposition (commencer par l’accord), concession finale.',
