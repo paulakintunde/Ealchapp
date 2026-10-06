@@ -731,7 +731,7 @@ async function main() {
       // computed per part below, because TEF's block G is five sub-types
       // wearing one letter and a micro-trottoir is cast from block C's voices
       // while still being paced at block G's speed.
-      const BAND_KEYED = new Set(['tcf_canada', 'delf_b2']);
+      const BAND_KEYED = new Set(['tcf_canada', 'delf_b2', 'dalf_c1']);
       const block =
         BAND_KEYED.has(row.format)
           ? registerKeyFor({ format: row.format, taskLabel: row.label ?? '', partLabel: '', level: row.level })

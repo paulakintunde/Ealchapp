@@ -384,7 +384,7 @@ test('a band-keyed format is never cast off the first letter of its label', () =
   // nothing would fail — no exception, no empty result, just the wrong voices
   // at the wrong speed. TCF hit it once. DELF was added to the same
   // fall-through and would have hit it again on its first render.
-  for (const format of ['tcf_canada', 'delf_b2']) {
+  for (const format of ['tcf_canada', 'delf_b2', 'dalf_c1']) {
     const key = registerKeyFor({
       format,
       taskLabel: 'Compréhension de l’oral · Exercice 1',

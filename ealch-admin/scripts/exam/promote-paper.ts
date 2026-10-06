@@ -20,7 +20,7 @@
 //   pnpm tsx scripts/exam/promote-paper.ts tef 1 --revert
 import './../env';
 
-const FORMATS = { tef: 'tef_canada', tcf: 'tcf_canada', delf: 'delf_b2' } as const;
+const FORMATS = { tef: 'tef_canada', tcf: 'tcf_canada', delf: 'delf_b2', dalf: 'dalf_c1' } as const;
 const key = process.argv.slice(2).find((a) => a in FORMATS) as keyof typeof FORMATS | undefined;
 if (!key) {
   console.error(`\n✖ name a format: ${Object.keys(FORMATS).join(', ')}\n`);

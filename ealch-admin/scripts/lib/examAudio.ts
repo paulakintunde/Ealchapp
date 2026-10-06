@@ -99,8 +99,9 @@ export function registerKeyFor(input: {
   // wrong rather than loud: 'Compréhension orale · A1' and 'Compréhension de
   // l'oral · Exercice 1' both begin with C, so every document would be cast and
   // paced as a TEF block C micro-trottoir and nothing would fail. That happened
-  // once to TCF; listing DELF here is what stops it happening again.
-  if (input.format === 'tcf_canada' || input.format === 'delf_b2') {
+  // once to TCF; listing DELF (and DALF C1, labelled the same French way) here
+  // is what stops it happening again.
+  if (input.format === 'tcf_canada' || input.format === 'delf_b2' || input.format === 'dalf_c1') {
     const band = (input.level ?? '').toLowerCase();
     if (band in BAND_PREFERENCE) return band;
     // A task with no usable level is an authoring fault, not something to paper
