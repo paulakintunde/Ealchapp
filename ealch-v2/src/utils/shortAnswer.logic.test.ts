@@ -100,3 +100,13 @@ test('the runner draws a box for each typed kind (not authored-but-unrendered)',
   ok(/examGrader\.checkShort\(/.test(src), 'unsure answers are never sent to the grader');
   ok(/shortUnchecked: unchecked\.length/.test(src), 'unchecked answers are not logged for the report');
 });
+
+test('an answer that negates never passes on key words alone: it goes to the AI', () => {
+  // DALF blanc-01 review: « l'oubli n'est pas légitime » met every group of
+  // « l'oubli est légitime » and would have been marked right on the spot.
+  const legit: QcmItem = { kind: 'short', q: 'Sa position finale ?', opts: [], correct: -1, keywords: [['legitim'], ['oubli']], model: 'L’oubli peut être légitime.', points: 2 };
+  strictEqual(markAnswer(legit, 'l’oubli est légitime sous conditions'), 'right');
+  strictEqual(markAnswer(legit, 'l’oubli n’est pas légitime'), 'unsure');
+  strictEqual(markAnswer(legit, 'jamais l’oubli ne serait légitime'), 'unsure');
+  strictEqual(markAnswer(legit, 'un oubli sans rien de légitime'), 'unsure');
+});

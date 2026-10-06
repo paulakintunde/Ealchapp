@@ -166,7 +166,7 @@ export const CO_P1: ExamTask = {
           correct: -1,
           keywords: [
             ['faux', 'fausse', 'erron', 'invent', 'inexact', 'fictif', 'rouge', 'ajout', 'mauvais'],
-            ['certain', 'certitud', 'assur', 'confian', 'convaincu', 'persuad', 'aplomb', 'surs', 'sure'],
+            ['certitud', 'aussi certain', 'autant certain', 'certaine', 'assur', 'confian', 'convaincu', 'persuad', 'aplomb', 'aussi sur', 'sur de', 'surs de', 'sure de', 'sures de', 'sur que', 'surs que'],
           ],
           model: 'Ceux qui avaient adopté le faux détail en étaient tout aussi certains que ceux qui se souvenaient correctement.',
           why: 'Ce n’est pas la proportion (quatre sur dix) mais l’égalité de certitude entre souvenirs justes et faux.',
@@ -236,7 +236,7 @@ export const CO_P1: ExamTask = {
           opts: [],
           correct: -1,
           keywords: [
-            ['agir', 'action', 'avenir', 'futur', 'anticip', 'prevoir', 'prevo', 'adapt', 'vivre', 'quotidien'],
+            ['agir', 'action', 'avenir', 'futur', 'anticip', 'prevoir', 'prevo', 'vivre', 'quotidien'],
             ['archiv', 'fidel', 'exact', 'tel quel', 'conserv', 'fige', 'temoign', 'enregistr', 'identique', 'stock'],
           ],
           model: 'Parce que la mémoire est faite pour agir et anticiper l’avenir, pas pour conserver le passé à l’identique.',

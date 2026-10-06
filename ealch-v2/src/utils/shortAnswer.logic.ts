@@ -46,6 +46,18 @@ export function fold(s: string): string {
     .trim();
 }
 
+/**
+ * Key words cannot see a negation: « l'oubli n'est pas légitime » meets every
+ * group of « l'oubli est légitime » (DALF blanc-01 review, 2026-10-06). An answer
+ * that negates is therefore never marked right on key words alone; it goes to
+ * the AI grader, which reads the meaning. A right answer phrased negatively
+ * costs nothing extra (one batch per task), a wrong one no longer slips through.
+ */
+export function negates(answer: string): boolean {
+  const f = ` ${fold(answer)} `;
+  return /\s(ne|n)\s/.test(f) || /\s(pas|jamais|aucun|aucune|nullement|guere)\s/.test(f) || /\snon\s/.test(f) || /\ssans\s/.test(f);
+}
+
 /** Every group met by one keyword that starts a word of the answer. */
 export function keywordsMet(answer: string, groups: string[][]): boolean {
   const hay = ` ${fold(answer)} `;
@@ -78,7 +90,7 @@ export function markAnswer(item: QcmItem, answer: ExamAnswer | null | undefined)
   if (kind === 'mcq') return answer === item.correct ? 'right' : 'wrong';
   if (kind === 'short') {
     if (typeof answer !== 'string' || answer.trim() === '') return 'wrong';
-    return keywordsMet(answer, item.keywords ?? []) ? 'right' : 'unsure';
+    return keywordsMet(answer, item.keywords ?? []) && !negates(answer) ? 'right' : 'unsure';
   }
   // tfj
   if (typeof answer !== 'object' || answer === null || answer.choice !== item.correct) return 'wrong';

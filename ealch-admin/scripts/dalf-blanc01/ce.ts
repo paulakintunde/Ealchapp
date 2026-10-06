@@ -94,7 +94,7 @@ export const CE_T1: ExamTask = {
           opts: [],
           correct: -1,
           keywords: [
-            ['trop', 'multipl', 'nombr', 'satur', 'accumul', 'profusion', 'exces', 'abond', 'tout rappeler', 'tout commemorer', 'prolif', 'surabond', 'surcharg'],
+            ['trop de comm', 'trop nombr', 'trop de cere', 'trop de date', 'trop de journ', 'trop d hommag', 'multipl', 'nombre excessi', 'satur', 'accumul', 'profusion', 'exces', 'abond', 'tout rappeler', 'tout commemorer', 'prolif', 'surabond', 'surcharg'],
             ['sens', 'force', 'valeur', 'portee', 'dilu', 'banal', 'distingu', 'ressort', 'remarqu', 'signif', 'impact', 'affaibl', 'perd', 'usure', 'formalite', 'routine', 'detach'],
           ],
           model: 'À force de multiplier les commémorations, chacune perd sa force et plus aucune ne se distingue des autres.',
@@ -110,7 +110,7 @@ export const CE_T1: ExamTask = {
           correct: -1,
           keywords: [
             ['bourreau', 'coupable', 'criminel', 'responsabl', 'oppresseur', 'tortionnaire', 'assassin', 'agresseur', 'tireur', 'meurtrier'],
-            ['profit', 'servi', 'sert', 'avantag', 'arrang', 'benefic', 'protege', 'impun', 'absou', 'prolong', 'continu', 'victoire'],
+            ['profit', 'servi', 'sert', 'avantag', 'arrang', 'benefic', 'protege', 'impun', 'absou', 'prolong', 'victoire'],
           ],
           model: 'L’oubli profite toujours aux bourreaux : se taire prolonge le crime en privant les victimes de toute reconnaissance.',
           why: '« L’oubli profite toujours aux bourreaux » ; se taire prolonge les effets du crime.',
@@ -179,7 +179,7 @@ export const CE_T1: ExamTask = {
           opts: [],
           correct: -1,
           keywords: [
-            ['libre', 'liberte', 'possib', 'permis', 'autoris', 'droit', 'choix', 'choisi', 'facult', 'peuvent', 'pouvoir', 'quiconque', 'chacun'],
+            ['libre', 'liberte', 'possib', 'permis', 'autoris', 'choix', 'choisi', 'facult', 'peuvent', 'quiconque', 'chacun'],
             ['effac', 'interdi', 'impos', 'oblig', 'contrain', 'suppr', 'censur', 'apaisement'],
           ],
           model: 'Parce que cela montre que l’oubli choisi par Corvenne n’est pas un effacement : chacun reste libre de se souvenir, seule l’obligation a disparu.',
@@ -239,7 +239,7 @@ export const CE_T1: ExamTask = {
           opts: [],
           correct: -1,
           keywords: [
-            ['legitim', 'accept', 'admissi', 'souhait', 'defendab', 'justifi', 'valable', 'possible', 'condition', 'tolera'],
+            ['condition', 'legitim', 'defendab', 'justifiab', 'admissib', 'acceptable si', 'acceptable a', 'accepte si', 'accepte a', 'accepter si', 'valable si', 'possible si', 'pourvu', 'seulement si', 'sous reserve', 'a trois'],
             ['victim', 'bless', 'descendant', 'souffert', 'subi', 'concern', 'famill', 'lese', 'interess'],
             ['archiv', 'trace', 'document', 'accessib', 'ouvert', 'reversib', 'revenir', 'consult', 'reprendre'],
           ],
