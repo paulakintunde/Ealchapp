@@ -43,7 +43,7 @@ const clone = <T>(x: T): T => structuredClone(x);
 
 let mcqSeq = 0;
 const mcq = (points: number): QcmItem =>
-  ({ q: 'q', opts: ['a', 'b', 'c'], correct: mcqSeq++ % 3, band: 'c1', points });
+  ({ q: 'q', opts: ['a', 'b', 'c'], correct: [1, 0, 2, 2, 0, 1][mcqSeq++ % 6]!, band: 'c1', points });
 const short = (points: number): QcmItem =>
   ({ kind: 'short', q: 'q', opts: [], correct: -1, band: 'c1', points,
     keywords: [['quantif', 'mesur'], ['malheur']], model: 'On peut quantifier le malheur, pas le bonheur.' });
@@ -111,7 +111,7 @@ function debate(): ExamDebate {
 function poTasks(): ExamTask[] {
   const pair = (a: string, b: string): ExamTask[] => [
     task(a, 'po_monologue', 'PO', { prepS: 3600, parts: [{ label: 'Document 1', text: words(450), items: [] }, { label: 'Document 2', text: words(450), items: [] }],
-      responseSpec: { kind: 'audio', minDurationS: 480, maxDurationS: 600 }, rubric: rubric(5, 3, 3, 2), modelAnswer: words(300) }),
+      responseSpec: { kind: 'audio', minDurationS: 480, maxDurationS: 600 }, rubric: rubric(5, 3, 3, 2), modelAnswer: words(1150) }),
     task(b, 'po_debate', 'PO', { debate: debate(),
       responseSpec: { kind: 'audio', minDurationS: 900, maxDurationS: 1200 }, rubric: rubric(5, 2, 2, 3), modelAnswer: words(300) }),
   ];
@@ -314,7 +314,7 @@ test('the writing rule catches a thin dossier, a wrong range and a model outside
   p[0]!.modelAnswer = words(250);
   const v = writingViolations(p);
   ok(v.some((x) => x.includes('1 document(s)')));
-  ok(v.some((x) => x.includes('600 words, outside 850-1150')));
+  ok(v.some((x) => x.includes('600 words, outside 950-1050')));
   ok(v.some((x) => x.includes('text, 200-240 words')));
   ok(v.some((x) => x.includes('counts 250 words, outside 200-240')));
 });
@@ -429,4 +429,18 @@ test('the passing fixture is schema-valid, so these rules describe a paper that 
   const issues = p.TASKS.filter((t) => t.taskType !== 'po_debate').flatMap((t) => validateExamTask(t, t.id));
   deepStrictEqual(issues, []);
   deepStrictEqual(validateExamPaper(p.PAPER), []);
+});
+
+test('per-part key runs and the speaking lengths are caught', () => {
+  const p = paper();
+  const co = p.CO_TASKS[1]!;
+  const mcq = co.parts![2]!.items.filter((i) => (i.kind ?? 'mcq') === 'mcq');
+  mcq.forEach((it, i) => { it.correct = i % 3; });
+  ok(keyScatterViolations([...p.CO_TASKS, ...p.CE_TASKS]).some((x) => x.includes('A-B-C rotation')));
+  const po = paper().PO_TASKS;
+  po[0]!.modelAnswer = words(900);
+  po[0]!.parts = [{ label: 'Document 1', text: words(500), items: [] }];
+  const v = speakingViolations(po);
+  ok(v.some((x) => x.includes('outside 800-1100')));
+  ok(v.some((x) => x.includes('outside 1100-1300')));
 });

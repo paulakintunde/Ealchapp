@@ -23,6 +23,7 @@ import type { ExamPaper, ExamTask, ExamPart, QcmItem } from '../../../ealch-v2/s
 import { spokenTranscript } from '../../../ealch-v2/src/utils/coPlayback.logic.ts';
 import { fold, keywordsMet } from '../../../ealch-v2/src/utils/shortAnswer.logic.ts';
 import { debateBalanceViolations, debateDepthViolations } from '../delf/paper-rules.ts';
+import { hasAscendingRun } from './scatter.ts';
 
 export const FORMAT = 'dalf_c1' as const;
 export const FORMAT_VERSION = 'dalf-c1-2026.10';
@@ -174,6 +175,12 @@ export function keyScatterViolations(tasks: ExamTask[], maxShare = 0.5): string[
   }
   const tfj = all.filter((i) => kindOf(i) === 'tfj').map((i) => i.correct);
   if (tfj.length >= 2 && new Set(tfj).size === 1) out.push(`all ${tfj.length} vrai/faux answers are ${tfj[0] === 0 ? 'Vrai' : 'Faux'}`);
+  // Per part: a balanced paper can still read A B C inside one extract (both
+  // first drafts did). See scripts/dalf/scatter.ts.
+  for (const t of tasks) parts(t).forEach((p, k) => {
+    const keys = p.items.filter((i) => kindOf(i) === 'mcq').map((i) => i.correct);
+    if (hasAscendingRun(keys)) out.push(`${t.id} part ${k}: MCQ keys run ${keys.map((x) => 'ABC'[x]).join(' ')}, a visible A-B-C rotation`);
+  });
   return out;
 }
 
@@ -304,7 +311,7 @@ const dossierWords = (t: ExamTask) => parts(t).reduce((n, p) => n + countWords(p
  * Synthèse then essai.
  *
  *   synthèse  pe_short or pe_essay; a dossier of at least two documents,
- *             « environ 1 000 mots » (we hold 850-1150); responseSpec text
+ *             « environ 1 000 mots » (we hold 950-1050, STANDARD §6); responseSpec text
  *             200-240; a model answer that itself counts 200-240 the FEI way,
  *             because a model outside the range teaches the length penalty.
  *   essai     pe_essay; responseSpec text, minWords 250; model >= 250 words.
@@ -318,7 +325,7 @@ export function writingViolations(peTasks: ExamTask[]): string[] {
     const docs = parts(syn).length;
     if (docs < 2) out.push(`${syn.id}: the synthèse dossier has ${docs} document(s), and a synthèse crosses at least two`);
     const w = dossierWords(syn);
-    if (w < 850 || w > 1150) out.push(`${syn.id}: the dossier runs ${w} words, outside 850-1150 (about 1000)`);
+    if (w < 950 || w > 1050) out.push(`${syn.id}: the dossier runs ${w} words, outside 950-1050 (about 1000; STANDARD §6)`);
     const rs = syn.responseSpec;
     if (rs?.kind !== 'text' || rs.minWords !== 200 || rs.maxWords !== 240) {
       out.push(`${syn.id}: responseSpec must be text, 200-240 words`);
@@ -359,6 +366,12 @@ export function speakingViolations(poTasks: ExamTask[]): string[] {
     if (expo.taskType !== 'po_monologue') out.push(`${expo.id}: the exposé is a ${expo.taskType}, not po_monologue`);
     if (expo.prepS !== 3600) out.push(`${expo.id}: prep is ${expo.prepS ?? 'absent'}s, expected one hour (3600)`);
     if (parts(expo).length < 1) out.push(`${expo.id}: the exposé has no dossier`);
+    // STANDARD §7: a dossier worth an hour's preparation, and a model that
+    // actually fills 8-10 minutes (paper 1's first draft ran ~7).
+    const dw = dossierWords(expo);
+    if (dw < 800 || dw > 1100) out.push(`${expo.id}: the exposé dossier runs ${dw} words, outside 800-1100`);
+    const mw = countWords(expo.modelAnswer ?? '');
+    if (mw < 1100 || mw > 1300) out.push(`${expo.id}: the model exposé counts ${mw} words, outside 1100-1300 (8-10 min)`);
     const rs = expo.responseSpec;
     if (rs?.kind !== 'audio' || rs.minDurationS !== 480 || rs.maxDurationS !== 600) {
       out.push(`${expo.id}: responseSpec must be audio, 480-600 s (8-10 min)`);
