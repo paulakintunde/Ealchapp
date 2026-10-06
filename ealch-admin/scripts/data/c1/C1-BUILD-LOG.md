@@ -732,8 +732,13 @@ existing not-affiliated disclaimer.
   prompt + documents); acd91d2 typed answers (`kind` short / tfj, key words then one
   AI batch per task via grade-exam mode 'short', unchecked answers score 0 and show
   on the report row); 5323644 audio casting / render / promote / marking sheet.
-  App 5770/5770, admin 1060 + 1 skipped, tsc clean. WAITING on Paul's OK: run
-  migration 0023 (enum value) and deploy grade-exam (new 'short' mode). The app
+  App 5770/5770, admin 1060 + 1 skipped, tsc clean.
+- **Server side done with Paul's OK (2026-10-06).** Migration 0023 applied (only
+  pending one; enum now delf_b2, tef_canada, tcf_canada, dalf_c1). grade-exam
+  deployed as v8 through the Supabase connector (no CLI on this machine; v7 matched
+  the repo before acd91d2, so v8 adds only the 'short' mode). Smoke test on v8: bad
+  short batch 400 with its own message; essay without rubric still refused; a live
+  batch accepted a reworded right answer and rejected a wrong one (nvidia). The app
   side ships with the next build/OTA; device check of the new screens at gate C1-3
   once a DALF paper exists.
 
