@@ -123,7 +123,10 @@
 //
 //  5. TYPOGRAPHY OF THE REUSED POSTGRES ROWS (decision 13 pass at import,
 //     straight ' to ’): PH .026 .101 .107 .115 .116 .123 .125 .128 .130 .133
-//     .140 .202 .211 .225 .285 .286 .294 .307 .316 .319. The seed rows
+//     .140 .202 .211 .225 .285 .286 .294 .307 .316 .319. ALSO (pre-review
+//     2026-10-06): the Postgres `ipa` of .202, .225, .307 and .319 carries
+//     the U+203F liaison tie, which renders as an underscore on the
+//     Pixel 6: strip it in the same import pass. The seed rows
 //     universite .1076 and the c1 bank row .006 are printed only through
 //     `src()`, never inside the scenario.
 //
@@ -150,8 +153,13 @@
 //          from experience; in everyday French « a priori » also means « à
 //          première vue », and the noun « un a priori » (invariable) means a
 //          preconception (Larousse, Le Robert). Spelling: traditional « a
-//          priori » without accent; the 1990 rectifications allow « à
-//          priori » (sheet-savoir). VERIFY the Académie's current entry.
+//          priori » without accent. CHECKED 2026-10-06 (pre-review),
+//          Académie 9e éd. « a priori », loc. adv.: sense 2 « au premier
+//          abord » and « un a priori, des a priori » (subst. inv.); the 1990
+//          rectifications give the noun as « apriori », pl. « aprioris »,
+//          NOT « à priori » (also the Académie's list of recommended
+//          spellings). « à priori » is the spelling of its 6e to 8e
+//          editions. sheet-savoir corrected accordingly.
 //       e. Cats cannot see in total darkness; they see well in low light
 //          (act 4 text).
 //       f. The tomato is botanically a fruit and treated as a vegetable in
@@ -295,7 +303,7 @@ export const REFRAME_REJECTED: readonly { text: string; why: string }[] = [
   },
   {
     text: 'Apprends la définition de chaque mot.',
-    why: 'Necessary and not sufficient, which is act 6’s own point: a learner who can define « cause » and « raison » separately still writes « la raison de l’incendie ». The choice comes from the contrast, not the definition.',
+    why: 'Necessary and not sufficient, which is act 6’s own point: a learner who can define « cause » and « raison » separately still writes « elle a ses causes » for a person’s motives. The choice comes from the contrast, not the definition.',
   },
   {
     text: 'Le mot savant est toujours le plus précis.',
@@ -594,7 +602,7 @@ export const ACT3_ROWS: Row[] = [
   rule(1035, 'Une cause produit un effet ; une raison justifie un choix.', 'A cause produces an effect; a reason justifies a choice.',
     '/yn koz pʁɔ.dɥi œ̃.ne.fɛ yn ʁɛ.zɔ̃ ʒys.ti.fi œ̃ ʃwa/', 'ün KOHZ pro-DWEE | uhⁿ-nay-FEH | ün reh-ZOHⁿ zhüs-tee-FEE | uhⁿ SHWA',
     'Cause ou raison : laquelle produit, laquelle justifie ?',
-    'Le verglas est la cause d’un accident ; il n’en est pas la raison. Une personne a des raisons ; un phénomène a des causes.',
+    'Dans une analyse, une personne a des raisons et un phénomène a des causes : le verglas est la cause d’un accident. Dans la conversation, « la raison de l’accident » se dit aussi ; le mot précis reste cause.',
     ['cause']),
   sent(1036, 'Le verglas a causé l’accident.', 'Black ice caused the accident.',
     '/lə vɛʁ.ɡla a ko.ze lak.si.dɑ̃/', 'luh vehr-GLA | a koh-ZAY lak-see-DAHⁿ', ['cause']),
@@ -838,7 +846,7 @@ export const ACT11_ROWS: Row[] = [
   col(1124, 'apporter la preuve de', 'to provide proof of', '/a.pɔʁ.te la pʁœv də/', 'a-por-TAY la PRUHV duh', ['preuve'],
     'On apporte, on fournit, on donne la preuve de quelque chose. La charge de la preuve : à qui revient-il de prouver ?'),
   col(1125, 'infirmer une hypothèse', 'to invalidate a hypothesis', '/ɛ̃.fiʁ.me y.ni.pɔ.tɛz/', 'ehⁿ-feer-MAY | ü-nee-po-TEZ', ['preuve'],
-    'Infirmer : montrer qu’une chose est fausse. C’est le contraire de confirmer. Rien à voir avec infirme.', SO),
+    'Infirmer : ôter son crédit à une chose, montrer qu’elle est fausse. C’est le contraire de confirmer. Rien à voir avec infirme.', SO),
   col(1126, 'corroborer un témoignage', 'to corroborate a testimony', '/kɔ.ʁɔ.bɔ.ʁe œ̃ te.mwa.ɲaʒ/', 'ko-ro-bo-RAY | uhⁿ tay-mwa-NYAZH', ['preuve'],
     'Corroborer : confirmer par un autre élément, indépendant du premier.', SO),
   col(1127, 'réfuter un argument', 'to refute an argument', '/ʁe.fy.te œ̃.naʁ.ɡy.mɑ̃/', 'ray-fü-TAY | uhⁿ-nar-gü-MAHⁿ', ['preuve'],

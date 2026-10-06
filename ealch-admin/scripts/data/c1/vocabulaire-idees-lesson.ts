@@ -144,8 +144,10 @@
 //      reused instead of authoring a twin; so is c1.06's « à ma
 //      connaissance ».
 //   5. Act 9 teaches « a priori » as invariable in the traditional spelling
-//      and mentions the 1990 « à priori » in sheet-savoir only; no quiz item
-//      turns on the accent or a plural. Agree?
+//      and mentions the 1990 noun « un apriori, des aprioris » (Académie 9e
+//      éd.; pre-review corrected the earlier « à priori », which is the
+//      6e-8e editions' spelling, not the 1990 one) in sheet-savoir only; no
+//      quiz item turns on the accent or a plural. Agree?
 //   6. `Lesson.version` is 1 (a new lesson). 'coach-fr-FR' is inert; kept.
 //      The twelve openers need art (ART_PENDING until Paul's images land).
 
@@ -536,7 +538,7 @@ const A2_CHECK = actCheck('a2-check', 'Le point : acte 2', [
   ctl('La pièce', 'Le lycée demande un certificat pour…',
     ['justifier une absence', 'expliquer une absence'], 0,
     'Une pièce justifie, au sens administratif. EN: to document it.'),
-  ctl('Le soutenu', 'Une théorie qui explique tous les faits en…',
+  ctl('Le soutenu', 'Pour dire, en registre soutenu, qu’une théorie explique les faits, on dit qu’elle en…',
     ['rend compte', 'rend justice', 'tient compte'], 0,
     'Rendre compte de : expliquer, soutenu. EN: accounts for them.'),
 ], ['expliquer']);
@@ -608,9 +610,9 @@ const A3_CONSTRUIRE: Sec<'groupDrill'> = {
       it(PH(140), 'ce que la cause produit'),
       it(E(1030), 'un incendie'),
       it(E(1036), 'le verbe causer'),
-    ], chk('« Le verglas a causé l’accident. » Le verglas est…',
-      ['la cause de l’accident', 'la raison de l’accident'], 0,
-      'Un phénomène n’a pas de raisons : il a des causes. EN: the cause.')),
+    ], chk('« Le verglas a causé l’accident. » Dans un rapport d’analyse, le verglas est…',
+      ['la cause de l’accident', 'le motif de l’accident'], 0,
+      'Ce qui produit un fait : la cause. Un motif est une raison d’agir, et le verglas n’agit pas. EN: the cause.')),
     grp('Les personnes ont des raisons', [
       it(E(1027), 'avoir ses raisons'),
       it(E(1034), 'la raison pour laquelle'),
@@ -630,8 +632,8 @@ const A3_ERREURS: Sec<'commonErrors'> = {
   type: 'commonErrors', id: 'a3-erreurs', layer: 'core', swipe: true, size: 'lg',
   title: 'Quatre façons de dire pourquoi de travers',
   errors: [
-    { wrong: 'La raison de l’incendie reste inconnue.', right: fr(E(1030)),
-      why: 'Normal : en anglais, the reason for the fire passe. En français, un incendie n’a pas de raisons, il a une cause. EN: la cause.' },
+    { wrong: 'Elle a ses causes, même si elle ne les dit pas.', right: fr(E(1031)),
+      why: 'Normal : cause et raison disent toutes deux pourquoi. Mais une personne a ses raisons ; « avoir ses causes » ne se dit pas. EN: ses raisons.' },
     { wrong: 'La raison pourquoi il est parti nous échappe encore.', right: fr(E(1034)),
       why: 'Normal : the reason why se calque mot à mot. En français : la raison pour laquelle. EN: pour laquelle.' },
     { wrong: 'Quelle est la cause de votre visite ?', right: fr(E(1032)),
@@ -664,8 +666,8 @@ const A3_TEXTE = dansUnTexte('a3-texte', 'Lire : une brève de radio', TEXTE_A3,
 
 const A3_CHECK = actCheck('a3-check', 'Le point : acte 3', [
   ctl('Le phénomène', 'Une panne, un incendie, une maladie ont…',
-    ['des causes', 'des raisons', 'des motifs'], 0,
-    'Un phénomène a des causes ; une personne a des raisons. EN: causes.'),
+    ['des causes', 'des motifs', 'des prétextes'], 0,
+    'Un phénomène a des causes ; motifs et prétextes sont des raisons de personnes. EN: causes.'),
   ctl('Le calque', '« The reason why he left »',
     ['la raison pour laquelle il est parti', 'la raison pourquoi il est parti'], 0,
     'Pour laquelle, jamais pourquoi. EN: pour laquelle.'),
@@ -849,7 +851,7 @@ const A5_HISTOIRE: Sec<'story'> = {
     { from: 'user', fr: 'Tu crois au hasard, alors. Moi, je pense que rien n’arrive sans raison.', en: 'So you believe in chance. I think nothing happens without a reason.' },
     { from: 'coach', fr: 'Sans cause, peut-être. Mais une cause n’est pas un destin.', en: 'Without a cause, maybe. But a cause is not a destiny.', warn: 'Le destin' },
     { from: 'coach', fr: fr(E(1058)), en: en(E(1058)), warn: 'Contingent' },
-    { from: 'user', fr: 'Pourtant, notre amitié me semble inévitable.', en: 'And yet our friendship seems inevitable to me.' },
+    { from: 'user', fr: 'Pourtant, votre amitié me semble inévitable.', en: 'And yet your friendship seems inevitable to me.' },
     { from: 'coach', fr: 'Rien n’était inévitable. C’est justement ce qui la rend précieuse.', en: 'Nothing was inevitable. That is exactly what makes it precious.', warn: 'Inévitable' },
   ],
   closing: { fr: 'Le contingent aurait pu ne pas être ; c’est souvent ce qui lui donne du prix.', en: 'What is contingent might not have been; that is often what gives it value.' },
@@ -988,7 +990,7 @@ const A6_LECTURE: Sec<'reading'> = {
     { q: 'Global : à qui s’adresse ce règlement, et à quoi sert-il ?', a: 'À des étudiants de premier cycle qui veulent étudier un semestre dans un pays francophone : il fixe les conditions pour obtenir la bourse.' },
     { q: 'Détail : quelles pièces sont des conditions nécessaires ?', a: 'La lettre de motivation, le relevé de notes et la lettre d’acceptation : sans l’une d’elles, le dossier est rejeté.' },
     { q: 'Inférence : un dossier complet suffit-il pour obtenir la bourse ?', a: 'Non : il est nécessaire, mais pas suffisant. Les dossiers recevables sont encore classés par un jury (article 3).' },
-    { q: 'Inférence : une moyenne de dix-huit sur vingt suffit-elle ?', a: 'Non, pas seule : il faut aussi un projet jugé excellent. Ensemble, les deux conditions suffisent (article 4).' },
+    { q: 'Inférence : une moyenne de dix-huit sur vingt suffit-elle ?', a: 'Non, pas seule : il faut aussi un projet jugé excellent. Avec un dossier complet (article 2), les deux ensemble suffisent (article 4).' },
     { q: 'Position : ce règlement promet-il quelque chose aux candidats non retenus ?', a: 'Seulement le droit de présenter un nouveau dossier l’année suivante : aucune garantie.' },
   ],
   audio: REC('rec-c1-12-bourse'), say: REFRAME, terms: ['condition'],
@@ -1158,7 +1160,7 @@ const A7_CARTES: Sec<'cardDeck'> = {
     { head: 'La forme', label: 'valide', fr: fr(E(1081)), sub: rsOf(E(1081)),
       body: 'Un raisonnement valide : si les prémisses sont vraies, la conclusion l’est forcément. La validité dit la forme. EN: validity is about form.' },
     { head: 'Le contenu', label: 'vrai', fr: fr(E(1082)), sub: rsOf(E(1082)),
-      body: 'Valide, et pourtant faux : une seule prémisse fausse suffit. Vérifie donc les prémisses avant d’admirer la forme. EN: valid yet false.' },
+      body: 'Valide, et pourtant la conclusion peut être fausse : il suffit qu’une prémisse le soit. La forme ne garantit plus rien. Vérifie donc les prémisses avant d’admirer la forme. EN: valid, yet the conclusion may be false.' },
   ],
 };
 
@@ -1244,7 +1246,7 @@ const ACT7: ActDef = {
       imageRef: 'lessons/vocabulaire-idees/act07.jpg',
     },
     sections: [],
-    milestone: 'Tu trouves les prémisses d’un texte, même cachées, tu dis si la conclusion en découle, et tu sais qu’un raisonnement valide peut être faux. EN: You find a text’s premises, even hidden ones, say whether the conclusion follows, and know valid reasoning can be false.',
+    milestone: 'Tu trouves les prémisses d’un texte, même cachées, tu dis si la conclusion en découle, et tu sais qu’un raisonnement valide peut mener à une conclusion fausse. EN: You find a text’s premises, even hidden ones, say whether the conclusion follows, and know valid reasoning can lead to a false conclusion.',
     estScreens: 38, restPoints: ['a7-construire', 'a7-dictee'],
   },
   sections: [A7_HISTOIRE, A7_CARTES, A7_CONSTRUIRE, A7_ERREURS, A7_DICTEE, A7_TEXTE, A7_CHECK],
@@ -1314,7 +1316,7 @@ const A8_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(1092), 'l’endroit qui cède'),
       it(E(1100), 'une erreur, pas une manipulation'),
       it(PH(294), 'élégant, mais faux'),
-    ], chk('Un collègue se trompe de bonne foi dans un calcul. C’est…',
+    ], chk('Un collègue tire de bonne foi une conclusion qui ne suit pas. C’est…',
       ['un paralogisme, une erreur de raisonnement', 'un sophisme'], 0,
       'De bonne foi : un paralogisme. EN: a paralogism.')),
   ],
@@ -1988,14 +1990,14 @@ const A12_MISSION: Sec<'task'> = {
     'Ta thèse deviendrait alors :',
     'Au plaisir de te lire,',
   ],
-  modelAnswer: 'Cher Bastien,\n\nmerci pour ton message : il pose une vraie question, mais il mélange plusieurs idées voisines, et c’est ce mélange qui te mène à ta conclusion.\n\nD’abord, tu passes du nécessaire au suffisant. Que ton voisin ait travaillé dur sans réussir montre seulement que le travail ne suffit pas ; cela ne prouve pas qu’il ne sert à rien. Il peut être une condition nécessaire sans être une condition suffisante : sans billet, on n’entre pas, mais le billet seul ne fait pas toujours entrer.\n\nEnsuite, tu écris « je sais » là où tu pourrais seulement dire « je crois ». Les gens qui ont réussi autour de toi ne forment pas un échantillon : quelques cas ne font pas une connaissance, et ta conviction, même sincère, n’est pas une preuve.\n\nTroisième confusion : tu prends l’explication pour une justification. Qu’on puisse expliquer une tricherie, en donner les causes, ne la rend pas légitime. Comprendre un geste, ce n’est pas l’approuver.\n\nEnfin, tu demandes à ceux qui ne pensent pas comme toi de prouver le contraire. Or c’est à celui qui affirme d’apporter la preuve de ce qu’il avance, et ta conclusion va bien plus loin que tes prémisses : de quelques exemples, tu tires une règle sur tout le monde.\n\nAvec ces distinctions, ta thèse devient plus juste, et plus intéressante : « Le travail ne suffit pas à réussir ; la chance compte aussi, et une réussite peut s’expliquer sans se justifier. » Ce n’est pas faux ; c’est seulement moins frappant. Mais c’est une thèse qu’on peut discuter, chiffres à l’appui.\n\nAu plaisir de te lire,\nCamille, pour l’équipe des soirées Oblique\n\nLes repères de la correctrice (hors décompte) :\n1. Tâche : quatre confusions nommées (nécessaire et suffisant, croire et savoir, expliquer et justifier, la charge de la preuve et une conclusion trop large), chacune avec ce qu’elle change, puis la thèse reformulée.\n2. Précision : condition nécessaire, suffisante, connaissance, conviction, preuve, expliquer, justifier, légitime, prémisses, conclusion.\n3. Structure : une ouverture, une confusion par paragraphe, une thèse reformulée.\n4. Correction : ne suffit pas, montre que, apporter la preuve de, tirer une règle de.\n5. Registre : tu, bienveillant, aucune moquerie.',
-  modelAnswerEn: 'Dear Bastien, thank you for your message: it raises a real question, but it mixes several neighbouring ideas, and that mixture is what leads you to your conclusion. First, you slide from necessary to sufficient. That your neighbour worked hard without succeeding only shows that work is not enough; it does not prove it is useless. It can be a necessary condition without being a sufficient one: without a ticket you do not get in, but a ticket alone does not always get you in. Next, you write « I know » where you could only say « I believe ». The people around you who succeeded are not a sample: a few cases do not make knowledge, and your conviction, however sincere, is not proof. Third confusion: you take an explanation for a justification. Being able to explain cheating, to give its causes, does not make it legitimate. Understanding an act is not approving of it. Finally, you ask those who disagree to prove the opposite. Yet it is up to the person making a claim to prove it, and your conclusion goes much further than your premises: from a few examples you draw a rule about everyone. With these distinctions, your thesis becomes more accurate and more interesting: « Work is not enough to succeed; luck counts too, and a success can be explained without being justified. » It is not false; it is just less striking. But it is a thesis that can be discussed, with figures to back it. Looking forward to reading you, Camille, for the soirées Oblique team. The marker’s notes (not counted): four confusions named, each with what it changes, then the restated thesis.',
+  modelAnswer: 'Cher Bastien,\n\nmerci pour ton message : il pose une vraie question, mais il mélange plusieurs idées voisines, et c’est ce mélange qui te mène à ta conclusion.\n\nD’abord, tu passes du nécessaire au suffisant. Que ton voisin ait travaillé dur sans réussir montre seulement que le travail ne suffit pas ; cela ne prouve pas qu’il ne sert à rien. Il peut être une condition nécessaire sans être une condition suffisante : sans billet, on n’entre pas, mais le billet seul ne fait pas toujours entrer.\n\nEnsuite, tu écris « je sais » là où tu pourrais seulement dire « je crois ». Les gens qui ont réussi autour de toi ne forment pas un échantillon : quelques cas ne font pas une connaissance, et ta conviction, même sincère, n’est pas une preuve.\n\nTroisième confusion : tu prends l’explication pour une justification. Qu’on puisse expliquer une tricherie, en donner les causes, ne la rend pas légitime. Comprendre un geste, ce n’est pas l’approuver.\n\nEnfin, tu demandes à ceux qui ne pensent pas comme toi de prouver le contraire. Or c’est à celui qui affirme d’apporter la preuve de ce qu’il avance, et ta conclusion va bien plus loin que tes prémisses : de quelques exemples, tu tires une règle sur tout le monde.\n\nAvec ces distinctions, ta thèse devient plus juste, et plus intéressante : « Le travail ne suffit pas à réussir ; la chance compte aussi, et une réussite peut s’expliquer sans se justifier. » Ce n’est pas faux ; c’est seulement moins frappant. Mais c’est une thèse qu’on peut discuter, chiffres à l’appui.\n\nAu plaisir de te lire,\nNoémie, pour l’équipe des soirées Oblique\n\nLes repères de la correctrice (hors décompte) :\n1. Tâche : quatre confusions nommées (nécessaire et suffisant, croire et savoir, expliquer et justifier, la charge de la preuve et une conclusion trop large), chacune avec ce qu’elle change, puis la thèse reformulée.\n2. Précision : condition nécessaire, suffisante, connaissance, conviction, preuve, expliquer, justifier, légitime, prémisses, conclusion.\n3. Structure : une ouverture, une confusion par paragraphe, une thèse reformulée.\n4. Correction : ne suffit pas, montre que, apporter la preuve de, tirer une règle de.\n5. Registre : tu, bienveillant, aucune moquerie.',
+  modelAnswerEn: 'Dear Bastien, thank you for your message: it raises a real question, but it mixes several neighbouring ideas, and that mixture is what leads you to your conclusion. First, you slide from necessary to sufficient. That your neighbour worked hard without succeeding only shows that work is not enough; it does not prove it is useless. It can be a necessary condition without being a sufficient one: without a ticket you do not get in, but a ticket alone does not always get you in. Next, you write « I know » where you could only say « I believe ». The people around you who succeeded are not a sample: a few cases do not make knowledge, and your conviction, however sincere, is not proof. Third confusion: you take an explanation for a justification. Being able to explain cheating, to give its causes, does not make it legitimate. Understanding an act is not approving of it. Finally, you ask those who disagree to prove the opposite. Yet it is up to the person making a claim to prove it, and your conclusion goes much further than your premises: from a few examples you draw a rule about everyone. With these distinctions, your thesis becomes more accurate and more interesting: « Work is not enough to succeed; luck counts too, and a success can be explained without being justified. » It is not false; it is just less striking. But it is a thesis that can be discussed, with figures to back it. Looking forward to reading you, Noémie, for the soirées Oblique team. The marker’s notes (not counted): four confusions named, each with what it changes, then the restated thesis.',
   watchFor: [
     { pattern: 'Says Bastien is wrong without naming which two neighbouring ideas he mixes up.', criterion: 'tache', feedback: 'Nomme la confusion : « Tu confonds ici… et… ». Puis montre la différence.', ref: 'a12-plan' },
     { pattern: 'Calls the work argument false instead of showing that work is necessary but not sufficient.', criterion: 'precision', feedback: 'Son exemple montre que le travail ne suffit pas, pas qu’il est inutile : condition nécessaire, pas suffisante.', ref: 'a6-table' },
     { pattern: 'Uses savoir for a belief, or never separates croire and savoir, conviction and connaissance.', criterion: 'precision', feedback: 'Il le croit, il ne le sait pas : quelques cas ne font pas une connaissance.', ref: 'a4-cartes' },
     { pattern: 'Uses justifier where expliquer is meant (or excuser), or keeps Bastien’s confusion about cheating.', criterion: 'precision', feedback: 'Expliquer une tricherie, c’est en donner les causes ; la justifier, c’est dire qu’elle était légitime.', ref: 'a2-cartes' },
-    { pattern: 'Calls luck « la raison » of a success where a cause is meant, or « la cause » of a choice.', criterion: 'precision', feedback: 'Un phénomène a des causes ; une personne a des raisons.', ref: 'a3-table' },
+    { pattern: 'Gives a person « des causes » for a choice, or blurs cause and raison where the reply analyses what produced a success. (« La raison de sa réussite » is everyday French: do not penalise it alone.)', criterion: 'precision', feedback: 'Dans une analyse, un phénomène a des causes ; une personne a des raisons.', ref: 'a3-table' },
     { pattern: 'Evidence translated as évidence, or nier used where réfuter is meant.', criterion: 'precision', feedback: 'Evidence : des preuves. Réfuter, c’est montrer ; nier, c’est dire non.', ref: 'a11-piege' },
     { pattern: 'Distinguer avec, confondre entre, opposer avec, relever à, or conclure que + noun.', criterion: 'correction', feedback: 'Distinguer A de B, confondre A et B, conclure à + nom.', ref: 'a10-erreurs' },
     { pattern: 'Suffire de + infinitive, il suffit que de, or s’en suit for s’ensuit.', criterion: 'correction', feedback: 'Suffire à, il suffit de, il s’ensuit que.', ref: 'a6-piege' },
@@ -2009,7 +2011,7 @@ const A12_MISSION: Sec<'task'> = {
     'Do not judge whether hard work or luck REALLY causes success. Judge the distinctions and the writing only. Never add a personal opinion on success to the feedback.',
     'Accept « condition nécessaire / suffisante », « il faut… mais il ne suffit pas », « encore faut-il » as equally good ways to make the necessary / sufficient point.',
     'Accept « paralogisme », « erreur de raisonnement », « généralisation abusive », « conclusion hâtive »; do NOT require « sophisme », and lightly flag « sophisme » if the learner accuses Bastien of deceiving (the lesson teaches not to claim intent without proof).',
-    'Accept « a priori » and « à priori » alike, with or without a plural s on the noun.',
+    'Accept « a priori » and « à priori » alike, and the 1990 noun « un apriori, des aprioris »; do not mark the plural s on the two-word noun.',
     'The learner need not quote any philosopher; a quotation or a name is neither required nor rewarded, and a misattributed one costs a point in « precision ».',
     'Feedback language: natural C1 French, addressed as « tu », with one short English gloss allowed per comment. Name the section to revisit from watchFor.ref. Cite other lessons by trail position (« la leçon 23 du B2 »), never by id.',
   ],
@@ -2091,7 +2093,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('« Il explique ce mensonge » veut dire…', ['il en donne les causes', 'il dit que le mensonge était légitime', 'il ment à son tour'], 0, 'Expliquer : donner les causes. EN: he gives the causes.', 'a2-cartes'),
         mc('« Rien ne justifie qu’on parle ainsi à un collègue. » Cette phrase…', ['refuse que ce soit légitime', 'cherche les causes', 'excuse la personne'], 0, 'Rien ne justifie : rien ne rend cela légitime. EN: nothing makes it acceptable.', 'a2-construire'),
         mc('Dans l’administration, « justifier une absence », c’est…', ['apporter une pièce qui la prouve', 'dire qu’elle était légitime'], 0, 'Le troisième sens : par un document. EN: with a document.', 'a2-cartes'),
-        mc('Une théorie qui explique tous les faits observés en…', ['rend compte', 'rend justice', 'tient compte'], 0, 'Rendre compte de : expliquer, soutenu. EN: accounts for them.', 'a2-cartes'),
+        mc('Pour dire, en registre soutenu, qu’une théorie explique les faits observés, on dit qu’elle en…', ['rend compte', 'rend justice', 'tient compte'], 0, 'Rendre compte de : expliquer, soutenu. Tenir compte de, c’est seulement prendre en considération. EN: accounts for them.', 'a2-cartes'),
         tI(MOT, 'Expliquer un geste, ce n’est pas l’___ . (to excuse)', 'excuser', 'Expliquer n’excuse rien. EN: excuser.', 'a2-piege'),
         tI(MOT, 'Un retard ___ : rien ne le rend légitime. (adjectif de justifier)', 'injustifiable', 'Injustifiable : rien ne le défend. EN: unjustifiable.', 'a2-construire'),
         eS('Elle a dû justifier devant toute l’équipe.', fr(E(1021)), 'Se défendre soi-même : se justifier. EN: se justifier.', 'a2-piege', ['Elle a dû se défendre devant toute l’équipe.']),
@@ -2101,13 +2103,13 @@ const A12_QUIZ: Sec<'quiz'> = {
     {
       id: 'r3-cause', label: 'La cause et la raison', targets: ['cause-raison'],
       questions: [
-        mc('« La … de l’incendie reste inconnue. »', ['cause', 'raison', 'motif'], 0, 'Un incendie a une cause. EN: cause.', 'a3-table'),
+        mc('« La … de l’incendie reste inconnue. »', ['cause', 'motif', 'finalité'], 0, 'Un incendie a une cause : ce qui l’a produit. EN: cause.', 'a3-table'),
         mc('Un prétexte est…', ['une raison donnée à la place de la vraie', 'la cause d’un phénomène', 'la raison déclarée dans un dossier'], 0, 'Le prétexte cache la vraie raison. EN: a cover reason.', 'a3-table'),
         mc('Sur un formulaire : « … de votre visite ».', ['Motif', 'Cause', 'Prétexte'], 0, 'Le motif : la raison déclarée. EN: reason for your visit.', 'a3-construire'),
         mc('Deux phénomènes vont toujours ensemble. Tu peux en conclure…', ['rien encore : aller ensemble n’est pas causer', 'que l’un cause l’autre'], 0, 'Une corrélation n’est pas une cause. EN: nothing yet.', 'a3-exemples'),
         tI('Écris les deux mots qui manquent.', 'La raison ___ ___ il est parti nous échappe encore.', 'pour laquelle', 'La raison pour laquelle, jamais pourquoi. EN: pour laquelle.', 'a3-erreurs'),
         tI(MOT, 'Le verglas a ___ l’accident. (verbe de la famille de cause)', 'causé', 'Causer : produire. EN: caused.', 'a3-construire', ['provoqué', 'entraîné']),
-        eS('La raison de l’incendie reste inconnue.', fr(E(1030)), 'Un phénomène a une cause, pas une raison. EN: la cause.', 'a3-erreurs'),
+        eS('Elle a ses causes, même si elle ne les dit pas.', fr(E(1031)), 'Une personne a ses raisons. EN: ses raisons.', 'a3-erreurs'),
         lC('Écoute. La pluie était-elle la vraie raison ?', fr(E(1033)), ['non, un prétexte', 'oui'], 0, 'Elle n’a été qu’un prétexte. EN: a pretext.', 'a3-histoire'),
       ],
     },
@@ -2320,7 +2322,7 @@ const ACT12: ActDef = {
 
 const DRILL_LIST: LessonDrill[] = [
   { id: 'd-expliquer', title: 'Les causes, ou la légitimité', format: 'sort' as const, coach: 'Deux piles : la phrase donne des causes, ou elle dit ce qui est légitime. EN: causes or legitimacy?', buckets: ['expliquer', 'justifier'], items: [E(1017), E(1022), E(1012), E(1013), E(1018), E(1021)], audio: AUDIO },
-  { id: 'd-cause', title: 'Un phénomène ou une personne', format: 'mcq' as const, coach: 'Un phénomène a des causes ; une personne a des raisons. EN: causes for things, reasons for people.', q: '« La … de l’incendie reste inconnue. »', opts: ['cause', 'raison'], correct: 0, why: 'Un incendie a une cause. EN: cause.', items: [E(1026), E(1027), E(1030), E(1031), E(1034), E(1036)], audio: AUDIO },
+  { id: 'd-cause', title: 'Un phénomène ou une personne', format: 'mcq' as const, coach: 'Un phénomène a des causes ; une personne a des raisons. EN: causes for things, reasons for people.', q: '« Elle a ses …, même si elle ne les dit pas. »', opts: ['raisons', 'causes'], correct: 0, why: 'Une personne a ses raisons. EN: raisons.', items: [E(1026), E(1027), E(1030), E(1031), E(1034), E(1036)], audio: AUDIO },
   { id: 'd-savoir', title: 'Croire ou savoir', format: 'sort' as const, coach: 'Deux piles : la phrase dit une croyance, ou un savoir qu’on peut montrer. EN: belief or knowledge?', buckets: ['croire', 'savoir'], items: [E(1043), E(1045), E(1039), E(1051), E(1041), E(1040)], audio: AUDIO },
   { id: 'd-contingent', title: 'Devait-il en être ainsi', format: 'sort' as const, coach: 'Deux piles : ce qui ne pouvait pas être autrement, ou ce qui aurait pu ne pas être. EN: necessary or contingent?', buckets: ['nécessaire', 'contingent'], items: [E(1056), E(1052), E(1054), E(1057), E(1059), E(1063)], audio: AUDIO },
   { id: 'd-conditions', title: 'Sans elle, ou avec elle', format: 'mcq' as const, coach: 'Le test du sans, puis le test du avec. EN: the without test, then the with test.', q: 'Le billet est nécessaire pour entrer. Suffit-il ?', opts: ['pas forcément', 'toujours'], correct: 0, why: 'Nécessaire n’est pas suffisant. EN: not necessarily.', items: [E(1064), E(1065), E(1067), E(1069), E(1071), E(1075)], audio: AUDIO },
@@ -2335,7 +2337,7 @@ const DRILL_LIST: LessonDrill[] = [
 
 const TRIGGER_LIST: ErrorTrigger[] = [
   { id: 'expliquer-justifier', description: 'Says justifier where expliquer is meant (or the reverse), misses the documentary sense of justifier, or drops the pronoun of se justifier.', detectOn: ['a2-construire', 'a2-piege', 'a2-check', 'a12-mission'], drill: 'd-expliquer', retest: 'd-expliquer' },
-  { id: 'cause-raison', description: 'Gives a phenomenon a raison, writes la raison pourquoi, or confuses motif and prétexte.', detectOn: ['a3-construire', 'a3-erreurs', 'a3-check', 'a12-mission'], drill: 'd-cause', retest: 'd-cause' },
+  { id: 'cause-raison', description: 'Gives a person « des causes » for a choice, blurs cause and raison in an analysis, writes la raison pourquoi, or confuses motif and prétexte.', detectOn: ['a3-construire', 'a3-erreurs', 'a3-check', 'a12-mission'], drill: 'd-cause', retest: 'd-cause' },
   { id: 'croire-savoir', description: 'Says je sais for a belief, takes a conviction for proof, or misreads the senses of connaissance.', detectOn: ['a4-construire', 'a4-piege', 'a4-check', 'a12-mission'], drill: 'd-savoir', retest: 'd-savoir' },
   { id: 'contingent-confondu', description: 'Calls something real necessary, calques contingent on, or confuses fortuit with fortuné.', detectOn: ['a5-construire', 'a5-erreurs', 'a5-check'], drill: 'd-contingent', retest: 'd-contingent' },
   { id: 'condition-confondue', description: 'Takes a necessary condition for a sufficient one, or misbuilds suffire à, il suffit de, si et seulement si or encore faut-il.', detectOn: ['a6-construire', 'a6-piege', 'a6-check', 'a12-mission'], drill: 'd-conditions', retest: 'd-conditions' },
@@ -2394,7 +2396,7 @@ const table = (id: string, title: string, cols: string[], rows: string[][]): Les
 const SHEET_LIST: ReferenceSheet[] = [
   sheet('sheet-pourquoi', 'Expliquer, justifier, la cause', ['expliquer ou justifier', 'cause, raison, motif, prétexte', 'les pièges'], [
     teach('sheet-pourquoi-teach', 'Deux questions derrière « pourquoi »',
-      `${REFRAME} Pourquoi est-ce arrivé ? On explique, par des causes. Était-ce légitime ? On justifie, par des raisons. Un phénomène a des causes ; une personne a des raisons, qu’elle déclare (le motif) ou qu’elle cache (le prétexte). EN: ${REFRAME_EN}`),
+      `${REFRAME} Pourquoi est-ce arrivé ? On explique, par des causes. Était-ce légitime ? On justifie, par des raisons. Un phénomène a des causes ; une personne a des raisons, qu’elle déclare (le motif) ou qu’elle cache (le prétexte). Dans la conversation, « la raison de la panne » se dit aussi ; dans une analyse, choisis le mot précis. EN: ${REFRAME_EN}`),
     table('sheet-pourquoi-verbes', 'Expliquer, justifier', ['Verbe', 'Il dit', 'Exemple'], [
       ['expliquer', 'pourquoi c’est arrivé', 'La hausse des prix explique la baisse des ventes.'],
       ['justifier', 'que c’était légitime', 'Rien ne justifie qu’on parle ainsi à un collègue.'],
@@ -2415,7 +2417,7 @@ const SHEET_LIST: ReferenceSheet[] = [
   ]),
   sheet('sheet-savoir', 'Croire, savoir, le possible', ['croire ou savoir', 'le nécessaire et le contingent', 'a priori, a posteriori'], [
     teach('sheet-savoir-teach', 'Ce qu’on sait, ce qui devait être',
-      'On peut croire le faux ; on ne sait que le vrai, et l’on doit pouvoir le montrer. Le nécessaire ne peut pas ne pas être ; le contingent aurait pu ne pas être. A priori : avant l’expérience ; a posteriori : à partir d’elle. Dans la vie courante, a priori veut souvent dire « à première vue ». Orthographe : on écrit traditionnellement a priori et a posteriori sans accent, et le nom un a priori reste invariable ; l’orthographe rectifiée de 1990 admet à priori. EN: belief and knowledge, necessary and contingent, a priori and a posteriori.'),
+      'On peut croire le faux ; on ne sait que le vrai, et l’on doit pouvoir le montrer. Le nécessaire ne peut pas ne pas être ; le contingent aurait pu ne pas être. A priori : avant l’expérience ; a posteriori : à partir d’elle. Dans la vie courante, a priori veut souvent dire « à première vue ». Orthographe : on écrit a priori et a posteriori sans accent, et le nom un a priori reste invariable : des a priori. L’orthographe rectifiée de 1990 soude le nom : un apriori, des aprioris. La graphie « à priori », avec accent, est ancienne ; tu la rencontreras encore. EN: belief and knowledge, necessary and contingent, a priori and a posteriori.'),
     table('sheet-savoir-croire', 'Croire et savoir', ['Expression', 'Sens', 'Exemple'], [
       ['croire que', 'tenir pour vrai, sans certitude', 'Je crois qu’il viendra, mais je n’en sais rien.'],
       ['savoir que', 'tenir pour vrai ce qui l’est, avec de quoi le montrer', 'Je le sais : j’ai vu les chiffres.'],
@@ -2460,11 +2462,11 @@ const SHEET_LIST: ReferenceSheet[] = [
       ['conclure à', '+ nom', 'Le jury a conclu à l’absence de faute.'],
       ['il s’ensuit que', 'un seul mot : s’ensuivre', 'Il s’ensuit que le projet coûtera plus cher.'],
       ['découler de', 'de', 'Cette conclusion ne découle pas de tes prémisses.'],
-      ['valide / vrai', 'la forme / le contenu', 'Valide et pourtant faux, si une prémisse est fausse.'],
+      ['valide / vrai', 'la forme / le contenu', 'Valide, et la conclusion fausse si une prémisse est fausse.'],
     ]),
     table('sheet-raisonner-defauts', 'Les défauts d’un raisonnement', ['Nom', 'Ce qui cloche', 'Exemple'], [
       ['un sophisme', 'un raisonnement faux pour tromper', 'déjà vu à la leçon 23 du B2'],
-      ['un paralogisme', 'un raisonnement faux de bonne foi', 'une erreur de calcul sincère'],
+      ['un paralogisme', 'un raisonnement faux de bonne foi', 'une conclusion hâtive, sincère'],
       ['une pétition de principe', 'la conclusion est dans la prémisse', 'efficace puisqu’il marche'],
       ['un cercle vicieux', 'A par B, B par A', 'pas d’emploi sans expérience, et l’inverse'],
       ['une tautologie', 'répéter sous une autre forme', 'une loi est une loi'],

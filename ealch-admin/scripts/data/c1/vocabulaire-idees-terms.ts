@@ -40,7 +40,7 @@ export const VOCABULAIRE_IDEES_TERMS: Record<string, LessonTerm> = {
   cause: {
     term: 'la cause',
     title: 'Cause, raison, motif, prétexte',
-    body: 'Une cause produit un effet : un phénomène a des causes. Une raison justifie un choix : une personne a des raisons. Le motif est la raison d’agir déclarée ; le prétexte, une raison donnée à la place de la vraie. EN: A cause produces; a reason justifies; a motive is declared; a pretext hides the real reason.',
+    body: 'Une cause produit un effet : un phénomène a des causes. Une raison justifie un choix : une personne a des raisons. (Dans la conversation, raison sert aussi pour un fait ; dans une analyse, sépare-les.) Le motif est la raison d’agir déclarée ; le prétexte, une raison donnée à la place de la vraie. EN: A cause produces; a reason justifies; a motive is declared; a pretext hides the real reason.',
     examples: [
       { itemId: E(1035), note: 'produire ou justifier' },
       { itemId: E(1030), note: 'la cause d’un phénomène' },
@@ -87,7 +87,7 @@ export const VOCABULAIRE_IDEES_TERMS: Record<string, LessonTerm> = {
     body: 'Les prémisses sont les points de départ d’un raisonnement ; la conclusion en découle, ou n’en découle pas. Un raisonnement valide a la bonne forme ; il ne rend la conclusion vraie que si les prémisses le sont. EN: Premises are the starting points; validity is about form, truth about content.',
     examples: [
       { itemId: E(1087), note: 'la forme et le contenu' },
-      { itemId: E(1082), note: 'valide, et pourtant faux' },
+      { itemId: E(1082), note: 'valide, et la conclusion fausse' },
       { itemId: E(1088), note: 'une conclusion qui ne découle pas' },
     ],
   },
