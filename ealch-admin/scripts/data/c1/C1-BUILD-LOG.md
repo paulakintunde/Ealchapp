@@ -723,6 +723,20 @@ one drizzle migration `ALTER TYPE exam_format ADD VALUE 'dalf_c1'` (pattern of
 0021_po_debate.sql; Paul's OK before it runs). Name used nominatively with the
 existing not-affiliated disclaimer.
 
+- **DALF step 1 done (2026-10-06): app support, all tested, nothing deployed.**
+  879e6d3 band marks relative to the level asked (B2 work fails a C1 paper; DELF B2
+  marks unchanged), `dalf_c1` in EXAM_FORMATS / pgEnum / admin meta, targetBandFor,
+  EXAM_FORMAT_FACTS (CO 17 q 40 min, CE 12 q 50 min, PE 2 tasks 2 h 30, PO 2 tasks
+  30 min), drizzle 0023 written; 6f23721 dossier documents on open tasks
+  (ExamDossier in the writing, exposé and entretien screens; grader stimulus =
+  prompt + documents); acd91d2 typed answers (`kind` short / tfj, key words then one
+  AI batch per task via grade-exam mode 'short', unchecked answers score 0 and show
+  on the report row); 5323644 audio casting / render / promote / marking sheet.
+  App 5770/5770, admin 1060 + 1 skipped, tsc clean. WAITING on Paul's OK: run
+  migration 0023 (enum value) and deploy grade-exam (new 'short' mode). The app
+  side ships with the next build/OTA; device check of the new screens at gate C1-3
+  once a DALF paper exists.
+
 - **Wave 3 art registered** (36dc575): 48 openers, files = require = alt, ART_PENDING
   empty, house tests 342/342, app suite 5748/5748. Gate C1-2 preview on the Pixel 6
   (dev build): 12 lessons, 142 acts, 2195 items, 245 reused rows from seed+packs and
