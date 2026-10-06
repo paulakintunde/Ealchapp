@@ -23,7 +23,7 @@ import type { ExamPaper, ExamTask, ExamPart, QcmItem } from '../../../ealch-v2/s
 import { spokenTranscript } from '../../../ealch-v2/src/utils/coPlayback.logic.ts';
 import { fold, keywordsMet } from '../../../ealch-v2/src/utils/shortAnswer.logic.ts';
 import { debateBalanceViolations, debateDepthViolations } from '../delf/paper-rules.ts';
-import { hasAscendingRun } from './scatter.ts';
+import { hasMonotoneRun } from './scatter.ts';
 
 export const FORMAT = 'dalf_c1' as const;
 export const FORMAT_VERSION = 'dalf-c1-2026.10';
@@ -179,7 +179,7 @@ export function keyScatterViolations(tasks: ExamTask[], maxShare = 0.5): string[
   // first drafts did). See scripts/dalf/scatter.ts.
   for (const t of tasks) parts(t).forEach((p, k) => {
     const keys = p.items.filter((i) => kindOf(i) === 'mcq').map((i) => i.correct);
-    if (hasAscendingRun(keys)) out.push(`${t.id} part ${k}: MCQ keys run ${keys.map((x) => 'ABC'[x]).join(' ')}, a visible A-B-C rotation`);
+    if (hasMonotoneRun(keys)) out.push(`${t.id} part ${k}: MCQ keys run ${keys.map((x) => 'ABC'[x]).join(' ')}, a visible A-B-C rotation`);
   });
   return out;
 }
