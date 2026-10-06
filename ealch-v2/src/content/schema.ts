@@ -153,11 +153,13 @@ export type Register = (typeof REGISTERS)[number];
 export const CARD_TYPES = ['vocab', 'gapfill', 'conjugation', 'error', 'grammar', 'register'] as const;
 export type CardType = (typeof CARD_TYPES)[number];
 
-/** The exam formats we author toward. Canada-first launch set only — no bare
- *  'tef'/'tcf'/'delf' and no 'dalf': each value is a specific paper a
- *  candidate actually sits, because "TEF" alone is not one exam (TEF Canada
- *  and TEF Naturalisation differ in sections and marking). */
-export const EXAM_FORMATS = ['delf_b2', 'tef_canada', 'tcf_canada'] as const;
+/** The exam formats we author toward. No bare 'tef'/'tcf'/'delf'/'dalf': each
+ *  value is a specific paper a candidate actually sits, because "TEF" alone is
+ *  not one exam (TEF Canada and TEF Naturalisation differ in sections and
+ *  marking). The Canada-first launch set was TEF Canada, TCF Canada and DELF B2;
+ *  DALF C1 joined with the C1 band (Paul, 2026-10-06). Order matches the
+ *  Postgres `exam_format` enum (enum-parity.test.ts): new values append. */
+export const EXAM_FORMATS = ['delf_b2', 'tef_canada', 'tcf_canada', 'dalf_c1'] as const;
 export type ExamFormat = (typeof EXAM_FORMATS)[number];
 
 /** The task types an exam paper is built from — finer-grained than EXAM_SKILLS
@@ -4868,13 +4870,16 @@ export function validateExamTask(v: unknown, path = 'examTask'): Issue[] {
   // blanc-01's reading Section E is a bar chart whose alt text recites every
   // data point — correctly, because there the image is the stimulus and a
   // screen-reader user told "a bar chart about water" cannot answer at all.
-  // One rule cannot serve both, so the format decides which applies.
-  if (t.format === 'delf_b2' && isArr(t.parts)) {
+  // One rule cannot serve both, so the format decides which applies. DALF C1
+  // is the DELF case again: the FEI demo paper's every stimulus (two listening
+  // documents, one reading text, the synthèse dossier, the exposé dossiers) is
+  // text or audio (C1 build log, 2026-10-06).
+  if ((t.format === 'delf_b2' || t.format === 'dalf_c1') && isArr(t.parts)) {
     t.parts.forEach((p, i) => {
       const pp = p as Partial<ExamPart>;
       if (pp?.imageRef !== undefined && pp.imageRef !== null) {
         push(
-          `parts[${i}] carries an image, and DELF B2 stimuli are text and audio only — ` +
+          `parts[${i}] carries an image, and ${t.format === 'dalf_c1' ? 'DALF C1' : 'DELF B2'} stimuli are text and audio only — ` +
             `an image a candidate must read is not in this format`
         );
       }

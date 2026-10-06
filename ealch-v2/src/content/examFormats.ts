@@ -96,12 +96,32 @@ export const EXAM_FORMAT_FACTS: Record<ExamFormat, ExamFormatFacts> = {
     ],
     blueprintId: 'delf-b2-2026.09',
   },
+  dalf_c1: {
+    format: 'dalf_c1',
+    label: 'DALF C1',
+    totalS: 16_200, // 4 h collective + the 30 min individual oral (prep not counted, as DELF B2)
+    sections: [
+      // Counted from the current FEI demo paper (C1 build log, 2026-10-06). FEI
+      // sets the item count per paper, so this is the shape our papers are
+      // authored to, not a published constant: listening 10 questions on one
+      // document heard twice + 7 on short extracts heard once; reading 12
+      // questions on one 1500-2000 word text. Both mix MCQ, short written
+      // answers and true/false with a quoted justification.
+      closed('CO', 17, 2400),
+      closed('CE', 12, 3000),
+      // Synthèse (200-240 words) then essai argumenté (250 minimum), 2 h 30.
+      open('PE', 2, 9000),
+      // Exposé 8-10 min then entretien 15-20 min, after 1 h preparation.
+      open('PO', 2, 1800),
+    ],
+    blueprintId: 'dalf-c1-2026.10',
+  },
 };
 
 /** Display order on the home screen. Canada-first, because that is what the
  *  app is for; deliberately not EXAM_FORMATS' declared order, which is the
  *  enum's business and not the UI's. */
-export const EXAM_FORMAT_ORDER: ExamFormat[] = ['tef_canada', 'tcf_canada', 'delf_b2'];
+export const EXAM_FORMAT_ORDER: ExamFormat[] = ['tef_canada', 'tcf_canada', 'delf_b2', 'dalf_c1'];
 
 /** '2 h 55' / '2h 55m'. Hours and minutes, never seconds: nobody chooses an
  *  exam on a seconds count. */

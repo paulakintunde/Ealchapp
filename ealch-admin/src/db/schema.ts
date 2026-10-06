@@ -80,9 +80,10 @@ export const modality = pgEnum('modality', ['recognise', 'produce', 'discriminat
 // Saying 'tu fous quoi ?' to a border officer is grammatically perfect and a
 // social catastrophe. Register is content, not a note.
 export const register = pgEnum('register', ['familier', 'courant', 'soutenu']);
-/** Canada-first launch set only — no bare 'tef'/'tcf'/'delf' and no 'dalf':
- *  each value is a specific paper a candidate actually sits. */
-export const examFormat = pgEnum('exam_format', ['delf_b2', 'tef_canada', 'tcf_canada']);
+/** No bare 'tef'/'tcf'/'delf'/'dalf': each value is a specific paper a
+ *  candidate actually sits. Canada-first launch set, then DALF C1 with the C1
+ *  band (0023). New values append, matching ALTER TYPE ... ADD VALUE. */
+export const examFormat = pgEnum('exam_format', ['delf_b2', 'tef_canada', 'tcf_canada', 'dalf_c1']);
 /** Task TYPES an exam paper is built from — finer than examSkill because one
  *  skill can be tested by more than one task shape (PO has a monologue and an
  *  interaction task; PE has a short and an essay task). Not examSkill — see

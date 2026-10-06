@@ -19,10 +19,11 @@ import {
   DELF_TOTAL_MAX,
   delfEpreuve,
   delfOutcome,
+  bandMark,
   formatMark,
   markFromBands,
 } from './delf.logic.ts';
-import { INSTRUMENT_BY_FORMAT, instrumentFor } from './examInstrument.logic.ts';
+import { INSTRUMENT_BY_FORMAT, instrumentFor, targetBandFor } from './examInstrument.logic.ts';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const appDir = resolve(HERE, '../../app');
@@ -135,6 +136,45 @@ test('no band earns a full 25', () => {
   for (const band of SCORE_BANDS) ok(DELF_BAND_MARK[band] < DELF_EPREUVE_MAX, `${band} scores full marks`);
 });
 
+/* ── DALF C1: the same instrument, a higher anchor ────────────────────────── */
+
+test('the band table moves with the level asked: B2 work fails a C1 paper', () => {
+  // Decision 35 of the C1 build log. Before DALF the table was keyed by band
+  // and anchored on b2, so a DALF paper would have given B2 work 15/25 on each
+  // production épreuve and a diploma it does not earn.
+  const prod = (band: (typeof SCORE_BANDS)[number]) =>
+    delfEpreuve({ skill: 'PE', status: 'scored', bands: [band], target: 'c1' }).mark!;
+  strictEqual(prod('c1'), 15, 'C1 work is the level asked');
+  strictEqual(prod('b2'), 10, 'B2 work is one step below');
+  strictEqual(prod('c2'), 20, 'C2 work is one step above');
+  strictEqual(prod('a2'), 2, 'three steps below trips the floor');
+  // Four épreuves at B2 total 40 and fail, as four B1 épreuves fail DELF B2.
+  const fourB2 = delfOutcome(
+    SKILLS.map((skill) => delfEpreuve({ skill, status: 'scored', bands: ['b2'], target: 'c1' }))
+  );
+  strictEqual(fourB2.total, 40);
+  strictEqual(fourB2.verdict, 'fail', 'four B2 épreuves must not earn the C1 diploma');
+  const fourC1 = delfOutcome(
+    SKILLS.map((skill) => delfEpreuve({ skill, status: 'scored', bands: ['c1'], target: 'c1' }))
+  );
+  strictEqual(fourC1.verdict, 'pass', 'four C1 épreuves earn it');
+});
+
+test('the b2 anchor is unchanged, so DELF B2 marks did not move', () => {
+  deepStrictEqual(DELF_BAND_MARK, { a1: 2, a2: 6, b1: 10, b2: 15, c1: 20, c2: 23 });
+  for (const b of SCORE_BANDS) strictEqual(bandMark(b), DELF_BAND_MARK[b], `${b} with no target reads as b2`);
+});
+
+test('every diploma format names its level, and TEF/TCF name none', () => {
+  strictEqual(targetBandFor('delf_b2'), 'b2');
+  strictEqual(targetBandFor('dalf_c1'), 'c1');
+  strictEqual(targetBandFor('tef_canada'), null);
+  strictEqual(targetBandFor('tcf_canada'), null);
+  for (const f of EXAM_FORMATS) {
+    strictEqual(targetBandFor(f) !== null, instrumentFor(f) === 'delf', `${f}: a diploma needs a level, a level test none`);
+  }
+});
+
 /* ── Two phases, one épreuve ──────────────────────────────────────────────── */
 
 test('production orale averages its two phases onto the half-point grid', () => {
@@ -165,6 +205,7 @@ test('every exam format is told how it is marked, with none left over', () => {
     'the instrument map and the format union have drifted apart'
   );
   strictEqual(instrumentFor('delf_b2'), 'delf');
+  strictEqual(instrumentFor('dalf_c1'), 'delf');
   strictEqual(instrumentFor('tef_canada'), 'nclc');
   strictEqual(instrumentFor('tcf_canada'), 'nclc');
 });

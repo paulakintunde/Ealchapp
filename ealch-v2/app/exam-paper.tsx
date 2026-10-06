@@ -34,12 +34,8 @@ import { examPaperAllowed } from '@/utils/examGate.logic';
 import { startExamAttempt } from '@/services';
 import { track } from '@/services/analytics';
 import { EXAM_MODES, type ExamMode, type ExamSection, type ExamSkill } from '@/content/schema';
+import { EXAM_FORMAT_FACTS } from '@/content/examFormats';
 
-const FORMAT_LABEL: Record<string, string> = {
-  delf_b2: 'DELF B2',
-  tef_canada: 'TEF Canada',
-  tcf_canada: 'TCF Canada',
-};
 
 export default function ExamPaperScreen() {
   const t = useTheme();
@@ -200,7 +196,7 @@ export default function ExamPaperScreen() {
       <View style={{ paddingTop: insets.top }}>
         <FocusHeader
           onClose={() => router.replace({ pathname: '/exam', params: { format: paper.format } })}
-          title={`${FORMAT_LABEL[paper.format] ?? paper.format} · ${T.examPaperTitle} ${paper.paperNo}`}
+          title={`${EXAM_FORMAT_FACTS[paper.format]?.label ?? paper.format} · ${T.examPaperTitle} ${paper.paperNo}`}
         />
       </View>
 

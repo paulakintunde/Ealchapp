@@ -8,8 +8,8 @@ export type ExamSkill = (typeof examSkill)['enumValues'][number];
 export type ExamScoreBand = (typeof userLevel)['enumValues'][number];
 export type ExamStatus = (typeof contentStatus)['enumValues'][number];
 
-export const EXAM_FORMATS: ExamFormat[] = ['delf_b2', 'tef_canada', 'tcf_canada'];
-export const EXAM_TASK_TYPES: ExamTaskType[] = ['co_mcq', 'ce_mcq', 'po_monologue', 'po_interaction', 'pe_short', 'pe_essay'];
+export const EXAM_FORMATS: ExamFormat[] = ['delf_b2', 'tef_canada', 'tcf_canada', 'dalf_c1'];
+export const EXAM_TASK_TYPES: ExamTaskType[] = ['co_mcq', 'ce_mcq', 'po_monologue', 'po_interaction', 'po_debate', 'pe_short', 'pe_essay'];
 export const EXAM_SKILLS: ExamSkill[] = ['CO', 'CE', 'PO', 'PE'];
 export const EXAM_SCORE_BANDS: ExamScoreBand[] = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
 export const EXAM_STATUSES: ExamStatus[] = ['draft', 'in_review', 'published', 'archived'];

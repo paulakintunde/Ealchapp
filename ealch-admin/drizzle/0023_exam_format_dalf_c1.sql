@@ -1,0 +1,11 @@
+-- Exam pack: DALF C1 joins the formats (Paul, 2026-10-06, C1 build log
+-- decisions 29-35).
+--
+-- One statement. A bare ADD VALUE appends, which is the order both
+-- declarations use (ealch-admin/src/db/schema.ts examFormat and ealch-v2
+-- EXAM_FORMATS, checked by enum-parity.test.ts).
+--
+-- As in 0021, `ALTER TYPE ... ADD VALUE` cannot share a transaction with a use
+-- of the new value, so nothing here references 'dalf_c1' in data. No row needs
+-- a backfill: no DALF task, series or paper exists yet.
+ALTER TYPE "public"."exam_format" ADD VALUE IF NOT EXISTS 'dalf_c1';

@@ -1,4 +1,7 @@
-// Marks → a DELF B2 result. Pure, no React.
+// Marks → a DELF B2 or DALF C1 result. Pure, no React.
+//
+// The two diplomas share the instrument whole (4 x 25, pass at 50, floor 5);
+// only the level asked differs, and every band mark is read against it.
 //
 // ── Why this is not nclc.logic.ts with a flag ──────────────────────────────
 //
@@ -45,7 +48,7 @@ export const DELF_PASS_TOTAL = 50;
 export const DELF_EPREUVE_FLOOR = 5;
 
 /**
- * A graded band, as a mark out of 25.
+ * A graded band, as a mark out of 25, against the level the paper asks for.
  *
  * The comprehension épreuves do not need this — their marks are the authored
  * per-question `points`, which already sum to exactly 25. Production does: the
@@ -55,28 +58,37 @@ export const DELF_EPREUVE_FLOOR = 5;
  * OURS, and expert-judged. The published grid marks ten criteria from 0 to 5 in
  * half-points (§7), which is not a shape an AI band can be honestly projected
  * onto criterion by criterion; what can be said is where a band sits relative to
- * the diploma's own two thresholds, and these are anchored on exactly that:
+ * the diploma's own two thresholds, and these are anchored on exactly that. The
+ * steps are counted from the TARGET band (b2 for DELF B2, c1 for DALF C1):
  *
- *   b2  15   the level the paper asks for. Comfortably clear of the 12.5 average
- *            that a 50/100 pass implies, because meeting the level asked is a
- *            pass and not a borderline one.
- *   b1  10   real French, below the diploma. Four épreuves at B1 total 40 and
- *            fail, which is correct: B1 work does not earn a B2 diploma.
- *   a2   6   clears the floor, barely, and nothing more.
- *   a1   2   below the floor. The épreuve gate fires, which is the honest
- *            reading of an A1 performance on a B2 task.
- *   c1  20   above the level asked.
- *   c2  23   well beyond it. Not 25: a full mark is a claim about a specific
- *            performance against ten criteria, and this is a band.
+ *   target    15   the level the paper asks for. Comfortably clear of the 12.5
+ *                  average that a 50/100 pass implies, because meeting the level
+ *                  asked is a pass and not a borderline one.
+ *   one below 10   real French, below the diploma. Four épreuves there total 40
+ *                  and fail, which is correct: B1 work does not earn a B2
+ *                  diploma, and B2 work does not earn a C1 one.
+ *   two below  6   clears the floor, barely, and nothing more.
+ *   lower      2   below the floor. The épreuve gate fires.
+ *   one above 20   above the level asked.
+ *   two above 23   well beyond it. Not 25: a full mark is a claim about a
+ *                  specific performance against ten criteria, and this is a band.
+ *
+ * Before DALF C1 this table was keyed by band and anchored on b2, so a C1 paper
+ * would have given B2 work 15/25 and a pass (C1 build log, decision 35).
  */
-export const DELF_BAND_MARK: Record<ScoreBand, number> = {
-  a1: 2,
-  a2: 6,
-  b1: 10,
-  b2: 15,
-  c1: 20,
-  c2: 23,
-};
+const MARK_BY_STEP: Record<number, number> = { [-2]: 6, [-1]: 10, 0: 15, 1: 20, 2: 23 };
+
+export function bandMark(band: ScoreBand, target: ScoreBand = 'b2'): number {
+  const step = SCORE_BANDS.indexOf(band) - SCORE_BANDS.indexOf(target);
+  if (step < -2) return 2;
+  if (step > 2) return 23;
+  return MARK_BY_STEP[step]!;
+}
+
+/** The DELF B2 table (target b2), kept for callers and tests that read it by band. */
+export const DELF_BAND_MARK: Record<ScoreBand, number> = Object.fromEntries(
+  SCORE_BANDS.map((b) => [b, bandMark(b, 'b2')]),
+) as Record<ScoreBand, number>;
 
 /** DELF marks in half-points (§7), so a mean of two phases stays on the grid. */
 export function toHalfPoint(n: number): number {
@@ -93,9 +105,9 @@ export function toHalfPoint(n: number): number {
  * later wants them weighted should say so on the paper rather than have it
  * assumed here.
  */
-export function markFromBands(bands: ScoreBand[]): number | null {
+export function markFromBands(bands: ScoreBand[], target: ScoreBand = 'b2'): number | null {
   if (bands.length === 0) return null;
-  const sum = bands.reduce((n, b) => n + DELF_BAND_MARK[b], 0);
+  const sum = bands.reduce((n, b) => n + bandMark(b, target), 0);
   return toHalfPoint(sum / bands.length);
 }
 
@@ -134,15 +146,17 @@ export function delfEpreuve(input: {
   points?: number | null;
   /** Production: the graded bands. Comprehension: leave undefined. */
   bands?: ScoreBand[] | null;
+  /** The level the paper asks for (targetBandFor(format)); b2 when omitted. */
+  target?: ScoreBand;
 }): DelfEpreuve {
-  const { skill, status, points, bands } = input;
+  const { skill, status, points, bands, target = 'b2' } = input;
   // Anything but a clean scored sitting has no mark. The number would be real
   // arithmetic on unreal evidence.
   if (status !== 'scored') return { skill, status, mark: null, belowFloor: false };
 
   const mark =
     typeof points === 'number' ? toHalfPoint(points)
-    : bands && bands.length ? markFromBands(bands)
+    : bands && bands.length ? markFromBands(bands, target)
     : null;
 
   if (mark === null) return { skill, status, mark: null, belowFloor: false };

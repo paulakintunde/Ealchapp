@@ -53,7 +53,7 @@ import {
 } from '../../../ealch-v2/src/store/progress.logic.ts';
 import { paperOutcome, sectionOutcome, type SectionOutcome } from '../../../ealch-v2/src/utils/nclc.logic.ts';
 import { delfEpreuve, delfOutcome } from '../../../ealch-v2/src/utils/delf.logic.ts';
-import { instrumentFor } from '../../../ealch-v2/src/utils/examInstrument.logic.ts';
+import { instrumentFor, targetBandFor } from '../../../ealch-v2/src/utils/examInstrument.logic.ts';
 import { EXAM_FORMAT_FACTS } from '../../../ealch-v2/src/content/examFormats.ts';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -181,6 +181,7 @@ function reported(paper: ExamPaper, tasks: ExamTask[], results: ExamResult[]):
           skill: sec.skill, status,
           points: bands ? undefined : counts?.raw ?? null,
           bands,
+          target: targetBandFor(paper.format) ?? undefined,
         });
       })
     );

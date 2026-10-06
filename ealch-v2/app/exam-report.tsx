@@ -45,7 +45,7 @@ import { formatNclc, paperOutcome, sectionOutcome, type NoBandReason, type Secti
 import {
   DELF_EPREUVE_MAX, DELF_TOTAL_MAX, delfEpreuve, delfOutcome, formatMark, type DelfEpreuve,
 } from '@/utils/delf.logic';
-import { instrumentFor } from '@/utils/examInstrument.logic';
+import { instrumentFor, targetBandFor } from '@/utils/examInstrument.logic';
 import { useState } from 'react';
 
 export default function ExamReportScreen() {
@@ -115,6 +115,7 @@ export default function ExamReportScreen() {
           status,
           points: bands ? undefined : counts?.raw ?? null,
           bands,
+          target: targetBandFor(paper.format) ?? undefined,
         });
       })
     );

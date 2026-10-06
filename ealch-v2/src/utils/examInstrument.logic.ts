@@ -3,8 +3,9 @@
 // The exam pack now carries two, and they are not variants of each other:
 //
 //   'nclc'  TEF and TCF. A LEVEL per skill, and the weakest skill governs.
-//   'delf'  DELF B2. Four marks out of 25, a total out of 100, a pass at 50 and
-//           a floor of 5 on every épreuve.
+//   'delf'  DELF B2 and DALF C1. Four marks out of 25, a total out of 100, a
+//           pass at 50 and a floor of 5 on every épreuve; only the level asked
+//           differs (targetBandFor).
 //
 // Written as an exhaustive switch over ExamFormat for the same reason
 // examDispatch.logic.ts is: a paper that reaches the report screen with no
@@ -16,7 +17,7 @@
 // marked — which is the moment to decide, rather than three phases later when a
 // paper has been authored, rendered and published against an assumption.
 
-import type { ExamFormat } from '../content/schema.ts';
+import type { ExamFormat, ScoreBand } from '../content/schema.ts';
 
 export type ExamInstrument = 'nclc' | 'delf';
 
@@ -26,6 +27,7 @@ export function instrumentFor(format: ExamFormat): ExamInstrument {
     case 'tcf_canada':
       return 'nclc';
     case 'delf_b2':
+    case 'dalf_c1':
       return 'delf';
     default: {
       const unreachable: never = format;
@@ -41,4 +43,24 @@ export const INSTRUMENT_BY_FORMAT: Record<ExamFormat, ExamInstrument> = {
   tef_canada: 'nclc',
   tcf_canada: 'nclc',
   delf_b2: 'delf',
+  dalf_c1: 'delf',
 };
+
+/** The level a diploma paper asks for: the anchor of its band-to-mark table
+ *  (delf.logic.ts bandMark). TEF and TCF have none — they report a level, they
+ *  do not test one — so they return null. */
+export function targetBandFor(format: ExamFormat): ScoreBand | null {
+  switch (format) {
+    case 'delf_b2':
+      return 'b2';
+    case 'dalf_c1':
+      return 'c1';
+    case 'tef_canada':
+    case 'tcf_canada':
+      return null;
+    default: {
+      const unreachable: never = format;
+      throw new Error(`no target band for exam format "${String(unreachable)}"`);
+    }
+  }
+}

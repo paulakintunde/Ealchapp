@@ -162,6 +162,13 @@
       "when": 1787640150880,
       "tag": "0022_content_items_allow_c2",
       "breakpoints": true
+    },
+    {
+      "idx": 23,
+      "version": "7",
+      "when": 1787640150881,
+      "tag": "0023_exam_format_dalf_c1",
+      "breakpoints": true
     }
   ]
 }
