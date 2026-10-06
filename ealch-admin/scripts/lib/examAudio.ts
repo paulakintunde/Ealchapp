@@ -75,6 +75,33 @@ export const BAND_PREFERENCE: Record<string, SlotName[]> = {
   c2: ['f-formal', 'm-formal', 'f-media', 'm-neutral'],
 };
 
+/** DALF C1 part 2 genres that a band cannot cast (decision 39). The band key
+ *  puts formal and media voices first, which is right for a flash, a chronicle
+ *  and the long interview, and wrong for a vox pop (respondents should sound
+ *  like passers-by) and an advert (warm, everyday). First appearance picks
+ *  first, so a poll's presenter still takes the media voice. Casting only: the
+ *  SPEED key stays the band (render-audio calls with an empty part label). */
+export const GENRE_PREFERENCE: Record<string, SlotName[]> = {
+  'dalf-poll': ['f-street', 'm-street', 'f-neutral', 'm-neutral'],
+  'dalf-advert': ['f-neutral', 'm-neutral', 'f-media', 'm-media'],
+};
+
+/** The FIRST speaker of a genre document is cast from this list instead: a
+ *  poll's presenter is a journalist whatever their sex, and the passers-by who
+ *  follow take the street voices. One flat order cannot say both (a male
+ *  passer-by would take m-media before m-street). */
+export const GENRE_LEAD: Record<string, SlotName[]> = {
+  'dalf-poll': ['f-media', 'm-media'],
+};
+
+/** The genre key for a DALF part label, or null when the band should cast it. */
+export function dalfGenreKey(partLabel: string): string | null {
+  const l = partLabel.toLowerCase();
+  if (/sondage|micro-trottoir|vox pop|enqu[eê]te de rue/.test(l)) return 'dalf-poll';
+  if (/publicit|spot|annonce publicitaire|r[eé]clame/.test(l)) return 'dalf-advert';
+  return null;
+}
+
 /**
  * The register key for ONE document, whichever format it belongs to.
  *
@@ -102,6 +129,12 @@ export function registerKeyFor(input: {
   // once to TCF; listing DELF (and DALF C1, labelled the same French way) here
   // is what stops it happening again.
   if (input.format === 'tcf_canada' || input.format === 'delf_b2' || input.format === 'dalf_c1') {
+    // DALF part 2: a genre the band cannot cast (decision 39). Only with a part
+    // label, so the speed key (empty label) is still the band.
+    if (input.format === 'dalf_c1' && input.partLabel) {
+      const genre = dalfGenreKey(input.partLabel);
+      if (genre) return genre;
+    }
     const band = (input.level ?? '').toLowerCase();
     if (band in BAND_PREFERENCE) return band;
     // A task with no usable level is an authoring fault, not something to paper
@@ -207,7 +240,7 @@ export function castDocument(turns: Turn[], block: string): CastTurn[] {
   // One lookup, two key spaces: TEF passes a block letter, TCF a band. They
   // cannot collide — letters are upper case and bands are not — so a single
   // table read keeps one casting path rather than branching the caller.
-  const preference = BLOCK_PREFERENCE[block] ?? BAND_PREFERENCE[block] ?? BLOCK_PREFERENCE.G!;
+  const preference = BLOCK_PREFERENCE[block] ?? BAND_PREFERENCE[block] ?? GENRE_PREFERENCE[block] ?? BLOCK_PREFERENCE.G!;
   const order = [...preference, ...SLOTS.filter((s) => !preference.includes(s))];
 
   const assigned = new Map<string, SlotName>();
@@ -215,10 +248,12 @@ export function castDocument(turns: Turn[], block: string): CastTurn[] {
 
   // First appearance decides who gets first pick, so a document's main voice
   // is the one the block was cast for.
+  const lead = GENRE_LEAD[block];
   for (const turn of turns) {
     if (assigned.has(turn.speaker)) continue;
     const sex = sexOfLabel(turn.speaker);
-    const wanted = order.filter((s) => !used.has(s) && (sex === 'unknown' || s.startsWith(`${sex}-`)));
+    const pool = lead && assigned.size === 0 ? [...lead, ...order.filter((s) => !lead.includes(s))] : order;
+    const wanted = pool.filter((s) => !used.has(s) && (sex === 'unknown' || s.startsWith(`${sex}-`)));
     // An unmarked speaker, or one whose sex has run out of voices, takes the
     // next free slot of any kind. Running out is better than doubling up.
     const slot = wanted[0] ?? order.find((s) => !used.has(s));

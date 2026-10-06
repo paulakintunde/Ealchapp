@@ -93,11 +93,14 @@ opens on `f-media` and a man expert answers on `m-formal`. A man host opening
 gets `m-formal` too, which is why a man host with a man expert is the pairing to
 avoid: the expert would fall to `m-neutral`, close in register.
 
-**The limitation to know: part 2 genres are not cast by genre.** On band-keyed
-formats the part label changes nothing, so a vox pop's respondents get the next
-free slots in c1 order (formal and neutral voices), not street voices. Accepted
-for now; if a poll sounds like a panel, the fix is in `examAudio.ts` (a genre
-override for band-keyed formats), not a per-document hack.
+**Part 2 genres ARE cast by genre (decision 39, `examAudio.ts` dalfGenreKey).** A
+part label containing « sondage », « micro-trottoir » or « vox pop » casts as
+`dalf-poll`: the first speaker (the presenter) takes `f-media` / `m-media`, every
+respondent after takes a street voice. A label containing « publicité », « spot »
+or « annonce publicitaire » casts as `dalf-advert` (neutral, warm first). Any other
+label (flash, chronique, the long interview) stays on the c1 band order. Pacing is
+unchanged: the speed key is still the band. So name the genre in every part 2
+label, e.g. « Document 2 · sondage ».
 
 | Slot | Sex | Register | Serves on DALF | Voice id | Settings |
 |---|---|---|---|---|---|

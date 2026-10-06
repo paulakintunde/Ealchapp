@@ -19,6 +19,7 @@ import {
   TURN_GAP_MS,
   type CastTurn,
   registerKeyFor,
+  dalfGenreKey,
   debateTurnPaths,
   BAND_PREFERENCE,
 } from './examAudio.ts';
@@ -445,4 +446,29 @@ test('debate turn paths line up with the order the renderer walks them', () => {
       `path ${path.join('.')} resolves to a different turn than the walk's position ${i}`
     );
   });
+});
+
+test('DALF part 2 casts a vox pop with street voices and an advert with warm ones (decision 39)', () => {
+  strictEqual(dalfGenreKey('Document 2 · sondage'), 'dalf-poll');
+  strictEqual(dalfGenreKey('Extrait 2 · micro-trottoir'), 'dalf-poll');
+  strictEqual(dalfGenreKey('Document 3 · publicité'), 'dalf-advert');
+  strictEqual(dalfGenreKey('Document 1 · flash d’information'), null, 'a flash stays on the band');
+  const k = (partLabel: string) => registerKeyFor({ format: 'dalf_c1', taskLabel: 'Compréhension de l’oral · Partie 2', partLabel, level: 'c1' });
+  strictEqual(k('Document 2 · sondage'), 'dalf-poll');
+  strictEqual(k('Document 1 · chronique'), 'c1');
+  strictEqual(k(''), 'c1', 'the speed key (empty label) is still the band');
+  // Cast for real: the presenter speaks first and keeps the media voice, the
+  // passers-by get street voices.
+  const cast = castDocument(parseTurns('LA JOURNALISTE : Vous paieriez ?\nUN PASSANT : Bof.\nUNE PASSANTE : Oui.'), 'dalf-poll');
+  const slot = (sp: string) => cast.find((t) => t.speaker === sp)!.slot;
+  strictEqual(slot('LA JOURNALISTE'), 'f-media');
+  strictEqual(slot('UN PASSANT'), 'm-street');
+  strictEqual(slot('UNE PASSANTE'), 'f-street');
+  const cast2 = castDocument(parseTurns('LE JOURNALISTE : Et vous ?\nUN PASSANT : Jamais.\nUNE PASSANTE : Parfois.'), 'dalf-poll');
+  const slot2 = (sp: string) => cast2.find((t) => t.speaker === sp)!.slot;
+  strictEqual(slot2('LE JOURNALISTE'), 'm-media', 'a male presenter is a journalist too');
+  strictEqual(slot2('UN PASSANT'), 'm-street');
+  strictEqual(slot2('UNE PASSANTE'), 'f-street');
+  // DELF is untouched: the genre key is DALF-only.
+  strictEqual(registerKeyFor({ format: 'delf_b2', taskLabel: 'x', partLabel: 'Document 2 · sondage', level: 'b2' }), 'b2');
 });
