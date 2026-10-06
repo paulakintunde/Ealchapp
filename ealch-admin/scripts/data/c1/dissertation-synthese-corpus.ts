@@ -166,6 +166,17 @@
 //          12). « Lettre ouverte »: a letter addressed to one person and
 //          published for all to read.
 //       f. Idiom « rester au milieu du gué » (row .1698): to stop halfway.
+//          Pre-review 2026-10-06: « au milieu du gué » = mid-crossing, at the
+//          critical moment (« on ne change pas de chevaux au milieu du
+//          gué »); « laisser qqn au milieu du gué » is a live press
+//          extension, not a dictionary locution. Kept: the meaning (the
+//          reader stranded mid-way) is transparent from the image.
+//       Pre-review 2026-10-06 checked a-e too: four plan names incl.
+//       analytique (constat, causes, conséquences/enjeux) in French method
+//       guides; synthèse rules and the word count match the verified FEI
+//       demo facts in C1-BUILD-LOG.md; « haute considération » and
+//       « considération distinguée » are both acceptable to an authority
+//       such as a mayor, « salutations respectueuses » also common.
 //       g. « Le dictionnaire donne un sens ; le sujet en appelle souvent
 //          deux » (row .1619): a method statement, not a dictionary claim.
 //     QUOTATIONS: none. Every text and every line is original.
@@ -473,7 +484,7 @@ export const ACT2_ROWS: Row[] = [
 
 export const ACT3_ROWS: Row[] = [
   phrase(1626, 'une tension', 'a tension, two ideas pulling against each other', '/yn tɑ̃.sjɔ̃/', 'ün tahⁿ-SYOHⁿ', ['mot', 'tension']),
-  phrase(1627, 'un paradoxe', 'a paradox, something that seems to contradict itself and is true', '/œ̃ pa.ʁa.dɔks/', 'uhⁿ pa-ra-DOKS', ['mot', 'paradoxe']),
+  phrase(1627, 'un paradoxe', 'a paradox, something that seems to contradict itself and yet holds', '/œ̃ pa.ʁa.dɔks/', 'uhⁿ pa-ra-DOKS', ['mot', 'paradoxe']),
   sent(1628, 'Ce qui devait nous libérer finit par nous attacher.', 'What was meant to free us ends up tying us down.', '/sə ki də.vɛ nu li.be.ʁe fi.ni paʁ nu.za.ta.ʃe/', 'suh kee duh-VEH noo lee-bay-RAY fee-NEE par noo-za-ta-SHAY', ['paradoxe'], FCVDR),
   sent(1629, 'Une problématique met face à face deux idées vraies toutes les deux.', 'A problem question puts face to face two ideas that are both true.', '/yn pʁɔ.ble.ma.tik mɛ fas a fas dø.zi.de vʁɛ tut le dø/', 'ün pro-blay-ma-TEEK meh fass a FASS deu-zee-day VREH toot lay DEU', ['regle', 'tension'], FCVDR),
   sent(1630, 'Comment le confort, qui nous libère de l’effort, peut-il nous rendre dépendants ?', 'How can comfort, which frees us from effort, make us dependent?', '/kɔ.mɑ̃ lə kɔ̃.fɔʁ ki nu li.bɛʁ də le.fɔʁ pø.til nu ʁɑ̃dʁ de.pɑ̃.dɑ̃/', 'ko-MAHⁿ luh kohⁿ-FOR kee noo lee-BEHR duh lay-FOR peu-teel noo rahⁿdr day-pahⁿ-DAHⁿ', ['problematique', 'paradoxe']),
@@ -542,7 +553,7 @@ export const ACT6_ROWS: Row[] = [
   sent(1672, 'Un peu des deux, ça dépend des gens.', 'A bit of both, it depends on the person.', '/œ̃ pø de dø sa de.pɑ̃ de ʒɑ̃/', 'uhⁿ peu day DEU sa day-PAHⁿ day ZHAHⁿ', ['ecoute', 'compromis', 'contre-exemple'], RECO),
   sent(1673, 'Alors tu n’as pas de tension, tu as un compromis. Solène ?', 'Then you have no tension, you have a compromise. Solène?', '/a.lɔʁ ty na pa də tɑ̃.sjɔ̃ ty a œ̃ kɔ̃.pʁɔ.mi sɔ.lɛn/', 'a-lor tü na pa duh tahⁿ-SYOHⁿ tü a uhⁿ kohⁿ-pro-MEE so-LENN', ['ecoute'], RECO),
   sent(1674, 'Moi, je me demande pourquoi l’ennui fait si peur aujourd’hui.', 'Me, I wonder why boredom is so frightening today.', '/mwa ʒə mə də.mɑ̃d puʁ.kwa lɑ̃.nɥi fɛ si pœʁ o.ʒuʁ.dɥi/', 'MWA zhuh muh duh-MAHⁿD poor-kwa lahⁿ-NWEE feh see PUHR oh-zhoor-DWEE', ['ecoute'], RECO),
-  sent(1675, 'Une question en « pourquoi » : un plan analytique, avec le constat, les causes, les enjeux.', 'A “why” question: an analytical plan, with the facts, the causes, the stakes.', '/yn kɛs.tjɔ̃ ɑ̃ puʁ.kwa œ̃ plɑ̃ a.na.li.tik a.vɛk lə kɔ̃s.ta le koz le.zɑ̃.ʒø/', 'ün kes-TYOHⁿ ahⁿ poor-KWA uhⁿ plahⁿ a-na-lee-TEEK a-vek luh kohⁿs-TA lay KOHZ lay-zahⁿ-ZHEU', ['ecoute'], RECO),
+  sent(1675, 'Une question en « pourquoi » : un plan analytique, avec le constat, les causes, les enjeux. Yanis ?', 'A “why” question: an analytical plan, with the facts, the causes, the stakes. Yanis?', '/yn kɛs.tjɔ̃ ɑ̃ puʁ.kwa œ̃ plɑ̃ a.na.li.tik a.vɛk lə kɔ̃s.ta le koz le.zɑ̃.ʒø ja.nis/', 'ün kes-TYOHⁿ ahⁿ poor-KWA uhⁿ plahⁿ a-na-lee-TEEK a-vek luh kohⁿs-TA lay KOHZ lay-zahⁿ-ZHEU ya-NEES', ['ecoute'], RECO),
   sent(1676, 'Et si on disait : l’ennui nous pèse, et pourtant c’est souvent de lui que naissent les idées ?', 'And what if we said: boredom weighs on us, and yet it is often where ideas are born?', '/e si ɔ̃ di.zɛ lɑ̃.nɥi nu pɛz e puʁ.tɑ̃ sɛ su.vɑ̃ də lɥi kə nɛs le.zi.de/', 'ay see ohⁿ dee-ZEH lahⁿ-NWEE noo PEZ ay poor-TAHⁿ seh soo-VAHⁿ duh LWEE kuh ness lay-zee-DAY', ['ecoute', 'paradoxe'], RECO),
   sent(1677, 'Là, tu tiens un paradoxe : ton plan doit le déplier, pas le couper en deux.', 'Now you have a paradox: your plan must unfold it, not cut it in two.', '/la ty tjɛ̃.zœ̃ pa.ʁa.dɔks tɔ̃ plɑ̃ dwa lə de.pli.je pa lə ku.pe ɑ̃ dø/', 'LA tü tyehⁿ-zuhⁿ pa-ra-DOKS tohⁿ PLAHⁿ dwa luh day-plee-YAY pa luh koo-pay ahⁿ DEU', ['ecoute', 'paradoxe']),
   sent(1678, 'Donc d’abord ce que l’ennui coûte, puis ce qu’il produit, puis à quelles conditions ?', 'So first what boredom costs, then what it produces, then under what conditions?', '/dɔ̃k da.bɔʁ sə kə lɑ̃.nɥi kut pɥi sə kil pʁɔ.dɥi pɥi a kɛl kɔ̃.di.sjɔ̃/', 'dohⁿk da-BOR suh kuh lahⁿ-NWEE KOOT pwee suh keel pro-DWEE pwee a kel kohⁿ-dee-SYOHⁿ', ['ecoute'], RECO),
@@ -627,7 +638,7 @@ export const ACT10_ROWS: Row[] = [
   sent(1732, 'Aucune idée extérieure au dossier, même juste.', 'No idea from outside the dossier, even a correct one.', '/o.kyn i.de ɛks.te.ʁjœʁ o dɔ.sje mɛm ʒyst/', 'oh-kün ee-DAY eks-tay-RYUHR oh do-SYAY memm ZHÜST', ['regle', 'synthese'], FCVDR),
   sent(1733, 'Aucun jugement personnel : ni « à mon avis », ni « heureusement ».', 'No personal judgement: neither “in my opinion” nor “fortunately”.', '/o.kœ̃ ʒyʒ.mɑ̃ pɛʁ.sɔ.nɛl ni a mɔ̃.na.vi ni œ.ʁøz.mɑ̃/', 'oh-kuhⁿ zhüzh-MAHⁿ pehr-so-NEL nee a moh-na-VEE nee uh-reuz-MAHⁿ', ['regle', 'synthese']),
   sent(1734, 'Il est évident que l’ennui est une chance pour les enfants.', 'It is obvious that boredom is a blessing for children.', '/i.lɛ.te.vi.dɑ̃ kə lɑ̃.nɥi ɛ.tyn ʃɑ̃s puʁ le.zɑ̃.fɑ̃/', 'ee-leh-tay-vee-DAHⁿ kuh lahⁿ-NWEE eh-tün SHAHⁿSS poor lay-zahⁿ-FAHⁿ', ['opinion', 'contre-exemple'], RECO),
-  sent(1735, 'Selon la psychologue, l’ennui laisse à l’imagination le temps de se mettre en route.', 'According to the psychologist, boredom gives the imagination time to get going.', '/sə.lɔ̃ la psi.kɔ.lɔɡ lɑ̃.nɥi lɛs a li.ma.ʒi.na.sjɔ̃ lə tɑ̃ də sə mɛ.tʁɑ̃ ʁut/', 'suh-lohⁿ la psee-ko-LOG lahⁿ-NWEE less a lee-ma-zhee-na-SYOHⁿ luh TAHⁿ duh suh meh-trahⁿ ROOT', ['reformulation', 'synthese']),
+  sent(1735, 'Selon la psychologue, l’ennui laisse à l’imagination le temps de s’éveiller.', 'According to the psychologist, boredom gives the imagination time to wake up.', '/sə.lɔ̃ la psi.kɔ.lɔɡ lɑ̃.nɥi lɛs a li.ma.ʒi.na.sjɔ̃ lə tɑ̃ də se.ve.je/', 'suh-lohⁿ la psee-ko-LOG lahⁿ-NWEE less a lee-ma-zhee-na-SYOHⁿ luh TAHⁿ duh say-vay-YAY', ['reformulation', 'synthese']),
   sent(1736, 'Je compte mes mots : la consigne donne une fourchette, et je la respecte.', 'I count my words: the instructions give a range, and I keep to it.', '/ʒə kɔ̃t me mo la kɔ̃.siɲ dɔ.nyn fuʁ.ʃɛt e ʒə la ʁɛs.pɛkt/', 'zhuh KOHⁿT may MOH la kohⁿ-SEENY do-nün foor-SHET ay zhuh la res-PEKT', ['regle', 'longueur']),
   phrase(1737, 'une fourchette de mots', 'a word range, a minimum and a maximum', '/yn fuʁ.ʃɛt də mo/', 'ün foor-SHET duh MOH', ['mot', 'longueur']),
   sent(1738, 'Un titre, une courte introduction, deux ou trois parties, une conclusion brève.', 'A title, a short introduction, two or three parts, a brief conclusion.', '/œ̃ titʁ yn kuʁ.tɛ̃.tʁɔ.dyk.sjɔ̃ dø.zu tʁwa paʁ.ti yn kɔ̃.kly.zjɔ̃ bʁɛv/', 'uhⁿ TEETR ün koor-tehⁿ-tro-dük-SYOHⁿ deu-zoo trwa par-TEE ün kohⁿ-klü-zyohⁿ BREV', ['structure', 'synthese']),
@@ -662,7 +673,7 @@ export const ACT11_ROWS: Row[] = [
 /* ── ACT 12 · TON ESSAI ──────────────────────────────────────────────────── */
 
 export const ACT12_ROWS: Row[] = [
-  sent(1759, 'Monsieur le Maire, j’habite le quartier de la halle et j’y fais mon marché chaque samedi.', 'Dear Mayor, I live in the market-hall district and do my shopping there every Saturday.', '/mə.sjø lə mɛʁ ʒa.bit lə kaʁ.tje də la al e ʒi fɛ mɔ̃ maʁ.ʃe ʃak sam.di/', 'muh-syeu luh MEHR zha-BEET luh kar-TYAY duh la AL ay zhee feh mohⁿ mar-SHAY shak sam-DEE', ['essai', 'destinataire']),
+  sent(1759, 'Monsieur le Maire, j’habite le quartier de la halle et j’y faisais mon marché chaque samedi.', 'Dear Mayor, I live in the market-hall district and used to do my shopping there every Saturday.', '/mə.sjø lə mɛʁ ʒa.bit lə kaʁ.tje də la al e ʒi fə.zɛ mɔ̃ maʁ.ʃe ʃak sam.di/', 'muh-syeu luh MEHR zha-BEET luh kar-TYAY duh la AL ay zhee fuh-ZEH mohⁿ mar-SHAY shak sam-DEE', ['essai', 'destinataire']),
   sent(1760, 'Restaurer ou transformer : la question est mal posée si l’on oublie ceux qui font vivre la halle.', 'Restore or transform: the question is badly put if we forget those who keep the hall alive.', '/ʁɛs.to.ʁe u tʁɑ̃s.fɔʁ.me la kɛs.tjɔ̃ ɛ mal po.ze si lɔ̃.nu.bli sø ki fɔ̃ vivʁ la al/', 'res-toh-RAY oo trahⁿs-for-MAY la kes-TYOHⁿ eh mal poh-ZAY see loh-noo-BLEE seu kee fohⁿ veevr la AL', ['essai', 'problematique']),
   sent(1761, 'Comment préserver un lieu sans le figer ?', 'How can a place be preserved without freezing it?', '/kɔ.mɑ̃ pʁe.zɛʁ.ve œ̃ ljø sɑ̃ lə fi.ʒe/', 'ko-MAHⁿ pray-zehr-VAY uhⁿ LYEU sahⁿ luh fee-ZHAY', ['essai', 'problematique'], FCVDR),
   sent(1762, 'Une halle restaurée mais vide ne serait qu’un décor.', 'A restored but empty hall would be nothing but a stage set.', '/yn al ʁɛs.to.ʁe mɛ vid nə sə.ʁɛ kœ̃ de.kɔʁ/', 'ün AL res-toh-RAY meh VEED nuh suh-REH kuhⁿ day-KOR', ['essai', 'argument']),
@@ -758,7 +769,7 @@ export const SYNTHESE_A_TEXT =
 
 export const SYNTHESE_B_TEXT =
   'COPIE B. Faut-il laisser les enfants s’ennuyer ? Trois documents interrogent la place de l’ennui dans la vie des enfants : l’entretien d’une psychologue, la tribune d’un père et le témoignage d’une institutrice. Ils se demandent si ce temps vide est une perte ou une ressource. '
-  + 'Deux des trois documents voient dans l’ennui une étape utile. Selon la psychologue, l’ennui laisse à l’imagination le temps de se mettre en route : privé d’occupation imposée, l’enfant crée la sienne. L’institutrice le constate en classe : après une période d’agitation, ses élèves se mettent à construire et à inventer, et ce sont souvent les plus anxieux qui finissent par se montrer les plus créatifs. '
+  + 'Deux des trois documents voient dans l’ennui une étape utile. Selon la psychologue, l’ennui laisse à l’imagination le temps de s’éveiller : privé d’occupation imposée, l’enfant crée la sienne. L’institutrice le constate en classe : après une période d’agitation, ses élèves se mettent à construire et à inventer, et ce sont souvent les plus anxieux qui finissent par se montrer les plus créatifs. '
   + 'Ces deux auteures posent toutefois une condition : il faut accepter de traverser ce moment. La psychologue regrette des emplois du temps trop chargés et défend des plages libres, sans pour autant rejeter les activités. '
   + 'Pour le père de famille, en revanche, l’ennui reste une épreuve qu’il faut écourter. Il le décrit comme un malaise qui dégénère souvent en conflit et préfère proposer un livre, un jeu ou une occupation, de peur que ses enfants ne fassent que s’agiter sans but. '
   + 'Les documents s’opposent donc moins sur la nature de l’ennui que sur la manière d’y répondre : l’accompagner jusqu’à ce qu’il devienne fécond, ou l’abréger.';
