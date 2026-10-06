@@ -33,7 +33,7 @@ const IMAGES = resolve(HERE, '../../ealch-v2/src/content/lessonImages.ts');
  *  EMPTY since 2026-09-25: the 110 openers for b1.15 to b1.24 landed and are
  *  registered. Add a lesson here when it is authored ahead of its art, and
  *  delete it when the art lands. */
-const ART_PENDING = new Set<string>(['c1.10', 'c1.11', 'c1.13']);
+const ART_PENDING = new Set<string>(['c1.10', 'c1.11', 'c1.12', 'c1.13']);
 
 const LESSONS: [string, string][] = [
   ['b1.01', 'imparfait-formation'], ['b1.02', 'imparfait-usage'],
@@ -59,7 +59,7 @@ const LESSONS: [string, string][] = [
   ['c1.01', 'bilan-grammatical-c1'], ['c1.20', 'lire-entre-les-lignes'], ['c1.21', 'debats-entretiens'], ['c1.24', 'analyse-presse'],
   ['c1.02', 'passe-anterieur'], ['c1.03', 'concordance-litteraire'], ['c1.04', 'relatives-complexes'], ['c1.05', 'ellipse-reprise'],
   ['c1.06', 'nuancer-oral'], ['c1.07', 'reformuler-conclure'], ['c1.08', 'persuader'], ['c1.09', 'expose-jury'],
-  ['c1.10', 'dissertation-synthese'], ['c1.11', 'rapports-comptes-rendus'], ['c1.13', 'references-historiques'],
+  ['c1.10', 'dissertation-synthese'], ['c1.11', 'rapports-comptes-rendus'], ['c1.12', 'vocabulaire-idees'], ['c1.13', 'references-historiques'],
 ];
 
 /** The two maps in lessonImages.ts, read as text so the test needs no bundler. */
