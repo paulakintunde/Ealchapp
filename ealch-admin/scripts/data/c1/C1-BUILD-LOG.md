@@ -670,9 +670,38 @@ short items once, 10 min audio max), CE 50 min (one 1500-2000 word text), PE 2 h
 (synthèse about 220 words, 200-240, from about 1000 words of documents, 13 pts;
 essai about 250 words, 12 pts), PO 1 h prep + 30 min (exposé 8-10 min from a dossier,
 then 15-20 min entretien). 4 x 25, pass 50/100, 5/25 floor. No domain choice since
-March 2020 (do not copy the old two-domain split from pre-2020 papers). To verify in
-a browser before authoring: synthèse range wording, essai « environ » vs « minimum »,
-CO item counts (FEI demo paper: /document/dalf-c1sujet-demo-candidat-indiv).
+March 2020 (do not copy the old two-domain split from pre-2020 papers).
+
+**VERIFIED against the current FEI demo paper (2026-10-06).** FEI's own site sits
+behind an Anubis anti-bot check (not bypassed); the same FEI files are hosted openly
+by Fondation Esprit Francophonie, the Swiss partner linked from delfdalf.ch:
+fondation-esprit-francophonie.ch/fileadmin/files/Ressources/Ressources_DELF/Exemples_d_Examen/DALF_C1/
+(dalf-c1_sujet-demo-candidat-coll.pdf, -candidat-indiv, -correcteur, -examinateur,
+C1_Grille_PE.pdf, C1_Grille_PO.pdf, dalf_c1_demo.mp3). FEI copyright: read for
+format facts only, never copied into the app or the repo.
+- CO 25 pts. Part 1 (18 pts): one recording of about 6 min heard twice (3 min to read
+  the questions, listen, 3 min to answer, listen again, 5 min to finish); 10
+  questions, 1 to 2 pts each, a mix of 3-option MCQ and short written answers.
+  Part 2 (7 pts): short radio extracts heard ONCE, 50 s to read and 50 s to answer
+  each; the demo has 2 extracts with 3 + 4 MCQ, 1 pt each.
+- CE 25 pts: one text of 1500-2000 words, 12 questions (1 to 3 pts): MCQ, short
+  answers « avec vos propres mots », and Vrai/Faux WITH a copied justifying quote
+  (2 pts only if both the choice and the quote are right, else 0).
+- Marking rule (correcteur): spelling and syntax ignored in CO/CE unless they wreck
+  the meaning; the marker « acceptera les réponses données ci-dessous et toute
+  reformulation ou réponse cohérente avec la question posée » (this supports decision
+  32: key words first, then the AI grader for rewordings). A V/F quote can be checked
+  mechanically against the text.
+- PE 25 pts, 2 h 30. Synthèse 13 pts, 200-240 words, own words, one new text (not
+  two summaries end to end), no personal comment, key words may be reused but not
+  whole sentences; word = anything between two spaces (« c’est-à-dire » = 1); -1 pt
+  per 20 words outside the range. Essai argumenté 12 pts, « 250 mots minimum », a
+  real-world genre (the demo: an open letter to the minister) built on the dossier.
+- PO 25 pts: draw two subjects, pick one, 60 min preparation, about 30 min in the
+  room; exposé 8-10 min (introduction, conclusion, ordered reflection) on a theme
+  from the documents, then a debate with the jury 15-20 min, run straight on. Grid:
+  exposé, entretien, lexique, morphosyntaxe, phonologie, each judged « en dessous /
+  C1 / C1+ ».
 
 29. Five DALF C1 papers, like DELF B2 (paper 1 free in core, 2-5 in the exam pack;
 the packs layer needs no per-format change).
