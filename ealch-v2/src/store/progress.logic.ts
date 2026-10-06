@@ -1250,6 +1250,13 @@ export type ExamResult = {
    */
   audioFailed?: boolean;
   /**
+   * Typed comprehension answers (DALF C1) the key words could not settle and
+   * the AI grader could not be reached to check. They scored 0, and the report
+   * says how many, because a reworded right answer may be among them: our gap,
+   * not necessarily the candidate's error. Absent when every answer was settled.
+   */
+  shortUnchecked?: number;
+  /**
    * An open task submitted with nothing in it — no transcript, no text.
    *
    * A third state, and it has to be its own, because the two that existed

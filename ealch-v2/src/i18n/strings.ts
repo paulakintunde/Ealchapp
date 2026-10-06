@@ -136,6 +136,9 @@ export type Strings = {
   examSilenceNotice: string;
   examReplay: string; examTranscript: string;
   examAudioFailed: string; examAudioFailedBody: string;
+  /** DALF C1 typed answers: the answer box, the vrai/faux quote box, and the
+   *  report line for answers the AI check could not reach ({n}). */
+  examShortPlaceholder: string; examQuotePlaceholder: string; examShortUnchecked: string;
   /** The preflight, BEFORE the clock starts. `examAudioOfflineBody` carries
    *  {n} (documents that would not play) and {total}. */
   examAudioOffline: string; examAudioOfflineBody: string; examAudioStartAnyway: string;
@@ -602,6 +605,9 @@ export const T: Record<Lang, Strings> = {
       + 'Ils font partie de l’épreuve. Rien n’est en panne : lisez, et attendez la voix.',
     examReplay: 'Réécouter', examTranscript: 'Transcription',
     examAudioFailed: 'Audio indisponible',
+    examShortPlaceholder: 'Votre réponse, avec vos propres mots',
+    examQuotePlaceholder: 'Recopiez la phrase qui justifie votre choix',
+    examShortUnchecked: "Réponses rédigées non vérifiées : {n}. Elles comptent 0 pour l'instant.",
     examAudioFailedBody: "Aucun son n'a pu être joué pour ce document. Il ne sera pas compté dans votre estimation.",
     examAudioOffline: 'Audio indisponible hors connexion',
     examAudioOfflineBody:
@@ -1113,6 +1119,9 @@ export const T: Record<Lang, Strings> = {
       + 'They are part of the exam. Nothing is stuck: read, and wait for the voice.',
     examReplay: 'Play again', examTranscript: 'Transcript',
     examAudioFailed: 'Audio unavailable',
+    examShortPlaceholder: 'Your answer, in your own words',
+    examQuotePlaceholder: 'Copy the sentence that justifies your choice',
+    examShortUnchecked: 'Typed answers not checked: {n}. They count as 0 for now.',
     examAudioFailedBody: 'No sound could be played for this document. It will not count toward your estimate.',
     examAudioOffline: 'Audio unavailable offline',
     examAudioOfflineBody:

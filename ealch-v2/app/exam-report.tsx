@@ -100,6 +100,22 @@ export default function ExamReportScreen() {
   // beside the NCLC fold rather than inside it: a mark out of 25 and a level
   // range are not the same kind of number, and one function returning either
   // would be a flag deciding which — the shape this screen already got wrong.
+  // Typed answers the AI check could not reach, per épreuve (DALF C1). They
+  // scored 0; the row says how many, because a reworded right answer may be
+  // among them. Read off the same results the marks are read from.
+  const uncheckedBySkill = useMemo(() => {
+    const out: Partial<Record<ExamSkill, number>> = {};
+    if (!paper || !paperId) return out;
+    for (const sec of paper.sections) {
+      const ids = new Set(sec.taskIds);
+      const n = results
+        .filter((r) => r.paperId === paperId && ids.has(r.taskId))
+        .reduce((sum, r) => sum + (r.shortUnchecked ?? 0), 0);
+      if (n > 0) out[sec.skill] = n;
+    }
+    return out;
+  }, [paper, paperId, results]);
+
   const delf = useMemo(() => {
     if (!paper || !paperId || instrumentFor(paper.format) !== 'delf') return null;
     return delfOutcome(
@@ -251,7 +267,7 @@ export default function ExamReportScreen() {
 
         {/* ── Per-épreuve ── */}
         {delf
-          ? delf.epreuves.map((e) => <DelfRow key={e.skill} e={e} lang={lang} />)
+          ? delf.epreuves.map((e) => <DelfRow key={e.skill} e={e} lang={lang} unchecked={uncheckedBySkill[e.skill] ?? 0} />)
           : outcome.sections.map((s) => <SectionRow key={s.skill} s={s} lang={lang} />)}
 
         {/* ── The marking ── */}
@@ -502,7 +518,7 @@ function DelfHeadline({ out, lang }: { out: ReturnType<typeof delfOutcome>; lang
 }
 
 /** One DELF épreuve: its mark out of 25, and whether it fell under the floor. */
-function DelfRow({ e, lang }: { e: DelfEpreuve; lang: 'fr' | 'en' }) {
+function DelfRow({ e, lang, unchecked }: { e: DelfEpreuve; lang: 'fr' | 'en'; unchecked: number }) {
   const t = useTheme();
   const T = useT();
 
@@ -524,6 +540,9 @@ function DelfRow({ e, lang }: { e: DelfEpreuve; lang: 'fr' | 'en' }) {
         <TX font="semi" role="label" style={{ marginBottom: 4 }}>{T.examSkillNames[e.skill]}</TX>
         {e.belowFloor ? (
           <TX role="meta" color={t.danger}>{T.delfBelowFloor}</TX>
+        ) : null}
+        {unchecked > 0 ? (
+          <TX role="meta" color={t.danger}>{T.examShortUnchecked.replace('{n}', String(unchecked))}</TX>
         ) : null}
       </View>
       {e.mark !== null ? (

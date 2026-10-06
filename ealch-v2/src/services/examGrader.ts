@@ -62,6 +62,28 @@ export type GradeRequest = {
   coverage?: string;
 };
 
+/** One typed answer the key words could not settle (shortAnswer.logic.ts). */
+export type ShortCheckItem = {
+  key: string;
+  kind: 'short' | 'tfj';
+  question: string;
+  /** short: the corrigé. tfj: the right choice. */
+  expected: string;
+  quotes?: string[];
+  answer: string;
+};
+
+export type ShortCheckRequest = {
+  items: ShortCheckItem[];
+  /** The reading text or listening transcript the answers are about. */
+  passage?: string;
+  paperId: string;
+  skill: string;
+  lang: 'fr' | 'en';
+};
+
+export type ShortCheckResult = { live: true; verdicts: Record<string, boolean> } | { live: false };
+
 export type GradeResult =
   | { live: true; band: ScoreBand; feedback: string }
   | { live: false };
@@ -80,6 +102,26 @@ export const examGrader = {
       });
       if (!error && typeof data?.band === 'string' && typeof data?.feedback === 'string') {
         return { live: true, band: data.band as ScoreBand, feedback: data.feedback };
+      }
+    } catch {
+      // fall through
+    }
+    return { live: false };
+  },
+
+  /** Check a batch of typed answers in ONE request (one grading turn). Never
+   *  throws; `live: false` leaves the answers unchecked, which scores them 0
+   *  and is reported, never a guessed verdict. */
+  async checkShort(req: ShortCheckRequest): Promise<ShortCheckResult> {
+    const sb = supabase();
+    if (!sb || req.items.length === 0) return { live: false };
+    try {
+      const { data, error } = await sb.functions.invoke(ENV.gradeExamFunction, {
+        body: { ...req, mode: 'short', model: getConfig().models.general },
+      });
+      const v = data?.verdicts;
+      if (!error && v && typeof v === 'object' && req.items.every((it) => typeof v[it.key] === 'boolean')) {
+        return { live: true, verdicts: v as Record<string, boolean> };
       }
     } catch {
       // fall through

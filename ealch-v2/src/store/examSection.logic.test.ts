@@ -221,12 +221,12 @@ test('an unanswered question is wrong, not excluded from the total', () => {
   // and the question count are the same number. Asserting it in the two oldest
   // scoring tests is the cheapest place to notice if that ever stops being true.
   const task = flatTask();
-  deepStrictEqual(scoreClosedTask(task, {}), { correct: 0, total: 2, points: 0, pointsTotal: 2 });
-  deepStrictEqual(scoreClosedTask(task, { i0: 0 }), { correct: 1, total: 2, points: 1, pointsTotal: 2 });
-  deepStrictEqual(scoreClosedTask(task, { i0: 0, i1: 1 }), { correct: 1, total: 2, points: 1, pointsTotal: 2 });
-  deepStrictEqual(scoreClosedTask(task, { i0: 0, i1: 0 }), { correct: 2, total: 2, points: 2, pointsTotal: 2 });
+  deepStrictEqual(scoreClosedTask(task, {}), { correct: 0, total: 2, points: 0, pointsTotal: 2, unsure: [], unchecked: [] });
+  deepStrictEqual(scoreClosedTask(task, { i0: 0 }), { correct: 1, total: 2, points: 1, pointsTotal: 2, unsure: [], unchecked: [] });
+  deepStrictEqual(scoreClosedTask(task, { i0: 0, i1: 1 }), { correct: 1, total: 2, points: 1, pointsTotal: 2, unsure: [], unchecked: [] });
+  deepStrictEqual(scoreClosedTask(task, { i0: 0, i1: 0 }), { correct: 2, total: 2, points: 2, pointsTotal: 2, unsure: [], unchecked: [] });
   // An explicit null is the same as never answering.
-  deepStrictEqual(scoreClosedTask(task, { i0: null, i1: null }), { correct: 0, total: 2, points: 0, pointsTotal: 2 });
+  deepStrictEqual(scoreClosedTask(task, { i0: null, i1: null }), { correct: 0, total: 2, points: 0, pointsTotal: 2, unsure: [], unchecked: [] });
 });
 
 test('scoring reaches inside parts, not just the flat list', () => {
@@ -235,6 +235,8 @@ test('scoring reaches inside parts, not just the flat list', () => {
     total: 3,
     points: 2,
     pointsTotal: 3,
+    unsure: [],
+    unchecked: [],
   });
 });
 

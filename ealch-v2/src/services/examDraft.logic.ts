@@ -14,6 +14,7 @@ import type { DeliverySignals } from '../utils/deliverySignals.logic';
 import type { Coverage } from '../utils/interlocutor.logic';
 import type { DebateReport } from '../utils/debate.logic';
 import type { ExamOutcome } from './engagement.logic';
+import type { ExamAnswer } from '../utils/shortAnswer.logic';
 
 export const DRAFT_VERSION = 1;
 /** D-02: long-form typing checkpoints this long after the last keystroke. */
@@ -35,7 +36,7 @@ export type ExamDraft = {
   savedAt: number;
   /** Stable across process death and the final event for this section sitting. */
   sittingId: string;
-  answers: Record<string, Record<string, number | null>>;
+  answers: Record<string, Record<string, ExamAnswer | null>>;
   texts: Record<string, string>;
   spoken: Record<string, DraftSpoken>;
   coverage: Record<string, Coverage>;
@@ -59,7 +60,7 @@ export function draftKey(paperId: string, skill: string): string {
 export function buildDraft(input: {
   paperId: string;
   skill: string;
-  answers: Record<string, Record<string, number | null>>;
+  answers: Record<string, Record<string, ExamAnswer | null>>;
   texts: Record<string, string>;
   spoken: Record<string, SpokenAnswer>;
   coverage: Record<string, Coverage>;
@@ -154,7 +155,7 @@ export function parseDraft(raw: string | null, paperId: string, skill: string, f
 }
 
 export function restoreState(d: ExamDraft): {
-  answers: Record<string, Record<string, number | null>>;
+  answers: Record<string, Record<string, ExamAnswer | null>>;
   texts: Record<string, string>;
   spoken: Record<string, SpokenAnswer>;
   coverage: Record<string, Coverage>;

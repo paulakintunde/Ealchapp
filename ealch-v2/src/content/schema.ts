@@ -2253,12 +2253,40 @@ export const CLOSED_TASK_TYPES = ['co_mcq', 'ce_mcq'] as const;
 export const OPEN_TASK_TYPES = ['po_monologue', 'po_interaction', 'po_debate', 'pe_short', 'pe_essay'] as const;
 const isOpenTaskType = (v: unknown): boolean => (OPEN_TASK_TYPES as readonly string[]).includes(v as string);
 
-/** A multiple-choice question. Same shape and same trap as the quiz section. */
+/**
+ * How an exam question is answered. Absent means 'mcq', so every published
+ * paper is unaffected.
+ *
+ *   mcq    tick one of `opts`; `correct` indexes it.
+ *   short  type a short answer (DALF C1 « avec vos propres mots »). `opts` is []
+ *          and `correct` is -1: no option is right, the answer is typed. Marked
+ *          by `keywords` first, then by the AI grader when they are missing
+ *          (shortAnswer.logic.ts), because the official marker « acceptera
+ *          toute reformulation ou réponse cohérente avec la question posée ».
+ *   tfj    vrai / faux WITH a copied justifying quote (DALF C1). `opts` is the
+ *          two choices, `correct` indexes the right one, `quotes` lists the
+ *          passages that justify it. All-or-nothing, as on the paper: the
+ *          points need both the choice and the quote.
+ */
+export const QCM_KINDS = ['mcq', 'short', 'tfj'] as const;
+export type QcmKind = (typeof QCM_KINDS)[number];
+
+/** A multiple-choice question (or, with `kind`, a typed one). Same shape and
+ *  same trap as the quiz section. */
 export type QcmItem = {
+  kind?: QcmKind;
   q: string;
   opts: string[];
   correct: number;
   why?: string;
+  /** short: groups of key words; a right answer contains at least one word of
+   *  EVERY group. Matched accent- and case-blind, from the start of a word, so
+   *  a stem ('quantif') covers its family. */
+  keywords?: string[][];
+  /** short: the reference answer (the corrigé). Shown to the AI grader. */
+  model?: string;
+  /** tfj: the passages a candidate may copy to justify the right choice. */
+  quotes?: string[];
   /**
    * The CEFR band this single question sits at.
    *
@@ -4487,7 +4515,35 @@ function validateQcm(v: unknown, path: string, requireBand = false): Issue[] {
     }
     const qq = q as Partial<QcmItem>;
     if (!isStr(qq.q)) push(`items[${i}].q is required`);
-    if (!isArr(qq.opts) || qq.opts.length < 2 || qq.opts.some((o) => !isStr(o))) {
+    if (qq.kind !== undefined && !oneOf(QCM_KINDS, qq.kind)) {
+      push(`items[${i}].kind must be one of ${QCM_KINDS.join(' | ')} when present`);
+      return;
+    }
+    if (qq.kind === 'short') {
+      // Typed answer: no options to pick from, so nothing for `correct` to index.
+      if (!isArr(qq.opts) || qq.opts.length !== 0 || qq.correct !== -1) {
+        push(`items[${i}] is a short answer: opts must be [] and correct -1 (no option is right, the answer is typed)`);
+      }
+      if (!isArr(qq.keywords) || qq.keywords.length === 0 ||
+          qq.keywords.some((g) => !isArr(g) || g.length === 0 || g.some((w) => !isStr(w)))) {
+        push(`items[${i}].keywords must be a non-empty list of non-empty word groups — without them every answer goes to the AI`);
+      }
+      if (!isStr(qq.model)) push(`items[${i}].model is required on a short answer — it is the corrigé the AI grader reads`);
+    } else if (qq.kind === 'tfj') {
+      if (!isArr(qq.opts) || qq.opts.length !== 2 || qq.opts.some((o) => !isStr(o))) {
+        push(`items[${i}] is vrai/faux with a justification: opts must be exactly the two choices`);
+      } else if (qq.correct !== 0 && qq.correct !== 1) {
+        push(`items[${i}].correct must be 0 or 1 on a vrai/faux question`);
+      }
+      if (!isArr(qq.quotes) || qq.quotes.length === 0 || qq.quotes.some((w) => !isStr(w))) {
+        push(`items[${i}].quotes must list at least one justifying passage — the points need the quote`);
+      }
+    } else if (qq.keywords !== undefined || qq.quotes !== undefined) {
+      push(`items[${i}] carries keywords or quotes but no kind — say 'short' or 'tfj', or the runner draws it as multiple choice`);
+    }
+    if (qq.kind === 'short') {
+      // options checked above
+    } else if (!isArr(qq.opts) || qq.opts.length < 2 || qq.opts.some((o) => !isStr(o))) {
       push(`items[${i}].opts must be 2+ non-empty strings`);
     } else if (
       typeof qq.correct !== 'number' ||

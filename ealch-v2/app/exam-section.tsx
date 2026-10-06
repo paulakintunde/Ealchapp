@@ -39,7 +39,8 @@ import { useStore } from '@/store/useStore';
 import { useProgress, useSessionLog } from '@/store/useProgress';
 import { PLACEMENT_PASS, type ExamResultInput } from '@/store/progress.logic';
 import { content, useContent } from '@/services/content';
-import { taskQuestions, scoreClosedTask, type ExamQuestion } from '@/services/content.logic';
+import { taskQuestions, scoreClosedTask, shortCheckBatch, type ExamQuestion } from '@/services/content.logic';
+import { isAnswered, type ExamAnswer } from '@/utils/shortAnswer.logic';
 import { examGrader, startExamAttempt } from '@/services';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Crypto from 'expo-crypto';
@@ -67,7 +68,7 @@ const isOpen = (t: ExamTask) => (OPEN_TASK_TYPES as readonly string[]).includes(
  *  refused instead of silently faked. */
 const RENDERABLE: ExamSkill[] = ['CO', 'CE', 'PE', 'PO'];
 
-type Answers = Record<string, Record<string, number | null>>; // taskId -> qKey -> option
+type Answers = Record<string, Record<string, ExamAnswer | null>>; // taskId -> qKey -> tick, typed text, or vrai/faux + quote
 type Texts = Record<string, string>; // taskId -> response
 type Phase = 'answering' | 'submitting' | 'done';
 
@@ -343,7 +344,17 @@ export default function ExamSectionScreen() {
         // attempt entirely — but flagged, so the report says "audio
         // unavailable" rather than reporting our failure as the candidate's.
         const audioFailed = [...unplayable].some((k) => k.startsWith(`${task.id}:`));
-        const { correct, total, points, pointsTotal } = scoreClosedTask(task, answers[task.id] ?? {});
+        // Typed answers (DALF C1) the key words could not settle go to the AI
+        // grader in ONE batch per task. No verdicts (offline, grader down)
+        // leaves them unchecked: scored 0 and reported, never guessed.
+        const taskAnswers = answers[task.id] ?? {};
+        const batch = shortCheckBatch(task, taskAnswers);
+        let verdicts: Record<string, boolean> = {};
+        if (batch.items.length > 0 && !audioFailed) {
+          const res = await examGrader.checkShort({ ...batch, paperId, skill: task.skill, lang });
+          if (res.live) verdicts = res.verdicts;
+        }
+        const { correct, total, points, pointsTotal, unchecked } = scoreClosedTask(task, taskAnswers, verdicts);
         // Pass/fail reads the WEIGHTED proportion, which is the candidate's
         // actual share of the marks. On a format with equal weights the two are
         // the same number; on one without, counting questions would pass a
@@ -364,6 +375,7 @@ export default function ExamSectionScreen() {
             askedTotal: total,
             ...(weighted ? { points, pointsTotal } : {}),
             ...(audioFailed ? { audioFailed: true } : {}),
+            ...(unchecked.length > 0 ? { shortUnchecked: unchecked.length } : {}),
           },
           task
         );
@@ -467,7 +479,7 @@ export default function ExamSectionScreen() {
     if (task.skill === 'PO') return n + (spoken[task.id] ? 1 : 0);
     if (isOpen(task)) return n + ((texts[task.id] ?? '').trim() ? 1 : 0);
     const a = answers[task.id] ?? {};
-    return n + taskQuestions(task).filter((q) => a[q.key] != null).length;
+    return n + taskQuestions(task).filter((q) => isAnswered(a[q.key])).length;
   }, 0);
   const totalCount = pinnedTasks.reduce(
     (n, task) => n + (isOpen(task) ? 1 : taskQuestions(task).length),
@@ -738,8 +750,8 @@ function ListeningTask({
 }: {
   task: ExamTask;
   mode: ExamMode;
-  answers: Record<string, number | null>;
-  onAnswer: (qKey: string, opt: number) => void;
+  answers: Record<string, ExamAnswer | null>;
+  onAnswer: (qKey: string, a: ExamAnswer) => void;
   onUnplayable: (partKey: string) => void;
   editable: boolean;
 }) {
@@ -782,8 +794,8 @@ function ListeningTask({
                   <Question
                     key={q.key}
                     q={q}
-                    selected={answers[q.key] ?? null}
-                    onSelect={(opt) => editable && partEditable && onAnswer(q.key, opt)}
+                    value={answers[q.key] ?? null}
+                    onChange={(a) => editable && partEditable && onAnswer(q.key, a)}
                     editable={editable && partEditable}
                   />
                 ))}
@@ -805,8 +817,8 @@ function ClosedTask({
   task, answers, onAnswer, editable,
 }: {
   task: ExamTask;
-  answers: Record<string, number | null>;
-  onAnswer: (qKey: string, opt: number) => void;
+  answers: Record<string, ExamAnswer | null>;
+  onAnswer: (qKey: string, a: ExamAnswer) => void;
   editable: boolean;
 }) {
   const t = useTheme();
@@ -854,8 +866,8 @@ function ClosedTask({
               <Question
                 key={q.key}
                 q={q}
-                selected={answers[q.key] ?? null}
-                onSelect={(opt) => editable && onAnswer(q.key, opt)}
+                value={answers[q.key] ?? null}
+                onChange={(a) => editable && onAnswer(q.key, a)}
                 editable={editable}
               />
             ))}
@@ -897,24 +909,52 @@ function Document({ body }: { body: string }) {
 }
 
 function Question({
-  q, selected, onSelect, editable,
+  q, value, onChange, editable,
 }: {
   q: ExamQuestion;
-  selected: number | null;
-  onSelect: (opt: number) => void;
+  value: ExamAnswer | null;
+  onChange: (a: ExamAnswer) => void;
   editable: boolean;
 }) {
   const t = useTheme();
+  const T = useT();
+  const kind = q.item.kind ?? 'mcq';
+
+  // vrai/faux keeps its quote when the choice changes, and the reverse.
+  const pair = typeof value === 'object' && value !== null ? value : { choice: null, text: '' };
+  const selected = kind === 'tfj' ? pair.choice : typeof value === 'number' ? value : null;
+  const pick = (oIx: number) => (kind === 'tfj' ? onChange({ ...pair, choice: oIx }) : onChange(oIx));
+
+  const field = {
+    borderRadius: 12, borderWidth: 1, borderColor: t.line(12),
+    backgroundColor: t.card, padding: 12, color: t.tx, minHeight: 64,
+  } as const;
+
   return (
     <View style={{ marginBottom: 18 }}>
       <TX font="semi" role="label" style={{ marginBottom: 8 }}>{q.item.q}</TX>
+      {kind === 'short' ? (
+        // Typed answer. Spelling does not count (the corrigé's own rule), so
+        // nothing here corrects or flags it.
+        <TextInput
+          value={typeof value === 'string' ? value : ''}
+          onChangeText={(v) => onChange(v)}
+          editable={editable}
+          multiline
+          textAlignVertical="top"
+          accessibilityLabel={`${q.item.q} ${T.examShortPlaceholder}`}
+          placeholder={T.examShortPlaceholder}
+          placeholderTextColor={t.txMuted}
+          style={field}
+        />
+      ) : null}
       {q.item.opts.map((opt, oIx) => {
         const on = selected === oIx;
         return (
           <Press
             key={oIx}
             disabled={!editable}
-            onPress={() => onSelect(oIx)}
+            onPress={() => pick(oIx)}
             accessibilityRole="radio"
             accessibilityLabel={opt}
             accessibilityState={{ selected: on, disabled: !editable }}
@@ -932,6 +972,19 @@ function Question({
           </Press>
         );
       })}
+      {kind === 'tfj' ? (
+        <TextInput
+          value={pair.text}
+          onChangeText={(v) => onChange({ ...pair, text: v })}
+          editable={editable}
+          multiline
+          textAlignVertical="top"
+          accessibilityLabel={T.examQuotePlaceholder}
+          placeholder={T.examQuotePlaceholder}
+          placeholderTextColor={t.txMuted}
+          style={field}
+        />
+      ) : null}
     </View>
   );
 }

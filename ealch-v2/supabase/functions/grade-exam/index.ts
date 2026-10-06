@@ -29,6 +29,7 @@
 // diagnostic mock, and the auth-uid path (Phase 9) is additive, not a gate.
 
 import { createClient } from "jsr:@supabase/supabase-js@2";
+import { parseVerdicts, shortPrompt, shortRequestProblem, type ShortCheckRequest } from "./short.ts";
 import {
   buildChain,
   DEFAULT_CEILING,
@@ -407,21 +408,33 @@ Deno.serve(async (req) => {
     const body = (await req.json()) as Partial<GradeRequest>;
     const { stimulus, candidateResponse, rubric, modelAnswer, targetBand, lang = "fr", delivery, coverage, deviceId = null } = body;
 
+    // mode 'short': a batch of typed comprehension answers the app's key-word
+    // pass could not settle (short.ts). Same gate and same quota as an essay,
+    // one turn for the whole batch; validated here, answered after the quota.
+    const isShort = (body as { mode?: unknown }).mode === "short";
+    const shortProblem = isShort ? shortRequestProblem(body) : null;
+    if (shortProblem) {
+      return new Response(JSON.stringify({ error: shortProblem }), {
+        status: 400,
+        headers: { ...cors, "Content-Type": "application/json" },
+      });
+    }
+
     // The rule, enforced here too (not just by validateExamTask at authoring
     // time): nothing grades without a rubric and a model answer.
-    if (!rubric?.criteria?.length || !modelAnswer?.trim()) {
+    if (!isShort && (!rubric?.criteria?.length || !modelAnswer?.trim())) {
       return new Response(JSON.stringify({ error: "cannot grade: task has no rubric/modelAnswer" }), {
         status: 400,
         headers: { ...cors, "Content-Type": "application/json" },
       });
     }
-    if (!isScoreBand(targetBand)) {
+    if (!isShort && !isScoreBand(targetBand)) {
       return new Response(JSON.stringify({ error: "invalid targetBand" }), {
         status: 400,
         headers: { ...cors, "Content-Type": "application/json" },
       });
     }
-    if (typeof candidateResponse !== "string" || !candidateResponse.trim()) {
+    if (!isShort && (typeof candidateResponse !== "string" || !candidateResponse.trim())) {
       return new Response(JSON.stringify({ error: "empty candidateResponse" }), {
         status: 400,
         headers: { ...cors, "Content-Type": "application/json" },
@@ -479,6 +492,32 @@ Deno.serve(async (req) => {
 
     const resolution = buildChain(routed.model, { hasSecret, aiApiModel: Deno.env.get("AI_API_MODEL"), ceiling: routed.ceiling });
     const chain = resolution.chain.map((entry) => ({ entry, call: toCaller(entry) }));
+
+    if (isShort) {
+      const sreq = body as unknown as ShortCheckRequest;
+      const keys = sreq.items.map((it) => it.key);
+      const prompt = shortPrompt(sreq);
+      for (const { entry, call } of chain) {
+        try {
+          const verdicts = parseVerdicts(await call(prompt.system, prompt.user), keys);
+          if (verdicts) {
+            return new Response(JSON.stringify({ verdicts, provider: entry.provider, model: resolution.routedModel }), {
+              headers: { ...cors, "Content-Type": "application/json" },
+            });
+          }
+          posthog("short_check_unparseable_reply", { provider: entry.provider, model: modelFor(entry) });
+        } catch (e) {
+          posthog("short_check_provider_failed", { provider: entry.provider, model: modelFor(entry), error: String(e) });
+        }
+      }
+      // No verdicts is a real outcome: the app scores those answers 0 and says
+      // they were not checked. Never a guessed verdict.
+      return new Response(JSON.stringify({ error: "short-answer check unavailable" }), {
+        status: 503,
+        headers: { ...cors, "Content-Type": "application/json" },
+      });
+    }
+
     const { system, user } = gradingPrompt({
       stimulus: stimulus ?? "", candidateResponse, rubric, modelAnswer, targetBand, lang: lang === "en" ? "en" : "fr",
       // Only a real, non-empty string reaches the prompt: an empty delivery

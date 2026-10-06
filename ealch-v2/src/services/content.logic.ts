@@ -16,6 +16,7 @@
 // the explicit `.ts` extension the way narration.logic.ts's schema import
 // already does for the same reason.
 import type { CardType, Corpus, DrillKind, ExamFormat, ExamPaper, ExamSection, ExamSkill, ExamTask, Item, Lesson, LessonSection, Level, QcmItem, Scenario, SpeakStage, Track, Unit } from '../content/schema';
+import { markAnswer, type ExamAnswer } from '../utils/shortAnswer.logic.ts';
 import { unitBand } from '../content/schema.ts';
 
 /* ─── merge ──────────────────────────────────────────────────────────────── */
@@ -423,12 +424,46 @@ export function taskQuestions(task: ExamTask): ExamQuestion[] {
  * scoring "out of what was attempted" would flatter a candidate who ran out of
  * time into a band they did not earn.
  */
+/**
+ * The typed answers of a closed task that the key words could not settle, as
+ * one batch for the AI check (examGrader.checkShort), with the text they are
+ * about: the reading passage, or the listening transcript (the grader marks,
+ * it does not sit the exam, so it may read what the candidate heard).
+ */
+export function shortCheckBatch(
+  task: ExamTask,
+  answers: Record<string, ExamAnswer | null | undefined>
+): { items: { key: string; kind: 'short' | 'tfj'; question: string; expected: string; quotes?: string[]; answer: string }[]; passage?: string } {
+  const items = taskQuestions(task)
+    .filter((q) => markAnswer(q.item, answers[q.key]) === 'unsure')
+    .map((q) => {
+      const a = answers[q.key];
+      if (q.item.kind === 'tfj') {
+        return {
+          key: q.key, kind: 'tfj' as const, question: q.item.q,
+          expected: q.item.opts[q.item.correct] ?? '', quotes: q.item.quotes ?? [],
+          answer: typeof a === 'object' && a !== null ? a.text : '',
+        };
+      }
+      return { key: q.key, kind: 'short' as const, question: q.item.q, expected: q.item.model ?? '', answer: typeof a === 'string' ? a : '' };
+    });
+  const passage = (task.parts ?? []).map((p) => p.text ?? '').filter(Boolean).join('\n\n');
+  return { items, ...(passage ? { passage } : {}) };
+}
+
 export function scoreClosedTask(
   task: ExamTask,
-  answers: Record<string, number | null | undefined>
-): { correct: number; total: number; points: number; pointsTotal: number } {
+  answers: Record<string, ExamAnswer | null | undefined>,
+  /** AI verdicts for typed answers the key words could not settle
+   *  (shortAnswer.logic.ts), keyed like `answers`. Absent means unchecked. */
+  verdicts: Record<string, boolean> = {}
+): { correct: number; total: number; points: number; pointsTotal: number; unsure: string[]; unchecked: string[] } {
   const qs = taskQuestions(task);
-  const correct = qs.reduce((n, q) => n + (answers[q.key] === q.item.correct ? 1 : 0), 0);
+  const marks = qs.map((q) => markAnswer(q.item, answers[q.key]));
+  // An unsure answer counts only on a "yes" from the grader. Without a verdict
+  // it scores 0 and is reported as unchecked, never guessed either way.
+  const right = (i: number) => marks[i] === 'right' || (marks[i] === 'unsure' && verdicts[qs[i]!.key] === true);
+  const correct = qs.reduce((n, _q, i) => n + (right(i) ? 1 : 0), 0);
 
   // The weighted pair rides ALONGSIDE the counts rather than replacing them,
   // and that separation is deliberate. TCF's NCLC estimate weights by BAND and
@@ -439,10 +474,12 @@ export function scoreClosedTask(
   // With no item declaring `points`, the two pairs are equal by construction —
   // every existing TEF and TCF paper scores byte-identically to before.
   const weight = (q: (typeof qs)[number]) => q.item.points ?? 1;
-  const points = qs.reduce((n, q) => n + (answers[q.key] === q.item.correct ? weight(q) : 0), 0);
+  const points = qs.reduce((n, q, i) => n + (right(i) ? weight(q) : 0), 0);
   const pointsTotal = qs.reduce((n, q) => n + weight(q), 0);
 
-  return { correct, total: qs.length, points, pointsTotal };
+  const unsure = qs.filter((_q, i) => marks[i] === 'unsure').map((q) => q.key);
+  const unchecked = unsure.filter((k) => verdicts[k] === undefined);
+  return { correct, total: qs.length, points, pointsTotal, unsure, unchecked };
 }
 
 /** The lessons of a unit, in seq order, resolved and filtered to what exists.
