@@ -29,6 +29,7 @@ import { Press } from '@/components/ui';
 import { Icon } from '@/components/Icon';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
+import { ExamDossier } from '@/components/ExamDossier';
 import { audio as audioService } from '@/services/audio';
 import { computeDeliverySignals, type DeliverySignals, type SpeechSample } from '@/utils/deliverySignals.logic';
 import {
@@ -303,6 +304,8 @@ export function ExamDebateTask({
       </TX>
       <View style={{ height: 6 }} />
       <TX lang="fr">{task.prompt}</TX>
+      <View style={{ height: 10 }} />
+      <ExamDossier task={task} />
 
       {phase === 'idle' ? (
         <View style={{ marginTop: 14 }}>

@@ -26,6 +26,7 @@ import { Press } from '@/components/ui';
 import { Icon } from '@/components/Icon';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
+import { ExamDossier } from '@/components/ExamDossier';
 import {
   computeDeliverySignals,
   deliverySummary,
@@ -206,6 +207,7 @@ export function ExamSpeakTask({
       <TX font="serifI" role="title" lhMult={1.4} style={{ marginBottom: 14 }}>
         « {task.prompt} »
       </TX>
+      <ExamDossier task={task} />
 
       {phase === 'idle' ? (
         <Press accessibilityRole="button"

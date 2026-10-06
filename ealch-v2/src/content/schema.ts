@@ -2345,6 +2345,8 @@ export type ExamPart = {
   /** Required whenever imageRef is present (UDL 01). An image with no
    *  alternative text is unusable to a screen reader and must not ship. */
   imageAlt?: string;
+  /** The questions on this part. On an OPEN task the part is a dossier
+   *  document (DALF C1) and this is [] (validateDossier). */
   items: QcmItem[];
 };
 
@@ -4609,6 +4611,32 @@ function validateExamParts(v: unknown, path: string, requireBand: boolean): Issu
   return out;
 }
 
+/** An open task's dossier: labelled documents the candidate works from. Text
+ *  is required (a document with no text is nothing to read), and every
+ *  closed-part field is refused: questions would be marked by nobody, audio
+ *  and images are not DALF stimuli and would be shown to no one. */
+function validateDossier(v: unknown, path: string): Issue[] {
+  const out: Issue[] = [];
+  const push = (m: string) => out.push({ path, message: m });
+  if (!isArr(v) || v.length === 0) return [{ path, message: 'a dossier must be a non-empty array of documents' }];
+  v.forEach((p, i) => {
+    if (typeof p !== 'object' || p === null || isArr(p)) {
+      push(`parts[${i}] is not an object`);
+      return;
+    }
+    const pp = p as Partial<ExamPart>;
+    if (!isStr(pp.label)) push(`parts[${i}].label is required — it is how the candidate and the grader name the document`);
+    if (!isStr(pp.text)) push(`parts[${i}].text is required — a dossier document is something to read`);
+    if (isArr(pp.items) && pp.items.length > 0) {
+      push(`parts[${i}] carries questions, and an open task is judged against a rubric, not marked — move them to a closed task`);
+    }
+    for (const k of ['audioRef', 'imageRef', 'playCount', 'readWindowS', 'durationS'] as const) {
+      if (pp[k] !== undefined && pp[k] !== null) push(`parts[${i}].${k} does not belong on a dossier document (text only)`);
+    }
+  });
+  return out;
+}
+
 function validateInterlocutorTurn(v: unknown, path: string, requireCues: boolean): Issue[] {
   const out: Issue[] = [];
   const push = (m: string) => out.push({ path, message: m });
@@ -4849,12 +4877,14 @@ export function validateExamTask(v: unknown, path = 'examTask'): Issue[] {
     }
   }
   // Open tasks are judged against a rubric; a question list on one is either a
-  // mistake or a closed task wearing the wrong taskType.
+  // mistake or a closed task wearing the wrong taskType. Their `parts`, when
+  // present, are a DOSSIER (DALF C1 synthèse and exposé): documents to work
+  // from, with nothing to mark (examDossier.logic.ts).
   if (isOpenTaskType(t.taskType) && t.parts !== undefined) {
-    push(`taskType "${t.taskType}" is an open task and cannot have parts — it is judged against a rubric, not marked`);
+    out.push(...validateDossier(t.parts, `${path}.parts`));
   }
   if (t.items !== undefined) out.push(...validateQcm(t.items, `${path}.items`, requireBand));
-  if (t.parts !== undefined) out.push(...validateExamParts(t.parts, `${path}.parts`, requireBand));
+  if (t.parts !== undefined && !isOpenTaskType(t.taskType)) out.push(...validateExamParts(t.parts, `${path}.parts`, requireBand));
 
   // DELF B2 stimuli are text and audio. No image, anywhere.
   //

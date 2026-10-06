@@ -31,6 +31,8 @@ import { ExamAudioPart } from '@/components/ExamAudioPart';
 import { ExamSpeakTask, type SpokenAnswer } from '@/components/ExamSpeakTask';
 import { ExamInterlocutorTask } from '@/components/ExamInterlocutorTask';
 import { ExamDebateTask } from '@/components/ExamDebateTask';
+import { ExamDossier } from '@/components/ExamDossier';
+import { graderStimulus } from '@/utils/examDossier.logic';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
@@ -394,7 +396,9 @@ export default function ExamSectionScreen() {
         continue;
       }
       const res = await examGrader.grade({
-        stimulus: task.prompt,
+        // The instruction AND the dossier: a synthèse is marked on keeping the
+        // documents' ideas, which the grader cannot judge without them.
+        stimulus: graderStimulus(task),
         candidateResponse: body,
         rubric: task.rubric!,
         modelAnswer: task.modelAnswer!,
@@ -964,6 +968,7 @@ function OpenTask({
       <TX font="serifI" role="title" lhMult={1.4} style={{ marginBottom: 14 }}>
         « {task.prompt} »
       </TX>
+      <ExamDossier task={task} />
 
       <TextInput
         value={value}

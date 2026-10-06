@@ -1051,7 +1051,20 @@ test('a closed task carries items OR parts, never both and never neither', () =>
   // An open task is judged against a rubric; a question list on one means the
   // taskType is wrong.
   ok(validateExamTask(openTask({ parts: [part] }))
-    .some((i) => /cannot have parts/.test(i.message)));
+    .some((i) => /carries questions/.test(i.message)));
+});
+
+test('an open task may carry a dossier: labelled text documents, nothing to mark', () => {
+  // DALF C1: the synthèse is written from about 1000 words of documents, the
+  // exposé prepared from a dossier (C1 build log, decision 30).
+  const doc = (label: string, text: string) => ({ label, text, items: [] });
+  deepStrictEqual(validateExamTask(openTask({ parts: [doc('Document 1', 'La diversité des langues recule.'), doc('Document 2', 'Une langue disparaît tous les quinze jours.')] })), []);
+  ok(validateExamTask(openTask({ parts: [{ label: 'Document 1', items: [] }] }))
+    .some((i) => /text is required/.test(i.message)), 'a document with no text is nothing to read');
+  ok(validateExamTask(openTask({ parts: [{ ...doc('Document 1', 'Texte.'), audioRef: 'x.mp3' }] }))
+    .some((i) => /audioRef does not belong/.test(i.message)), 'a dossier is text only');
+  ok(validateExamTask(openTask({ parts: [] }))
+    .some((i) => /non-empty array of documents/.test(i.message)));
 });
 
 test('a listening part needs its transcript, and an image needs its alt text', () => {
