@@ -643,6 +643,26 @@ Neither row has recorded audio.
 22. (2026-10-02, Paul) Task lengths stay as authored: c1.05 250-320 words, c1.06
 120-240 s (lesson tasks shorter than the workshop and exam tasks, as in B2).
 
+**Waves 4-6 decisions (Paul, 2026-10-06), after a code and data check:** no PE
+or PO exam task exists above B2 (65 open tasks, all a2-b2); `EXAM_FORMATS` leaves
+out 'dalf' on purpose (Canada-first); a task carries ONE level, so relabelling a
+B2 task to c1 would take it from PE@b2/PO@b2. Already done, nothing to decide:
+litterature, pronoms-essentiels, langue-soignee and connecteurs-logiques reach c1
+(widened for waves 2-3); c1.04 shipped in pronoms-essentiels 2000-2199. Every
+proposed block below is empty in Postgres.
+
+23. C1 writing and speaking exams are NEW TEF Canada / TCF Canada tasks authored
+at level c1 (no schema, enum or code change). When they publish, add
+`'PE@c1': 'c1.10.l1'` and `'PO@c1': 'c1.09.l1'` to `EXAM_PREP_TARGETS`. No DALF
+for now (a later project if learners ask).
+24. c1.10's graded task is ONE essay, 250-400 words, from a short dossier inlined
+in the brief; the synthèse is practised ungraded in an earlier act.
+25. c1.11 home: `francais-professionnel-avance` 1200-1399.
+26. c1.22 home: `langue-soignee` 2200-2399 (beside b2.33; no widening).
+27. `faux-amis` widens to sons-c1 (Postgres write with the c1.18 import, Paul's OK
+then); it also legalises the 322 a1 rows.
+28. c1.13 home: `culture-profonde` 1000-1199; no new history theme.
+
 - **Wave 3 art registered** (36dc575): 48 openers, files = require = alt, ART_PENDING
   empty, house tests 342/342, app suite 5748/5748. Gate C1-2 preview on the Pixel 6
   (dev build): 12 lessons, 142 acts, 2195 items, 245 reused rows from seed+packs and
