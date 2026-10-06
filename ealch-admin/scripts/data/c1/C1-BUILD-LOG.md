@@ -884,6 +884,23 @@ report as text; « The subject is » line per prompt; unpadded tag).
 `scripts/dalf/paper-rules.ts` + test, modelled on the DELF B2 set and the verified
 facts above.
 
+**DALF step 3 done (3638d1a):** BLUEPRINT / STANDARD / TOPICS (64 topics, FEI demo
+topics excluded) / VOICES for dalf_c1, `scripts/dalf/paper-rules.ts` (dalfPaperViolations,
+26 tests). Agent notes: the paper prints 13 + 12 but both FEI grids total 12.5 (rubrics
+follow the paper; the épreuve is 25 either way); the -1 per 20 words penalty is carried
+by the rubric's length criterion, not deducted mechanically; extracts 60-120 s, long
+document 360-480 s so the 10-minute audio cap holds; c1 speech speed 0.98 borrowed
+from TCF, to measure on blanc-01.
+
+36. (Paul, 2026-10-06) The essai repeats the synthèse dossier in its own parts so the
+grader sees it (enforced by paper-rules).
+37. Fixed question counts per paper: CO 10 + 7, CE 12 (the exam card stays true).
+38. PO criteria split across exposé (13) and entretien (12), as the DELF oral.
+39. Before blanc-01 is recorded, add a genre override to the DALF audio casting
+(interview / vox pop / advert) in `scripts/lib/examAudio.ts`.
+
+**DALF papers 1-2 dispatched** (two authors, `scripts/dalf-blanc01/`, `dalf-blanc02/`).
+
 ## Status
 
 | Lesson | Slug | Missions | Acts | Quiz | Drills | Sheets | Items | Art | State |

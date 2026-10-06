@@ -81,11 +81,13 @@ function ceTasks(): ExamTask[] {
 const rubric = (...pts: number[]) => ({ criteria: pts.map((maxPoints, i) => ({ key: `k${i}`, label: `L${i}`, maxPoints, descriptors: ['x'] })) });
 
 function peTasks(): ExamTask[] {
+  const dossier = () => [{ label: 'Document 1', text: words(500), items: [] }, { label: 'Document 2', text: words(480), items: [] }];
   return [
     task('004', 'pe_short', 'PE', {
-      parts: [{ label: 'Document 1', text: words(500), items: [] }, { label: 'Document 2', text: words(480), items: [] }],
+      parts: dossier(),
       responseSpec: { kind: 'text', minWords: 200, maxWords: 240 }, rubric: rubric(5, 4, 4), modelAnswer: words(220) }),
     task('005', 'pe_essay', 'PE', {
+      parts: dossier(),
       responseSpec: { kind: 'text', minWords: 250 }, rubric: rubric(4, 4, 4), modelAnswer: words(270) }),
   ];
 }
@@ -326,6 +328,13 @@ test('the writing rule catches an essai without the 250-word floor', () => {
   ok(v.some((x) => x.includes('minWords 250')));
   ok(v.some((x) => x.includes('under 250')));
   ok(v.some((x) => x.includes('not pe_essay')));
+});
+
+test('the essai repeats the synthèse dossier (decision 36)', () => {
+  const p = paper().PE_TASKS;
+  ok(!writingViolations(p).some((x) => x.includes('decision 36')), 'the fixture repeats it');
+  p[1]!.parts = undefined;
+  ok(writingViolations(p).some((x) => x.includes('decision 36')));
 });
 
 /* ── speaking ─────────────────────────────────────────────────────────────── */

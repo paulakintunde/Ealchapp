@@ -332,6 +332,13 @@ export function writingViolations(peTasks: ExamTask[]): string[] {
     if (rs?.kind !== 'text' || rs.minWords !== 250) out.push(`${essai.id}: responseSpec must be text with minWords 250`);
     const m = countWords(essai.modelAnswer ?? '');
     if (m < 250) out.push(`${essai.id}: the model essai counts ${m} words, under 250`);
+    // Decision 36 (Paul, 2026-10-06): the essai repeats the synthèse dossier in
+    // its own parts, so the grader marking the essai sees the documents it must
+    // draw on. Same labels and texts, same order.
+    if (syn) {
+      const sig = (t: ExamTask) => JSON.stringify(parts(t).map((d) => [d.label, d.text]));
+      if (sig(essai) !== sig(syn)) out.push(`${essai.id}: the essai must repeat the synthèse dossier in its parts (decision 36)`);
+    }
   }
   return out;
 }
