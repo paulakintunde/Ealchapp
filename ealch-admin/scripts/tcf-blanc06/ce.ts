@@ -55,7 +55,7 @@ export const CE_A1: ExamTask = {
     {
       label: 'Document 2 · une fiche d’élève',
       text:
-        'NOUVEL ÉLÈVE · CLASSE DE QUATRIÈME\n' +
+        'NOUVEL ÉLÈVE · SECONDAIRE 2\n' +
         'Nom : Okafor\n' +
         'Prénom : Daniel\n' +
         'Âge : treize ans\n' +

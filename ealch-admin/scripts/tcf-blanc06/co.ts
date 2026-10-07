@@ -190,7 +190,7 @@ export const CO_A2: ExamTask = {
       items: [
         {
           q: 'Quelle caisse vient d’ouvrir ?',
-          opts: ['La caisse quatre', 'La caisse deux', 'La caisse dix', 'La caisse une'],
+          opts: ['La caisse quatre', 'La caisse deux', 'La caisse dix', 'La caisse un'],
           correct: 0,
           why: 'La quatre ouvre ; la deux est réservée aux petits paniers.',
           band: 'a2',
@@ -530,7 +530,7 @@ export const CO_B1: ExamTask = {
           q: 'Pourquoi cette usagère prend-elle la navette ?',
           opts: [
             'Son trajet est devenu plus court',
-            'Les voitures sont interdites sur le pont',
+            'Le pont suivant est fermé lui aussi',
             'La navette est gratuite',
             'Elle n’a plus de voiture',
           ],

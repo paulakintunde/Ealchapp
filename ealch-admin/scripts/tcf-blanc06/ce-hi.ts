@@ -333,8 +333,9 @@ export const CE_C1: ExamTask = {
     {
       label: 'Document 22 · à qui revient une invention ?',
       text:
-        'Pendant un siècle, les manuels ont attribué le régulateur thermique des fours de verrerie à l’industriel Gaspard Lemire, ' +
-        'qui en déposa le brevet en 1894. La découverte, l’an dernier, des carnets d’une de ses employées, ' +
+        'Pendant un siècle, les guides de l’ancienne verrerie de la Haute-Ormelle, aujourd’hui devenue musée, ' +
+        'ont attribué le régulateur thermique de ses fours à son fondateur, l’industriel Gaspard Lemire, ' +
+        'qui en déposa le brevet en 1894. La découverte, l’an dernier, dans les réserves du musée, des carnets d’une de ses employées, ' +
         'Odile Ferrand, a suffi à ébranler cette attribution : on y trouve, datés de deux ans plus tôt, ' +
         'des croquis presque identiques au dessin du brevet.\n' +
         'Le réflexe est de réparer l’injustice en changeant de nom. Il serait pourtant hâtif ' +

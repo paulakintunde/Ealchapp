@@ -530,7 +530,7 @@ export const CO_C2: ExamTask = {
         'Je ne promets pas de venir demain parce que rien ne peut m’en empêcher ; ' +
         'je le promets parce que quelque chose pourrait m’en empêcher.\n' +
         'UN JURISTE : Le droit des contrats vous donne raison, en principe. ' +
-        'Il connaît pourtant l’imprévision : lorsqu’un événement que personne ne pouvait ' +
+        'Bien des droits connaissent pourtant l’imprévision : lorsqu’un événement que personne ne pouvait ' +
         'raisonnablement anticiper rend l’exécution ruineuse, le juge peut réviser l’accord, ' +
         'et il le fait plus souvent qu’on ne le croit depuis que les crises se succèdent. ' +
         'On ne demande à personne de se ruiner pour tenir une parole donnée dans un autre monde.\n' +

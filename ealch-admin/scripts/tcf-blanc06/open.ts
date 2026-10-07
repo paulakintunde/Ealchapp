@@ -224,7 +224,7 @@ export const EE_T3: ExamTask = {
         label: 'Comparaison critique',
         maxPoints: 5,
         descriptors: [
-          'Le désaccord est situé avec exactitude : les deux textes partagent le constat d’un écart entre expertise et décision, et divergent sur le remède et sur la neutralité de l’expertise.',
+          'Le désaccord est situé avec exactitude : les deux textes observent le même écart entre avis des experts et décision, mais A y lit une dérive à corriger par la transparence, B un arbitrage de valeurs que l’expertise ne peut trancher ; ils divergent sur la neutralité de l’expertise et donc sur le remède.',
           'Le candidat perçoit que B réfute un avis « contraignant » que A ne réclame pas, et en tire une conséquence pour la discussion.',
           'Un texte qui résume A puis résume B sans les confronter ne dépasse pas la moitié des points.',
         ],
@@ -261,9 +261,10 @@ export const EE_T3: ExamTask = {
     ],
   },
   modelAnswer:
-    'Les deux textes partent d’un même constat : au moment de trancher, l’avis des experts pèse moins ' +
-    'que les contraintes politiques. Ils divergent sur le remède. Le premier voudrait rendre cet avis public ' +
-    'et obliger les élus à motiver par écrit tout écart, afin qu’ils assument ce qu’ils savaient. ' +
+    'Les deux textes observent le même écart entre l’avis des experts et la décision des élus, ' +
+    'mais ne l’interprètent pas de la même façon. Pour le premier, cet écart trahit souvent un calcul ' +
+    'budgétaire ou électoral : il voudrait donc rendre l’avis public et obliger les élus à motiver par écrit ' +
+    'tout choix qui s’en écarte, afin qu’ils assument ce qu’ils savaient. ' +
     'Le second récuse la neutralité même de l’expertise : la question posée aux spécialistes, ' +
     'en écartant d’emblée d’autres options, relève déjà d’un arbitrage.\n\n' +
     'Encore faut-il remarquer que B réfute une thèse plus forte que celle de A. ' +
