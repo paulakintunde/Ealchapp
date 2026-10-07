@@ -49,7 +49,7 @@ const LESSONS: [string, string][] = [
   ['c1.02', 'passe-anterieur'], ['c1.03', 'concordance-litteraire'], ['c1.04', 'relatives-complexes'], ['c1.05', 'ellipse-reprise'],
   ['c1.06', 'nuancer-oral'], ['c1.07', 'reformuler-conclure'], ['c1.08', 'persuader'], ['c1.09', 'expose-jury'],
   ['c1.10', 'dissertation-synthese'], ['c1.11', 'rapports-comptes-rendus'], ['c1.12', 'vocabulaire-idees'], ['c1.13', 'references-historiques'],
-  ['c1.14', 'analyser-oeuvre'], ['c1.15', 'notions-politiques'], ['c1.16', 'notions-morales'], ['c1.17', 'synonymes-nuances'], ['c1.19', 'figures-effet'], ['c1.22', 'traduire-idees'],
+  ['c1.14', 'analyser-oeuvre'], ['c1.15', 'notions-politiques'], ['c1.16', 'notions-morales'], ['c1.17', 'synonymes-nuances'], ['c1.18', 'faux-amis-savants'], ['c1.19', 'figures-effet'], ['c1.22', 'traduire-idees'], ['c1.23', 'tact-travail'],
 ];
 
 const OPT_KEYS = ['opts', 'options', 'choices', 'answers'];

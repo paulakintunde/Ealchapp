@@ -64,7 +64,7 @@ export const C1_SLUGS: readonly string[] = [
   'nuancer-oral', 'reformuler-conclure', 'persuader', 'expose-jury',
   'dissertation-synthese', 'rapports-comptes-rendus', 'vocabulaire-idees', 'references-historiques',
   'analyser-oeuvre', 'notions-politiques', 'notions-morales', 'synonymes-nuances',
-  'figures-effet', 'traduire-idees',
+  'faux-amis-savants', 'figures-effet', 'traduire-idees', 'tact-travail',
   'lire-entre-les-lignes', 'debats-entretiens', 'analyse-presse',
 ];
 
