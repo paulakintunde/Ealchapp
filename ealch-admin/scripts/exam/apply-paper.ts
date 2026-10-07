@@ -56,6 +56,11 @@ const SHAPES = {
   // speaking tasks — the monologue and the debate, which are two phases of one
   // épreuve rather than two independent tasks.
   delf: { dir: 'delf-blanc', co: 20, ce: 20, ee: 1, eo: 2 },
+  // DALF C1: 17 + 12 questions, the synthèse and the essai, and FOUR speaking
+  // tasks — two subjects of exposé + entretien, of which the candidate sits
+  // one pair (the section's choiceGroups, decision 42). The count here is what
+  // is STORED, so it is four, not the two examFormats.ts says a sitting takes.
+  dalf: { dir: 'dalf-blanc', co: 17, ce: 12, ee: 2, eo: 4 },
 } as const;
 type FormatKey = keyof typeof SHAPES;
 
