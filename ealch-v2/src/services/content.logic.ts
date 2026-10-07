@@ -17,6 +17,8 @@
 // already does for the same reason.
 import type { CardType, Corpus, DrillKind, ExamFormat, ExamPaper, ExamSection, ExamSkill, ExamTask, Item, Lesson, LessonSection, Level, QcmItem, Scenario, SpeakStage, Track, Unit } from '../content/schema';
 import { markAnswer, type ExamAnswer } from '../utils/shortAnswer.logic.ts';
+
+const isTyped = (item: QcmItem) => item.kind === 'short' || item.kind === 'tfj';
 import { unitBand } from '../content/schema.ts';
 
 /* ─── merge ──────────────────────────────────────────────────────────────── */
@@ -435,7 +437,12 @@ export function shortCheckBatch(
   answers: Record<string, ExamAnswer | null | undefined>
 ): { items: { key: string; kind: 'short' | 'tfj'; question: string; expected: string; quotes?: string[]; answer: string }[]; passage?: string } {
   const items = taskQuestions(task)
-    .filter((q) => markAnswer(q.item, answers[q.key]) === 'unsure')
+    // Decision 40 (Paul, 2026-10-06): the AI rules on EVERY typed answer, not
+    // only the ones the key words could not settle, because key words cannot
+    // see a reversed meaning (« ils dépensent autant » when the text says the
+    // opposite). Blank answers and a vrai/faux with the wrong choice are wrong
+    // outright and never sent.
+    .filter((q) => isTyped(q.item) && markAnswer(q.item, answers[q.key]) !== 'wrong')
     .map((q) => {
       const a = answers[q.key];
       if (q.item.kind === 'tfj') {
@@ -462,7 +469,14 @@ export function scoreClosedTask(
   const marks = qs.map((q) => markAnswer(q.item, answers[q.key]));
   // An unsure answer counts only on a "yes" from the grader. Without a verdict
   // it scores 0 and is reported as unchecked, never guessed either way.
-  const right = (i: number) => marks[i] === 'right' || (marks[i] === 'unsure' && verdicts[qs[i]!.key] === true);
+  // A verdict, when there is one, decides (decision 40). Without one (offline,
+  // grader down) the key words stand: matched is right, unsure scores 0 and is
+  // reported as unchecked.
+  const right = (i: number) => {
+    const v = verdicts[qs[i]!.key];
+    if (v !== undefined && marks[i] !== 'wrong') return v;
+    return marks[i] === 'right';
+  };
   const correct = qs.reduce((n, _q, i) => n + (right(i) ? 1 : 0), 0);
 
   // The weighted pair rides ALONGSIDE the counts rather than replacing them,

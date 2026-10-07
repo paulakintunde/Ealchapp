@@ -919,6 +919,15 @@ After review: app checks TOTAL 0, import dry run 645 / 0 conflicts / 0 blockers.
 DALF papers 3-4 dispatched (blanc-03: DALF-03/13/15/34/43/52/56; blanc-04:
 DALF-04/16/17/35/44/54/57).
 
+40. (Paul, 2026-10-06) The AI checks EVERY typed answer (one batch per task, key words
+sent as part of the item, the verdict decides). Key words cannot see a reversed meaning
+without a negation word; the blanc-03/04 reviews still found plausible reversals passing.
+A blank answer or a vrai/faux with the wrong choice is wrong outright and never sent.
+Offline or grader down: the key words stand (matched = right, unsure = 0, reported). A
+full DALF sitting spends at most ~7 grading turns (cap 12/day). App-only change; the
+deployed grade-exam v8 already accepts the batch. DALF papers 3-4 reviewed (1b9cec8,
+280e6bb). Scatter also rejects descending runs (67d7205).
+
 ## Wave 5 (c1.14-c1.17), set up and dispatched 2026-10-06
 
 Setup (Paul's OK, `scratch/_c1w5_themes.mts --apply`): blocks free at every level;

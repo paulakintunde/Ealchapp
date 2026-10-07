@@ -74,11 +74,20 @@ test('a task scores unsure answers only on a "yes" from the grader', () => {
   deepStrictEqual(after.unchecked, []);
 });
 
-test('the AI batch carries only the unsure answers, with the corrigé and the text', () => {
+test('the AI batch carries every typed answer it can rule on (decision 40), with the corrigé and the text', () => {
   const b = shortCheckBatch(task, { 'p0.i0': 2, 'p0.i1': 'pas pareil pour tout le monde', 'p0.i2': { choice: 0, text: 'encourage chacun à être plus mobile' } });
-  deepStrictEqual(b.items.map((i) => i.key), ['p0.i1'], 'a matched quote never reaches the AI');
+  deepStrictEqual(b.items.map((i) => i.key), ['p0.i1', 'p0.i2'], 'a matched quote is checked too; the tick is not');
   strictEqual(b.items[0]!.expected, short.model);
   strictEqual(b.passage, 'Un long texte d’idées.');
+  const none = shortCheckBatch(task, { 'p0.i0': 2, 'p0.i1': '', 'p0.i2': { choice: 1, text: 'x y z w' } });
+  deepStrictEqual(none.items, [], 'blank and wrong-choice answers are wrong outright, never sent');
+});
+
+test('a verdict decides, even against a key-word match; without one the key words stand', () => {
+  // A reversal that meets every key word: the AI says no, and that is final.
+  const answers = { 'p0.i0': 2, 'p0.i1': 'chacun le vit selon sa culture', 'p0.i2': { choice: 0, text: 'encourage chacun à être plus mobile' } };
+  strictEqual(scoreClosedTask(task, answers).points, 5.5, 'offline: all three right on key words');
+  strictEqual(scoreClosedTask(task, answers, { 'p0.i1': false, 'p0.i2': true }).points, 3.5, 'the AI overrules the key words on p0.i1');
 });
 
 test('the validator holds each kind to its shape', () => {
