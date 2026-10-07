@@ -193,8 +193,15 @@
 //         emploi de ce mot; it notes that grammarians count the syntactic
 //         kind as a fault. Fontanier (Les Figures du discours, 1821-1827)
 //         ranks zeugme among the figures de construction par sous-entente,
-//         beside ellipse: the grammatical sense (SECONDARY SOURCE ONLY, see
-//         open question). Le Robert: page refused automated access (403);
+//         beside ellipse: the grammatical sense. PRE-REVIEW 2026-10-07:
+//         confirmed in a PRIMARY source, Fontanier's Commentaire raisonné
+//         (1818, archive.org fre_b2063439, djvu text), whose classification
+//         of the figures de construction lists « l'ellipse, la synthèse,
+//         appelée aussi syllepse, le zeugme, et l'anacoluthe » in one group
+//         (the group's label is illegible in the OCR; the « sous-entente »
+//         label rests on the PUR study of Sévigné's zeugmes, OpenEdition).
+//         Gallica was unreachable (timeout / 403), so the 1827 Figures
+//         autres que tropes was not read. Le Robert: page refused automated access (403);
 //         NOT checked, and the lesson cites no Robert wording.
 //       HYPALLAGE. Larousse: « attribuer à certains mots d’une phrase ce qui
 //         convient à d’autres mots de la même phrase », example Hugo « Ce
@@ -495,7 +502,7 @@ export const ACT3_ROWS: Row[] = [
   sent(1230, 'Le décalage entre les mots et les faits fait naître l’indignation.', 'The gap between the words and the facts gives rise to indignation.', '/lə de.ka.laʒ ɑ̃tʁ le mo e le fɛ fɛ nɛtʁ lɛ̃.di.ɲa.sjɔ̃/', 'luh day-ka-LAZH | ahⁿtr lay MOH ay lay FEH | feh nehtr lehⁿ-dee-nya-SYOHⁿ', ['effet', 'antiphrase'], FCVDR),
   phrase(1231, 'selon les lois du droit public', 'according to the laws of public right', '/sə.lɔ̃ le lwa dy dʁwa py.blik/', 'suh-lohⁿ lay LWA | dü drwa pü-BLEEK', ['citation', 'voltaire', 'antiphrase']),
   sent(1232, 'Un seul détail atroce suffit à retourner l’éloge.', 'A single atrocious detail is enough to turn the praise inside out.', '/œ̃ sœl de.taj a.tʁɔs sy.fi.ta ʁə.tuʁ.ne le.lɔʒ/', 'uhⁿ suhl day-TAHY a-TROSS | sü-fee-ta ruh-toor-NAY lay-LOZH', ['effet', 'antiphrase']),
-  sent(1233, 'Je ne peindrai pas la joie des vainqueurs : vous l’imaginez sans moi.', 'I will not paint the victors’ joy: you can imagine it without me.', '/ʒə nə pɛ̃.dʁe pa la ʒwa de vɛ̃.kœʁ vu li.ma.ʒi.ne sɑ̃ mwa/', 'zhuh nuh pehⁿ-dray pa la ZHWA day vehⁿ-KUHR | voo lee-ma-zhee-NAY sahⁿ MWA', ['exemple', 'preterition']),
+  sent(1233, 'Je ne peindrai pas la joie des vainqueurs, leurs chants, leurs verres levés sur les ruines.', 'I will not paint the victors’ joy, their songs, their glasses raised over the ruins.', '/ʒə nə pɛ̃.dʁe pa la ʒwa de vɛ̃.kœʁ lœʁ ʃɑ̃ lœʁ vɛʁ lə.ve syʁ le ʁɥin/', 'zhuh nuh pehⁿ-dray pa la ZHWA day vehⁿ-KUHR | luhr SHAHⁿ | luhr VEHR luh-VAY | sür lay RWEENN', ['exemple', 'preterition']),
   sent(1234, 'Dans un récit, la prétérition attire le regard sur ce qu’elle feint de cacher.', 'In a narrative, paralipsis draws the eye to what it pretends to hide.', '/dɑ̃.zœ̃ ʁe.si la pʁe.te.ʁi.sjɔ̃ a.tiʁ lə ʁə.ɡaʁ syʁ sə kɛl fɛ̃ də ka.ʃe/', 'dahⁿ-zuhⁿ ray-SEE | la pray-tay-ree-SYOHⁿ a-TEER luh ruh-GAR | sür suh kel fehⁿ duh ka-SHAY', ['regle', 'preterition'], FCVDR),
 ];
 
@@ -524,7 +531,7 @@ export const ACT5_ROWS: Row[] = [
   sent(1248, 'Le chiasme croise les termes : A et B, puis B et A.', 'Chiasmus crosses the terms: A and B, then B and A.', '/lə ki.asm kʁwaz le tɛʁm a e be pɥi be e a/', 'luh kee-ASM KRWAZ lay TEHRM | A ay BAY | pwee BAY ay A', ['regle', 'chiasme'], FC,
     rule('« Manger pour vivre, vivre pour manger » : que remarques-tu ?', 'Les mêmes mots reviennent dans l’ordre inverse : c’est un chiasme. Le chiasme croise les termes : A et B, puis B et A.')),
   sent(1249, 'Le croisement oppose deux façons de vivre.', 'The crossing sets two ways of living against each other.', '/lə kʁwaz.mɑ̃ ɔ.pɔz dø fa.sɔ̃ də vivʁ/', 'luh krwaz-MAHⁿ o-POHZ | deu fa-SOHⁿ duh VEEVR', ['effet', 'chiasme'], FCVDR),
-  sent(1250, 'L’antithèse oppose ; le chiasme oppose en croisant.', 'Antithesis opposes; chiasmus opposes by crossing.', '/lɑ̃.ti.tɛz ɔ.pɔz lə ki.asm ɔ.pɔ.zɑ̃ kʁwa.zɑ̃/', 'lahⁿ-tee-TEZ o-POHZ | luh kee-ASM o-po-ZAHⁿ krwa-ZAHⁿ', ['regle', 'distinction'], FCVDR),
+  sent(1250, 'L’antithèse oppose ; le chiasme croise, souvent pour opposer.', 'Antithesis opposes; chiasmus crosses, often in order to oppose.', '/lɑ̃.ti.tɛz ɔ.pɔz lə ki.asm kʁwaz su.vɑ̃ puʁ ɔ.pɔ.ze/', 'lahⁿ-tee-TEZ o-POHZ | luh kee-ASM KRWAZ | soo-vahⁿ poor o-po-ZAY', ['regle', 'distinction'], FCVDR),
   sent(1251, 'Le jour, elle rêvait la nuit ; la nuit, elle rêvait le jour.', 'By day she dreamt of the night; by night she dreamt of the day.', '/lə ʒuʁ ɛl ʁɛ.vɛ la nɥi la nɥi ɛl ʁɛ.vɛ lə ʒuʁ/', 'luh ZHOOR | ehl reh-veh la NWEE | la NWEE | ehl reh-veh luh ZHOOR', ['exemple', 'chiasme']),
   sent(1252, 'Ici la fête, là-bas la faim.', 'Here the feast, over there hunger.', '/i.si la fɛt la.ba la fɛ̃/', 'ee-SEE la FET | la-BA la FEHⁿ', ['exemple', 'antithese']),
   phrase(1253, 'cette obscure clarté qui tombe des étoiles', 'this dark brightness that falls from the stars', '/sɛ.tɔps.kyʁ klaʁ.te ki tɔ̃b de.ze.twal/', 'seh-tops-kür klar-TAY | kee tohⁿb day-zay-TWAL', ['citation', 'corneille', 'oxymore']),
@@ -560,7 +567,7 @@ export const ACT7_ROWS: Row[] = [
     rule('« Son comptoir avide. » Qui est avide ?', 'Le marchand. L’adjectif est passé de l’homme à l’objet. L’hypallage prête à un mot ce qui convient à un autre de la phrase.')),
   sent(1272, 'L’avidité déborde de l’homme sur les choses qu’il touche.', 'The greed spills over from the man onto the things he touches.', '/la.vi.di.te de.bɔʁd də lɔm syʁ le ʃoz kil tuʃ/', 'la-vee-dee-TAY day-BORD | duh LOMM sür lay SHOHZ keel TOOSH', ['effet', 'hypallage'], FCVDR),
   sent(1273, 'Il fumait une pipe pensive.', 'He smoked a pensive pipe.', '/il fy.mɛ yn pip pɑ̃.siv/', 'eel fü-MEH | ün peep pahⁿ-SEEV', ['exemple', 'hypallage']),
-  sent(1274, 'Elle rentrait par une rue fatiguée.', 'She was walking home along a tired street.', '/ɛl ʁɑ̃.tʁɛ paʁ yn ʁy fa.ti.ɡe/', 'ehl rahⁿ-TREH | par ün RÜ fa-tee-GAY', ['exemple', 'hypallage']),
+  sent(1274, 'Il buvait un café distrait.', 'He was drinking an absent-minded coffee.', '/il by.vɛ œ̃ ka.fe dis.tʁɛ/', 'eel bü-VEH | uhⁿ ka-FAY dees-TREH', ['exemple', 'hypallage']),
   sent(1275, 'L’hypallage déplace un adjectif sans brouiller le sens.', 'Hypallage moves an adjective without blurring the meaning.', '/li.pa.laʒ de.plas œ̃.nad.ʒɛk.tif sɑ̃ bʁu.je lə sɑ̃s/', 'lee-pa-LAZH day-PLASS uhⁿ-nad-zhek-TEEF | sahⁿ broo-YAY luh SAHⁿSS', ['regle', 'hypallage']),
   sent(1276, 'Fontanier doutait de bien des hypallages que d’autres croyaient voir.', 'Fontanier doubted many of the hypallages that others thought they saw.', '/fɔ̃.ta.nje du.tɛ də bjɛ̃ de.zi.pa.laʒ kə dotʁ kʁwa.jɛ vwaʁ/', 'fohⁿ-ta-NYAY doo-TEH | duh byehⁿ day-zee-pa-LAZH | kuh DOHTR krwa-yeh VWAR', ['dictionnaires', 'hypallage']),
   phrase(1277, 'une hypallage', 'a hypallage (feminine; sometimes masculine)', '/y.ni.pa.laʒ/', 'ü-nee-pa-LAZH', ['mot', 'hypallage']),
@@ -584,16 +591,16 @@ export const ACT8_ROWS: Row[] = [
   sent(1288, 'Dire « une bouche à nourrir », c’est réduire une personne à sa faim.', 'Saying “a mouth to feed” reduces a person to their hunger.', '/diʁ yn buʃ a nu.ʁiʁ sɛ ʁe.dɥiʁ yn pɛʁ.sɔn a sa fɛ̃/', 'deer ün BOOSH a noo-REER | seh ray-DWEER ün pehr-SONN | a sa FEHⁿ', ['effet', 'synecdoque'], FCVDR),
   phrase(1289, 'une métonymie', 'a metonymy', '/yn me.tɔ.ni.mi/', 'ün may-to-nee-MEE', ['mot', 'metonymie']),
   phrase(1290, 'une synecdoque', 'a synecdoche', '/yn si.nɛk.dɔk/', 'ün see-nek-DOK', ['mot', 'synecdoque']),
-  sent(1291, 'La métonymie suit des liens réels : le lieu, l’auteur, la matière, l’objet.', 'Metonymy follows real links: the place, the author, the material, the object.', '/la me.tɔ.ni.mi sɥi de ljɛ̃ ʁe.ɛl lə ljø lo.tœʁ la ma.tjɛʁ lɔb.ʒɛ/', 'la may-to-nee-MEE swee day lyehⁿ ray-EL | luh LYEU | loh-TUHR | la ma-TYEHR | lob-ZHEH', ['regle', 'metonymie']),
+  sent(1291, 'La métonymie suit des liens réels : le lieu, l’auteur, le contenant, l’objet.', 'Metonymy follows real links: the place, the author, the container, the object.', '/la me.tɔ.ni.mi sɥi de ljɛ̃ ʁe.ɛl lə ljø lo.tœʁ lə kɔ̃t.nɑ̃ lɔb.ʒɛ/', 'la may-to-nee-MEE swee day lyehⁿ ray-EL | luh LYEU | loh-TUHR | luh kohⁿt-NAHⁿ | lob-ZHEH', ['regle', 'metonymie']),
 ];
 
 /* ── ACT 9 · ALLITÉRATION ET ASSONANCE ──────────────────────────────────── */
 
 export const ACT9_ROWS: Row[] = [
   sent(1292, 'Pour qui sont ces serpents qui sifflent sur vos têtes ?', 'For whom are those snakes hissing over your heads?', '/puʁ ki sɔ̃ se sɛʁ.pɑ̃ ki sifl syʁ vo tɛt/', 'poor kee sohⁿ say sehr-PAHⁿ | kee SEEFL sür voh TET', ['citation', 'racine', 'allitération']),
-  sent(1293, 'Le son [s], cinq fois répété, fait entendre le sifflement.', 'The [s] sound, repeated six times, makes you hear the hissing.', '/lə sɔ̃ ɛs sɛ̃k fwa ʁe.pe.te fɛ.tɑ̃.tɑ̃dʁ lə si.flə.mɑ̃/', 'luh SOHⁿ ESS | sehⁿk FWA ray-pay-TAY | feh-tahⁿ-TAHⁿDR luh see-fluh-MAHⁿ', ['effet', 'allitération']),
+  sent(1293, 'Le son [s], cinq fois répété, fait entendre le sifflement.', 'The [s] sound, repeated five times, makes you hear the hissing.', '/lə sɔ̃ ɛs sɛ̃k fwa ʁe.pe.te fɛ.tɑ̃.tɑ̃dʁ lə si.flə.mɑ̃/', 'luh SOHⁿ ESS | sehⁿk FWA ray-pay-TAY | feh-tahⁿ-TAHⁿDR luh see-fluh-MAHⁿ', ['effet', 'allitération']),
   sent(1294, 'L’allitération répète une consonne ; l’assonance, une voyelle.', 'Alliteration repeats a consonant; assonance, a vowel.', '/la.li.te.ʁa.sjɔ̃ ʁe.pɛ.tyn kɔ̃.sɔn la.sɔ.nɑ̃s yn vwa.jɛl/', 'la-lee-tay-ra-SYOHⁿ ray-peh-tün kohⁿ-SONN | la-so-NAHⁿSS | ün vwa-YEL', ['regle', 'sons'], FC,
-    rule('Dans « Les sanglots longs des violons », qu’est-ce qui revient ?', 'Le son [ɔ̃], une voyelle : c’est une assonance. L’allitération répète une consonne ; l’assonance, une voyelle.')),
+    rule('Dans « Les sanglots longs des violons », quelle voyelle revient ?', 'Le son [ɔ̃] de « longs » et « violons » : c’est une assonance. L’allitération répète une consonne ; l’assonance, une voyelle.')),
   sent(1295, 'Les sons [ɔ̃] s’étirent comme la plainte des violons.', 'The [ɔ̃] sounds draw out like the violins’ lament.', '/le sɔ̃ ɔ̃ se.tiʁ kɔm la plɛ̃t de vjɔ.lɔ̃/', 'lay SOHⁿ OHⁿ | say-TEER | kom la PLEHⁿT day vyo-LOHⁿ', ['effet', 'assonance'], FCVDR),
   sent(1296, 'Un son ne veut rien dire seul : il renforce ce que disent les mots.', 'A sound means nothing on its own: it reinforces what the words say.', '/œ̃ sɔ̃ nə vø ʁjɛ̃ diʁ sœl il ʁɑ̃.fɔʁs sə kə diz le mo/', 'uhⁿ SOHⁿ nuh veu ryehⁿ deer SUHL | eel rahⁿ-FORSS | suh kuh deez lay MOH', ['regle', 'piege'], FCVDR),
   sent(1297, 'Deux mots qui commencent par la même lettre ne font pas une allitération.', 'Two words starting with the same letter do not make an alliteration.', '/dø mo ki kɔ.mɑ̃s paʁ la mɛm lɛtʁ nə fɔ̃ pa.zy.na.li.te.ʁa.sjɔ̃/', 'deu MOH kee ko-MAHⁿSS | par la mem LETR | nuh fohⁿ pa-zü-na-lee-tay-ra-SYOHⁿ', ['regle', 'piege']),
@@ -634,7 +641,7 @@ export const ACT11_ROWS: Row[] = [
   sent(1319, 'L’asyndète supprime les mots de liaison entre les propositions.', 'Asyndeton removes the linking words between clauses.', '/la.zɛ̃.dɛt sy.pʁim le mo də lje.zɔ̃ ɑ̃tʁ le pʁɔ.pɔ.zi.sjɔ̃/', 'la-zehⁿ-DET sü-PREEM | lay MOH duh lyay-ZOHⁿ | ahⁿtr lay pro-po-zee-SYOHⁿ', ['regle', 'asyndete'], FCVDR),
   sent(1320, 'Il entre, il regarde, il se tait.', 'He comes in, he looks, he falls silent.', '/i.lɑ̃tʁ il ʁə.ɡaʁd il sə tɛ/', 'ee-LAHⁿTR | eel ruh-GARD | eel suh TEH', ['exemple', 'asyndete']),
   sent(1321, 'Sans liaison, les faits se heurtent et le lecteur fait les liens.', 'With no linking words, the facts collide and the reader makes the links.', '/sɑ̃ lje.zɔ̃ le fɛ sə œʁt e lə lɛk.tœʁ fɛ le ljɛ̃/', 'sahⁿ lyay-ZOHⁿ | lay FEH suh UHRT | ay luh lek-TUHR feh lay LYEHⁿ', ['effet', 'asyndete']),
-  sent(1322, 'Le rejet fait déborder la phrase sur le vers suivant et met un mot en relief.', 'Enjambment spills the sentence onto the next line and throws one word into relief.', '/lə ʁə.ʒɛ fɛ de.bɔʁ.de la fʁaz syʁ lə vɛʁ sɥi.vɑ̃ e mɛ œ̃ mo ɑ̃ ʁə.ljɛf/', 'luh ruh-ZHEH feh day-bor-DAY la FRAHZ | sür luh vehr swee-VAHⁿ | ay meh uhⁿ MOH ahⁿ ruh-LYEF', ['regle', 'rejet'], FCVDR),
+  sent(1322, 'Le rejet fait déborder la phrase sur le vers suivant et met un mot en relief.', 'A rejet carries the sentence over onto the next line and throws one word into relief.', '/lə ʁə.ʒɛ fɛ de.bɔʁ.de la fʁaz syʁ lə vɛʁ sɥi.vɑ̃ e mɛ œ̃ mo ɑ̃ ʁə.ljɛf/', 'luh ruh-ZHEH feh day-bor-DAY la FRAHZ | sür luh vehr swee-VAHⁿ | ay meh uhⁿ MOH ahⁿ ruh-LYEF', ['regle', 'rejet'], FCVDR),
   sent(1323, 'Une phrase nominale arrête le mouvement.', 'A verbless sentence stops the movement.', '/yn fʁaz nɔ.mi.nal a.ʁɛt lə muv.mɑ̃/', 'ün FRAHZ no-mee-NAL | a-RET luh moov-MAHⁿ', ['regle', 'phrase-nominale']),
   phrase(1324, 'un effet de rupture', 'an effect of rupture, a deliberate break', '/œ̃.ne.fɛ də ʁyp.tyʁ/', 'uhⁿ-nay-FEH duh rüp-TÜR', ['mot', 'rupture']),
   phrase(1325, 'une anacoluthe', 'an anacoluthon (a broken construction)', '/y.na.na.kɔ.lyt/', 'ü-na-na-ko-LÜT', ['mot', 'anacoluthe']),
@@ -682,7 +689,7 @@ export const dicteeFor = (act: number): string[] =>
 
 /** Act 1: Léa’s draft and Mamadou’s note in the margin. */
 export const BROUILLON_TEXT =
-  'Le brouillon de Léa. « Dans la scène des aveux du Cid, Chimène dit à Rodrigue : “Va, je ne te hais point.” Il y a une litote. Plus loin, Don Diègue s’écrie : “va, cours, vole, et nous venge”. Il y a une gradation. Enfin, l’auteur emploie beaucoup d’images. » '
+  'Le brouillon de Léa. « Dans la scène des aveux du Cid, Chimène dit à Rodrigue : “Va, je ne te hais point.” Il y a une litote. Dès l’acte I, Don Diègue s’écrie : “va, cours, vole, et nous venge”. Il y a une gradation. Enfin, l’auteur emploie beaucoup d’images. » '
   + 'La note de Mamadou, dans la marge. « Léa, tout est juste, et rien n’est dit. Tu as trouvé les figures, tu les as bien nommées : c’est le travail de l’enquêteur, pas encore celui du lecteur. Ton correcteur, lui, voudra savoir pourquoi Corneille fait parler Chimène ainsi. Une litote, d’accord ; mais que se passe-t-il quand une jeune femme, devant l’homme qui a tué son père, nie la haine au lieu d’avouer l’amour ? Que comprend Rodrigue ? Que comprend la salle ? Voilà ta vraie phrase. '
   + 'Fais toujours les trois gestes : repère, nomme, puis dis l’effet en une phrase, avec un mot du texte pour preuve. Et n’aie pas peur d’une lecture personnelle : si les mots la soutiennent, elle se défend, même si ton voisin en propose une autre. Ce que je ne veux plus lire, c’est « l’auteur emploie beaucoup d’images ». Lesquelles ? Pour faire quoi ? Mardi prochain, on reprend la litote, mot par mot. »';
 
@@ -746,8 +753,8 @@ export const SONS_TEXT =
   + 'Il souligne chaque son [s] : « sont », « ces », « serpents », « sifflent », « sur ». « Cinq fois en un vers, sans compter les « s » muets que l’œil voit encore. On entend le sifflement des serpents dans la bouche de l’acteur. C’est une allitération : une consonne répétée. »\n'
   + 'Puis il écrit la première strophe de la « Chanson d’automne » de Verlaine :\n'
   + '« Les sanglots longs\nDes violons\nDe l’automne\nBlessent mon cœur\nD’une langueur\nMonotone. »\n'
-  + 'Il entoure les voyelles nasales de « sanglots », « longs », « violons » et « mon », puis les [o] de « automne » et « monotone ». « Ici, ce sont des voyelles qui reviennent, le son [ɔ̃] et ses voisins : une assonance. Les sons s’étirent, comme la plainte des violons. »\n'
-  + 'Hugues tente : « Dans “Les sanglots longs”, il y a deux “l” : allitération ! » Mamadou secoue la tête. « Deux mots qui commencent par la même lettre ne font pas une allitération. Et surtout, un son ne veut rien dire seul : il renforce ce que disent les mots. »';
+  + 'Il entoure les voyelles nasales de « sanglots », « longs », « violons » et « mon », puis les « o » de « automne » et « monotone ». « Ici, ce sont surtout des voyelles qui reviennent, le son [ɔ̃] et ses voisins : une assonance. Les sons s’étirent, comme la plainte des violons. Certains entendent aussi les [l] de « sanglots longs » et de « langueur » : une allitération douce, qui se défend. »\n'
+  + 'Hugues tente : « “Chanson” et “cœur” commencent tous les deux par un “c” : allitération ! » Mamadou secoue la tête. « L’un commence par [ʃ], l’autre par [k] : la même lettre, pas le même son. Deux mots qui commencent par la même lettre ne font pas une allitération. Et surtout, un son ne veut rien dire seul : il renforce ce que disent les mots. »';
 
 /** Act 10: Pascal’s cadence, and the length of sentences. */
 export const RYTHME_TEXT =

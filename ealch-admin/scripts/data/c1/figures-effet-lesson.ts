@@ -123,10 +123,11 @@
 //      or modernise and cite a modern edition?
 //   3. The task extract is « Le Dormeur du val » (a dead soldier, 1870).
 //      The art prompt shows no wound. Acceptable in tone?
-//   4. Zeugme: Fontanier’s classification (« par sous-entente », beside the
-//      ellipse) is stated from a SECONDARY source; Le Robert refused
-//      automated access for both zeugme and hypallage. Verify on Gallica /
-//      Le Robert before publish, or drop Fontanier from the zeugme card?
+//   4. Zeugme: Fontanier’s grouping of the zeugme with the ellipse is now
+//      confirmed in a primary source (Commentaire raisonné, 1818, archive.org
+//      fre_b2063439; pre-review 2026-10-07). The 1827 Figures autres que
+//      tropes was not read (Gallica unreachable). Le Robert refused
+//      automated access for both zeugme and hypallage.
 //   5. Three reused rows are Postgres-only (fr.b2.litterature.075, .076,
 //      .078) and need the decision 13 typography edit at import.
 //   6. The roundup names « la leçon 20 du C1 » (live) as what comes next.
@@ -529,7 +530,7 @@ const A3_TRIER: Sec<'groupDrill'> = {
     grp(`Un rappel de ${PERSUADER_REF}`, [
       it(RH(1142), 'le nom'),
       it(E(1233), 'dans un récit'),
-    ], chk('« Je ne peindrai pas la joie des vainqueurs : vous l’imaginez sans moi. » L’effet :', ['le lecteur imagine lui-même, et plus fort', 'le narrateur cache vraiment la scène'], 0,
+    ], chk('« Je ne peindrai pas la joie des vainqueurs, leurs chants, leurs verres levés sur les ruines. » L’effet :', ['la scène est peinte quand même, et le lecteur la voit plus fort', 'le narrateur cache vraiment la scène'], 0,
       `${src(E(1234)).fr} Dans la leçon sur la persuasion, tu jugeais sa loyauté ; ici, tu lis ce qu’elle fait voir. EN: here you read what it makes visible.`)),
     ctl('Le contexte', 'Comment sait-on que « si beau » est une antiphrase ?', ['par les faits atroces qui suivent', 'parce que Voltaire l’annonce'], 0,
       `${src(SC2(1513)).fr} Un seul détail atroce suffit à retourner l’éloge. EN: the context turns the praise.`),
@@ -543,8 +544,8 @@ const A3_ERREURS: Sec<'commonErrors'> = {
   errors: [
     { wrong: 'Voltaire trouve la bataille belle.', right: 'Voltaire loue la bataille pour mieux la condamner.',
       why: 'Normal : la première phrase n’a que des mots d’éloge. Mais les faits qui suivent les démentent un par un. EN: the facts undo the praise.' },
-    { wrong: '« Boucherie héroïque » est une antiphrase.', right: '« Boucherie héroïque » est un oxymore.',
-      why: 'Les deux servent l’ironie, d’où la confusion. L’oxymore serre deux contraires dans un groupe ; l’antiphrase retourne un seul mot. EN: two contraries joined, not one word reversed.' },
+    { wrong: '« Boucherie héroïque » est un simple éloge de la bataille.', right: '« Boucherie héroïque » serre deux contraires : c’est un oxymore.',
+      why: 'Normal : « héroïque » est un mot d’éloge. Mais il est collé à « boucherie ». On peut aussi lire « héroïque » seul comme une antiphrase : les deux noms se défendent, et tous deux servent l’ironie. EN: an oxymoron; « héroïque » alone can also be read as antiphrasis.' },
     { wrong: 'L’antiphrase et l’ironie, c’est la même chose.', right: 'L’ironie est une attitude ; l’antiphrase est l’un de ses moyens.',
       why: 'On les emploie souvent l’un pour l’autre. Distinguer les deux rend ton commentaire plus précis. EN: precision, not a rule.' },
     { wrong: 'Voltaire est indigné, il le dit clairement.', right: 'Voltaire ne dit pas son indignation : il la fait naître chez le lecteur.',
@@ -740,7 +741,7 @@ const A5_LECTURE: Sec<'reading'> = {
     { q: 'Comment les mots se disposent-ils dans la phrase de Valère ?', a: 'Manger, vivre, puis vivre, manger : les mêmes mots dans l’ordre inverse.' },
     { q: 'Que fait Harpagon de la maxime ?', a: 'Il la retourne : « Il faut vivre pour manger », la phrase du glouton, puis il s’arrête.' },
     { q: 'D’où vient le comique, selon Léa ?', a: 'De l’ordre inversé : la figure se casse dans la bouche de l’avare.' },
-    { q: 'Quelle différence Mamadou rappelle-t-il entre antithèse, chiasme et oxymore ?', a: 'L’antithèse oppose sans croiser, le chiasme oppose en croisant, l’oxymore serre deux contraires dans un seul groupe.' },
+    { q: 'Quelle différence Mamadou rappelle-t-il entre antithèse, chiasme et oxymore ?', a: 'L’antithèse oppose sans croiser, le chiasme croise les termes, souvent pour opposer, l’oxymore serre deux contraires dans un seul groupe.' },
   ],
   audio: REC('rec-c1-19-chiasme'), say: REFRAME, terms: ['chiasme', 'effet'],
 };
@@ -791,8 +792,8 @@ const A5_ERREURS: Sec<'commonErrors'> = {
       why: 'Il croit la répéter, et c’est ce qui est drôle : les mots sont les mêmes, l’ordre est inversé. EN: same words, reversed order.' },
     { wrong: 'Le chiasme sert seulement à faire joli.', right: 'Le croisement oppose deux façons de vivre.',
       why: 'On réduit souvent une figure à un ornement. Ici, l’ordre des mots porte toute la morale. EN: the order carries the moral.' },
-    { wrong: '« Manger pour vivre » est une antithèse.', right: '« Manger pour vivre, vivre pour manger » est un chiasme.',
-      why: 'Il y a bien une opposition, d’où la confusion. Mais c’est le croisement des mêmes mots qui fait la figure. EN: the crossing makes the figure.' },
+    { wrong: '« Manger pour vivre, vivre pour manger » n’est qu’une antithèse.', right: '« Manger pour vivre, vivre pour manger » est un chiasme, qui forme ici une antithèse.',
+      why: 'Il y a bien une opposition : selon Larousse, un chiasme forme souvent une antithèse. Mais c’est le croisement des mêmes mots qui fait la figure. EN: also an antithesis, but the crossing makes the chiasmus.' },
     { wrong: 'Molière se moque de la nourriture.', right: 'Le comique naît de l’ordre inversé.',
       why: 'Le sujet est le souper, mais la cible est l’avare : sa langue fourche et dit le contraire de son vice. EN: the target is the miser.' },
   ],
@@ -815,8 +816,8 @@ const A5_COMMENTAIRE = pourTonCommentaire('a5-commentaire', 'Ta phrase sur le ch
 const A5_CHECK = actCheck('a5-check', 'Le point : acte 5', [
   ctl('Le chiasme', 'Le chiasme…', ['reprend les termes dans l’ordre inverse', 'serre deux contraires dans un groupe'], 0,
     'Serrer deux contraires, c’est l’oxymore. EN: that is the oxymoron.'),
-  ctl('L’antithèse', 'L’antithèse…', ['oppose sans croiser', 'croise sans opposer'], 0,
-    'Le chiasme, lui, oppose en croisant. EN: chiasmus opposes by crossing.'),
+  ctl('L’antithèse', 'L’antithèse…', ['oppose deux idées', 'répète un même son'], 0,
+    'Le chiasme, lui, croise les termes, souvent pour opposer. EN: chiasmus crosses, often to oppose.'),
   ctl('Harpagon', 'Le comique de la réplique d’Harpagon vient…', ['de l’ordre inversé', 'du mot « souper »', 'de sa colère'], 0,
     'Il dit la phrase du glouton, lui l’avare. EN: he says the glutton’s line.'),
 ], ['chiasme']);
@@ -872,7 +873,7 @@ const A6_SOURCES: Sec<'tapTable'> = {
     { cells: ['TLFi, sens grammatical', 'un élément sous-entendu', 'la mer immobile'], say: src(E(1266)).fr,
       detail: { title: 'Le sens grammatical', body: 'Un élément exprimé une fois sert aussi à la proposition voisine : « le ciel était gris et la mer immobile ». Le TLFi note que les grammairiens jugent fautif le zeugme mal construit. EN: one element serves two clauses.', say: src(E(1265)).fr } },
     { cells: ['Fontanier', 'près de l’ellipse', 'au XIXe siècle'], say: src(E(1265)).fr,
-      detail: { title: 'Fontanier', body: 'Le grammairien classait le zeugme parmi les figures où quelque chose est sous-entendu, à côté de l’ellipse : le sens grammatical. EN: Fontanier put zeugma beside ellipsis.', say: src(E(1266)).fr } },
+      detail: { title: 'Fontanier', body: 'Ce théoricien des figures classait le zeugme parmi les figures où quelque chose est sous-entendu, à côté de l’ellipse : le sens grammatical. EN: Fontanier put zeugma beside ellipsis.', say: src(E(1266)).fr } },
     { cells: ['ce que tu fais', 'décrire, puis dire l’effet', 'une vertu et un tissu'], say: src(E(1268)).fr,
       detail: { title: 'Quand les sources divergent', body: 'Ne tranche pas un débat de dictionnaires dans un commentaire. Décris l’attelage, cite les mots, dis l’effet. EN: describe, quote, say the effect.', say: src(E(1268)).fr } },
     { cells: ['l’effet', 'surprise, sourire, réflexion', 'le lin rend la vertu visible'], say: src(E(1264)).fr,
@@ -1037,7 +1038,7 @@ const A7_ERREURS: Sec<'commonErrors'> = {
   title: 'Quatre lectures de l’hypallage à reprendre',
   errors: [
     { wrong: 'Le comptoir est avide : c’est une personnification.', right: 'Le comptoir reçoit l’avidité du marchand : c’est une hypallage.',
-      why: 'Les deux donnent à une chose un trait humain, d’où la confusion. Mais le comptoir n’agit pas : il hérite du trait de son voisin. EN: it inherits, it does not act.' },
+      why: 'Les deux donnent à une chose un trait humain, d’où la confusion. Mais le comptoir n’agit pas : il hérite du trait de son voisin, et Larousse cite ce vers comme exemple d’hypallage. EN: it inherits, it does not act.' },
     { wrong: 'Hugo s’est trompé d’adjectif.', right: 'L’hypallage déplace un adjectif sans brouiller le sens.',
       why: 'On croit à une maladresse parce que l’adjectif semble mal placé. Il l’est exprès, et le sens reste clair. EN: deliberate, and still clear.' },
     { wrong: 'Il y a une hypallage dans chaque adjectif original.', right: 'Fontanier doutait de bien des hypallages que d’autres croyaient voir.',
@@ -1055,9 +1056,9 @@ const A7_COMMENTAIRE = pourTonCommentaire('a7-commentaire', 'Ta phrase sur l’h
   ], chk('Laquelle irait dans un commentaire ?', ['« il y a une hypallage avec avide »', '« l’avidité déborde de l’homme sur les choses qu’il touche »'], 1,
     'Elle dit ce que le déplacement produit. Une lecture plus satirique, le marchand réduit à son comptoir, se défend aussi. EN: it says what the shift produces.')),
   grp('Ta phrase', [
-    it(E(1274), 'une rue fatiguée'),
-  ], chk('L’effet de « Elle rentrait par une rue fatiguée » :', ['sa fatigue colore tout le trajet', 'la rue est en mauvais état'], 0,
-    'Le trait de la femme passe à la rue. On peut aussi lire une rue vraiment triste : les deux se tiennent. EN: her tiredness colours the street.')),
+    it(E(1274), 'un café distrait'),
+  ], chk('L’effet de « Il buvait un café distrait » :', ['sa distraction passe jusque dans le geste le plus banal', 'le café est mal préparé'], 0,
+    'Le trait de l’homme passe au café : on le voit absent jusque dans ce geste. On peut aussi y entendre un sourire de l’auteur : les deux se tiennent. EN: his absent-mindedness colours the gesture.')),
 ], ['hypallage', 'effet']);
 
 const A7_CHECK = actCheck('a7-check', 'Le point : acte 7', [
@@ -1239,8 +1240,8 @@ const A9_LECTURE: Sec<'reading'> = {
     { q: 'Devine le sens : « langueur ». Que ressent le poète ?', a: 'Une tristesse lente, sans force, qui dure.' },
     { q: 'Quel son revient dans le vers de Racine, et combien de fois ?', a: 'Le son [s], cinq fois : sont, ces, serpents, sifflent, sur.' },
     { q: 'Quel effet Mamadou lui donne-t-il ?', a: 'On entend le sifflement des serpents dans la bouche de l’acteur.' },
-    { q: 'Qu’est-ce qui revient chez Verlaine ?', a: 'Des voyelles : les nasales de sanglots, longs, violons, mon, et les [o] de automne et monotone. C’est une assonance.' },
-    { q: 'Pourquoi Hugues se trompe-t-il avec « sanglots longs » ?', a: 'Deux mots qui commencent par la même lettre ne font pas une allitération, et un son ne veut rien dire seul.' },
+    { q: 'Qu’est-ce qui revient chez Verlaine ?', a: 'Surtout des voyelles : les nasales de sanglots, longs, violons, mon, et les « o » de automne et monotone. C’est une assonance. On peut aussi relever les [l] de « sanglots longs » et « langueur ».' },
+    { q: 'Pourquoi Hugues se trompe-t-il avec « Chanson » et « cœur » ?', a: 'La même lettre ne donne pas le même son, [ʃ] et [k] : deux mots qui commencent par la même lettre ne font pas une allitération.' },
   ],
   audio: REC('rec-c1-19-sons'), say: REFRAME, terms: ['sons', 'effet'],
 };
@@ -1273,10 +1274,10 @@ const A9_TRIER: Sec<'groupDrill'> = {
       'Vent, violent, vrillait, volets : une allitération en [v], qui fait entendre le vent. EN: alliteration on [v].')),
     grp('Le son [u]', [
       it(E(1299)),
-    ], chk('Dans « Tout est doux, tout est lourd, tout se tait autour », la figure est…', ['une assonance en [u]', 'une allitération en [t]'], 0,
-      'Tout, doux, lourd, autour : une voyelle revient, et la phrase s’alourdit. Le [t] revient aussi ; l’assonance domine, mais on peut relever les deux. EN: the [u] dominates.')),
-    ctl('Le piège', '« Les sanglots longs » : deux « l ». Est-ce une allitération ?', ['Oui, deux lettres suffisent.', 'Non : deux initiales identiques ne suffisent pas.'], 1,
-      `${src(E(1297)).fr} EN: two matching initials are not enough.`),
+    ], chk('Dans « Tout est doux, tout est lourd, tout se tait autour », quelle voyelle revient ?', ['[u]', '[i]'], 0,
+      'Tout, doux, lourd, autour : une assonance en [u], et la phrase s’alourdit. Le [t] revient aussi : on peut relever les deux. EN: an assonance on [u].')),
+    ctl('Le piège', '« Chanson » et « cœur » commencent par un « c ». Est-ce une allitération ?', ['Oui, la même lettre suffit.', 'Non : [ʃ] et [k], ce n’est pas le même son.'], 1,
+      `${src(E(1297)).fr} Compte les sons, pas les lettres. EN: count sounds, not letters.`),
   ],
   audio: AUDIO, say: REFRAME, terms: ['sons'],
 };
@@ -1291,7 +1292,7 @@ const A9_ECOUTE: Sec<'listening'> = {
       why: 'Sont, ces, serpents, sifflent, sur. EN: five [s].' },
     { q: 'La troisième phrase répète surtout…', opts: ['le [v]', 'le [u]'], correct: 0,
       why: 'Vent, violent, vrillait, volets. EN: [v] four times.' },
-    { q: 'La quatrième phrase répète surtout…', opts: ['une voyelle', 'une consonne'], correct: 0,
+    { q: 'Dans la quatrième phrase, quelle voyelle revient ?', opts: ['[u]', '[i]'], correct: 0,
       why: 'Le [u] de tout, doux, lourd, autour : une assonance. EN: an assonance.' },
     { q: 'Selon la sixième phrase, un son…', opts: ['renforce ce que disent les mots', 'a un sens à lui seul'], correct: 0,
       why: 'Sans le sens, pas d’effet sonore. EN: no effect without meaning.' },
@@ -1874,9 +1875,9 @@ const A12_QUIZ: Sec<'quiz'> = {
       id: 'r3-antiphrase', label: 'L’antiphrase', targets: ['antiphrase-prise-au-mot'],
       questions: [
         mc('Chez Voltaire, « si beau, si leste, si brillant » décrit une bataille. C’est…', ['une antiphrase : l’éloge sert à condamner', 'un éloge sincère de l’armée'], 0, 'Les faits qui suivent démentent l’éloge. EN: the facts undo the praise.', 'a3-lecture'),
-        mc('« Cette boucherie héroïque » est…', ['un oxymore', 'une antiphrase', 'une litote'], 0, 'Deux contraires dans un seul groupe. EN: an oxymoron.', 'a3-erreurs'),
+        mc('« Cette boucherie héroïque » serre deux contraires dans un groupe. C’est…', ['un oxymore', 'une gradation', 'une litote'], 0, 'Deux contraires dans un seul groupe. « Héroïque », lu seul, peut aussi passer pour une antiphrase. EN: an oxymoron.', 'a3-erreurs'),
         mc('L’ironie, par rapport à l’antiphrase, est…', ['une attitude d’ensemble', 'un synonyme exact', 'une figure de son'], 0, 'L’antiphrase est l’un de ses moyens. EN: an attitude.', 'a3-trier'),
-        mc('« Je ne peindrai pas la joie des vainqueurs : vous l’imaginez sans moi. » L’effet :', ['le lecteur imagine la scène lui-même', 'la scène reste vraiment cachée'], 0, 'La prétérition attire le regard sur ce qu’elle feint de cacher. EN: the reader pictures it.', 'a3-trier'),
+        mc('« Je ne peindrai pas la joie des vainqueurs, leurs chants, leurs verres levés sur les ruines. » L’effet :', ['la scène est peinte en prétendant la taire', 'la scène reste vraiment cachée'], 0, 'La prétérition attire le regard sur ce qu’elle feint de cacher. EN: the reader pictures it.', 'a3-trier'),
         tI('Comment s’appelle un mot employé pour dire son contraire ? Un mot.', 'Appeler « héros » des incendiaires, c’est une … .', 'antiphrase', 'Le mot dit l’éloge, le contexte l’horreur. EN: antiphrasis.', 'a3-exemples', ['une antiphrase']),
         tI('Complète. Un mot.', 'Le décalage entre les mots et les faits fait naître l’… .', 'indignation', 'Voltaire la laisse au lecteur. EN: indignation.', 'a3-commentaire'),
         eS('Voltaire dit son indignation ouvertement.', 'Voltaire fait naître l’indignation chez le lecteur.', 'Il ne la dit pas : il la laisse au lecteur. EN: he leaves it to the reader.', 'a3-erreurs', ['Voltaire laisse naître l’indignation chez le lecteur.', 'Voltaire fait naître son indignation chez le lecteur.']),
@@ -1899,13 +1900,13 @@ const A12_QUIZ: Sec<'quiz'> = {
     {
       id: 'r5-chiasme', label: 'Le chiasme', targets: ['chiasme-confondu'],
       questions: [
-        mc('« Il faut manger pour vivre, et non pas vivre pour manger » est…', ['un chiasme', 'une antithèse simple', 'un oxymore'], 0, 'Les mêmes mots dans l’ordre inverse. EN: crossed terms.', 'a5-lecture'),
+        mc('« Il faut manger pour vivre, et non pas vivre pour manger » reprend les mêmes mots dans l’ordre inverse. C’est…', ['un chiasme', 'une gradation', 'un oxymore'], 0, 'Les mêmes mots dans l’ordre inverse ; le croisement forme aussi une antithèse. EN: crossed terms.', 'a5-lecture'),
         mc('« Ici la fête, là-bas la faim » est…', ['une antithèse', 'un chiasme'], 0, 'Elle oppose sans croiser. EN: no crossing.', 'a5-trier'),
         mc('« Cette obscure clarté qui tombe des étoiles » contient…', ['un oxymore', 'un chiasme', 'une litote'], 0, 'Deux contraires dans un seul groupe. EN: an oxymoron.', 'a5-chiasme'),
         mc('D’où vient le comique de la réplique d’Harpagon ?', ['de l’ordre inversé du chiasme', 'du mot « souper »', 'de sa colère'], 0, 'Il dit la phrase du glouton. EN: the reversed order.', 'a5-erreurs'),
         tI('Comment s’appelle la figure qui croise les termes, A B puis B A ? Un mot.', 'A B, puis B A : c’est un … .', 'chiasme', 'Le croisement. EN: chiasmus.', 'a5-chiasme', ['un chiasme']),
         tI('Complète. Un mot.', 'Le chiasme donne à la phrase l’allure d’une … .', 'maxime', 'Une vérité générale, bien frappée. EN: a maxim.', 'a5-commentaire'),
-        eS('L’antithèse oppose en croisant ; le chiasme oppose sans croiser.', 'L’antithèse oppose sans croiser ; le chiasme oppose en croisant.', 'Les deux rôles sont inversés. EN: roles swapped.', 'a5-chiasme', ['L’antithèse oppose ; le chiasme oppose en croisant.']),
+        eS('L’antithèse croise ; le chiasme oppose sans croiser.', 'L’antithèse oppose ; le chiasme croise, souvent pour opposer.', 'Les deux rôles sont inversés. EN: roles swapped.', 'a5-chiasme', ['L’antithèse oppose ; le chiasme croise.', 'L’antithèse oppose sans croiser ; le chiasme croise.', 'L’antithèse oppose sans croiser ; le chiasme oppose en croisant.', 'L’antithèse oppose ; le chiasme oppose en croisant.', 'L’antithèse oppose ; le chiasme croise souvent pour opposer.']),
         lC('Écoute. Quelle figure ?', src(E(1251)).fr, ['un chiasme', 'une gradation', 'une hypallage'], 0, 'Jour, nuit, puis nuit, jour. EN: crossed.', 'a5-trier'),
       ],
     },
@@ -1932,7 +1933,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         tI('Comment s’appelle cette figure ? Un mot.', 'Prêter à un mot le trait d’un autre mot de la phrase, c’est une … .', 'hypallage', 'Le comptoir avide. EN: hypallage.', 'a7-hypallage', ['une hypallage']),
         tI('Complète. Un mot.', 'L’hypallage déplace le plus souvent un … .', 'adjectif', 'Selon l’Académie. EN: an adjective.', 'a7-hypallage', ['adjectif qualificatif']),
         eS('Fontanier voyait des hypallages partout.', 'Fontanier doutait de bien des hypallages.', 'Il expliquait autrement beaucoup d’exemples de Dumarsais. EN: he doubted many.', 'a7-trier', ['Fontanier doutait de beaucoup d’hypallages.', 'Fontanier doutait de nombreuses hypallages.']),
-        lC('Écoute. Quelle figure ?', src(E(1274)).fr, ['une hypallage', 'un zeugme', 'une litote'], 0, 'La fatigue de la femme passe à la rue. EN: hypallage.', 'a7-trier'),
+        lC('Écoute. Quelle figure ?', src(E(1274)).fr, ['une hypallage', 'un zeugme', 'une litote'], 0, 'La distraction de l’homme passe au café. EN: hypallage.', 'a7-trier'),
       ],
     },
     {
@@ -1953,7 +1954,7 @@ const A12_QUIZ: Sec<'quiz'> = {
       questions: [
         mc('« Pour qui sont ces serpents qui sifflent sur vos têtes ? » repose sur…', ['une allitération en [s]', 'une assonance en [a]', 'une litote'], 0, 'Cinq [s] imitent le sifflement. EN: alliteration.', 'a9-sons'),
         mc('L’assonance répète…', ['une voyelle', 'une consonne', 'un mot entier'], 0, 'L’allitération répète une consonne. EN: a vowel.', 'a9-sons'),
-        mc('« Les sanglots longs » : deux mots en « l ». C’est…', ['insuffisant pour parler d’allitération', 'une allitération certaine'], 0, 'Deux initiales identiques ne suffisent pas. EN: not enough.', 'a9-trier'),
+        mc('« Chanson » et « cœur » : deux mots en « c ». C’est…', ['insuffisant : ce n’est pas le même son', 'une allitération certaine'], 0, 'La même lettre, deux sons, [ʃ] et [k]. EN: same letter, different sounds.', 'a9-trier'),
         mc('Quelle phrase d’effet se défend ?', ['Le son [s], cinq fois répété, fait entendre le sifflement des serpents.', 'Le [l] exprime la tristesse.', 'Il y a beaucoup de « s ».'], 0, 'Elle relie le son au sens du vers. EN: sound tied to meaning.', 'a9-commentaire'),
         tI('Comment s’appelle la répétition d’une consonne ? Un mot.', 'Vent, violent, vrillait, volets : c’est une … .', 'allitération', 'Le [v] répété. EN: alliteration.', 'a9-trier', ['une allitération', 'alliteration']),
         tI('Complète. Un mot.', 'Un son ne veut rien dire seul : il renforce ce que disent les … .', 'mots', 'Le son sert le sens. EN: words.', 'a9-sons'),
@@ -2063,7 +2064,7 @@ const ACT12: ActDef = {
 
 const DRILL_LIST: LessonDrill[] = [
   { id: 'd-effet', title: 'Du nom à l’effet', format: 'flashcard' as const, coach: 'Dis chaque phrase à voix haute : ce sont les gestes d’un bon commentaire. EN: say each line aloud.', items: [E(1202), E(1205), E(1206), E(1208), E(1209), E(1201)], audio: AUDIO },
-  { id: 'd-litote', title: 'Litote ou euphémisme', format: 'sort' as const, coach: 'Deux piles : la phrase fait-elle entendre plus, ou adoucit-elle ? EN: more meant, or softened?', buckets: ['une litote', 'un euphémisme'], items: [E(1211), E(1217), E(1214), E(1215), E(1219), E(1218)], audio: AUDIO },
+  { id: 'd-litote', title: 'Litote ou euphémisme', format: 'sort' as const, coach: 'Deux piles : la phrase fait-elle entendre plus, ou adoucit-elle ? EN: more meant, or softened?', buckets: ['la litote', 'l’euphémisme'], items: [E(1211), E(1217), E(1214), E(1215), E(1219), E(1218)], audio: AUDIO },
   { id: 'd-antiphrase', title: 'Le mot et les faits', format: 'mcq' as const, coach: 'Cherche le fait qui dément le mot. EN: find the fact that contradicts the word.', q: 'Voltaire appelle « héros » des soldats qui brûlent un village. Le mot…', opts: ['dit le contraire de ce que montrent les faits', 'dit ce que pense Voltaire'], correct: 0, why: 'C’est une antiphrase. EN: antiphrasis.', items: [E(1223), E(1225), E(1226), E(1227), E(1228), E(1230)], audio: AUDIO },
   { id: 'd-gradation', title: 'Où arrive la montée ?', format: 'mcq' as const, coach: 'Lis la gradation par son dernier terme. EN: read it from the end.', q: '« Va, cours, vole, et nous venge. » Le poids est sur…', opts: ['venge', 'va'], correct: 0, why: 'Toute la vitesse s’y jette. EN: the last word.', items: [E(1235), E(1236), E(1237), E(1238), E(1241), E(1245)], audio: AUDIO },
   { id: 'd-chiasme', title: 'Croiser ou opposer', format: 'mcq' as const, coach: 'Cherche les mots qui reviennent dans l’ordre inverse. EN: look for reversed repetition.', q: '« Le jour, elle rêvait la nuit ; la nuit, elle rêvait le jour. » C’est…', opts: ['un chiasme', 'une antithèse sans croisement'], correct: 0, why: 'Jour, nuit, puis nuit, jour. EN: chiasmus.', items: [E(1248), E(1249), E(1250), E(1251), E(1254), E(1257)], audio: AUDIO },
@@ -2129,7 +2130,7 @@ const SHEET_LIST: ReferenceSheet[] = [
       ['l’euphémisme', 'adoucit', 'Il nous a quittés cette nuit.'],
       ['l’antiphrase', 'dit le contraire', 'les « héros » qui brûlent un village (Voltaire)'],
       ['l’ironie', 'attitude d’ensemble', 'tout le chapitre III de Candide'],
-      ['la prétérition', 'montre ce qu’elle feint de taire', 'Je ne peindrai pas la joie des vainqueurs…'],
+      ['la prétérition', 'montre ce qu’elle feint de taire', 'Je ne peindrai pas la joie des vainqueurs, leurs chants…'],
     ]),
   ]),
   sheet('sheet-construction', 'L’ordre et la construction', ['gradation', 'chiasme, antithèse, oxymore', 'zeugme : qui dit quoi', 'hypallage'], [
