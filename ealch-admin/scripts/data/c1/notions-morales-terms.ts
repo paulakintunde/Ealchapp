@@ -117,7 +117,7 @@ export const NOTIONS_MORALES_TERMS: Record<string, LessonTerm> = {
   souvenir: {
     term: 'le souvenir',
     title: 'Mémoire et souvenir',
-    body: 'Le souvenir appartient à une personne : un moment qui revient. La mémoire est la faculté de se souvenir, et aussi ce qu’un groupe garde ensemble. À l’écrit soigné, on se rappelle quelque chose et l’on se souvient de quelque chose. EN: A souvenir is one person’s; memory can be a group’s.',
+    body: 'Un souvenir est d’abord celui d’une personne : un moment qui revient. La mémoire est la faculté de se souvenir, et aussi ce qu’un groupe garde ensemble. À l’écrit soigné, on se rappelle quelque chose et l’on se souvient de quelque chose. EN: A recollection is first one person’s; memory can be a group’s.',
     examples: [
       { itemId: E(1334), note: 'la règle de l’acte' },
       { itemId: E(1326), note: 'à la mémoire de' },

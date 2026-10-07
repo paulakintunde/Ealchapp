@@ -23,8 +23,10 @@ act's first mission (`LessonAct.opener.imageRef`).
   pastiche of any painting, photograph or staging named in the lesson (Akerman,
   Sembène, Godard, Perrault and Brault, Keïta, La Tour, Monet, Magritte,
   Borduas, Ravel, Tremblay), and no named living director. The candle, the
-  misty harbour, the patterned backdrops and the white whales are generic
-  motifs, drawn in the house style, never in the manner of the works.
+  patterned backdrops and the white whales are generic motifs, drawn in the
+  house style, never in the manner of the works. No misty harbour with an
+  orange sun (too close to « Impression, soleil levant »): act 8 shows brushwork
+  on a sunlit village square instead.
 - **The single visual metaphor is THE BACK OF THE TAPESTRY**: the front gives
   the effect, the back shows the threads that make it. Conceptual images of
   weaving, framing, cutting and weighing (acts 1, 3, 4, 5, 8, 10, 11) alternate
@@ -87,7 +89,7 @@ A quiet gallery scene. On a pale wall hang three framed photographs, each showin
 
 **Save the image as:** `C:/Users/harki/Downloads/gitbuild appealch/Ealchapp/ealch-v2/assets/lessons/analyser-oeuvre/act08.jpg`
 
-A conceptual illustration of two kinds of light. On the left half, in near darkness, a single small candle flame lights a table, a closed book and a small clay jar, everything else sinking into soft shadow. On the right half, a harbour at dawn dissolves into mist, drawn as loose visible dabs of blue, grey and orange, with a small low sun and the vague shapes of boats. A thin vertical band of cream separates the two halves. The subject is a candle in the dark beside a harbour dissolving into brushstrokes. Flat editorial vector illustration, in the style of a modern French language textbook. Muted warm palette: cream and bone backgrounds, dusty slate blue, terracotta, warm ochre, sage green. Soft rounded geometric figures with simple calm faces, no black outlines, gentle flat shading. Subtle paper grain texture over the whole image. Warm even light. No text unless explicitly described. Uncluttered composition with generous empty space. Absolutely no lettering, captions, watermarks or logos beyond what is described.
+A conceptual illustration of two kinds of light. On the left half, in near darkness, a single small candle flame lights a table, a closed book and a small clay jar, everything else sinking into soft shadow. On the right half, a small village square with a market awning and a plane tree under bright midday light, drawn entirely as loose visible dabs of sage green, ochre and slate blue, so the shapes almost dissolve into brushstrokes. A thin vertical band of cream separates the two halves. The subject is a candle in the dark beside a sunlit square dissolving into brushstrokes. Flat editorial vector illustration, in the style of a modern French language textbook. Muted warm palette: cream and bone backgrounds, dusty slate blue, terracotta, warm ochre, sage green. Soft rounded geometric figures with simple calm faces, no black outlines, gentle flat shading. Subtle paper grain texture over the whole image. Warm even light. No text unless explicitly described. Uncluttered composition with generous empty space. Absolutely no lettering, captions, watermarks or logos beyond what is described.
 
 ## Act 09 · La musique et la scène · `act09.jpg`
 

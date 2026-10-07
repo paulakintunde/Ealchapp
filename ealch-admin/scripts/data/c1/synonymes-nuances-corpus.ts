@@ -211,7 +211,7 @@
 //          un malentendu » and « dissiper un malentendu » (Larousse
 //          français-anglais « dissiper » ; Académie 9e éd. « la dissipation
 //          d'un malentendu ») ; « mettre en doute ».
-//       h. Intensifiers, Larousse: grièvement « ne s'emploie qu'avec blesser
+//       h. Intensifiers, Larousse: grièvement (at « gravement »; also OQLF « Sens et emploi de gravement et de grièvement ») « ne s'emploie qu'avec blesser
 //          et des mots de sens analogue (brûler, atteindre, toucher) » ;
 //          « un refus catégorique » ; « une écrasante majorité » ; « c'est un
 //          gros fumeur » ; « circulation dense sur l'autoroute » ; « un
@@ -669,7 +669,7 @@ export const ACT4_ROWS: Row[] = [
     'Curieux, pour un esprit : qui veut apprendre. Un éloge.'),
   col(1245, 'une question indiscrète', 'a prying question', '/yn kɛs.tjɔ̃ ɛ̃.dis.kʁɛt/', 'ün kes-TYOHⁿ | ehⁿ-dees-KRET', ['connotation'],
     'Indiscret : qui cherche à savoir, avec une insistance choquante, ce qu’on ne veut pas dévoiler.'),
-  col(1246, 'un jeune arriviste', 'a young social climber', '/œ̃ ʒœ.na.ʁi.vist/', 'uhⁿ zhuh-na-ree-VEEST', ['connotation'],
+  col(1246, 'un jeune arriviste', 'a young careerist', '/œ̃ ʒœ.na.ʁi.vist/', 'uhⁿ zhuh-na-ree-VEEST', ['connotation'],
     'Arriviste : qui veut réussir à tout prix, ambitieux sans scrupule. Ambitieux peut être un compliment ; arriviste, jamais.'),
   sent(1247, 'Économe, elle refuse de payer plus cher pour la même chose.', 'Thrifty, she refuses to pay more for the same thing.',
     '/e.kɔ.nɔm ɛl ʁə.fyz də pe.je ply ʃɛʁ puʁ la mɛm ʃoz/', 'ay-ko-NOMM | el ruh-FÜZ | duh pay-YAY plü SHEHR | poor la mem SHOHZ', ['connotation'], FCVDR),
@@ -680,7 +680,7 @@ export const ACT4_ROWS: Row[] = [
     'Économe, avare, radin : qu’est-ce qui change d’un mot à l’autre ?',
     'Pas la dépense : le jugement, et le registre. Économe approuve, avare blâme, radin blâme entre amis. Avant de choisir, demande-toi si tu veux louer ou reprocher.',
     ['connotation']),
-  sent(1250, 'Ambitieuse, c’est un compliment ; arriviste, une accusation.', 'Ambitious is a compliment; a social climber is an accusation.',
+  sent(1250, 'Ambitieuse, c’est un compliment ; arriviste, une accusation.', 'Ambitious is a compliment; careerist is an accusation.',
     '/ɑ̃.bi.sjøz sɛ.tœ̃ kɔ̃.pli.mɑ̃ a.ʁi.vist yn a.ky.za.sjɔ̃/', 'ahⁿ-bee-SYEUZ | seh-tuhⁿ kohⁿ-plee-MAHⁿ | a-ree-VEEST | ün a-kü-za-SYOHⁿ', ['connotation'], FCVDR),
   sent(1251, 'Prudent pour les uns, timoré pour les autres : le chef n’a pas changé.', 'Cautious to some, timid to others: the boss has not changed.',
     '/pʁy.dɑ̃ puʁ le.zœ̃ ti.mɔ.ʁe puʁ le.zotʁ lə ʃɛf na pa ʃɑ̃.ʒe/', 'prü-DAHⁿ poor lay-ZUHⁿ | tee-mo-RAY poor lay-ZOHTR | luh SHEF | na pa shahⁿ-ZHAY', ['connotation']),
@@ -819,8 +819,8 @@ export const ACT8_ROWS: Row[] = [
     '/la pʁɔ.po.zi.sjɔ̃ a e.te a.dɔp.te a y.ne.kʁa.zɑ̃t ma.ʒɔ.ʁi.te/', 'la pro-po-zee-SYOHⁿ | a ay-tay a-dop-TAY | a ü-nay-kra-ZAHⁿT ma-zho-ree-TAY', ['intensif'], FCVDR),
   sent(1305, 'Ce matin, la circulation est dense sur l’autoroute 40.', 'This morning traffic is heavy on Highway 40.',
     '/sə ma.tɛ̃ la siʁ.ky.la.sjɔ̃ ɛ dɑ̃s syʁ lo.to.ʁut ka.ʁɑ̃t/', 'suh ma-TEHⁿ | la seer-kü-la-SYOHⁿ eh DAHⁿSS | sür lo-to-ROOT ka-RAHⁿT', ['intensif']),
-  rule(1306, 'Chaque nom attend ses intensifs : grièvement blessé, mais gravement malade.', 'Each noun expects its intensifiers: grièvement blessé, but gravement malade.',
-    '/ʃak nɔ̃ a.tɑ̃ se.zɛ̃.tɑ̃.sif ɡʁi.jɛv.mɑ̃ blɛ.se mɛ ɡʁav.mɑ̃ ma.lad/', 'shak NOHⁿ | a-TAHⁿ say-zehⁿ-tahⁿ-SEEF | gree-yev-MAHⁿ bleh-SAY | meh grav-MAHⁿ ma-LAD',
+  rule(1306, 'Chaque mot attend ses intensifs : grièvement blessé, mais gravement malade.', 'Each word expects its intensifiers: grièvement blessé, but gravement malade.',
+    '/ʃak mo a.tɑ̃ se.zɛ̃.tɑ̃.sif ɡʁi.jɛv.mɑ̃ blɛ.se mɛ ɡʁav.mɑ̃ ma.lad/', 'shak MOH | a-TAHⁿ say-zehⁿ-tahⁿ-SEEF | gree-yev-MAHⁿ bleh-SAY | meh grav-MAHⁿ ma-LAD',
     '« Très » suffit-il toujours ?',
     'Très est toujours correct. Mais l’usage a ses intensifs attendus : un refus catégorique, une écrasante majorité, un gros fumeur, une pluie battante. Le bon intensif sonne juste ; le calque de l’anglais sonne faux.',
     ['intensif']),

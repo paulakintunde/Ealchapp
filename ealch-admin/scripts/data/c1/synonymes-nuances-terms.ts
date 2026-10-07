@@ -84,7 +84,7 @@ export const SYNONYMES_NUANCES_TERMS: Record<string, LessonTerm> = {
   intensif: {
     term: 'l’intensif',
     title: 'L’intensif attendu',
-    body: 'Très est toujours correct, mais chaque nom a ses intensifs habituels : un refus catégorique, une écrasante majorité, un gros fumeur. Grièvement ne va qu’avec blessé et ses voisins ; pour une maladie, dis gravement. EN: Each noun has its expected intensifier; grièvement only goes with injury words.',
+    body: 'Très est toujours correct, mais chaque mot a ses intensifs habituels : un refus catégorique, une écrasante majorité, un gros fumeur. Grièvement ne va qu’avec blessé et ses voisins ; pour une maladie, dis gravement. EN: Each word has its expected intensifier; grièvement only goes with injury words.',
     examples: [
       { itemId: E(1306), note: 'grièvement blessé, gravement malade' },
       { itemId: E(1304), note: 'une écrasante majorité' },

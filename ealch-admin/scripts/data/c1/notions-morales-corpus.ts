@@ -186,6 +186,16 @@
 //       m. 13 April 1976 was a Tuesday (computed: 1 January 1976 was a
 //          Thursday; day 104), 11 April 1976 a Sunday: the invented flood's
 //          peak and M. Lavoie's remembered Sunday are internally consistent.
+//          The Soirée des témoins of 9 March 2026 (fiftieth year) is a
+//          Monday: the act 1 scene says « lundi 9 mars » (pre-review fix; it
+//          said « mardi »).
+//       n. PRE-REVIEW 2026-10-06, re-verified a-m. Also: « un joli geste » is
+//          correct French (Académie 9e éd., joli sense 2: « Il a eu un joli
+//          geste »), so the act 8 trap tests the gender of geste instead;
+//          the jour du Souvenir falls on the 1918 armistice date and honours
+//          those who died in service (canada.ca), not « the armistice » alone;
+//          « trou de mémoire » carries no register label in Larousse (now
+//          courant, rows .1324 .1337).
 //     QUOTATIONS: one, Boileau (c). Every other text is « texte original écrit
 //     pour la leçon »; every person, town, outlet and institution is invented
 //     (§I), except the OQLF, FranceTerme / the CELF, the Journal officiel,
@@ -843,7 +853,7 @@ export const ACT10_ROWS: Row[] = [
   col(1323, 'garder le souvenir de', 'to keep the memory of', '/ɡaʁ.de lə su.və.niʁ də/', 'gar-DAY luh soo-vuh-NEER duh', ['souvenir'],
     'Le souvenir : ce qui revient d’un moment vécu. On garde le souvenir d’une personne, d’un voyage.'),
   col(1324, 'avoir un trou de mémoire', 'to have a memory lapse', '/a.vwaʁ œ̃ tʁu də me.mwaʁ/', 'a-vwar uhⁿ TROO | duh may-MWAR', ['souvenir'],
-    'Un oubli soudain et passager. Familier, mais courant partout.', FA),
+    'Un oubli soudain et passager. Courant, à l’oral comme à l’écrit.'),
   col(1325, 'de mémoire d’homme', 'in living memory', '/də me.mwaʁ dɔm/', 'duh may-MWAR DOMM', ['souvenir'],
     'Aussi loin qu’on se souvienne : de mémoire d’homme, on n’avait jamais vu ça.'),
   col(1326, 'à la mémoire de', 'in memory of', '/a la me.mwaʁ də/', 'a la may-MWAR duh', ['souvenir'],
@@ -863,17 +873,17 @@ export const ACT10_ROWS: Row[] = [
     '/sɛt plak a e.te po.ze a la me.mwaʁ de si.nis.tʁe/', 'set PLAK | a ay-TAY poh-ZAY | a la may-MWAR day see-nees-TRAY', ['souvenir']),
   sent(1333, 'Mes souvenirs de la crue sont flous.', 'My memories of the flood are hazy.',
     '/me su.və.niʁ də la kʁy sɔ̃ flu/', 'may soo-vuh-NEER | duh la KRÜ | sohⁿ FLOO', ['souvenir']),
-  rule(1334, 'Le souvenir appartient à une personne ; la mémoire peut être celle d’un groupe.', 'A souvenir belongs to one person; memory can belong to a group.',
-    '/lə su.və.niʁ a.paʁ.tjɛ̃ a yn pɛʁ.sɔn la me.mwaʁ pø.tɛtʁ sɛl dœ̃ ɡʁup/', 'luh soo-vuh-NEER | a-par-TYEHⁿ a ün pehr-SONN | la may-MWAR | peu-tetr sel duhⁿ GROOP',
+  rule(1334, 'Un souvenir est d’abord celui d’une personne ; la mémoire peut être celle d’un groupe.', 'A recollection (un souvenir) is first of all one person’s; memory can belong to a group.',
+    '/œ̃ su.və.niʁ ɛ da.bɔʁ sə.lɥi dyn pɛʁ.sɔn la me.mwaʁ pø.tɛtʁ sɛl dœ̃ ɡʁup/', 'uhⁿ soo-vuh-NEER | eh da-BOR | suh-lwee dün pehr-SONN | la may-MWAR | peu-tetr sel duhⁿ GROOP',
     'Souvenir ou mémoire ?',
-    'La mémoire est aussi la faculté de se souvenir. Le souvenir est ce qui revient : une image, un moment. On dit la mémoire d’un peuple ; son souvenir serait vague.',
+    'La mémoire est aussi la faculté de se souvenir. Le souvenir est ce qui revient : une image, un moment. On parle surtout de la mémoire d’un peuple ; le souvenir collectif existe aussi, dans quelques formules : le jour du Souvenir, garder le souvenir des disparus.',
     ['souvenir']),
   sent(1335, 'Ce fut une soirée mémorable.', 'It was a memorable evening.',
     '/sə fy.tyn swa.ʁe me.mɔ.ʁabl/', 'suh fü-TÜN swa-RAY | may-mo-RABL', ['souvenir']),
   sent(1336, 'Elle a dédié son livre à la mémoire de son père.', 'She dedicated her book to her father’s memory.',
     '/ɛ.la de.dje sɔ̃ livʁ a la me.mwaʁ də sɔ̃ pɛʁ/', 'eh-la day-DYAY sohⁿ LEEVR | a la may-MWAR duh sohⁿ PEHR', ['souvenir'], FCVDR),
   sent(1337, 'J’ai eu un trou de mémoire au milieu de mon discours.', 'My mind went blank in the middle of my speech.',
-    '/ʒe y œ̃ tʁu də me.mwaʁ o mi.ljø də mɔ̃ dis.kuʁ/', 'zhay ü uhⁿ TROO duh may-MWAR | oh mee-LYEU duh mohⁿ dees-KOOR', ['souvenir'], FCVR, FA),
+    '/ʒe y œ̃ tʁu də me.mwaʁ o mi.ljø də mɔ̃ dis.kuʁ/', 'zhay ü uhⁿ TROO duh may-MWAR | oh mee-LYEU duh mohⁿ dees-KOOR', ['souvenir'], FCVR),
 ];
 
 /* ── ACT 11 · COMMÉMORER, LE DEVOIR DE MÉMOIRE (.1338-.1351) ────────────── */

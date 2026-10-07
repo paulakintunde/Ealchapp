@@ -128,7 +128,8 @@
 //           where she is reduced to housework; often presented as the first
 //           feature film by a sub-Saharan African director; prix Jean-Vigo
 //           1966; much of the film takes place inside the Antibes flat
-//           (standard plot summary, to recheck at the pre-review). SenePlus /
+//           (VERIFIED at the pre-review: Diouana is shut in the flat; 65 min;
+//           https://ifi.ie/film/la-noire-de/). SenePlus /
 //           La Libre (Cinémathèque française tribute,
 //           2023): https://www.seneplus.com/node/205248 and
 //           https://www.lalibre.be/culture/2023/01/03/la-cinematheque-francaise-salue-sembene-ousmane-pionnier-du-cinema-africain-HE746BPGEFGQRPFU2HEHM3IAZ4/
@@ -140,10 +141,13 @@
 //           https://www.sensesofcinema.com/2002/cteq/breathless/ ; death:
 //           https://lepetitjournal.com/expat-mag/culture/mort-de-jean-luc-godard-le-dynamiteur-du-cinema-346080
 //       F4. « Pour la suite du monde », 1963, ONF, Pierre Perrault and Michel
-//           Brault (with Marcel Carrière); shot on the île aux Coudres from
-//           1962, the islanders revive the beluga fishery; a classic of
-//           direct cinema, Brault proposing the direct style; first Canadian
-//           feature film shown at Cannes. Encyclopédie canadienne:
+//           Brault (with Marcel Carrière, credited as co-director by some
+//           sources); shot on the île aux Coudres in 1961-1962 (pre-review
+//           correction: the text said « En 1962 », now « Au début des années
+//           1960 »), the islanders revive the beluga fishery; a classic of
+//           direct cinema; first Canadian film shown IN COMPETITION at
+//           Cannes, 1963 (https://en.wikipedia.org/wiki/Pour_la_suite_du_monde).
+//           Encyclopédie canadienne:
 //           https://thecanadianencyclopedia.ca/en/article/pierre-perrault
 //       F5. 28 décembre 1895, the Lumière brothers' first public paying
 //           screening, Salon indien du Grand Café, boulevard des Capucines,
@@ -161,9 +165,12 @@
 //     PAINTING AND PHOTOGRAPHY
 //       P1. Seydou Keïta (Malian, d. 2001), studio in Bamako 1948-1962;
 //           patterned fabric backdrops (a fringed bedspread 1948-1954, then
-//           wax prints changed every few years, which helps date the
-//           prints). The props (a watch, a radio set, a scooter) are the
-//           standard description of his studio, to recheck at the pre-review.
+//           fabrics each kept 2 to 4 years, which helps date the prints).
+//           Props LENT by the studio (pre-review: the text had the sitters
+//           bringing them): watches, pens, a radio set, a telephone, plastic
+//           flowers, his own Vespa (https://www.vlisco.com/heritage/seydou-keita).
+//           The studio opened in 1948; he took a government post in 1962 and
+//           it closed in 1963, so « 1948-1962 » is his working span there.
 //           Galerie Nathalie Obadia press text and Magnin-A:
 //           https://nathalieobadia.com/fr/exhibitions/303-seydou-keita/press_release_text
 //           https://magnin-a.com/en/artists/81-seydou-keita
@@ -176,8 +183,9 @@
 //           article in Le Charivari, 25 April 1874, « L’exposition des
 //           impressionnistes », gave the movement its name; Musée Marmottan
 //           Monet. https://www.marmottan.fr/en/notice/4014/ and
-//           https://en.wikipedia.org/wiki/Impression,_Sunrise (to recheck
-//           the Leroy date against Marmottan at the pre-review).
+//           https://en.wikipedia.org/wiki/Impression,_Sunrise (VERIFIED at the
+//           pre-review: the Marmottan notice gives 1872, Le Havre, April 1874
+//           and Leroy's article in Le Charivari of 25 April 1874).
 //       P4. René Magritte (Belgian, d. 1967), « La Trahison des images »,
 //           1929, LACMA: a painted pipe above a sentence denying it is a
 //           pipe. LACMA: https://collections.lacma.org/node/239578
@@ -197,13 +205,18 @@
 //           theme that never changes while the instruments do, over an
 //           ostinato, from very soft to as loud as possible. IRCAM and
 //           Britannica: https://resources.ircam.fr/work/bolero and
-//           (the theme opens on the flute, then other woodwinds, then brass,
-//           then the full orchestra: standard description)
+//           (pre-review: the real order is flute, clarinet, bassoon, E-flat
+//           clarinet, oboe d'amore, trumpet with flute, saxophones, ... full
+//           orchestra, so « bois, puis cuivres » was wrong; the text now names
+//           only flute, clarinet, bassoon, then « d'instrument en instrument »;
+//           https://en.wikipedia.org/wiki/Bol%C3%A9ro)
 //           https://www.britannica.com/topic/Bolero-by-Ravel . The snare-drum
 //           ostinato is standard description (« caisse claire »).
 //       M2. Michel Tremblay, « Les Belles-sœurs », premiere 28 August 1968,
-//           Théâtre du Rideau Vert, Montréal; the first play written in
-//           joual. Encyclopédie canadienne:
+//           Théâtre du Rideau Vert, Montréal; often called the first Québec
+//           play in joual (popular speech was on stage before it, so the
+//           lesson only says it « fait entendre le joual sur une scène
+//           professionnelle »). Encyclopédie canadienne:
 //           https://prod-front.thecanadianencyclopedia.ca/en/article/les-belles-soeurs
 //
 //     LANGUAGE
@@ -478,7 +491,7 @@ export const ACT2_ROWS: Row[] = [
 
 export const ACT3_ROWS: Row[] = [
   phrase(1230, 'un plan d’ensemble', 'a wide shot, an establishing shot', '/œ̃ plɑ̃ dɑ̃.sɑ̃bl/', 'uhⁿ plahⁿ dahⁿ-SAHⁿBL', ['plan']),
-  phrase(1231, 'un plan moyen', 'a medium (full-figure) shot', '/œ̃ plɑ̃ mwa.jɛ̃/', 'uhⁿ plahⁿ mwa-YEHⁿ', ['plan']),
+  phrase(1231, 'un plan moyen', 'a full shot: the whole figure, head to toe', '/œ̃ plɑ̃ mwa.jɛ̃/', 'uhⁿ plahⁿ mwa-YEHⁿ', ['plan']),
   phrase(1232, 'un gros plan', 'a close-up', '/œ̃ ɡʁo plɑ̃/', 'uhⁿ groh PLAHⁿ', ['plan']),
   phrase(1233, 'une plongée', 'a high-angle shot', '/yn plɔ̃.ʒe/', 'ün plohⁿ-ZHAY', ['angle']),
   phrase(1234, 'une contre-plongée', 'a low-angle shot', '/yn kɔ̃.tʁə.plɔ̃.ʒe/', 'ün kohⁿ-truh-plohⁿ-ZHAY', ['angle']),
@@ -583,7 +596,7 @@ export const ACT8_ROWS: Row[] = [
   sent(1310, 'Georges de La Tour peint des scènes de nuit éclairées par une flamme.', 'Georges de La Tour paints night scenes lit by a flame.', '/ʒɔʁʒ də la tuʁ pɛ̃ de sɛn də nɥi e.klɛ.ʁe paʁ yn flam/', 'zhorzh duh la TOOR pehⁿ day SENN duh NWEE | ay-kleh-RAY par ün FLAMM', ['latour']),
   sent(1311, 'La touche est rapide, visible, fragmentée.', 'The brushwork is quick, visible, broken up.', '/la tuʃ ɛ ʁa.pid vi.zibl fʁaɡ.mɑ̃.te/', 'la TOOSH eh ra-PEED | vee-ZEEBL | frag-mahⁿ-TAY', ['touche']),
   sent(1312, 'De près, on voit des taches ; de loin, un port dans la brume.', 'Up close you see patches of colour; from a distance, a harbour in the mist.', '/də pʁɛ ɔ̃ vwa de taʃ də lwɛ̃ œ̃ pɔʁ dɑ̃ la bʁym/', 'duh PREH | ohⁿ vwa day TASH | duh LWEHⁿ | uhⁿ POR dahⁿ la BRÜMM', ['touche', 'monet']),
-  sent(1313, 'En 1874, un critique se moque de Monet et invente le mot « impressionnistes ».', 'In 1874, a critic mocks Monet and coins the word "Impressionists".', '/ɑ̃ mil ɥit sɑ̃ swa.sɑ̃t.kɛ̃z.katʁ œ̃ kʁi.tik sə mɔk də mɔ.nɛ e ɛ̃.vɑ̃t lə mo ɛ̃.pʁɛ.sjɔ.nist/', 'ahⁿ meel wee sahⁿ swa-sahⁿt-kehⁿz-KATR | uhⁿ kree-TEEK suh MOK duh mo-NEH | ay ehⁿ-VAHⁿT luh moh ehⁿ-preh-syo-NEEST', ['monet']),
+  sent(1313, 'En 1874, un critique se moque de Monet et invente le mot « impressionnistes ».', 'In 1874, a critic mocks Monet and coins the word "Impressionists".', '/ɑ̃ mil ɥit sɑ̃ swa.sɑ̃t.ka.tɔʁz œ̃ kʁi.tik sə mɔk də mɔ.nɛ e ɛ̃.vɑ̃t lə mo ɛ̃.pʁɛ.sjɔ.nist/', 'ahⁿ meel wee sahⁿ swa-sahⁿt-ka-TORZ | uhⁿ kree-TEEK suh MOK duh mo-NEH | ay ehⁿ-VAHⁿT luh moh ehⁿ-preh-syo-NEEST', ['monet']),
   sent(1314, 'La couleur est posée en aplat, sans effet de matière.', 'The colour is laid flat, with no visible texture.', '/la ku.lœʁ ɛ po.ze ɑ̃.na.pla sɑ̃.ze.fɛ d(ə) ma.tjɛʁ/', 'la koo-LUHR eh poh-ZAY ahⁿ-na-PLA | sahⁿ-zay-FEH duh ma-TYEHR', ['touche', 'magritte']),
   sent(1315, 'Une peinture n’est jamais la chose, seulement sa représentation.', 'A painting is never the thing, only its representation.', '/yn pɛ̃.tyʁ nɛ ʒa.mɛ la ʃoz sœl.mɑ̃ sa ʁə.pʁe.zɑ̃.ta.sjɔ̃/', 'ün pehⁿ-TÜR neh zha-meh la SHOHZ | suhl-MAHⁿ sa ruh-pray-zahⁿ-ta-SYOHⁿ', ['magritte']),
   sent(1316, 'Je dis d’où vient la lumière et comment la couleur est posée.', 'I say where the light comes from and how the colour is laid on.', '/ʒə di du vjɛ̃ la ly.mjɛʁ e kɔ.mɑ̃ la ku.lœʁ ɛ po.ze/', 'zhuh dee doo vyehⁿ la lü-MYEHR | ay ko-mahⁿ la koo-LUHR eh poh-ZAY', ['regle'], FC,
@@ -706,11 +719,11 @@ export const MONTAGE_TEXT =
 
 /** Act 6: a radio column on listening to a film. */
 export const SON_TEXT =
-  'Radio Passerelle, la chronique de Léa Castonguay. Écouter un film. On dit « voir un film », rarement « l’écouter ». Pourtant, la bande-son réunit tout ce qu’on entend : les voix, les bruits, la musique et les silences. Première question : d’où vient le son ? Quand la musique sort d’une radio posée sur la table, les personnages l’entendent aussi ; quand un orchestre s’élève sans que personne ne joue, seuls les spectateurs l’entendent. La voix off, elle, raconte ce que l’image ne montre pas, ou dit autre chose qu’elle. Deuxième question : que fait ce son ? Une musique trop appuyée dicte au spectateur ce qu’il doit ressentir ; une musique qui contredit l’image, une comptine sur une scène de violence par exemple, crée un décalage qui inquiète. Et au cinéma, le silence est aussi un son : il se prépare, il se mixe, il se remarque. Le Québec occupe une place à part dans cette histoire. En 1962, une équipe de l’Office national du film arrive à l’île aux Coudres, dans le Saint-Laurent. Pierre Perrault et Michel Brault y tournent « Pour la suite du monde », sorti en 1963 : pour le film, les habitants relancent une ancienne pêche aux bélugas. Plutôt que de suivre un scénario écrit, l’équipe filme avec une caméra légère et enregistre le son direct. On entend les gens de l’île parler comme ils parlent, et cette langue devient la matière même du film. Ce sera le premier long métrage canadien présenté au Festival de Cannes, et un classique de ce qu’on appellera le cinéma direct.';
+  'Radio Passerelle, la chronique de Léa Castonguay. Écouter un film. On dit « voir un film », rarement « l’écouter ». Pourtant, la bande-son réunit tout ce qu’on entend : les voix, les bruits, la musique et les silences. Première question : d’où vient le son ? Quand la musique sort d’une radio posée sur la table, les personnages l’entendent aussi ; quand un orchestre s’élève sans que personne ne joue, seuls les spectateurs l’entendent. La voix off, elle, raconte ce que l’image ne montre pas, ou dit autre chose qu’elle. Deuxième question : que fait ce son ? Une musique trop appuyée dicte au spectateur ce qu’il doit ressentir ; une musique qui contredit l’image, une comptine sur une scène de violence par exemple, crée un décalage qui inquiète. Et au cinéma, le silence est aussi un son : il se prépare, il se mixe, il se remarque. Le Québec occupe une place à part dans cette histoire. Au début des années 1960, une équipe de l’Office national du film s’installe à l’île aux Coudres, dans le Saint-Laurent. Pierre Perrault et Michel Brault, avec Marcel Carrière, y tournent « Pour la suite du monde », sorti en 1963 : pour le film, les habitants relancent une ancienne pêche aux bélugas. Plutôt que de suivre un scénario écrit, l’équipe filme avec une caméra légère et enregistre le son direct. On entend les gens de l’île parler comme ils parlent, et cette langue devient la matière même du film. Ce sera le premier long métrage canadien présenté en compétition au Festival de Cannes, et un classique de ce qu’on appellera le cinéma direct.';
 
 /** Act 7: a gallery wall text on two compositions. */
 export const COMPOSITION_TEXT =
-  'Centre d’art de Port-Mauve, salle 3, texte de salle. Seydou Keïta, portraits de Bamako. De 1948 à 1962, le photographe Seydou Keïta tient l’un des studios les plus recherchés de Bamako. On y vient seul, en couple ou en famille, endimanché, parfois avec une montre, un poste de radio ou un scooter. Regardez d’abord la composition. Le modèle est presque toujours au centre, de face ou de trois quarts, et occupe tout le premier plan ; derrière lui, pas de paysage, pas de point de fuite, aucune perspective : un tissu à motifs, tendu contre le mur, ferme l’arrière-plan. L’image reste plate, et c’est voulu. Le motif du tissu répond à celui des vêtements, si bien que le regard circule d’une fleur imprimée à une autre avant de revenir au visage. De 1948 à 1954, le fond est un couvre-lit à franges ; ensuite, Keïta change de tissu tous les quelques ans, ce qui permet aujourd’hui de dater ses tirages. Comparez avec la toile accrochée en face, un paysage peint pour l’exposition par Félix Gauthier-Roy. Ici, au contraire, les lignes du quai convergent vers un point de fuite et guident le regard vers l’horizon ; au premier plan, une femme assise, décentrée vers la gauche ; à droite, un grand vide de ciel. La perspective crée l’illusion de la profondeur sur une surface plane, et ce vide met mal à l’aise. Deux compositions, deux effets : l’une ferme l’espace et grandit le modèle, l’autre ouvre l’espace et isole la personne. Décrire une composition, c’est toujours dire où elle mène le regard, et ce que cela produit.';
+  'Centre d’art de Port-Mauve, salle 3, texte de salle. Seydou Keïta, portraits de Bamako. De 1948 à 1962, le photographe Seydou Keïta tient l’un des studios les plus recherchés de Bamako. On y vient seul, en couple ou en famille, endimanché ; au besoin, le studio prête une montre, un poste de radio, et même le scooter du photographe. Regardez d’abord la composition. Le modèle est presque toujours au centre, de face ou de trois quarts, et occupe tout le premier plan ; derrière lui, pas de paysage, pas de point de fuite, aucune perspective : un tissu à motifs, tendu contre le mur, ferme l’arrière-plan. L’image reste plate, et c’est voulu. Le motif du tissu répond à celui des vêtements, si bien que le regard circule d’une fleur imprimée à une autre avant de revenir au visage. De 1948 à 1954, le fond est un couvre-lit à franges ; ensuite, Keïta change de tissu tous les deux à quatre ans, ce qui permet aujourd’hui de dater ses tirages. Comparez avec la toile accrochée en face, un paysage peint pour l’exposition par Félix Gauthier-Roy. Ici, au contraire, les lignes du quai convergent vers un point de fuite et guident le regard vers l’horizon ; au premier plan, une femme assise, décentrée vers la gauche ; à droite, un grand vide de ciel. La perspective crée l’illusion de la profondeur sur une surface plane, et ce vide met mal à l’aise. Deux compositions, deux effets : l’une ferme l’espace et grandit le modèle, l’autre ouvre l’espace et isole la personne. Décrire une composition, c’est toujours dire où elle mène le regard, et ce que cela produit.';
 
 /** Act 8: a museum guide's notebook on three ways of painting light. */
 export const LUMIERE_TEXT =
@@ -718,7 +731,7 @@ export const LUMIERE_TEXT =
 
 /** Act 9: a radio arts slot on music and the stage. */
 export const SCENE_TEXT =
-  'Radio Passerelle, « Le quart d’heure des arts », par Yanis Ferrer. Prenez le « Boléro » de Maurice Ravel, créé à l’Opéra de Paris en 1928 pour la danseuse Ida Rubinstein. En un quart d’heure environ, la mélodie ne change pas : ce sont les instruments qui changent. Un même rythme, tenu par la caisse claire, revient sans arrêt ; le thème passe de la flûte aux autres bois, puis aux cuivres, puis à l’orchestre entier. L’orchestration fait tout : le morceau commence très doucement et finit aussi fort que possible. Dire « c’est entêtant » ne suffit pas ; on peut dire que ce long crescendo, sur un rythme obsédant, produit une tension qui ne se relâche qu’à la toute fin. Au théâtre, les moyens changent encore. Un même texte n’est jamais joué deux fois de la même façon : il y a la mise en scène, qui organise le jeu et l’espace ; la scénographie, c’est-à-dire le décor, les objets et la lumière ; et le jeu des comédiens. Le 28 août 1968, au Théâtre du Rideau Vert, à Montréal, « Les Belles-sœurs » de Michel Tremblay fait entendre le joual sur une scène professionnelle : des femmes d’un quartier ouvrier, réunies chez l’une d’elles, y parlent la langue de tous les jours. Imaginons, pour l’exercice, une mise en scène récente de la pièce. Toute l’action se joue dans un seul décor, la lumière découpe la scène et isole chaque monologue, et le jeu des comédiennes reste sobre, presque immobile. Une critique devra dire ce que ces choix font au texte : ils le servent, ou ils l’étouffent.';
+  'Radio Passerelle, « Le quart d’heure des arts », par Yanis Ferrer. Prenez le « Boléro » de Maurice Ravel, créé à l’Opéra de Paris en 1928 pour la danseuse Ida Rubinstein. En un quart d’heure environ, la mélodie ne change pas : ce sont les instruments qui changent. Un même rythme, tenu par la caisse claire, revient sans arrêt ; le thème passe de la flûte à la clarinette, puis au basson, et ainsi d’instrument en instrument jusqu’à l’orchestre entier. L’orchestration fait tout : le morceau commence très doucement et finit aussi fort que possible. Dire « c’est entêtant » ne suffit pas ; on peut dire que ce long crescendo, sur un rythme obsédant, produit une tension qui ne se relâche qu’à la toute fin. Au théâtre, les moyens changent encore. Un même texte n’est jamais joué deux fois de la même façon : il y a la mise en scène, qui organise le jeu et l’espace ; la scénographie, c’est-à-dire le décor, les objets et la lumière ; et le jeu des comédiens. Le 28 août 1968, au Théâtre du Rideau Vert, à Montréal, « Les Belles-sœurs » de Michel Tremblay fait entendre le joual sur une scène professionnelle : des femmes d’un quartier ouvrier, réunies chez l’une d’elles, y parlent la langue de tous les jours. Imaginons, pour l’exercice, une mise en scène récente de la pièce. Toute l’action se joue dans un seul décor, la lumière découpe la scène et isole chaque monologue, et le jeu des comédiennes reste sobre, presque immobile. Une critique devra dire ce que ces choix font au texte : ils le servent, ou ils l’étouffent.';
 
 /** Act 10: a balanced review of an invented exhibition. */
 export const PESER_TEXT =

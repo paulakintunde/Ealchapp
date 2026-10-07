@@ -160,8 +160,12 @@ import {
   ALL_ROWS, ROWS_BY_ACT, IMPORTED, IMPORT_IDS, NOT_DECK_ABLE, NOT_SPEAKABLE, DB_ONLY_ROWS, dicteeFor,
   ADORE_TEXT, DEUX_AVIS_TEXT, PLAN_TEXT, CHAMP_TEXT, MONTAGE_TEXT, SON_TEXT, COMPOSITION_TEXT,
   LUMIERE_TEXT, SCENE_TEXT, PESER_TEXT, GENRE_TEXT, MAREE_TEXT,
-  B230_REFRAME, LITTERATURE_UNIT, PRESSE_UNIT, LITTERATURE_REF, PRESSE_REF, NEXT_REF,
+  B230_REFRAME, LITTERATURE_UNIT, PRESSE_UNIT, LITTERATURE_REF, PRESSE_REF, NEXT_REF, refFr,
 } from './analyser-oeuvre-corpus.ts';
+
+/** Concession is known from B1 and B2 (cited in act 10, never re-taught). */
+const CONCESSION_B1_REF = refFr('b1.32');
+const CONCESSION_B2_REF = refFr('b2.16');
 import { ANALYSER_OEUVRE_TERMS } from './analyser-oeuvre-terms.ts';
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -314,7 +318,7 @@ const A1_RAPPEL: Sec<'groupDrill'> = {
       it('fr.b2.litterature.1407', 'la voix'),
       it('fr.b2.litterature.1408', 'le regard'),
       it('fr.b2.litterature.1409', 'les mots'),
-    ], chk('Au B2, devant une page littéraire, tu posais trois questions. Laquelle ne sert pas devant un tableau ?', ['Qui raconte cette histoire ?', 'Avec quels moyens l’œuvre produit-elle cet effet ?'], 0,
+    ], chk('Au B2, devant une page littéraire, tu posais trois questions. De ces deux questions, laquelle ne sert pas devant un tableau ?', ['Qui raconte cette histoire ?', 'Avec quels moyens l’œuvre produit-elle cet effet ?'], 0,
       `${Cap(LITTERATURE_REF)} disait : « ${B230_REFRAME} » Un tableau n’a pas de narrateur ; la question des moyens, elle, vaut partout. EN: no narrator in a painting; the means always matter.`)),
     grp('Ce qu’elle t’a déjà appris', [
       it('fr.b2.litterature.1572', 'montrer pourquoi'),
@@ -565,7 +569,7 @@ const A3_PIEGE: Sec<'trapDrill'> = {
     { promptSay: 'Le personnage en pied, c’est un plan ... .', opts: ['moyen', 'fixe'], correct: 0 },
     { promptSay: 'Quand la caméra ne bouge pas, on parle de plan ... .', opts: ['large', 'fixe', 'serré'], correct: 1 },
     { promptSay: 'Le ... désigne les bords de l’image.', opts: ['cadre', 'montage'], correct: 0 },
-    { promptSay: 'Une scène peut contenir plusieurs ... .', opts: ['plans', 'cadres'], correct: 0 },
+    { promptSay: 'Une scène peut contenir plusieurs ... .', opts: ['plans', 'séquences'], correct: 0 },
     { promptSay: 'Filmé d’en bas, le personnage paraît souvent plus ... .', opts: ['petit', 'grand'], correct: 1 },
     { promptSay: 'Le plan d’ensemble sert souvent à ... le personnage.', opts: ['isoler', 'situer', 'cacher'], correct: 1 },
   ],
@@ -880,8 +884,8 @@ const A6_LECTURE: Sec<'reading'> = {
     { q: 'Quelles sont les deux questions à poser au son ?', a: 'D’où vient-il (de la scène ou ajouté) ? Et que fait-il (il souligne, il contredit, il se tait) ?' },
     { q: 'Quand les personnages entendent-ils la musique ?', a: 'Quand elle vient de la scène, par exemple d’une radio posée sur la table.' },
     { q: 'Quel effet produit une musique qui contredit l’image ?', a: 'Un décalage qui inquiète, comme une comptine sur une scène de violence.' },
-    { q: 'Comment l’équipe de « Pour la suite du monde » a-t-elle travaillé ?', a: 'Avec une caméra légère et le son direct, sans suivre de scénario écrit, à l’île aux Coudres, à partir de 1962.' },
-    { q: 'Qu’est-ce que ce film a d’historique ?', a: 'C’est le premier long métrage canadien présenté au Festival de Cannes, et un classique du cinéma direct.' },
+    { q: 'Comment l’équipe de « Pour la suite du monde » a-t-elle travaillé ?', a: 'Avec une caméra légère et le son direct, sans suivre de scénario écrit, à l’île aux Coudres, au début des années 1960.' },
+    { q: 'Qu’est-ce que ce film a d’historique ?', a: 'C’est le premier long métrage canadien présenté en compétition au Festival de Cannes, et un classique du cinéma direct.' },
   ],
   audio: REC('rec-c1-14-son'), say: REFRAME, terms: ['son', 'effet'],
 };
@@ -897,7 +901,7 @@ const A6_SON: Sec<'cardDeck'> = {
     { head: 'Le son ajouté', label: 'le public seul l’entend', fr: src(E(1280)).fr, sub: rsOf(E(1280)),
       body: 'Une musique d’accompagnement que personne ne joue dans le film. Elle oriente l’émotion. EN: added music steers the emotion.' },
     { head: 'La voix off', label: 'une voix sans visage', fr: src(E(1281)).fr, sub: rsOf(E(1281)),
-      body: 'Elle commente, raconte ou contredit l’image. On dit aussi « voix hors champ » quand le personnage parle hors du cadre. EN: a voice over the images.' },
+      body: 'Elle commente, raconte ou contredit l’image. À distinguer de la « voix hors champ » : un personnage de la scène qui parle hors du cadre. EN: a voice over the images, not an off-screen character.' },
     { head: 'Le silence', label: 'un son à part entière', fr: src(E(1282)).fr, sub: rsOf(E(1282)),
       body: 'Couper la musique, ou même les bruits, attire l’attention autant qu’un fracas. EN: silence draws attention too.' },
   ],
@@ -994,7 +998,7 @@ const A7_LECTURE: Sec<'reading'> = {
     { q: 'Où se trouve le modèle dans les portraits de Keïta ?', a: 'Presque toujours au centre, au premier plan, de face ou de trois quarts.' },
     { q: 'Qu’est-ce qui ferme l’arrière-plan ?', a: 'Un tissu à motifs tendu contre le mur : pas de paysage, pas de point de fuite.' },
     { q: 'Quel effet produit ce motif ?', a: 'Il répond à celui des vêtements : le regard circule d’un motif à l’autre avant de revenir au visage.' },
-    { q: 'Pourquoi les fonds permettent-ils de dater les tirages ?', a: 'Keïta a utilisé un couvre-lit à franges de 1948 à 1954, puis il a changé de tissu tous les quelques ans.' },
+    { q: 'Pourquoi les fonds permettent-ils de dater les tirages ?', a: 'Keïta a utilisé un couvre-lit à franges de 1948 à 1954, puis il a changé de tissu tous les deux à quatre ans.' },
     { q: 'En quoi le paysage peint s’oppose-t-il aux portraits ?', a: 'Les lignes convergent vers un point de fuite, la femme est décentrée, un grand vide de ciel isole la personne au lieu de la grandir.' },
   ],
   audio: REC('rec-c1-14-composition'), say: REFRAME, terms: ['composition', 'effet'],
@@ -1068,7 +1072,7 @@ const A7_CHECK = actCheck('a7-check', 'Le point : acte 7', [
   ctl('La perspective', 'La perspective crée...', ['l’illusion de la profondeur sur une surface plane', 'une couleur plus vive', 'un cadre plus large'], 0,
     'Grâce aux lignes qui convergent vers le point de fuite. EN: the illusion of depth.'),
   ctl('Keïta', 'Les fonds de Seydou Keïta permettent aujourd’hui...', ['de dater ses tirages', 'de connaître le nom des modèles'], 0,
-    'Il changeait de tissu tous les quelques ans. EN: they date the prints.'),
+    'Il changeait de tissu tous les deux à quatre ans. EN: they date the prints.'),
 ], ['composition']);
 
 const ACT7: ActDef = {
@@ -1304,7 +1308,7 @@ const A9_CRITIQUE = pourTaCritique('a9-critique', 'Un moyen, un effet', [
   grp('La phrase de ta critique', [
     it(E(1329), 'décrire le jeu'),
     it(E(1330), 'décrire la lumière'),
-  ], chk('Pour la kora du dernier plan de « Marée basse », tu peux écrire...', ['« après une heure et demie sans musique, cette kora prend un poids considérable »', '« la musique est jolie »'], 0,
+  ], chk('Pour la kora du dernier plan de « Marée basse », tu peux écrire...', ['« après près de deux heures sans musique, cette kora prend un poids considérable »', '« la musique est jolie »'], 0,
     'Le moyen, son contexte, son effet. EN: means, context, effect.')),
 ], ['moyens', 'effet']);
 
@@ -1363,11 +1367,11 @@ const A10_FORMULES: Sec<'tapTable'> = {
   cols: ['La formule', 'Ce qu’elle fait', 'Le registre'],
   rows: [
     { cells: ['certes… mais', 'accorder, puis objecter', 'soutenu'], say: src(E(1335)).fr,
-      detail: { title: 'Certes… mais', body: 'Tu accordes un point, puis tu fais valoir l’autre. Le second point pèse le plus. EN: grant, then the stronger point.', say: src(E(1335)).fr } },
+      detail: { title: 'Certes… mais', body: `Tu connais la forme depuis ${CONCESSION_B1_REF} et ${CONCESSION_B2_REF}. Dans une critique, elle accorde une qualité ou un défaut, puis fait valoir l’autre point, qui pèse le plus. EN: a known form, used here to weigh a work.`, say: src(E(1335)).fr } },
     { cells: ['si… en revanche', 'opposer deux parties', 'soutenu'], say: src(E(1336)).fr,
       detail: { title: 'Si… en revanche', body: 'Ce « si » ne pose pas une condition : il oppose. EN: this si contrasts, it is not a condition.', say: src(E(1336)).fr } },
     { cells: ['malgré…', 'reconnaître un défaut qui ne l’emporte pas', 'courant'], say: src(E(1337)).fr,
-      detail: { title: 'Malgré', body: 'Le défaut est dit, mais il ne renverse pas le jugement. EN: a flaw that does not win.', say: src(E(1337)).fr } },
+      detail: { title: 'Malgré', body: `Déjà vu dans ${CONCESSION_B1_REF}. Ici, le défaut est dit, mais il ne renverse pas le jugement. EN: a known form: a flaw that does not win.`, say: src(E(1337)).fr } },
     { cells: ['on peut regretter…', 'formuler une réserve', 'soutenu'], say: src(E(1338)).fr,
       detail: { title: 'On peut regretter', body: 'Une réserve dite sans brutalité, qui laisse au lecteur le droit de ne pas la partager. EN: a reservation, gently put.', say: src(E(1338)).fr } },
     { cells: ['…, sinon…', 'nuancer un adjectif', 'soutenu'], say: src(E(1342)).fr,
@@ -1502,7 +1506,7 @@ const A11_TRIER: Sec<'groupDrill'> = {
   title: 'Quelle partie de la critique', frSub: 'Des phrases à ranger',
   groups: [
     grp('Trois phrases', [
-      free('Au premier plan du film, un vélo couché dans la neige, qu’on ne relèvera jamais.', 'In the film’s first shot, a bicycle lying in the snow that no one will ever pick up.', 'une accroche'),
+      free('Dès la première image du film, un vélo couché dans la neige, qu’on ne relèvera jamais.', 'From the film’s very first image, a bicycle lying in the snow that no one will ever pick up.', 'une accroche'),
       free('Troisième long métrage de la cinéaste, le film suit deux sœurs qui rouvrent l’auberge familiale.', 'The director’s third feature follows two sisters reopening the family inn.', 'situer'),
       free('Au total, un film imparfait, mais qu’on n’oublie pas.', 'All in all, an imperfect film, but one you do not forget.', 'le verdict'),
     ], chk('« Troisième long métrage de la cinéaste… » appartient à...', ['l’accroche', 'la présentation de l’œuvre', 'le verdict'], 1,
@@ -1668,7 +1672,7 @@ const A12_SCENARIO: Sec<'scenario'> = {
       user: src(E(1368)).fr, userEn: 'The sound of the sea replaces music for almost the whole film. (Where the sound comes from.)',
       alts: [
         { fr: 'Il n’y en a presque pas : la mer et le vent en tiennent lieu.', en: 'There is almost none: the sea and the wind take its place.' },
-        { fr: 'Une seule musique, au dernier plan, après une heure et demie de silence.', en: 'Just one piece of music, in the last shot, after an hour and a half of silence.' },
+        { fr: 'Un seul air, au dernier plan, après près de deux heures sans musique.', en: 'Just one tune, in the last shot, after almost two hours without music.' },
       ],
     },
     {
@@ -1858,7 +1862,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('« La dernière scène dure quatre minutes, sans un mot. » C’est...', ['une observation', 'une impression', 'un jugement'], 0, 'Un fait que chacun peut vérifier. EN: an observation.', 'a2-etapes'),
         mc('Quel est l’ordre de l’analyse ?', ['impression, observation, effet, jugement', 'jugement, impression, effet, observation', 'effet, jugement, observation, impression'], 0, 'On ressent, on observe, on explique, puis on juge. EN: feel, observe, explain, judge.', 'a2-etapes'),
         mc('« Ce silence oblige le spectateur à tout imaginer. » La phrase décrit...', ['un effet', 'une observation', 'un résumé'], 0, 'Ce que le silence fait au spectateur. EN: an effect.', 'a2-trier'),
-        tI('Remplace « magnifique » par un adjectif précis et élogieux.', 'un final ... (qui frappe fortement)', 'saisissant', 'Saisissant : qui frappe vivement l’esprit. EN: striking.', 'a2-critique', ['frappant', 'impressionnant', 'un final saisissant', 'un final frappant', 'un final impressionnant']),
+        tI('Remplace « magnifique » par un adjectif précis et élogieux.', 'un final ... (qui frappe fortement)', 'saisissant', 'Saisissant : qui frappe vivement l’esprit. EN: striking.', 'a2-critique', ['frappant', 'impressionnant', 'marquant', 'un final saisissant', 'un final frappant', 'un final impressionnant', 'un final marquant']),
         tI('Écris l’adjectif qui reproche à une fin d’être sans surprise.', 'un dénouement ...', 'convenu', 'Convenu : attendu, conforme aux habitudes. EN: predictable.', 'a2-critique', ['prévisible', 'attendu', 'un dénouement convenu', 'un dénouement prévisible', 'un dénouement attendu']),
         eS('Une observation se ressent, une impression se vérifie.', 'Une impression se ressent, une observation se vérifie.', 'L’impression est intérieure ; l’observation est un fait. EN: impressions are felt, observations checked.', 'a2-trier', ['Une observation se vérifie, une impression se ressent.']),
         lC('Écoute. Quel temps de l’analyse entends-tu ?', src(E(1221)).fr, ['l’effet', 'l’observation', 'l’impression'], 0, 'Un effet nommé : le malaise. EN: the effect.', 'a2-trier'),
@@ -1874,7 +1878,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('Le mot « cadrage », employé pour un article, vient...', ['de l’image : la photographie et le cinéma', 'de la musique', 'du droit'], 0, `${Cap(PRESSE_REF)} l’employait au sens figuré. EN: from images.`, 'a3-trier'),
         tI('Écris l’adjectif.', 'Quand la caméra ne bouge pas, c’est un plan ... .', 'fixe', 'Le cadre reste immobile. EN: a static shot.', 'a3-plans', ['un plan fixe', 'plan fixe']),
         tI('Écris le nom de l’angle.', 'Une caméra placée en bas, tournée vers le haut, filme en ... .', 'contre-plongée', 'Contre-plongée : d’en bas. EN: a low angle.', 'a3-piege', ['une contre-plongée']),
-        eS('Le gros plan montre toute la rue et les passants.', 'Le plan d’ensemble montre toute la rue et les passants.', 'Toute la rue, c’est un plan large, un plan d’ensemble. EN: a wide shot.', 'a3-piege', ['Le plan large montre toute la rue et les passants.']),
+        eS('Le gros plan montre toute la rue et les passants.', 'Le plan d’ensemble montre toute la rue et les passants.', 'Toute la rue, c’est un plan large, un plan d’ensemble. EN: a wide shot.', 'a3-piege', ['Le plan large montre toute la rue et les passants.', 'Le plan général montre toute la rue et les passants.']),
         lC('Écoute. Quel plan est décrit ?', src(E(1236)).fr, ['un plan large qui situe', 'un détail isolé'], 0, 'Le plan d’ensemble situe dans un paysage. EN: a wide shot.', 'a3-plans'),
       ],
     },
@@ -1950,7 +1954,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('Une intensité qui augmente peu à peu, c’est...', ['un crescendo', 'une orchestration', 'une scénographie'], 0, 'Du très doux au très fort. EN: a crescendo.', 'a9-trier'),
         mc('Le décor, les objets et la lumière d’un spectacle relèvent de...', ['la scénographie', 'l’orchestration', 'le jeu'], 0, 'L’espace de la scène. EN: stage design.', 'a9-trier'),
         mc('En 1968, au Théâtre du Rideau Vert, « Les Belles-sœurs »...', ['fait entendre le joual sur une scène professionnelle', 'est le premier opéra québécois'], 0, 'La langue de tous les jours, sur scène. EN: joual on stage.', 'a9-lecture'),
-        tI('Écris le mot.', 'Le choix des instruments qui portent la musique : l’... .', 'orchestration', 'L’orchestration fait tout dans le Boléro. EN: orchestration.', 'a9-exemples', ['l’orchestration']),
+        tI('Écris le mot.', 'Le choix des instruments qui portent la musique : l’... .', 'orchestration', 'L’orchestration fait tout dans le Boléro ; « instrumentation » est aussi juste. EN: orchestration.', 'a9-exemples', ['l’orchestration', 'instrumentation', 'l’instrumentation']),
         tI('Écris le mot qui manque.', 'Au théâtre, un même texte change selon la mise en ... .', 'scène', 'La mise en scène organise le jeu et l’espace. EN: staging.', 'a9-exemples', ['mise en scène', 'la mise en scène', 'Au théâtre, un même texte change selon la mise en scène.']),
         eS('Le Boléro commence très fort et finit tout doucement.', 'Le Boléro commence très doucement et finit très fort.', 'C’est un long crescendo. EN: soft to loud.', 'a9-lecture', ['Le Boléro commence tout doucement et finit très fort.', 'Le Boléro commence très doucement et finit aussi fort que possible.', 'Le Boléro commence doucement et finit fort.']),
         lC('Écoute. De quel moyen parle-t-on ?', src(E(1330)).fr, ['de la scénographie', 'de l’orchestration'], 0, 'La lumière fait partie de la scénographie. EN: stage design.', 'a9-ecoute'),
@@ -2030,7 +2034,7 @@ const A12_ROUNDUP: Sec<'roundup'> = {
     'Pèse : accorde, nuance, tranche ; un défaut est peut-être un parti pris.',
     'Une critique accroche, situe sans divulgâcher et garde le verdict pour la fin.',
   ],
-  audio: AUDIO, say: REFRAME, terms: ['impression', 'jugement', 'critique'],
+  audio: AUDIO, say: REFRAME, terms: ['effet', 'jugement', 'critique'],
 };
 
 const ACT12: ActDef = {
@@ -2058,7 +2062,7 @@ const ACT12: ActDef = {
 
 const DRILL_LIST: LessonDrill[] = [
   { id: 'd-reaction', title: 'De l’émotion à la question', format: 'flashcard' as const, coach: 'Dis chaque phrase à voix haute : elles transforment une émotion en question. EN: say each line aloud.', items: [E(1201), E(1202), E(1203), E(1205), E(1207), E(1209)], audio: AUDIO },
-  { id: 'd-etapes', title: 'Quel temps de l’analyse', format: 'sort' as const, coach: 'Deux piles : une impression, ou une observation qui se vérifie ? EN: impression or observation?', buckets: ['une impression', 'une observation'], items: [E(1215), E(1216), E(1224), E(1219), E(1200), E(1243)], audio: AUDIO },
+  { id: 'd-etapes', title: 'Quel temps de l’analyse', format: 'sort' as const, coach: 'Deux piles : une impression, ou une observation qui se vérifie ? EN: impression or observation?', buckets: ['une impression', 'une observation'], items: [E(1215), E(1216), E(1224), E(1219), E(1200), E(1240)], audio: AUDIO },
   { id: 'd-plans', title: 'Le bon plan', format: 'mcq' as const, coach: 'Nomme le plan d’après ce qu’il montre. EN: name the shot from what it shows.', q: 'Pour faire sentir qu’une main tremble, tu choisis...', opts: ['un gros plan', 'un plan d’ensemble'], correct: 0, why: 'Le gros plan isole un détail. EN: a close-up.', items: [E(1230), E(1231), E(1232), E(1233), E(1234), E(1235)], audio: AUDIO },
   { id: 'd-champ', title: 'Dans le cadre ou autour', format: 'flashcard' as const, coach: 'Dis chaque phrase à voix haute : ce qu’on voit, puis ce qu’on ne voit pas. EN: inside the frame, then outside.', items: [E(1245), E(1246), E(1247), E(1250), E(1251), E(1252)], audio: AUDIO },
   { id: 'd-montage', title: 'Couper ou ne pas couper', format: 'mcq' as const, coach: 'Décris le passage d’un plan à l’autre. EN: describe the join.', q: 'Une scène entière filmée sans coupe est...', opts: ['un plan-séquence', 'un montage alterné'], correct: 0, why: 'Une seule prise, du début à la fin. EN: a sequence shot.', items: [E(1260), E(1261), E(1262), E(1263), E(1265), E(1268)], audio: AUDIO },
@@ -2138,7 +2142,7 @@ const SHEET_LIST: ReferenceSheet[] = [
     ]),
     table('sheet-cinema-montage', 'Le montage', ['Terme', 'Définition', 'Effet fréquent'], [
       ['un raccord', 'un passage invisible d’un plan à l’autre', 'la continuité'],
-      ['un faux raccord', 'une coupe qui se remarque', 'une rupture, un style (Godard, 1960)'],
+      ['un faux raccord', 'une rupture de continuité entre deux plans, qui se remarque', 'une erreur, ou un style (Godard, 1960)'],
       ['un plan-séquence (des plans-séquences)', 'une scène entière sans coupe', 'le temps réel'],
       ['le montage alterné', 'deux lieux ou deux actions en alternance', 'l’attente'],
       ['un montage rapide', 'des plans très courts', 'un rythme nerveux'],

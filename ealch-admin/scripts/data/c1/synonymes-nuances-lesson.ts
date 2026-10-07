@@ -384,7 +384,7 @@ const A1_RAPPEL: Sec<'groupDrill'> = {
       'La litote à l’oral appartient à la leçon 6 du C1. Ici, tu pèses la couleur des mots. EN: assumed known.')),
     ctl('Ce qui change ici', 'Le B1 t’a appris qu’aucun registre n’est faux. Ici, tu apprends surtout…',
       ['à choisir entre deux synonymes du même registre', 'à passer du familier au soutenu', 'à reconnaître le verlan'], 0,
-      `« ${B125_REFRAME} » Économe et avare sont tous deux courants, et pourtant ils jugent différemment. EN: ${B125_REFRAME_EN}`),
+      `« ${B125_REFRAME.replace(/'/g, '’')} » Économe et avare sont tous deux courants, et pourtant ils jugent différemment. EN: ${B125_REFRAME_EN}`),
   ],
   audio: AUDIO, say: REFRAME, terms: ['nuancier', 'registre'],
 };
@@ -650,8 +650,8 @@ const A3_ERREURS: Sec<'commonErrors'> = {
       why: 'Normal : les titres aiment les mots forts. Mais s’effondrer dit une baisse brutale ; deux pour cent, c’est un recul. EN: not a collapse.' },
     { wrong: 'Les inscriptions ont légèrement flambé cet automne.', right: fr(E(1231)),
       why: 'Normal : on cherche un verbe vivant. Mais flamber est brutal, et il monte ; une petite baisse, c’est fléchir. EN: fléchi.' },
-    { wrong: 'Depuis janvier, les loyers du quartier fléchissent fortement.', right: fr(E(1232)),
-      why: 'Normal : fléchir sonne savant. Mais il dit une baisse modérée ; une hausse brutale des loyers, c’est flamber. EN: flambent.' },
+    { wrong: 'Quarante pour cent de plus depuis janvier : les loyers du quartier fléchissent.', right: fr(E(1232)),
+      why: 'Normal : fléchir sonne savant. Mais fléchir dit une baisse ; une hausse brutale des loyers, c’est flamber. EN: flambent.' },
     { wrong: 'Les ventes s’effondrent depuis le printemps : elles ne bougent plus.', right: fr(E(1234)),
       why: 'Normal : on veut dire que ça va mal. Mais si les ventes ne bougent plus, elles stagnent. EN: stagnent.' },
   ],
@@ -810,7 +810,7 @@ const A4_FLASH: Sec<'flashcards'> = {
     { front: 'obstinate', back: 'obstiné', say: fr(E(1241)) },
     { front: 'overcautious, timid', back: 'timoré', say: fr(E(1243)) },
     { front: 'prying', back: 'indiscret', say: fr(E(1245)) },
-    { front: 'a ruthless social climber', back: 'un arriviste', say: fr(E(1246)) },
+    { front: 'a ruthless careerist', back: 'un arriviste', say: fr(E(1246)) },
   ],
   audio: AUDIO, say: REFRAME, terms: ['connotation'],
 };
@@ -1174,8 +1174,8 @@ const A7_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(1280), 'des revendications'),
       it(E(1286), 'poliment'),
     ], chk('Le comité présente ses demandes de façon précise. Il…',
-      ['formule ses revendications', 'pose ses revendications', 'tient ses revendications'], 0,
-      'On formule des revendications. Poser va avec question ; tenir avec promesse. EN: formulates.')),
+      ['formule ses revendications', 'dissipe ses revendications', 'tient ses revendications'], 0,
+      'Formuler, c’est exprimer avec précision : on formule des revendications. Dissiper va avec malentendu ; tenir avec promesse. EN: formulates.')),
     grp('Faire', [
       it(E(1283), 'une promesse'),
       it(E(1284), 'une enquête'),
@@ -1322,7 +1322,7 @@ const A8_PIEGE: Sec<'trapDrill'> = {
   title: 'Six intensifs de travers', frSub: 'Six cartes, huit phrases',
   rule: {
     title: 'L’intensif que le nom attend',
-    body: 'Chaque nom a ses intensifs habituels. Grièvement ne va qu’avec les blessures ; heavy ne se dit pas lourd pour un fumeur ou une majorité. Dans le doute, très reste correct. EN: each noun has its expected intensifier; très is always safe.',
+    body: 'Chaque mot a ses intensifs habituels. Grièvement ne va qu’avec les blessures ; heavy ne se dit pas lourd pour un fumeur ou une majorité. Dans le doute, très reste correct. EN: each word has its expected intensifier; très is always safe.',
   },
   cards: [
     trap(E(1303), 'grièvement', 'Sa grand-mère est grièvement malade depuis l’hiver.', 'Grièvement ne va qu’avec blessé et ses voisins. EN: gravement.'),
@@ -1695,7 +1695,7 @@ const A11_CARTES: Sec<'cardDeck'> = {
     { head: 'Il fait du tort', label: 'grave', fr: fr(E(1335)), sub: rsOf(E(1335)),
       body: 'Grave : qui a des conséquences sérieuses. Pour une erreur, une panne, une faute. EN: serious.' },
     { head: 'Le verbe précis', label: 'prononcer', fr: fr(E(1337)), sub: rsOf(E(1337)),
-      body: 'On prononce un discours, on exprime un avis, on occupe un poste. Faire, dire, avoir restent corrects à l’oral ; à l’écrit, le verbe précis dit plus. EN: the precise verb.' },
+      body: 'On prononce un discours, on exprime un avis, on occupe un poste. Faire, dire, avoir restent corrects ; à l’écrit surtout, le verbe précis dit plus. EN: the precise verb.' },
   ],
 };
 
@@ -2099,10 +2099,10 @@ const A12_QUIZ: Sec<'quiz'> = {
       questions: [
         mc('Économe et avare : quelle différence ?', ['économe loue, avare blâme', 'avare est plus soutenu', 'aucune'], 0, 'Le jugement change, pas la dépense. EN: praise or blame.', 'a4-cartes'),
         mc('D’une prudence excessive :', ['timoré', 'prudent', 'curieux'], 0, 'Timoré : le même trait, reproché. EN: timid.', 'a4-cartes'),
-        mc('Ambitieux sans scrupule :', ['arriviste', 'persévérant', 'économe'], 0, 'Arriviste : réussir à tout prix. EN: social climber.', 'a4-flash'),
+        mc('Ambitieux sans scrupule :', ['arriviste', 'persévérant', 'économe'], 0, 'Arriviste : réussir à tout prix. EN: ruthless careerist.', 'a4-flash'),
         mc('Dans un discours d’adieu qui remercie : « Elle a relancé le dossier jusqu’au bout ; elle était … »', ['persévérante', 'obstinée'], 0, 'Le mot qui loue la même insistance. EN: persevering.', 'a4-piege'),
-        tI(MOT, 'Entre amis, pour dire avare : il est ___ . (familier)', 'radin', 'Radin : avare, en familier. EN: stingy.', 'a4-construire', ['pingre', 'rapiat', 'chiche', 'grippe-sou']),
-        tI(MOT, 'Une question ___ : elle insiste sur ce qu’on veut taire.', 'indiscrète', 'Indiscret : qui cherche à savoir ce qu’on ne veut pas dévoiler. EN: prying.', 'a4-cartes'),
+        tI(MOT, 'Entre amis, pour dire avare : il est ___ . (familier)', 'radin', 'Radin : avare, en familier. EN: stingy.', 'a4-construire', ['pingre', 'rapiat', 'rat', 'grigou', 'grippe-sou']),
+        tI(MOT, 'Une question ___ : elle insiste sur ce qu’on veut taire.', 'indiscrète', 'Indiscret : qui cherche à savoir ce qu’on ne veut pas dévoiler. EN: prying.', 'a4-cartes', ['intrusive', 'inquisitrice']),
         eS('Avare, elle refuse de payer plus cher pour la même chose : bravo.', 'Économe, elle refuse de payer plus cher pour la même chose : bravo.', 'Un bravo appelle le mot qui loue. EN: économe.', 'a4-piege'),
         lC('Écoute. Cette phrase loue-t-elle ou blâme-t-elle ?', fr(E(1247)), ['elle loue', 'elle blâme'], 0, 'Économe approuve. EN: it praises.', 'a4-construire'),
       ],
@@ -2127,7 +2127,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('« Ajuster les effectifs » veut souvent dire…', ['licencier', 'embaucher'], 0, 'La formule masque des licenciements. EN: lay off.', 'a6-table'),
         mc('Décéder appartient au registre…', ['soutenu', 'familier'], 0, 'Soutenu, souvent par euphémisme. EN: formal.', 'a6-table'),
         mc('Dans le communiqué, l’« incident technique » était…', ['un début d’incendie', 'une panne de courant'], 0, 'L’article le dit. EN: a small fire.', 'a6-lecture'),
-        tI(MOT, 'Madame Roy ___ décédée le 3 mars.', 'est', 'Décéder se conjugue avec être. EN: est.', 'a6-piege'),
+        tI(MOT, 'Madame Roy ___ décédée le 3 mars.', 'est', 'Décéder se conjugue avec être. EN: est.', 'a6-piege', ['était']),
         tI(MOT, 'Il s’est ___ dans la nuit, entouré des siens. (euphémisme de mourir)', 'éteint', 'S’éteindre : un euphémisme doux. EN: slipped away.', 'a6-piege', ['endormi']),
         eS('Madame Roy a décédé le 3 mars, à Rimouski.', fr(E(1268)), 'Décéder se conjugue avec être. EN: est décédée.', 'a6-piege', ['Madame Roy est morte le 3 mars, à Rimouski.']),
         lC('Écoute. Que dit cette phrase de la restructuration ?', fr(E(1273)), ['qu’elle cache des licenciements', 'qu’elle crée des postes'], 0, 'Quarante postes supprimés. EN: it hides lay-offs.', 'a6-construire'),
@@ -2180,7 +2180,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('Un char, d’après Usito :', ['critiqué comme non standard', 'standard'], 0, 'Anglicisme critiqué. EN: criticised.', 'a10-cartes'),
         mc('Le mot courriel…', ['est né au Québec et recommandé en France', 'est un anglicisme critiqué'], 0, 'D’origine québécoise. EN: born in Québec.', 'a10-cartes'),
         tI(MOT, 'Dans un rapport, à la place de char : une ___ .', 'voiture', 'Usito propose voiture, auto, automobile. EN: car.', 'a10-erreurs', ['automobile', 'auto']),
-        tI(MOT, 'Dans un formulaire, à la place de ma blonde : ma ___ .', 'conjointe', 'Le mot standard. EN: partner.', 'a10-erreurs', ['partenaire', 'compagne', 'épouse', 'femme', 'amie']),
+        tI(MOT, 'Dans un formulaire, à la place de ma blonde : ma ___ .', 'conjointe', 'Le mot standard. EN: partner.', 'a10-erreurs', ['partenaire', 'compagne', 'épouse', 'femme', 'amie', 'petite amie']),
         eS('Rapport annuel : trois chars de service ont été achetés.', 'Rapport annuel : trois voitures de service ont été achetées.', 'À l’écrit officiel, voiture. EN: voitures.', 'a10-erreurs', ['Rapport annuel : trois automobiles de service ont été achetées.', 'Rapport annuel : trois autos de service ont été achetées.', 'Rapport annuel : trois véhicules de service ont été achetés.']),
         lC('Écoute. Quel mot rend cette phrase familière ?', fr(BLONDE_ROW), ['blonde', 'magasiner'], 0, 'Magasiner est standard au Québec ; blonde est familier. EN: blonde.', 'a10-construire'),
       ],
@@ -2201,7 +2201,7 @@ const A12_QUIZ: Sec<'quiz'> = {
     {
       id: 'r12-recyclage', label: 'Le B1, le B2 et le C1 en renfort', targets: ['recyclage'],
       questions: [
-        mc(`${Cap(REGISTRES_REF)} : « bagnole » dans un courriel à ta banque, c’est…`, ['un mauvais choix, pas une faute', 'une faute'], 0, `« ${B125_REFRAME} » EN: ${B125_REFRAME_EN}`, 'a1-rappel'),
+        mc(`${Cap(REGISTRES_REF)} : « bagnole » dans un courriel à ta banque, c’est…`, ['un mauvais choix, pas une faute', 'une faute'], 0, `« ${B125_REFRAME.replace(/'/g, '’')} » EN: ${B125_REFRAME_EN}`, 'a1-rappel'),
         mc(`${Cap(EMOTIONS_REF)} : dans l’échelle de la colère, juste après agacé, vient…`, ['énervé', 'furieux'], 0, 'Agacé, énervé, en colère, furieux. EN: énervé.', 'a1-rappel'),
         mc(`${Cap(SCIENCE_REF)} : « les ventes ont reculé de cinq pour cent » décrit…`, ['une baisse mesurée', 'un effondrement'], 0, 'Reculer : une baisse que l’on mesure. EN: a measured fall.', 'a3-table'),
         mc(`${Cap(ARGOT_REF)} : le suffixe -ard est souvent…`, ['péjoratif', 'mélioratif'], 0, `« ${B232_REFRAME} » EN: ${B232_REFRAME_EN}`, 'a5-construire'),

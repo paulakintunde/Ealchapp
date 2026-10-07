@@ -284,7 +284,7 @@ const MENT = {
 const A1_SCENE: Sec<'scene'> = {
   type: 'scene', id: 'a1-scene', render: 'screens', layer: 'core',
   title: 'Une phrase pour le registre', frSub: 'La Soirée des témoins',
-  setting: { place: 'La salle paroissiale de Sainte-Ondine-du-Lac', city: 'Sainte-Ondine-du-Lac', time: 'mardi, 19 h 30', ambience: 'des chaises pliantes, un micro, des photos de la crue au mur, un registre ouvert' },
+  setting: { place: 'La salle paroissiale de Sainte-Ondine-du-Lac', city: 'Sainte-Ondine-du-Lac', time: 'lundi 9 mars, 19 h 30', ambience: 'des chaises pliantes, un micro, des photos de la crue au mur, un registre ouvert' },
   beats: [
     { kind: 'narration', text: 'Sainte-Ondine-du-Lac, au Québec. La Société d’histoire recueille les souvenirs de la crue d’avril 1976, pour ses cinquante ans. M. Gérard Lavoie, quatre-vingt-huit ans, vient de raconter un dimanche matin, l’eau jusqu’aux marches de l’église. Les archives disent mardi, et le bureau de poste.', size: 'md', audio: AUDIO },
     { kind: 'bubble', from: 'them', speaker: 'Un homme au fond', fr: 'Alors il ment, tout simplement.', en: 'So he is just lying.', respell: '[a-LOR eel MAHⁿ | too sehⁿ-pluh-MAHⁿ]', stage: 'Plusieurs têtes se tournent vers M. Lavoie.', size: 'md', audio: AUDIO },
@@ -496,7 +496,7 @@ const A2_PIEGE: Sec<'trapDrill'> = {
     { promptSay: 'Ce récit est … : tout s’est passé ainsi.', opts: ['véridique', 'vraisemblable'], correct: 0 },
     { promptSay: 'Un témoin peut être … et se tromper.', opts: ['sincère', 'véridique'], correct: 0 },
     { promptSay: 'C’est …, et pourtant c’est vrai.', opts: ['invraisemblable', 'insincère'], correct: 0 },
-    { promptSay: 'En toute …, je ne m’en souviens plus.', opts: ['sincérité', 'vérité'], correct: 0 },
+    { promptSay: 'En toute …, je ne m’en souviens plus.', opts: ['sincérité', 'véracité'], correct: 0 },
     { promptSay: 'Le journaliste a vérifié la … des faits.', opts: ['véracité', 'sincérité'], correct: 0 },
   ],
   steps: STEPS('Sincère pèse la personne', 'Six phrases à redresser'),
@@ -669,7 +669,7 @@ const A3_CHECK = actCheck('a3-check', 'Le point : acte 3', [
     'On sait, et l’on se tait. EN: lying by omission.'),
   ctl('La chose', 'Un panneau ambigu peut…',
     ['induire en erreur', 'mentir'], 0,
-    'Une chose induit en erreur ; une personne ment. EN: mislead.'),
+    'Une chose ne ment pas : elle induit en erreur. EN: mislead.'),
 ], ['mensonge']);
 
 const ACT3: ActDef = {
@@ -1049,7 +1049,7 @@ const A6_PIEGE: Sec<'trapDrill'> = {
     { promptSay: 'Avoir … d’un risque : le savoir.', opts: ['conscience', 'mauvaise conscience'], correct: 0 },
     { promptSay: 'La … l’empêche de dormir.', opts: ['culpabilité', 'faute'], correct: 0 },
     { promptSay: 'Il ne ressent ni honte ni … .', opts: ['remords', 'remord'], correct: 0 },
-    { promptSay: 'Elle travaille avec une grande conscience … .', opts: ['professionnelle', 'morale'], correct: 0 },
+    { promptSay: 'Elle travaille avec une grande … professionnelle.', opts: ['conscience', 'déontologie'], correct: 0 },
   ],
   steps: STEPS('Le remords pèse une faute', 'Six phrases à redresser'),
   audio: REC('rec-c1-16-piege-remords'), say: REFRAME, terms: ['remords'],
@@ -1076,9 +1076,9 @@ const A6_TEXTE = dansUnTexte('a6-texte', 'Lire : une lettre au magazine', TEXTE_
 ], 'rec-c1-16-texte-a6', ['remords']);
 
 const A6_CHECK = actCheck('a6-check', 'Le point : acte 6', [
-  ctl('La faute', 'Une faute commise, qui ronge, donne…',
+  ctl('La faute', 'Pour une faute commise qui ronge, le mot le plus précis est…',
     ['des remords', 'des regrets', 'de la nostalgie'], 0,
-    'Le remords pèse une faute. EN: remorse.'),
+    'Regret n’est pas faux, mais remords est le mot précis : il pèse une faute. EN: remorse, the precise word.'),
   ctl('Le savoir', '« Il a conscience des risques » veut dire…',
     ['il les connaît', 'il se sent coupable'], 0,
     'Avoir conscience de : savoir. EN: he is aware of them.'),
@@ -1310,20 +1310,20 @@ const A8_PIEGE: Sec<'trapDrill'> = {
   cards: [
     trap(E(1301), 'sans voix : sublime', 'Devant la chute, nous sommes restés sans voix : c’était joli.', 'Rester sans voix devant une chute, c’est le sublime ; joli serait trop faible. EN: sublime.'),
     trap(E(1300), 'joli, sans plus', 'C’est sublime, sans plus.', 'Sublime et sans plus se contredisent. EN: joli.'),
-    trap(E(1303), 'un beau geste', 'Il a eu le joli geste de rendre l’argent.', 'L’expression figée est le beau geste : le beau dit le bien. EN: beau geste.'),
+    trap(E(1303), 'un beau geste', 'Il a eu la belle geste de rendre l’argent.', 'Geste est masculin : le beau geste, où beau dit le bien. On dit aussi un joli geste. EN: masculine.'),
     trap(E(1306), 'embellir', 'Avec les années, il a embelli de ses souvenirs.', 'Embellir quelque chose, sans de. EN: embellir ses souvenirs.'),
     trap(E(1305), 'une beauté austère', 'Cette chapelle est d’une joliesse austère.', 'Austère va mal avec le joli ; la sobriété grave relève du beau. EN: beauté.'),
-    trap(E(1295), 'un joli petit village', 'un sublime petit village', 'Petit, plaisant, à taille humaine : joli. Sublime dit une grandeur qui dépasse. EN: joli.'),
+    trap(E(1295), 'un joli petit village', 'un grandiose petit village', 'Petit, plaisant, à taille humaine : joli. Grandiose et petit se contredisent. EN: joli.'),
   ],
   drill: [
     { promptSay: 'C’est …, sans plus.', opts: ['joli', 'sublime'], correct: 0 },
     { promptSay: 'Nous sommes restés sans voix : c’était … .', opts: ['sublime', 'joli'], correct: 0 },
-    { promptSay: 'Il a eu le … geste de rendre l’argent.', opts: ['beau', 'joli'], correct: 0 },
+    { promptSay: 'Il a eu le … geste de rendre l’argent.', opts: ['beau', 'bel'], correct: 0 },
     { promptSay: 'Le joli plaît, le beau s’admire, le sublime … .', opts: ['saisit', 'amuse'], correct: 0 },
     { promptSay: 'Avec les années, il a … ses souvenirs.', opts: ['embelli', 'beauté'], correct: 0 },
     { promptSay: 'Cette chapelle est d’une beauté … .', opts: ['austère', 'mignonne'], correct: 0 },
     { promptSay: 'Le sentiment du … mêle admiration et effroi.', opts: ['sublime', 'joli'], correct: 0 },
-    { promptSay: 'Un … petit village, aux maisons colorées.', opts: ['joli', 'sublime'], correct: 0 },
+    { promptSay: 'Un … petit village, aux maisons colorées.', opts: ['joli', 'grandiose'], correct: 0 },
   ],
   steps: STEPS('Le joli plaît, le sublime saisit', 'Six phrases à redresser'),
   audio: REC('rec-c1-16-piege-beau'), say: REFRAME, terms: ['sublime'],
@@ -1357,7 +1357,7 @@ const A8_CHECK = actCheck('a8-check', 'Le point : acte 8', [
     ['sublime', 'joli', 'gracieux'], 0,
     'Le sublime saisit. EN: sublime.'),
   ctl('Le bien', 'Rendre l’argent trouvé, c’est…',
-    ['un beau geste', 'un joli geste d’artiste'], 0,
+    ['un beau geste', 'un geste d’artiste'], 0,
     'Beau dit aussi le bien. EN: a fine gesture.'),
 ], ['sublime']);
 
@@ -1595,7 +1595,7 @@ const A10_FOCUS: Sec<'focus'> = {
   type: 'focus', id: 'a10-focus', layer: 'core', sheetId: 'sheet-memoire',
   title: 'Ce qu’il faut retenir sur la mémoire',
   points: [
-    'Le souvenir appartient à une personne ; la mémoire peut être celle d’un groupe. EN: a souvenir is one person’s, memory can be a group’s.',
+    'Un souvenir est d’abord celui d’une personne ; la mémoire peut être celle d’un groupe. EN: a recollection is first one person’s; memory can be a group’s.',
     'Se souvenir de quelque chose ; à l’écrit soigné, se rappeler quelque chose. EN: se souvenir de; se rappeler, without de, in careful writing.',
     'À la mémoire de, pour honorer ; en souvenir de, plus intime. EN: in memory of; as a keepsake of.',
     'Un trou de mémoire n’est pas un mensonge. EN: a memory lapse is not a lie.',
@@ -1618,7 +1618,7 @@ const A10_CHECK = actCheck('a10-check', 'Le point : acte 10', [
     ['avec de', 'sans préposition'], 0,
     'Se souvenir de quelque chose. EN: with de.'),
   ctl('L’hommage', 'Sur une plaque, pour honorer des victimes, on écrit…',
-    ['à la mémoire des victimes', 'au souvenir des victimes'], 0,
+    ['à la mémoire des victimes', 'en mémoire aux victimes'], 0,
     'La formule consacrée : à la mémoire de. EN: in memory of the victims.'),
 ], ['souvenir']);
 
@@ -1630,7 +1630,7 @@ const ACT10: ActDef = {
       imageRef: 'lessons/notions-morales/act10.jpg',
     },
     sections: [],
-    milestone: 'Tu dis souvenir pour une personne, mémoire pour un groupe, et tu choisis la construction selon le registre. EN: You say souvenir for one person, mémoire for a group, and choose the construction by register.',
+    milestone: 'Tu dis souvenir pour ce qui revient à une personne, mémoire pour la faculté ou un groupe, et tu choisis la construction selon le registre. EN: You say souvenir for what comes back to one person, mémoire for the faculty or a group, and choose the construction by register.',
     estScreens: 40, restPoints: ['a10-cartes', 'a10-erreurs'],
   },
   sections: [A10_LECTURE, A10_CARTES, A10_CONSTRUIRE, A10_ERREURS, A10_FOCUS, A10_TEXTE, A10_CHECK],
@@ -1671,7 +1671,7 @@ const A11_TABLE: Sec<'tapTable'> = {
     { cells: ['le devoir de mémoire', 'l’obligation de se souvenir', 'courant'], say: fr(E(1346)),
       detail: { title: 'Le devoir de mémoire', body: 'L’idée qu’une société doit se souvenir de certains drames. Le mot est très employé ; certains lui préfèrent travail de mémoire. EN: the duty to remember.', say: fr(E(1346)) } },
     { cells: ['le travail de mémoire', 'comprendre un passé difficile', 'soutenu'], say: fr(E(1339)),
-      detail: { title: 'Le travail de mémoire', body: 'Un effort pour comprendre et intégrer le passé, plutôt que de seulement s’en souvenir. Le philosophe Paul Ricœur a réfléchi à ces mots dans La Mémoire, l’histoire, l’oubli (2000). EN: the work of remembrance.', say: fr(E(1350)) } },
+      detail: { title: 'Le travail de mémoire', body: 'Un effort pour comprendre et intégrer le passé, plutôt que de seulement s’en souvenir. Le philosophe Paul Ricœur a réfléchi à ces mots dans La Mémoire, l’histoire, l’oubli (2000). EN: the work of remembrance.', say: fr(E(1351)) } },
     { cells: ['un lieu de mémoire', 'où un groupe reconnaît son passé', 'soutenu'], say: fr(E(1340)),
       detail: { title: 'Un lieu de mémoire', body: 'Un lieu, un objet, une date : un monument aux morts, un drapeau, une fête nationale. EN: a site of memory.', say: fr(E(1349)) } },
     { cells: ['une loi mémorielle', 'une loi qui qualifie le passé', 'soutenu'], say: fr(E(1341)),
@@ -1691,7 +1691,7 @@ const A11_CONSTRUIRE: Sec<'groupDrill'> = {
       it('fr.b1.evenements-familiaux.021', 'des souvenirs partagés'),
     ], chk('Au Canada, le 11 novembre s’appelle…',
       ['le jour du Souvenir', 'la fête du Souvenir'], 0,
-      'Le jour du Souvenir rappelle l’armistice de 1918. EN: Remembrance Day.')),
+      'Le jour du Souvenir, date de l’armistice de 1918, honore ceux qui sont morts au service du pays. EN: Remembrance Day.')),
     grp('L’histoire établit et vérifie', [
       it(E(1347), 'chercher ce qui s’est passé'),
       it(E(1346), 'le devoir et le travail'),
@@ -1999,7 +1999,7 @@ const A12_CHEAT: Sec<'cheatSheet'> = {
     { k: 'joli, sublime', v: 'plaire, saisir', say: fr(E(1304)),
       detail: { title: 'Le beau', body: 'Le joli plaît, le beau s’admire, le sublime saisit. Un jugement de goût se discute ; avoir beau, c’est en vain. EN: pretty, beautiful, sublime.', say: fr(E(1319)) } },
     { k: 'souvenir, histoire', v: 'une personne, des sources', say: fr(E(1348)),
-      detail: { title: 'La mémoire', body: 'Le souvenir est à une personne, la mémoire peut être à un groupe, l’histoire vérifie. On commémore un drame, on fête une réussite. EN: memory, history, commemoration.', say: fr(E(1344)) } },
+      detail: { title: 'La mémoire', body: 'Le souvenir est d’abord à une personne, la mémoire peut être à un groupe, l’histoire vérifie. On commémore un drame, on fête une réussite. EN: memory, history, commemoration.', say: fr(E(1344)) } },
   ],
   audio: AUDIO, say: REFRAME, terms: ['balance'],
 };
@@ -2128,7 +2128,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('« Rien n’est beau que le vrai » est un vers…', ['de Boileau', 'd’une chanson récente'], 0, 'Boileau, Épître IX, au XVIIe siècle. EN: Boileau.', 'a8-exemples'),
         tI(MOT, 'C’est ___ , sans plus. (plaisant, léger)', 'joli', 'Joli, sans plus : un plaisir léger. EN: pretty.', 'a8-piege', ['mignon', 'gentil', 'sympathique', 'sympa', 'agréable', 'plaisant']),
         tI(MOT, 'Avec les années, il a ___ ses souvenirs. (rendu plus beaux)', 'embelli', 'Embellir un souvenir. EN: prettied up.', 'a8-piege', ['enjolivé', 'idéalisé', 'magnifié']),
-        eS('Il a eu le joli geste de rendre l’argent.', fr(E(1303)), 'L’expression figée : le beau geste. EN: beau geste.', 'a8-piege', ['Il a eu la générosité de rendre l’argent.', 'Il a eu l’élégance de rendre l’argent.']),
+        eS('Il a eu la belle geste de rendre l’argent.', fr(E(1303)), 'Geste est masculin : le beau geste (on dit aussi le joli geste). EN: masculine.', 'a8-piege', ['Il a eu le joli geste de rendre l’argent.', 'Il a eu la générosité de rendre l’argent.', 'Il a eu l’élégance de rendre l’argent.']),
         lC('Écoute. Qu’ont-ils ressenti devant la chute ?', fr(E(1301)), ['un saisissement', 'un plaisir léger'], 0, 'Sans voix : le sublime. EN: awe.', 'a8-ecoute'),
       ],
     },
@@ -2162,7 +2162,7 @@ const A12_QUIZ: Sec<'quiz'> = {
       id: 'r11-commemorer', label: 'Commémorer, se souvenir', targets: ['commemoration-confondue'],
       questions: [
         mc('Pour une crue meurtrière, la ville…', ['commémore', 'fête'], 0, 'Un drame se commémore. EN: commemorates.', 'a11-table'),
-        mc('Au Canada, le 11 novembre est…', ['le jour du Souvenir', 'la fête nationale'], 0, 'Il rappelle l’armistice de 1918. EN: Remembrance Day.', 'a11-construire'),
+        mc('Au Canada, le 11 novembre est…', ['le jour du Souvenir', 'la fête nationale'], 0, 'Date de l’armistice de 1918, il honore ceux qui sont morts au service du pays. EN: Remembrance Day.', 'a11-construire'),
         mc('Établir les faits par des sources, c’est le rôle…', ['de l’histoire', 'de la mémoire', 'de la commémoration'], 0, 'L’histoire établit. EN: of history.', 'a11-histoire'),
         mc('Une loi qui qualifie officiellement un fait du passé s’appelle…', ['une loi mémorielle', 'une loi mémorable'], 0, 'Mémoriel : qui concerne la mémoire collective. EN: a memory law.', 'a11-table'),
         tI(MOT, 'Une cérémonie ___ aura lieu le 13 avril. (qui commémore)', 'commémorative', 'L’adjectif : commémorative. EN: commemorative.', 'a11-piege', ['du souvenir']),
@@ -2428,7 +2428,7 @@ const SHEET_LIST: ReferenceSheet[] = [
   ]),
   sheet('sheet-memoire', 'Le souvenir, la mémoire, l’histoire', ['souvenir et mémoire', 'commémorer et fêter', 'histoire et mémoire'], [
     teach('sheet-memoire-teach', 'Garder, rappeler, vérifier',
-      'Le souvenir appartient à une personne ; la mémoire est la faculté de se souvenir, et ce qu’un groupe garde. On se souvient de quelque chose ; à l’écrit soigné, on se rappelle quelque chose (se rappeler de est attesté depuis le XVIIIe siècle et courant à l’oral, mais les grammairiens restent réticents, selon l’OQLF). On commémore un drame, on fête une réussite ; célébrer peut dire les deux. L’histoire établit les faits par des sources ; la mémoire dit ce qu’un groupe en retient. Le philosophe Paul Ricœur a consacré à ces questions La Mémoire, l’histoire, l’oubli (Seuil, 2000), où il cherche un équilibre entre trop et trop peu de mémoire. EN: a souvenir is one person’s, memory a group’s; history establishes, memory retains.'),
+      'Un souvenir est d’abord celui d’une personne (le souvenir collectif vit dans quelques formules : le jour du Souvenir) ; la mémoire est la faculté de se souvenir, et ce qu’un groupe garde. On se souvient de quelque chose ; à l’écrit soigné, on se rappelle quelque chose (se rappeler de est attesté depuis le XVIIIe siècle et courant à l’oral, mais les grammairiens restent réticents, selon l’OQLF). On commémore un drame, on fête une réussite ; célébrer peut dire les deux. L’histoire établit les faits par des sources ; la mémoire dit ce qu’un groupe en retient. Le philosophe Paul Ricœur a consacré à ces questions La Mémoire, l’histoire, l’oubli (Seuil, 2000), où il cherche un équilibre entre trop et trop peu de mémoire. EN: a recollection is first one person’s, memory can be a group’s; history establishes, memory retains.'),
     table('sheet-memoire-mots', 'Souvenir et mémoire', ['Expression', 'Sens', 'Exemple'], [
       ['le souvenir', 'ce qui revient à une personne', 'Mes souvenirs de la crue sont flous.'],
       ['la mémoire', 'la faculté ; ce que garde un groupe', 'la mémoire du village'],
@@ -2436,7 +2436,7 @@ const SHEET_LIST: ReferenceSheet[] = [
       ['se rappeler', 'sans de à l’écrit soigné', 'Je me rappelle très bien cette journée.'],
       ['à la mémoire de', 'pour honorer un disparu', 'une plaque à la mémoire des sinistrés'],
       ['de mémoire d’homme', 'aussi loin qu’on se souvienne', 'De mémoire d’homme, l’eau n’était jamais montée si haut.'],
-      ['un trou de mémoire', 'un oubli passager (familier)', 'J’ai eu un trou de mémoire.'],
+      ['un trou de mémoire', 'un oubli passager', 'J’ai eu un trou de mémoire.'],
       ['mémorable / un mémorial', 'dont on se souviendra / un monument', 'une soirée mémorable'],
     ]),
     table('sheet-memoire-publique', 'La mémoire publique', ['Expression', 'Sens', 'Remarque'], [
@@ -2446,7 +2446,7 @@ const SHEET_LIST: ReferenceSheet[] = [
       ['le travail de mémoire', 'comprendre un passé difficile', 'soutenu'],
       ['un lieu de mémoire', 'où un groupe reconnaît son passé', 'monument, date, objet'],
       ['une loi mémorielle', 'une loi qui qualifie un fait du passé', 'en France, par exemple la loi du 21 mai 2001 sur la traite et l’esclavage ; le terme décrit, et le sujet a fait débat'],
-      ['le jour du Souvenir', 'le 11 novembre au Canada', 'rappelle l’armistice de 1918'],
+      ['le jour du Souvenir', 'le 11 novembre au Canada', 'date de l’armistice de 1918 ; honore ceux qui sont morts au service du pays'],
     ]),
     teach('sheet-memoire-debat', 'Un mot de prudence',
       'En 2008, une mission d’information de l’Assemblée nationale française a réfléchi aux questions mémorielles et à la distinction entre histoire et mémoire. Cette leçon t’apprend les mots de ce débat, pas une position : quand tu lis loi mémorielle ou devoir de mémoire, demande-toi qui parle, et ce que le mot pèse. EN: this lesson teaches the words of the debate, not a position.'),
@@ -2478,7 +2478,7 @@ const SHEET_LIST: ReferenceSheet[] = [
       ['intègre / intégral', 'une personne / un tout'],
       ['joli / sublime', 'plaire / saisir'],
       ['goût / preuve', 'se discute / se démontre'],
-      ['souvenir / mémoire', 'une personne / un groupe'],
+      ['souvenir / mémoire', 'une personne / la faculté, un groupe'],
       ['commémorer / fêter', 'un drame / une réussite'],
     ]),
   ]),
