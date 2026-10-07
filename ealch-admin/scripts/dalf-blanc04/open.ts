@@ -215,7 +215,7 @@ const SYNTHESE_MODEL =
   'Habitués à un code partagé, certains parents ne savent plus si leur enfant progresse, ' +
   'et le jargon des bilans pénalise surtout ceux qui maîtrisent mal le vocabulaire scolaire, au risque d’aggraver les inégalités. ' +
   'Comme les notes réapparaissent lorsque se joue l’orientation, leur suppression peut aussi ne faire que différer le choc. ' +
-  'Deux pistes sont enfin avancées : indiquer précisément ce qui est acquis et ce qu’il reste à faire, et rédiger pour les parents quelques phrases claires.';
+  'Les documents avancent deux pistes : indiquer précisément ce qui est acquis et ce qu’il reste à faire, et rédiger pour les parents quelques phrases claires.';
 
 export const PE_SYNTHESE: ExamTask = {
   ...base,
@@ -322,17 +322,17 @@ const ESSAI_MODEL =
   'jusqu’à ne plus rendre ses devoirs plutôt que de risquer un nouveau zéro. ' +
   'Si un bilan précis peut lui montrer ce qu’il a déjà acquis et ce qu’il lui reste à travailler, nous y sommes favorables.\n\n' +
   'Cependant, une évaluation n’est utile que si elle est comprise. ' +
-  'Or, lors de notre réunion du mois dernier, plusieurs familles nous ont confié qu’elles ne savaient pas lire les livrets actuels, ' +
+  'Or, lors de notre réunion du mois dernier, plusieurs familles nous ont confié qu’elles avaient eu du mal à lire les bilans de compétences reçus à l’école élémentaire, ' +
   'remplis de formules techniques. Ce sont souvent les parents les plus éloignés de l’école, ceux qui auraient le plus besoin d’être informés. ' +
   'Une réforme qui les laisserait de côté manquerait son but.\n\n' +
-  'Nous vous demandons donc, premièrement, que chaque bilan commence par trois ou quatre phrases rédigées en termes simples, ' +
+  'Nous vous demandons donc, premièrement, que chaque bilan commence par trois ou quatre phrases simples, ' +
   'indiquant ce que l’élève maîtrise, ce qu’il doit travailler en priorité et la façon dont les familles peuvent l’aider. ' +
   'Deuxièmement, qu’une réunion d’explication soit proposée à tous les parents avant la fin du premier trimestre, à des horaires compatibles avec le travail. ' +
-  'Troisièmement, que l’on prépare dès la quatrième le retour des notes, afin que nos enfants ne les découvrent pas brutalement au moment de leur orientation.\n\n' +
+  'Troisièmement, que le retour des notes en quatrième soit préparé dès la fin de la cinquième, afin que nos enfants ne les découvrent pas brutalement à l’approche de leur orientation.\n\n' +
   'Certains objecteront que ces mesures alourdiront la tâche des professeurs. ' +
   'Nous le savons et nous sommes prêts à y contribuer en aidant à organiser les réunions. ' +
   'Mais une réforme qui changerait l’évaluation sans changer la manière de la communiquer ne ferait que déplacer les difficultés.\n\n' +
-  'Nous vous prions d’agréer, Madame la Principale, Mesdames et Messieurs, l’expression de notre profond respect.\n\n' +
+  'Je vous prie d’agréer, Madame la Principale, Mesdames et Messieurs, l’expression de ma respectueuse considération.\n\n' +
   'La représentante des parents d’élèves';
 
 export const PE_ESSAI: ExamTask = {
@@ -556,7 +556,7 @@ const PO1_DOC_2 =
   'Quand une municipalité parle des enfants, elle pense presque toujours aux moins de dix ans : ceux qu’on emmène au square et dont on photographie le sourire sur les affiches. ' +
   'Les adolescents, eux, sont rarement les bienvenus. ' +
   'Dans bien des quartiers « pensés pour les enfants », on retire les bancs où les jeunes se retrouvent le soir et l’on installe des caméras près des terrains de sport. ' +
-  'Le même groupe de quinze ans qui ferait sourire à huit ans devient, quelques années plus tard, un problème de tranquillité publique.\n\n' +
+  'Le même groupe qui faisait sourire à huit ans devient, à quinze ans, un problème de tranquillité publique.\n\n' +
   'Le deuxième angle mort est social. ' +
   'Un quartier qui devient sûr, calme et verdoyant devient aussi recherché, et donc plus cher. ' +
   'Les familles aisées s’y installent, les loyers montent, et les familles modestes qui y vivaient partent vers des quartiers où les rues n’ont pas été apaisées. ' +
@@ -613,7 +613,7 @@ const PO1_EXPOSE_MODEL =
   'Faut-il en conclure qu’il ne faut pas penser la ville pour les enfants ? Je ne le crois pas, et c’est mon troisième point. ' +
   'Il me semble que les deux documents se rejoignent davantage qu’ils ne s’opposent. ' +
   'L’adjointe affirme qu’une ville pensée pour les enfants n’est pas une ville réservée aux enfants ; ' +
-  'le sociologue, de son côté, ne conteste pas les rues apaisées, il conteste la manière de les décider. ' +
+  'le sociologue, de son côté, ne conteste pas les rues apaisées, il en signale les angles morts. ' +
   'Sa proposition finale me paraît la plus juste : penser la ville avec les enfants plutôt que pour eux. ' +
   'Cela signifie leur demander ce qu’ils veulent, et pas seulement aux plus petits. ' +
   'Je connais l’exemple d’un conseil municipal de jeunes, dans une commune voisine de la mienne, qui avait demandé non pas une nouvelle aire de jeux, ' +
@@ -648,7 +648,7 @@ export const PO1_EXPOSE: ExamTask = {
   examinerNotes: [
     ...PO_NOTES,
     'Points du dossier exploitables : moins d’un écolier sur cinq venait seul il y a quatre ans, près d’un tiers aujourd’hui ; les rues scolaires et leurs opposants ; l’enfant comme instrument de mesure qui profite aux personnes âgées et aux personnes en fauteuil ; les aires de jeux clôturées et la ville apprise en la traversant ; les adolescents indésirables ; la hausse des loyers dans les quartiers apaisés ; la garderie à ciel ouvert et le besoin d’imprévu ; la ville comme cohabitation ; penser la ville avec les enfants plutôt que pour eux.',
-    'Les exemples personnels du modèle (un carrefour d’enfance, un conseil de jeunes) sont donnés comme tels : ils montrent l’appui sur l’expérience que la consigne demande, ils ne sont pas tirés du dossier.',
+    'Les exemples personnels du modèle (un carrefour d’enfance, le quartier des grands-parents, un conseil de jeunes) sont donnés comme tels : ils montrent l’appui sur l’expérience que la consigne demande, ils ne sont pas tirés du dossier.',
     'Les deux documents se rejoignent plus qu’ils ne s’opposent : une copie qui les présente comme un simple pour et contre passe à côté de leur convergence.',
   ],
 };
@@ -898,7 +898,7 @@ const PO2_DOC_2 =
   'Cette proportion monte encore dans les articles écrits dans l’urgence, où l’on cite d’abord les interlocuteurs les plus faciles à joindre. ' +
   'Le rapport note aussi que le choix des sujets traités, et de ceux qui ne le sont pas, pèse plus lourd que la formulation des articles eux-mêmes.\n\n' +
   // INVENTED: the companion survey of 400 journalists and its 29 %.
-  'Les journalistes eux-mêmes sont plus sceptiques que leurs lecteurs : interrogés à part, quatre cents d’entre eux ne sont que vingt-neuf pour cent à se dire neutres ; ' +
+  'Les journalistes eux-mêmes sont plus sceptiques que leurs lecteurs : sur quatre cents d’entre eux, interrogés à part, vingt-neuf pour cent seulement se disent neutres ; ' +
   'la plupart préfèrent parler de rigueur ou d’équité.\n\n' +
   'Faut-il en conclure que la neutralité est une illusion ? ' +
   'Le rapport distingue deux positions présentes dans la profession. ' +
@@ -942,7 +942,7 @@ const PO2_EXPOSE_MODEL =
   'parce que c’est elle qui oblige le journaliste à vérifier, à écouter la partie adverse, à se méfier de ses propres convictions. ' +
   'Un horizon, par définition, on ne l’atteint jamais, mais il indique une direction. ' +
   'D’ailleurs, le public reste très attaché à cet idéal : plus des deux tiers des personnes interrogées veulent des journalistes qui ne laissent pas paraître leur opinion. ' +
-  'Il est d’ailleurs frappant que les journalistes eux-mêmes soient une minorité à se dire neutres : la plupart préfèrent parler de rigueur ou d’équité. ' +
+  'Il est frappant, en revanche, que les journalistes eux-mêmes soient une minorité à se dire neutres : la plupart préfèrent parler de rigueur ou d’équité. ' +
   'Ce sont donc les professionnels qui doutent le plus de cet idéal, alors que le public y reste attaché. ' +
   'À l’inverse, le journalisme « engagé », qui affiche ses valeurs, a l’avantage de la franchise, mais il présente une limite que le rapport souligne : ' +
   'il inspire confiance à ceux qui partagent ses idées et beaucoup moins aux autres. ' +

@@ -58,7 +58,7 @@ const base = {
 //
 // INVENTED, all of it: the programme « Le Temps long », the philosopher
 // Gaspard Lemerre and the université de Varenne, his book « Ceux qui ne sont
-// pas encore là », the storage site of Combe-Morte in the massif de l’Ostrel
+// pas encore là », the storage site of Ferlanche in the massif de l’Ostrel
 // (designed to stay sealed for a hundred thousand years; the warning problem
 // framed at ten thousand), the Institut Calvel poll (seven people in ten say
 // they think of their grandchildren when they vote; one in five would pay more
@@ -103,7 +103,7 @@ const INTERVIEW =
   'UNE JOURNALISTE : Ne pas fermer les portes. Vous avez un exemple concret ?\n' +
   'UN PHILOSOPHE : Le plus parlant, c’est celui des déchets radioactifs. ' +
   // INVENTED: the site, the massif, the hundred thousand and the ten thousand years.
-  'Le site de stockage de Combe-Morte, dans le massif de l’Ostrel, a été conçu pour rester étanche pendant cent mille ans. ' +
+  'Le site de stockage de Ferlanche, dans le massif de l’Ostrel, a été conçu pour rester étanche pendant cent mille ans. ' +
   'Cent mille ans ! Et la question qui a occupé les ingénieurs pendant des années n’était pas technique, elle était… presque philosophique : ' +
   'comment avertir des gens qui vivront dans dix mille ans, et qui ne sauront peut-être plus lire nos panneaux, qu’il ne faut pas creuser ici ?\n' +
   'UNE JOURNALISTE : Et qu’est-ce qu’ils ont trouvé ?\n' +
@@ -196,7 +196,8 @@ export const CO_PART1: ExamTask = {
           opts: [],
           correct: -1,
           keywords: [
-            ['tort', 'dommage', 'nuire', 'blesse', 'prejudic', 'faire du mal', 'causer du mal', 'victime'],
+            // No 'victime': « une victime future a des droits » met both groups (review).
+            ['tort', 'dommage', 'nuire', 'nuis', 'blesse', 'prejudic', 'faire du mal', 'causer du mal', 'leser', 'lese'],
             ['futur', 'avenir', 'plus tard', 'naitr', 'naiss', 'a venir', 'ulterieur', 'apres coup', 'dans dix ans', 'existera'],
           ],
           model: 'Qu’on peut faire du tort à une personne future : il suffit que la victime existe au moment où le dommage se produit, même si elle n’existait pas quand on a agi.',
@@ -212,7 +213,9 @@ export const CO_PART1: ExamTask = {
           correct: -1,
           keywords: [
             ['gout', 'preferen', 'aimer', 'aimeront', 'envies', 'desir', 'mode de vie'],
-            ['condition', 'besoin', 'potable', 'boire', 'd eau', 'sol sain', 'sol empoison', 'institution', 'vital', 'necessit', 'essentiel', 'fondamenta', 'minimum'],
+            // No bare 'besoin': the reversed « leurs besoins, qu’on ignore, et leurs goûts, qu’on peut
+            // deviner » met both groups (review).
+            ['condition', 'besoins essentiels', 'besoins vitaux', 'besoins fondamentaux', 'besoins de base', 'besoins elementaires', 'besoins primaires', 'besoin d eau', 'besoin d un sol', 'besoin d institutions', 'potable', 'boire', 'd eau', 'sol sain', 'sol empoison', 'institution', 'vital', 'necessit', 'essentiel', 'fondamenta', 'minimum'],
           ],
           model: 'Il distingue leurs goûts, qu’on ne connaît pas, de leurs conditions de vie, qu’on connaît : ils auront besoin d’eau potable, d’un sol sain et d’institutions qui fonctionnent.',
           why: '« Il y a une différence entre leurs goûts et leurs conditions. »',
@@ -235,11 +238,14 @@ export const CO_PART1: ExamTask = {
         // 5 · Reformulate · 2
         {
           kind: 'short',
-          q: 'Selon le philosophe, qu’est-ce que l’exemple du site de Combe-Morte révèle au sujet de certaines décisions ?',
+          q: 'Selon le philosophe, qu’est-ce que l’exemple du site de Ferlanche révèle au sujet de certaines décisions ?',
           opts: [],
           correct: -1,
           keywords: [
-            ['irreversib', 'definiti', 'reprendre', 'defaire', 'revenir en arriere', 'retour en arriere', 'annuler', 'pour toujours', 'a jamais'],
+            // No bare 'definiti', 'pour toujours', 'a jamais': « les ingénieurs ont trouvé une solution
+            // définitive » and « impossible d’avertir les générations futures pour toujours » met
+            // both groups while missing the point (review).
+            ['irreversib', 'decisions definitives', 'decision definitive', 'choix definitif', 'definitivement', 'reprendre', 'defaire', 'revenir en arriere', 'retour en arriere', 'revenir dessus', 'sans retour'],
             ['descendant', 'herit', 'generation', 'enfants', 'avenir', 'futur', 'suivant', 'imposent', 'impose', 'subir', 'subiss'],
           ],
           model: 'Qu’elles sont irréversibles : une fois le site refermé, les descendants héritent du problème sans avoir pu choisir.',
@@ -256,6 +262,11 @@ export const CO_PART1: ExamTask = {
           keywords: [
             ['emporte', 'priorit', 'prime', 'passe avant', 'passent avant', 'plus urgent', 'en premier', 'compte davantage', 'compte plus'],
             ['irreversib', 'irrepar', 'definiti', 'reparer', 'rattrap', 'revenir en arriere', 'pour toujours', 'a jamais'],
+            // The restriction is the answer: without it, « les générations futures passent en premier,
+            // car les dommages sont irréversibles », the position he refuses, met both groups (review).
+            // Exception words only: « en général, il faut agir pour l’avenir en priorité » met an
+            // 'en general' variant of this group (review, round 2).
+            ['sauf', 'excepte', 'exception', 'a moins', 'hormis', 'uniquement si', 'seulement si', 'seulement quand', 'seulement lorsque'],
           ],
           model: 'Il admet que la souffrance actuelle l’emporte en général sur un dommage futur, sauf si ce dommage est irréparable ; il ajoute que les deux objectifs se rejoignent souvent.',
           why: 'Deux temps : l’opposition est souvent fausse (isoler des logements) ; en cas de vrai conflit, le présent l’emporte, sauf dommage irréparable.',
@@ -282,10 +293,14 @@ export const CO_PART1: ExamTask = {
           opts: [],
           correct: -1,
           keywords: [
-            ['immediat', 'tout de suite', 'maintenant', 'impot', 'paie', 'payer', 'sacrifice', 'cout'],
-            ['lointain', 'verra', 'verrai', 'distant', 'eloign', 'decalage'],
+            // Timing, not payment: « c’est de l’hypocrisie, ils refusent de payer pour un bénéfice
+            // lointain » and the reversed « sacrifice lointain, bénéfice immédiat » met the old groups;
+            // the third group asks for his structural explanation (review).
+            ['immediat', 'tout de suite', 'maintenant', 'aujourd', 'present', 'court terme'],
+            ['lointain', 'verra', 'verrai', 'distant', 'eloign', 'long terme', 'plus tard'],
+            ['structur', 'institution', 'decalage', 'individu', 'normal', 'logique', 'comprehensible', 'humain', 'naturel', 'mecani'],
           ],
-          model: 'Ce n’est pas de l’hypocrisie : le sacrifice est immédiat et personnel, alors que le bénéfice est lointain et que l’on ne le verra pas ; c’est aux institutions de porter ce décalage.',
+          model: 'Plutôt qu’une hypocrisie, il y voit un problème de structure : le sacrifice est immédiat et personnel, le bénéfice lointain, et aucun individu ne peut porter seul ce décalage ; c’est le rôle des institutions.',
           why: '« Le sacrifice est immédiat… le bénéfice est lointain, et je ne le verrai pas. »',
           band: 'c1',
           points: 2,
@@ -299,8 +314,11 @@ export const CO_PART1: ExamTask = {
           keywords: [
             ['vivant', 'actuel', 'contemporain', 'deja ne', 'existent', 'jeunesse d', 'jeunes d aujourd'],
             ['represent', 'parle', 'parlent', 'porte-parole', 'au nom', 'interet'],
+            // The limit itself: « ils représentent bien les générations futures, mieux que les
+            // adultes actuels » met the two groups above (review).
+            ['seulement', 'uniquement', 'leurs propres', 'ses propres', 'eux-memes', 'eux memes', 'plutot que', 'au lieu', 'confusion', 'confond'],
           ],
-          model: 'Ces lycéens sont des vivants : ils représentent la jeunesse actuelle et ses intérêts, pas des personnes qui naîtront dans un siècle.',
+          model: 'Ces lycéens sont des vivants : ils représentent seulement la jeunesse actuelle et ses intérêts, pas des personnes qui naîtront dans un siècle.',
           why: '« Un lycéen de seize ans, c’est un vivant… Il ne parle pas pour quelqu’un qui naîtra dans un siècle. »',
           band: 'c1',
           points: 2,

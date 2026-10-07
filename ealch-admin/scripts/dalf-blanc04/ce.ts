@@ -23,12 +23,12 @@
 // deliberations opened after a delay fixed in advance.
 //
 // INVENTED, all of it: the author Clémence Ardouin, the review « Le Banc
-// public », the town of Bréval-sur-Ance and its decision three years ago, the
+// public », the town of Lorvanne-sur-Ance and its decision three years ago, the
 // Centre Halbert d’études locales and its study one year later (meetings from
 // 2 h 40 to 1 h 35 on average; amendments proposed in session down by more
 // than half; preparatory meetings multiplied), the unnamed councillor's
 // remark, the département de la Haute-Lize (reception costs down 40 % in two
-// years), the Centre hospitalier de Valdrôme (incident reports down by a third
+// years), the Centre hospitalier de Valmérande (incident reports down by a third
 // in the first year, back above their earlier level within eighteen months of
 // the confidential system).
 //
@@ -46,8 +46,8 @@ export const CE_TEXT =
   'LA VITRE ET LE RIDEAU\n' +
   'Clémence Ardouin, Le Banc public, revue de débats\n\n' +
 
-  // INVENTED: Bréval-sur-Ance, its decision, the Centre Halbert and every figure of its study.
-  'Il y a trois ans, la petite ville de Bréval-sur-Ance a pris une décision que beaucoup ont saluée comme exemplaire. ' +
+  // INVENTED: Lorvanne-sur-Ance, its decision, the Centre Halbert and every figure of its study.
+  'Il y a trois ans, la petite ville de Lorvanne-sur-Ance a pris une décision que beaucoup ont saluée comme exemplaire. ' +
   'Le conseil municipal y était déjà retransmis en direct, comme dans bien des communes ; elle a décidé d’aller plus loin et de filmer, puis de diffuser en ligne, ' +
   'toutes les réunions de ses commissions, celles où se préparent réellement le budget, les travaux et les plans d’urbanisme. ' +
   'Plus rien, désormais, ne devait se dire à l’abri du regard des habitants. ' +
@@ -63,7 +63,7 @@ export const CE_TEXT =
   'Des réunions plus courtes, disent-ils, sont des réunions débarrassées des bavardages, des digressions et des numéros de tribune que l’absence de témoins autorisait. ' +
   'La caméra aurait simplement obligé chacun à venir préparé. ' +
   'Quant à ceux qui regrettent l’ancien huis clos, ils ajoutent volontiers qu’on ne redoute la lumière que lorsqu’on a quelque chose à cacher. ' +
-  'Pour les adversaires de la transparence, au contraire, l’expérience de Bréval démontre ce qu’ils répètent depuis longtemps : ' +
+  'Pour les adversaires de la transparence, au contraire, l’expérience de Lorvanne démontre ce qu’ils répètent depuis longtemps : ' +
   'on ne délibère bien qu’à l’abri des regards. ' +
   'Une assemblée a besoin de discrétion pour discuter librement, comme un médecin a besoin du secret pour soigner, ' +
   'et il faut faire confiance à ceux que l’on a élus plutôt que de les surveiller à chaque instant.\n\n' +
@@ -97,30 +97,30 @@ export const CE_TEXT =
   'l’élu qui change d’avis en séance passe pour une girouette, celui qui concède un argument à l’opposition offre une arme à ses adversaires. ' +
   'Chacun arrive donc avec un texte arrêté d’avance et s’y tient. ' +
   'La délibération devient une succession de déclarations. ' +
-  'Les réunions de Bréval sont plus courtes, non parce que la caméra aurait chassé les bavardages, mais parce qu’on n’y discute plus : on y récite.\n\n' +
+  'Les réunions de Lorvanne sont plus courtes, non parce que la caméra aurait chassé les bavardages, mais parce qu’on n’y discute plus : on y récite.\n\n' +
 
-  // INVENTED: the camera training Bréval paid for in its second year.
+  // INVENTED: the camera training Lorvanne paid for in its second year.
   'Ce durcissement ne touche d’ailleurs pas tout le monde de la même façon. ' +
   'Les élus rompus aux médias s’accommodent fort bien de la caméra ; ils y trouvent même une tribune. ' +
   'Ceux qui en souffrent sont les nouveaux venus, les conseillers d’opposition peu nombreux, ceux qui exercent un autre métier ' +
   'et n’ont pas le temps de préparer chaque intervention comme un discours. ' +
   'Ils parlent moins, ou plus du tout, de peur de commettre la maladresse qui sera rediffusée sans fin. ' +
   'Une réforme pensée pour donner plus de pouvoir aux citoyens finit ainsi par en donner davantage à ceux qui maîtrisent déjà l’art de paraître. ' +
-  'À Bréval, la commune a d’ailleurs dû financer, dès la deuxième année, une formation à la prise de parole devant la caméra : ' +
+  'À Lorvanne, la commune a d’ailleurs dû financer, dès la deuxième année, une formation à la prise de parole devant la caméra : ' +
   'on y apprend moins à argumenter qu’à ne jamais se laisser surprendre.\n\n' +
 
   'Le second effet est plus pernicieux encore, parce qu’il est invisible. ' +
   'La délibération ne disparaît pas ; elle se déplace. ' +
   'Elle quitte la salle filmée pour les couloirs, les appels téléphoniques, les messageries privées, autant de lieux dont il ne reste aucune trace. ' +
   'D’où ce paradoxe que les défenseurs de la transparence totale refusent de voir : ' +
-  'à Bréval, on en sait aujourd’hui moins qu’avant sur la manière dont les décisions se prennent. ' +
+  'à Lorvanne, on en sait aujourd’hui moins qu’avant sur la manière dont les décisions se prennent. ' +
   'Autrefois, les commissions se réunissaient à huis clos, mais elles tenaient des procès-verbaux que l’on pouvait consulter. ' +
   'Désormais, le public voit tout de la séance et rien de ce qui compte. ' +
   'À force de vouloir éclairer chaque pièce, on a poussé les occupants à vivre dans la cave.\n\n' +
 
-  // INVENTED: the Centre hospitalier de Valdrôme, the third and the eighteen months.
+  // INVENTED: the Centre hospitalier de Valmérande, the third and the eighteen months.
   'Un exemple venu d’un tout autre domaine montre que ce mécanisme n’a rien de propre à la politique. ' +
-  'Il y a quelques années, le Centre hospitalier de Valdrôme a choisi de publier, service par service, tous les rapports d’incident rédigés par son personnel : ' +
+  'Il y a quelques années, le Centre hospitalier de Valmérande a choisi de publier, service par service, tous les rapports d’incident rédigés par son personnel : ' +
   'erreurs de dosage, retards de prise en charge, chutes de patients. ' +
   'L’intention était irréprochable ; le résultat fut l’inverse de celui qu’on attendait. ' +
   'En un an, le nombre de rapports a chuté d’un tiers, non parce que les erreurs étaient moins nombreuses, mais parce qu’on les déclarait moins. ' +
@@ -144,7 +144,7 @@ export const CE_TEXT =
   'mentionnant les options envisagées et ce qui a conduit à les écarter. ' +
   'On ne verrait pas les élus hésiter, mais on saurait pourquoi ils ont tranché, et l’on pourrait discuter leurs arguments. ' +
   'La seconde serait une transparence différée : des procès-verbaux complets de chaque délibération, ' +
-  'les archives des délibérations ouvertes au public après un délai fixé d’avance, quelques années par exemple. ' +
+  'tenus dès la séance et ouverts au public après un délai fixé d’avance, quelques années par exemple. ' +
   'Celui qui parle en commission saurait que ses propos seront un jour connus, ce qui décourage les arrangements inavouables, ' +
   'mais pas assez tôt pour être jetés en pâture au débat du lendemain, ce qui lui laisse la liberté de chercher. ' +
   'Entre l’exposition permanente et le secret définitif, il existe donc une voie, qui consiste à rendre des comptes plutôt qu’à se donner en spectacle.\n\n' +
@@ -189,7 +189,7 @@ export const CE_TASK: ExamTask = {
       items: [
         // 1 · Locate · 1 pt
         {
-          q: 'Qu’a décidé la ville de Bréval-sur-Ance il y a trois ans ?',
+          q: 'Qu’a décidé la ville de Lorvanne-sur-Ance il y a trois ans ?',
           opts: [
             'Filmer et diffuser aussi les réunions où se préparent les décisions',
             'Remplacer les commissions par des séances ouvertes au public',
@@ -221,7 +221,9 @@ export const CE_TASK: ExamTask = {
           opts: [],
           correct: -1,
           keywords: [
-            ['avance', 'prealabl', 'deja decid', 'deja pris', 'deja regl', 'deja tranch', 'en amont', 'hors camera', 'coulisse', 'prepar'],
+            // No bare 'avance' (« les élus avancent des arguments ») or 'prepar' (« un spectacle préparé
+            // pour le public »): both let a wrong reading through (review).
+            ['a l avance', 'd avance', 'en avance', 'avant la seance', 'avant les seances', 'avant la reunion', 'avant les reunions', 'prealabl', 'deja decid', 'deja pris', 'deja regl', 'deja tranch', 'en amont', 'hors camera', 'coulisse', 'reunions prepar', 'reunion prepar', 'tout est regle', 'tout est decide', 'decide avant', 'decidee avant', 'decidees avant', 'regle avant'],
             ['representation', 'spectacle', 'jouee', 'jouent', 'mise en scene', 'comedie', 'apparence', 'facade', 'fiction', 'semblant', 'recit'],
           ],
           model: 'Que tout est décidé à l’avance, hors caméra, et que la séance publique n’est plus qu’une représentation jouée pour les spectateurs.',
@@ -245,13 +247,16 @@ export const CE_TASK: ExamTask = {
         // 5 · Attribute · 2 pts
         {
           kind: 'short',
-          q: 'Quelle conclusion les adversaires de la transparence tirent-ils de l’expérience de Bréval ?',
+          q: 'Quelle conclusion les adversaires de la transparence tirent-ils de l’expérience de Lorvanne ?',
           opts: [],
           correct: -1,
           keywords: [
             ['delib', 'discut', 'debat', 'echang', 'reflechi', 'decider librement'],
-            ['discret', 'confidenti', 'secret', 'huis clos', 'a l abri', 'sans temoin', 'sans camera', 'hors camera', 'loin des regards', 'a l ecart', 'protege'],
-            ['besoin', 'necessai', 'suppose', 'exige', 'indispens', 'condition', 'doivent', 'faut'],
+            ['discret', 'confidenti', 'secret', 'huis clos', 'a l abri', 'sans temoin', 'loin des regards', 'a l ecart', 'protege', 'a couvert'],
+            // Free deliberation or trust, not a bare « need » word: « le secret empêche un vrai débat,
+            // la transparence est nécessaire » and « la délibération se fait hors caméra, il faut le
+            // dénoncer » met the old groups (review).
+            ['librement', 'libre', 'liberte', 'sereine', 'franche', 'franchement', 'confiance', 'bien deliberer', 'bien debattre', 'bien discuter', 'delibere bien', 'discute bien'],
           ],
           model: 'Qu’une assemblée a besoin de discrétion pour délibérer librement, et qu’il vaut mieux faire confiance aux élus que les surveiller sans cesse.',
           why: '« On ne délibère bien qu’à l’abri des regards… il faut faire confiance à ceux que l’on a élus. »',
@@ -266,7 +271,9 @@ export const CE_TASK: ExamTask = {
           correct: -1,
           keywords: [
             ['resultat', 'decision', 'motif', 'motiv', 'raisons', 'comptes', 'depense', 'contrat', 'produit', 'aboutiss'],
-            ['delib', 'hesit', 'processus', 'en train de', 'coulisse', 'discussion', 'debat', 'elaboration', 'essais'],
+            // No bare 'debat' or 'discussion': « entre les partisans et les adversaires du débat sur la
+            // transparence des décisions » met both groups (review).
+            ['delib', 'hesit', 'processus', 'en train de', 'coulisse', 'elaboration', 'essais', 'maniere de decider', 'facon de decider', 'comment elle decide', 'comment on decide', 'discussions internes', 'debats internes', 'fonctionnement'],
           ],
           model: 'Elle distingue la transparence des résultats (décisions, comptes, raisons des choix), qui améliore les institutions, et la transparence de la délibération elle-même, qui les rend prudentes et convenues.',
           why: '« Il faut distinguer au moins deux transparences » : sur ce que l’institution produit, et sur la manière dont elle délibère. Toute la suite du texte s’organise autour de cette distinction.',
@@ -296,7 +303,9 @@ export const CE_TASK: ExamTask = {
           correct: -1,
           keywords: [
             ['cite', 'citee', 'citable', 'extrai', 'retenu', 'reprise', 'repris', 'ressort', 'enregistr', 'contre eux', 'archiv', 'trace'],
-            ['changer d avis', 'change d avis', 'changent d avis', 'changement d avis', 'girouette', 'inconstan', 'incoheren', 'contredi', 'conced', 'concession', 'recul', 'revir', 'arme', 'adversaire', 'opposition'],
+            // No 'adversaire' or 'opposition' alone: « l’opposition enregistre les séances pour les
+            // archives » met both groups (review).
+            ['changer d avis', 'change d avis', 'changent d avis', 'changement d avis', 'girouette', 'inconstan', 'incoheren', 'contredi', 'conced', 'concession', 'recul', 'revir', 'arme', 'provisoire', 'se tromper', 'maladress'],
           ],
           model: 'Parce que chaque phrase filmée peut être citée hors contexte et retenue contre eux : changer d’avis ou concéder un point à l’opposition les ferait passer pour inconstants.',
           why: '« Chaque phrase peut être extraite, citée hors de son contexte… l’élu qui change d’avis en séance passe pour une girouette. »',
@@ -305,21 +314,21 @@ export const CE_TASK: ExamTask = {
         },
         // 9 · Infer · 2 pts
         {
-          q: 'Quel paradoxe l’auteure relève-t-elle à propos de Bréval ?',
+          q: 'Quel paradoxe l’auteure relève-t-elle à propos de Lorvanne ?',
           opts: [
             'La recherche d’une transparence totale a rendu la décision plus opaque',
             'Les réunions filmées attirent moins d’habitants que les séances du conseil',
             'Les élus filmés improvisent davantage qu’ils ne le faisaient à huis clos',
           ],
           correct: 0,
-          why: '« À Bréval, on en sait aujourd’hui moins qu’avant sur la manière dont les décisions se prennent. » Le public n’est pas évoqué ; la troisième option inverse « on y récite ».',
+          why: '« À Lorvanne, on en sait aujourd’hui moins qu’avant sur la manière dont les décisions se prennent. » Le public n’est pas évoqué ; la troisième option inverse « on y récite ».',
           band: 'c1',
           points: 2,
         },
         // 10 · Justify · Faux · 2 pts
         {
           kind: 'tfj',
-          q: 'Vrai ou faux ? À Valdrôme, la publication des rapports d’incident a réduit le nombre d’erreurs commises dans les services. Justifiez en citant le texte.',
+          q: 'Vrai ou faux ? À Valmérande, la publication des rapports d’incident a réduit le nombre d’erreurs commises dans les services. Justifiez en citant le texte.',
           opts: ['Vrai', 'Faux'],
           correct: 1,
           quotes: [
@@ -352,9 +361,14 @@ export const CE_TASK: ExamTask = {
           opts: [],
           correct: -1,
           keywords: [
-            ['motiv', 'justifi', 'expliqu', 'raisons', 'rendre des comptes', 'rendre compte', 'argument'],
-            ['archiv', 'delai', 'plus tard', 'apres coup', 'differee', 'en differe', 'ulterieur', 'quelques annees', 'proces-verba', 'proces verba'],
-            ['intermediaire', 'equilibr', 'concili', 'compromis', 'troisieme voie', 'depass', 'milieu', 'mi-chemin', 'mi chemin', 'entre les deux', 'ni la transparence', 'ni le secret', 'ni l un'],
+            // Reasons for DECISIONS, archives after a DELAY: bare 'justifi', 'argument', 'plus tard'
+            // and 'depass' passed « filmer toutes les réunions et justifier le secret plus tard, un
+            // compromis » and « la transparence totale, avec archives et arguments » (review).
+            ['motiv', 'justifier les decisions', 'justifier ses decisions', 'justifier chaque decision', 'justifier leurs decisions', 'expliquer les decisions', 'expliquer ses decisions', 'expliquer chaque decision', 'expliquer leurs decisions', 'raisons des decisions', 'raisons de ses decisions', 'raisons de chaque', 'raisons de leurs', 'raisons des choix', 'exposer ses raisons', 'exposer les raisons', 'donner ses raisons', 'donner les raisons', 'expliquer les raisons', 'expliquer leurs choix', 'expliquer ses choix', 'justifier leurs choix', 'justifier ses choix', 'justifier les choix', 'rendre des comptes', 'rendre compte'],
+            // 'transparence differee', not 'en differe': « filmer tout en différé » is the misreading
+            // a delayed broadcast invites (review, round 2).
+            ['archiv', 'delai', 'apres un certain temps', 'quelques annees', 'transparence differee', 'publication differee', 'ouverture differee', 'ulterieurement', 'proces-verba', 'proces verba'],
+            ['intermediaire', 'equilibr', 'concili', 'compromis', 'troisieme voie', 'milieu', 'mi-chemin', 'mi chemin', 'entre les deux', 'ni la transparence', 'ni le secret', 'ni l un', 'entre la transparence', 'entre transparence', 'entre l exposition'],
           ],
           model: 'Elle propose d’obliger les institutions à motiver publiquement leurs décisions et d’ouvrir plus tard les archives des délibérations : une voie intermédiaire entre la transparence totale et le secret durable.',
           why: 'Obligation de motiver et transparence différée : « Entre l’exposition permanente et le secret définitif, il existe donc une voie. »',
