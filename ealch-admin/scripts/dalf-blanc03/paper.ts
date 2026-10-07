@@ -47,7 +47,9 @@ export const PAPER: ExamPaper = {
     { skill: 'CO', timingS: 2400, blueprintId: BLUEPRINT_ID, taskIds: CO_TASKS.map((t) => t.id) },
     { skill: 'CE', timingS: 3000, blueprintId: BLUEPRINT_ID, taskIds: CE_TASKS.map((t) => t.id) },
     { skill: 'PE', timingS: 9000, blueprintId: BLUEPRINT_ID, taskIds: PE_TASKS.map((t) => t.id) },
-    { skill: 'PO', timingS: 1800, blueprintId: BLUEPRINT_ID, taskIds: PO_TASKS.map((t) => t.id) },
+    // Two subjects drawn, one chosen (decision 42): each group is an exposé then its entretien.
+    { skill: 'PO', timingS: 1800, blueprintId: BLUEPRINT_ID, taskIds: PO_TASKS.map((t) => t.id),
+      choiceGroups: [PO_TASKS.slice(0, 2).map((t) => t.id), PO_TASKS.slice(2, 4).map((t) => t.id)] },
   ],
 };
 

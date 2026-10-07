@@ -139,6 +139,8 @@ export type Strings = {
   /** DALF C1 typed answers: the answer box, the vrai/faux quote box, and the
    *  report line for answers the AI check could not reach ({n}). */
   examShortPlaceholder: string; examQuotePlaceholder: string; examShortUnchecked: string;
+  /** DALF oral subject choice: the screen title, the line under it, the card label. */
+  examChooseSubject: string; examChooseSubjectBody: string; examSubject: string;
   /** The preflight, BEFORE the clock starts. `examAudioOfflineBody` carries
    *  {n} (documents that would not play) and {total}. */
   examAudioOffline: string; examAudioOfflineBody: string; examAudioStartAnyway: string;
@@ -606,6 +608,9 @@ export const T: Record<Lang, Strings> = {
     examReplay: 'Réécouter', examTranscript: 'Transcription',
     examAudioFailed: 'Audio indisponible',
     examShortPlaceholder: 'Votre réponse, avec vos propres mots',
+    examChooseSubject: 'Choisissez votre sujet',
+    examChooseSubjectBody: "Deux sujets ont été tirés. Vous en traitez un seul : l'exposé, puis l'entretien. Le temps commence quand vous avez choisi.",
+    examSubject: 'Sujet',
     examQuotePlaceholder: 'Recopiez la phrase qui justifie votre choix',
     examShortUnchecked: "Réponses rédigées non vérifiées : {n}. Elles comptent 0 pour l'instant.",
     examAudioFailedBody: "Aucun son n'a pu être joué pour ce document. Il ne sera pas compté dans votre estimation.",
@@ -1120,6 +1125,9 @@ export const T: Record<Lang, Strings> = {
     examReplay: 'Play again', examTranscript: 'Transcript',
     examAudioFailed: 'Audio unavailable',
     examShortPlaceholder: 'Your answer, in your own words',
+    examChooseSubject: 'Choose your subject',
+    examChooseSubjectBody: 'Two subjects have been drawn. You take one: the talk, then the discussion. The clock starts once you choose.',
+    examSubject: 'Subject',
     examQuotePlaceholder: 'Copy the sentence that justifies your choice',
     examShortUnchecked: 'Typed answers not checked: {n}. They count as 0 for now.',
     examAudioFailedBody: 'No sound could be played for this document. It will not count toward your estimate.',

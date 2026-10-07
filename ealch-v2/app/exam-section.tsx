@@ -52,6 +52,7 @@ import {
 } from '@/services/examDraft.logic';
 import { startClock, type ClockState } from '@/utils/examClock.logic';
 import { pinSitting, pinnedTasksOf, type SittingPin } from '@/utils/examSitting.logic';
+import { choiceOptions, needsChoice, tasksToSit } from '@/utils/examChoice.logic';
 import { deliveryNote } from '@/utils/deliverySignals.logic';
 import { coverageNote, type Coverage } from '@/utils/interlocutor.logic';
 import { surfaceFor } from '@/utils/examDispatch.logic';
@@ -113,7 +114,11 @@ export default function ExamSectionScreen() {
     return pinRef.current;
   }, [section, tasks]);
   const pinnedSection = sitting?.section ?? null;
-  const pinnedTasks = useMemo(() => pinnedTasksOf(sitting), [sitting]);
+  // DALF oral: two subjects, one chosen (examChoice.logic.ts). Until the
+  // candidate chooses, nothing is sat and the clock does not start.
+  const [choice, setChoice] = useState<number | null>(null);
+  const awaitingChoice = needsChoice(pinnedSection) && choice === null;
+  const pinnedTasks = useMemo(() => tasksToSit(pinnedSection, pinnedTasksOf(sitting), choice), [sitting, pinnedSection, choice]);
 
   const [answers, setAnswers] = useState<Answers>({});
   // Parts whose audio produced no sound at all. Their questions cannot be
@@ -129,8 +134,8 @@ export default function ExamSectionScreen() {
   // that would hand the candidate the whole épreuve again every repaint.
   const [clock, setClock] = useState<ClockState | null>(null);
   useEffect(() => {
-    if (pinnedSection && clock === null) setClock(startClock(pinnedSection.timingS, Date.now()));
-  }, [pinnedSection, clock]);
+    if (pinnedSection && clock === null && !awaitingChoice) setClock(startClock(pinnedSection.timingS, Date.now()));
+  }, [pinnedSection, clock, awaitingChoice]);
 
   // The authorization is normally created on the paper screen, before this
   // screen exists. This re-issue covers the case where that call could not be
@@ -193,6 +198,7 @@ export default function ExamSectionScreen() {
     graded: [] as string[],
     sittingId: Crypto.randomUUID(),
     outcomes: {} as Record<string, ExamOutcome>,
+    choice: null as number | null,
   });
   /** Nothing is written until the mount-time read has finished. Without this the
    *  first render's empty state overwrites the very draft we are about to read. */
@@ -211,8 +217,8 @@ export default function ExamSectionScreen() {
   }, [key, paperId, skill]);
 
   useEffect(() => {
-    draftRef.current = { ...draftRef.current, answers, texts, spoken, coverage, debate };
-  }, [answers, texts, spoken, coverage, debate]);
+    draftRef.current = { ...draftRef.current, answers, texts, spoken, coverage, debate, choice };
+  }, [answers, texts, spoken, coverage, debate, choice]);
 
   // Restore on mount, silent (D-10 — no banner, no toast, no prompt; this
   // matches how resumeByMode already restores position silently in lesson.tsx).
@@ -230,7 +236,8 @@ export default function ExamSectionScreen() {
       const d = parseDraft(raw, paperId, skill, draftRef.current.sittingId);
       if (d && alive) {
         const s = restoreState(d);
-        draftRef.current = { ...s, graded: d.graded, sittingId: d.sittingId, outcomes: d.outcomes };
+        draftRef.current = { ...s, graded: d.graded, sittingId: d.sittingId, outcomes: d.outcomes, choice: d.choice ?? null };
+        if (typeof d.choice === 'number') setChoice(d.choice);
         setAnswers(s.answers);
         setTexts(s.texts);
         setSpoken(s.spoken);
@@ -249,7 +256,7 @@ export default function ExamSectionScreen() {
   // An answer that was committed, not typed. Immediate.
   useEffect(() => { // CHECKPOINT_DISCRETE — see the note above submit()'s draft, too.
     void writeDraft();
-  }, [answers, spoken, coverage, debate, writeDraft]);
+  }, [answers, spoken, coverage, debate, choice, writeDraft]);
 
   // Free typing: D-01 forbids a write per keystroke, D-02 asks for ~1.5s of
   // quiet. DRAFT_DEBOUNCE_MS is the single source of that number.
@@ -471,6 +478,32 @@ export default function ExamSectionScreen() {
     return (
       <Shell title={T.examSkillNames[pinnedSection.skill]} onClose={() => router.back()}>
         <TX role="label" color={t.txSecondary} lhMult={1.5}>{T.examNone}</TX>
+      </Shell>
+    );
+  }
+
+  // DALF oral: the two drawn subjects, before anything is sat or timed. The
+  // lead task of each group is its exposé, whose prompt names the subject.
+  if (awaitingChoice) {
+    return (
+      <Shell title={T.examSkillNames[pinnedSection.skill]} onClose={() => router.back()}>
+        <TX font="serif" role="title" style={{ marginBottom: 8 }}>{T.examChooseSubject}</TX>
+        <TX role="label" color={t.txSecondary} lhMult={1.5} style={{ marginBottom: 18 }}>{T.examChooseSubjectBody}</TX>
+        {choiceOptions(pinnedSection, pinnedTasksOf(sitting)).map(({ index, lead }) => (
+          <Press
+            key={index}
+            disabled={!lead}
+            onPress={() => setChoice(index)}
+            accessibilityRole="button"
+            accessibilityLabel={lead ? `${T.examSubject} ${index + 1}. ${lead.prompt}` : `${T.examSubject} ${index + 1}`}
+            style={{ borderRadius: 14, borderWidth: 1, borderColor: t.line(10), backgroundColor: t.card, padding: 16, marginBottom: 12 }}
+          >
+            <TX font="semi" role="eyebrow" ls={2} color={t.accTx} style={{ marginBottom: 6 }}>
+              {`${T.examSubject} ${index + 1}`.toUpperCase()}
+            </TX>
+            <TX lang="fr" role="label" color={t.txPrimary} lhMult={1.5}>{lead?.prompt ?? '…'}</TX>
+          </Press>
+        ))}
       </Shell>
     );
   }

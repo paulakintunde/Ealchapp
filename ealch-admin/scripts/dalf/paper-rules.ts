@@ -477,6 +477,16 @@ export function topicLedgerViolations(papers: { variant: string; topics: readonl
   return out;
 }
 
+/** Decision 42: the PO section offers its two subjects as a choice, each group
+ *  an exposé then its own entretien, so the candidate sits one pair, not four
+ *  tasks. Without the groups the runner would ask for both talks. */
+export function choiceViolations(paper: ExamPaper, poTasks: ExamTask[]): string[] {
+  const po = paper.sections.find((s) => s.skill === 'PO');
+  const want = JSON.stringify([poTasks.slice(0, 2).map((t) => t.id), poTasks.slice(2, 4).map((t) => t.id)]);
+  if (!po?.choiceGroups) return ['PO: no choiceGroups, so a candidate would be asked to sit both subjects (decision 42)'];
+  return JSON.stringify(po.choiceGroups) === want ? [] : ['PO: choiceGroups must be [exposé 1, entretien 1] and [exposé 2, entretien 2]'];
+}
+
 /** Every rule that applies to one paper, in one call. */
 export function dalfPaperViolations(p: DalfPaper): string[] {
   const co = p.PAPER.sections.find((s) => s.skill === 'CO');
@@ -496,6 +506,7 @@ export function dalfPaperViolations(p: DalfPaper): string[] {
     ...readingTextViolations(p.CE_TASKS),
     ...writingViolations(p.PE_TASKS),
     ...speakingViolations(p.PO_TASKS),
+    ...choiceViolations(p.PAPER, p.PO_TASKS),
     ...openTaskViolations(p.PE_TASKS, p.PO_TASKS),
     ...imageViolations(p.TASKS),
   ];

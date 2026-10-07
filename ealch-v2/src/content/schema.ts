@@ -2701,6 +2701,15 @@ export type ExamSection = {
   /** How this épreuve's raw marks report. Absent means the section cannot be
    *  scored yet, which the report must show as "non corrigé" rather than 0. */
   scoring?: SectionScoring;
+  /**
+   * The candidate sits ONE of these groups, not every task (DALF C1 Production
+   * orale: two subjects are drawn and one is chosen, each an exposé then its
+   * entretien). A partition of `taskIds` into 2+ groups of equal size, each in
+   * taskIds order. The section screen asks for the choice before the clock
+   * starts and pins only that group (utils/examChoice.logic.ts). Absent: every
+   * task is sat, as on every other paper.
+   */
+  choiceGroups?: string[][];
 };
 
 /**
@@ -5195,6 +5204,22 @@ export function validateExamPaper(v: unknown, path = 'examPaper'): Issue[] {
     }
 
     if (s.scoring !== undefined) out.push(...validateSectionScoring(s.scoring, `${path}.${sp}.scoring`));
+
+    if (s.choiceGroups !== undefined) {
+      const g = s.choiceGroups as unknown;
+      if (!isArr(g) || g.length < 2 || g.some((x) => !isArr(x) || x.length === 0 || x.some((id) => !isStr(id)))) {
+        push(`${sp}.choiceGroups must be 2+ non-empty lists of task ids — a choice of one is no choice`);
+      } else if (isArr(s.taskIds)) {
+        const flat = (g as string[][]).flat();
+        const ids = s.taskIds as string[];
+        if (flat.length !== ids.length || new Set(flat).size !== flat.length || flat.some((id) => !ids.includes(id))) {
+          push(`${sp}.choiceGroups must split taskIds exactly, each task in one group — a task in no group is never sat`);
+        }
+        if (new Set((g as string[][]).map((x) => x.length)).size !== 1) {
+          push(`${sp}.choiceGroups must be the same size — candidates choosing differently would sit different épreuves`);
+        }
+      }
+    }
   });
 
   return out;

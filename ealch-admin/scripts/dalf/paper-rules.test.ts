@@ -11,7 +11,7 @@ import { deepStrictEqual, ok, strictEqual } from 'node:assert';
 import { test } from 'node:test';
 import type { ExamDebate, ExamPaper, ExamTask, QcmItem } from '../../../ealch-v2/src/content/schema.ts';
 import { validateExamPaper, validateExamTask } from '../../../ealch-v2/src/content/schema.ts';
-import {
+import { choiceViolations,
   audioCeilingViolations,
   countWords,
   dalfPaperViolations,
@@ -124,7 +124,7 @@ function paper(): DalfPaper {
     ({ skill, timingS, taskIds: ts.map((t) => t.id), blueprintId: 'dalf-c1-2026.10' });
   const PAPER: ExamPaper = {
     id: `paper.dalf_c1.${V}.1`, format: 'dalf_c1', variant: V, paperNo: 1,
-    sections: [sec('CO', 2400, CO_TASKS), sec('CE', 3000, CE_TASKS), sec('PE', 9000, PE_TASKS), sec('PO', 1800, PO_TASKS)],
+    sections: [sec('CO', 2400, CO_TASKS), sec('CE', 3000, CE_TASKS), sec('PE', 9000, PE_TASKS), { ...sec('PO', 1800, PO_TASKS), choiceGroups: [PO_TASKS.slice(0, 2).map((t) => t.id), PO_TASKS.slice(2, 4).map((t) => t.id)] }],
   } as ExamPaper;
   return { PAPER, CO_TASKS, CE_TASKS, PE_TASKS, PO_TASKS, TASKS: [...CO_TASKS, ...CE_TASKS, ...PE_TASKS, ...PO_TASKS],
     TOPICS: ['DALF-01', 'DALF-10', 'DALF-11', 'DALF-12', 'DALF-31', 'DALF-40', 'DALF-50', 'DALF-51'] };
@@ -443,4 +443,12 @@ test('per-part key runs and the speaking lengths are caught', () => {
   const v = speakingViolations(po);
   ok(v.some((x) => x.includes('outside 800-1100')));
   ok(v.some((x) => x.includes('outside 1100-1300')));
+});
+
+test('the oral offers its two subjects as a choice (decision 42)', () => {
+  const p = paper();
+  deepStrictEqual(choiceViolations(p.PAPER, p.PO_TASKS), []);
+  const po = p.PAPER.sections.find((x) => x.skill === 'PO')!;
+  delete (po as { choiceGroups?: string[][] }).choiceGroups;
+  ok(choiceViolations(p.PAPER, p.PO_TASKS)[0]!.includes('both subjects'));
 });

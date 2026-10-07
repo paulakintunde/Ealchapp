@@ -44,6 +44,9 @@ export type ExamDraft = {
   /** Task ids already graded IN THIS SITTING. */
   graded: string[];
   outcomes: Record<string, ExamOutcome>;
+  /** The subject group chosen in a section with choiceGroups (DALF oral).
+   *  Absent: no choice made yet, or a section without one. */
+  choice?: number;
 };
 
 // D-07 / Pitfall 1 correction (07-RESEARCH.md): the key is paperId+skill, NOT
@@ -68,6 +71,7 @@ export function buildDraft(input: {
   graded: string[];
   sittingId: string;
   outcomes: Record<string, ExamOutcome>;
+  choice?: number | null;
   now?: number;
 }): ExamDraft {
   const spoken: Record<string, DraftSpoken> = {};
@@ -102,6 +106,7 @@ export function buildDraft(input: {
     debate: input.debate,
     graded: input.graded,
     outcomes: input.outcomes,
+    ...(typeof input.choice === 'number' ? { choice: input.choice } : {}),
   };
 }
 
@@ -151,6 +156,7 @@ export function parseDraft(raw: string | null, paperId: string, skill: string, f
     debate: v.debate ?? {},
     graded: v.graded ?? [],
     outcomes,
+    ...(typeof v.choice === 'number' && Number.isInteger(v.choice) && v.choice >= 0 ? { choice: v.choice } : {}),
   };
 }
 

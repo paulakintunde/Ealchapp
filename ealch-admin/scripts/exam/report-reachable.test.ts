@@ -55,6 +55,7 @@ import { paperOutcome, sectionOutcome, type SectionOutcome } from '../../../ealc
 import { delfEpreuve, delfOutcome } from '../../../ealch-v2/src/utils/delf.logic.ts';
 import { instrumentFor, targetBandFor } from '../../../ealch-v2/src/utils/examInstrument.logic.ts';
 import { EXAM_FORMAT_FACTS } from '../../../ealch-v2/src/content/examFormats.ts';
+import { sittableCount } from '../../../ealch-v2/src/utils/examChoice.logic.ts';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const REPORT_SCREEN = resolve(HERE, '../../../ealch-v2/app/exam-report.tsx');
@@ -64,8 +65,9 @@ const REPORT_SCREEN = resolve(HERE, '../../../ealch-v2/app/exam-report.tsx');
  *  silently drop out of the sweep. */
 const PAPER_DIRS = [
   'tef-blanc01', 'tef-blanc02', 'tef-blanc03', 'tef-blanc04', 'tef-blanc05',
-  'tcf-blanc01', 'tcf-blanc02', 'tcf-blanc03', 'tcf-blanc04', 'tcf-blanc05',
+  'tcf-blanc01', 'tcf-blanc02', 'tcf-blanc03', 'tcf-blanc04', 'tcf-blanc05', 'tcf-blanc06',
   'delf-blanc01', 'delf-blanc02', 'delf-blanc03', 'delf-blanc04', 'delf-blanc05',
+  'dalf-blanc01', 'dalf-blanc02', 'dalf-blanc03', 'dalf-blanc04', 'dalf-blanc05',
 ] as const;
 
 type Loaded = { PAPER: ExamPaper; TASKS: ExamTask[] };
@@ -422,7 +424,9 @@ test('the format hub describes the paper a candidate will actually sit', async (
       const sec = paper.sections.find((s: ExamSection) => s.skill === fact.skill);
       if (!sec) { say(`the hub lists a ${fact.skill} épreuve and ${paper.id} has none`); continue; }
 
-      const realTasks = sec.taskIds.length;
+      // What a candidate sits: one subject's pair where the section offers a
+      // choice (DALF oral, decision 42), every task elsewhere.
+      const realTasks = sittableCount(sec);
       const realQs = sec.taskIds.reduce((n: number, id: string) => {
         const t = byId.get(id);
         return n + (t ? questionsIn(t) : 0);

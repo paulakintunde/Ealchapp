@@ -66,6 +66,8 @@ export const PAPER: ExamPaper = {
       timingS: 1800,
       blueprintId: BLUEPRINT_ID,
       taskIds: PO_TASKS.map((t) => t.id),
+      // Two subjects drawn, one chosen (decision 42): each group is an exposé then its entretien.
+      choiceGroups: [PO_TASKS.slice(0, 2).map((t) => t.id), PO_TASKS.slice(2, 4).map((t) => t.id)],
     },
   ],
 };
