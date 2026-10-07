@@ -100,7 +100,7 @@ export const CE_TASK: ExamTask = {
           correct: -1,
           keywords: [
             ['choix', 'chois', 'decision', 'comportement', 'conduite', 'geste', 'acte', 'agissement', 'depart', 'partir'],
-            ['consequen', 'effet', 'impact', 'compt', 'import', 'pese', 'neutre', 'incidence', 'repercu'],
+            ['consequen', 'effet', 'impact', 'compt', 'pese', 'incidence', 'repercu'],
           ],
           model: 'Il rappelle à chacun que ses choix de voyage ont des conséquences et que partir est un geste qui compte.',
           why: '« Elle rappelle à chacun que ses choix ont des conséquences et que partir n’est jamais un geste neutre. »',
@@ -114,10 +114,10 @@ export const CE_TASK: ExamTask = {
           opts: [],
           correct: -1,
           keywords: [
-            ['seul', 'addition', 'somme', 'cumul', 'accumul', 'million', 'ensemble des', 'innocent', 'minime', 'infime', 'isolement'],
+            ['addition', 'somme', 'cumul', 'accumul', 'million', 'ensemble des', 'innocent', 'minime', 'infime', 'collecti'],
             ['remplac', 'un autre', 'sa place', 'libere', 'substitu', 'quelqu un d autre', 'autres viendront', 'autres viennent', 'reste pas vide', 'prend la place', 'pris par', 'prise par'],
           ],
-          model: 'Parce que l’usure résulte de l’addition de millions de pas, chacun innocent ; et celui qui renonce est aussitôt remplacé par un autre visiteur.',
+          model: 'Parce que l’usure résulte de l’addition de millions de visites, chacune innocente ; et celui qui renonce est aussitôt remplacé par un autre visiteur.',
           why: 'Injuste : personne ne cause seul le dommage, fait de millions de pas innocents. Inefficace : la place laissée est prise par un autre.',
           band: 'c1',
           points: 2,
@@ -157,7 +157,7 @@ export const CE_TASK: ExamTask = {
           correct: -1,
           keywords: [
             ['coupable', 'responsable unique', 'seul responsable', 'accus', 'designer', 'culpab', 'fautif'],
-            ['mecanism', 'rencontre', 'systeme', 'processus', 'dynamique', 'phenomene', 'plusieurs acteurs', 'engrenage', 'automatique'],
+            ['mecanism', 'rencontre', 'systeme', 'processus', 'dynamique', 'plusieurs acteurs', 'engrenage', 'automatique'],
           ],
           model: 'Parce qu’elle cherche un coupable là où il y a un mécanisme : la rencontre d’un espace limité et d’une demande qui se déplace.',
           why: '« Elles cherchent un coupable. Or l’usure d’un lieu n’est pas une faute, c’est un mécanisme », où plusieurs acteurs agissent chacun sur une partie.',
@@ -179,14 +179,14 @@ export const CE_TASK: ExamTask = {
           points: 2,
         },
         {
-          // Q8 · weigh (3). Three ideas: the manner of coming; at equal number (same wear); effect on village life.
+          // Q8 · weigh (3). Three ideas: the manner of coming; a DIFFERENT effect (same wear, not the same result); village life. The contrast group carries no « même / autant / égal », which reversed answers use too.
           kind: 'short',
           q: 'Que cherche à montrer l’auteure en comparant l’excursionniste d’un après-midi et celui qui loue un appartement pour une semaine ?',
           opts: [],
           correct: -1,
           keywords: [
-            ['maniere', 'facon', 'comment', 'duree', 'sejourn', 'longtemps', 'temps pass', 'depens', 'consomm', 'comportement'],
-            ['egal', 'meme', 'differ', 'autant', 'inegal', 'pareil', 'varie', 'comparable', 'contraire', 'oppos'],
+            ['maniere', 'facon', 'comment', 'duree', 'sejour', 'longtemps', 'temps pass', 'depens', 'consomm', 'comportement'],
+            ['differ', 'inegal', 'contraire', 'oppos', 'chang', 'fait vivre', 'faire vivre', 'davantage', 'mieux', 'compte autant', 'autant que le nombre', 'nombre egal', 'a nombre'],
             ['vie locale', 'vie du village', 'village', 'habitant', 'commerce', 'economie locale', 'local', 'boulangerie', 'cafe'],
           ],
           model: 'Qu’à nombre égal, la manière de venir, la durée du séjour et les dépenses sur place changent l’effet du tourisme sur la vie du village.',

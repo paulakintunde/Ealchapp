@@ -27,7 +27,10 @@
 // places them with scatterMcqKeys (per part, no A-B-C run). Short answers carry
 // `keywords` (every group met by one stem) and a `model` that meets them. Every
 // keyword set was probed against plausible right and wrong answers in
-// scratch (dalf-blanc03/probe-keywords.mts); no wrong answer passes.
+// scratch (dalf-blanc03/probe-keywords.mts, then review-dalf-blanc03/probe.ts).
+// Key words cannot see a reversal without a negation word (« ont peu
+// d’effet », roles swapped between two actors); those still pass, by design
+// of the marker, not of the sets.
 //
 // ── Casting ─────────────────────────────────────────────────────────────────
 //
@@ -183,7 +186,7 @@ export const CO_PART1: ExamTask = {
           opts: [],
           correct: -1,
           keywords: [
-            ['ignor', 'repere', 'reference', 'inconnu', 'aucune idee', 'idee de ce', 'idee du', 'idee de la', 'incapab', 'flou'],
+            ['ignor', 'repere', 'reference', 'inconnu', 'meconn', 'aucune idee', 'moindre idee', 'incapab', 'flou'],
             ['valeur', 'prix', 'vaut', 'cout', 'coute', 'combien'],
           ],
           model: 'Que les utilisateurs ignorent la valeur réelle de ce service, faute de repère, et sont donc incapables de juger si l’échange est équitable.',
