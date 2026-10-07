@@ -64,7 +64,7 @@ const REPORT_SCREEN = resolve(HERE, '../../../ealch-v2/app/exam-report.tsx');
  *  rather than globbed: a paper that stops being loadable should fail here, not
  *  silently drop out of the sweep. */
 const PAPER_DIRS = [
-  'tef-blanc01', 'tef-blanc02', 'tef-blanc03', 'tef-blanc04', 'tef-blanc05',
+  'tef-blanc01', 'tef-blanc02', 'tef-blanc03', 'tef-blanc04', 'tef-blanc05', 'tef-blanc06',
   'tcf-blanc01', 'tcf-blanc02', 'tcf-blanc03', 'tcf-blanc04', 'tcf-blanc05', 'tcf-blanc06',
   'delf-blanc01', 'delf-blanc02', 'delf-blanc03', 'delf-blanc04', 'delf-blanc05',
   'dalf-blanc01', 'dalf-blanc02', 'dalf-blanc03', 'dalf-blanc04', 'dalf-blanc05',

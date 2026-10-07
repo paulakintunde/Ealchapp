@@ -1,6 +1,6 @@
 # TOPICS — TEF Canada
 
-**Blueprint:** `tef-canada-2025.09` · **296 situations**
+**Blueprint:** `tef-canada-2025.09` · **323 situations**
 **Compiled:** 2026-08-24 (phase E0)
 
 Our own topic bank. Built from the CEFR can-do descriptors and the 128 themes already in `content_themes`. Nothing here is drawn from an exam paper. See [README.md](README.md).
@@ -511,6 +511,47 @@ block is and what the bank runs out of first.
 | TEF-294 | Une valise dont la poignée est cassée | A2 | `objets` | CO-A, CO-G |
 | TEF-295 | Un pot de peinture à refaire à la bonne teinte | A2–B1 | `bricolage` | CO-A, CO-G |
 | TEF-296 | Une plante achetée déjà malade | A2 | `jardinage` | CO-A, CO-G |
+
+---
+
+## Hiver, quartier et services — paper 6
+
+The top-up for paper 6 (decision 41). `topic-demand.ts 1` reported CO-A 3, CO-B 2,
+CO-G 10, CE-A 1 and CE-DE 1 short, and `plan-paper.ts 6` showed the real gap was
+wider: block G's sub-types (échange, répondeur, information) and its four
+borrowed vox-pops, plus EE-A, EO-A and EO-B with one candidate each. Canada-first
+everyday situations; every organisation in the finished items is invented. TEF-323
+is pitched B2–C1 because paper 6's EO Section B is the C1 task.
+
+| ID | Situation | Bands | Theme | Suits |
+|---|---|---|---|---|
+| TEF-297 | Une paire de mitaines oubliée dans un autobus | A2 | `vetements` | CO-A |
+| TEF-298 | Des pneus d'hiver à faire poser avant la première neige | A2–B1 | `deplacements` | CO-A |
+| TEF-299 | Une pelle à neige achetée trop petite | A2 | `maison` | CO-A |
+| TEF-300 | Une annonce de stationnement interdit pendant le déneigement | A2–B1 | `la-ville` | CO-B |
+| TEF-301 | Une annonce de fermeture de la patinoire extérieure pour cause de redoux | A2–B1 | `sports-et-loisirs` | CO-B |
+| TEF-302 | Un client conteste une facture d'électricité au téléphone | A2–B1 | `argent-quotidien` | CO-G |
+| TEF-303 | Un chat à nourrir pendant un voyage : la voisine propose son aide | A2 | `animaux-domestiques` | CO-G |
+| TEF-304 | Un casier de vestiaire bloqué à la piscine | A2–B1 | `sports-et-loisirs` | CO-G |
+| TEF-305 | Un lecteur a perdu sa carte et veut emprunter des livres | A2 | `musees` | CO-G |
+| TEF-306 | Un répondeur de clinique dentaire déplace un rendez-vous | A2–B1 | `systeme-de-sante` | CO-G |
+| TEF-307 | Un répondeur de salle de réception confirme une réservation de fête | A2–B1 | `evenements-familiaux` | CO-G |
+| TEF-308 | Un avis de coupure d'eau programmée dans une rue | A2–B1 | `maison` | CO-G |
+| TEF-309 | Un bulletin de circulation annonce un pont fermé pour la nuit | A2–B1 | `transports-quotidiens` | CO-G |
+| TEF-310 | Une annonce de marché fermier qui change d'emplacement | A2–B1 | `marche` | CO-G |
+| TEF-311 | Micro-trottoir : faut-il garder le même horaire toute l'année ? | B1–B2 | `questions-sociales` | CO-C, CO-G |
+| TEF-312 | Micro-trottoir : les devoirs à la maison sont-ils utiles ? | B1–B2 | `ecole` | CO-C, CO-G |
+| TEF-313 | Micro-trottoir : faut-il laisser un pourboire au comptoir ? | B1–B2 | `au-restaurant` | CO-C, CO-G |
+| TEF-314 | Une étiquette d'entretien d'un manteau d'hiver | A2 | `vetements` | CE-A |
+| TEF-315 | Un menu de la semaine d'une cafétéria d'entreprise | A2 | `au-restaurant` | CE-A |
+| TEF-316 | Un message d'une garderie sur une sortie reportée | A2 | `famille` | CE-A |
+| TEF-317 | Une petite annonce de location d'une place de stationnement chauffée | A2–B1 | `deplacements` | CE-A |
+| TEF-318 | Une affichette de vente-débarras devant une maison | A2 | `voisinage` | CE-A |
+| TEF-319 | Un comparatif de trois camps de jour pour enfants | A2–B1 | `famille` | CE-DE |
+| TEF-320 | Un graphique des dépenses de chauffage d'un ménage sur l'année | B1 | `argent-quotidien` | CE-DE |
+| TEF-321 | Un chevreuil égaré dans le stationnement d'un centre commercial | A2–B1 | `animaux` | EE-A |
+| TEF-322 | Une offre de cours de canot pour débutants | A2–B1 | `sports-et-loisirs` | EO-A |
+| TEF-323 | Un programme de jumelage bénévole entre nouveaux arrivants et résidents | B2–C1 | `communaute` | EO-B |
 
 ---
 
