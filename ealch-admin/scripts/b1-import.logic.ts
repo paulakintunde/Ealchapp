@@ -63,7 +63,7 @@ export const C1_SLUGS: readonly string[] = [
   'bilan-grammatical-c1', 'passe-anterieur', 'concordance-litteraire', 'relatives-complexes', 'ellipse-reprise',
   'nuancer-oral', 'reformuler-conclure', 'persuader', 'expose-jury',
   'dissertation-synthese', 'rapports-comptes-rendus', 'vocabulaire-idees', 'references-historiques',
-  'analyser-oeuvre', 'notions-politiques', 'notions-morales',
+  'analyser-oeuvre', 'notions-politiques', 'notions-morales', 'synonymes-nuances',
   'lire-entre-les-lignes', 'debats-entretiens', 'analyse-presse',
 ];
 
