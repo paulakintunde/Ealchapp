@@ -928,6 +928,14 @@ full DALF sitting spends at most ~7 grading turns (cap 12/day). App-only change;
 deployed grade-exam v8 already accepts the batch. DALF papers 3-4 reviewed (1b9cec8,
 280e6bb). Scatter also rejects descending runs (67d7205).
 
+41. (Paul, 2026-10-07) Decision 23 is delivered as a SIXTH TEF Canada paper and a SIXTH
+TCF Canada paper (blanc-06), real format throughout; the top writing and speaking tasks
+(TEF section B, TCF tâche 3) are pitched and tagged at c1, so PE@c1 / PO@c1 also route
+from TEF/TCF. Exam tasks only reach learners inside a paper, so no loose tasks. TEF topic
+bank: 67 free situations but short per code for one paper (CO-A 3, CO-B 2, CO-G 10, CE-A
+1, CE-DE 1; `pnpm tsx scripts/topic-demand.ts 1`): the TEF author extends the bank first.
+Waves 4-5 art registered (efb6f21); wave 5 reviewed (67f0cab, c9bb637).
+
 ## Wave 5 (c1.14-c1.17), set up and dispatched 2026-10-06
 
 Setup (Paul's OK, `scratch/_c1w5_themes.mts --apply`): blocks free at every level;
