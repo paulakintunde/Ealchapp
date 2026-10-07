@@ -30,6 +30,7 @@
 // position may carry a disproportionate share, and the paper's test does that
 // check for real.
 import type { ExamTask, QcmItem } from '../../../ealch-v2/src/content/schema.ts';
+import { hasMonotoneRun } from '../dalf/scatter.ts';
 
 /** Where the key goes for blanc-01, by the question's index within its task.
  *
@@ -171,4 +172,45 @@ export function keyPositionCounts(tasks: ExamTask[]): Record<number, number> {
 /** Every option string, for the length and echo checks the standard asks for. */
 export function allItems(tasks: ExamTask[]): QcmItem[] {
   return tasks.flatMap((t) => (t.parts ? t.parts.flatMap((p) => p.items) : (t.items ?? [])));
+}
+
+/* ── The stricter scatter (decision 44), moved here from tef-blanc06 ───────── */
+
+export const keysOf = (t: ExamTask): number[] =>
+  (t.parts ? t.parts.flatMap((p) => p.items) : (t.items ?? [])).map((i) => i.correct);
+
+/** True when a short block of keys repeats back to back: A B A B A B, or
+ *  A C B A C B, or A C B D A C B D. A balanced PRNG walk produces these often
+ *  in a seventeen-item block (the first seed for block G read ACBD three times
+ *  running), and a candidate spots a repeating cycle as fast as A B C. */
+export const hasRepeatingCycle = (keys: number[]): boolean => {
+  const same = (i: number, j: number, k: number) => keys.slice(i, i + k).join() === keys.slice(j, j + k).join();
+  for (let i = 0; i < keys.length; i += 1) {
+    if (i + 6 <= keys.length && same(i, i + 2, 2) && same(i, i + 4, 2)) return true;
+    for (const k of [3, 4]) if (i + 2 * k <= keys.length && same(i, i + k, k)) return true;
+  }
+  return false;
+};
+
+/** A key order a candidate could read as a pattern. */
+export const looksPatterned = (keys: number[]): boolean => hasMonotoneRun(keys) || hasRepeatingCycle(keys);
+
+/**
+ * The same scatter every TEF paper uses (`scatterKeys`: seeded, balanced, never
+ * the same position twice running), with one addition from the DALF papers: a
+ * block whose key sequence reads as a visible rotation (A B C or C B A, three
+ * or more in a row) or a repeating cycle (see hasRepeatingCycle) is re-seeded with a salt (`#1`, `#2`, ...) until it does
+ * not. The salt only changes the seed; the task keeps its own id.
+ *
+ * Still a pure function of the paper, so re-running cannot move a key.
+ * Decision 44 (Paul, 2026-10-07): the rule for NEW TEF papers, from blanc-06
+ * on. Papers 1-5 keep plain scatterKeys and their published keys (blanc-05's
+ * block A reads A B C D and stays that way).
+ */
+export function scatterWithoutRuns(task: ExamTask): ExamTask {
+  for (let salt = 0; salt < 5000; salt += 1) {
+    const seeded = scatterKeys(salt === 0 ? task : { ...task, id: `${task.id}#${salt}` });
+    if (!looksPatterned(keysOf(seeded))) return { ...seeded, id: task.id };
+  }
+  throw new Error(`${task.id}: no run-free key order found`);
 }

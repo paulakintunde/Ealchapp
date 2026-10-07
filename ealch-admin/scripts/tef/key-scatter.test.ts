@@ -18,6 +18,8 @@ import { CO_TASKS as CO2, CE_TASKS as CE2 } from '../tef-blanc02/paper.ts';
 import { CO_TASKS as CO3, CE_TASKS as CE3 } from '../tef-blanc03/paper.ts';
 import { CO_TASKS as CO4, CE_TASKS as CE4 } from '../tef-blanc04/paper.ts';
 import { CO_TASKS as CO5, CE_TASKS as CE5 } from '../tef-blanc05/paper.ts';
+import { CO_TASKS as CO6, CE_TASKS as CE6 } from '../tef-blanc06/paper.ts';
+import { keysOf, looksPatterned } from './finalise.ts';
 
 const PAPERS: [string, ExamTask[]][] = [
   ['blanc-01', [...CO1, ...CE1]],
@@ -75,4 +77,9 @@ test('blanc-01 keys are frozen: it is published and has been sat', () => {
     keySequence([...CO1, ...CE1]).join(''),
     '20312031120120202031202203120312031203122031203203120203120312203120312020312031'
   );
+});
+
+test('from blanc-06 on, no block reads as a pattern (decision 44)', () => {
+  // Papers 1-5 keep their published keys; new papers use scatterWithoutRuns.
+  for (const t of [...CO6, ...CE6]) ok(!looksPatterned(keysOf(t)), `${t.id}: keys ${keysOf(t).join('')} read as a pattern`);
 });
