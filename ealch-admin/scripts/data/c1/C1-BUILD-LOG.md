@@ -1119,3 +1119,11 @@ missions / 156 rows, c1.15 87 / 150, c1.16 87 / 160, c1.17 87 / 150; reviews run
 Later waves: proposed homes for all 24 are in `C1-RESEARCH-PLAN.md`; probe again
 and claim at each wave's dispatch. **Rule:** a block must be unused at EVERY level
 of the theme.
+
+## Status 2026-10-07: papers in the database, DALF 1 recorded
+
+- DALF 1-5, TEF blanc-06 and TCF blanc-06 written to Postgres, all tasks in_review (apply-paper learned `dalf`, 23220cd).
+- Audio measured from the paper files (scratch/_audio_budget_c1.mts): 128,009 characters, 704 calls (80,354 listening + 47,655 examiner turns).
+- Paul chose "one paper first". DALF blanc-01 recorded: 19,021 characters, 3 documents + 54 examiner turns on R2, 4 clips reused.
+- Speech rates: Partie 1 about 160 wpm, sondage about 155, the news flash about 196 (above the 175 target). The examiner speaks at speed 0.85.
+- Waiting on Paul's listen before recording the other 6 (about 109,000 characters).
