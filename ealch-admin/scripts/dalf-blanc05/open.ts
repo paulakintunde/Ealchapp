@@ -216,7 +216,7 @@ const SYNTHESE_MODEL =
   'S’y ajoutent des règles d’hygiène qui interdisent de resservir un plat présenté et un plateau imposé qui fait prendre des aliments délaissés ensuite.\n\n' +
   'Plusieurs remèdes sont envisagés. ' +
   'Réduire le choix risquerait de détourner les étudiants vers la restauration rapide ; la réservation préalable faciliterait la prévision, mais désavantagerait ceux dont les horaires sont irréguliers. ' +
-  'D’autres mesures ont fait leurs preuves : accompagnements en libre-service, pain placé en fin de file, dons des plats non servis et affichage du poids des restes. ' +
+  'D’autres mesures sont déjà appliquées : accompagnements en libre-service, pain placé en fin de file, dons des plats non servis et affichage du poids des restes. ' +
   'Le gaspillage apparaît ainsi moins comme une faute individuelle que comme le produit d’une organisation.';
 
 export const PE_SYNTHESE: ExamTask = {
@@ -320,7 +320,7 @@ const ESSAI_MODEL =
   'Au nom des représentants étudiants au conseil de la vie universitaire, je vous adresse une proposition pour réduire le gaspillage dans nos restaurants. ' +
   'Beaucoup d’entre nous sont choqués de voir, chaque midi, des plateaux revenir à moitié pleins, et nous souhaitons contribuer à changer la situation plutôt que de nous contenter de la déplorer.\n\n' +
   'Nous proposons d’abord trois mesures simples. ' +
-  'Premièrement, servir le plat principal en deux tailles, la petite étant vendue un peu moins cher : sans écart de prix, chacun prend la grande portion par principe. ' +
+  'Premièrement, servir le plat principal en deux tailles, la petite étant vendue un peu moins cher : sans écart de prix, une partie des étudiants prend toujours la grande portion.' +
   'Deuxièmement, placer le pain en fin de file et proposer les légumes en libre-service, pour que chacun se serve selon son appétit. ' +
   'Troisièmement, rendre le dessert facultatif dans la formule, afin que personne ne le prenne seulement parce qu’il l’a payé.\n\n' +
   'Nous suggérons ensuite une réservation facultative la veille, par l’application de l’université, avec une petite réduction pour ceux qui l’utilisent. ' +
@@ -584,7 +584,7 @@ const PO1_EXPOSE_MODEL =
   'enfin, je proposerai quelques conditions pour qu’elles nous aident à décider sans décider à notre place.\n\n' +
   'Commençons par reconnaître ce que les machines apportent. ' +
   'La juriste elle-même le rappelle : dans un avion de ligne, les instruments pilotent l’essentiel du vol, et personne ne souhaite revenir en arrière. ' +
-  'Quand les règles sont claires, la tâche répétitive et l’erreur humaine fréquente, un système automatique est plus fiable que nous. ' +
+  'Quand les règles sont claires, la tâche répétitive et l’erreur humaine fréquente, un système automatique peut même sauver des vies.' +
   'L’exemple du logement va plus loin, parce qu’il touche à la justice. ' +
   'Avant le logiciel, chaque attribution faisait naître un soupçon de favoritisme. ' +
   'Désormais, les critères sont publics, chaque demandeur connaît son nombre de points, et un dossier est examiné en quelques jours au lieu de plusieurs semaines. ' +
@@ -606,7 +606,7 @@ const PO1_EXPOSE_MODEL =
   'Ce qui n’a pas été prévu dans les critères n’existe pas pour la machine. ' +
   'Il a fallu une travailleuse sociale, c’est-à-dire un regard humain, pour corriger cet oubli. ' +
   'La troisième limite est plus subtile. On nous dit que l’humain garde le dernier mot. ' +
-  'Mais dans le premier document, la commission suit le classement dans neuf cas sur dix, et la juriste explique pourquoi : par manque de temps, par peur d’avoir tort seul contre la machine, par confort. ' +
+  'Mais dans le premier document, la commission suit le classement dans neuf cas sur dix, et la juriste avance, de façon générale, des raisons qui pourraient l’expliquer : le manque de temps, la peur d’avoir tort seul contre la machine, le confort. ' +
   'Un contrôle qui ne contredit jamais, dit-elle, n’est plus un contrôle mais une signature. ' +
   'Enfin, il faut se méfier de la neutralité apparente des outils. ' +
   'Les critères ont été choisis par des personnes ; le directeur lui-même dit que le logiciel ne fait qu’appliquer des choix politiques. ' +
@@ -921,7 +921,7 @@ const PO2_EXPOSE_MODEL =
   'L’expérience du professeur est frappante : face à une classe que rien n’intéressait, un rallye par équipes a changé l’ambiance. ' +
   'Des élèves qui ne levaient jamais la main se sont mis à expliquer des solutions, parce que leur équipe avait besoin d’eux, et certains ont même demandé des énigmes pour s’entraîner. ' +
   'Le défi a donné du sens à des exercices qui, au tableau, n’en avaient aucun pour eux. ' +
-  'Certains parents ont même vu leur enfant parler de mathématiques à table, ce qui ne leur était sans doute jamais arrivé. ' +
+  'Certains parents ont même vu leur enfant parler de mathématiques à table.' +
   'Le rapport confirme d’ailleurs que les défis collectifs ont des effets favorables, y compris chez les élèves en difficulté. ' +
   'Le professeur rappelle aussi que les enfants aiment se mesurer, à la récréation comme dans un match : le jeu existait bien avant le marché. ' +
   'Je peux ajouter un exemple personnel. Au collège, notre professeure de français organisait chaque trimestre un concours de lecture entre les classes. ' +
@@ -934,7 +934,7 @@ const PO2_EXPOSE_MODEL =
   'Autrement dit, la compétition risque d’aider les élèves qui réussissent déjà et de décourager ceux qui en auraient le plus besoin. ' +
   'Le témoignage du professeur l’illustre de façon très concrète. ' +
   'Lorsqu’il a affiché un classement individuel, les premiers étaient ravis, mais les derniers ont décroché, et une élève lui a dit qu’elle serait de toute façon toujours en bas. ' +
-  'Le rapport généralise ce constat : un classement public, répété et individuel fige les positions et pousse les plus faibles à abandonner l’effort. ' +
+  'Le rapport fait le même constat à partir des études qu’il rassemble :un classement public, répété et individuel fige les positions et pousse les plus faibles à abandonner l’effort. ' +
   'J’ai connu cette situation : dans une de mes classes, les notes de chaque contrôle étaient lues à voix haute, de la meilleure à la plus mauvaise. ' +
   'Je me souviens surtout du silence des derniers, et du fait que certains avaient cessé d’essayer bien avant la fin de l’année. ' +
   'Le second risque est plus discret : quand gagner devient le but, on choisit les tâches où l’on est sûr de réussir, et le plaisir de comprendre peut céder la place au désir de l’emporter. ' +
@@ -944,8 +944,8 @@ const PO2_EXPOSE_MODEL =
   'Le professeur conclut que la question n’est pas de savoir s’il faut de la compétition, mais laquelle, et ce qu’on fait de ceux qui perdent ; ' +
   'le rapport, de son côté, ne tranche ni pour ni contre et recommande d’en surveiller la forme. ' +
   'Je distinguerais donc trois formes. ' +
-  'La première, la compétition entre équipes, associe la rivalité à la coopération : chacun y a un rôle, et le professeur du dossier fait même tourner ces rôles pour que personne ne soit toujours celui qui écrit ou celui qui présente. ' +
-  'La deuxième, la compétition avec soi-même, consiste à battre son propre record sans voir le score des autres ; elle a permis à l’élève qui se sentait humiliée de progresser plus vite que la moyenne. ' +
+  'La première, la compétition entre équipes, associe la rivalité à la coopération : chacun y a un rôle, et le professeur du dossier fait même tourner ces rôles à chaque rallye : celui qui écrit, celui qui vérifie, celui qui présente.' +
+  'La deuxième, la compétition avec soi-même, consiste à battre son propre record sans voir le score des autres ; et l’élève qui s’était sentie humiliée par le classement progresse aujourd’hui plus vite que la moyenne.' +
   'La troisième, le classement public des individus, est celle qu’il faut éviter, parce qu’elle transforme l’école en tribunal permanent. ' +
   'J’ajouterais une condition qui me paraît décisive : que perdre ne soit jamais définitif. ' +
   'Un rallye que l’on perd ce trimestre peut se gagner au suivant ; une place de dernier affichée au mur, elle, colle à la peau. ' +

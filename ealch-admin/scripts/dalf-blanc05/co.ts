@@ -194,7 +194,9 @@ export const CO_PART1: ExamTask = {
           opts: [],
           correct: -1,
           keywords: [
-            ['invent', 'imagin', 'devin', 'ignor', 'inconnu', 'savoir', 'sait', 'connai', 'suppos', 'hypoth', 'aucune trace', 'aucun document', 'aucun moyen', 'aucune idee'],
+            // No bare 'savoir', 'sait' or 'connai': « il faudrait savoir imiter le style du peintre » met
+            // both groups with a reason he never gives. A negated « il ne sait pas » goes to the AI anyway.
+            ['invent', 'imagin', 'devin', 'ignor', 'inconnu', 'impossible de savoir', 'impossible de connaitre', 'suppos', 'hypoth', 'aucune trace', 'aucun document', 'aucun moyen', 'aucune idee'],
             ['peintre', 'artiste', 'auteur', 'signer', 'signat', 'a sa place', 'a la place', 'substitu', 'createur', 'falsif', 'trahi', 'tromp', 'mensong', 'faux'],
           ],
           model: 'Parce qu’il ignore quelle expression avait ce visage : le repeindre, ce serait l’inventer et signer à la place du peintre.',
@@ -212,8 +214,9 @@ export const CO_PART1: ExamTask = {
             // The first lie: the work redone as new, as if nothing had happened.
             ['neuf', 'neuve', 'rien ne s est passe', 'rien passe', 'intact', 'comme avant', 'effac', 'rajeun', 'refai', 'refaire', 'dissimul', 'cach'],
             // The second: the ruin shown as the work. No 'expos' or 'montr' (« en exposant une copie »
-            // met it); no 'degats' (hiding the damage is the FIRST lie).
-            ['ruine', 'en l etat', 'tel quel', 'telle quelle', 'cicatric', 'blessure'],
+            // met it); no bare 'degats', 'cicatric' or 'blessure' (« en la refaisant à neuf pour effacer
+            // ses cicatrices » is the FIRST lie twice over and met both groups).
+            ['ruine', 'en l etat', 'tel quel', 'telle quelle', 'partie de l oeuvre', 'comme si les degats', 'comme si les blessures', 'comme si les cicatrices', 'comme si c etait l oeuvre', 'etait l oeuvre'],
           ],
           model: 'En la refaisant comme neuve, pour faire croire qu’il ne s’est rien passé, ou en l’exposant en ruine, comme si la ruine était l’œuvre elle-même.',
           why: '« La refaire comme neuve, et laisser croire qu’il ne s’est rien passé. Ou bien l’exposer en ruine, et laisser croire que la ruine, c’est l’œuvre. »',
@@ -242,8 +245,10 @@ export const CO_PART1: ExamTask = {
           keywords: [
             // Several people together. No bare 'habitant': « les habitants seuls, c’est leur histoire »
             // is a half-truth (he names a group, not the inhabitants alone).
-            ['plusieurs', 'ensemble', 'collecti', 'collegia', 'equipe', 'groupe', 'concert', 'partag', 'commun accord', 'divers', 'differents acteurs', 'pluridisc', 'et les habitants', 'et des habitants', 'avec les habitants', 'avec des habitants', 'et un historien', 'et l historien', 'avec un historien', 'avec l historien', 'avec le conservateur', 'et le conservateur'],
-            ['memoire', 'souvenir', 'histoire', 'identit', 'patrimoine', 'symbol', 'pas technique', 'non technique', 'pas seulement technique', 'depasse la technique', 'pas une question technique'],
+            ['plusieurs', 'ensemble', 'collecti', 'collegia', 'groupe', 'concert', 'partag', 'commun accord', 'divers', 'differents acteurs', 'pluridisc', 'et les habitants', 'et des habitants', 'avec les habitants', 'avec des habitants', 'et un historien', 'et l historien', 'avec un historien', 'avec l historien', 'avec le conservateur', 'et le conservateur'],
+            // No bare 'equipe' above (« le restaurateur et son équipe ») and no bare 'histoire' here
+            // (« parce que l’histoire de l’art est complexe » is not his reason).
+            ['memoire', 'souvenir', 'histoire du lieu', 'histoire du village', 'histoire locale', 'histoire commune', 'leur histoire', 'communaut', 'identit', 'patrimoine', 'symbol', 'pas technique', 'non technique', 'pas seulement technique', 'depasse la technique', 'pas une question technique'],
           ],
           model: 'Pas au restaurateur seul, mais à plusieurs personnes ensemble (conservateur, historien, architecte, habitants), parce que ce choix touche à la mémoire d’une communauté et qu’il n’est pas technique.',
           why: '« Surtout pas moi seul ! … ce choix-là n’est pas technique » ; « Il ne doit pas décider seul de ce qu’une communauté garde en mémoire. »',
@@ -270,7 +275,9 @@ export const CO_PART1: ExamTask = {
           opts: [],
           correct: -1,
           keywords: [
-            ['retir', 'enlev', 'defai', 'supprim', 'annul', 'otable', 'amovible', 'revenir en arriere', 'reversib'],
+            // The POSSIBILITY of removal, not removal: « tout ce qu’il ajoute doit être définitif, car ses
+            // successeurs pourraient l’enlever » and « ses ajouts doivent être retirés » met a bare 'retir'.
+            ['pouvoir etre ret', 'pouvoir etre enl', 'pouvoir etre def', 'pouvoir etre supprim', 'peut etre ret', 'peut etre enl', 'puisse etre', 'puissent etre', 'pourra etre', 'pourront etre', 'pouvoir ret', 'pouvoir enl', 'pouvoir def', 'pouvoir annul', 'pouvoir le ret', 'pouvoir les ret', 'pouvoir l enl', 'pouvoir les enl', 'retirable', 'enlevable', 'otable', 'amovible', 'revenir en arriere', 'reversib'],
             // His OWN additions: « il faut enlever les anciennes restaurations, car le goût a changé »
             // met the other two groups and describes something else.
             ['ajout', 'apport', 'ce qu il met', 'ce qu il pose', 'ce qu on met', 'ce qu on pose', 'son intervention', 'ses interventions', 'son propre travail', 'ses propres', 'son travail', 'ses retouches', 'materiaux'],
@@ -293,8 +300,9 @@ export const CO_PART1: ExamTask = {
             // met a bare 'verite' group. Every form here joins the second wish to the first.
             ['et la verite', 'et veut la verite', 'et veulent la verite', 'aussi la verite', 'aussi savoir', 'aussi connaitre', 'aussi comprendre', 'et savoir', 'veut savoir', 'veulent savoir', 'et la transparen', 'aussi la transparen', 'et une information', 'aussi etre inform', 'et etre inform', 'et l explication', 'aussi une explication', 'et comprendre', 'et ce qui a ete refait', 'aussi ce qui'],
             // His verdict on the pair. No 'a la fois' or 'les deux': « il trouve absurde que le public
-            // veuille à la fois une belle image et la vérité » met all three groups.
-            ['sain', 'compatib', 'concili', 'logique', 'coheren', 'normal', 'legitim', 'comprehensi', 'raisonnab', 'pas contradictoire', 'aucune contradiction', 'nullement contradictoire'],
+            // veuille à la fois une belle image et la vérité » met all three groups. No bare 'concili': « impossible à
+            // concilier » met it.
+            ['sain', 'compatib', 'conciliabl', 'se concili', 'logique', 'coheren', 'normal', 'legitim', 'comprehensi', 'raisonnab', 'pas contradictoire', 'aucune contradiction', 'nullement contradictoire'],
           ],
           model: 'Il les trouve sains et conciliables : le public veut une belle image et veut aussi la vérité sur ce qui a été refait, ce que permet la retouche visible de près.',
           why: '« Pas du tout, ça me paraît même très sain. Les gens veulent une belle image, et ils veulent la vérité. »',
@@ -311,7 +319,9 @@ export const CO_PART1: ExamTask = {
             // What the work is for: keeping the object itself from decaying. No 'abim' (« le
             // numérique abîme l’original » met both groups) and no 'proteg' or 'conserv' alone
             // (« le numérique protège mieux l’objet » met both).
-            ['degrad', 'deterior', 'ecaill', 'souleve', 'refix', 'tomb', 'se perd', 'disparai', 'fragilis', 'se decoll', 'decolle', 'stabilis', 'consolid'],
+            // Reflexive forms only: « le numérique dégrade l’original » and « l’écran fait disparaître
+            // l’original » met bare 'degrad' and 'disparai'.
+            ['se degrad', 's abim', 'se deterior', 'ecaill', 'souleve', 'refix', 'tomb', 'se perd', 'se fragilis', 'se decoll', 'decolle', 'stabilis', 'consolid'],
             ['objet', 'materi', 'physique', 'original', 'reel', 'peinture', 'tableau', 'oeuvre elle', 'support'],
           ],
           model: 'Parce qu’une image laisse l’objet réel se dégrader : une écaille de peinture qui se soulève doit être refixée sur le tableau lui-même.',

@@ -238,9 +238,11 @@ export const CE_TASK: ExamTask = {
           opts: [],
           correct: -1,
           keywords: [
-            // No bare 'general' (« en général, ils oublient les connaissances ») and no 'separe'
-            // (« ils séparent les disciplines »): both met the second group with a wrong reading.
-            ['generale', 'independ', 'en soi', 'a vide', 'isolee', 'detachee', 'autonome', 'abstraite', 'muscle', 'ressort', 'transpos', 'n importe ou', 'universelle'],
+            // Only words that carry the INDEPENDENCE from knowledge. No 'general' or 'generale', no
+            // 'universelle', 'muscle' or 'ressort': « une faculté générale qui dépend du savoir » and « un
+            // ressort ou un muscle qui dépend des connaissances » are the reversal and met both groups.
+            // No bare 'separe' (« ils séparent les disciplines »).
+            ['independ', 'en soi', 'a vide', 'detachee', 'detache', 'coupee d', 'separee d', 'transpos', 'n importe ou', 'n importe quel', 'hors sol'],
             ['savoir', 'sait', 'connaissance', 'domaine', 'discipline', 'matiere', 'contenu', 'maitris', 'apprentissage'],
           ],
           model: 'Elles font de la créativité une faculté générale, indépendante de ce que l’on sait, alors qu’on invente toujours dans un domaine que l’on maîtrise.',
@@ -273,7 +275,9 @@ export const CE_TASK: ExamTask = {
             ['trie', 'trier', 'filtr', 'ecart', 'elimin', 'rejet', 'rejett', 'selection', 'renonc', 'abandonn', 'laisse de cote', 'laissent de cote'],
             // The ideas dropped are the absurd ones. No bare 'pertinen' or 'utile': « ils écartent
             // les idées pertinentes » met both groups.
-            ['absurde', 'farfelu', 'saugrenu', 'irrealisable', 'inutilisable', 'irrealiste', 'impossible', 'fantaisiste', 'aberr', 'moins pertinentes', 'peu pertinentes', 'inutiles', 'reel', 'realite', 'realisme'],
+            // No 'reel', 'realite' or 'realisme': « ils renoncent à imaginer à cause de la réalité
+            // scolaire » met both groups with the stifling reading she rejects.
+            ['absurde', 'farfelu', 'saugrenu', 'irrealisable', 'inutilisable', 'irrealiste', 'impossible', 'fantaisiste', 'aberr', 'moins pertinentes', 'peu pertinentes', 'inutiles'],
           ],
           model: 'À douze ans, l’enfant a appris à écarter de lui-même les idées absurdes : il en propose moins parce que son imagination commence à tenir compte du réel.',
           why: '« Il a appris à écarter de lui-même les idées absurdes… une imagination qui commence à rencontrer le réel. »',
@@ -316,7 +320,9 @@ export const CE_TASK: ExamTask = {
           keywords: [
             // The fear that stops risk-taking. Without it, « les essais sont trop longs à corriger et
             // pleins d’erreurs » met the error group.
-            ['peur', 'crainte', 'craign', 'redout', 'apprehen', 'angoiss', 'oser', 'osent', 'audace', 'prendre des risques', 'prendre un risque', 'prennent des risques', 'prenne des risques', 'risquer', 'droit a l erreur', 'droit de se tromper', 'libre de se tromper', 'libres de se tromper'],
+            // Fear tied to error or loss, never bare 'peur' or 'crainte': « les élèves ont peur du
+            // professeur et font trop d’erreurs » met both groups.
+            ['peur de se tromper', 'peur de l erreur', 'peur des erreurs', 'peur d echouer', 'peur de perdre', 'peur de la sanction', 'peur d etre penalis', 'peur des mauvaises notes', 'peur de la mauvaise note', 'crainte de se tromper', 'crainte de l erreur', 'crainte de perdre', 'craindre de se tromper', 'craindre de perdre', 'oser', 'osent', 'ose prendre', 'ose essayer', 'ose se tromper', 'ose inventer', 'audace', 'prendre des risques', 'prendre un risque', 'prennent des risques', 'prenne des risques', 'risquer', 'droit a l erreur', 'droit de se tromper', 'libre de se tromper', 'libres de se tromper'],
             ['erreur', 'tromp', 'echec', 'rater', 'rate', 'perte de points', 'perdre des points', 'sanction', 'penalis', 'coute', 'cout'],
           ],
           model: 'Parce qu’un élève n’ose prendre des risques que s’il a le droit de se tromper : si chaque erreur coûte des points, il s’en tient à la démarche attendue.',
@@ -334,7 +340,11 @@ export const CE_TASK: ExamTask = {
             ['discipline', 'matiere', 'savoir', 'connaissance', 'contenu'],
             // HOW: through the disciplines, knowledge shown in the making. « Il faut ajouter une
             // matière de créativité aux autres disciplines » must not pass, so no 'en plus' here.
-            ['a travers', 'au sein', 'au coeur', 'integr', 'en train de se faire', 'inacheve', 'en construction', 'a la fois', 'en meme temps', 'et la liberte', 'avec la liberte', 'avec de la liberte', 'librement', 'se servir', 'servir de', 'utiliser'],
+            // Only knowledge shown in the making. No 'a travers', 'integr', 'utiliser', 'se servir' or
+            // 'librement': « une nouvelle matière où l’on apprend à utiliser des techniques », « intégrer
+            // une matière de créativité » and « des techniques de créativité à travers toutes les
+            // disciplines » (the méthodistes) all met both groups.
+            ['en train de se faire', 'se fait encore', 'se faire', 'inacheve', 'en construction', 'en chantier', 'en elaboration', 'en cours d elaboration', 'en cours de construction', 'vivant', 'non fige', 'encore cherche', 'a chercher'],
           ],
           model: 'Oui, mais à travers les disciplines elles-mêmes, en présentant le savoir comme encore en train de se faire et en laissant l’élève s’en servir librement.',
           why: 'Pas « comme une matière supplémentaire » ni en retirant les exigences : « présenter le savoir lui-même comme quelque chose qui est encore en train de se faire ».',
