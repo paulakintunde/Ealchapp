@@ -1,7 +1,7 @@
 # TOPICS — TCF Canada
 
-**Blueprint:** `tcf-canada-2026.01` · **282 situations, A1 to C2**
-**Compiled:** 2026-08-24 (phase E0) · **Expanded to five papers 2026-09-04 (phase E9)**
+**Blueprint:** `tcf-canada-2026.01` · **327 situations, A1 to C2**
+**Compiled:** 2026-08-24 (phase E0) · **Expanded to five papers 2026-09-04 (phase E9)** · **Expanded to six papers 2026-10-07 (decision 41, TCF-283 to TCF-327)**
 
 Our own topic bank. Built from the CEFR can-do descriptors and the 128 themes already in `content_themes`. Nothing here is drawn from an exam paper. See [README.md](README.md).
 
@@ -70,6 +70,12 @@ Concrete, literal, one fact. The answer is stated once, plainly.
 | TCF-93 | Une liste de choses à apporter pour une sortie | `objets` | CE |
 | TCF-94 | Quelqu'un parle de ce qu'il fait le matin | `routines` | CO, EO-T1 |
 | TCF-236 | Une sonnerie annonce la fin de la récréation | `ecole` | CO |
+| TCF-283 | Quelqu'un demande à un chauffeur si l'autobus va à la gare | `transports-quotidiens` | CO |
+| TCF-284 | Un garçon décrit ses deux grands-parents au téléphone | `famille` | CO |
+| TCF-285 | Une amie propose un rendez-vous devant le cinéma | `amis` | CO |
+| TCF-305 | Une ardoise de café avec quatre boissons et leurs prix | `cafe` | CE |
+| TCF-306 | Une fiche de présentation d'un nouvel élève | `presentation-personnelle` | CE |
+| TCF-307 | Un faire-part de naissance envoyé aux amis | `evenements-familiaux` | CE |
 
 ## A2 — positions 4 to 9
 
@@ -144,6 +150,18 @@ Still literal, but one competing fact must be ignored.
 | TCF-241 | Un bon de commande rempli à la main | `marche` | CE |
 | TCF-242 | Un calendrier de collecte affiché dans le hall | `maison` | CE |
 | TCF-243 | Un mode d'emploi de four à micro-ondes | `appareils` | CE |
+| TCF-286 | Un propriétaire explique quel jour la chambre sera libre | `hebergement` | CO |
+| TCF-287 | Une pharmacienne explique quand prendre un sirop | `rp-sante` | CO |
+| TCF-288 | Une annonce au supermarché signale l'ouverture d'une caisse | `courses` | CO |
+| TCF-289 | Un moniteur annonce le changement de salle du cours de yoga | `sports-et-loisirs` | CO |
+| TCF-290 | Une collègue explique où se trouve la nouvelle imprimante | `bureau` | CO |
+| TCF-291 | Une secrétaire indique la salle et l'heure d'un test de langue | `examens-et-diplomes` | CO |
+| TCF-308 | Une annonce de chambre à louer chez l'habitant | `hebergement` | CE |
+| TCF-309 | Une ordonnance avec deux médicaments et leurs horaires | `systeme-de-sante` | CE |
+| TCF-310 | Un avis de déviation d'une ligne de tramway | `transports-quotidiens` | CE |
+| TCF-311 | Un programme de fête de quartier avec trois activités | `les-fetes` | CE |
+| TCF-312 | Un message de suivi de colis avec deux créneaux de passage | `internet` | CE |
+| TCF-313 | Un tarif de location de skis à la journée et à la semaine | `sports-et-loisirs` | CE |
 
 ## B1 — positions 10 to 19
 
@@ -247,6 +265,19 @@ Two facts must be held together, or one tracked across a turn change. Redundancy
 | TCF-280 | Un récit de reconversion vers un métier manuel | `metiers` | CO, EO-T1 |
 | TCF-281 | Une conversation sur un retour au pays après dix ans | `rp-voyage` | CO, EO-T1 |
 | TCF-282 | Un reportage sur un atelier de réparation de vélos | `appareils` | CO |
+| TCF-292 | Un reportage sur une ressourcerie qui récupère des meubles | `ecologie` | CO |
+| TCF-293 | Une conversation sur un club de lecture qui se réunit en ligne | `litterature` | CO |
+| TCF-294 | Un entretien avec un conducteur de déneigeuse sur ses nuits d'hiver | `metiers` | CO |
+| TCF-295 | Un échange avec un technicien sur une connexion qui coupe le soir | `internet` | CO |
+| TCF-296 | Un reportage sur une navette fluviale qui remplace un pont fermé | `transports-quotidiens` | CO |
+| TCF-314 | Une note de service sur le nouveau système de badges | `bureau` | CE |
+| TCF-315 | Un article sur le compostage dans les immeubles | `ecologie` | CE |
+| TCF-316 | Un courriel d'un professeur sur un changement d'évaluation | `universite` | CE |
+| TCF-317 | Un guide pour faire reconnaître un diplôme obtenu à l'étranger | `immigration-et-citoyennete` | CE |
+| TCF-318 | Une lettre d'une clinique sur les absences non signalées | `soins` | CE |
+| TCF-319 | Un article sur un ciné-club dans une école secondaire | `cinema` | CE |
+| TCF-323 | Un message pour remercier des amis venus aider à un déménagement | `amis` | EE-T1 |
+| TCF-324 | Un hiver passé à apprendre le patinage, raconté simplement | `sports-et-loisirs` | EO-T1 |
 
 ## B2 — positions 20 to 29
 
@@ -302,6 +333,14 @@ The answer is distributed, or depends on stance rather than words. Hedging appea
 | TCF-276 | Une tribune sur l'évaluation des enseignants | `valeurs` | CE |
 | TCF-277 | Un article sur la restitution des objets de musée | `musees` | CE |
 | TCF-278 | Un échange formel sur un litige de facturation | `affaires` | CO, EO-T2 |
+| TCF-297 | Un débat sur la colocation entre générations | `hebergement` | CO |
+| TCF-298 | Une table ronde sur les villages qui limitent les visiteurs l'été | `tourisme` | CO |
+| TCF-299 | Une discussion sur la téléconsultation en région éloignée | `soins` | CO |
+| TCF-300 | Une chronique sur la relève des érablières familiales | `traditions` | CO |
+| TCF-320 | Un article sur la semaine de quatre jours et la fatigue | `bien-etre` | CE |
+| TCF-321 | Un texte sur la location de courte durée en copropriété | `droit` | CE |
+| TCF-322 | Un rapport sur les métiers occupés par des diplômés venus d'ailleurs | `immigration-et-citoyennete` | CE |
+| TCF-325 | Une offre de chalet à louer près d'un lac, conditions à préciser | `hebergement` | EO-T2 |
 
 ## C1 — positions 30 to 36
 
@@ -338,6 +377,11 @@ The answer is implicit: a reservation, an irony, a disagreement expressed polite
 | TCF-255 | Un séminaire sur les usages abusifs de la statistique | `methode-scientifique` | CO |
 | TCF-256 | Un échange sur la place de l'anonymat dans la recherche | `ethique` | CO |
 | TCF-257 | Un exposé sur les impasses qui font avancer une recherche | `decouvertes` | CO |
+| TCF-301 | Un débat sur ce que l'on doit aux générations futures | `ethique` | CO |
+| TCF-302 | Une conférence sur les modèles de prévision et leur marge d'erreur | `methode-scientifique` | CO |
+| TCF-303 | Un entretien sur la part du hasard dans les découvertes | `decouvertes` | CO |
+| TCF-326 | Deux positions sur la place de l'expertise dans la décision publique | `ethique` | EE-T3 |
+| TCF-327 | Point de vue : faut-il protéger les gens contre leurs propres choix ? | `ethique` | EO-T3 |
 
 ## C2 — positions 37 to 39
 
@@ -356,6 +400,7 @@ Literary or academic register, allusion, marked syntax. Three per paper, and the
 | TCF-234 | Un essai sur la valeur épistémique du témoignage | `ethique` | CE, EE-T3 |
 | TCF-235 | Un débat sur ce qui distingue une discipline d'une méthode | `methode-scientifique` | CO, EO-T3 |
 | TCF-258 | Une discussion sur ce qu'une théorie doit expliquer | `methode-scientifique` | CO |
+| TCF-304 | Une discussion sur ce que vaut une promesse quand les circonstances changent | `philosophie` | CO |
 
 ---
 

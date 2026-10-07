@@ -108,13 +108,14 @@ test('the bank can actually supply five papers', () => {
   ok(BANK.length >= used.size, `bank holds ${BANK.length}, five papers need ${used.size}`);
 });
 
-test('a sixth paper is where the bank runs out, and it says so', () => {
-  // Worth pinning: the bank was expanded to 282 for a five-paper pack and has
-  // 17 spare. That is enough and it is not enough for a sixth, so whoever asks
-  // for one should meet a named shortage rather than a silent reuse.
-  const taken = new Set(pack(5).flatMap(idsOf));
-  const sixth = plan(BANK, 6, taken);
-  ok(sixth.short.length > 0, 'a sixth paper drew a full set from a bank that cannot supply one');
+test('a seventh paper is where the bank runs out, and it says so', () => {
+  // Worth pinning: the bank was expanded to 282 for a five-paper pack, then to
+  // 327 for blanc-06 (decision 41, C1 build log), leaving 7 spare. Not enough
+  // for a seventh, so whoever asks for one should meet a named shortage rather
+  // than a silent reuse.
+  const taken = new Set(pack(6).flatMap(idsOf));
+  const seventh = plan(BANK, 7, taken);
+  ok(seventh.short.length > 0, 'a seventh paper drew a full set from a bank that cannot supply one');
 });
 
 /* ── planFor: one accumulation rule, shared ────────────────────────────────
