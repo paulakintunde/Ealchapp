@@ -983,6 +983,67 @@ nuance as a precision choice, not a rule, when both forms are correct French.
   never by intuition), antonymy that matches the sense (« un temps doux » vs « un caractère
   doux »). Québec register labels (char, blonde, magasiner) anchored in Usito / OQLF.
 
+## Wave 6 (c1.18, c1.19, c1.22, c1.23), set up and dispatched 2026-10-06
+
+Setup (Paul's OK, `scratch/_c1w6_themes.mts --apply`): blocks free at every level;
+faux-amis widened to sons-c1 (decision 27; its 322 a1 rows now legal); sub-themes « les
+calques de haut niveau » (faux-amis), « les figures et leur effet » (rhetorique),
+« traduire des idées » (langue-soignee), « le tact au travail »
+(francais-professionnel-avance). Each author gets the wave 1 common block, the wave 2
+notes and the wave 5 review lessons. Wave 5 drafted (13aa845, 3b99399): c1.14 79
+missions / 156 rows, c1.15 87 / 150, c1.16 87 / 160, c1.17 87 / 150; reviews running.
+
+- **c1.18 « Les faux amis savants »** (slug `faux-amis-savants`, vocabulary lesson,
+  skill CE): `faux-amis` 1000-1199, unit c1.18. Model the reviewed `vocabulaire-idees-*`
+  (c1.12). Builds on « la leçon 33 du B2 » (attendre, prétendre, formation, introduire,
+  achever, rester, supporter, adresser, définitivement, réaliser: never re-teach), « les
+  leçons 35 et 37 du B1 », « les leçons 27, 28 et 29 du B2 »; the faux-amis bank (about
+  110 headwords) is reused as known. NEW: initier, opportunité, alternative, impacter,
+  académique, versatile, juridiction, éligible, digital, faire sens / faire du sens,
+  questionner, canceller, céduler, booker. For each: who condemns, who accepts (OQLF BDL /
+  GDT, Académie « Dire, ne pas dire », FranceTerme, Usito, the Belgian Service de la
+  langue française), stated as « selon … », never a single verdict when authorities
+  differ. c1.12 already teaches « évidence / evidence »: cite « la leçon 12 du C1 ».
+  Owns words; c1.22 owns ideas.
+- **c1.19 « Les figures et leur effet »** (slug `figures-effet`, workshop, skill CE):
+  `rhetorique` 1200-1399, unit c1.19. Model `../b2/lire-litterature-*` (b2.30) and the
+  reviewed `persuader-*` (c1.08, owns persuasion; cite, never re-teach). Builds on « la
+  leçon 30 du B2 » act 7 (comparaison, métaphore, personnification) and its B2 term rows
+  (anaphore, oxymore, antithèse, hyperbole, euphémisme, métaphore filée, ironie). NEW:
+  litote as a figure (c1.06 owns it in speech, c1.17 as connotation), antiphrase,
+  prétérition, chiasme, gradation, zeugme, hypallage, métonymie and synecdoque,
+  allitération and assonance, rhythm (ternaire, cadence), effects of rupture; the
+  skill is one sentence on the EFFECT, not the name. Effect claims are interpretive:
+  accept other defensible readings in `why`. Public-domain extracts only, verified word
+  for word on Wikisource (Corneille, Racine, La Fontaine, Pascal, La Bruyère, Montesquieu,
+  Hugo, Baudelaire, Rimbaud, Verlaine, Apollinaire, Rostand). Sound devices flatten in
+  TTS: show them in text. Task: a short commentary, 250-400 words, on an extract.
+- **c1.22 « Traduire des idées »** (slug `traduire-idees`, workshop, skill PE):
+  `langue-soignee` 2200-2399, unit c1.22 (decision 26). Model `../b2/traduire-sans-calquer-*`
+  (b2.33) and the reviewed `rapports-comptes-rendus-*` (c1.11). Builds on « la leçon 33
+  du B2 » (three calque kinds, ten faux amis, transposition, modulation, équivalence,
+  étoffement, -ing forms, tone): one recap card. NEW: idea-level reformulation; English
+  hedging and understatement; paragraph logic (topic-sentence linearity vs French
+  announcement); implicitation and explicitation; cultural equivalence; summary
+  translation; register shifts across audiences. Original English source texts only.
+  Every translation example checked against a dictionary, BDL, Termium or the Language
+  Portal of Canada. graderNotes name the target moves (LLM grading over-rewards
+  literalness). Task: render a 200-300 word English text as natural French, 250-400 words.
+- **c1.23 « Le tact au travail »** (slug `tact-travail`, workshop, skill PE):
+  `francais-professionnel-avance` 1000-1199, unit c1.23. Model `../b2/reunions-negociation-*`
+  (b2.26) and the reviewed `rapports-comptes-rendus-*` (c1.11). Builds on « la leçon 26 du
+  B2 » (chairing, softening, conceding) and « la leçon 39 du B1 » (formal email); c1.06
+  owns speech politeness and c1.11 minutes (cite both). NEW: tact in writing (refusal, bad
+  news, escalation, saying no upward); degrees of indirectness and when indirectness reads
+  as passive-aggressive; presentations (signposting, slide titles, hostile questions);
+  France vs Québec directness (sourced, not stereotyped). Contested business usage
+  (revenir vers vous, impacter, initier, booker, call) stated with its source. Read every
+  legacy fpa row before reuse (known: .024 needs the conditional; fix spaced « ? » on
+  reuse). Task: a written refusal or bad-news message, 250-400 words.
+
+**DALF paper 5** dispatched with blanc-04 as model: DALF-05, 18 (chronique), 19 (flash),
+36, 45, 58, 60.
+
 ## Status
 
 | Lesson | Slug | Missions | Acts | Quiz | Drills | Sheets | Items | Art | State |
