@@ -33,7 +33,7 @@ export const CE_A: ExamTask = {
     {
       label: 'Document 1 · l’attestation de fréquentation',
       text:
-        'ÉCOLE SECONDAIRE DE BELCOURT · attestation de fréquentation scolaire\n' +
+        'ÉCOLE SECONDAIRE DE VAL-BRUMEL · attestation de fréquentation scolaire\n' +
         'Demande au secrétariat ou sur le portail des parents.\n' +
         'Délai : 3 jours ouvrables. En août, période de rentrée : 10 jours ouvrables.\n' +
         'Gratuite. Un duplicata coûte 5 $.\n' +
@@ -52,7 +52,7 @@ export const CE_A: ExamTask = {
       label: 'Document 2 · la troupe de théâtre',
       text:
         'LES TRÉTEAUX DE SAINT-VARIN · troupe de théâtre amateur\n' +
-        'Nous montons « La Maison du lac » pour avril.\n' +
+        'Nous montons « Le Banc du quai » pour avril.\n' +
         'On cherche : 2 comédiens, 1 personne pour les décors, 1 pour la lumière.\n' +
         'Répétitions le mardi soir, au sous-sol de la bibliothèque.\n' +
         'Aucune expérience demandée pour les décors et la lumière. Audition pour les rôles : samedi 18 janvier.',
@@ -125,9 +125,10 @@ export const CE_A: ExamTask = {
     {
       label: 'Document 6 · le message de la garderie',
       text:
-        'garderie les petits pas : bonjour ! la sortie à la ferme prévue demain est reportée à jeudi ' +
-        'prochain à cause du froid (-25 °C annoncés). demain, journée normale à la garderie. pensez quand ' +
-        'même aux vêtements chauds pour la récréation. merci !',
+        'GARDERIE LES TROIS MÉSANGES · message aux parents\n' +
+        'Bonjour ! La sortie à la ferme prévue demain est reportée à jeudi prochain à cause du froid ' +
+        '(-25 °C annoncés). Demain, journée normale à la garderie. Pensez quand même aux vêtements chauds ' +
+        'pour la récréation. Merci !',
       items: [
         {
           q: 'Que se passe-t-il demain ?',
@@ -282,7 +283,7 @@ export const CE_C: ExamTask = {
       items: [
         {
           q: 'Espace (3)',
-          opts: ['En réalité', 'Par conséquent', 'De plus', 'Par exemple'],
+          opts: ['En réalité', 'En revanche', 'De plus', 'Par exemple'],
           correct: 0,
           why: 'La phrase corrige l’attente posée au début (la connexion) par ce qui manquait vraiment : « en réalité ».',
           band: 'b2',

@@ -10,7 +10,7 @@
 // Authored key-first; paper.ts places the key afterwards (scatterKeys, salted
 // until no block shows an A-B-C or C-B-A run).
 //
-// PROPER NOUNS: Saint-Varin, Belcourt, Hautemont, Lac-Ombreuse, Fréneuse, the
+// PROPER NOUNS: Saint-Varin, Val-Brumel, Hautemont, Lac-Ombreuse, Frênelac, the
 // Institut Calvène. None are reused from any earlier paper.
 import type { ExamTask } from '../../../ealch-v2/src/content/schema.ts';
 import { FORMAT, FORMAT_VERSION, VARIANT, NOTES_CLOSED, taskId, ITEMS, uniq } from './common.ts';
@@ -133,7 +133,7 @@ export const CO_A: ExamTask = {
         'LA VENDEUSE : Alors prenez celle-ci, la grande pelle à lame large. Je vous fais l’échange.',
       items: [
         {
-          q: 'Que le client emporte-t-il finalement ?',
+          q: 'Qu’emporte finalement le client ?',
           opts: ['Une grande pelle à lame large', 'Une petite pelle à lame étroite', 'Une souffleuse à neige', 'Un grattoir à glace'],
           correct: 0,
           why: 'Il refuse la souffleuse, trop chère, et veut « une pelle, mais plus large » ; la vendeuse lui donne la grande pelle.',
@@ -191,7 +191,7 @@ export const CO_B: ExamTask = {
       durationS: 33,
       text:
         'LA VOIX : Avis aux participants de la saison dernière. Les cours de gymnastique douce ' +
-        'reprennent le mercredi 8 octobre, à la salle municipale de Belcourt. Les personnes inscrites ' +
+        'reprennent le mercredi 8 octobre, à la salle municipale de Val-Brumel. Les personnes inscrites ' +
         'l’an passé gardent leur place si elles la confirment avant vendredi, à l’accueil ou par ' +
         'téléphone. Après cette date, les places non confirmées seront proposées aux personnes en ' +
         'liste d’attente, qui seront appelées la semaine suivante.',
@@ -201,7 +201,7 @@ export const CO_B: ExamTask = {
           opts: [
             'Aux personnes inscrites la saison dernière',
             'Aux personnes inscrites en liste d’attente',
-            'Aux nouveaux habitants de Belcourt',
+            'Aux nouveaux habitants de Val-Brumel',
             'Aux animateurs des cours de gymnastique',
           ],
           correct: 0,
@@ -407,7 +407,7 @@ export const CO_D: ExamTask = {
       readWindowS: 15,
       durationS: 62,
       text:
-        'LE CHRONIQUEUR : Depuis deux ans, des médecins de famille de la région de Fréneuse remettent à ' +
+        'LE CHRONIQUEUR : Depuis deux ans, des médecins de famille de la région de Frênelac remettent à ' +
         'leurs patients une ordonnance un peu particulière : trente minutes de marche, cinq jours par ' +
         'semaine. On sourit, et pourtant. L’Institut Calvène a suivi quatre cents patients ayant reçu ' +
         'cette prescription. Au bout d’un an, la moitié marchaient encore régulièrement, contre moins ' +

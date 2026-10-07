@@ -43,8 +43,9 @@
 // Canada-first: amounts in dollars, winter and municipal life, standard French
 // throughout (no Québécois lexis, STANDARD-common §2.1). Every proper noun is
 // invented and none is reused from papers 1-5. This paper's places are
-// Lac-Ombreuse, Saint-Varin, Belcourt, Hautemont and Fréneuse; its invented
-// sources are the Institut Calvène and the Observatoire de la Tilleraie. Every
+// Lac-Ombreuse, Saint-Varin, Val-Brumel, Hautemont and Frênelac; its invented
+// sources are the Institut Calvène, the Observatoire de la Tilleraie and the bureau
+// d’études Ravenelle. Belcourt (first draft) is a real Abitibi municipality and was renamed Val-Brumel. Every
 // figure is invented and attributed to an invented source, or is a plain fact
 // of the document itself. No real institution, business or person appears, and
 // no politician.
@@ -57,7 +58,7 @@ export const PAPER_ID = paperIdFor(VARIANT, 6);
 export const taskId = taskIdFor(VARIANT);
 
 /** The invented places this paper declares; paper.test.ts asserts each appears. */
-export const PLACES = ['Lac-Ombreuse', 'Saint-Varin', 'Belcourt', 'Hautemont', 'Fréneuse'] as const;
+export const PLACES = ['Lac-Ombreuse', 'Saint-Varin', 'Val-Brumel', 'Hautemont', 'Frênelac'] as const;
 
 /**
  * Where a miss in this block routes back to for review.

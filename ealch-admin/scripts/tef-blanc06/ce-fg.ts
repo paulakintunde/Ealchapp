@@ -296,7 +296,7 @@ const ARTICLE =
   'n’avaient pas disparu : elles étaient simplement posées plus tard, par téléphone ou par courrier.\n' +
   '\n' +
   'Certes, un formulaire court décourage moins. Une personne qui renonçait devant douze pages remplit ' +
-  'aujourd’hui les trois premières, et c’est un progrès réel pour ceux qui ne demandaient rien. Mais ' +
+  'aujourd’hui les trois pages, et c’est un progrès réel pour ceux qui ne demandaient rien. Mais ' +
   'le dossier incomplet a un coût, et ce coût retombe sur ceux qui ont le moins de temps : un second ' +
   'courrier, une pièce à fournir sous quinze jours, un délai de traitement qui double.\n' +
   '\n' +
@@ -304,7 +304,7 @@ const ARTICLE =
   'on en reçoit beaucoup, et on passe nos journées à relancer », résume une employée du service. Le ' +
   'temps gagné au guichet a été reperdu au bureau.\n' +
   '\n' +
-  'Simplifier n’est donc pas raccourcir. La ville voisine de Fréneuse a pris un autre chemin : elle a ' +
+  'Simplifier n’est donc pas raccourcir. La ville voisine de Frênelac a pris un autre chemin : elle a ' +
   'gardé toutes ses questions, mais son formulaire en ligne n’affiche que celles qui concernent la ' +
   'situation déclarée. Un locataire seul ne voit jamais les rubriques destinées aux propriétaires ou ' +
   'aux familles. Le formulaire reste long pour le service, et court pour chaque personne qui le ' +
@@ -349,22 +349,22 @@ export const CE_G: ExamTask = {
         mcq('Quel rôle joue le paragraphe qui commence par « Certes » ?', [
           'Il reconnaît un avantage avant d’en montrer le coût',
           'Il conclut que la simplification a complètement échoué',
-          'Il présente la méthode choisie par la ville de Fréneuse',
+          'Il présente la méthode choisie par la ville de Frênelac',
           'Il rapporte le témoignage d’une employée du service',
         ], '« Certes, un formulaire court décourage moins… Mais le dossier incomplet a un coût » : concession, puis réfutation.', 'c1'),
         mcq('Sur qui retombe le coût des dossiers incomplets, selon l’article ?', [
           'Sur les personnes qui ont le moins de temps',
           'Sur la municipalité, qui doit embaucher',
           'Sur les propriétaires de logements loués',
-          'Sur ceux qui, avant, ne demandaient rien',
-        ], '« Ce coût retombe sur ceux qui ont le moins de temps. » Ceux qui « ne demandaient rien » sont ceux pour qui le formulaire court est un progrès.', 'b2'),
+          'Sur la ville voisine de Frênelac',
+        ], '« Ce coût retombe sur ceux qui ont le moins de temps » : un second courrier, une pièce à fournir, un délai qui double. Frênelac n’est citée que pour sa méthode.', 'b2'),
         mcq('Que montre la citation de l’employée ?', [
           'Le temps gagné au guichet est perdu en relances',
           'Les agents manquent de formation sur le nouveau formulaire',
           'Le service reçoit moins de dossiers qu’auparavant',
           'Les demandeurs se plaignent des appels du service',
         ], 'Beaucoup de dossiers, « on passe nos journées à relancer », que l’auteur résume : « le temps gagné au guichet a été reperdu au bureau ».', 'b2'),
-        mcq('Comment Fréneuse a-t-elle simplifié son formulaire ?', [
+        mcq('Comment Frênelac a-t-elle simplifié son formulaire ?', [
           'En n’affichant que les questions utiles à chaque situation',
           'En réduisant son formulaire à trois pages',
           'En supprimant les rubriques destinées aux familles',

@@ -22,7 +22,7 @@ const base = {
 // six questions turn on those corrections.
 //
 // SELF-VERIFY (E1–E6): every key is stated by the interviewee, never by the
-// interviewer, and no two keys come from the same turn.
+// interviewer; E3 and E4 share one turn (the reason, then its illustration).
 
 export const CO_E: ExamTask = {
   ...base,
@@ -47,7 +47,7 @@ export const CO_E: ExamTask = {
         'L’INFIRMIÈRE : Onze, en moyenne. Mais le chiffre qui compte, c’est la route : cent quarante ' +
         'kilomètres par jour l’hiver, parce que les routes de campagne ne sont pas toujours déneigées tôt. ' +
         'Je passe plus de temps au volant que chez les patients, et ça, aucun tableau ne le montre.\n' +
-        'LE JOURNALISTE : On dit que le métier n’attire plus. C’est une question de salaire ?\n' +
+        'LE JOURNALISTE : On dit que beaucoup d’infirmières quittent le soin à domicile. C’est une question de salaire ?\n' +
         'L’INFIRMIÈRE : Euh, je corrige un peu. Le salaire n’est pas mauvais. Ce qui fait partir les ' +
         'collègues, c’est la solitude. À l’hôpital, quand on doute, on demande à quelqu’un dans le couloir. ' +
         'Ici, on est seule devant une plaie qui s’infecte, à trente kilomètres du premier médecin.\n' +
@@ -167,9 +167,9 @@ export const CO_F: ExamTask = {
         'montrent les dossiers. Selon l’Observatoire de la Tilleraie, qui a étudié une année de passages ' +
         'nocturnes dans quatre hôpitaux, deux patients sur trois arrivés après vingt-deux heures repartent ' +
         'sans examen ni hospitalisation.\n' +
-        'L’URGENTISTE : Ces gens ne viennent pas par caprice. Une otite à vingt-trois heures, une fièvre ' +
-        'chez un bébé, une coupure qui demande trois points… Où voulez-vous qu’ils aillent ? Les cliniques ' +
-        'du secteur ferment toutes à dix-huit heures. Nous sommes la seule porte ouverte, alors tout le ' +
+        'L’URGENTISTE : Ces gens ne viennent pas par caprice. Une otite à une heure du matin, une fièvre ' +
+        'chez un bébé, une coupure qui demande trois points… Où voulez-vous qu’ils aillent ? À cette ' +
+        'heure-là, tout le reste est fermé. Nous sommes la seule porte ouverte, alors tout le ' +
         'monde frappe à la nôtre.\n' +
         'L’URGENTISTE : Et un cas grave, quand il arrive, passe devant. C’est normal. Mais chaque ambulance ' +
         'repousse encore toute la file, et les six heures deviennent huit.\n' +
@@ -252,7 +252,7 @@ G.push(doc(
 G.push(doc(
   'Document 2 · répondeur · l’absence à l’école',
   27,
-  'LA SECRÉTAIRE : Bonjour, ici le secrétariat de l’école primaire du Ruisseau. Votre fille Léa n’est pas ' +
+  'LA SECRÉTAIRE : Bonjour, ici le secrétariat de l’école primaire de Val-Brumel. Votre fille Léa n’est pas ' +
   'en classe ce matin et nous n’avons reçu aucun message de votre part. Si elle est malade, merci de ' +
   'nous rappeler avant onze heures, ou de répondre au courriel que nous venons de vous envoyer. Sans ' +
   'nouvelles de votre part, nous contacterons la deuxième personne inscrite sur sa fiche.',
@@ -270,7 +270,7 @@ G.push(doc(
 G.push(doc(
   'Document 3 · information · la coupure d’eau',
   27,
-  'LA VOIX : Avis aux résidents de la rue des Bouleaux, à Fréneuse. L’eau sera coupée jeudi, de neuf heures ' +
+  'LA VOIX : Avis aux résidents de la rue des Bouleaux, à Frênelac. L’eau sera coupée jeudi, de neuf heures ' +
   'à quinze heures, pour le remplacement d’une conduite. À la remise en service, l’eau peut être ' +
   'trouble pendant quelques minutes : laissez couler le robinet d’eau froide avant de la boire. Il ' +
   'n’est pas nécessaire de la faire bouillir.',
@@ -355,7 +355,7 @@ G.push(doc(
 G.push(doc(
   'Document 8 · information · le pont fermé',
   27,
-  'LA VOIX : Bulletin de circulation. Le pont du Moulin, entre Belcourt et Hautemont, sera fermé cette nuit ' +
+  'LA VOIX : Bulletin de circulation. Le pont du Moulin, entre Val-Brumel et Hautemont, sera fermé cette nuit ' +
   'de vingt-deux heures à cinq heures pour une inspection. Les automobilistes sont invités à emprunter ' +
   'le pont de la route 9, ce qui allonge le trajet d’une quinzaine de minutes. Les autobus de nuit, ' +
   'eux, sont maintenus et passeront aussi par la route 9.',
@@ -426,7 +426,7 @@ G.push(doc(
 G.push(doc(
   'Document 12 · répondeur · la salle de réception',
   28,
-  'LA VOIX : Bonjour madame Lavallée, ici la salle de réception Aux Deux Rives. Je vous confirme votre ' +
+  'LA VOIX : Bonjour madame Lavallée, ici la salle de réception Le Cormier Doré. Je vous confirme votre ' +
   'réservation pour samedi : une fête de trente personnes, accès à la salle dès quinze heures. Une seule ' +
   'modification : la grande salle est en travaux, nous vous installons dans la salle du jardin, au même ' +
   'prix. Si cela ne vous convient pas, rappelez-nous avant jeudi.',

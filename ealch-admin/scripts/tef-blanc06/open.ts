@@ -116,7 +116,7 @@ export const EE_B: ExamTask = {
   label: 'Section B',
   prompt:
     'SECTION B · 35 minutes\n\n' +
-    'Depuis trois ans, l’association « Parlons Belcourt » anime chaque semaine un cercle de conversation ' +
+    'Depuis trois ans, l’association « Parlons Val-Brumel » anime chaque semaine un cercle de conversation ' +
     'où des personnes nouvellement arrivées pratiquent le français avec des bénévoles du quartier. Le ' +
     'conseil municipal vient de refuser sa demande de subvention de 4 000 $. Motif : « Les fonds publics ' +
     'doivent financer des actions dont les retombées sont mesurables. Les bienfaits d’un cercle de ' +
@@ -181,7 +181,7 @@ export const EE_B: ExamTask = {
   modelAnswer:
     'Madame la Maire,\nMesdames et Messieurs les membres du conseil,\n\n' +
     'Par la présente, je sollicite le réexamen de la décision par laquelle le conseil a refusé à ' +
-    'l’association « Parlons Belcourt » la subvention de 4 000 $ demandée pour son cercle de conversation.\n\n' +
+    'l’association « Parlons Val-Brumel » la subvention de 4 000 $ demandée pour son cercle de conversation.\n\n' +
     'Je ne conteste pas le principe qui fonde ce refus. Qu’une municipalité veuille savoir à quoi sert ' +
     'l’argent public est non seulement légitime, mais relève de sa responsabilité. Ce que je conteste, ' +
     'c’est l’idée que nos résultats échapperaient à toute mesure et, plus encore, la confusion entre ce ' +
@@ -200,7 +200,7 @@ export const EE_B: ExamTask = {
     'départ du cercle. L’exigence de résultats n’y perdrait rien, et le cercle pourrait poursuivre son travail.\n\n' +
     'Dans l’attente de votre réponse, je vous prie d’agréer, Madame la Maire, Mesdames et Messieurs, ' +
     'l’expression de ma haute considération.\n\n' +
-    'Camille Dorval, bénévole de l’association « Parlons Belcourt »',
+    'Camille Dorval, bénévole de l’association « Parlons Val-Brumel »',
 };
 
 /* ═══ EO Section A — Obtenir de l’information ═════════════════════════════ */
@@ -380,7 +380,7 @@ export const EO_B: ExamTask = {
     'Le centre forme des binômes entre une personne arrivée dans la région depuis moins d’un an et un ' +
     'résident de longue date. Deux heures par mois pendant un an : une sortie, une démarche, un café. ' +
     'Une formation de trois heures est offerte aux bénévoles. Aucune compétence particulière demandée.\n\n' +
-    'Un ami ou une amie installé dans la région depuis longtemps hésite à s’engager. Présentez-lui le ' +
+    'Un ami ou une amie qui vit dans la région depuis longtemps hésite à s’engager. Présentez-lui le ' +
     'programme et convainquez-le ou convainquez-la d’y participer. Ses objections seront de plus en plus ' +
     'sérieuses : répondez-y en nuançant, en concédant ce qui doit l’être et en appuyant votre avis sur des ' +
     'exemples précis.',
@@ -459,7 +459,7 @@ export const EO_B: ExamTask = {
     'arrivé dans la région depuis moins d’un an et quelqu’un qui, comme toi, y vit depuis longtemps. Deux ' +
     'heures par mois, pendant un an : une sortie, une démarche, un café.\n' +
     'Tu me dis que tu n’as pas le temps. Je l’entends, mais regarde ce qu’on te demande réellement : deux ' +
-    'heures par mois. C’est moins que ce que tu passes à la quincaillerie le samedi, et c’est toi qui ' +
+    'heures par mois. C’est moins que le temps que tu passes à la quincaillerie le samedi, et c’est toi qui ' +
     'fixes le moment avec la personne.\n' +
     'Tu ajoutes que tu ne saurais pas quoi faire, que tu n’es pas travailleur social. Justement, personne ' +
     'ne te le demande. Aucune compétence particulière n’est exigée, et il y a une formation de trois ' +
