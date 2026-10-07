@@ -299,7 +299,7 @@ const A1_GOALS: Sec<'goals'> = {
   goals: [
     { t: 'Repérer le mot savant qui ressemble trop à l’anglais', s: 'Actes 2 à 5 : initier, opportunité, alternative, impacter' },
     { t: 'Choisir le mot juste dans un texte officiel', s: 'Actes 6 à 9 : académique, juridiction, éligible, digital' },
-    { t: 'Savoir ce qui divise les ouvrages de référence', s: 'Actes 8 et 10 : éligible, faire sens, questionner' },
+    { t: 'Savoir ce qui divise les ouvrages de référence', s: 'Actes 3, 5, 8 et 10 : opportunité, impacter, éligible, faire sens' },
     { t: 'Réviser un texte et justifier tes choix', s: 'Actes 11 et 12 : l’oral québécois, puis ta note' },
   ],
   audio: AUDIO, say: REFRAME,
@@ -311,12 +311,12 @@ const A1_LECTURE: Sec<'reading'> = {
   text: LECTURE_REVISION,
   glossary: [
     { word: 'inaperçus', en: 'unnoticed', note: 'Qu’on ne remarque pas.' },
-    { word: 'tranchée', en: 'clear-cut', note: 'Une affaire tranchée : sur laquelle tout le monde est d’accord.' },
+    { word: 'marque', en: 'usage label', note: 'Dans un dictionnaire, la mention qui signale un emploi : anglicisme, familier, critiqué.' },
     { word: 'bute', en: 'stumbles', note: 'Buter sur un mot : s’arrêter, gêné, en le lisant.' },
   ],
   questions: [
     { q: 'Global : que fait Odile dans cette note ?', a: 'Elle signale six mots savants d’allure anglaise dans le rapport de Benoît, propose un remplacement pour chacun et explique pourquoi.' },
-    { q: 'Détail : quels sont les trois mots dont l’affaire est tranchée, selon elle ?', a: 'Initié, opportunité et impacteront, remplacés par lancé, occasion et toucheront.' },
+    { q: 'Détail : quels sont les trois premiers mots qu’elle remplace, et qui les déconseille ?', a: 'Initié, opportunité et impacteront, remplacés par lancé, occasion et toucheront ; l’OQLF et l’Académie les déconseillent, et Le Robert enregistre opportunité et impacter avec la marque anglicisme.' },
     { q: 'Détail : que dit-elle d’« éligible » ?', a: 'Que l’OQLF et l’Académie le déconseillent, mais que Le Robert l’enregistre sans réserve ; elle a choisi « admissible », qui ne divise personne.' },
     { q: 'Inférence : pourquoi choisit-elle chaque fois le mot que personne ne conteste ?', a: 'Parce que le rapport sera lu à Montréal et à Lyon, et qu’un lecteur qui bute sur un mot cesse un instant de suivre les arguments.' },
     { q: 'Position : Odile pense-t-elle que Benoît écrit mal ?', a: 'Non : elle dit que le rapport est solide et qu’elle n’a touché ni au plan ni aux chiffres ; elle parle de risque, pas de pureté.' },
@@ -971,7 +971,7 @@ const A6_CONSTRUIRE: Sec<'groupDrill'> = {
       it(E(1065), 'des travaux universitaires'),
     ], chk('Pour academic year, à l’université, tu écris…',
       ['l’année universitaire', 'l’année académique'], 0,
-      'L’OQLF a officialisé année universitaire et année scolaire ; l’Académie déconseille académique en ce sens. EN: année universitaire.')),
+      'L’OQLF propose année universitaire ou année scolaire ; l’Académie déconseille académique en ce sens. EN: année universitaire.')),
     grp('Plusieurs tâches, ou un avis qui change', [
       it(E(1063), 'polyvalent'),
       it(E(1071), 'souple'),
@@ -1798,13 +1798,13 @@ const A12_SCENARIO: Sec<'scenario'> = {
       userEn: 'True: Le Robert records it. But the Académie and the OQLF advise against it, so I chose « admissible ». (Granting the divided case.)',
       alts: [
         { fr: 'Les ouvrages se partagent ; pour un texte lu des deux côtés, j’ai choisi le mot commun.', en: 'The authorities differ; for a text read on both sides, I chose the shared word. (The reason for the choice.)' },
-        { fr: 'Ce n’est pas une faute pour tout le monde, seulement un risque à Montréal.', en: 'It is not a mistake for everyone, only a risk in Montréal. (Not a single verdict.)' },
+        { fr: 'Ce n’est pas une faute pour tout le monde, seulement un risque devant un lecteur exigeant.', en: 'It is not a mistake for everyone, only a risk with a demanding reader. (Not a single verdict.)' },
       ],
     },
     {
       ai: 'Et « plateforme digitale » ? Ça fait moderne.', en: 'And « plateforme digitale »? It sounds modern.',
-      user: 'La recommandation officielle est « numérique », en France comme au Québec. « Digital », c’est pour les doigts.',
-      userEn: 'The official recommendation is « numérique », in France and in Québec. « Digital » is for fingers. (An agreed verdict.)',
+      user: 'La recommandation officielle est « numérique », en France comme au Québec. « Digital », au sens français, c’est pour les doigts.',
+      userEn: 'The official recommendation is « numérique », in France and in Québec. In its French sense, « digital » is for fingers. (An agreed verdict.)',
       alts: [
         { fr: 'FranceTerme, l’Académie et l’OQLF recommandent numérique.', en: 'FranceTerme, the Académie and the OQLF recommend numérique. (The sources.)' },
         { fr: 'Même Le Robert renvoie de digital à numérique.', en: 'Even Le Robert refers digital to numérique. (A dictionary that records it still points elsewhere.)' },
@@ -2040,7 +2040,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('Selon l’Académie, impacter est…', ['une forme verbale fautive', 'un verbe recommandé'], 0, 'Dire, ne pas dire. EN: faulty.', 'a5-construire'),
         mc('Le Robert, pour impacter…', ['l’enregistre, marqué anglicisme', 'le refuse'], 0, 'Les ouvrages se partagent. EN: records it.', 'a5-construire'),
         mc('« La grève s’est répercutée sur tout le réseau. » L’effet…', ['s’est transmis de proche en proche', 'a été nul', 'a été positif'], 0, 'Se répercuter. EN: knock-on.', 'a5-cartes'),
-        tI(MOT, 'Les travaux ont eu une ___ sur la fréquentation du marché.', 'incidence', 'Avoir une incidence sur. EN: effect.', 'a5-erreurs', ['influence', 'conséquence', 'répercussion']),
+        tI(MOT, 'Les travaux ont eu une ___ sur la fréquentation du marché.', 'incidence', 'Avoir une incidence sur. « Un impact », très courant, est critiqué par l’Académie et l’OQLF au sens d’« effet ». EN: effect.', 'a5-erreurs', ['influence', 'conséquence', 'répercussion', 'impact']),
         tI(MOT, 'Le froid a ___ les chantiers tout l’hiver.', 'ralenti', 'Ralentir : le verbe qui dit comment. EN: slowed.', 'a5-erreurs', ['retardé', 'freiné', 'bloqué', 'arrêté', 'perturbé']),
         eS('La pluie a impacté la fréquentation de moitié.', fr(E(1059)), 'Faire baisser dit le sens de l’effet. EN: brought down.', 'a5-erreurs', ['La pluie a réduit la fréquentation de moitié.', 'La pluie a fait chuter la fréquentation de moitié.', 'La pluie a diminué la fréquentation de moitié.']),
         lC('Écoute. Sur quoi pèsent les travaux ?', fr(E(1053)), ['la fréquentation du marché', 'le prix des loyers'], 0, 'Une incidence sur la fréquentation. EN: attendance.', 'a5-dictee'),
@@ -2066,7 +2066,7 @@ const A12_QUIZ: Sec<'quiz'> = {
         mc('Pour other jurisdictions, dans une note sur le Canada :', ['d’autres provinces', 'd’autres juridictions'], 0, 'Nomme le lieu. EN: other provinces.', 'a7-table'),
         mc('Qui critique juridiction au sens d’autorité d’un gouvernement ?', ['Usito, et le GDT pour un territoire', 'personne', 'l’Académie seulement'], 0, 'Usito et le GDT ; Le Robert admet l’étendue du pouvoir de juger. EN: Québec sources.', 'a7-construire'),
         mc('« Cette question n’est pas du … de la mairie. »', ['ressort', 'juridiction'], 0, 'Du ressort. EN: not a matter for.', 'a7-table'),
-        tI(MOT, 'Au Canada, la santé relève surtout de la ___ des provinces.', 'compétence', 'Compétence. EN: jurisdiction.', 'a7-erreurs', ['responsabilité']),
+        tI(MOT, 'Selon l’OQLF, au Canada, la santé relève surtout de la ___ des provinces.', 'compétence', 'Compétence : le mot que l’OQLF recommande ici. Le Robert admet aussi « juridiction » au sens d’« étendue d’un pouvoir ». EN: jurisdiction.', 'a7-erreurs', ['responsabilité']),
         tI(MOT, 'Le ministère n’a pas l’___ nécessaire pour trancher.', 'autorité', 'L’autorité. EN: authority.', 'a7-exemples', ['compétence', 'pouvoir']),
         eS('Plusieurs juridictions ont déjà adopté une loi semblable.', fr(E(1082)), 'Nomme les provinces. EN: provinces.', 'a7-erreurs', ['Plusieurs pays ont déjà adopté une loi semblable.', 'Plusieurs États ont déjà adopté une loi semblable.']),
         lC('Écoute. Qui va juger cette affaire ?', fr(E(1077)), ['un tribunal pénal', 'le gouvernement'], 0, 'Une juridiction pénale. EN: a criminal court.', 'a7-construire'),
@@ -2089,7 +2089,7 @@ const A12_QUIZ: Sec<'quiz'> = {
       id: 'r9-numerique', label: 'Digital ou numérique', targets: ['digital-numerique'],
       questions: [
         mc('Pour digital transformation :', ['la transformation numérique', 'la transformation digitale'], 0, 'Numérique. EN: numérique.', 'a9-cartes'),
-        mc('Digital est juste dans…', ['les empreintes digitales', 'la stratégie digitale', 'un affichage digital'], 0, 'Les doigts. EN: fingerprints.', 'a9-construire'),
+        mc('Digital est juste dans…', ['les empreintes digitales', 'la stratégie digitale', 'une agence digitale'], 0, 'Les doigts. EN: fingerprints.', 'a9-construire'),
         mc('Qui recommande numérique ?', ['l’Académie, FranceTerme et l’OQLF', 'seulement l’OQLF'], 0, 'Un cas où les ouvrages s’accordent. EN: they agree.', 'a9-construire'),
         tI(MOT, 'La bibliothèque a ___ ses plus vieux journaux. (digitized)', 'numérisé', 'Numériser. EN: digitised.', 'a9-piege', ['scanné']),
         tI(MOT, 'La ___ des dossiers prendra six mois. (digitization)', 'numérisation', 'La numérisation. EN: digitisation.', 'a9-piege'),
@@ -2141,7 +2141,7 @@ const A12_QUIZ: Sec<'quiz'> = {
       id: 'r13-examen', label: 'Comme à l’examen', targets: ['revision-sans-source'],
       questions: [
         mc('Compréhension écrite. Combien de mots Odile a-t-elle remplacés dans la note de l’acte 12 ?', ['deux', 'six', 'onze', 'aucun'], 0, 'Initié et éligibles. EN: two.', 'a12-lecture'),
-        mc('Compréhension écrite. Pourquoi Odile dit-elle « seulement un risque » ?', ['les ouvrages se partagent sur éligible', 'elle n’est pas sûre de son orthographe', 'Maxime a raison partout', 'le texte est trop long'], 0, 'Le Robert et Usito ne le condamnent pas en France. EN: divided authorities.', 'a12-lecture'),
+        mc('Compréhension écrite. Pourquoi Odile dit-elle « seulement un risque » ?', ['les ouvrages se partagent sur éligible', 'elle n’est pas sûre de son orthographe', 'Maxime a raison partout', 'le texte est trop long'], 0, 'Le Robert l’enregistre sans marque ; Usito le dit critiqué au Québec, mais généralement pas en France. EN: divided authorities.', 'a12-lecture'),
         mc('Compréhension écrite. Le ton de la note est…', ['amical et précis', 'sévère', 'moqueur', 'indifférent'], 0, 'Elle remercie et propose d’en discuter. EN: friendly and precise.', 'a12-lecture'),
         mc('Choisis la justification la plus juste pour remplacer éligible :', ['l’Académie et l’OQLF le déconseillent ; Le Robert l’enregistre', 'c’est faux pour tout le monde', 'Le Robert le condamne', 'personne ne le dit'], 0, 'Un cas partagé, présenté comme tel. EN: say who says what.', 'a8-table'),
         mc('Choisis le mot juste : « Notre équipe, très …, répare aussi bien les grille-pain que les vélos. »', ['polyvalente', 'versatile', 'académique', 'éligible'], 0, 'Polyvalente. EN: versatile.', 'a6-cartes'),
