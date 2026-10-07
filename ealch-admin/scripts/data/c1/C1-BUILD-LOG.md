@@ -942,6 +942,19 @@ shows a chooser before the clock starts and sits only the chosen exposé + entre
 choice survives a crash (draft `choice`). All five DALF papers declare their groups;
 paper-rules requires them; report-reachable counts sittable tasks (2ffd668).
 
+43. (Paul, 2026-10-07) TEF blanc-06 keeps its Canadian setting (dollars, winter, Québec-style
+services); papers 2-5 unchanged.
+44. The stricter TEF key shuffle (no monotone run, no repeating cycle) becomes the shared rule
+for NEW TEF papers only; papers 1-5 keep their published keys.
+45. Paul draws TEF blanc-06's four block A picture plates (`img/exam/tef/blanc-06/co-a-01..04.png`;
+briefs in the imageAlt of `scripts/tef-blanc06/co.ts`).
+46. TEF blanc-06 may use common Canadian everyday words (mitaines, souffleuse, chauffe-moteur,
+camp de jour, canot, huard); STANDARD-common §2.1 carries the exception.
+
+**Reviews done 2026-10-07:** wave 6 c1.18 (695e798), c1.19 (188f756), c1.22 (d7a20f5), c1.23
+(b49e63e); DALF blanc-05 (cbe8125); TEF blanc-06 (8e7d788: Belcourt and Fréneuse were real
+places). TCF blanc-06 review running.
+
 **Status 2026-10-07.** All 24 C1 lessons drafted (wave 6: c1.18 bc8c5eb, c1.19 6a6e74c,
 c1.22 830b364, c1.23 bc8c5eb). All five DALF papers drafted (blanc-05 7c1135f), 1-4
 reviewed. Sixth TCF (ec0a785) and TEF (this commit's sibling) papers written. Still to

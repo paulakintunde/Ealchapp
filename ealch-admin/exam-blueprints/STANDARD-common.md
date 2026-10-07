@@ -39,6 +39,8 @@ Use the envelope as a target, not a hard gate. A 185-word text is not thereby B2
 
 Standard metropolitan French is the default for every format, because both exam bodies are French. Canadian and Québécois **subject matter** is welcome and is a genuine differentiator for our candidates (the corpus already carries a `quebec-et-francophonie` theme). Canadian **lexical or phonetic variety** is not: do not write `magasiner`, `chum`, or a Québécois accent into an exam stimulus and expect it to be testing the same thing the real paper tests.
 
+**Exception, TEF Canada blanc-06 only** (Paul, 2026-10-07, C1 build log decisions 43 and 46): that paper is deliberately set in Canada and may use common Canadian everyday words where the setting calls for them (`mitaines`, `souffleuse à neige`, `chauffe-moteur`, `camp de jour`, `canot`, `huard`), provided no item turns on knowing the Canadian sense. Familiar Québécois (`chum`, `char`) and accent stay out. Every other paper keeps the default above.
+
 ---
 
 ## 3. Question-stem taxonomy
