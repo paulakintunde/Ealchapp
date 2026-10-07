@@ -33,7 +33,7 @@ const IMAGES = resolve(HERE, '../../ealch-v2/src/content/lessonImages.ts');
  *  EMPTY since 2026-09-25: the 110 openers for b1.15 to b1.24 landed and are
  *  registered. Add a lesson here when it is authored ahead of its art, and
  *  delete it when the art lands. */
-const ART_PENDING = new Set<string>(['c1.22']);
+const ART_PENDING = new Set<string>(['c1.19', 'c1.22']);
 
 const LESSONS: [string, string][] = [
   ['b1.01', 'imparfait-formation'], ['b1.02', 'imparfait-usage'],
@@ -60,7 +60,7 @@ const LESSONS: [string, string][] = [
   ['c1.02', 'passe-anterieur'], ['c1.03', 'concordance-litteraire'], ['c1.04', 'relatives-complexes'], ['c1.05', 'ellipse-reprise'],
   ['c1.06', 'nuancer-oral'], ['c1.07', 'reformuler-conclure'], ['c1.08', 'persuader'], ['c1.09', 'expose-jury'],
   ['c1.10', 'dissertation-synthese'], ['c1.11', 'rapports-comptes-rendus'], ['c1.12', 'vocabulaire-idees'], ['c1.13', 'references-historiques'],
-  ['c1.14', 'analyser-oeuvre'], ['c1.15', 'notions-politiques'], ['c1.16', 'notions-morales'], ['c1.17', 'synonymes-nuances'], ['c1.22', 'traduire-idees'],
+  ['c1.14', 'analyser-oeuvre'], ['c1.15', 'notions-politiques'], ['c1.16', 'notions-morales'], ['c1.17', 'synonymes-nuances'], ['c1.19', 'figures-effet'], ['c1.22', 'traduire-idees'],
 ];
 
 /** The two maps in lessonImages.ts, read as text so the test needs no bundler. */
