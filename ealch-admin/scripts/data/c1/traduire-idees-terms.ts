@@ -52,7 +52,7 @@ export const TRADUIRE_IDEES_TERMS: Record<string, LessonTerm> = {
     examples: [
       { itemId: E(2221), note: 'arguably' },
       { itemId: E(2220), note: 'would seem to suggest' },
-      { itemId: E(2226), note: 'trois précautions, une seule' },
+      { itemId: E(2226), note: 'deux précautions, une seule' },
     ],
   },
 

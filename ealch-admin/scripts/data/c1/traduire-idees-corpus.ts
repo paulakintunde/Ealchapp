@@ -106,7 +106,7 @@
 //     twins check): see the report for the count.
 //
 //  5. NO CALQUE IS EVER A ROW. Every word-for-word or wrong-force rendering
-//     (« nous pourrions vouloir revoir », « un petit problème » for a real
+//     (« nous pourrions éventuellement revoir », « un petit problème » for a real
 //     one, « sans aucun doute » for arguably…) lives only in a scene choice,
 //     a commonErrors.wrong, a trapDrill.promptSound, a free() quotation or a
 //     quiz errorSpot prompt.
@@ -184,7 +184,9 @@
 //     l. BACK TO SQUARE ONE. Larousse anglais-français « square »
 //        (https://www.larousse.fr/dictionnaires/anglais-francais/square/614286):
 //        « back to square one! » → « retour à la case départ ! » ; « we're back
-//        to square one » → « nous voilà revenus à la case départ ».
+//        to square one » → « nous voilà revenus à la case départ » ; also
+//        « I had to start from square one again » → « j’ai dû repartir à
+//        zéro » (re-read 2026-10-07; the task grader accepts both images).
 //     m. TIP OF THE ICEBERG. Larousse anglais-français « tip »
 //        (https://www.larousse.fr/dictionnaires/anglais-francais/tip/618647):
 //        « it's just the tip of the iceberg » → « ce n'est que la partie
@@ -192,8 +194,12 @@
 //     n. UNITS: 1 mile = 1,609 km, so 3 miles ≈ 4,8 km (« environ cinq
 //        kilomètres »); 90 °F = 32,2 °C (« plus de trente degrés » for « over
 //        ninety degrees »). GK, arithmetic.
-//     o. THANKSGIVING in Canada = « l'Action de grâce » (Québec usage, GK;
-//        the lesson's Toronto writer means the Canadian holiday). NHS = the
+//        ACRES (act 8 check, pre-review 2026-10-07): 1 acre = 0,4047 ha, so
+//        2 acres ≈ 0,81 ha (« un peu moins d’un hectare »). Arithmetic.
+//     o. THANKSGIVING in Canada = « l’Action de grâce ». OQLF GDT fiche
+//        8370996 « Action de grâce » (grâce singular or plural, only Action
+//        capitalised); the federal Clés de la rédaction write « Action de
+//        grâces ». The lesson uses the OQLF form for a Montréal reader. NHS = the
 //        United Kingdom's National Health Service, its public health system
 //        (GK).
 //     p. FAUX SENS, CONTRESENS, NON-SENS. Larousse unilingual « faux-sens »
@@ -443,12 +449,12 @@ export const ACT3_ROWS: Row[] = [
   sent(2223, 'Les jeunes lecteurs ont tendance à venir le soir.', 'Younger readers tend to come in the evening.', '/le ʒœn lɛk.tœʁ ɔ̃ tɑ̃.dɑ̃s a və.niʁ lə swaʁ/', 'lay zhuhnn lek-TUHR | ohⁿ tahⁿ-DAHⁿSS | a vuh-NEER luh SWAR', ['attenuer']),
   phrase(2224, 'avoir tendance à + infinitif', 'to tend to + verb', '/a.vwaʁ tɑ̃.dɑ̃s a ɛ̃.fi.ni.tif/', 'a-VWAR tahⁿ-dahⁿss A | ehⁿ-fee-nee-TEEF', ['attenuer']),
   sent(2225, 'Dans une certaine mesure, l’essai a atteint son but.', 'To some extent, the pilot achieved its goal.', '/dɑ̃.zyn sɛʁ.tɛn mə.zyʁ lɛ.sɛ a a.tɛ̃ sɔ̃ byt/', 'dahⁿ-zünn sehr-tenn muh-ZÜR | leh-SEH a a-TEHⁿ | sohⁿ BÜT', ['attenuer']),
-  sent(2226, 'Il se pourrait que la météo ait faussé les chiffres.', 'It is possible that the weather may perhaps have skewed the figures.', '/il sə pu.ʁɛ kə la me.te.o ɛ fo.se le ʃifʁ/', 'eel suh poo-REH | kuh la may-tay-OH | eh foh-SAY lay SHEEFR', ['attenuer', 'dosage']),
+  sent(2226, 'Il se pourrait que la météo ait faussé les chiffres.', 'It is possible that the weather may have skewed the figures.', '/il sə pu.ʁɛ kə la me.te.o ɛ fo.se le ʃifʁ/', 'eel suh poo-REH | kuh la may-tay-OH | eh foh-SAY lay SHEEFR', ['attenuer', 'dosage']),
   sent(2227, 'Une précaution suffit quand l’anglais en empile trois.', 'One hedge is enough where English stacks three.', '/yn pʁe.ko.sjɔ̃ sy.fi kɑ̃ lɑ̃.ɡlɛ ɑ̃.nɑ̃.pil tʁwa/', 'ünn pray-koh-SYOHⁿ sü-FEE | kahⁿ lahⁿ-GLEH | ah-nahⁿ-peel TRWA', ['regle', 'dosage'], FC,
     rule('L’anglais écrit « may possibly suggest ». Combien de précautions gardes-tu en français ?', 'Souvent une seule, bien placée : « semble indiquer ». L’auteur n’est pas plus sûr ni moins sûr ; la phrase française reste nette. C’est un choix de précision, pas une règle.')),
   sent(2228, 'Il serait peut-être utile de revoir la méthode.', 'It may be worth revisiting the method.', '/il sə.ʁɛ pø.tɛtʁ y.til də ʁə.vwaʁ la me.tɔd/', 'eel suh-REH peu-TETR ü-TEEL | duh ruh-VWAR la may-TOD', ['attenuer']),
-  sent(2229, 'Ces chiffres ne permettent pas de conclure.', 'These figures are, at best, inconclusive.', '/se ʃifʁ nə pɛʁ.mɛt pa də kɔ̃.klyʁ/', 'say SHEEFR | nuh pehr-MET PA | duh kohⁿ-KLÜR', ['attenuer']),
-  sent(2230, 'L’étude ne prouve rien ; elle ouvre une piste.', 'The study proves nothing; it points to a lead.', '/le.tyd nə pʁuv ʁjɛ̃ ɛl uvʁ yn pist/', 'lay-TÜD nuh proov RYEHⁿ | el oovr ünn PEEST', ['attenuer']),
+  sent(2229, 'Ces chiffres ne permettent pas de conclure.', 'These figures are inconclusive.', '/se ʃifʁ nə pɛʁ.mɛt pa də kɔ̃.klyʁ/', 'say SHEEFR | nuh pehr-MET PA | duh kohⁿ-KLÜR', ['attenuer']),
+  sent(2230, 'L’étude ne prouve rien ; elle ouvre une piste.', 'The study proves nothing; it opens up a line of inquiry.', '/le.tyd nə pʁuv ʁjɛ̃ ɛl uvʁ yn pist/', 'lay-TÜD nuh proov RYEHⁿ | el oovr ünn PEEST', ['attenuer']),
   sent(2231, 'Je garde le degré de certitude de l’auteur, ni plus ni moins.', 'I keep the author’s degree of certainty, no more, no less.', '/ʒə ɡaʁd lə də.ɡʁe də sɛʁ.ti.tyd də lo.tœʁ ni plys ni mwɛ̃/', 'zhuh GARD | luh duh-GRAY duh sehr-tee-TÜD | duh loh-TUHR | nee PLÜSS nee MWEHⁿ', ['attenuer', 'force'], FCVDR),
 ];
 
@@ -458,7 +464,7 @@ export const ACT4_ROWS: Row[] = [
   sent(2232, 'Je ne suis pas entièrement convaincue par ce calendrier.', 'I’m not entirely convinced by this timeline.', '/ʒə nə sɥi pa.zɑ̃.tjɛʁ.mɑ̃ kɔ̃.vɛ̃.ky paʁ sə ka.lɑ̃.dʁi.je/', 'zhuh nuh swee pa-zahⁿ-tyehr-MAHⁿ | kohⁿ-vehⁿ-KÜ | par suh ka-lahⁿ-dree-YAY', ['retenue']),
   sent(2233, 'Le budget pose un petit problème.', 'The budget is a bit of a problem.', '/lə byd.ʒɛ poz œ̃ pə.ti pʁɔ.blɛm/', 'luh büd-ZHEH | pohz uhⁿ puh-TEE pro-BLEMM', ['retenue', 'contexte']),
   sent(2234, 'Le budget pose un vrai problème.', 'The budget is a bit of a problem (said to soften bad news).', '/lə byd.ʒɛ poz œ̃ vʁɛ pʁɔ.blɛm/', 'luh büd-ZHEH | pohz uhⁿ VREH pro-BLEMM', ['retenue', 'contexte']),
-  sent(2235, 'Pas mal du tout, ce premier bilan.', 'Not bad at all, this first report.', '/pa mal dy tu sə pʁə.mje bi.lɑ̃/', 'pa MAL dü TOO | suh pruh-myay bee-LAHⁿ', ['retenue', 'litote']),
+  sent(2235, 'Pas mal du tout, ce premier bilan.', 'This first report is not bad at all.', '/pa mal dy tu sə pʁə.mje bi.lɑ̃/', 'pa MAL dü TOO | suh pruh-myay bee-LAHⁿ', ['retenue', 'litote']),
   sent(2236, 'Ce n’est pas l’idée la plus heureuse.', 'It’s not the happiest of ideas.', '/sə nɛ pa li.de la ply.zœ.ʁøz/', 'suh neh pa lee-DAY | la plü-zuh-REUZ', ['retenue', 'litote']),
   sent(2237, 'Le français a ses propres litotes : garde-les quand elles produisent le même effet.', 'French has its own understatements: keep them when they have the same effect.', '/lə fʁɑ̃.sɛ a se pʁɔpʁ li.tɔt ɡaʁd.le kɑ̃.tɛl pʁɔ.dɥiz lə mɛm e.fɛ/', 'luh frahⁿ-SEH a say propr lee-TOT | gard-LAY | kahⁿ-tel pro-DWEEZ | luh memm ay-FEH', ['regle', 'litote'], FC,
     rule('L’anglais écrit « We are not unhappy with the results ». Que fais-tu de la litote ?', 'Tu la gardes : « Nous ne sommes pas mécontents des résultats » produit le même effet en français. On ne défait une litote que si le lecteur français la lirait autrement.')),
@@ -471,7 +477,7 @@ export const ACT4_ROWS: Row[] = [
   sent(2243, 'Ce n’est donc pas un petit problème : c’est un vrai problème, dit poliment.', 'So it is not a small problem: it is a real problem, said politely.', '/sə nɛ dɔ̃k pa.zœ̃ pə.ti pʁɔ.blɛm sɛ.tœ̃ vʁɛ pʁɔ.blɛm di pɔ.li.mɑ̃/', 'suh neh dohⁿk pa-zuhⁿ puh-TEE pro-BLEMM | seh-tuhⁿ VREH pro-BLEMM | dee po-lee-MAHⁿ', ['ecoute', 'retenue']),
   sent(2244, 'Si tu écris « un petit problème », la directrice croira que tout va bien.', 'If you write “a small problem”, the director will think all is well.', '/si ty e.kʁi œ̃ pə.ti pʁɔ.blɛm la di.ʁɛk.tʁis kʁwa.ʁa kə tu va bjɛ̃/', 'see tü ay-KREE | uhⁿ puh-TEE pro-BLEMM | la dee-rek-TREESS | krwa-RA | kuh too va BYEHⁿ', ['ecoute']),
   sent(2245, 'Garde sa politesse, mais rends la gravité.', 'Keep her politeness, but convey how serious it is.', '/ɡaʁd sa pɔ.li.tɛs mɛ ʁɑ̃ la ɡʁa.vi.te/', 'gard sa po-lee-TESS | meh RAHⁿ la gra-vee-TAY', ['ecoute', 'force']),
-  sent(2246, 'Et quand elle se dit pas entièrement convaincue, elle refuse, poliment.', 'And when she says she is not entirely convinced, she is saying no, politely.', '/e kɑ̃.tɛl sə di pa.zɑ̃.tjɛʁ.mɑ̃ kɔ̃.vɛ̃.ky ɛl ʁə.fyz pɔ.li.mɑ̃/', 'ay kahⁿ-tel suh DEE | pa-zahⁿ-tyehr-MAHⁿ kohⁿ-vehⁿ-KÜ | el ruh-FÜZ | po-lee-MAHⁿ', ['ecoute', 'retenue']),
+  sent(2246, 'Et quand elle se dit « pas entièrement convaincue », elle refuse, poliment.', 'And when she says she is not entirely convinced, she is saying no, politely.', '/e kɑ̃.tɛl sə di pa.zɑ̃.tjɛʁ.mɑ̃ kɔ̃.vɛ̃.ky ɛl ʁə.fyz pɔ.li.mɑ̃/', 'ay kahⁿ-tel suh DEE | pa-zahⁿ-tyehr-MAHⁿ kohⁿ-vehⁿ-KÜ | el ruh-FÜZ | po-lee-MAHⁿ', ['ecoute', 'retenue']),
   sent(2247, 'Rappelle-moi avant d’envoyer la version française.', 'Call me back before you send the French version.', '/ʁa.pɛl.mwa a.vɑ̃ dɑ̃.vwa.je la vɛʁ.sjɔ̃ fʁɑ̃.sɛz/', 'ra-pel-MWA | a-vahⁿ dahⁿ-vwa-YAY | la vehr-SYOHⁿ frahⁿ-SEZ', ['ecoute']),
 ];
 
@@ -504,7 +510,7 @@ export const ACT6_ROWS: Row[] = [
     rule('« Rents rose. Families left. » Que manque-t-il au lecteur français ?', 'Le lien. L’anglais laisse le lecteur le deviner ; en français, écris-le : « si bien que », « c’est pourquoi ». Tu n’ajoutes aucune idée, tu montres celle qui était là.')),
   sent(2265, 'Je n’ajoute aucune idée : je montre celle qui était là.', 'I add no idea: I show the one that was there.', '/ʒə na.ʒut o.kyn i.de ʒə mɔ̃tʁ sɛl ki e.tɛ la/', 'zhuh na-ZHOOT oh-künn ee-DAY | zhuh MOHⁿTR | sel kee ay-teh LA', ['expliciter']),
   sent(2266, 'Trop expliquer, c’est aussi trahir le texte.', 'Over-explaining is also a way of betraying the text.', '/tʁo ɛks.pli.ke sɛ.to.si tʁa.iʁ lə tɛkst/', 'troh ex-plee-KAY | seh-toh-SEE | tra-EER luh TEKST', ['expliciter', 'surtraduction']),
-  sent(2267, 'Les ventes ont baissé dès que les prix ont augmenté.', 'Prices went up; sales went down.', '/le vɑ̃t ɔ̃ be.se dɛ kə le pʁi ɔ̃.toɡ.mɑ̃.te/', 'lay VAHⁿT ohⁿ beh-SAY | deh kuh lay PREE | ohⁿ-tog-mahⁿ-TAY', ['expliciter', 'lien']),
+  sent(2267, 'Les prix ont augmenté, et les ventes ont donc baissé.', 'Prices went up; sales went down.', '/le pʁi ɔ̃.toɡ.mɑ̃.te e le vɑ̃t ɔ̃ dɔ̃k be.se/', 'lay PREE | ohⁿ-tog-mahⁿ-TAY | ay lay VAHⁿT | ohⁿ dohⁿk beh-SAY', ['expliciter', 'lien']),
   sent(2268, 'Faute de bénévoles, l’atelier a fermé.', 'Volunteers dropped out and the workshop closed.', '/fot də be.ne.vɔl la.tə.lje a fɛʁ.me/', 'foht duh bay-nay-VOL | la-tuh-LYAY a fehr-MAY', ['expliciter', 'lien']),
   sent(2269, 'L’entente signée en mars entre en vigueur en juin.', 'The March agreement takes effect in June.', '/lɑ̃.tɑ̃t si.ɲe ɑ̃ maʁs ɑ̃tʁ ɑ̃ vi.ɡœʁ ɑ̃ ʒɥɛ̃/', 'lahⁿ-TAHⁿT see-NYAY ahⁿ MARSS | AHⁿTR ahⁿ vee-GUHR | ahⁿ ZHWEHⁿ', ['expliciter', 'etoffement']),
 ];
@@ -531,7 +537,7 @@ export const ACT7_ROWS: Row[] = [
 
 export const ACT8_ROWS: Row[] = [
   sent(2282, 'Donnez-nous un ordre de grandeur.', 'Give us a ballpark figure.', '/dɔ.ne.nu œ̃.nɔʁdʁ də ɡʁɑ̃.dœʁ/', 'do-nay-NOO | uh-NORDR duh grahⁿ-DUHR', ['equivalence', 'image']),
-  sent(2283, 'Le coût serait de l’ordre de deux millions.', 'The ballpark figure is two million.', '/lə ku sə.ʁɛ də lɔʁdʁ də dø mi.ljɔ̃/', 'luh KOO suh-REH | duh LORDR | duh deu mee-LYOHⁿ', ['equivalence', 'image']),
+  sent(2283, 'Le coût serait de l’ordre de deux millions.', 'The cost would be in the ballpark of two million.', '/lə ku sə.ʁɛ də lɔʁdʁ də dø mi.ljɔ̃/', 'luh KOO suh-REH | duh LORDR | duh deu mee-LYOHⁿ', ['equivalence', 'image']),
   sent(2284, 'Ce n’est que la partie émergée de l’iceberg.', 'It is just the tip of the iceberg.', '/sə nɛ kə la paʁ.ti e.mɛʁ.ʒe də lajs.bɛʁɡ/', 'suh neh kuh la par-TEE | ay-mehr-ZHAY | duh lice-BEHRG', ['equivalence', 'image']),
   sent(2285, 'Nous voilà revenus à la case départ.', 'We are back to square one.', '/nu vwa.la ʁə.və.ny a la kaz de.paʁ/', 'noo vwa-LA ruh-vuh-NÜ | a la kahz day-PAR', ['equivalence', 'image']),
   sent(2286, 'La course fait environ cinq kilomètres.', 'The run is about three miles.', '/la kuʁs fɛ ɑ̃.vi.ʁɔ̃ sɛ̃k ki.lɔ.mɛtʁ/', 'la KOORSS feh | ahⁿ-vee-ROHⁿ | sehⁿk kee-lo-METR', ['equivalence', 'unite']),
@@ -575,7 +581,7 @@ export const ACT10_ROWS: Row[] = [
   sent(2312, 'Je choisis vous ou tu selon ce que le public attend.', 'I choose vous or tu according to what the audience expects.', '/ʒə ʃwa.zi vu u ty sə.lɔ̃ sə kə lə py.blik a.tɑ̃/', 'zhuh shwa-ZEE | VOO oo TÜ | suh-LOHⁿ suh kuh luh pü-BLEEK a-TAHⁿ', ['public']),
   sent(2313, 'Pour le grand public, un terme technique s’explique ou se remplace.', 'For the general public, a technical term is explained or replaced.', '/puʁ lə ɡʁɑ̃ py.blik œ̃ tɛʁm tɛk.nik sɛks.plik u sə ʁɑ̃.plas/', 'poor luh grahⁿ pü-BLEEK | uhⁿ TEHRM tek-NEEK | sex-PLEEK | oo suh rahⁿ-PLASS', ['public', 'grand-public']),
   sent(2314, 'Une même idée, trois publics : je change les mots, la longueur et la distance, jamais le fond.', 'One idea, three audiences: I change the words, the length and the distance, never the substance.', '/yn mɛm i.de tʁwa py.blik ʒə ʃɑ̃ʒ le mo la lɔ̃.ɡœʁ e la dis.tɑ̃s ʒa.mɛ lə fɔ̃/', 'ünn memm ee-DAY | trwa pü-BLEEK | zhuh shahⁿzh lay MOH | la lohⁿ-GUHR | ay la dees-TAHⁿSS | zha-MEH luh FOHⁿ', ['regle', 'public'], FC,
-    rule('« Street trees reduce the urban heat island effect. » Pour qui traduis-tu ?', 'Pour des urbanistes : « arbres d’alignement », « îlot de chaleur urbain ». Pour le grand public : « les arbres des rues rafraîchissent la ville ». Pour un compte jeunesse, tu peux tutoyer. Le fait ne change pas.')),
+    rule('« Street trees reduce the urban heat island effect. » Pour qui traduis-tu ?', 'Pour des urbanistes : « arbres d’alignement », « îlot de chaleur urbain ». Pour le grand public : « les arbres plantés le long des rues rafraîchissent la ville ». Pour un compte jeunesse, tu peux tutoyer. Le fait ne change pas.')),
   sent(2315, 'Je demande toujours : pour qui, et pour quoi faire ?', 'I always ask: for whom, and to do what?', '/ʒə də.mɑ̃d tu.ʒuʁ puʁ ki e puʁ kwa fɛʁ/', 'zhuh duh-MAHⁿD too-ZHOOR | poor KEE | ay poor kwa FEHR', ['public'], FCVDR),
   sent(2316, 'Nous vous invitons à découvrir le rapport complet.', 'We encourage you to read the full report.', '/nu vu.zɛ̃.vi.tɔ̃ a de.ku.vʁiʁ lə ʁa.pɔʁ kɔ̃.plɛ/', 'noo voo-zehⁿ-vee-TOHⁿ | a day-koo-VREER | luh ra-POR kohⁿ-PLEH', ['public', 'vous']),
   sent(2317, 'Découvre le rapport complet en ligne.', 'Check out the full report online.', '/de.kuvʁ lə ʁa.pɔʁ kɔ̃.plɛ ɑ̃ liɲ/', 'day-KOOVR | luh ra-POR kohⁿ-PLEH | ahⁿ LEENY', ['public', 'tu']),
@@ -645,7 +651,7 @@ export const dicteeFor = (act: number): string[] =>
 
 /** Act 1: Odile's revision note on Malik's draft. */
 export const NOTE_ODILE_TEXT =
-  'Note de révision, Fondation Arcelle, service de traduction. Malik, ta version du courriel de Fiona est propre : pas un calque, pas une faute, une ponctuation française impeccable. Et pourtant, la directrice l’a lue de travers. Fiona écrit, à la fin : « That said, we might want to revisit the timeline. » Tu as traduit : « Cela dit, nous pourrions vouloir revoir le calendrier. » Chaque mot y est, mais la phrase ne fait plus ce que faisait l’anglais. Sous la plume de Fiona, cette tournure polie est une demande : il faut revoir le calendrier, et vite. En français, « nous pourrions vouloir » sonne comme une hypothèse lointaine ; la directrice a compris qu’on pouvait attendre l’automne. Le reste du courriel souffre du même mal, en plus discret. Fiona enchaîne trois phrases courtes sans un seul mot de liaison : en anglais, le lecteur voit la cause ; en français, il voit une liste. Elle écrit « arguably » et tu as mis « sans doute », qui la rend plus sûre qu’elle ne l’est. Rien de tout cela n’est un calque. Ce sont des idées, des forces et des fils qui se perdent en route. Je propose « Il conviendrait toutefois de revoir le calendrier », qui garde la politesse et rend la demande. Passe me voir : on reprend le courriel ensemble, idée par idée. Odile';
+  'Note de révision, Fondation Arcelle, service de traduction. Malik, ta version du courriel de Fiona est propre : pas un calque, pas une faute, une ponctuation française impeccable. Et pourtant, la directrice l’a lue de travers. Fiona écrit, à la fin : « That said, we might want to revisit the timeline. » Tu as traduit : « Cela dit, nous pourrions éventuellement revoir le calendrier. » La phrase est correcte, mais elle ne fait plus ce que faisait l’anglais. Sous la plume de Fiona, cette tournure polie est une demande : il faut revoir le calendrier, et vite. En français, « nous pourrions éventuellement » sonne comme une hypothèse lointaine ; la directrice a compris qu’on pouvait attendre l’automne. Le reste du courriel souffre du même mal, en plus discret. Fiona enchaîne trois phrases courtes sans un seul mot de liaison : en anglais, le lecteur voit la cause ; en français, il voit une liste. Elle écrit « arguably » et tu as mis « sans aucun doute », qui la rend plus sûre qu’elle ne l’est. Rien de tout cela n’est un calque. Ce sont des idées, des forces et des fils qui se perdent en route. Je propose « Il conviendrait toutefois de revoir le calendrier », qui garde la politesse et rend la demande. Passe me voir : on reprend le courriel ensemble, idée par idée. Odile';
 
 /** Act 2: the French version of Fiona's research paragraph. */
 export const BIBLIO_TEXT =
@@ -661,7 +667,7 @@ export const COURRIEL_TEXT =
 
 /** Act 5: a topic-sentence paragraph made into a signposted French one. */
 export const PARAGRAPHE_TEXT =
-  'Pourquoi ouvrir aussi le dimanche ? Trois raisons expliquent la proposition de l’équipe. La première tient au coût : le dimanche, la bibliothèque partage déjà ses locaux avec le centre communautaire, qui en assure la surveillance ; ouvrir une salle de plus coûterait peu. La deuxième, plus décisive, tient aux horaires. Les familles que l’essai du soir voulait toucher sont justement celles qui travaillent tard en semaine. Or ces horaires ne leur conviennent toujours pas : elles rentrent trop tard, même à vingt-deux heures, pour faire le trajet avec des enfants fatigués. Le dimanche, au contraire, elles sont libres. Reste une dernière raison, moins visible : la bibliothèque est l’un des rares lieux gratuits et chauffés du quartier le dimanche, quand les commerces sont fermés. C’est pourquoi nous proposons d’ouvrir le dimanche après-midi, à titre d’essai, de treize à dix-sept heures. Note du traducteur : l’original anglais commençait par sa conclusion (« Sunday opening is the next logical step. ») et alignait les trois raisons sans une seule articulation. J’ai annoncé le chemin, numéroté les raisons et marqué la cause et la conséquence ; l’ordre des idées et la thèse n’ont pas changé.';
+  'Pourquoi ouvrir aussi le dimanche ? Trois raisons expliquent la proposition de l’équipe. La première tient au coût : le dimanche, la bibliothèque partage déjà ses locaux avec le centre communautaire, qui en assure la surveillance ; ouvrir une salle de plus coûterait peu. La deuxième, plus décisive, tient aux horaires. Les familles que l’essai du soir voulait toucher sont justement celles qui travaillent tard en semaine. Or ces horaires ne leur conviennent toujours pas : elles rentrent trop tard, même avec une fermeture à vingt-deux heures, pour faire le trajet avec des enfants fatigués. Le dimanche, au contraire, elles sont libres. Reste une dernière raison, moins visible : la bibliothèque est l’un des rares lieux gratuits et chauffés du quartier le dimanche, quand les commerces sont fermés. C’est pourquoi nous proposons d’ouvrir le dimanche après-midi, à titre d’essai, de treize à dix-sept heures. Note du traducteur : l’original anglais commençait par sa conclusion (« Sunday opening is the next logical step. ») et alignait les trois raisons sans une seule articulation. J’ai annoncé le chemin, numéroté les raisons et marqué la cause et la conséquence ; l’ordre des idées et la thèse n’ont pas changé.';
 
 /** Act 6: a brief on rents and families, the implicit links spelled out. */
 export const LOYERS_TEXT =
