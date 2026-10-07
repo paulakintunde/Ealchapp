@@ -936,6 +936,18 @@ bank: 67 free situations but short per code for one paper (CO-A 3, CO-B 2, CO-G 
 1, CE-DE 1; `pnpm tsx scripts/topic-demand.ts 1`): the TEF author extends the bank first.
 Waves 4-5 art registered (efb6f21); wave 5 reviewed (67f0cab, c9bb637).
 
+42. (Paul, 2026-10-07) DALF oral: two subjects drawn, the candidate picks one.
+`ExamSection.choiceGroups` (schema-validated partition of equal size); exam-section
+shows a chooser before the clock starts and sits only the chosen exposé + entretien; the
+choice survives a crash (draft `choice`). All five DALF papers declare their groups;
+paper-rules requires them; report-reachable counts sittable tasks (2ffd668).
+
+**Status 2026-10-07.** All 24 C1 lessons drafted (wave 6: c1.18 bc8c5eb, c1.19 6a6e74c,
+c1.22 830b364, c1.23 bc8c5eb). All five DALF papers drafted (blanc-05 7c1135f), 1-4
+reviewed. Sixth TCF (ec0a785) and TEF (this commit's sibling) papers written. Still to
+review: wave 6, DALF blanc-05, TEF/TCF blanc-06. Art pending: c1.18, c1.19, c1.22, c1.23;
+TEF blanc-06 block A needs four picture plates.
+
 ## Wave 5 (c1.14-c1.17), set up and dispatched 2026-10-06
 
 Setup (Paul's OK, `scratch/_c1w5_themes.mts --apply`): blocks free at every level;
