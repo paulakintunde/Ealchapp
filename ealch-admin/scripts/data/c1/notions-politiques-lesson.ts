@@ -138,7 +138,8 @@
 //      raw text) were read at source; LégisQuébec answered 403 to every
 //      tool, so the Charte québécoise articles 3 and 4 and its 1975 date were
 //      read on Québec mirrors (OCPM, BAnQ, Assemblée nationale annual
-//      statutes, CDPDJ). Re-check C-12 art. 3, 4 and 10 on LégisQuébec?
+//      statutes, CDPDJ). RESOLVED at pre-review: C-12 art. 3, 4, 10 re-read
+//      on LégisQuébec itself (corpus §A.7, after m).
 //   2. The task is a WRITTEN contribution (250 to 350 words, responseSpec
 //      250-380), but `Lesson.skill` is 'CE' as the brief says, like c1.12.
 //      Keep 'CE'?
@@ -531,7 +532,7 @@ const A2_ECOUTE: Sec<'listening'> = {
 };
 
 const A2_TEXTE = dansUnTexte('a2-texte', 'Lire : un message de parents', TEXTE_A2, [
-  { q: 'Quelle proposition de la commission scolaire relève de l’égalité ?', a: 'Le même budget de sorties, trois mille dollars, pour toutes les écoles du secteur.' },
+  { q: 'Quelle proposition du centre de services scolaire relève de l’égalité ?', a: 'Le même budget de sorties, trois mille dollars, pour toutes les écoles du secteur.' },
   { q: 'Pourquoi les parents la jugent-ils insuffisante ?', a: 'Leurs écoles accueillent beaucoup d’enfants dont les familles ne peuvent pas payer : un même budget serait égal, pas équitable.' },
   { q: 'Que demandent-ils à la place ?', a: 'Une part de base identique pour tous, plus une part supplémentaire selon les besoins : une formule mixte.' },
   { q: 'Que veut dire « l’égalité des chances ne se décrète pas : elle se finance » ?', a: 'Proclamer les mêmes chances ne suffit pas : il faut des moyens pour compenser les écarts de départ.' },
@@ -640,8 +641,8 @@ const A3_ERREURS: Sec<'commonErrors'> = {
   errors: [
     { wrong: 'Le film rend enfin la justice à ces ouvrières oubliées.', right: fr(E(1031)),
       why: 'Normal : rendre la justice existe. Mais il veut dire juger ; pour reconnaître un mérite, c’est rendre justice à, sans article. EN: rendre justice à.' },
-    { wrong: 'Personne n’a le droit de se rendre justice soi-même.', right: fr(E(1032)),
-      why: 'Normal : rendre et justice vont souvent ensemble. Mais pour se venger sans tribunal, l’expression figée est se faire justice. EN: se faire justice.' },
+    { wrong: 'Personne n’a le droit de prendre la loi entre ses mains.', right: fr(E(1032)),
+      why: 'Normal : to take the law into one’s own hands se calque mot à mot. Pour punir sans passer par les tribunaux, l’expression française est se faire justice (soi-même). EN: se faire justice.' },
     { wrong: 'Cette décision a laissé un profond sentiment d’injustesse.', right: fr(E(1033)),
       why: 'Normal : juste donne justesse. Mais l’injustesse, c’est l’inexactitude ; ce qui blesse, c’est l’injustice. EN: injustice.' },
     { wrong: 'Elle a amené son employeur à la justice pour faire reconnaître ses droits.', right: fr(E(1036)),
@@ -675,7 +676,7 @@ const A3_CHECK = actCheck('a3-check', 'Le point : acte 3', [
     ['ce qui est dû', 'un tribunal'], 0,
     'La valeur. EN: what is owed.'),
   ctl('Le mérite', 'Un livre qui reconnaît enfin le travail de ces infirmières leur…',
-    ['rend justice', 'rend la justice', 'fait justice'], 0,
+    ['rend justice', 'rend la justice', 'demande justice'], 0,
     'Rendre justice à : reconnaître un mérite. EN: does them justice.'),
   ctl('La vengeance', 'Punir quelqu’un sans passer par les tribunaux, c’est…',
     ['se faire justice soi-même', 'saisir la justice'], 0,
@@ -775,7 +776,7 @@ const A4_PIEGE: Sec<'trapDrill'> = {
     trap(E(1046), 'libre de', 'Tu es libre à ne pas être d’accord.', 'Être libre de + infinitif. EN: libre de.'),
     trap(E(1047), 'prendre la liberté de', 'J’ai pris la liberté pour vous écrire directement.', 'Prendre la liberté de + infinitif. EN: de.'),
     trap(E(1045), 'restreindre', 'Cette mesure restricte la liberté de circulation des habitants.', 'Le verbe est restreindre : elle restreint. Restrictif est l’adjectif. EN: restreint.'),
-    trap(E(1044), 'la liberté de réunion', 'La liberté d’assemblée permet de manifester pacifiquement.', 'Freedom of assembly : la liberté de réunion, comme dans les chartes. EN: réunion.'),
+    trap(E(1044), 'la liberté de réunion', 'La liberté d’assemblée permet de manifester pacifiquement.', 'Freedom of assembly : les chartes et les textes de droit disent la liberté de réunion (pacifique). « Liberté d’assemblée » se lit parfois, calqué sur l’anglais, mais ce n’est pas le terme. EN: réunion.'),
     trap(E(1048), 'publiques', 'Les associations dénoncent une atteinte aux libertés publics.', 'Libertés est féminin : publiques. EN: publiques.'),
   ],
   drill: [
@@ -783,7 +784,7 @@ const A4_PIEGE: Sec<'trapDrill'> = {
     { promptSay: 'Tu es libre … refuser.', opts: ['de', 'à'], correct: 0 },
     { promptSay: 'J’ai pris la liberté … vous appeler.', opts: ['de', 'pour'], correct: 0 },
     { promptSay: 'Le nouveau règlement … la liberté de circulation.', opts: ['restreint', 'restricte'], correct: 0 },
-    { promptSay: 'La liberté de … permet de manifester.', opts: ['réunion', 'assemblée'], correct: 0 },
+    { promptSay: 'Dans les deux chartes, on lit : la liberté de … pacifique.', opts: ['réunion', 'assemblée'], correct: 0 },
     { promptSay: 'Les libertés … sont protégées par les chartes.', opts: ['publiques', 'publics'], correct: 0 },
     { promptSay: 'Croire ou ne pas croire : la liberté de … .', opts: ['conscience', 'circulation'], correct: 0 },
     { promptSay: 'La liberté d’expression n’est pas sans … .', opts: ['limites', 'libertés'], correct: 0 },
@@ -822,8 +823,8 @@ const A4_CHECK = actCheck('a4-check', 'Le point : acte 4', [
   ctl('La préposition', 'Une mesure qui réduit une liberté y porte atteinte…',
     ['à', 'sur', 'contre'], 0,
     'Porter atteinte à. EN: à.'),
-  ctl('Le mot des chartes', 'Freedom of assembly se dit…',
-    ['la liberté de réunion', 'la liberté d’assemblée'], 0,
+  ctl('Le mot des chartes', 'Dans les chartes, freedom of peaceful assembly se dit…',
+    ['la liberté de réunion pacifique', 'la liberté d’assemblée pacifique'], 0,
     'Le mot des chartes : réunion pacifique. EN: réunion.'),
 ], ['liberte']);
 
@@ -1056,7 +1057,7 @@ const A6_PIEGE: Sec<'trapDrill'> = {
   },
   cards: [
     trap(E(1070), 'au pouvoir', 'Ce parti est en pouvoir depuis huit ans.', 'Gouverner : être au pouvoir. EN: au pouvoir.'),
-    trap(E(1065), 'puissance', 'un grand pouvoir économique', 'Un pays fort et riche est une puissance : une grande puissance. EN: puissance.'),
+    trap(E(1065), 'puissance', 'Ce pays est devenu un grand pouvoir économique.', 'Un pays fort et riche est une puissance : une grande puissance. Le pouvoir économique existe, mais c’est une capacité d’influence, pas un pays. EN: puissance.'),
     trap(E(1074), 'autoritaire', 'On lui reproche un style de direction très autoritatif.', 'Autoritatif n’est pas un mot français courant : autoritaire. EN: autoritaire.'),
     trap(E(1072), 'faire autorité', 'Son livre sur la question est autoritaire.', 'Un livre de référence fait autorité ; autoritaire se dit d’une personne qui impose. EN: fait autorité.'),
     trap(E(1069), 'pouvoir et puissance', 'Elle a la puissance de signer, mais pas l’autorité pour convaincre.', 'Signer est un pouvoir donné par un titre, pas une force : le pouvoir de signer. EN: le pouvoir.'),
@@ -1316,7 +1317,7 @@ const A8_PIEGE: Sec<'trapDrill'> = {
   title: 'Six phrases à redresser', frSub: 'Six cartes, huit phrases',
   rule: {
     title: 'La loi, la raison, le droit',
-    body: 'Légal : ce que la loi permet ou fixe. Légitime : ce qui est juste ou fondé. Juridique : ce qui touche au droit. La légitime défense et l’âge légal sont des expressions figées. EN: lawful, legitimate, legal (about law), and two fixed phrases.',
+    body: 'Légal : ce que la loi permet ou fixe. Légitime : ce qui est juste ou fondé. Juridique : ce qui touche au droit. La légitime défense est figée ; l’âge légal, c’est la loi qui le fixe. EN: lawful, legitimate, legal (about law), one fixed phrase.',
   },
   cards: [
     trap(E(1092), 'juridique', 'un conseiller légal', 'Un conseiller en droit : un conseiller juridique (OQLF). EN: juridique.'),
@@ -1620,7 +1621,7 @@ const A10_FOCUS: Sec<'focus'> = {
 };
 
 const A10_TEXTE = dansUnTexte('a10-texte', 'Lire : une annonce de quartier', TEXTE_A10, [
-  { q: 'Quel sens du mot identité l’atelier écarte-t-il ?', a: 'Le sens administratif : la carte nationale d’identité, qu’on refait à la mairie.' },
+  { q: 'Quel sens du mot identité l’atelier écarte-t-il ?', a: 'Le sens administratif : la carte nationale d’identité, qui relève de l’administration.' },
   { q: 'Quel sens retient-il ?', a: 'Le sens large : les langues, les lieux, les groupes auxquels on se sent attaché.' },
   { q: 'Quelles langues l’annonce cite-t-elle ?', a: 'Le wolof, le français, le sérère et l’anglais.' },
   { q: 'Que veut dire « sans que personne ne vous dise laquelle est la bonne » ?', a: 'Que l’identité plurielle est acceptée : on ne demande pas de choisir une seule appartenance.' },
@@ -1715,8 +1716,8 @@ const A11_CONSTRUIRE: Sec<'groupDrill'> = {
       it(VAL2(86), 'la variété'),
       it(VAL2(87), 'faire une place à chacun'),
     ], chk('Ces mots sont plutôt…',
-      ['positifs et consensuels', 'des reproches'], 0,
-      'Peu de gens sont contre la cohésion sociale : le désaccord porte sur les moyens. EN: positive.')),
+      ['plutôt positifs', 'des reproches'], 0,
+      'Peu de gens sont contre la cohésion sociale : le désaccord porte sur les moyens. Vivre-ensemble est parfois raillé comme un mot creux, mais ce n’est pas un reproche fait à quelqu’un. EN: mostly positive.')),
     ctl('Le mot chargé', 'Quand tu rapportes le mot « communautarisme », tu précises…',
       ['qui l’emploie, et à propos de qui', 'qu’il est neutre'], 0,
       'Ceux qu’il désigne l’emploient rarement : c’est un mot pour les autres. EN: who uses it.'),
@@ -1733,7 +1734,7 @@ const A11_PIEGE: Sec<'trapDrill'> = {
   },
   cards: [
     trap(E(1130), 'accommodement', 'demander une accommodation raisonnable', 'Reasonable accommodation : un accommodement raisonnable. EN: accommodement.'),
-    trap(E(1131), 'la laïcité', 'la sécularité de l’État', 'Secularism, au sens politique : la laïcité. EN: laïcité.'),
+    trap(E(1131), 'la laïcité', 'la sécularité de l’État', 'Secularism, au sens politique : la laïcité. Sécularité existe, mais dit le caractère séculier d’une chose, pas la neutralité de l’État. EN: laïcité.'),
     trap(E(1136), 'le modèle québécois', 'Le Québec défend plutôt un modèle de multiculturalisme.', 'Le multiculturalisme est la politique canadienne ; le Québec défend l’interculturalisme. EN: interculturalisme.'),
     trap(E(1137), 'attribuer', 'Pour tout le monde, la laïcité protège la liberté de conscience.', 'C’est la position de ses partisans, pas un fait admis de tous. EN: attribute it.'),
     trap(E(1139), 'un mot pour les autres', 'Ceux que le mot communautarisme désigne l’emploient volontiers.', 'C’est l’inverse : ceux qu’il vise l’emploient rarement. EN: rarely.'),
@@ -1767,7 +1768,7 @@ const A11_EXEMPLES: Sec<'examples'> = {
 };
 
 const A11_TEXTE = dansUnTexte('a11-texte', 'Lire : un glossaire citoyen', TEXTE_A11, [
-  { q: 'Depuis quand le multiculturalisme est-il une politique officielle au Canada, d’après le glossaire ?', a: 'Depuis une loi de 1988.' },
+  { q: 'Depuis quand le multiculturalisme est-il une politique officielle au Canada, d’après le glossaire ?', a: 'Depuis 1971 ; une loi l’a inscrit dans le droit en 1988.' },
   { q: 'Qu’est-ce qui distingue l’interculturalisme ?', a: 'Il insiste sur les échanges autour d’une culture commune de langue française.' },
   { q: 'Comment le glossaire présente-t-il la laïcité sans prendre parti ?', a: 'Il donne la position de ses partisans et celle de ses critiques, et renvoie l’histoire du mot à une autre séance.' },
   { q: 'Que dit-il du mot communautarisme ?', a: 'Qu’il est surtout employé en France, presque toujours comme un reproche, et rarement par ceux qu’il désigne.' },
@@ -1872,11 +1873,11 @@ const A12_SCENARIO: Sec<'scenario'> = {
     },
     {
       ai: 'L’auditeur disait aussi que c’est illégal, puisque cela le choque.', en: 'The listener also said it is illegal, since it shocks him.',
-      user: 'Qu’une mesure le choque ne la rend pas illégale. Il peut contester sa légitimité, pas sa légalité.',
-      userEn: 'A measure shocking him does not make it illegal. He can dispute its legitimacy, not its legality. (Légal against légitime.)',
+      user: 'Qu’une mesure le choque ne la rend pas illégale. Ce qu’il conteste, c’est sa légitimité, pas sa légalité.',
+      userEn: 'A measure shocking him does not make it illegal. What he disputes is its legitimacy, not its legality. (Légal against légitime.)',
       alts: [
         { fr: 'Illégal veut dire contraire à la loi. Ici, il veut sans doute dire injuste.', en: 'Illegal means against the law. Here he probably means unfair. (Naming the right word.)' },
-        { fr: 'La mesure a été votée dans les règles : elle est légale, même si on peut la discuter.', en: 'The measure was passed by the rules: it is lawful, even if it can be debated. (The legal point.)' },
+        { fr: 'Si elle est adoptée dans les règles, elle sera légale, même si on peut la discuter.', en: 'If it is adopted by the rules, it will be lawful, even if it can be debated. (The legal point.)' },
       ],
     },
     {
@@ -2082,7 +2083,7 @@ const A12_QUIZ: Sec<'quiz'> = {
       id: 'r3-justice', label: 'La justice', targets: ['justice-confondue'],
       questions: [
         mc('« Elle a saisi la justice. » Ici, la justice, c’est…', ['l’institution, les tribunaux', 'la valeur'], 0, 'Avec l’article, après saisir : l’institution. EN: the courts.', 'a3-table'),
-        mc('Un film qui reconnaît enfin le travail de ces ouvrières leur…', ['rend justice', 'rend la justice', 'fait justice'], 0, 'Rendre justice à : reconnaître un mérite. EN: does them justice.', 'a3-table'),
+        mc('Un film qui reconnaît enfin le travail de ces ouvrières leur…', ['rend justice', 'rend la justice', 'demande justice'], 0, 'Rendre justice à : reconnaître un mérite. EN: does them justice.', 'a3-table'),
         mc('Ce sont les juges qui…', ['rendent la justice', 'rendent justice à la justice', 'se font justice'], 0, 'Rendre la justice : juger. EN: administer justice.', 'a3-construire'),
         mc('« Ta réponse est juste. » Ici, juste veut dire…', ['exacte', 'équitable'], 0, 'Pour une réponse, juste veut dire exacte. EN: correct.', 'a3-construire'),
         tI(MOT, 'Cette décision a laissé un profond sentiment d’___ . (le contraire de justice)', 'injustice', 'L’injustice, pas l’injustesse. EN: injustice.', 'a3-erreurs'),
@@ -2095,7 +2096,7 @@ const A12_QUIZ: Sec<'quiz'> = {
       id: 'r4-libertes', label: 'La liberté et les libertés', targets: ['libertes-confondues'],
       questions: [
         mc('S’exprimer, se réunir, s’associer, croire : ce sont…', ['des libertés publiques', 'des libertés privées', 'une liberté unique'], 0, 'Des droits précis, au pluriel. EN: civil liberties.', 'a4-cartes'),
-        mc('Freedom of assembly se dit…', ['la liberté de réunion', 'la liberté d’assemblée'], 0, 'Le mot des chartes. EN: réunion.', 'a4-piege'),
+        mc('Dans la Charte canadienne, freedom of peaceful assembly se dit…', ['la liberté de réunion pacifique', 'la liberté d’assemblée pacifique'], 0, 'Le mot des chartes : article 2 c) de la Charte canadienne, article 3 de la Charte québécoise. EN: réunion.', 'a4-piege'),
         mc('Une mesure limite une liberté pour un motif annoncé. Le mot le plus neutre est…', ['restreindre', 'porter atteinte à'], 0, 'Porter atteinte accuse déjà. EN: restrict.', 'a4-construire'),
         mc('D’après la fondation genevoise, le règlement toucherait…', ['la liberté de réunion et la liberté d’association', 'la liberté de conscience'], 0, 'Réunions dans les parcs, associations. EN: assembly and association.', 'a4-texte'),
         tI(MOT, 'Ce règlement porte atteinte ___ la liberté d’association.', 'à', 'Porter atteinte à. EN: à.', 'a4-piege'),
@@ -2186,7 +2187,7 @@ const A12_QUIZ: Sec<'quiz'> = {
       id: 'r11-modeles', label: 'Vivre ensemble', targets: ['modeles-confondus'],
       questions: [
         mc('Le modèle défendu au Québec, c’est plutôt…', ['l’interculturalisme', 'le multiculturalisme'], 0, 'Une culture commune qui dialogue. EN: interculturalism.', 'a11-table'),
-        mc('Au Canada, le multiculturalisme est une politique officielle depuis…', ['une loi de 1988', 'la Déclaration de 1789'], 0, 'La Loi sur le multiculturalisme canadien, 1988. EN: a 1988 act.', 'a11-table'),
+        mc('La Loi sur le multiculturalisme canadien date de…', ['1988', '1982', '1975'], 0, 'Politique officielle depuis 1971, inscrite dans une loi en 1988 ; 1982 est la Charte, 1975 la Charte québécoise. EN: 1988.', 'a11-table'),
         mc('Le mot communautarisme est…', ['presque toujours un reproche', 'un terme neutre de sociologie'], 0, 'Un mot qu’on applique aux autres. EN: a reproach.', 'a11-construire'),
         mc('Pour rapporter un avis sur la laïcité sans le reprendre, tu écris…', ['« pour ses partisans… »', '« comme chacun sait… »'], 0, 'Une position attribuée. EN: attribute it.', 'a11-piege'),
         tI(MOT, 'Un ___ raisonnable adapte une règle commune pour éviter une discrimination.', 'accommodement', 'Accommodement, au masculin. EN: accommodation.', 'a11-piege'),
@@ -2399,7 +2400,7 @@ const SHEET_LIST: ReferenceSheet[] = [
     table('sheet-droits-libertes', 'Les libertés', ['Expression', 'Sens', 'Construction'], [
       ['les libertés publiques', 'expression, réunion, association, culte', 'toujours au pluriel'],
       ['la liberté de conscience', 'croire, ne pas croire, changer', 'de conscience'],
-      ['la liberté de réunion', 'freedom of assembly', 'jamais « d’assemblée »'],
+      ['la liberté de réunion', 'freedom of assembly', 'le terme des chartes ; « d’assemblée » est un calque'],
       ['la liberté de circulation', 'se déplacer', 'de circulation'],
       ['porter atteinte à', 'réduire, nuire', 'à + liberté'],
       ['restreindre, une restriction', 'limiter', 'elle restreint'],

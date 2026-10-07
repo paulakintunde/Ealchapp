@@ -181,7 +181,8 @@
 //          codifiées, laws-lois.justice.gc.ca/fra/const/page-12.html (raw
 //          HTML read). Rows .1054 .1059 .1061, TEXTE_A5, sheet-droits.
 //       e. Charte des droits et libertés de la personne (Québec, RLRQ c.
-//          C-12), adopted by the Assemblée nationale on 27 June 1975, in
+//          C-12), adopted by the Assemblée nationale on 27 June 1975 (re-read
+//          on LégisQuébec at pre-review, see after m), in
 //          force 28 June 1976: art. 3 « Toute personne est titulaire des
 //          libertés fondamentales telles la liberté de conscience, la liberté
 //          de religion, la liberté d’opinion, la liberté d’expression, la
@@ -228,8 +229,28 @@
 //          autorité établie »; plural contre-pouvoirs. Row .1078. No item
 //          turns on the hyphen (fold() strips it).
 //       m. Voting age 18 in Canada (federal elections: Loi électorale du
-//          Canada; the Charter art. 3 gives every citizen the vote). Row
-//          .1100.
+//          Canada; the Charter art. 3 gives every citizen the vote, with no
+//          age: the age is the statute's, so « l'âge légal » is exact). Row
+//          .1100. Pre-review: Charter art. 3 re-read on Justice Canada.
+//
+//       PRE-REVIEW 2026-10-06 (all re-read at source): DDHC art. 1, 4, 11,
+//       16 and the count of 17 articles on the Conseil constitutionnel's
+//       full text (Légifrance's page is a JS shell to curl); Charte
+//       canadienne préambule, art. 1, 2 a-d, 3, 15, 27, 32, 33 on
+//       laws-lois.justice.gc.ca (raw HTML); Charte québécoise art. 3, 4, 10,
+//       49, 54, 55 on LégisQuébec itself (curl with a browser user agent
+//       returns 200); adoption 27 June 1975, in force 28 June 1976; applies
+//       between private parties (Canadian Charter binds governments only,
+//       art. 32); Constitution 1958 art. 1 (Conseil constitutionnel); loi
+//       1905 art. 1-2 (Légifrance); OQLF « juridique, judiciaire, légal »
+//       (the « on abuse parfois de cet adjectif sous l'influence de
+//       l'anglais legal » sentence). Multiculturalism: official policy since
+//       8 October 1971, Act assented 21 July 1988 (TEXTE_A11 and quiz r11
+//       corrected: they said « depuis une loi de 1988 »). « Faire justice à
+//       quelqu'un » is listed by Larousse beside « rendre justice à », so it
+//       is no longer a wrong option. « Liberté d'assemblée »: no dictionary
+//       verdict found; the items now ask for « le mot des chartes »
+//       (réunion pacifique), the calque is named, never called a fault.
 //       n. Droits de l’homme (France: the 1789 text, the Commission
 //          nationale consultative des droits de l’homme) / droits de la
 //          personne (Canada: Commission canadienne des droits de la
@@ -1055,13 +1076,13 @@ export const LETTRE_GERALD =
 
 /** The ten « dans un texte » paragraphs (acts 2 to 11). */
 export const TEXTE_A2 =
-  'Un message du Collectif des parents du Plateau-Est, à Montréal. Repère ce qui relève de l’égalité et ce qui relève de l’équité. « Chers parents, la commission scolaire propose de donner à toutes les écoles du secteur le même budget de sorties culturelles : trois mille dollars chacune. Nous saluons l’intention : c’est une mesure d’égalité. Mais nos deux écoles accueillent beaucoup d’enfants dont les familles ne peuvent pas payer les billets. Un même budget pour tous serait égal ; il ne serait pas équitable. Nous demandons donc une part de base identique, et une part supplémentaire selon les besoins de chaque école. L’égalité des chances ne se décrète pas : elle se finance. »';
+  'Un message du Collectif des parents du Plateau-Est, à Montréal. Repère ce qui relève de l’égalité et ce qui relève de l’équité. « Chers parents, le centre de services scolaire propose de donner à toutes les écoles du secteur le même budget de sorties culturelles : trois mille dollars chacune. Nous saluons l’intention : c’est une mesure d’égalité. Mais nos deux écoles accueillent beaucoup d’enfants dont les familles ne peuvent pas payer les billets. Un même budget pour tous serait égal ; il ne serait pas équitable. Nous demandons donc une part de base identique, et une part supplémentaire selon les besoins de chaque école. L’égalité des chances ne se décrète pas : elle se finance. »';
 
 export const TEXTE_A3 =
   'Une brève du journal Le Riverain, à Lyon. Trouve les deux sens du mot justice. « Après sept ans de procédure, les anciens salariés de la blanchisserie de la Croix-Pâquier ont obtenu gain de cause hier devant le tribunal : ils avaient saisi la justice en 2019, après un licenciement jugé abusif. « Nous ne voulions pas d’argent, nous voulions justice », a déclaré leur porte-parole, Josiane Merle. Le jugement leur rend enfin justice, mais il arrive tard : deux d’entre eux sont décédés entre-temps. Une justice aussi lente, regrette l’avocate des salariés, laisse toujours un sentiment d’injustice, même quand elle donne raison. »';
 
 export const TEXTE_A4 =
-  'Un communiqué d’une association de Genève, la Fondation Belle-Anse. Repère la liberté au singulier et les libertés au pluriel. « La Fondation Belle-Anse s’inquiète du projet de règlement qui soumettrait toute réunion de plus de vingt personnes dans un parc à une autorisation préalable. Nous ne contestons pas que la liberté ait des limites : la tranquillité des riverains compte aussi. Mais une autorisation exigée pour chaque pique-nique d’association porterait atteinte à deux libertés publiques à la fois, la liberté de réunion et la liberté d’association. Restreindre une liberté peut se justifier ; la soumettre à la bonne volonté d’un bureau, beaucoup moins. »';
+  'Un communiqué de la Fondation Belle-Anse, à Genève. Repère la liberté au singulier et les libertés au pluriel. « La Fondation Belle-Anse s’inquiète du projet de règlement qui soumettrait toute réunion de plus de vingt personnes dans un parc à une autorisation préalable. Nous ne contestons pas que la liberté ait des limites : la tranquillité des riverains compte aussi. Mais une autorisation exigée pour chaque pique-nique d’association porterait atteinte à deux libertés publiques à la fois, la liberté de réunion et la liberté d’association. Restreindre une liberté peut se justifier ; la soumettre à la bonne volonté d’un bureau, beaucoup moins. »';
 
 export const TEXTE_A5 =
   'Une fiche d’éducation civique distribuée à la bibliothèque Marie-Galante, à Montréal. Pour chaque texte, trouve son pays, sa date et une liberté qu’il protège. « Trois textes, une même famille. En France, la Déclaration des droits de l’homme et du citoyen de 1789 proclame à son article 11 que « la libre communication des pensées et des opinions est un des droits les plus précieux de l’homme ». Au Canada, la Charte canadienne des droits et libertés, adoptée en 1982, énumère à son article 2 les libertés fondamentales : conscience et religion, pensée, croyance, opinion et expression, réunion pacifique, association. Au Québec, la Charte des droits et libertés de la personne, adoptée en 1975, reconnaît à son article 3 des libertés très proches. Remarque le vocabulaire : droits de l’homme en 1789, droits et libertés de la personne au Québec. »';
@@ -1079,7 +1100,7 @@ export const TEXTE_A9 =
   'Une dépêche de Radio Hautes-Rives. Trouve ce qui menace l’État de droit et ce qui le protège. « Le directeur du service des permis de l’arrondissement, soupçonné d’avoir accordé des passe-droits à des proches pendant six ans, a été suspendu hier. L’affaire a été révélée par une employée, aujourd’hui protégée comme lanceuse d’alerte. Pour l’association Vigie Hautes-Rives, ces faits seraient restés impunis sans elle : « Le problème, ce n’est pas seulement la fraude, c’est l’impunité. Quand la règle change selon la personne, c’est deux poids, deux mesures. » Le directeur, qui conteste les faits, aura droit à un procès équitable. »';
 
 export const TEXTE_A10 =
-  'Une annonce de la maison de quartier Saint-Firmin, à Dakar. Repère les sens du mot identité. « Atelier « Qui suis-je ici ? », tous les samedis. Pour faire refaire votre carte nationale d’identité, adressez-vous à la mairie : ce n’est pas l’objet de cet atelier. Nous parlons ici d’identité au sens large : les langues que vous parlez, les lieux auxquels vous vous sentez attachés, les groupes auxquels vous appartenez. Wolof, français, sérère, anglais : beaucoup d’entre nous en parlent plusieurs. Venez raconter comment votre identité s’est construite, sans que personne ne vous dise laquelle est la bonne. »';
+  'Une annonce de la maison de quartier Saint-Firmin, à Dakar. Repère les sens du mot identité. « Atelier « Qui suis-je ici ? », tous les samedis. Pour faire refaire votre carte nationale d’identité, adressez-vous aux services de l’administration : ce n’est pas l’objet de cet atelier. Nous parlons ici d’identité au sens large : les langues que vous parlez, les lieux auxquels vous vous sentez attachés, les groupes auxquels vous appartenez. Wolof, français, sérère, anglais : beaucoup d’entre nous en parlent plusieurs. Venez raconter comment votre identité s’est construite, sans que personne ne vous dise laquelle est la bonne. »';
 
 export const TEXTE_A11 =
-  'Le glossaire de l’atelier citoyen de la bibliothèque Marie-Galante, à Montréal. Pour chaque mot, repère qui l’emploie, et dans quel sens. « Multiculturalisme : au Canada, politique officielle depuis une loi de 1988 ; elle met l’accent sur la coexistence des cultures. Interculturalisme : le modèle que défend le Québec, qui insiste sur les échanges autour d’une culture commune de langue française. Laïcité : la neutralité de l’État envers les religions ; ses partisans y voient une protection de la liberté de conscience, ses critiques une contrainte pour certaines minorités. Pour l’histoire du mot, voir la séance sur les grandes références. Communautarisme : mot surtout employé en France, presque toujours comme un reproche ; ceux qu’il désigne ne l’emploient guère. »';
+  'Le glossaire de l’atelier citoyen de la bibliothèque Marie-Galante, à Montréal. Pour chaque mot, repère qui l’emploie, et dans quel sens. « Multiculturalisme : au Canada, politique officielle depuis 1971, inscrite dans une loi en 1988 ; elle met l’accent sur la coexistence des cultures. Interculturalisme : le modèle que défend le Québec, qui insiste sur les échanges autour d’une culture commune de langue française. Laïcité : la neutralité de l’État envers les religions ; ses partisans y voient une protection de la liberté de conscience, ses critiques une contrainte pour certaines minorités. Pour l’histoire du mot, voir la séance sur les grandes références. Communautarisme : mot surtout employé en France, presque toujours comme un reproche ; ceux qu’il désigne ne l’emploient guère. »';
