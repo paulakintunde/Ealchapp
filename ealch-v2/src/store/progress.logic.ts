@@ -1410,10 +1410,16 @@ export const EXAM_PREP_TARGETS: Readonly<Record<string, string>> = {
   // until c1.20 and c1.21 publish: a target absent from the corpus falls back
   // to the first-match rule for an open miss, and offers nothing for a closed
   // one. CE and CO tasks are all closed, so these (and CE@b2, CO@b2) answer the
-  // closed branch of dueExamSkills. PE@c1 (c1.10) and PO@c1
-  // (c1.09) wait for C1 writing and speaking tasks, of which none exist.
+  // closed branch of dueExamSkills.
   'CE@c1': 'c1.20.l1',
   'CO@c1': 'c1.21.l1',
+  // C1 writing and speaking (decisions 23 and 41, 2026-10-07): DALF C1 tasks
+  // are all c1, and TEF / TCF blanc-06 tag their top writing and speaking tasks
+  // c1. A failed one is an OPEN miss and lands on the essay workshop (c1.10) or
+  // the exposé workshop (c1.09). Until c1.10 publishes, the first-match rule
+  // still answers PE@c1, as for any named target absent from the corpus.
+  'PE@c1': 'c1.10.l1',
+  'PO@c1': 'c1.09.l1',
 };
 
 /**

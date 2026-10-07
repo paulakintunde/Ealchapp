@@ -1334,10 +1334,12 @@ test('each B2 exam skill has its own remediation lesson', () => {
   );
 });
 
-test('C1 reading and listening route to c1.20 and c1.21, and stay inert until those lessons exist', () => {
+test('C1 reading and listening route to c1.20 and c1.21, writing to c1.10 and speaking to c1.09', () => {
   deepStrictEqual(['CE', 'CO'].map((k) => EXAM_PREP_TARGETS[`${k}@c1`]), ['c1.20.l1', 'c1.21.l1']);
-  strictEqual(EXAM_PREP_TARGETS['PE@c1'], undefined);
-  strictEqual(EXAM_PREP_TARGETS['PO@c1'], undefined);
+  // Decisions 23 and 41: C1 writing lands on the essay workshop, C1 speaking on
+  // the exposé workshop (DALF tasks, and TEF / TCF blanc-06's top tasks).
+  strictEqual(EXAM_PREP_TARGETS['PE@c1'], 'c1.10.l1');
+  strictEqual(EXAM_PREP_TARGETS['PO@c1'], 'c1.09.l1');
   const mk = (id: string, skill: Lesson['skill']): Lesson => ({
     id, unitId: id.slice(0, 5), seq: 1, title: id, level: 'c1', tag: 'C1',
     intro: '', sections: [{ type: 'teach', title: 'T', body: 'B' }], itemIds: [], version: 1, skill,
@@ -1443,4 +1445,15 @@ test('a dead microphone still outranks both', () => {
     examResult({ id: 'exr-2', taskId: 't2', paperId: 'p1', taskType: 'po_monologue', skill: 'PO', audioFailed: true }),
   ];
   strictEqual(sectionStatusFor(['t1', 't2'], mixed, 'p1'), 'audio-failed');
+});
+
+test('a failed DALF C1 essay offers c1.10 and a failed exposé offers c1.09 (decisions 23, 41)', () => {
+  const mk = (id: string, skill: Lesson['skill']): Lesson => ({
+    id, unitId: id.slice(0, 5), seq: 1, title: id, level: 'c1', tag: 'C1',
+    intro: '', sections: [{ type: 'teach', title: 'T', body: 'B' }], itemIds: [], version: 1, skill,
+  });
+  const lessons = [mk('c1.01.l1', 'PE'), mk('c1.09.l1', 'PO'), mk('c1.10.l1', 'PE')];
+  const pe = examResult({ format: 'dalf_c1' as ExamResult['format'], band: 'c1', skill: 'PE', taskType: 'pe_essay' } as Partial<ExamResult>);
+  const po = examResult({ format: 'dalf_c1' as ExamResult['format'], band: 'c1', skill: 'PO', taskType: 'po_monologue', taskId: 'exam.dalf_c1.blanc-01.po_monologue.001' } as Partial<ExamResult>);
+  deepStrictEqual(dueExamSkills([pe, po], lessons).map((d) => [d.skill, d.prepLessonId]), [['PE', 'c1.10.l1'], ['PO', 'c1.09.l1']]);
 });
