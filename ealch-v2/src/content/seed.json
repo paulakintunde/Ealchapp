@@ -10261,6 +10261,880 @@
           ]
         }
       ]
+    },
+    {
+      "id": "c1.10",
+      "seq": 10,
+      "sub": "Dissertation et synthèse",
+      "canDo": "Can turn a subject into a real problem question by defining its terms, choose among dialectical, thematic, analytical and comparative plans from that question, link the parts with transitions that sum up and move on, conclude with an earned opening, write a synthesis of documents in their own words without opinion, and write a structured argumentative essay in a real genre from a short dossier",
+      "level": "c1",
+      "title": "Essays and Document Synthesis",
+      "lessonIds": [
+        "c1.10.l1"
+      ],
+      "prereqUnitIds": [
+        "b2.22",
+        "b2.23"
+      ],
+      "outline": [
+        {
+          "lessonId": "c1.10.l1",
+          "title": "Dissertation et synthèse",
+          "acts": [
+            {
+              "title": "Le sujet qui piège",
+              "cards": 15
+            },
+            {
+              "title": "Les termes du sujet",
+              "cards": 14
+            },
+            {
+              "title": "La tension",
+              "cards": 13
+            },
+            {
+              "title": "Le plan analytique",
+              "cards": 13
+            },
+            {
+              "title": "Le plan comparatif",
+              "cards": 14
+            },
+            {
+              "title": "Choisir son plan",
+              "cards": 11
+            },
+            {
+              "title": "Les transitions-bilan",
+              "cards": 14
+            },
+            {
+              "title": "Conclure et ouvrir",
+              "cards": 13
+            },
+            {
+              "title": "Lire un dossier",
+              "cards": 15
+            },
+            {
+              "title": "Écrire la synthèse",
+              "cards": 13
+            },
+            {
+              "title": "L’essai sur dossier",
+              "cards": 14
+            },
+            {
+              "title": "Ton essai",
+              "cards": 12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c1.11",
+      "seq": 11,
+      "sub": "Rapports et comptes rendus",
+      "canDo": "Can write a report for a reader who must decide: an executive summary first, a sourced constat kept apart from the analysis, causes ranked, options compared on the same criteria, recommendations in the formal register with the right mood; can tell a compte rendu from a procès-verbal and a relevé de décisions, write each in the present and the impersonal, and replace the office anglicisms",
+      "level": "c1",
+      "title": "Reports and Minutes",
+      "lessonIds": [
+        "c1.11.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.39",
+        "b2.10",
+        "b2.22",
+        "b2.26",
+        "b2.33"
+      ],
+      "outline": [
+        {
+          "lessonId": "c1.11.l1",
+          "title": "Rapports et comptes rendus",
+          "acts": [
+            {
+              "title": "Le rapport qu’on ne lit pas",
+              "cards": 17
+            },
+            {
+              "title": "L’architecture d’un rapport",
+              "cards": 13
+            },
+            {
+              "title": "Le constat",
+              "cards": 13
+            },
+            {
+              "title": "Du symptôme aux causes",
+              "cards": 16
+            },
+            {
+              "title": "Les options et les critères",
+              "cards": 13
+            },
+            {
+              "title": "Recommander",
+              "cards": 16
+            },
+            {
+              "title": "La synthèse en tête",
+              "cards": 11
+            },
+            {
+              "title": "Le compte rendu",
+              "cards": 15
+            },
+            {
+              "title": "Le procès-verbal",
+              "cards": 20
+            },
+            {
+              "title": "Le relevé de décisions",
+              "cards": 17
+            },
+            {
+              "title": "Relire en rapporteur",
+              "cards": 12
+            },
+            {
+              "title": "Ton rapport",
+              "cards": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c1.12",
+      "seq": 12,
+      "sub": "Le vocabulaire des idées",
+      "canDo": "Can define, distinguish and use the epistemic and logical pairs of abstract discussion (expliquer and justifier, cause and raison, croyance and connaissance, nécessaire and contingent, condition nécessaire and suffisante, prémisse and conclusion, valide and vrai, sophisme and paralogisme, a priori and a posteriori, confirmer, infirmer and réfuter) with their collocations, read them precisely in a text, and answer someone who confuses them",
+      "level": "c1",
+      "title": "The Vocabulary of Ideas",
+      "lessonIds": [
+        "c1.12.l1"
+      ],
+      "prereqUnitIds": [
+        "b2.10",
+        "b2.22",
+        "b2.23",
+        "c1.08"
+      ],
+      "outline": [
+        {
+          "lessonId": "c1.12.l1",
+          "title": "Le vocabulaire des idées",
+          "acts": [
+            {
+              "title": "Le mot juste",
+              "cards": 17
+            },
+            {
+              "title": "Expliquer n’est pas justifier",
+              "cards": 14
+            },
+            {
+              "title": "La cause et la raison",
+              "cards": 17
+            },
+            {
+              "title": "Croire, savoir, connaître",
+              "cards": 18
+            },
+            {
+              "title": "Le nécessaire et le contingent",
+              "cards": 17
+            },
+            {
+              "title": "Nécessaire ou suffisant",
+              "cards": 12
+            },
+            {
+              "title": "Prémisses et conclusion",
+              "cards": 19
+            },
+            {
+              "title": "Le sophisme et ses cousins",
+              "cards": 14
+            },
+            {
+              "title": "A priori, a posteriori",
+              "cards": 14
+            },
+            {
+              "title": "Définir et distinguer",
+              "cards": 15
+            },
+            {
+              "title": "Prouver, confirmer, réfuter",
+              "cards": 17
+            },
+            {
+              "title": "Ta réponse",
+              "cards": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c1.13",
+      "seq": 13,
+      "sub": "Les références qui comptent",
+      "canDo": "Can recognise the historical references francophone press and speech take for granted (1789, 1905, the 18th of June, Vichy, Algeria, Mai 68, the Conquest, the Révolution tranquille, 1830, 1291, 1960, the négritude), unfold what each one recalls, explain what invoking it does in a text, tell legend and apocrypha from fact, and report contested readings with their sources and without a verdict",
+      "level": "c1",
+      "title": "The References That Count",
+      "lessonIds": [
+        "c1.13.l1"
+      ],
+      "prereqUnitIds": [
+        "b2.31",
+        "b2.24",
+        "b2.34"
+      ],
+      "outline": [
+        {
+          "lessonId": "c1.13.l1",
+          "title": "Les références qui comptent",
+          "acts": [
+            {
+              "title": "Le Waterloo du tramway",
+              "cards": 18
+            },
+            {
+              "title": "1789 et les Lumières",
+              "cards": 19
+            },
+            {
+              "title": "Les noms devenus des leçons",
+              "cards": 15
+            },
+            {
+              "title": "La laïcité, de 1905 à la loi 21",
+              "cards": 16
+            },
+            {
+              "title": "Le 18 juin et Vichy",
+              "cards": 15
+            },
+            {
+              "title": "L’Algérie : les mots pour le dire",
+              "cards": 15
+            },
+            {
+              "title": "Mai 68 et les Trente Glorieuses",
+              "cards": 16
+            },
+            {
+              "title": "Le Québec et l’Acadie",
+              "cards": 18
+            },
+            {
+              "title": "La Belgique",
+              "cards": 11
+            },
+            {
+              "title": "La Suisse",
+              "cards": 14
+            },
+            {
+              "title": "L’Afrique francophone",
+              "cards": 13
+            },
+            {
+              "title": "Ton explication",
+              "cards": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c1.14",
+      "seq": 14,
+      "sub": "Analyser une œuvre",
+      "canDo": "Can move from a personal reaction to an argued analysis of how a film, a painting, a photograph, a piece of music or a staging produces its effect, naming its means precisely (shot, frame, off-screen space, editing, soundtrack, composition, light, brushwork, orchestration, staging), and can write a critique that weighs strengths against weaknesses before giving a reasoned verdict",
+      "level": "c1",
+      "title": "Analysing a Work",
+      "lessonIds": [
+        "c1.14.l1"
+      ],
+      "prereqUnitIds": [
+        "b2.30",
+        "c1.24"
+      ],
+      "outline": [
+        {
+          "lessonId": "c1.14.l1",
+          "title": "Analyser une œuvre",
+          "acts": [
+            {
+              "title": "« J’ai adoré » ne suffit pas",
+              "cards": 18
+            },
+            {
+              "title": "De l’émotion aux moyens",
+              "cards": 14
+            },
+            {
+              "title": "Le cadre et le plan",
+              "cards": 17
+            },
+            {
+              "title": "Champ et hors-champ",
+              "cards": 14
+            },
+            {
+              "title": "Le montage",
+              "cards": 14
+            },
+            {
+              "title": "La bande-son",
+              "cards": 13
+            },
+            {
+              "title": "La composition",
+              "cards": 14
+            },
+            {
+              "title": "La lumière et la touche",
+              "cards": 14
+            },
+            {
+              "title": "La musique et la scène",
+              "cards": 14
+            },
+            {
+              "title": "Peser le pour et le contre",
+              "cards": 13
+            },
+            {
+              "title": "La critique, un genre",
+              "cards": 14
+            },
+            {
+              "title": "Ta critique",
+              "cards": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c1.15",
+      "seq": 15,
+      "sub": "Justice, liberté, identité, pouvoir",
+      "canDo": "Can choose and use the political and social headwords of public debate (égalité and équité, the senses of justice, la liberté and les libertés publiques, fundamental rights and their texts, pouvoir, puissance and autorité, contre-pouvoir, légal and légitime, l’État de droit and l’impunité, identité in its abstract sense, multiculturalisme and interculturalisme) with their collocations, name the weight a loaded word carries without taking it on, and answer someone who confuses them",
+      "level": "c1",
+      "title": "Justice, Freedom, Identity, Power",
+      "lessonIds": [
+        "c1.15.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.33",
+        "b2.27"
+      ],
+      "outline": [
+        {
+          "lessonId": "c1.15.l1",
+          "title": "Justice, liberté, identité, pouvoir",
+          "acts": [
+            {
+              "title": "Le poids des mots",
+              "cards": 14
+            },
+            {
+              "title": "Égalité et équité",
+              "cards": 19
+            },
+            {
+              "title": "La justice",
+              "cards": 15
+            },
+            {
+              "title": "La liberté et les libertés",
+              "cards": 15
+            },
+            {
+              "title": "Les droits et leurs textes",
+              "cards": 15
+            },
+            {
+              "title": "Pouvoir, puissance, autorité",
+              "cards": 14
+            },
+            {
+              "title": "Les contre-pouvoirs",
+              "cards": 16
+            },
+            {
+              "title": "Légal et légitime",
+              "cards": 15
+            },
+            {
+              "title": "L’État de droit et l’impunité",
+              "cards": 15
+            },
+            {
+              "title": "L’identité",
+              "cards": 15
+            },
+            {
+              "title": "Vivre ensemble",
+              "cards": 17
+            },
+            {
+              "title": "Ta contribution",
+              "cards": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c1.16",
+      "seq": 16,
+      "sub": "Mémoire, vérité, beauté, éthique",
+      "canDo": "Can choose precisely among the moral, aesthetic and memorial words of abstract discussion (sincère, véridique and vraisemblable; mentir and se tromper; infox, fausse nouvelle and erreur; morale, éthique and déontologie; remords and regret; intègre and intégral; joli, beau and sublime; goût and esthétique; souvenir and mémoire; commémorer and fêter; histoire and mémoire) with their collocations, read them precisely in a text, and answer someone who confuses them",
+      "level": "c1",
+      "title": "Memory, Truth, Beauty, Ethics",
+      "lessonIds": [
+        "c1.16.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.34",
+        "b2.28",
+        "b2.29",
+        "c1.12"
+      ],
+      "outline": [
+        {
+          "lessonId": "c1.16.l1",
+          "title": "Mémoire, vérité, beauté, éthique",
+          "acts": [
+            {
+              "title": "Le témoin sincère",
+              "cards": 15
+            },
+            {
+              "title": "Sincère, véridique, vraisemblable",
+              "cards": 15
+            },
+            {
+              "title": "Mentir ou se tromper",
+              "cards": 16
+            },
+            {
+              "title": "Infox ou erreur",
+              "cards": 16
+            },
+            {
+              "title": "Morale, éthique, déontologie",
+              "cards": 18
+            },
+            {
+              "title": "Remords, regret, honte",
+              "cards": 17
+            },
+            {
+              "title": "Intègre, pas intégral",
+              "cards": 16
+            },
+            {
+              "title": "Le joli, le beau, le sublime",
+              "cards": 14
+            },
+            {
+              "title": "Le goût et l’esthétique",
+              "cards": 14
+            },
+            {
+              "title": "Mémoire et souvenir",
+              "cards": 16
+            },
+            {
+              "title": "Commémorer, se souvenir",
+              "cards": 18
+            },
+            {
+              "title": "Ta réponse",
+              "cards": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c1.17",
+      "seq": 17,
+      "sub": "Synonymes et nuances",
+      "canDo": "Can choose among near-synonyms by intensity (agacer, irriter, exaspérer; grimper, flamber, fléchir, s’effondrer), by connotation (économe or avare, persévérant or obstiné, the suffixes -âtre, -asse, -aud, the euphemism), by collocation (the verb and the intensifier a noun expects) and by region and register (Québec labels in Usito and the OQLF), pick the antonym that matches the sense, read these choices precisely in a text, and write a portrait that is fair and exact",
+      "level": "c1",
+      "title": "Synonyms and Shades of Meaning",
+      "lessonIds": [
+        "c1.17.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.25",
+        "b1.35",
+        "b2.32",
+        "b2.33",
+        "c1.06"
+      ],
+      "outline": [
+        {
+          "lessonId": "c1.17.l1",
+          "title": "Synonymes et nuances",
+          "acts": [
+            {
+              "title": "Le bon cran",
+              "cards": 19
+            },
+            {
+              "title": "De l’agacement à l’exaspération",
+              "cards": 17
+            },
+            {
+              "title": "Monter, descendre",
+              "cards": 16
+            },
+            {
+              "title": "Le même trait, deux jugements",
+              "cards": 20
+            },
+            {
+              "title": "Les suffixes qui jugent",
+              "cards": 15
+            },
+            {
+              "title": "Adoucir ou masquer",
+              "cards": 13
+            },
+            {
+              "title": "Les verbes qui vont avec",
+              "cards": 14
+            },
+            {
+              "title": "Les intensifs attendus",
+              "cards": 15
+            },
+            {
+              "title": "Le contraire dépend du sens",
+              "cards": 14
+            },
+            {
+              "title": "Une étiquette selon la région",
+              "cards": 17
+            },
+            {
+              "title": "Le mot passe-partout",
+              "cards": 14
+            },
+            {
+              "title": "Ton portrait",
+              "cards": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c1.18",
+      "seq": 18,
+      "sub": "Les faux amis savants",
+      "canDo": "Can recognise the learned semantic anglicisms of educated French (initier, opportunité, alternative, impacter, académique, versatile, juridiction, éligible, digital, faire sens, questionner, canceller, céduler, booker), say which authorities condemn or accept each and where France and Québec differ, and replace each with the precise French word in a text written for others",
+      "level": "c1",
+      "title": "Learned False Friends",
+      "lessonIds": [
+        "c1.18.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.35",
+        "b1.37",
+        "b2.27",
+        "b2.28",
+        "b2.29",
+        "b2.33"
+      ],
+      "outline": [
+        {
+          "lessonId": "c1.18.l1",
+          "title": "Les faux amis savants",
+          "acts": [
+            {
+              "title": "Le mot savant qui trompe",
+              "cards": 28
+            },
+            {
+              "title": "Initier",
+              "cards": 12
+            },
+            {
+              "title": "Opportunité",
+              "cards": 12
+            },
+            {
+              "title": "Alternative",
+              "cards": 12
+            },
+            {
+              "title": "Impacter",
+              "cards": 12
+            },
+            {
+              "title": "Académique, versatile",
+              "cards": 12
+            },
+            {
+              "title": "Juridiction",
+              "cards": 12
+            },
+            {
+              "title": "Éligible",
+              "cards": 12
+            },
+            {
+              "title": "Digital ou numérique",
+              "cards": 15
+            },
+            {
+              "title": "Faire sens, questionner",
+              "cards": 15
+            },
+            {
+              "title": "Canceller, céduler, booker",
+              "cards": 12
+            },
+            {
+              "title": "Ta note de révision",
+              "cards": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c1.19",
+      "seq": 19,
+      "sub": "Les figures et leur effet",
+      "canDo": "Can identify a figure or a stylistic choice in a literary or argumentative text (litotes, antiphrasis, gradation, chiasmus, zeugma, hypallage, metonymy and synecdoche, alliteration and assonance, rhythm and cadence, effects of rupture) and write one precise sentence on its effect, proved by the words of the text, and can write a short commentary on an extract",
+      "level": "c1",
+      "title": "Figures of Speech and Their Effect",
+      "lessonIds": [
+        "c1.19.l1"
+      ],
+      "prereqUnitIds": [
+        "b2.30",
+        "b2.24",
+        "c1.06",
+        "c1.08"
+      ],
+      "outline": [
+        {
+          "lessonId": "c1.19.l1",
+          "title": "Les figures et leur effet",
+          "acts": [
+            {
+              "title": "Le nom ne suffit pas",
+              "cards": 20
+            },
+            {
+              "title": "La litote",
+              "cards": 14
+            },
+            {
+              "title": "L’antiphrase",
+              "cards": 16
+            },
+            {
+              "title": "La gradation",
+              "cards": 12
+            },
+            {
+              "title": "Le chiasme",
+              "cards": 14
+            },
+            {
+              "title": "Le zeugme",
+              "cards": 11
+            },
+            {
+              "title": "L’hypallage",
+              "cards": 11
+            },
+            {
+              "title": "Métonymie et synecdoque",
+              "cards": 12
+            },
+            {
+              "title": "Les sons",
+              "cards": 12
+            },
+            {
+              "title": "Le rythme",
+              "cards": 12
+            },
+            {
+              "title": "Les effets de rupture",
+              "cards": 10
+            },
+            {
+              "title": "Ton commentaire",
+              "cards": 15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c1.22",
+      "seq": 22,
+      "sub": "Traduire des idées",
+      "canDo": "Can convey the meaning, force and argumentative thread of a complex English text in natural French: reformulates at the level of the idea, renders hedging and understatement at the same degree of certainty, turns topic-sentence paragraphs into signposted French ones, makes implicit links explicit and lightens English redundancy, finds cultural equivalents, summarises across languages, adapts register to the audience, and revises for faux sens, contresens, omissions and additions",
+      "level": "c1",
+      "title": "Translating Ideas",
+      "lessonIds": [
+        "c1.22.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.25",
+        "b2.22",
+        "b2.33",
+        "c1.05",
+        "c1.06"
+      ],
+      "outline": [
+        {
+          "lessonId": "c1.22.l1",
+          "title": "Traduire des idées",
+          "acts": [
+            {
+              "title": "Juste mais faux",
+              "cards": 16
+            },
+            {
+              "title": "L’idée avant les mots",
+              "cards": 11
+            },
+            {
+              "title": "Atténuer comme l’auteur",
+              "cards": 15
+            },
+            {
+              "title": "La retenue anglaise",
+              "cards": 16
+            },
+            {
+              "title": "Le fil du paragraphe",
+              "cards": 11
+            },
+            {
+              "title": "Expliciter",
+              "cards": 11
+            },
+            {
+              "title": "Alléger",
+              "cards": 12
+            },
+            {
+              "title": "L’équivalence culturelle",
+              "cards": 11
+            },
+            {
+              "title": "Résumer en traduisant",
+              "cards": 15
+            },
+            {
+              "title": "Changer de public",
+              "cards": 11
+            },
+            {
+              "title": "Relire en traducteur",
+              "cards": 13
+            },
+            {
+              "title": "Ta traduction",
+              "cards": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c1.23",
+      "seq": 23,
+      "sub": "Le tact au travail",
+      "canDo": "Can refuse, announce bad news, say no to a superior and escalate a problem in writing with tact and precision, choosing the degree of indirectness that fits the reader and the stakes without blurring the message; can recognise when politeness turns passive-aggressive; can weigh contested office usage by its sources and write for a reader in France or in Québec; can title slides by their message and handle a hostile question at work",
+      "level": "c1",
+      "title": "Tact at Work",
+      "lessonIds": [
+        "c1.23.l1"
+      ],
+      "prereqUnitIds": [
+        "b1.39",
+        "b2.26",
+        "c1.06",
+        "c1.09"
+      ],
+      "outline": [
+        {
+          "lessonId": "c1.23.l1",
+          "title": "Le tact au travail",
+          "acts": [
+            {
+              "title": "Le non qui blesse",
+              "cards": 18
+            },
+            {
+              "title": "Les degrés de l’indirect",
+              "cards": 14
+            },
+            {
+              "title": "Refuser par écrit",
+              "cards": 14
+            },
+            {
+              "title": "Annoncer une mauvaise nouvelle",
+              "cards": 18
+            },
+            {
+              "title": "Dire non à sa hiérarchie",
+              "cards": 11
+            },
+            {
+              "title": "Relancer, puis faire remonter",
+              "cards": 13
+            },
+            {
+              "title": "Quand la politesse pique",
+              "cards": 12
+            },
+            {
+              "title": "Les mots qui divisent",
+              "cards": 16
+            },
+            {
+              "title": "Un courriel, deux lecteurs",
+              "cards": 13
+            },
+            {
+              "title": "Des titres qui disent quelque chose",
+              "cards": 15
+            },
+            {
+              "title": "La question qui fâche",
+              "cards": 20
+            },
+            {
+              "title": "Ton message",
+              "cards": 10
+            }
+          ]
+        }
+      ]
     }
   ],
   "lessons": [
@@ -39052,7 +39926,7 @@
               "head": "Nouns ending in e are feminine",
               "fr": "la table · la porte · la voiture",
               "sub": "three that obey it",
-              "body": "You have almost certainly been given this one. Over the 1044 nouns in this app that end in e, it is right 70% of the time."
+              "body": "You have almost certainly been given this one. Over the 1076 nouns in this app that end in e, it is right 70% of the time."
             },
             {
               "label": "What that costs",
@@ -39099,20 +39973,20 @@
               "cells": [
                 "-e",
                 "70%",
-                "1044"
+                "1076"
               ],
               "say": "le livre, la table",
               "detail": {
                 "title": "-e",
-                "body": "The rule every course gives you. Right seven times in ten, across 1044 nouns. le livre is masculine and la table is feminine, and nothing on the page separates them.",
+                "body": "The rule every course gives you. Right seven times in ten, across 1076 nouns. le livre is masculine and la table is feminine, and nothing on the page separates them.",
                 "say": "le livre, la table"
               }
             },
             {
               "cells": [
                 "-on",
-                "53%",
-                "174"
+                "51%",
+                "186"
               ],
               "say": "le poisson, la maison",
               "detail": {
@@ -39124,8 +39998,8 @@
             {
               "cells": [
                 "-é",
-                "53%",
-                "75"
+                "60%",
+                "88"
               ],
               "say": "le café, la clé",
               "detail": {
@@ -39156,7 +40030,7 @@
             ],
             "recordingId": "rec-a1-03-endings"
           },
-          "say": "Ten endings, 382 nouns between them, right 98 times in a hundred. Tap a row for what breaks it.",
+          "say": "Ten endings, 397 nouns between them, right 98 times in a hundred. Tap a row for what breaks it.",
           "cols": [
             "Ending",
             "Takes",
@@ -39185,7 +40059,7 @@
               "say": "l'appartement",
               "detail": {
                 "title": "-ment",
-                "body": "No exception either. It is -ment and not -ent: la dent ends in -ent and takes une. Worked example: l'appartement, the apartment. 30 nouns here end this way.",
+                "body": "No exception either. It is -ment and not -ent: la dent ends in -ent and takes une. Worked example: l'appartement, the apartment. 32 nouns here end this way.",
                 "say": "l'appartement"
               }
             },
@@ -39198,7 +40072,7 @@
               "say": "le ticket",
               "detail": {
                 "title": "-et",
-                "body": "Thirty-two nouns, no exception. Two letters more and it flips: -ette takes une. Worked example: le ticket, the ticket. 32 nouns here end this way.",
+                "body": "Thirty-two nouns, no exception. Two letters more and it flips: -ette takes une. Worked example: le ticket, the ticket. 33 nouns here end this way.",
                 "say": "le ticket"
               }
             },
@@ -39237,7 +40111,7 @@
               "say": "la question",
               "detail": {
                 "title": "-tion",
-                "body": "Fifty-two nouns, no exception. It is -tion that works and not -on: le poisson takes un. Worked example: la question, the question. 53 nouns here end this way.",
+                "body": "Sixty-three nouns, no exception. It is -tion that works and not -on: le poisson takes un. Worked example: la question, the question. 63 nouns here end this way.",
                 "say": "la question"
               }
             },
@@ -39250,7 +40124,7 @@
               "say": "la voiture",
               "detail": {
                 "title": "-ure",
-                "body": "No exception. The final e does the work: le mur ends in -ur and takes un. Worked example: la voiture, the car. 31 nouns here end this way.",
+                "body": "No exception. The final e does the work: le mur ends in -ur and takes un. Worked example: la voiture, the car. 32 nouns here end this way.",
                 "say": "la voiture"
               }
             },
@@ -39289,7 +40163,7 @@
               "say": "la chaise",
               "detail": {
                 "title": "-ise",
-                "body": "Nineteen of twenty. The one that breaks it is a car part: le pare-brise. Worked example: la chaise, the chair. 20 nouns here end this way.",
+                "body": "Nineteen of twenty. The one that breaks it is a car part: le pare-brise. Worked example: la chaise, the chair. 21 nouns here end this way.",
                 "say": "la chaise"
               }
             }
@@ -40002,7 +40876,7 @@
             {
               "wrong": "Trusting « ends in e, so feminine » on le livre.",
               "right": "Treating the final e as a lean and checking anything you are about to say.",
-              "why": "It is right seven times in ten over 1044 nouns, which makes you wrong about one in three."
+              "why": "It is right seven times in ten over 1076 nouns, which makes you wrong about one in three."
             },
             {
               "wrong": "Reading « l’escalier » and moving straight on.",
@@ -40228,7 +41102,7 @@
             },
             {
               "front": "-tion takes:",
-              "back": "une. Fifty-three nouns here, no exception.",
+              "back": "une. Sixty-three nouns here, no exception.",
               "say": "la question"
             },
             {
@@ -40406,7 +41280,7 @@
                     "it is never right"
                   ],
                   "correct": 2,
-                  "why": "Seven in ten across 1044 nouns, which makes you wrong about one noun in three.",
+                  "why": "Seven in ten across 1076 nouns, which makes you wrong about one noun in three.",
                   "ref": "s04-finale"
                 },
                 {
@@ -40416,7 +41290,7 @@
                     "une question"
                   ],
                   "answer": "une question",
-                  "why": "-tion has no exception in this corpus across fifty-three nouns. It takes une every time.",
+                  "why": "-tion has no exception in this corpus across sixty-three nouns. It takes une every time.",
                   "ref": "s09-fem"
                 },
                 {
@@ -40462,7 +41336,7 @@
                     "le ticket"
                   ],
                   "answer": "le ticket",
-                  "why": "-et takes un across all thirty-two of them here. Two letters more and -ette flips it to une.",
+                  "why": "-et takes un across all thirty-three of them here. Two letters more and -ette flips it to une.",
                   "ref": "s07-masc"
                 }
               ]
@@ -40941,7 +41815,7 @@
             "you cannot tell"
           ],
           "correct": 1,
-          "why": "-tion takes une across all fifty-three of them in this corpus. It is the most reliable ending here."
+          "why": "-tion takes une across all sixty-three of them in this corpus. It is the most reliable ending here."
         },
         {
           "id": "drill-hidden",
@@ -41057,14 +41931,14 @@
                   "-ment",
                   "un",
                   "100%",
-                  "30",
+                  "32",
                   "la dent"
                 ],
                 [
                   "-et",
                   "un",
                   "100%",
-                  "32",
+                  "33",
                   "une baguette"
                 ],
                 [
@@ -41085,14 +41959,14 @@
                   "-tion",
                   "une",
                   "100%",
-                  "53",
+                  "63",
                   "le poisson"
                 ],
                 [
                   "-ure",
                   "une",
                   "100%",
-                  "31",
+                  "32",
                   "le mur"
                 ],
                 [
@@ -41113,7 +41987,7 @@
                   "-ise",
                   "une",
                   "95%",
-                  "20",
+                  "21",
                   "le pare-brise"
                 ]
               ]
@@ -41134,19 +42008,19 @@
                   "-in",
                   "un",
                   "98%",
-                  "54"
+                  "56"
                 ],
                 [
                   "-ent",
                   "un",
                   "98%",
-                  "41"
+                  "43"
                 ],
                 [
                   "-ard",
                   "un",
                   "100%",
-                  "19"
+                  "20"
                 ],
                 [
                   "-ant",
@@ -41187,20 +42061,20 @@
                 [
                   "-ité",
                   "une",
-                  "96%",
-                  "27"
+                  "97%",
+                  "38"
                 ],
                 [
                   "-ance",
                   "une",
                   "100%",
-                  "14"
+                  "16"
                 ],
                 [
                   "-sion",
                   "une",
                   "100%",
-                  "11"
+                  "13"
                 ],
                 [
                   "-esse",
