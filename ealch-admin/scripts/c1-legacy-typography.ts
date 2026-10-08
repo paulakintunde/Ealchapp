@@ -52,9 +52,20 @@ export async function referencedPostgresOnlyIds(): Promise<string[]> {
 
 /** The curly apostrophe the C1 lessons use. A plain space before ? and ! is
  *  the corpus convention (1108 published rows, none with a no-break space), so
- *  question marks are left alone. */
+ *  question marks are left alone.
+ *
+ *  Not a blanket replace: some referenced-only rows are bilingual
+ *  (`fr.sons.faux-amis.*` notes), and their ENGLISH text scare-quotes the
+ *  headword with a straight apostrophe, e.g. `Not 'to realize' (become
+ *  aware)`. A blind `'` -> `’` turns the OPENING quote into a second closing
+ *  mark (`’to realize’`), which reads as a stray apostrophe, not a quote.
+ *  French elisions and English closing quotes/possessives share one glyph
+ *  (’, U+2019) either way, so the only case needing a different mark is an
+ *  apostrophe that OPENS a quote: preceded by start-of-string, whitespace or
+ *  `(`, and followed by a letter. That one becomes ‘ (U+2018); every other
+ *  apostrophe, mid-word or closing, becomes ’. */
 export function frTypography(s: string): string {
-  return s.replace(/'/g, '’');
+  return s.replace(/(^|[\s(])'(?=\p{L})/gu, '$1‘').replace(/'/g, '’');
 }
 
 async function main() {
@@ -98,4 +109,9 @@ async function main() {
   }
 }
 
-if (process.argv[1]?.includes('c1-legacy-typography')) main().catch((e) => { console.error(e); process.exit(1); });
+// Exact match, not `.includes`: the substring also matches this file's own
+// test (c1-legacy-typography.test.ts importing frTypography), which ran
+// main() against the live database as an import side effect before this fix.
+if (/(^|[\\/])c1-legacy-typography\.(ts|js|mjs|cjs)$/.test(process.argv[1] ?? '')) {
+  main().catch((e) => { console.error(e); process.exit(1); });
+}
