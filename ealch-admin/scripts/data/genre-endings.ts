@@ -198,7 +198,8 @@ const MASCULINE: EndingRule[] = [
     // population; all 18 joiners are IMPORTS. The accuracy did not move.
         // 28 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71.
         // 30 since 2026-09-27: the B1 band (b1.05 to b1.37) CARRIES published rows into the seed: le tutoiement and le vouvoiement (b1.26), la consigne and la biodiversité (b1.33); zero B1-authored rows join this population.
-    items: 30,
+        // 32 since 2026-10-08: wave 4-6 merge (c1.10-c1.19, c1.22, c1.23).
+    items: 32,
     article: 'un',
     // Elided on the card, deliberately: the ending is the only thing that gives
     // the article back, which is the act after next, previewed here on a word
@@ -217,7 +218,8 @@ const MASCULINE: EndingRule[] = [
     // 29 until a2.32 « La technologie » CARRIED `Internet` and `un onglet` on
     // 2026-08-16. Both masculine, so the accuracy did not move.
         // 32 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71.
-    items: 32,
+        // 33 since 2026-10-08: wave 4-6 merge (c1.10-c1.19, c1.22, c1.23).
+    items: 33,
     article: 'un',
     example: { id: 'fr.a1.deplacements.031', fr: 'le ticket', en: 'the ticket' },
     sheetExamples: ['le billet', 'le poulet', 'le guichet', 'le bracelet', 'le carnet'],
@@ -298,7 +300,8 @@ const FEMININE: EndingRule[] = [
     // move. Back to a carries-only move: neither joiner is authored.
         // 52 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71.
         // 53 since 2026-10-01: four orphan rows in `sons.jours-et-mois`, referenced by no lesson, were removed from the seed by their owning merges.
-    items: 53,
+        // 63 since 2026-10-08: wave 4-6 merge (c1.10-c1.19, c1.22, c1.23).
+    items: 63,
     article: 'une',
     example: { id: 'fr.a1.ecole.046', fr: 'la question', en: 'the question' },
     sheetExamples: ['la direction', 'la natation', 'la récréation', 'la destination'],
@@ -310,8 +313,8 @@ const FEMININE: EndingRule[] = [
     // `a1-03-genre.test.ts` compares the CONSTANTS to `seed.items` and never
     // reads the rendered body. a2.30's merge script names this exact defect.
     // Corrected here to the live figure, and the version moves with it.
-    // 43 -> 45 with a2.32, 2026-08-16.
-    line: 'Fifty-two nouns, no exception. It is -tion that works and not -on: le poisson takes un.',
+    // 43 -> 45 with a2.32, 2026-08-16. 52 -> 63 with the C1 wave 4-6 merge, 2026-10-08.
+    line: 'Sixty-three nouns, no exception. It is -tion that works and not -on: le poisson takes un.',
   },
   {
     id: 'ure',
@@ -328,7 +331,8 @@ const FEMININE: EndingRule[] = [
     // ends -ure. The accuracy did not move and both are feminine, so the rule
     // is unaffected in every respect except its count.
         // 31 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71.
-    items: 31,
+        // 32 since 2026-10-08: wave 4-6 merge (c1.10-c1.19, c1.22, c1.23).
+    items: 32,
     article: 'une',
     example: { id: 'fr.a1.deplacements.018', fr: 'la voiture', en: 'the car' },
     sheetExamples: ['la confiture', 'la peinture', 'la ceinture', 'la couverture'],
@@ -393,7 +397,8 @@ const FEMININE: EndingRule[] = [
     // the accuracy rose a point.
     accuracy: 95,
         // 20 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71.
-    items: 20,
+        // 21 since 2026-10-08: wave 4-6 merge (c1.10-c1.19, c1.22, c1.23).
+    items: 21,
     article: 'une',
     example: { id: 'fr.a1.maison.016', fr: 'la chaise', en: 'the chair' },
     sheetExamples: ['la valise', 'la fraise', 'la cerise', 'la framboise', 'l’ardoise'],
@@ -555,7 +560,8 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
         // 1045 since 2026-09-27: the B1 band (b1.05 to b1.37) CARRIES published rows into the seed: le tutoiement and le vouvoiement (b1.26), la consigne and la biodiversité (b1.33); zero B1-authored rows join this population.
         // 1043 since 2026-10-01: four orphan rows in `sons.jours-et-mois`, referenced by no lesson, were removed from the seed by their owning merges.
         // 1044 since 2026-10-02: four orphan rows in `sons.jours-et-mois`, referenced by no lesson, were removed from the seed by their owning merges.
-    items: 1044,
+        // 1076 since 2026-10-08: wave 4-6 merge (c1.10-c1.19, c1.22, c1.23).
+    items: 1076,
     bothWays: [
       { id: 'fr.a1.ecole.029', fr: 'le livre', en: 'the book' },
       { id: 'fr.a1.maison.015', fr: 'la table', en: 'the table' },
@@ -570,7 +576,7 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
     ending: 'on',
     // 58 until a2.32 on 2026-08-16. See the note above `items`: four feminine
     // joiners against an ending that predicts masculine.
-    accuracy: 53,
+    accuracy: 51,
     // 142 until a1.22 imported `le Japon` on 2026-08-07. The accuracy did not
     // move and the ending is still dismissed for being under the floor.
     // 142 until a1.22 imported `le Japon`, 144 since a2.26 carried its shop
@@ -602,7 +608,8 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
     // masculine reading a learner would guess.
         // 173 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71.
         // 174 since 2026-10-01: four orphan rows in `sons.jours-et-mois`, referenced by no lesson, were removed from the seed by their owning merges.
-    items: 174,
+        // 186 since 2026-10-08: wave 4-6 merge (c1.10-c1.19, c1.22, c1.23).
+    items: 186,
     bothWays: [
       { id: 'fr.a1.cuisine.016', fr: 'le poisson', en: 'the fish' },
       { id: 'fr.a1.maison.001', fr: 'la maison', en: 'the house' },
@@ -624,10 +631,11 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
     // all 11 joiners are IMPORTS, which is a1.23's finding for the fourth time.
     // It is feminine and the ending predicts masculine, so the accuracy fell one
     // point. Still far under the floor, so the lesson's dismissal is unchanged.
-    accuracy: 53,
+    accuracy: 60,
         // 74 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71.
         // 75 since 2026-09-27: the B1 band (b1.05 to b1.37) CARRIES published rows into the seed: le tutoiement and le vouvoiement (b1.26), la consigne and la biodiversité (b1.33); zero B1-authored rows join this population.
-    items: 75,
+        // 88 since 2026-10-08: wave 4-6 merge (c1.10-c1.19, c1.22, c1.23).
+    items: 88,
     bothWays: [
       { id: 'fr.a1.routines.103', fr: 'le café', en: 'the coffee' },
       { id: 'fr.a1.maison.022', fr: 'la clé', en: 'the key' },
@@ -667,9 +675,9 @@ export const MORE_ENDINGS: SheetEnding[] = [
   // gained a point of accuracy, neither crossed a threshold, no prediction
   // flipped. See the note on -e in WORTHLESS_ENDINGS for why a packaging
   // decision moves figures printed on cards.
-  { ending: 'in', predicts: 'm', accuracy: 98, items: 54 },   // 45 until a2.27 carried `le chemin`, 2026-08-16; 54 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71
-  { ending: 'ent', predicts: 'm', accuracy: 98, items: 41 },  // 29 until a2.27 carried `l'abonnement`; 31 since a2.28 carried `le médicament`, 2026-08-16; 39 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71; 41 since 2026-09-27: the B1 band (b1.05 to b1.37) CARRIES published rows into the seed: le tutoiement and le vouvoiement (b1.26), la consigne and la biodiversité (b1.33); zero B1-authored rows join this population
-  { ending: 'ard', predicts: 'm', accuracy: 100, items: 19 }, // 17 until a2.27 carried `le retard`, 2026-08-16; 19 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71
+  { ending: 'in', predicts: 'm', accuracy: 98, items: 56 },   // 45 until a2.27 carried `le chemin`, 2026-08-16; 54 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71; 56 since 2026-10-08: wave 4-6 merge (c1.10-c1.19, c1.22, c1.23)
+  { ending: 'ent', predicts: 'm', accuracy: 98, items: 43 },  // 29 until a2.27 carried `l'abonnement`; 31 since a2.28 carried `le médicament`, 2026-08-16; 39 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71; 41 since 2026-09-27: the B1 band (b1.05 to b1.37) CARRIES published rows into the seed: le tutoiement and le vouvoiement (b1.26), la consigne and la biodiversité (b1.33); zero B1-authored rows join this population; 43 since 2026-10-08: wave 4-6 merge (c1.10-c1.19, c1.22, c1.23)
+  { ending: 'ard', predicts: 'm', accuracy: 100, items: 20 }, // 17 until a2.27 carried `le retard`, 2026-08-16; 19 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71; 20 since 2026-10-08: wave 4-6 merge (c1.10-c1.19, c1.22, c1.23)
   { ending: 'ant', predicts: 'm', accuracy: 100, items: 25 },   // 18 until a2.26, 2026-08-15; 22 since a2.32 carried `un identifiant` from BOTH internet and rp-technologie, 2026-08-16; 25 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71
   { ending: 'oir', predicts: 'm', accuracy: 100, items: 17 },   // 17 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71
   { ending: 'ot', predicts: 'm', accuracy: 100, items: 17 },   // 17 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71
@@ -679,9 +687,9 @@ export const MORE_ENDINGS: SheetEnding[] = [
   // happens to end in the letters -ail and happens to be masculine, so the rule
   // holds by luck rather than by morphology. Worth knowing if it ever moves.
   { ending: 'ail', predicts: 'm', accuracy: 100, items: 8 },
-  { ending: 'ité', predicts: 'f', accuracy: 96, items: 27 },   // 26 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71; 27 since 2026-09-27: the B1 band (b1.05 to b1.37) CARRIES published rows into the seed: le tutoiement and le vouvoiement (b1.26), la consigne and la biodiversité (b1.33); zero B1-authored rows join this population
-  { ending: 'ance', predicts: 'f', accuracy: 100, items: 14 },// 10 until a2.27 carried `la correspondance`, 2026-08-16; 14 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71
-  { ending: 'sion', predicts: 'f', accuracy: 100, items: 11 },   // 8 until a2.32 AUTHORED `la baladodiffusion`, 2026-08-16; 11 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71
+  { ending: 'ité', predicts: 'f', accuracy: 97, items: 38 },   // 26 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71; 27 since 2026-09-27: the B1 band (b1.05 to b1.37) CARRIES published rows into the seed: le tutoiement and le vouvoiement (b1.26), la consigne and la biodiversité (b1.33); zero B1-authored rows join this population; 38 since 2026-10-08: wave 4-6 merge (c1.10-c1.19, c1.22, c1.23)
+  { ending: 'ance', predicts: 'f', accuracy: 100, items: 16 },// 10 until a2.27 carried `la correspondance`, 2026-08-16; 14 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71; 16 since 2026-10-08: wave 4-6 merge (c1.10-c1.19, c1.22, c1.23)
+  { ending: 'sion', predicts: 'f', accuracy: 100, items: 13 },   // 8 until a2.32 AUTHORED `la baladodiffusion`, 2026-08-16; 11 since 2026-09-23: phase 22.1 bundled the exam papers, and cutItems unioned 792 exam-task target items into the seed cut at v71; 13 since 2026-10-08: wave 4-6 merge (c1.10-c1.19, c1.22, c1.23)
   { ending: 'esse', predicts: 'f', accuracy: 100, items: 7 },
   { ending: 'euse', predicts: 'f', accuracy: 100, items: 8 },    // 6 until a2.26 carried la vendeuse; 8 since a2.30 MINTED une coiffeuse, 2026-08-16
 ];
