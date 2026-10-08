@@ -77243,7 +77243,7 @@
             },
             {
               "t": "Savoir ce qui divise les ouvrages de référence",
-              "s": "Actes 8 et 10 : éligible, faire sens, questionner"
+              "s": "Actes 3, 5, 8 et 10 : opportunité, impacter, éligible, faire sens"
             },
             {
               "t": "Réviser un texte et justifier tes choix",
@@ -77267,7 +77267,7 @@
           "questionsInModal": true,
           "title": "La note de la réviseure",
           "frSub": "Lis, et repère les six mots",
-          "text": "Note de révision, Atelier Brière-Sorel. De : Odile Marchand, Lyon. À : Benoît Lacasse, Montréal. Objet : ton rapport sur le projet de bibliothèque mobile. Benoît, ton rapport est solide et bien construit ; je n’ai touché ni au plan ni aux chiffres. J’ai souligné six mots, tous savants, tous d’allure anglaise. Aucun ne gêne la compréhension, et c’est justement le problème : ils passent inaperçus. Tu écris que la ville a « initié » le projet ; je propose « lancé ». Tu parles d’une « belle opportunité » pour les quartiers ; « occasion » ne prête à aucune critique. Tu écris que les compressions « impacteront » le service ; « toucheront » dit la même chose, en plus simple. Pour les trois autres, l’affaire est moins tranchée, et je te le dis franchement. « Éligible » pour les écoles qui peuvent recevoir le camion : l’OQLF et l’Académie le déconseillent, mais Le Robert l’enregistre sans réserve ; j’ai mis « admissible », qui ne divise personne. « Digital » : la recommandation officielle est « numérique », en France comme au Québec. Enfin, « faire sens » : l’Académie le critique, l’OQLF le juge ancien et non fautif. Comme ton rapport sera lu à Montréal et à Lyon, j’ai choisi chaque fois le mot que personne ne conteste. Ce n’est pas une question de pureté : un lecteur qui bute sur un mot cesse un instant de lire tes arguments. Dis-moi si tu tiens à l’un de ces mots ; on en parlera. Odile",
+          "text": "Note de révision, Atelier Brière-Sorel. De : Odile Marchand, Lyon. À : Benoît Lacasse, Montréal. Objet : ton rapport sur le projet de bibliothèque mobile. Benoît, ton rapport est solide et bien construit ; je n’ai touché ni au plan ni aux chiffres. J’ai souligné six mots, tous savants, tous d’allure anglaise. Aucun ne gêne la compréhension, et c’est justement le problème : ils passent inaperçus. Tu écris que la ville a « initié » le projet ; je propose « lancé ». Tu parles d’une « belle opportunité » pour les quartiers ; « occasion » ne prête à aucune critique. Tu écris que les compressions « impacteront » le service ; « toucheront » dit la même chose, en plus simple. Ces trois-là, l’OQLF et l’Académie les déconseillent ; Le Robert enregistre opportunité et impacter, mais avec la marque « anglicisme ». Pour les trois autres, il y a plus à dire, et je te le dis franchement. « Éligible » pour les écoles qui peuvent recevoir le camion : l’OQLF et l’Académie le déconseillent, mais Le Robert l’enregistre sans réserve ; j’ai mis « admissible », qui ne divise personne. « Digital » : Le Robert l’enregistre en le marquant « anglicisme », mais la recommandation officielle est « numérique », en France comme au Québec. Enfin, « faire sens » : l’Académie le critique, l’OQLF le dit ancien et ne le condamne pas. Comme ton rapport sera lu à Montréal et à Lyon, j’ai choisi chaque fois le mot que personne ne conteste. Ce n’est pas une question de pureté : un lecteur qui bute sur un mot cesse un instant de lire tes arguments. Dis-moi si tu tiens à l’un de ces mots ; on en parlera. Odile",
           "glossary": [
             {
               "word": "inaperçus",
@@ -77275,9 +77275,9 @@
               "note": "Qu’on ne remarque pas."
             },
             {
-              "word": "tranchée",
-              "en": "clear-cut",
-              "note": "Une affaire tranchée : sur laquelle tout le monde est d’accord."
+              "word": "marque",
+              "en": "usage label",
+              "note": "Dans un dictionnaire, la mention qui signale un emploi : anglicisme, familier, critiqué."
             },
             {
               "word": "bute",
@@ -77291,8 +77291,8 @@
               "a": "Elle signale six mots savants d’allure anglaise dans le rapport de Benoît, propose un remplacement pour chacun et explique pourquoi."
             },
             {
-              "q": "Détail : quels sont les trois mots dont l’affaire est tranchée, selon elle ?",
-              "a": "Initié, opportunité et impacteront, remplacés par lancé, occasion et toucheront."
+              "q": "Détail : quels sont les trois premiers mots qu’elle remplace, et qui les déconseille ?",
+              "a": "Initié, opportunité et impacteront, remplacés par lancé, occasion et toucheront ; l’OQLF et l’Académie les déconseillent, et Le Robert enregistre opportunité et impacter avec la marque anglicisme."
             },
             {
               "q": "Détail : que dit-elle d’« éligible » ?",
@@ -79693,7 +79693,7 @@
                   "l’année académique"
                 ],
                 "correct": 0,
-                "why": "L’OQLF a officialisé année universitaire et année scolaire ; l’Académie déconseille académique en ce sens. EN: année universitaire."
+                "why": "L’OQLF propose année universitaire ou année scolaire ; l’Académie déconseille académique en ce sens. EN: année universitaire."
               }
             },
             {
@@ -82674,7 +82674,7 @@
           "questionsInModal": true,
           "title": "La note que tu vas imiter",
           "frSub": "Odile répond à Maxime",
-          "text": "Note de révision, Atelier Brière-Sorel. De : Odile Marchand. À : Maxime Ouellet. Objet : l’annonce de la ressourcerie. Maxime, merci pour ton brouillon : il est clair, et presque prêt. Voici la version révisée de la phrase clé : « La Ressourcerie Le Grand Soin a lancé un service de réparation ; les familles admissibles pourront en profiter gratuitement dès mars. » J’ai remplacé deux mots, et voici pourquoi. « Initié » : selon l’OQLF et l’Académie, initier au sens de lancer vient de l’anglais ; même le Dictionnaire de l’Académie, qui ne juge pas l’emploi condamnable en soi, le dit abusif. « Lancé » ne divise personne. « Éligibles » : ici, les ouvrages se partagent. L’Académie et l’OQLF le déconseillent ; Le Robert l’enregistre sans marque, et Usito note qu’il est généralement accepté en France. Ce n’était donc pas une faute pour tout le monde, seulement un risque. Pour un public des deux côtés de l’Atlantique, j’ai choisi le mot commun. Dis-moi si tu préfères garder un mot ; on en discutera. Odile",
+          "text": "Note de révision, Atelier Brière-Sorel. De : Odile Marchand. À : Maxime Ouellet. Objet : l’annonce de la ressourcerie. Maxime, merci pour ton brouillon : il est clair, et presque prêt. Voici la version révisée de la phrase clé : « La Ressourcerie Le Grand Soin a lancé un service de réparation ; les familles admissibles pourront en profiter gratuitement dès mars. » J’ai remplacé deux mots, et voici pourquoi. « Initié » : selon l’OQLF et l’Académie, initier au sens de lancer vient de l’anglais ; même le Dictionnaire de l’Académie, qui ne juge pas l’emploi condamnable en soi, le dit abusif. « Lancé » ne divise personne. « Éligibles » : ici, les ouvrages se partagent. L’Académie et l’OQLF le déconseillent ; Le Robert l’enregistre sans marque, et Usito note qu’il n’est généralement pas critiqué en France. Ce n’était donc pas une faute pour tout le monde, seulement un risque. Pour un public des deux côtés de l’Atlantique, j’ai choisi le mot commun. Dis-moi si tu préfères garder un mot ; on en discutera. Odile",
           "glossary": [
             {
               "word": "phrase clé",
@@ -82826,16 +82826,16 @@
                   "en": "The authorities differ; for a text read on both sides, I chose the shared word. (The reason for the choice.)"
                 },
                 {
-                  "fr": "Ce n’est pas une faute pour tout le monde, seulement un risque à Montréal.",
-                  "en": "It is not a mistake for everyone, only a risk in Montréal. (Not a single verdict.)"
+                  "fr": "Ce n’est pas une faute pour tout le monde, seulement un risque devant un lecteur exigeant.",
+                  "en": "It is not a mistake for everyone, only a risk with a demanding reader. (Not a single verdict.)"
                 }
               ]
             },
             {
               "ai": "Et « plateforme digitale » ? Ça fait moderne.",
               "en": "And « plateforme digitale »? It sounds modern.",
-              "user": "La recommandation officielle est « numérique », en France comme au Québec. « Digital », c’est pour les doigts.",
-              "userEn": "The official recommendation is « numérique », in France and in Québec. « Digital » is for fingers. (An agreed verdict.)",
+              "user": "La recommandation officielle est « numérique », en France comme au Québec. « Digital », au sens français, c’est pour les doigts.",
+              "userEn": "The official recommendation is « numérique », in France and in Québec. In its French sense, « digital » is for fingers. (An agreed verdict.)",
               "alts": [
                 {
                   "fr": "FranceTerme, l’Académie et l’OQLF recommandent numérique.",
@@ -83742,9 +83742,10 @@
                     "incidence",
                     "influence",
                     "conséquence",
-                    "répercussion"
+                    "répercussion",
+                    "impact"
                   ],
-                  "why": "Avoir une incidence sur. EN: effect.",
+                  "why": "Avoir une incidence sur. « Un impact », très courant, est critiqué par l’Académie et l’OQLF au sens d’« effet ». EN: effect.",
                   "ref": "a5-erreurs"
                 },
                 {
@@ -83948,13 +83949,13 @@
                 {
                   "format": "typeIn",
                   "q": "Écris le mot sûr qui manque.",
-                  "prompt": "Au Canada, la santé relève surtout de la ___ des provinces.",
+                  "prompt": "Selon l’OQLF, au Canada, la santé relève surtout de la ___ des provinces.",
                   "answer": "compétence",
                   "accept": [
                     "compétence",
                     "responsabilité"
                   ],
-                  "why": "Compétence. EN: jurisdiction.",
+                  "why": "Compétence : le mot que l’OQLF recommande ici. Le Robert admet aussi « juridiction » au sens d’« étendue d’un pouvoir ». EN: jurisdiction.",
                   "ref": "a7-erreurs"
                 },
                 {
@@ -84121,7 +84122,7 @@
                   "q": "Digital est juste dans…",
                   "opts": [
                     "la stratégie digitale",
-                    "un affichage digital",
+                    "une agence digitale",
                     "les empreintes digitales"
                   ],
                   "correct": 2,
@@ -84538,7 +84539,7 @@
                     "les ouvrages se partagent sur éligible"
                   ],
                   "correct": 3,
-                  "why": "Le Robert et Usito ne le condamnent pas en France. EN: divided authorities.",
+                  "why": "Le Robert l’enregistre sans marque ; Usito le dit critiqué au Québec, mais généralement pas en France. EN: divided authorities.",
                   "ref": "a12-lecture"
                 },
                 {
@@ -85512,8 +85513,8 @@
           "format": "sort",
           "coach": "Deux piles : la phrase fait-elle entendre plus, ou adoucit-elle ? EN: more meant, or softened?",
           "buckets": [
-            "une litote",
-            "un euphémisme"
+            "la litote",
+            "l’euphémisme"
           ],
           "items": [
             "fr.c1.rhetorique.1211",
@@ -86126,7 +86127,7 @@
                 [
                   "la prétérition",
                   "montre ce qu’elle feint de taire",
-                  "Je ne peindrai pas la joie des vainqueurs…"
+                  "Je ne peindrai pas la joie des vainqueurs, leurs chants…"
                 ]
               ]
             }
@@ -86845,7 +86846,7 @@
           "questionsInModal": true,
           "title": "Le brouillon de Léa",
           "frSub": "Et la note dans la marge",
-          "text": "Le brouillon de Léa. « Dans la scène des aveux du Cid, Chimène dit à Rodrigue : “Va, je ne te hais point.” Il y a une litote. Plus loin, Don Diègue s’écrie : “va, cours, vole, et nous venge”. Il y a une gradation. Enfin, l’auteur emploie beaucoup d’images. » La note de Mamadou, dans la marge. « Léa, tout est juste, et rien n’est dit. Tu as trouvé les figures, tu les as bien nommées : c’est le travail de l’enquêteur, pas encore celui du lecteur. Ton correcteur, lui, voudra savoir pourquoi Corneille fait parler Chimène ainsi. Une litote, d’accord ; mais que se passe-t-il quand une jeune femme, devant l’homme qui a tué son père, nie la haine au lieu d’avouer l’amour ? Que comprend Rodrigue ? Que comprend la salle ? Voilà ta vraie phrase. Fais toujours les trois gestes : repère, nomme, puis dis l’effet en une phrase, avec un mot du texte pour preuve. Et n’aie pas peur d’une lecture personnelle : si les mots la soutiennent, elle se défend, même si ton voisin en propose une autre. Ce que je ne veux plus lire, c’est « l’auteur emploie beaucoup d’images ». Lesquelles ? Pour faire quoi ? Mardi prochain, on reprend la litote, mot par mot. »",
+          "text": "Le brouillon de Léa. « Dans la scène des aveux du Cid, Chimène dit à Rodrigue : “Va, je ne te hais point.” Il y a une litote. Dès l’acte I, Don Diègue s’écrie : “va, cours, vole, et nous venge”. Il y a une gradation. Enfin, l’auteur emploie beaucoup d’images. » La note de Mamadou, dans la marge. « Léa, tout est juste, et rien n’est dit. Tu as trouvé les figures, tu les as bien nommées : c’est le travail de l’enquêteur, pas encore celui du lecteur. Ton correcteur, lui, voudra savoir pourquoi Corneille fait parler Chimène ainsi. Une litote, d’accord ; mais que se passe-t-il quand une jeune femme, devant l’homme qui a tué son père, nie la haine au lieu d’avouer l’amour ? Que comprend Rodrigue ? Que comprend la salle ? Voilà ta vraie phrase. Fais toujours les trois gestes : repère, nomme, puis dis l’effet en une phrase, avec un mot du texte pour preuve. Et n’aie pas peur d’une lecture personnelle : si les mots la soutiennent, elle se défend, même si ton voisin en propose une autre. Ce que je ne veux plus lire, c’est « l’auteur emploie beaucoup d’images ». Lesquelles ? Pour faire quoi ? Mardi prochain, on reprend la litote, mot par mot. »",
           "glossary": [
             {
               "word": "l’enquêteur",
@@ -87672,8 +87673,8 @@
               "note": "une antiphrase de tous les jours, devant un désastre"
             },
             {
-              "fr": "Je ne peindrai pas la joie des vainqueurs : vous l’imaginez sans moi.",
-              "en": "I will not paint the victors’ joy: you can imagine it without me.",
+              "fr": "Je ne peindrai pas la joie des vainqueurs, leurs chants, leurs verres levés sur les ruines.",
+              "en": "I will not paint the victors’ joy, their songs, their glasses raised over the ruins.",
               "note": "une prétérition dans un récit : elle peint ce qu’elle dit taire"
             }
           ],
@@ -87734,17 +87735,17 @@
                   "note": "le nom"
                 },
                 {
-                  "fr": "Je ne peindrai pas la joie des vainqueurs : vous l’imaginez sans moi.",
+                  "fr": "Je ne peindrai pas la joie des vainqueurs, leurs chants, leurs verres levés sur les ruines.",
                   "itemId": "fr.c1.rhetorique.1233",
-                  "en": "I will not paint the victors’ joy: you can imagine it without me.",
+                  "en": "I will not paint the victors’ joy, their songs, their glasses raised over the ruins.",
                   "note": "dans un récit"
                 }
               ],
               "check": {
-                "q": "« Je ne peindrai pas la joie des vainqueurs : vous l’imaginez sans moi. » L’effet :",
+                "q": "« Je ne peindrai pas la joie des vainqueurs, leurs chants, leurs verres levés sur les ruines. » L’effet :",
                 "opts": [
                   "le narrateur cache vraiment la scène",
-                  "le lecteur imagine lui-même, et plus fort"
+                  "la scène est peinte quand même, et le lecteur la voit plus fort"
                 ],
                 "correct": 1,
                 "why": "Dans un récit, la prétérition attire le regard sur ce qu’elle feint de cacher. Dans la leçon sur la persuasion, tu jugeais sa loyauté ; ici, tu lis ce qu’elle fait voir. EN: here you read what it makes visible."
@@ -87791,9 +87792,9 @@
               "why": "Normal : la première phrase n’a que des mots d’éloge. Mais les faits qui suivent les démentent un par un. EN: the facts undo the praise."
             },
             {
-              "wrong": "« Boucherie héroïque » est une antiphrase.",
-              "right": "« Boucherie héroïque » est un oxymore.",
-              "why": "Les deux servent l’ironie, d’où la confusion. L’oxymore serre deux contraires dans un groupe ; l’antiphrase retourne un seul mot. EN: two contraries joined, not one word reversed."
+              "wrong": "« Boucherie héroïque » est un simple éloge de la bataille.",
+              "right": "« Boucherie héroïque » serre deux contraires : c’est un oxymore.",
+              "why": "Normal : « héroïque » est un mot d’éloge. Mais il est collé à « boucherie ». On peut aussi lire « héroïque » seul comme une antiphrase : les deux noms se défendent, et tous deux servent l’ironie. EN: an oxymoron; « héroïque » alone can also be read as antiphrasis."
             },
             {
               "wrong": "L’antiphrase et l’ironie, c’est la même chose.",
@@ -88467,7 +88468,7 @@
             },
             {
               "q": "Quelle différence Mamadou rappelle-t-il entre antithèse, chiasme et oxymore ?",
-              "a": "L’antithèse oppose sans croiser, le chiasme oppose en croisant, l’oxymore serre deux contraires dans un seul groupe."
+              "a": "L’antithèse oppose sans croiser, le chiasme croise les termes, souvent pour opposer, l’oxymore serre deux contraires dans un seul groupe."
             }
           ],
           "audio": {
@@ -88648,9 +88649,9 @@
               "why": "On réduit souvent une figure à un ornement. Ici, l’ordre des mots porte toute la morale. EN: the order carries the moral."
             },
             {
-              "wrong": "« Manger pour vivre » est une antithèse.",
-              "right": "« Manger pour vivre, vivre pour manger » est un chiasme.",
-              "why": "Il y a bien une opposition, d’où la confusion. Mais c’est le croisement des mêmes mots qui fait la figure. EN: the crossing makes the figure."
+              "wrong": "« Manger pour vivre, vivre pour manger » n’est qu’une antithèse.",
+              "right": "« Manger pour vivre, vivre pour manger » est un chiasme, qui forme ici une antithèse.",
+              "why": "Il y a bien une opposition : selon Larousse, un chiasme forme souvent une antithèse. Mais c’est le croisement des mêmes mots qui fait la figure. EN: also an antithesis, but the crossing makes the chiasmus."
             },
             {
               "wrong": "Molière se moque de la nourriture.",
@@ -88773,11 +88774,11 @@
               "check": {
                 "q": "L’antithèse…",
                 "opts": [
-                  "oppose sans croiser",
-                  "croise sans opposer"
+                  "oppose deux idées",
+                  "répète un même son"
                 ],
                 "correct": 0,
-                "why": "Le chiasme, lui, oppose en croisant. EN: chiasmus opposes by crossing."
+                "why": "Le chiasme, lui, croise les termes, souvent pour opposer. EN: chiasmus crosses, often to oppose."
               }
             },
             {
@@ -88920,7 +88921,7 @@
               "say": "Selon le TLFi, le mot a aussi un sens grammatical : un élément sous-entendu.",
               "detail": {
                 "title": "Fontanier",
-                "body": "Le grammairien classait le zeugme parmi les figures où quelque chose est sous-entendu, à côté de l’ellipse : le sens grammatical. EN: Fontanier put zeugma beside ellipsis.",
+                "body": "Ce théoricien des figures classait le zeugme parmi les figures où quelque chose est sous-entendu, à côté de l’ellipse : le sens grammatical. EN: Fontanier put zeugma beside ellipsis.",
                 "say": "Le ciel était gris et la mer immobile."
               }
             },
@@ -89457,9 +89458,9 @@
                   "en": "He smoked a pensive pipe."
                 },
                 {
-                  "fr": "Elle rentrait par une rue fatiguée.",
+                  "fr": "Il buvait un café distrait.",
                   "itemId": "fr.c1.rhetorique.1274",
-                  "en": "She was walking home along a tired street."
+                  "en": "He was drinking an absent-minded coffee."
                 }
               ],
               "check": {
@@ -89536,7 +89537,7 @@
             {
               "wrong": "Le comptoir est avide : c’est une personnification.",
               "right": "Le comptoir reçoit l’avidité du marchand : c’est une hypallage.",
-              "why": "Les deux donnent à une chose un trait humain, d’où la confusion. Mais le comptoir n’agit pas : il hérite du trait de son voisin. EN: it inherits, it does not act."
+              "why": "Les deux donnent à une chose un trait humain, d’où la confusion. Mais le comptoir n’agit pas : il hérite du trait de son voisin, et Larousse cite ce vers comme exemple d’hypallage. EN: it inherits, it does not act."
             },
             {
               "wrong": "Hugo s’est trompé d’adjectif.",
@@ -89605,20 +89606,20 @@
               "label": "Ta phrase",
               "items": [
                 {
-                  "fr": "Elle rentrait par une rue fatiguée.",
+                  "fr": "Il buvait un café distrait.",
                   "itemId": "fr.c1.rhetorique.1274",
-                  "en": "She was walking home along a tired street.",
-                  "note": "une rue fatiguée"
+                  "en": "He was drinking an absent-minded coffee.",
+                  "note": "un café distrait"
                 }
               ],
               "check": {
-                "q": "L’effet de « Elle rentrait par une rue fatiguée » :",
+                "q": "L’effet de « Il buvait un café distrait » :",
                 "opts": [
-                  "la rue est en mauvais état",
-                  "sa fatigue colore tout le trajet"
+                  "le café est mal préparé",
+                  "sa distraction passe jusque dans le geste le plus banal"
                 ],
                 "correct": 1,
-                "why": "Le trait de la femme passe à la rue. On peut aussi lire une rue vraiment triste : les deux se tiennent. EN: her tiredness colours the street."
+                "why": "Le trait de l’homme passe au café : on le voit absent jusque dans ce geste. On peut aussi y entendre un sourire de l’auteur : les deux se tiennent. EN: his absent-mindedness colours the gesture."
               }
             }
           ],
@@ -89798,7 +89799,7 @@
               "detail": {
                 "title": "La capitale",
                 "body": "Dans la chronique, « Paris n’a pas répondu » : un pouvoir lointain, sans visage. EN: a distant, faceless power.",
-                "say": "La métonymie suit des liens réels : le lieu, l’auteur, la matière, l’objet."
+                "say": "La métonymie suit des liens réels : le lieu, l’auteur, le contenant, l’objet."
               }
             },
             {
@@ -89992,8 +89993,8 @@
             {
               "promptLabel": "le lien inventé",
               "promptSound": "Paris est une métaphore de la France.",
-              "fr": "La métonymie suit des liens réels : le lieu, l’auteur, la matière, l’objet.",
-              "ipa": "/la me.tɔ.ni.mi sɥi de ljɛ̃ ʁe.ɛl lə ljø lo.tœʁ la ma.tjɛʁ lɔb.ʒɛ/",
+              "fr": "La métonymie suit des liens réels : le lieu, l’auteur, le contenant, l’objet.",
+              "ipa": "/la me.tɔ.ni.mi sɥi de ljɛ̃ ʁe.ɛl lə ljø lo.tœʁ lə kɔ̃t.nɑ̃ lɔb.ʒɛ/",
               "tip": "Un lien réel : la capitale pour le pouvoir. EN: a real link."
             }
           ],
@@ -90236,7 +90237,7 @@
           "questionsInModal": true,
           "title": "Des serpents et des violons",
           "frSub": "Racine, Verlaine",
-          "text": "Ce mardi-là, Mamadou écrit au tableau le vers d’Oreste, dans Andromaque de Racine, quand le héros devient fou et croit voir les Furies :\n« Pour qui sont ces serpents qui sifflent sur vos têtes ? »\nIl souligne chaque son [s] : « sont », « ces », « serpents », « sifflent », « sur ». « Cinq fois en un vers, sans compter les « s » muets que l’œil voit encore. On entend le sifflement des serpents dans la bouche de l’acteur. C’est une allitération : une consonne répétée. »\nPuis il écrit la première strophe de la « Chanson d’automne » de Verlaine :\n« Les sanglots longs\nDes violons\nDe l’automne\nBlessent mon cœur\nD’une langueur\nMonotone. »\nIl entoure les voyelles nasales de « sanglots », « longs », « violons » et « mon », puis les [o] de « automne » et « monotone ». « Ici, ce sont des voyelles qui reviennent, le son [ɔ̃] et ses voisins : une assonance. Les sons s’étirent, comme la plainte des violons. »\nHugues tente : « Dans “Les sanglots longs”, il y a deux “l” : allitération ! » Mamadou secoue la tête. « Deux mots qui commencent par la même lettre ne font pas une allitération. Et surtout, un son ne veut rien dire seul : il renforce ce que disent les mots. »",
+          "text": "Ce mardi-là, Mamadou écrit au tableau le vers d’Oreste, dans Andromaque de Racine, quand le héros devient fou et croit voir les Furies :\n« Pour qui sont ces serpents qui sifflent sur vos têtes ? »\nIl souligne chaque son [s] : « sont », « ces », « serpents », « sifflent », « sur ». « Cinq fois en un vers, sans compter les « s » muets que l’œil voit encore. On entend le sifflement des serpents dans la bouche de l’acteur. C’est une allitération : une consonne répétée. »\nPuis il écrit la première strophe de la « Chanson d’automne » de Verlaine :\n« Les sanglots longs\nDes violons\nDe l’automne\nBlessent mon cœur\nD’une langueur\nMonotone. »\nIl entoure les voyelles nasales de « sanglots », « longs », « violons » et « mon », puis les « o » de « automne » et « monotone ». « Ici, ce sont surtout des voyelles qui reviennent, le son [ɔ̃] et ses voisins : une assonance. Les sons s’étirent, comme la plainte des violons. Certains entendent aussi les [l] de « sanglots longs » et de « langueur » : une allitération douce, qui se défend. »\nHugues tente : « “Chanson” et “cœur” commencent tous les deux par un “c” : allitération ! » Mamadou secoue la tête. « L’un commence par [ʃ], l’autre par [k] : la même lettre, pas le même son. Deux mots qui commencent par la même lettre ne font pas une allitération. Et surtout, un son ne veut rien dire seul : il renforce ce que disent les mots. »",
           "glossary": [
             {
               "word": "Furies",
@@ -90259,11 +90260,11 @@
             },
             {
               "q": "Qu’est-ce qui revient chez Verlaine ?",
-              "a": "Des voyelles : les nasales de sanglots, longs, violons, mon, et les [o] de automne et monotone. C’est une assonance."
+              "a": "Surtout des voyelles : les nasales de sanglots, longs, violons, mon, et les « o » de automne et monotone. C’est une assonance. On peut aussi relever les [l] de « sanglots longs » et « langueur »."
             },
             {
-              "q": "Pourquoi Hugues se trompe-t-il avec « sanglots longs » ?",
-              "a": "Deux mots qui commencent par la même lettre ne font pas une allitération, et un son ne veut rien dire seul."
+              "q": "Pourquoi Hugues se trompe-t-il avec « Chanson » et « cœur » ?",
+              "a": "La même lettre ne donne pas le même son, [ʃ] et [k] : deux mots qui commencent par la même lettre ne font pas une allitération."
             }
           ],
           "audio": {
@@ -90376,26 +90377,26 @@
                 }
               ],
               "check": {
-                "q": "Dans « Tout est doux, tout est lourd, tout se tait autour », la figure est…",
+                "q": "Dans « Tout est doux, tout est lourd, tout se tait autour », quelle voyelle revient ?",
                 "opts": [
-                  "une assonance en [u]",
-                  "une allitération en [t]"
+                  "[u]",
+                  "[i]"
                 ],
                 "correct": 0,
-                "why": "Tout, doux, lourd, autour : une voyelle revient, et la phrase s’alourdit. Le [t] revient aussi ; l’assonance domine, mais on peut relever les deux. EN: the [u] dominates."
+                "why": "Tout, doux, lourd, autour : une assonance en [u], et la phrase s’alourdit. Le [t] revient aussi : on peut relever les deux. EN: an assonance on [u]."
               }
             },
             {
               "label": "Le piège",
               "items": [],
               "check": {
-                "q": "« Les sanglots longs » : deux « l ». Est-ce une allitération ?",
+                "q": "« Chanson » et « cœur » commencent par un « c ». Est-ce une allitération ?",
                 "opts": [
-                  "Oui, deux lettres suffisent.",
-                  "Non : deux initiales identiques ne suffisent pas."
+                  "Oui, la même lettre suffit.",
+                  "Non : [ʃ] et [k], ce n’est pas le même son."
                 ],
                 "correct": 1,
-                "why": "Deux mots qui commencent par la même lettre ne font pas une allitération. EN: two matching initials are not enough."
+                "why": "Deux mots qui commencent par la même lettre ne font pas une allitération. Compte les sons, pas les lettres. EN: count sounds, not letters."
               }
             }
           ],
@@ -90425,7 +90426,7 @@
             },
             {
               "fr": "Le son [s], cinq fois répété, fait entendre le sifflement.",
-              "en": "The [s] sound, repeated six times, makes you hear the hissing."
+              "en": "The [s] sound, repeated five times, makes you hear the hissing."
             },
             {
               "fr": "Le vent violent vrillait les volets.",
@@ -90473,10 +90474,10 @@
               "why": "Vent, violent, vrillait, volets. EN: [v] four times."
             },
             {
-              "q": "La quatrième phrase répète surtout…",
+              "q": "Dans la quatrième phrase, quelle voyelle revient ?",
               "opts": [
-                "une consonne",
-                "une voyelle"
+                "[i]",
+                "[u]"
               ],
               "correct": 1,
               "why": "Le [u] de tout, doux, lourd, autour : une assonance. EN: an assonance."
@@ -90533,7 +90534,7 @@
                 {
                   "fr": "Le son [s], cinq fois répété, fait entendre le sifflement.",
                   "itemId": "fr.c1.rhetorique.1293",
-                  "en": "The [s] sound, repeated six times, makes you hear the hissing.",
+                  "en": "The [s] sound, repeated five times, makes you hear the hissing.",
                   "note": "l’effet"
                 }
               ],
@@ -91245,7 +91246,7 @@
             },
             {
               "fr": "Le rejet fait déborder la phrase sur le vers suivant et met un mot en relief.",
-              "en": "Enjambment spills the sentence onto the next line and throws one word into relief.",
+              "en": "A rejet carries the sentence over onto the next line and throws one word into relief.",
               "note": "le rejet : un mot seul en tête de vers"
             },
             {
@@ -92458,14 +92459,14 @@
                 },
                 {
                   "format": "mcq",
-                  "q": "« Cette boucherie héroïque » est…",
+                  "q": "« Cette boucherie héroïque » serre deux contraires dans un groupe. C’est…",
                   "opts": [
-                    "une antiphrase",
+                    "une gradation",
                     "une litote",
                     "un oxymore"
                   ],
                   "correct": 2,
-                  "why": "Deux contraires dans un seul groupe. EN: an oxymoron.",
+                  "why": "Deux contraires dans un seul groupe. « Héroïque », lu seul, peut aussi passer pour une antiphrase. EN: an oxymoron.",
                   "ref": "a3-erreurs"
                 },
                 {
@@ -92482,10 +92483,10 @@
                 },
                 {
                   "format": "mcq",
-                  "q": "« Je ne peindrai pas la joie des vainqueurs : vous l’imaginez sans moi. » L’effet :",
+                  "q": "« Je ne peindrai pas la joie des vainqueurs, leurs chants, leurs verres levés sur les ruines. » L’effet :",
                   "opts": [
                     "la scène reste vraiment cachée",
-                    "le lecteur imagine la scène lui-même"
+                    "la scène est peinte en prétendant la taire"
                   ],
                   "correct": 1,
                   "why": "La prétérition attire le regard sur ce qu’elle feint de cacher. EN: the reader pictures it.",
@@ -92652,14 +92653,14 @@
               "questions": [
                 {
                   "format": "mcq",
-                  "q": "« Il faut manger pour vivre, et non pas vivre pour manger » est…",
+                  "q": "« Il faut manger pour vivre, et non pas vivre pour manger » reprend les mêmes mots dans l’ordre inverse. C’est…",
                   "opts": [
-                    "une antithèse simple",
+                    "une gradation",
                     "un oxymore",
                     "un chiasme"
                   ],
                   "correct": 2,
-                  "why": "Les mêmes mots dans l’ordre inverse. EN: crossed terms.",
+                  "why": "Les mêmes mots dans l’ordre inverse ; le croisement forme aussi une antithèse. EN: crossed terms.",
                   "ref": "a5-lecture"
                 },
                 {
@@ -92723,11 +92724,15 @@
                 {
                   "format": "errorSpot",
                   "q": "Une partie de la phrase est fausse. Écris la phrase juste. EN: Part of the sentence is wrong; write the correct sentence.",
-                  "prompt": "L’antithèse oppose en croisant ; le chiasme oppose sans croiser.",
-                  "answer": "L’antithèse oppose sans croiser ; le chiasme oppose en croisant.",
+                  "prompt": "L’antithèse croise ; le chiasme oppose sans croiser.",
+                  "answer": "L’antithèse oppose ; le chiasme croise, souvent pour opposer.",
                   "accept": [
+                    "L’antithèse oppose ; le chiasme croise, souvent pour opposer.",
+                    "L’antithèse oppose ; le chiasme croise.",
+                    "L’antithèse oppose sans croiser ; le chiasme croise.",
                     "L’antithèse oppose sans croiser ; le chiasme oppose en croisant.",
-                    "L’antithèse oppose ; le chiasme oppose en croisant."
+                    "L’antithèse oppose ; le chiasme oppose en croisant.",
+                    "L’antithèse oppose ; le chiasme croise souvent pour opposer."
                   ],
                   "why": "Les deux rôles sont inversés. EN: roles swapped.",
                   "ref": "a5-chiasme"
@@ -92947,14 +92952,14 @@
                 {
                   "format": "listenChoose",
                   "q": "Écoute. Quelle figure ?",
-                  "say": "Elle rentrait par une rue fatiguée.",
+                  "say": "Il buvait un café distrait.",
                   "opts": [
                     "une litote",
                     "une hypallage",
                     "un zeugme"
                   ],
                   "correct": 1,
-                  "why": "La fatigue de la femme passe à la rue. EN: hypallage.",
+                  "why": "La distraction de l’homme passe au café. EN: hypallage.",
                   "ref": "a7-trier"
                 }
               ]
@@ -93097,13 +93102,13 @@
                 },
                 {
                   "format": "mcq",
-                  "q": "« Les sanglots longs » : deux mots en « l ». C’est…",
+                  "q": "« Chanson » et « cœur » : deux mots en « c ». C’est…",
                   "opts": [
-                    "insuffisant pour parler d’allitération",
+                    "insuffisant : ce n’est pas le même son",
                     "une allitération certaine"
                   ],
                   "correct": 0,
-                  "why": "Deux initiales identiques ne suffisent pas. EN: not enough.",
+                  "why": "La même lettre, deux sons, [ʃ] et [k]. EN: same letter, different sounds.",
                   "ref": "a9-trier"
                 },
                 {
@@ -95096,7 +95101,7 @@
             },
             {
               "itemId": "fr.c1.langue-soignee.2226",
-              "note": "trois précautions, une seule"
+              "note": "deux précautions, une seule"
             }
           ]
         },
@@ -95354,8 +95359,8 @@
               "size": "lg",
               "options": [
                 {
-                  "fr": "Cela dit, nous pourrions vouloir revoir le calendrier.",
-                  "respell": "[suh-la DEE | noo poo-RYOHⁿ voo-LWAR | ruh-VWAR luh ka-lahⁿ-dree-YAY]",
+                  "fr": "Cela dit, nous pourrions éventuellement revoir le calendrier.",
+                  "respell": "[suh-la DEE | noo poo-RYOHⁿ ay-vahⁿ-twel-MAHⁿ | ruh-VWAR luh ka-lahⁿ-dree-YAY]",
                   "en": "That said, we might want to revisit the timeline.",
                   "outcome": "breaks",
                   "audio": {
@@ -95392,9 +95397,9 @@
               "heading": "Les mots, ou ce qu’ils font",
               "body": "La leçon 33 du B2 t’a appris à chasser le calque. Ici, il n’y en a pas, et la phrase échoue quand même : elle a perdu sa force. EN: No calque here, and the sentence still fails: it lost its force.",
               "wrong": {
-                "fr": "Cela dit, nous pourrions vouloir revoir le calendrier.",
-                "ipa": "/sə.la di nu pu.ʁjɔ̃ vu.lwaʁ ʁə.vwaʁ lə ka.lɑ̃.dʁi.je/",
-                "respell": "[suh-la DEE | noo poo-RYOHⁿ voo-LWAR | ruh-VWAR luh ka-lahⁿ-dree-YAY]",
+                "fr": "Cela dit, nous pourrions éventuellement revoir le calendrier.",
+                "ipa": "/sə.la di nu pu.ʁjɔ̃ e.vɑ̃.tɥɛl.mɑ̃ ʁə.vwaʁ lə ka.lɑ̃.dʁi.je/",
+                "respell": "[suh-la DEE | noo poo-RYOHⁿ ay-vahⁿ-twel-MAHⁿ | ruh-VWAR luh ka-lahⁿ-dree-YAY]",
                 "en": "That said, we might want to revisit the timeline."
               },
               "right": {
@@ -95477,7 +95482,7 @@
           "questionsInModal": true,
           "title": "La note d’Odile",
           "frSub": "Une traduction propre qui se trompe",
-          "text": "Note de révision, Fondation Arcelle, service de traduction. Malik, ta version du courriel de Fiona est propre : pas un calque, pas une faute, une ponctuation française impeccable. Et pourtant, la directrice l’a lue de travers. Fiona écrit, à la fin : « That said, we might want to revisit the timeline. » Tu as traduit : « Cela dit, nous pourrions vouloir revoir le calendrier. » Chaque mot y est, mais la phrase ne fait plus ce que faisait l’anglais. Sous la plume de Fiona, cette tournure polie est une demande : il faut revoir le calendrier, et vite. En français, « nous pourrions vouloir » sonne comme une hypothèse lointaine ; la directrice a compris qu’on pouvait attendre l’automne. Le reste du courriel souffre du même mal, en plus discret. Fiona enchaîne trois phrases courtes sans un seul mot de liaison : en anglais, le lecteur voit la cause ; en français, il voit une liste. Elle écrit « arguably » et tu as mis « sans doute », qui la rend plus sûre qu’elle ne l’est. Rien de tout cela n’est un calque. Ce sont des idées, des forces et des fils qui se perdent en route. Je propose « Il conviendrait toutefois de revoir le calendrier », qui garde la politesse et rend la demande. Passe me voir : on reprend le courriel ensemble, idée par idée. Odile",
+          "text": "Note de révision, Fondation Arcelle, service de traduction. Malik, ta version du courriel de Fiona est propre : pas un calque, pas une faute, une ponctuation française impeccable. Et pourtant, la directrice l’a lue de travers. Fiona écrit, à la fin : « That said, we might want to revisit the timeline. » Tu as traduit : « Cela dit, nous pourrions éventuellement revoir le calendrier. » La phrase est correcte, mais elle ne fait plus ce que faisait l’anglais. Sous la plume de Fiona, cette tournure polie est une demande : il faut revoir le calendrier, et vite. En français, « nous pourrions éventuellement » sonne comme une hypothèse lointaine ; la directrice a compris qu’on pouvait attendre l’automne. Le reste du courriel souffre du même mal, en plus discret. Fiona enchaîne trois phrases courtes sans un seul mot de liaison : en anglais, le lecteur voit la cause ; en français, il voit une liste. Elle écrit « arguably » et tu as mis « sans aucun doute », qui la rend plus sûre qu’elle ne l’est. Rien de tout cela n’est un calque. Ce sont des idées, des forces et des fils qui se perdent en route. Je propose « Il conviendrait toutefois de revoir le calendrier », qui garde la politesse et rend la demande. Passe me voir : on reprend le courriel ensemble, idée par idée. Odile",
           "glossary": [
             {
               "word": "enchaîne",
@@ -95496,14 +95501,14 @@
             },
             {
               "q": "Qu’est-ce que la phrase de Malik a perdu ?",
-              "a": "Sa force : chez Fiona, la tournure polie est une demande ferme ; en français, « nous pourrions vouloir » sonne comme une hypothèse lointaine."
+              "a": "Sa force : chez Fiona, la tournure polie est une demande ferme ; en français, « nous pourrions éventuellement » sonne comme une hypothèse lointaine."
             },
             {
               "q": "Quel problème Odile voit-elle dans les trois phrases courtes ?",
               "a": "L’anglais les enchaîne sans liaison et le lecteur voit la cause ; en français, il ne voit qu’une liste. Le fil s’est perdu."
             },
             {
-              "q": "Que reproche Odile à « sans doute » pour « arguably » ?",
+              "q": "Que reproche Odile à « sans aucun doute » pour « arguably » ?",
               "a": "Cela rend Fiona plus sûre qu’elle ne l’est : la certitude a changé."
             },
             {
@@ -96262,13 +96267,13 @@
                 {
                   "fr": "Il se pourrait que la météo ait faussé les chiffres.",
                   "itemId": "fr.c1.langue-soignee.2226",
-                  "en": "It is possible that the weather may perhaps have skewed the figures.",
-                  "note": "trois précautions, une seule"
+                  "en": "It is possible that the weather may have skewed the figures.",
+                  "note": "deux précautions, une seule"
                 },
                 {
                   "fr": "L’étude ne prouve rien ; elle ouvre une piste.",
                   "itemId": "fr.c1.langue-soignee.2230",
-                  "en": "The study proves nothing; it points to a lead.",
+                  "en": "The study proves nothing; it opens up a line of inquiry.",
                   "note": "ce que l’étude ne dit pas"
                 },
                 {
@@ -96686,7 +96691,7 @@
             },
             {
               "fr": "Pas mal du tout, ce premier bilan.",
-              "en": "Not bad at all, this first report.",
+              "en": "This first report is not bad at all.",
               "note": "Même mécanisme en français : « pas mal du tout » est un compliment."
             },
             {
@@ -96751,7 +96756,7 @@
               "en": "Keep her politeness, but convey how serious it is."
             },
             {
-              "fr": "Et quand elle se dit pas entièrement convaincue, elle refuse, poliment.",
+              "fr": "Et quand elle se dit « pas entièrement convaincue », elle refuse, poliment.",
               "en": "And when she says she is not entirely convinced, she is saying no, politely."
             },
             {
@@ -96837,7 +96842,7 @@
                 {
                   "fr": "Pas mal du tout, ce premier bilan.",
                   "itemId": "fr.c1.langue-soignee.2235",
-                  "en": "Not bad at all, this first report.",
+                  "en": "This first report is not bad at all.",
                   "note": "not bad at all"
                 },
                 {
@@ -97033,7 +97038,7 @@
           "questionsInModal": true,
           "title": "Pourquoi ouvrir le dimanche",
           "frSub": "Un chemin annoncé",
-          "text": "Pourquoi ouvrir aussi le dimanche ? Trois raisons expliquent la proposition de l’équipe. La première tient au coût : le dimanche, la bibliothèque partage déjà ses locaux avec le centre communautaire, qui en assure la surveillance ; ouvrir une salle de plus coûterait peu. La deuxième, plus décisive, tient aux horaires. Les familles que l’essai du soir voulait toucher sont justement celles qui travaillent tard en semaine. Or ces horaires ne leur conviennent toujours pas : elles rentrent trop tard, même à vingt-deux heures, pour faire le trajet avec des enfants fatigués. Le dimanche, au contraire, elles sont libres. Reste une dernière raison, moins visible : la bibliothèque est l’un des rares lieux gratuits et chauffés du quartier le dimanche, quand les commerces sont fermés. C’est pourquoi nous proposons d’ouvrir le dimanche après-midi, à titre d’essai, de treize à dix-sept heures. Note du traducteur : l’original anglais commençait par sa conclusion (« Sunday opening is the next logical step. ») et alignait les trois raisons sans une seule articulation. J’ai annoncé le chemin, numéroté les raisons et marqué la cause et la conséquence ; l’ordre des idées et la thèse n’ont pas changé.",
+          "text": "Pourquoi ouvrir aussi le dimanche ? Trois raisons expliquent la proposition de l’équipe. La première tient au coût : le dimanche, la bibliothèque partage déjà ses locaux avec le centre communautaire, qui en assure la surveillance ; ouvrir une salle de plus coûterait peu. La deuxième, plus décisive, tient aux horaires. Les familles que l’essai du soir voulait toucher sont justement celles qui travaillent tard en semaine. Or ces horaires ne leur conviennent toujours pas : elles rentrent trop tard, même avec une fermeture à vingt-deux heures, pour faire le trajet avec des enfants fatigués. Le dimanche, au contraire, elles sont libres. Reste une dernière raison, moins visible : la bibliothèque est l’un des rares lieux gratuits et chauffés du quartier le dimanche, quand les commerces sont fermés. C’est pourquoi nous proposons d’ouvrir le dimanche après-midi, à titre d’essai, de treize à dix-sept heures. Note du traducteur : l’original anglais commençait par sa conclusion (« Sunday opening is the next logical step. ») et alignait les trois raisons sans une seule articulation. J’ai annoncé le chemin, numéroté les raisons et marqué la cause et la conséquence ; l’ordre des idées et la thèse n’ont pas changé.",
           "glossary": [
             {
               "word": "à titre d’essai",
@@ -97222,7 +97227,7 @@
           "errors": [
             {
               "wrong": "Ouvrir le dimanche est la prochaine étape logique. Le coût est faible. Les familles sont libres. Le lieu est chauffé.",
-              "right": "Trois raisons expliquent ce choix. La première tient au coût ; la deuxième, plus décisive, aux horaires des familles ; reste le lieu, chauffé et gratuit.",
+              "right": "Trois raisons expliquent ce choix. La première tient au coût ; la deuxième, plus décisive, aux horaires des familles ; reste le lieu, déjà chauffé.",
               "why": "Chaque phrase est juste, et le lecteur français reçoit une liste. Annonce le chemin et marque les liens. EN: correct sentences, but a list."
             },
             {
@@ -97271,7 +97276,7 @@
                   "note": "l’ordre anglais, sans repère"
                 },
                 {
-                  "fr": "Ouvrir le dimanche s’impose, pour deux raisons : le coût est faible, et les familles sont libres ce jour-là.",
+                  "fr": "Ouvrir le dimanche est la suite logique, pour deux raisons : le coût est faible, et les familles sont libres ce jour-là.",
                   "en": "Sunday opening is the next logical step. Costs are low. Families are free.",
                   "note": "le même fil, avec ses repères"
                 }
@@ -97502,7 +97507,7 @@
               "label": "Deux faits, un lien à écrire",
               "items": [
                 {
-                  "fr": "Les ventes ont baissé dès que les prix ont augmenté.",
+                  "fr": "Les prix ont augmenté, et les ventes ont donc baissé.",
                   "itemId": "fr.c1.langue-soignee.2267",
                   "en": "Prices went up; sales went down.",
                   "note": "Prices went up; sales went down."
@@ -97518,11 +97523,11 @@
                 "q": "« Prices went up; sales went down. » Quel lien le français écrit-il ?",
                 "opts": [
                   "aucun",
-                  "un lien de temps et de cause",
+                  "un lien de cause",
                   "une opposition"
                 ],
                 "correct": 1,
-                "why": "« Dès que » dit l’enchaînement que l’anglais laissait deviner. EN: time and cause."
+                "why": "« Donc » dit la conséquence que l’anglais laissait deviner. EN: cause."
               }
             },
             {
@@ -97592,7 +97597,7 @@
               "tip": "C’est une opposition : « mais ». EN: but."
             },
             {
-              "promptLabel": "un participe calqué",
+              "promptLabel": "une tournure calquée",
               "promptSound": "Avec un nouveau conseil en place, le dossier a été rouvert.",
               "fr": "Comme le conseil avait changé, le dossier a été rouvert.",
               "ipa": "/kɔm lə kɔ̃.sɛj a.vɛ ʃɑ̃.ʒe lə do.sje a e.te ʁu.vɛʁ/",
@@ -97678,10 +97683,10 @@
               "correct": 1
             },
             {
-              "promptSay": "« Prices went up; sales went down » : les ventes ont baissé … les prix ont augmenté.",
+              "promptSay": "« Prices went up; sales went down » : les prix ont augmenté, et les ventes ont … baissé.",
               "opts": [
-                "dès que",
-                "alors que"
+                "donc",
+                "pourtant"
               ],
               "correct": 0
             }
@@ -97740,7 +97745,7 @@
                   "note": "deux phrases, aucun lien"
                 },
                 {
-                  "fr": "Les tarifs ont augmenté, et la fréquentation a aussitôt baissé.",
+                  "fr": "La hausse des tarifs a fait baisser la fréquentation.",
                   "en": "Fees went up. Attendance dropped.",
                   "note": "le lien, écrit"
                 }
@@ -98441,13 +98446,13 @@
                 }
               ],
               "check": {
-                "q": "« The park is the size of ten football fields. » Pour un lecteur québécois, tu...",
+                "q": "« The garden covers two acres. » Pour un lecteur en France, tu...",
                 "opts": [
-                  "gardes « dix terrains de football » sans y penser",
-                  "généralises : « un très grand parc », ou donnes sa superficie en hectares"
+                  "gardes « deux acres » sans y penser",
+                  "convertis : « un peu moins d’un hectare »"
                 ],
                 "correct": 1,
-                "why": "Un terrain de football américain et un terrain de soccer n’ont pas la même taille ; l’idée est la grandeur. EN: the idea is the size."
+                "why": "L’acre ne dit rien à un lecteur en France ; deux acres font environ 0,8 hectare. Arrondis comme l’anglais arrondit. EN: convert the unit."
               }
             },
             {
@@ -98968,7 +98973,7 @@
                   "note": "mot à mot, un peu raide"
                 },
                 {
-                  "fr": "Ces positions sont celles de l’auteure et n’engagent pas la Fondation.",
+                  "fr": "Les opinions exprimées n’engagent que leur auteure.",
                   "en": "The views expressed are the author’s own.",
                   "note": "la formule française"
                 }
@@ -98980,7 +98985,7 @@
                   "la première"
                 ],
                 "correct": 0,
-                "why": "« N’engagent pas » est la formule qu’un lecteur français attend dans ce cas. EN: the usual French formula."
+                "why": "« N’engagent que leur auteure » est la formule qu’un lecteur français attend dans ce cas. EN: the usual French formula."
               }
             },
             {
@@ -99361,7 +99366,7 @@
               "promptSound": "Plus d’arbres dans ta rue, et fini la chaleur en été.",
               "fr": "Plus d’arbres dans ta rue, c’est moins de chaleur en été.",
               "ipa": "/ply daʁbʁ dɑ̃ ta ʁy sɛ mwɛ̃ də ʃa.lœʁ ɑ̃.ne.te/",
-              "tip": "Moins de chaleur, pas plus de chaleur du tout. EN: less heat, not none."
+              "tip": "Moins de chaleur, pas la fin de la chaleur. EN: less heat, not none."
             },
             {
               "promptLabel": "la langue de départ",
@@ -100267,7 +100272,7 @@
                 "label": "Les références et le lecteur",
                 "maxPoints": 3,
                 "descriptors": [
-                  "3 : Les degrés sont convertis, l’image du baseball remplacée (ordre de grandeur, estimation), la case départ trouvée, le registre d’une tribune de quotidien respecté.",
+                  "3 : Les degrés sont convertis, l’image du baseball remplacée (ordre de grandeur, estimation), la case départ trouvée (ou une tournure française équivalente : repartir à zéro), le registre d’une tribune de quotidien respecté.",
                   "2 : Une référence reste opaque, ou une explication est inutile.",
                   "1 : Plusieurs références passent mot à mot."
                 ]
@@ -100294,8 +100299,8 @@
             "Un ordre de grandeur : …",
             "Nous proposons que la Ville…"
           ],
-          "modelAnswer": "Ouvrons les cours d’école. Chaque fin de semaine, la Ville met sous clé son plus vaste réseau d’espaces publics. Du vendredi soir au lundi matin, les cours d’école restent vides, derrière leurs clôtures, dans les quartiers mêmes qui comptent le moins de parcs. On peut soutenir que les ouvrir serait la politique d’espaces verts la moins coûteuse à la portée de la Ville. Le projet pilote mené l’été dernier dans trois écoles n’a pas été un échec, de l’avis de la plupart des observateurs : les familles sont venues, les adolescents aussi, et les plaintes ont été rares. Les réserves des centres de services scolaires, il faut le reconnaître, ne sont pas sans fondement. L’assurance pose un vrai casse-tête, et il faut bien que quelqu’un ferme les grilles le soir. Mais ce sont des problèmes d’organisation, non de principe, et d’autres villes les ont réglés. Avec des étés de plus en plus chauds, l’argument devient difficile à écarter. Par une journée à plus de trente degrés, une cour asphaltée sans ombre ne sert à personne ; une cour plantée d’arbres, avec une fontaine, devient un refuge. C’est pourquoi toute école rénovée à partir de maintenant devrait être conçue pour accueillir le public la fin de semaine. Combien cela coûterait-il ? Personne n’a encore de réponse précise, mais un ordre de grandeur de cinquante mille dollars par école, pour l’ombre et les fontaines, paraît raisonnable. Nous proposons que la Ville commence par les vingt écoles les plus éloignées d’un parc, et qu’elle dresse un bilan au bout d’un an. Ne rien faire nous ramènerait à la case départ : des enfants sans endroit où jouer, à quelques centaines de mètres d’une cour fermée à clé. Fiona Kerr, directrice de la recherche, Fondation Arcelle.",
-          "modelAnswerEn": "Open the schoolyards. Every weekend, the city locks up its largest network of public space. From Friday evening to Monday morning, schoolyards sit empty behind their fences, in the very neighbourhoods that have the fewest parks. Arguably, opening them would be the cheapest green-space policy within the city’s reach. The pilot run last summer in three schools was not a failure, in the view of most observers: families came, so did teenagers, and complaints were rare. The school service centres’ reservations, it must be said, are not without merit. Insurance is a real headache, and someone does have to lock the gates at night. But these are problems of organisation, not of principle, and other cities have solved them. With summers getting hotter, the case is hard to dismiss. On a day of over thirty degrees, an asphalt yard with no shade is of use to nobody; a yard planted with trees, with a fountain, becomes a refuge. That is why every school renovated from now on should be designed to welcome the public at weekends. How much would it cost? Nobody has a precise answer yet, but a ballpark figure of fifty thousand dollars per school, for shade and fountains, seems reasonable. We propose that the city start with the twenty schools furthest from a park, and review the results after a year. Doing nothing would take us back to square one: children with nowhere to play, a few hundred metres from a locked yard. Fiona Kerr, Director of Research, Fondation Arcelle.",
+          "modelAnswer": "Ouvrons les cours d’école. Chaque fin de semaine, la Ville met sous clé son plus vaste réseau d’espaces publics. Du vendredi soir au lundi matin, les cours d’école restent vides, derrière leurs clôtures, dans les quartiers mêmes qui comptent le moins de parcs. On peut soutenir que les ouvrir serait la politique d’espaces verts la moins coûteuse à la portée de la Ville. Le projet pilote mené l’été dernier dans trois écoles n’a pas été un échec, de l’avis de la plupart des observateurs : les familles sont venues, les adolescents aussi, et les plaintes ont été rares. Les réserves des centres de services scolaires, il faut le reconnaître, ne sont pas sans fondement. L’assurance pose un vrai casse-tête, et il faut bien que quelqu’un ferme les grilles le soir. Mais ce sont des problèmes d’organisation, non de principe, et d’autres villes les ont réglés. Comme les étés sont de plus en plus chauds, l’argument devient plus difficile à écarter. Par une journée à plus de trente degrés, une cour asphaltée sans ombre ne sert pas à grand-chose ; une cour plantée d’arbres, avec une fontaine, devient un refuge. C’est pourquoi toute école rénovée à partir de maintenant devrait être conçue pour accueillir le public la fin de semaine. Combien cela coûterait-il ? Personne n’a encore de réponse précise, mais un ordre de grandeur de cinquante mille dollars par école, pour l’ombre et les fontaines, paraît raisonnable. Nous proposons que la Ville commence par les vingt écoles les plus éloignées d’un parc, et qu’elle dresse un bilan au bout d’un an. Ne rien faire nous ramènerait à la case départ : des enfants sans endroit où jouer, à quelques centaines de mètres d’une cour fermée à clé. Fiona Kerr, directrice de la recherche, Fondation Arcelle.",
+          "modelAnswerEn": "Open the schoolyards. Every weekend, the city locks up its largest network of public space. From Friday evening to Monday morning, schoolyards sit empty behind their fences, in the very neighbourhoods that have the fewest parks. Arguably, opening them would be the cheapest green-space policy within the city’s reach. The pilot run last summer in three schools was not a failure, in the view of most observers: families came, so did teenagers, and complaints were rare. The school service centres’ reservations, it must be said, are not without merit. Insurance is a real headache, and someone does have to lock the gates at night. But these are problems of organisation, not of principle, and other cities have solved them. As summers are getting hotter, the case is becoming harder to dismiss. On a day of over thirty degrees, an asphalt yard with no shade is of little use; a yard planted with trees, with a fountain, becomes a refuge. That is why every school renovated from now on should be designed to welcome the public at weekends. How much would it cost? Nobody has a precise answer yet, but a ballpark figure of fifty thousand dollars per school, for shade and fountains, seems reasonable. We propose that the city start with the twenty schools furthest from a park, and review the results after a year. Doing nothing would take us back to square one: children with nowhere to play, a few hundred metres from a locked yard. Fiona Kerr, Director of Research, Fondation Arcelle.",
           "watchFor": [
             {
               "pattern": "An idea, a figure or the conclusion left out (the three-school pilot, the insurance objection, the twenty schools, the one-year review, the closing image).",
@@ -100322,7 +100327,7 @@
               "ref": "a4-exemples"
             },
             {
-              "pattern": "The final proposal turned into an order (« la Ville doit ») or into a vague wish; « We would suggest » kept as a calque (« nous suggérerions »).",
+              "pattern": "The final proposal turned into an order (« la Ville doit ») or into a vague wish. « Nous suggérerions que » is correct French and is NOT penalised.",
               "criterion": "force",
               "feedback": "Une proposition polie et ferme : « nous proposons que la Ville commence par… ».",
               "ref": "a1-scene"
@@ -100346,7 +100351,7 @@
               "ref": "a2-methode"
             },
             {
-              "pattern": "« ninety-degree day » left in Fahrenheit; « ballpark figure » translated literally; « back at square one » not rendered by the French image.",
+              "pattern": "« ninety-degree day » left in Fahrenheit; « ballpark figure » translated literally; « back at square one » rendered word for word (« la case un »).",
               "criterion": "culture",
               "feedback": "Plus de trente degrés ; un ordre de grandeur ; la case départ.",
               "ref": "a8-table"
@@ -100365,7 +100370,7 @@
             }
           ],
           "graderNotes": [
-            "TARGET MOVES (grade these, not closeness to the English): (1) idea-level reformulation, not English word order; (2) « arguably » at the same force (on peut soutenir que, on pourrait dire que); « by most accounts » attributed (de l’avis de la plupart); « seems reasonable » kept hedged (paraît, semble raisonnable); (3) understatement handled by context: « not a failure » and « not without merit » may stay as French litotes; « a bit of a headache » may be rendered as a real difficulty (casse-tête, vrai problème) or kept light, both acceptable if the next sentence still reads as a solvable obstacle; (4) the thread: the juxtaposed « Families came. Teenagers came. » linked or framed, a cause written for « With the summers getting hotter », a consequence marker before the renovation proposal; (5) implicitation: « each and every school » → toute école / chaque école; (6) cultural equivalence: 90 °F → plus de trente degrés (or environ 32 degrés); « ballpark figure » → ordre de grandeur, estimation, chiffre approximatif; « back at square one » → la case départ; (7) the proposal as a polite firm suggestion (nous proposons que, nous suggérons que + subjonctif).",
+            "TARGET MOVES (grade these, not closeness to the English): (1) idea-level reformulation, not English word order; (2) « arguably » at the same force (on peut soutenir que, on pourrait dire que); « by most accounts » attributed (de l’avis de la plupart); « seems reasonable » kept hedged (paraît, semble raisonnable); (3) understatement handled by context: « not a failure » and « not without merit » may stay as French litotes; « a bit of a headache » may be rendered as a real difficulty (casse-tête, vrai problème) or kept light, both acceptable if the next sentence still reads as a solvable obstacle; (4) the thread: the juxtaposed « Families came. Teenagers came. » linked or framed, a cause written for « With the summers getting hotter », a consequence marker before the renovation proposal; (5) implicitation: « each and every school » → toute école / chaque école; (6) cultural equivalence: 90 °F → plus de trente degrés (or environ 32 degrés); « ballpark figure » → ordre de grandeur, estimation, chiffre approximatif; « back at square one » → la case départ, or repartir à zéro / tout serait à recommencer (Larousse gives both); (7) the proposal as a polite firm suggestion (nous proposons que, nous suggérons que, nous suggérerions que + subjonctif).",
             "DO NOT REWARD LITERALNESS. A version that follows the English word for word with no calque is NOT a top answer: cap « reformulation » at 2 and « fil » at 2 when the French keeps the English sentence order and juxtapositions throughout. Conversely, never penalise a reordering inside a paragraph that keeps every idea and the argument’s order.",
             "Do not penalise a correct literal rendering where it is natural (lesson 33 in B2: if the literal sentence is natural, keep it): « Les familles sont venues » is fine.",
             "Word count: 250 to 400, 10% tolerance (225 to 440) before « fidelite » loses a point. The signature does not count.",
@@ -100702,7 +100707,7 @@
                   "format": "mcq",
                   "q": "« That said, we might want to revisit the timeline. » (une demande ferme) Quelle version garde la force ?",
                   "opts": [
-                    "Cela dit, nous pourrions vouloir revoir le calendrier.",
+                    "Cela dit, nous pourrions éventuellement revoir le calendrier.",
                     "Cela dit, revoir le calendrier serait peut-être envisageable un jour.",
                     "Il conviendrait toutefois de revoir le calendrier."
                   ],
@@ -100727,7 +100732,11 @@
                   "prompt": "Je traduis la …, pas seulement les mots.",
                   "answer": "demande",
                   "accept": [
-                    "demande"
+                    "demande",
+                    "pensée",
+                    "force",
+                    "intention",
+                    "requête"
                   ],
                   "why": "Ce que Fiona veut obtenir. EN: request.",
                   "ref": "a1-usages"
@@ -100738,7 +100747,8 @@
                   "prompt": "Une phrase juste ne suffit pas : il faut un … juste.",
                   "answer": "texte",
                   "accept": [
-                    "texte"
+                    "texte",
+                    "paragraphe"
                   ],
                   "why": "Le texte entier, avec sa force et son fil. EN: text.",
                   "ref": "a1-usages"
@@ -100746,16 +100756,24 @@
                 {
                   "format": "errorSpot",
                   "q": "Cette phrase a perdu la force d’une demande polie mais ferme. Écris une version qui la rend. EN: This sentence lost the force of a polite but firm request; write a version that conveys it.",
-                  "prompt": "Cela dit, nous pourrions vouloir revoir le calendrier.",
+                  "prompt": "Cela dit, nous pourrions éventuellement revoir le calendrier.",
                   "answer": "Il conviendrait toutefois de revoir le calendrier.",
                   "accept": [
                     "Il conviendrait toutefois de revoir le calendrier.",
                     "Cela dit, il conviendrait de revoir le calendrier.",
                     "Il faudrait toutefois revoir le calendrier.",
                     "Toutefois, il conviendrait de revoir le calendrier.",
-                    "Il conviendrait cependant de revoir le calendrier."
+                    "Il conviendrait cependant de revoir le calendrier.",
+                    "Il conviendrait néanmoins de revoir le calendrier.",
+                    "Cela dit, il faudrait revoir le calendrier.",
+                    "Il faudrait cependant revoir le calendrier.",
+                    "Il faudrait néanmoins revoir le calendrier.",
+                    "Cela dit, il serait bon de revoir le calendrier.",
+                    "Cela dit, nous devrions revoir le calendrier.",
+                    "Nous devrions toutefois revoir le calendrier.",
+                    "Il y aurait toutefois lieu de revoir le calendrier."
                   ],
-                  "why": "« Nous pourrions vouloir » sonne comme une hypothèse lointaine. EN: make it a request.",
+                  "why": "« Nous pourrions éventuellement » sonne comme une hypothèse lointaine. EN: make it a request.",
                   "ref": "a1-lecture"
                 },
                 {
@@ -100820,7 +100838,8 @@
                   "prompt": "Je lis la phrase jusqu’au …, puis je ferme l’anglais.",
                   "answer": "point",
                   "accept": [
-                    "point"
+                    "point",
+                    "bout"
                   ],
                   "why": "Comprendre la phrase entière d’abord. EN: full stop.",
                   "ref": "a2-methode"
@@ -100854,7 +100873,8 @@
                   "answer": "J’écris l’idée, puis je vérifie qu’il ne manque rien.",
                   "accept": [
                     "J’écris l’idée, puis je vérifie qu’il ne manque rien.",
-                    "J’écris l’idée, puis je vérifie qu’il ne manque aucune idée."
+                    "J’écris l’idée, puis je vérifie qu’il ne manque aucune idée.",
+                    "J’écris l’idée, puis je vérifie que rien ne manque."
                   ],
                   "why": "On vérifie les idées, pas les mots. EN: ideas, not words.",
                   "ref": "a2-methode"
@@ -100921,7 +100941,8 @@
                   "prompt": "« It may be worth revisiting the method » : il … peut-être utile de revoir la méthode.",
                   "answer": "serait",
                   "accept": [
-                    "serait"
+                    "serait",
+                    "est"
                   ],
                   "why": "Le conditionnel garde la prudence. EN: would be.",
                   "ref": "a3-table"
@@ -101126,7 +101147,8 @@
                   "answer": "Or",
                   "accept": [
                     "Or",
-                    "Mais"
+                    "Mais",
+                    "Pourtant"
                   ],
                   "why": "« Or » relance l’argument. EN: but, yet.",
                   "ref": "a5-reperes"
@@ -101149,7 +101171,8 @@
                   "answer": "décisive",
                   "accept": [
                     "décisive",
-                    "importante"
+                    "importante",
+                    "déterminante"
                   ],
                   "why": "La hiérarchie reste. EN: decisive.",
                   "ref": "a5-reperes"
@@ -101248,12 +101271,13 @@
                 {
                   "format": "typeIn",
                   "q": "Complète. Un mot.",
-                  "prompt": "Les ventes ont baissé … que les prix ont augmenté.",
-                  "answer": "dès",
+                  "prompt": "Les prix ont augmenté, et les ventes ont … baissé.",
+                  "answer": "donc",
                   "accept": [
-                    "dès"
+                    "donc",
+                    "alors"
                   ],
-                  "why": "Le temps et la cause. EN: as soon as.",
+                  "why": "La conséquence, écrite. EN: so.",
                   "ref": "a6-trier"
                 },
                 {
@@ -101339,7 +101363,8 @@
                   "answer": "Actuellement",
                   "accept": [
                     "Actuellement",
-                    "Aujourd’hui"
+                    "Aujourd’hui",
+                    "Présentement"
                   ],
                   "why": "Un mot pour cinq. EN: currently.",
                   "ref": "a7-table"
@@ -101426,7 +101451,8 @@
                   "prompt": "Ce n’est que la partie … de l’iceberg.",
                   "answer": "émergée",
                   "accept": [
-                    "émergée"
+                    "émergée",
+                    "visible"
                   ],
                   "why": "La forme française de l’image (Larousse). EN: visible part.",
                   "ref": "a8-table"
@@ -101530,7 +101556,9 @@
                     "soutient",
                     "estime",
                     "affirme",
-                    "défend"
+                    "avance",
+                    "considère",
+                    "pense"
                   ],
                   "why": "Un verbe qui attribue. EN: argues.",
                   "ref": "a9-etapes"
@@ -101541,7 +101569,8 @@
                   "prompt": "Un résumé traduit ne donne jamais mon … .",
                   "answer": "avis",
                   "accept": [
-                    "avis"
+                    "avis",
+                    "opinion"
                   ],
                   "why": "Le résumé rend l’auteure. EN: opinion.",
                   "ref": "a9-version"
@@ -101631,7 +101660,8 @@
                   "prompt": "Le registre suit le …, pas la langue de départ.",
                   "answer": "public",
                   "accept": [
-                    "public"
+                    "public",
+                    "lecteur"
                   ],
                   "why": "Le public choisit. EN: audience.",
                   "ref": "a10-table"
@@ -101667,7 +101697,7 @@
                     "Plus d’arbres dans ta rue, c’est moins de chaleur en été.",
                     "Plus d’arbres dans ta rue, et moins de chaleur en été."
                   ],
-                  "why": "Moins de chaleur, pas plus du tout : ne promets pas plus que la source. EN: never overstate.",
+                  "why": "Moins de chaleur, pas la fin de la chaleur : ne promets pas plus que la source. EN: never overstate.",
                   "ref": "a10-piege"
                 },
                 {
@@ -101844,7 +101874,7 @@
             {
               "front": "une traduction qui dit le contraire",
               "back": "un contresens",
-              "say": "Rendre « arguably » par « sans aucun doute », c’est forcer la certitude."
+              "say": "un contresens"
             }
           ],
           "audio": {
@@ -103225,7 +103255,7 @@
                 ],
                 [
                   "booker",
-                  "pas d’article",
+                  "pas d’article ; « être booké » écarté",
                   "déconseillé",
                   "absent",
                   "réserver, retenir, engager"
@@ -103233,7 +103263,7 @@
                 [
                   "un call",
                   "pas d’article",
-                  "pas d’article",
+                  "pas d’article ; « appel conférence » déconseillé",
                   "absent",
                   "un appel, une réunion téléphonique"
                 ],
@@ -104401,7 +104431,7 @@
             },
             {
               "promptLabel": "une faveur mal dite",
-              "promptSound": "Je vous demande un dernier effort, c’est obligatoire.",
+              "promptSound": "Vous ferez un dernier effort sur ce dossier.",
               "fr": "Je me permets de vous demander un dernier effort sur ce dossier.",
               "ipa": "/ʒə mə pɛʁ.mɛ də vu də.mɑ̃.de œ̃ dɛʁ.nje.ʁe.fɔʁ syʁ sə dɔ.sje/",
               "tip": "« Je me permets » adoucit sans retirer la demande. EN: softens, keeps the request."
@@ -104681,7 +104711,7 @@
             },
             {
               "q": "À quel moment arrive le non ?",
-              "a": "Au troisième paragraphe, après un accueil court ; il n’est dit qu’une fois."
+              "a": "À la troisième phrase, après un accueil court ; il n’est dit qu’une fois."
             },
             {
               "q": "Quelle est la raison donnée, et pourquoi est-elle solide ?",
@@ -105106,7 +105136,7 @@
             {
               "fr": "Je vous ferai un point d’étape chaque vendredi jusqu’à la livraison.",
               "en": "I will give you a progress update every Friday until delivery.",
-              "note": "Ce que tu fais, et quand tu reviens vers lui avec du neuf."
+              "note": "Ce que tu fais, et quand tu lui donnes des nouvelles."
             }
           ],
           "audio": {
@@ -105491,7 +105521,7 @@
                 "q": "Après la nouvelle et ses conséquences, tu donnes...",
                 "opts": [
                   "trois excuses de plus",
-                  "ce que tu fais et quand tu reviens vers le lecteur"
+                  "ce que tu fais et quand tu donnes des nouvelles"
                 ],
                 "correct": 1,
                 "why": "Un plan et une date. EN: a plan and a date."
@@ -105856,7 +105886,7 @@
           "questionsInModal": true,
           "title": "Trois semaines de silence",
           "frSub": "Deux relances, puis plus haut",
-          "text": "Fil de courriels entre Karim Haddad, chez Ardisque, et Stéphane Morin, chargé de compte chez Transvia Paiements, le prestataire qui traite les paiements par carte de la billetterie. Premier message, le 3 octobre : « Bonjour Monsieur Morin, nos tests montrent que votre service refuse les paiements en plusieurs fois au-delà de 500 $. Pourriez-vous nous dire s’il s’agit d’un réglage de notre compte ou d’une limite de votre côté ? Merci d’avance. » Pas de réponse. Première relance, le 10 octobre : « Bonjour Monsieur Morin, je me permets de vous relancer au sujet de ma demande du 3 octobre, que vous trouverez ci-dessous. Une réponse avant le 17 nous aiderait beaucoup. » Pas de réponse. Seconde relance, le 17 octobre : « Monsieur Morin, sans nouvelles de votre part, je vous écris une dernière fois : cette limite bloque la mise en service d’un client, prévue le 29 novembre. Faute de réponse d’ici jeudi, je devrai faire remonter le dossier. » Pas de réponse. Le 21 octobre, Karim écrit à Julie Lavoie, directrice du service à la clientèle de Transvia : « Madame Lavoie, je souhaite porter à votre attention un blocage qui dure depuis trois semaines. J’en ai informé Stéphane Morin, que je mets en copie, par souci de transparence. Voici les faits, dans l’ordre : trois demandes, deux relances, aucune réponse ; nos messages sont joints. Ce blocage retarde la mise en service d’un client. Ce que j’attends : une réponse technique avant le 24 octobre, ou le nom d’une personne à joindre. Mon objectif n’est pas de trouver un coupable, mais de débloquer la situation. Je vous remercie de votre aide. Karim Haddad. »",
+          "text": "Fil de courriels entre Karim Haddad, chez Ardisque, et Stéphane Morin, chargé de compte chez Transvia Paiements, le prestataire qui traite les paiements par carte de la billetterie. Premier message, le 3 octobre : « Bonjour Monsieur Morin, nos tests montrent que votre service refuse les paiements en plusieurs fois au-delà de 500 $. Pourriez-vous nous dire s’il s’agit d’un réglage de notre compte ou d’une limite de votre côté ? Merci d’avance. » Pas de réponse. Première relance, le 10 octobre : « Bonjour Monsieur Morin, je me permets de vous relancer au sujet de ma demande du 3 octobre, que vous trouverez ci-dessous. Une réponse avant le 17 nous aiderait beaucoup. » Pas de réponse. Seconde relance, le 17 octobre : « Monsieur Morin, sans nouvelles de votre part, je vous écris une dernière fois : cette limite bloque la mise en service d’un client, prévue le 29 novembre. Faute de réponse d’ici lundi, je devrai faire remonter le dossier. » Pas de réponse. Le 21 octobre, Karim écrit à Julie Lavoie, directrice du service à la clientèle de Transvia : « Madame Lavoie, je souhaite porter à votre attention un blocage qui dure depuis trois semaines. J’en ai informé Stéphane Morin, que je mets en copie, par souci de transparence. Voici les faits, dans l’ordre : une demande, deux relances, aucune réponse ; nos messages sont joints. Ce blocage retarde la mise en service d’un client. Ce que j’attends : une réponse technique avant le 24 octobre, ou le nom d’une personne à joindre. Mon objectif n’est pas de trouver un coupable, mais de débloquer la situation. Je vous remercie de votre aide. Karim Haddad. »",
           "glossary": [
             {
               "word": "prestataire",
@@ -105879,7 +105909,7 @@
             },
             {
               "q": "Quels faits donne-t-il à Julie Lavoie ?",
-              "a": "Des faits datés et comptés : trois demandes, deux relances, aucune réponse, avec les messages joints."
+              "a": "Des faits datés et comptés : une demande, deux relances, aucune réponse, avec les messages joints."
             },
             {
               "q": "Que demande-t-il précisément ?",
@@ -105939,8 +105969,8 @@
             {
               "head": "La seconde relance",
               "label": "ferme et datée",
-              "fr": "Faute de réponse d’ici jeudi, je devrai faire remonter le dossier.",
-              "sub": "[foht duh ray-POHⁿSS | dee-see zheu-DEE | zhuh duh-VRAY | fehr ruh-mohⁿ-TAY luh do-SYAY]",
+              "fr": "Faute de réponse d’ici lundi, je devrai faire remonter le dossier.",
+              "sub": "[foht duh ray-POHⁿSS | dee-see luhⁿ-DEE | zhuh duh-VRAY | fehr ruh-mohⁿ-TAY luh do-SYAY]",
               "body": "Elle dit ce que le silence bloque et annonce la suite, sans menace. EN: firm, dated, announces the next step."
             },
             {
@@ -105973,8 +106003,8 @@
             {
               "promptLabel": "une accusation",
               "promptSound": "Votre équipe ne fait strictement rien depuis trois semaines.",
-              "fr": "Voici les faits, dans l’ordre : trois demandes, deux relances, aucune réponse.",
-              "ipa": "/vwa.si le fɛ dɑ̃ lɔʁdʁ tʁwa də.mɑ̃d dø ʁə.lɑ̃s o.kyn ʁe.pɔ̃s/",
+              "fr": "Voici les faits, dans l’ordre : une demande, deux relances, aucune réponse.",
+              "ipa": "/vwa.si le fɛ dɑ̃ lɔʁdʁ yn də.mɑ̃d dø ʁə.lɑ̃s o.kyn ʁe.pɔ̃s/",
               "tip": "Des faits comptés plutôt qu’un jugement. EN: facts, not a verdict."
             },
             {
@@ -106008,8 +106038,8 @@
             {
               "promptLabel": "une relance sans date",
               "promptSound": "Je me permets de vous relancer, quand vous aurez un moment.",
-              "fr": "Faute de réponse d’ici jeudi, je devrai faire remonter le dossier.",
-              "ipa": "/fot də ʁe.pɔ̃s di.si ʒø.di ʒə də.vʁe fɛʁ ʁə.mɔ̃.te lə dɔ.sje/",
+              "fr": "Faute de réponse d’ici lundi, je devrai faire remonter le dossier.",
+              "ipa": "/fot də ʁe.pɔ̃s di.si lœ̃.di ʒə də.vʁe fɛʁ ʁə.mɔ̃.te lə dɔ.sje/",
               "tip": "La seconde relance donne une date et la suite. EN: a date and a next step."
             }
           ],
@@ -106023,7 +106053,7 @@
               "correct": 1
             },
             {
-              "promptSay": "… de réponse d’ici jeudi, je devrai faire remonter le dossier.",
+              "promptSay": "… de réponse d’ici lundi, je devrai faire remonter le dossier.",
               "opts": [
                 "Faute",
                 "Grâce"
@@ -106697,7 +106727,7 @@
           "questionsInModal": true,
           "title": "Les mots qui divisent",
           "frSub": "Une note de la directrice",
-          "text": "Note d’Isabelle Thériault à toute l’équipe d’Ardisque, à Québec et à Nantes. Objet : les mots qui divisent. Plusieurs d’entre vous m’ont demandé si l’on peut écrire « impacter » ou « booker » à un client. Voici une réponse en trois temps : ce que disent les ouvrages de référence, ce que fait l’usage, et ce que nous choisissons. « Impacter » : l’Académie française le condamne et l’Office québécois de la langue française le déconseille ; le Larousse l’enregistre, avec la marque « familier ». Dans un courriel à un client, écrivons « avoir une incidence sur », « toucher » ou « se répercuter sur ». « Initier » au sens de commencer : l’Académie et l’Office le déconseillent, alors que le Larousse l’admet. Nous écrirons « lancer », « entamer », « prendre l’initiative de ». « Booker » : l’Office le déconseille ; on réserve une salle, on prend rendez-vous, on engage un artiste. « Un call » : le Larousse ne l’enregistre pas, et l’Office n’en traite pas ; nous disons un appel, une réunion téléphonique ou une visioconférence. « Je reviens vers vous » : très répandu dans les bureaux en France, il est jugé incorrect par l’Académie, qui y voit une traduction hasardeuse de « I’ll get back to you » ; préférons « je reprends contact avec vous » ou « je vous donne des nouvelles ». Deux cas montrent que les autorités ne disent pas toujours la même chose. « Acter » : l’Académie veut le limiter au vocabulaire juridique, alors que l’Office l’accepte au sens de « prendre acte de », comme terme d’administration et de droit. « Faire escalader un problème » : l’Office l’accepte en gestion, à côté de « faire monter un dossier ». Ma règle tient en deux phrases. À l’oral, entre nous, je ne corrige personne. À l’écrit, devant un client, prenons le mot que personne ne conteste.",
+          "text": "Note d’Isabelle Thériault à toute l’équipe d’Ardisque, à Québec et à Nantes. Objet : les mots qui divisent. Plusieurs d’entre vous m’ont demandé si l’on peut écrire « impacter » ou « booker » à un client. Voici une réponse en trois temps : ce que disent les ouvrages de référence, ce que fait l’usage, et ce que nous choisissons. « Impacter » : l’Académie française le condamne et l’Office québécois de la langue française le déconseille ; le Larousse l’enregistre, avec la marque « familier ». Dans un courriel à un client, écrivons « avoir une incidence sur », « toucher » ou « se répercuter sur ». « Initier » au sens de commencer : l’Académie et l’Office le déconseillent, alors que le Larousse l’admet. Nous écrirons « lancer », « entamer », « prendre l’initiative de ». « Booker » : l’Office le déconseille, et l’Académie écarte « être booké » ; on réserve une salle, on prend rendez-vous, on engage un artiste. « Un call » : le Larousse ne l’enregistre pas ; l’Office ne lui consacre pas d’article, mais il déconseille déjà « appel conférence » et propose « réunion téléphonique » ; nous disons un appel, une réunion téléphonique ou une visioconférence. « Je reviens vers vous » : très répandu dans les bureaux en France, il est jugé incorrect par l’Académie, qui y voit une traduction hasardeuse de « I’ll get back to you » ; préférons « je reprends contact avec vous » ou « je vous donne des nouvelles ». Deux cas montrent que les autorités ne disent pas toujours la même chose. « Acter » : l’Académie veut le limiter au vocabulaire juridique, alors que l’Office l’accepte au sens de « prendre acte de », comme terme d’administration et de droit. « Faire escalader un problème » : l’Office l’accepte en gestion, à côté de « faire monter un dossier ». Ma règle tient en deux phrases. À l’oral, entre nous, je ne corrige personne. À l’écrit, devant un client, prenons le mot que personne ne conteste.",
           "glossary": [
             {
               "word": "condamne",
@@ -106819,7 +106849,7 @@
               "say": "Je vous propose une réunion téléphonique de vingt minutes.",
               "detail": {
                 "title": "Un call",
-                "body": "Le Larousse ne l’enregistre pas et l’Office n’en traite pas. Le français a ses mots : un appel, une réunion téléphonique, une visioconférence. EN: not in Larousse; use appel.",
+                "body": "Le Larousse ne l’enregistre pas ; l’Office ne lui consacre pas d’article, mais il déconseille « appel conférence » et propose « réunion téléphonique ». Le français a ses mots : un appel, une réunion téléphonique, une visioconférence. EN: not in Larousse; use appel.",
                 "say": "Je vous propose une réunion téléphonique de vingt minutes."
               }
             },
@@ -106901,7 +106931,7 @@
               "promptSound": "Nous avons acté votre décision.",
               "fr": "Nous avons pris acte de votre décision.",
               "ipa": "/nu.za.vɔ̃ pʁi akt də vɔtʁ de.si.zjɔ̃/",
-              "tip": "Prendre acte de : accepté par tous. EN: take note of."
+              "tip": "L’Office admet « acter » en ce sens, l’Académie le réserve au droit : « prendre acte de » ne fâche personne. EN: the authorities differ; take note of is safe."
             }
           ],
           "drill": [
@@ -108732,8 +108762,8 @@
             "Quant à…, il ne nous est pas possible de…",
             "En revanche, …"
           ],
-          "modelAnswer": "Objet : report du transfert de vos abonnés et billetterie du festival. Madame Bouchard, je vous écris au sujet de deux points, en commençant par le plus urgent. Le transfert de votre fichier d’abonnés, prévu le 1er mars, est reporté au 15 mars. L’export fourni par votre ancien logiciel est incomplet : l’historique de 2019 à 2021 manque. Nous aurions dû tester cet export plus tôt, et nous avons sous-estimé le temps de vérification ; ce retard nous revient. Concrètement, votre campagne de réabonnement, prévue le 5 mars, devra soit commencer sur votre système actuel, soit être décalée d’une dizaine de jours. Je sais que cette campagne compte beaucoup pour votre saison, et je mesure la gêne que ce report vous cause. Afin de la limiter, une personne de notre équipe aidera la vôtre à vérifier les fiches la semaine du 8 mars, et nous vous offrons une séance de formation supplémentaire. Je vous enverrai un point d’étape écrit chaque lundi jusqu’au transfert. Quant à la billetterie de votre festival d’été, il ne nous est pas possible de l’ajouter sans frais : cette fonction ne fait pas partie de votre contrat. En revanche, deux solutions s’offrent à vous. Le module « Événements extérieurs », qui gère les places debout et les bracelets, peut être installé dès avril pour 1 200 $ ; il serait prêt bien avant juillet. Il sera aussi inclus sans frais dans notre version standard de septembre, mais trop tard pour cette édition du festival. Je comprends que ces deux réponses ne soient pas celles que vous espériez. Je vous propose un appel jeudi ou vendredi pour choisir ensemble le scénario de votre campagne et, si vous le souhaitez, pour parler du festival. Je reste joignable toute la semaine. Je vous prie d’agréer, Madame Bouchard, mes salutations distinguées. Chargé de compte, Ardisque.",
-          "modelAnswerEn": "Subject: postponed transfer of your subscribers and festival ticketing. Dear Ms Bouchard, I am writing about two points, starting with the most urgent. The transfer of your subscriber file, planned for 1 March, is postponed to 15 March. The export provided by your old software is incomplete: the history from 2019 to 2021 is missing. We should have tested this export sooner, and we underestimated the time needed to check it; this delay is our responsibility. In practical terms, your renewal campaign, planned for 5 March, will either have to start on your current system or be moved back by about ten days. I know how much this campaign matters for your season, and I appreciate the inconvenience this postponement causes you. To limit it, a member of our team will help yours check the records in the week of 8 March, and we are offering you an extra training session. I will send you a written progress update every Monday until the transfer. As for the ticketing for your summer festival, it is not possible for us to add it free of charge: this feature is not part of your contract. On the other hand, two solutions are open to you. The « Outdoor events » module, which handles standing places and wristbands, can be installed from April for $1,200; it would be ready well before July. It will also be included free of charge in our standard September release, but too late for this year’s festival. I understand that these two answers are not the ones you were hoping for. I suggest a call on Thursday or Friday to choose the scenario for your campaign together and, if you wish, to talk about the festival. I remain reachable all week. Yours sincerely, Account manager, Ardisque.",
+          "modelAnswer": "Objet : report du transfert de vos abonnés et billetterie du festival. Madame Bouchard, je vous écris au sujet de deux points, en commençant par le plus urgent. Le transfert de votre fichier d’abonnés, prévu le 1er mars, est reporté au 15 mars. L’export fourni par votre ancien logiciel est incomplet : l’historique de 2019 à 2021 manque. Nous aurions dû tester cet export plus tôt, et nous avons sous-estimé le temps de vérification ; ce retard nous revient. Concrètement, votre campagne de réabonnement, prévue le 5 mars, devra soit commencer sur votre système actuel, soit être décalée. Je sais que cette campagne compte beaucoup pour votre saison, et je mesure la gêne que ce report vous cause. Afin de la limiter, une personne de notre équipe aidera la vôtre à vérifier les fiches la semaine du 8 mars, et nous vous offrons une séance de formation supplémentaire. Je vous enverrai un point d’étape écrit chaque lundi jusqu’au transfert. Quant à la billetterie de votre festival d’été, il ne nous est pas possible de l’ajouter sans frais : cette fonction ne fait pas partie de votre contrat. En revanche, deux solutions s’offrent à vous. Le module « Événements extérieurs », qui gère les places debout et les bracelets, peut être installé dès avril pour 1 200 $ ; il serait prêt bien avant juillet. Il sera aussi inclus sans frais dans notre version standard de septembre, mais trop tard pour cette édition du festival. Je comprends que ces deux réponses ne soient pas celles que vous espériez. Je vous propose un appel jeudi ou vendredi pour choisir ensemble le scénario de votre campagne et, si vous le souhaitez, pour parler du festival. Je reste joignable toute la semaine. Je vous prie d’agréer, Madame Bouchard, mes salutations distinguées. Chargé de compte, Ardisque.",
+          "modelAnswerEn": "Subject: postponed transfer of your subscribers and festival ticketing. Dear Ms Bouchard, I am writing about two points, starting with the most urgent. The transfer of your subscriber file, planned for 1 March, is postponed to 15 March. The export provided by your old software is incomplete: the history from 2019 to 2021 is missing. We should have tested this export sooner, and we underestimated the time needed to check it; this delay is our responsibility. In practical terms, your renewal campaign, planned for 5 March, will either have to start on your current system or be moved back. I know how much this campaign matters for your season, and I appreciate the inconvenience this postponement causes you. To limit it, a member of our team will help yours check the records in the week of 8 March, and we are offering you an extra training session. I will send you a written progress update every Monday until the transfer. As for the ticketing for your summer festival, it is not possible for us to add it free of charge: this feature is not part of your contract. On the other hand, two solutions are open to you. The « Outdoor events » module, which handles standing places and wristbands, can be installed from April for $1,200; it would be ready well before July. It will also be included free of charge in our standard September release, but too late for this year’s festival. I understand that these two answers are not the ones you were hoping for. I suggest a call on Thursday or Friday to choose the scenario for your campaign together and, if you wish, to talk about the festival. I remain reachable all week. Yours sincerely, Account manager, Ardisque.",
           "watchFor": [
             {
               "pattern": "The delay is placed late in the email, after pleasantries or after the refusal, or presented as a detail.",
@@ -109193,7 +109223,12 @@
                   "prompt": "Un refus clair n’a pas besoin d’être … .",
                   "answer": "sec",
                   "accept": [
-                    "sec"
+                    "sec",
+                    "brutal",
+                    "dur",
+                    "blessant",
+                    "cassant",
+                    "froid"
                   ],
                   "why": "Clair et courtois à la fois. EN: curt.",
                   "ref": "a1-check"
@@ -109201,13 +109236,13 @@
                 {
                   "format": "errorSpot",
                   "q": "Un mot ou une forme ne va pas. Écris la phrase correcte. EN: One word or form is wrong; write the sentence correctly.",
-                  "prompt": "Je réponds toujours à chaud à un courriel qui m’agace.",
+                  "prompt": "Je ne réponds jamais à chaud à un courriel qui m’agacent.",
                   "answer": "Je ne réponds jamais à chaud à un courriel qui m’agace.",
                   "accept": [
                     "Je ne réponds jamais à chaud à un courriel qui m’agace.",
                     "Je ne réponds jamais à chaud à un courriel qui m’agace"
                   ],
-                  "why": "À chaud, on écrit ce qu’on regrette. EN: never in the heat of the moment.",
+                  "why": "Le sujet de « agacer » est « qui », mis pour « un courriel » : singulier. EN: the verb agrees with its antecedent.",
                   "ref": "a1-usages"
                 },
                 {
@@ -109374,7 +109409,8 @@
                   "prompt": "Il ne nous est pas … d’ajouter cette fonction dans le cadre du contrat actuel.",
                   "answer": "possible",
                   "accept": [
-                    "possible"
+                    "possible",
+                    "permis"
                   ],
                   "why": "Le non impersonnel. EN: possible.",
                   "ref": "a3-gestes"
@@ -109464,7 +109500,7 @@
                   "opts": [
                     "trois excuses de plus",
                     "le nom d’un coupable",
-                    "ce que tu fais et quand tu reviens"
+                    "ce que tu fais et quand tu donnes des nouvelles"
                   ],
                   "correct": 2,
                   "why": "Un plan, une date. EN: plan and date.",
@@ -109500,7 +109536,9 @@
                   "prompt": "… , votre billetterie actuelle restera en service deux semaines de plus.",
                   "answer": "Concrètement",
                   "accept": [
-                    "Concrètement"
+                    "Concrètement",
+                    "Entre-temps",
+                    "Ainsi"
                   ],
                   "why": "Le mot qui annonce l’impact pour le lecteur. EN: in practical terms.",
                   "ref": "a4-exemples"
@@ -109591,7 +109629,11 @@
                   "prompt": "En l’état, mon équipe ne peut pas … ce projet en plus du reste.",
                   "answer": "absorber",
                   "accept": [
-                    "absorber"
+                    "absorber",
+                    "assumer",
+                    "prendre",
+                    "gérer",
+                    "accepter"
                   ],
                   "why": "Absorber : prendre en charge en plus. EN: absorb.",
                   "ref": "a5-lecture"
@@ -109683,7 +109725,10 @@
                   "prompt": "Je me permets de vous … au sujet de ma demande du 3 octobre.",
                   "answer": "relancer",
                   "accept": [
-                    "relancer"
+                    "relancer",
+                    "écrire",
+                    "réécrire",
+                    "recontacter"
                   ],
                   "why": "Relancer : rappeler une demande restée sans réponse. EN: follow up.",
                   "ref": "a6-etapes"
@@ -109691,11 +109736,10 @@
                 {
                   "format": "typeIn",
                   "q": "Complète. Un mot.",
-                  "prompt": "… de réponse d’ici jeudi, je devrai faire remonter le dossier.",
+                  "prompt": "… de réponse d’ici lundi, je devrai faire remonter le dossier.",
                   "answer": "Faute",
                   "accept": [
-                    "Faute",
-                    "Sans"
+                    "Faute"
                   ],
                   "why": "Faute de : en l’absence de. EN: failing.",
                   "ref": "a6-lecture"
@@ -109706,7 +109750,8 @@
                   "prompt": "Je souhaite porter à votre … un blocage qui dure depuis trois semaines.",
                   "answer": "attention",
                   "accept": [
-                    "attention"
+                    "attention",
+                    "connaissance"
                   ],
                   "why": "Porter à l’attention de quelqu’un. EN: attention.",
                   "ref": "a6-etapes"
@@ -109714,14 +109759,14 @@
                 {
                   "format": "errorSpot",
                   "q": "Un mot fait de cette phrase un reproche ou une gifle. Supprime-le ou remplace-le et écris la phrase. EN: One word turns this sentence into a reproach or a slap; remove or replace it.",
-                  "prompt": "Je mets Stéphane Morin en copie, par souci de transparence, mais sans le prévenir.",
-                  "answer": "Je mets Stéphane Morin en copie, par souci de transparence.",
+                  "prompt": "Je souhaite porter à votre attention un énième blocage qui dure depuis trois semaines.",
+                  "answer": "Je souhaite porter à votre attention un blocage qui dure depuis trois semaines.",
                   "accept": [
-                    "Je mets Stéphane Morin en copie, par souci de transparence.",
-                    "Je mets Stéphane Morin en copie par souci de transparence."
+                    "Je souhaite porter à votre attention un blocage qui dure depuis trois semaines.",
+                    "Je souhaite porter à votre attention un blocage qui dure depuis trois semaines"
                   ],
-                  "why": "La transparence suppose qu’il soit prévenu. EN: no hidden escalation.",
-                  "ref": "a6-piege"
+                  "why": "« Énième » transforme le fait en reproche : l’escalade présente un problème, pas une plainte. EN: « énième » turns a fact into a reproach.",
+                  "ref": "a6-etapes"
                 },
                 {
                   "format": "listenChoose",
@@ -109787,7 +109832,8 @@
                   "prompt": "Je vous renvoie le fichier, au cas où le premier envoi se serait … .",
                   "answer": "perdu",
                   "accept": [
-                    "perdu"
+                    "perdu",
+                    "égaré"
                   ],
                   "why": "La version neutre : personne n’a tort. EN: lost.",
                   "ref": "a7-traduire"
@@ -109888,7 +109934,10 @@
                   "prompt": "Ce report a une … sur votre calendrier.",
                   "answer": "incidence",
                   "accept": [
-                    "incidence"
+                    "incidence",
+                    "répercussion",
+                    "conséquence",
+                    "influence"
                   ],
                   "why": "Avoir une incidence sur, au lieu d’« impacter ». EN: effect.",
                   "ref": "a8-piege"
@@ -109900,7 +109949,8 @@
                   "answer": "réservé",
                   "accept": [
                     "réservé",
-                    "retenu"
+                    "retenu",
+                    "loué"
                   ],
                   "why": "Réserver, au lieu de « booker ». EN: booked.",
                   "ref": "a8-piege"
@@ -110016,7 +110066,8 @@
                   "prompt": "Pour un premier échange officiel, je garde la formule … .",
                   "answer": "longue",
                   "accept": [
-                    "longue"
+                    "longue",
+                    "complète"
                   ],
                   "why": "L’Office la juge tout à fait acceptable. EN: long.",
                   "ref": "a9-trier"
@@ -110095,7 +110146,9 @@
                   "prompt": "Le titre d’une diapositive dit ce qu’il faut en … .",
                   "answer": "retenir",
                   "accept": [
-                    "retenir"
+                    "retenir",
+                    "comprendre",
+                    "conclure"
                   ],
                   "why": "La conclusion, en titre. EN: remember.",
                   "ref": "a10-titres"
@@ -110106,7 +110159,8 @@
                   "prompt": "Je ne lis pas mes diapositives : je les … .",
                   "answer": "commente",
                   "accept": [
-                    "commente"
+                    "commente",
+                    "explique"
                   ],
                   "why": "Le public lit plus vite que toi. EN: comment.",
                   "ref": "a10-piege"
@@ -110117,7 +110171,8 @@
                   "prompt": "J’en … au point qui vous concerne directement : la prévente.",
                   "answer": "viens",
                   "accept": [
-                    "viens"
+                    "viens",
+                    "arrive"
                   ],
                   "why": "En venir à : aborder. EN: come to.",
                   "ref": "a10-titres"
@@ -110198,7 +110253,8 @@
                   "answer": "seconde",
                   "accept": [
                     "seconde",
-                    "deuxième"
+                    "deuxième",
+                    "première"
                   ],
                   "why": "Découper la question piège. EN: second.",
                   "ref": "a11-cartes"
@@ -110220,7 +110276,8 @@
                   "prompt": "Ce point … du contrat ; je vous propose qu’on l’examine après la séance.",
                   "answer": "relève",
                   "accept": [
-                    "relève"
+                    "relève",
+                    "dépend"
                   ],
                   "why": "Relever de : appartenir à un domaine. EN: falls under.",
                   "ref": "a11-cartes"
@@ -110295,7 +110352,7 @@
             {
               "front": "transmettre un problème au niveau supérieur",
               "back": "faire remonter un dossier",
-              "say": "Faute de réponse d’ici jeudi, je devrai faire remonter le dossier."
+              "say": "Faute de réponse d’ici lundi, je devrai faire remonter le dossier."
             },
             {
               "front": "au lieu d’« impacter », à l’écrit soigné",
@@ -143981,10 +144038,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "rhetorique",
-      "fr": "Je ne peindrai pas la joie des vainqueurs : vous l’imaginez sans moi.",
-      "en": "I will not paint the victors’ joy: you can imagine it without me.",
-      "ipa": "/ʒə nə pɛ̃.dʁe pa la ʒwa de vɛ̃.kœʁ vu li.ma.ʒi.ne sɑ̃ mwa/",
-      "respell": "zhuh nuh pehⁿ-dray pa la ZHWA day vehⁿ-KUHR | voo lee-ma-zhee-NAY sahⁿ MWA",
+      "fr": "Je ne peindrai pas la joie des vainqueurs, leurs chants, leurs verres levés sur les ruines.",
+      "en": "I will not paint the victors’ joy, their songs, their glasses raised over the ruins.",
+      "ipa": "/ʒə nə pɛ̃.dʁe pa la ʒwa de vɛ̃.kœʁ lœʁ ʃɑ̃ lœʁ vɛʁ lə.ve syʁ le ʁɥin/",
+      "respell": "zhuh nuh pehⁿ-dray pa la ZHWA day vehⁿ-KUHR | luhr SHAHⁿ | luhr VEHR luh-VAY | sür lay RWEENN",
       "tags": [
         "exemple",
         "preterition"
@@ -144374,10 +144431,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "rhetorique",
-      "fr": "L’antithèse oppose ; le chiasme oppose en croisant.",
-      "en": "Antithesis opposes; chiasmus opposes by crossing.",
-      "ipa": "/lɑ̃.ti.tɛz ɔ.pɔz lə ki.asm ɔ.pɔ.zɑ̃ kʁwa.zɑ̃/",
-      "respell": "lahⁿ-tee-TEZ o-POHZ | luh kee-ASM o-po-ZAHⁿ krwa-ZAHⁿ",
+      "fr": "L’antithèse oppose ; le chiasme croise, souvent pour opposer.",
+      "en": "Antithesis opposes; chiasmus crosses, often in order to oppose.",
+      "ipa": "/lɑ̃.ti.tɛz ɔ.pɔz lə ki.asm kʁwaz su.vɑ̃ puʁ ɔ.pɔ.ze/",
+      "respell": "lahⁿ-tee-TEZ o-POHZ | luh kee-ASM KRWAZ | soo-vahⁿ poor o-po-ZAY",
       "tags": [
         "regle",
         "distinction"
@@ -144921,10 +144978,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "rhetorique",
-      "fr": "Elle rentrait par une rue fatiguée.",
-      "en": "She was walking home along a tired street.",
-      "ipa": "/ɛl ʁɑ̃.tʁɛ paʁ yn ʁy fa.ti.ɡe/",
-      "respell": "ehl rahⁿ-TREH | par ün RÜ fa-tee-GAY",
+      "fr": "Il buvait un café distrait.",
+      "en": "He was drinking an absent-minded coffee.",
+      "ipa": "/il by.vɛ œ̃ ka.fe dis.tʁɛ/",
+      "respell": "eel bü-VEH | uhⁿ ka-FAY dees-TREH",
       "tags": [
         "exemple",
         "hypallage"
@@ -145309,10 +145366,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "rhetorique",
-      "fr": "La métonymie suit des liens réels : le lieu, l’auteur, la matière, l’objet.",
-      "en": "Metonymy follows real links: the place, the author, the material, the object.",
-      "ipa": "/la me.tɔ.ni.mi sɥi de ljɛ̃ ʁe.ɛl lə ljø lo.tœʁ la ma.tjɛʁ lɔb.ʒɛ/",
-      "respell": "la may-to-nee-MEE swee day lyehⁿ ray-EL | luh LYEU | loh-TUHR | la ma-TYEHR | lob-ZHEH",
+      "fr": "La métonymie suit des liens réels : le lieu, l’auteur, le contenant, l’objet.",
+      "en": "Metonymy follows real links: the place, the author, the container, the object.",
+      "ipa": "/la me.tɔ.ni.mi sɥi de ljɛ̃ ʁe.ɛl lə ljø lo.tœʁ lə kɔ̃t.nɑ̃ lɔb.ʒɛ/",
+      "respell": "la may-to-nee-MEE swee day lyehⁿ ray-EL | luh LYEU | loh-TUHR | luh kohⁿt-NAHⁿ | lob-ZHEH",
       "tags": [
         "regle",
         "metonymie"
@@ -145357,7 +145414,7 @@
       "level": "c1",
       "theme": "rhetorique",
       "fr": "Le son [s], cinq fois répété, fait entendre le sifflement.",
-      "en": "The [s] sound, repeated six times, makes you hear the hissing.",
+      "en": "The [s] sound, repeated five times, makes you hear the hissing.",
       "ipa": "/lə sɔ̃ ɛs sɛ̃k fwa ʁe.pe.te fɛ.tɑ̃.tɑ̃dʁ lə si.flə.mɑ̃/",
       "respell": "luh SOHⁿ ESS | sehⁿk FWA ray-pay-TAY | feh-tahⁿ-TAHⁿDR luh see-fluh-MAHⁿ",
       "tags": [
@@ -145395,8 +145452,8 @@
         "figures-effet"
       ],
       "cardType": "grammar",
-      "prompt": "Dans « Les sanglots longs des violons », qu’est-ce qui revient ?",
-      "notes": "Le son [ɔ̃], une voyelle : c’est une assonance. L’allitération répète une consonne ; l’assonance, une voyelle."
+      "prompt": "Dans « Les sanglots longs des violons », quelle voyelle revient ?",
+      "notes": "Le son [ɔ̃] de « longs » et « violons » : c’est une assonance. L’allitération répète une consonne ; l’assonance, une voyelle."
     },
     {
       "id": "fr.c1.rhetorique.1295",
@@ -146021,7 +146078,7 @@
       "level": "c1",
       "theme": "rhetorique",
       "fr": "Le rejet fait déborder la phrase sur le vers suivant et met un mot en relief.",
-      "en": "Enjambment spills the sentence onto the next line and throws one word into relief.",
+      "en": "A rejet carries the sentence over onto the next line and throws one word into relief.",
       "ipa": "/lə ʁə.ʒɛ fɛ de.bɔʁ.de la fʁaz syʁ lə vɛʁ sɥi.vɑ̃ e mɛ œ̃ mo ɑ̃ ʁə.ljɛf/",
       "respell": "luh ruh-ZHEH feh day-bor-DAY la FRAHZ | sür luh vehr swee-VAHⁿ | ay meh uhⁿ MOH ahⁿ ruh-LYEF",
       "tags": [
@@ -147000,7 +147057,7 @@
       "level": "c1",
       "theme": "langue-soignee",
       "fr": "Il se pourrait que la météo ait faussé les chiffres.",
-      "en": "It is possible that the weather may perhaps have skewed the figures.",
+      "en": "It is possible that the weather may have skewed the figures.",
       "ipa": "/il sə pu.ʁɛ kə la me.te.o ɛ fo.se le ʃifʁ/",
       "respell": "eel suh poo-REH | kuh la may-tay-OH | eh foh-SAY lay SHEEFR",
       "tags": [
@@ -147069,7 +147126,7 @@
       "level": "c1",
       "theme": "langue-soignee",
       "fr": "Ces chiffres ne permettent pas de conclure.",
-      "en": "These figures are, at best, inconclusive.",
+      "en": "These figures are inconclusive.",
       "ipa": "/se ʃifʁ nə pɛʁ.mɛt pa də kɔ̃.klyʁ/",
       "respell": "say SHEEFR | nuh pehr-MET PA | duh kohⁿ-KLÜR",
       "tags": [
@@ -147091,7 +147148,7 @@
       "level": "c1",
       "theme": "langue-soignee",
       "fr": "L’étude ne prouve rien ; elle ouvre une piste.",
-      "en": "The study proves nothing; it points to a lead.",
+      "en": "The study proves nothing; it opens up a line of inquiry.",
       "ipa": "/le.tyd nə pʁuv ʁjɛ̃ ɛl uvʁ yn pist/",
       "respell": "lay-TÜD nuh proov RYEHⁿ | el oovr ünn PEEST",
       "tags": [
@@ -147205,7 +147262,7 @@
       "level": "c1",
       "theme": "langue-soignee",
       "fr": "Pas mal du tout, ce premier bilan.",
-      "en": "Not bad at all, this first report.",
+      "en": "This first report is not bad at all.",
       "ipa": "/pa mal dy tu sə pʁə.mje bi.lɑ̃/",
       "respell": "pa MAL dü TOO | suh pruh-myay bee-LAHⁿ",
       "tags": [
@@ -147456,7 +147513,7 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "langue-soignee",
-      "fr": "Et quand elle se dit pas entièrement convaincue, elle refuse, poliment.",
+      "fr": "Et quand elle se dit « pas entièrement convaincue », elle refuse, poliment.",
       "en": "And when she says she is not entirely convinced, she is saying no, politely.",
       "ipa": "/e kɑ̃.tɛl sə di pa.zɑ̃.tjɛʁ.mɑ̃ kɔ̃.vɛ̃.ky ɛl ʁə.fyz pɔ.li.mɑ̃/",
       "respell": "ay kahⁿ-tel suh DEE | pa-zahⁿ-tyehr-MAHⁿ kohⁿ-vehⁿ-KÜ | el ruh-FÜZ | po-lee-MAHⁿ",
@@ -147937,10 +147994,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "langue-soignee",
-      "fr": "Les ventes ont baissé dès que les prix ont augmenté.",
+      "fr": "Les prix ont augmenté, et les ventes ont donc baissé.",
       "en": "Prices went up; sales went down.",
-      "ipa": "/le vɑ̃t ɔ̃ be.se dɛ kə le pʁi ɔ̃.toɡ.mɑ̃.te/",
-      "respell": "lay VAHⁿT ohⁿ beh-SAY | deh kuh lay PREE | ohⁿ-tog-mahⁿ-TAY",
+      "ipa": "/le pʁi ɔ̃.toɡ.mɑ̃.te e le vɑ̃t ɔ̃ dɔ̃k be.se/",
+      "respell": "lay PREE | ohⁿ-tog-mahⁿ-TAY | ay lay VAHⁿT | ohⁿ dohⁿk beh-SAY",
       "tags": [
         "expliciter",
         "lien"
@@ -148305,7 +148362,7 @@
       "level": "c1",
       "theme": "langue-soignee",
       "fr": "Le coût serait de l’ordre de deux millions.",
-      "en": "The ballpark figure is two million.",
+      "en": "The cost would be in the ballpark of two million.",
       "ipa": "/lə ku sə.ʁɛ də lɔʁdʁ də dø mi.ljɔ̃/",
       "respell": "luh KOO suh-REH | duh LORDR | duh deu mee-LYOHⁿ",
       "tags": [
@@ -149025,7 +149082,7 @@
       ],
       "cardType": "grammar",
       "prompt": "« Street trees reduce the urban heat island effect. » Pour qui traduis-tu ?",
-      "notes": "Pour des urbanistes : « arbres d’alignement », « îlot de chaleur urbain ». Pour le grand public : « les arbres des rues rafraîchissent la ville ». Pour un compte jeunesse, tu peux tutoyer. Le fait ne change pas."
+      "notes": "Pour des urbanistes : « arbres d’alignement », « îlot de chaleur urbain ». Pour le grand public : « les arbres plantés le long des rues rafraîchissent la ville ». Pour un compte jeunesse, tu peux tutoyer. Le fait ne change pas."
     },
     {
       "id": "fr.c1.langue-soignee.2315",
@@ -150390,7 +150447,7 @@
       "level": "c1",
       "theme": "francais-professionnel-avance",
       "fr": "Je reste à votre disposition pour en parler de vive voix.",
-      "en": "I remain available to discuss it in person.",
+      "en": "I remain available to talk it over with you.",
       "ipa": "/ʒə ʁɛst a vɔtʁ dis.po.zi.sjɔ̃ puʁ ɑ̃ paʁ.le də viv vwa/",
       "respell": "zhuh REST a votr dees-po-zee-SYOHⁿ | poor ahⁿ par-LAY | duh veev VWA",
       "tags": [
@@ -150607,7 +150664,7 @@
       ],
       "cardType": "grammar",
       "prompt": "Tu dois annoncer un retard de deux semaines à un client. Où mets-tu la nouvelle, et que mets-tu autour ?",
-      "notes": "Dans les premières lignes, sans détour ; tu l’assumes, tu dis ce qu’elle change pour lui, puis ce que tu fais et quand tu reviens vers lui avec du neuf."
+      "notes": "Dans les premières lignes, sans détour ; tu l’assumes, tu dis ce qu’elle change pour lui, puis ce que tu fais et quand tu lui donnes des nouvelles."
     },
     {
       "id": "fr.c1.francais-professionnel-avance.1046",
@@ -151056,10 +151113,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "francais-professionnel-avance",
-      "fr": "Faute de réponse d’ici jeudi, je devrai faire remonter le dossier.",
-      "en": "Failing a reply by Thursday, I will have to escalate the matter.",
-      "ipa": "/fot də ʁe.pɔ̃s di.si ʒø.di ʒə də.vʁe fɛʁ ʁə.mɔ̃.te lə dɔ.sje/",
-      "respell": "foht duh ray-POHⁿSS | dee-see zheu-DEE | zhuh duh-VRAY | fehr ruh-mohⁿ-TAY luh do-SYAY",
+      "fr": "Faute de réponse d’ici lundi, je devrai faire remonter le dossier.",
+      "en": "Failing a reply by Monday, I will have to escalate the matter.",
+      "ipa": "/fot də ʁe.pɔ̃s di.si lœ̃.di ʒə də.vʁe fɛʁ ʁə.mɔ̃.te lə dɔ.sje/",
+      "respell": "foht duh ray-POHⁿSS | dee-see luhⁿ-DEE | zhuh duh-VRAY | fehr ruh-mohⁿ-TAY luh do-SYAY",
       "tags": [
         "relance",
         "remonter"
@@ -151125,10 +151182,10 @@
       "kind": "sentence",
       "level": "c1",
       "theme": "francais-professionnel-avance",
-      "fr": "Voici les faits, dans l’ordre : trois demandes, deux relances, aucune réponse.",
-      "en": "Here are the facts, in order: three requests, two follow-ups, no reply.",
-      "ipa": "/vwa.si le fɛ dɑ̃ lɔʁdʁ tʁwa də.mɑ̃d dø ʁə.lɑ̃s o.kyn ʁe.pɔ̃s/",
-      "respell": "vwa-SEE lay FEH | dahⁿ LORDR | trwa duh-MAHⁿD | deu ruh-LAHⁿSS | oh-künn ray-POHⁿSS",
+      "fr": "Voici les faits, dans l’ordre : une demande, deux relances, aucune réponse.",
+      "en": "Here are the facts, in order: one request, two follow-ups, no reply.",
+      "ipa": "/vwa.si le fɛ dɑ̃ lɔʁdʁ yn də.mɑ̃d dø ʁə.lɑ̃s o.kyn ʁe.pɔ̃s/",
+      "respell": "vwa-SEE lay FEH | dahⁿ LORDR | ünn duh-MAHⁿD | deu ruh-LAHⁿSS | oh-künn ray-POHⁿSS",
       "tags": [
         "faits"
       ],
@@ -151804,7 +151861,7 @@
       ],
       "cardType": "grammar",
       "prompt": "Ton collègue écrit « impacter » et « booker » dans un courriel au client. Il te dit : « tout le monde parle comme ça ». Que réponds-tu ?",
-      "notes": "Que l’usage existe, mais que l’Académie et l’Office québécois les déconseillent ; à l’écrit soigné et avec un lecteur qui y tient, prends le mot que personne ne conteste."
+      "notes": "Que l’usage existe, mais que l’Office québécois les déconseille tous les deux et que l’Académie condamne « impacter » ; à l’écrit soigné et avec un lecteur qui y tient, prends le mot que personne ne conteste."
     },
     {
       "id": "fr.c1.francais-professionnel-avance.1101",
