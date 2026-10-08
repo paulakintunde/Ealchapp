@@ -1127,3 +1127,6 @@ of the theme.
 - Paul chose "one paper first". DALF blanc-01 recorded: 19,021 characters, 3 documents + 54 examiner turns on R2, 4 clips reused.
 - Speech rates: Partie 1 about 160 wpm, sondage about 155, the news flash about 196 (above the 175 target). The examiner speaks at speed 0.85.
 - Waiting on Paul's listen before recording the other 6 (about 109,000 characters).
+- Paul: "sounds good". DALF 2-5 and most of TEF blanc-06 recorded (22 of 31 tasks, 230 clips). ElevenLabs then returned quota_exceeded (0 credits left).
+- Still to record (about 26,800 characters, list in scratch/_render_ids_left.txt): TCF blanc-06 co_mcq.001-006 + po_interaction.001, TEF blanc-06 co_mcq.007 + po_interaction.001. Re-running the same loop renders only what is missing.
+- Wave 6 art registered (762ab7e), ART_PENDING empty. The 4 TEF blanc-06 plates (hand-drawn by Paul) are uploaded to R2 at img/exam/tef/blanc-06/co-a-01..04.png, all four checked against their alt order.
