@@ -1151,8 +1151,7 @@ The 9 unrecorded tasks (TCF blanc-06 x7, TEF blanc-06 x2, scratch/_render_ids_le
   the script itself first: a blind `'` -> `’` would have doubled the closing mark
   on 6 bilingual `fr.sons.faux-amis.*` notes (`Not 'to realize'` -> `’to realize’`
   instead of `‘to realize’`); fixed with an opening/closing heuristic, pinned with
-  4 tests (802a3e4). Applied: 93 rows (c49b192... wait, typography is a separate
-  commit, see below). 93 rows updated in Postgres, re-run confirms 0 remaining.
+  4 tests (802a3e4). Applied: 93 rows updated in Postgres, re-run confirms 0 remaining.
   `b1-import.ts --band c1 <wave 4-6 slugs> --apply`: 1834 inserted, 12 units + 12
   lessons created, read back published and identical, 0 blockers. Merge:
   `b1-merge-into-seed.ts --band c1 <slugs>`: +12 units/lessons, +2038 items to the
