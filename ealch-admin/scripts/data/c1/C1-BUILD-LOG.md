@@ -1130,3 +1130,7 @@ of the theme.
 - Paul: "sounds good". DALF 2-5 and most of TEF blanc-06 recorded (22 of 31 tasks, 230 clips). ElevenLabs then returned quota_exceeded (0 credits left).
 - Still to record (about 26,800 characters, list in scratch/_render_ids_left.txt): TCF blanc-06 co_mcq.001-006 + po_interaction.001, TEF blanc-06 co_mcq.007 + po_interaction.001. Re-running the same loop renders only what is missing.
 - Wave 6 art registered (762ab7e), ART_PENDING empty. The 4 TEF blanc-06 plates (hand-drawn by Paul) are uploaded to R2 at img/exam/tef/blanc-06/co-a-01..04.png, all four checked against their alt order.
+
+## Decision 47 (Paul, 2026-10-07): finish the exam audio after the C2 lessons
+
+The 9 unrecorded tasks (TCF blanc-06 x7, TEF blanc-06 x2, scratch/_render_ids_left.txt) wait until the C2 lessons are done. Until then TEF and TCF blanc-06 stay in_review and are NOT promoted: a paper ships whole, audio included. DALF 1-5 are fully recorded and can ship with v87.
