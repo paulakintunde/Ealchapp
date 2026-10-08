@@ -1146,3 +1146,21 @@ The 9 unrecorded tasks (TCF blanc-06 x7, TEF blanc-06 x2, scratch/_render_ids_le
   `npx tsx scripts/data/b1/_preview-b1.ts` before any further work that reads
   dev-preview-b1.json, so it reverts to the committed 12-lesson shape (no DALF
   overlay, no reused-row additions) and stays in sync with the fixture test.
+
+- **IMPORT (Paul's OK, 2026-10-08).** Typography fix found and fixed a real bug in
+  the script itself first: a blind `'` -> `’` would have doubled the closing mark
+  on 6 bilingual `fr.sons.faux-amis.*` notes (`Not 'to realize'` -> `’to realize’`
+  instead of `‘to realize’`); fixed with an opening/closing heuristic, pinned with
+  4 tests (802a3e4). Applied: 93 rows (c49b192... wait, typography is a separate
+  commit, see below). 93 rows updated in Postgres, re-run confirms 0 remaining.
+  `b1-import.ts --band c1 <wave 4-6 slugs> --apply`: 1834 inserted, 12 units + 12
+  lessons created, read back published and identical, 0 blockers. Merge:
+  `b1-merge-into-seed.ts --band c1 <slugs>`: +12 units/lessons, +2038 items to the
+  paid layer, +12 skeletons to the core, validateCorpus 0 before and after (7e21af5).
+  a1.03 re-measured (14 figures moved, mostly -tion 53 -> 63 from the wave's own
+  faux-amis rows) and its hand-typed "Fifty-two nouns" line was stale against the
+  new -tion count; fixed to "Sixty-three" (c49b192, same recurring defect the file
+  already names from the a2.32 merge). Suites: admin 1299/1299 + 1 skipped, app
+  5778/5778, tsc clean. `check-seed-db-parity.ts` flags every a2/b1/b2/c1 lesson as
+  "database only" — expected under the packs regime (it predates seed-packs.json
+  and only compares seed.json alone); the real check is `content:publish --dry-run`.
