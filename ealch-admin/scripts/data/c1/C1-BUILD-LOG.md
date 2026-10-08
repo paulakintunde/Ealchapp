@@ -1163,3 +1163,16 @@ The 9 unrecorded tasks (TCF blanc-06 x7, TEF blanc-06 x2, scratch/_render_ids_le
   5778/5778, tsc clean. `check-seed-db-parity.ts` flags every a2/b1/b2/c1 lesson as
   "database only" — expected under the packs regime (it predates seed-packs.json
   and only compares seed.json alone); the real check is `content:publish --dry-run`.
+
+- **The 6 drifted wave 1-3 lessons, investigated and fixed (Paul's OK, 2026-10-08).**
+  Before touching anything: pulled each published body from Postgres and diffed it
+  against the current source, deep (key-order-blind), not the raw JSON.stringify
+  the import tool uses to flag the blocker. Every one of the 37 differing `fr`
+  fields across the 6 lessons was the SAME thing: a straight apostrophe in
+  Postgres, a curly one in source (confirmed with an apostrophe-insensitive
+  second pass: zero non-apostrophe differences). These lessons' own source files
+  had been through a typography cleanup after they were imported; the legacy-
+  typography script only reaches REFERENCED rows, not a lesson's own authored
+  content, so these never got carried. `--reapply`: 6 lessons updated, read back
+  identical, 0 blockers. Merged into the layer (6 replaced, 0 validateCorpus
+  issues). Suites: admin 1299/1299 + 1 skipped, app 5778/5778 (a671153).
