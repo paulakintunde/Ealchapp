@@ -1181,3 +1181,10 @@ The 9 unrecorded tasks (TCF blanc-06 x7, TEF blanc-06 x2, scratch/_render_ids_le
   dalf 1..5`: each flipped 9 tasks + 1 paper, reference graph checked (all 9 referenced
   tasks published for each paper), no strays. TEF and TCF blanc-06 stay `in_review`
   (decision 47: their audio is not finished).
+
+- **TEF and TCF blanc-06 audio finished early (Paul, 2026-10-08): credits topped up to
+  29,000, tested against the smallest task first (468 chars, succeeded), then the
+  remaining 8 (26,360 chars) recorded in one run, 0 errors. Supersedes the "wait for
+  C2" half of decision 47; both papers now have every clip on R2 (confirmed by a
+  second idempotent run: 0 rendered, all already up to date). Both still `in_review`;
+  not promoted yet.
