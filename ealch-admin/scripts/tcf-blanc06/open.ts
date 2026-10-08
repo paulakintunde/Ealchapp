@@ -576,12 +576,30 @@ export const EO_T3: ExamTask = {
     'sous l’influence de ses amis, a-t-il vraiment choisi ? Je ne le crois pas. ' +
     'Le protéger contre une décision qu’il n’aurait pas prise en connaissance de cause, ' +
     'ce n’est pas le priver de liberté, c’est plutôt lui en rendre les conditions.\n\n' +
+    'La troisième, c’est le coût pour autrui, qui n’est jamais tout à fait absent même d’un risque ' +
+    'qu’on dit personnel. L’âge minimum pour entrer dans un casino ou miser en ligne n’est pas seulement ' +
+    'là pour protéger le joueur de dix-sept ans contre lui-même : derrière un jeune endetté, ' +
+    'il y a souvent une famille qui finit par payer, un employeur qui perd un salarié fiable, ' +
+    'parfois une collectivité qui prend en charge les conséquences. Interdire l’accès avant un certain âge ' +
+    'revient à retarder un choix jusqu’au moment où la personne peut en mesurer le coût, ' +
+    'pour elle et pour les autres, et non à le lui refuser pour toujours.\n\n' +
     'On m’objectera, et l’objection est sérieuse, que ce raisonnement peut justifier presque tout. ' +
     'Qui décide qu’un choix n’est pas éclairé ? On risque de traiter les adultes comme des enfants ' +
-    'et de remplacer leur jugement par celui de l’administration. Je reconnais ce danger. ' +
+    'et de remplacer leur jugement par celui de l’administration. Prenons un exemple concret : ' +
+    'si l’on suit cette logique jusqu’au bout, pourquoi ne pas interdire aussi le sucre, l’alcool ' +
+    'ou les sports de montagne, qui causent chacun leur lot de drames évitables ? ' +
+    'Je reconnais ce danger, et c’est précisément pour l’éviter que je limite l’intervention ' +
+    'aux cas où l’irréversibilité est manifeste et où le consentement est le plus fragile, ' +
+    'l’adolescence ou la dépendance, et non à toute activité simplement risquée. ' +
     'C’est pourquoi je préfère, chaque fois que c’est possible, des mesures qui informent ou qui découragent ' +
     'plutôt que des interdictions. Une taxe sur le tabac laisse le fumeur libre de fumer ; ' +
     'elle lui rappelle seulement le coût de son choix, un coût que la collectivité supporte d’ailleurs en partie.\n\n' +
+    'Le casque de moto illustre bien cette logique. Là où son port est resté facultatif, ' +
+    'les services d’urgence rapportent davantage de traumatismes crâniens graves, souvent chez des conducteurs ' +
+    'jeunes qui n’avaient pas encore l’expérience pour évaluer le risque qu’ils prenaient. ' +
+    'Là où il est devenu obligatoire, ces blessures ont nettement reculé sans que la pratique de la moto, ' +
+    'elle, ait disparu. L’obligation n’a donc pas supprimé la liberté de rouler ; ' +
+    'elle a seulement retiré une option qui, dans les faits, ne profitait jamais à personne.\n\n' +
     'Il y a enfin une limite qu’on oublie souvent : la protection ne doit pas devenir une façon ' +
     'de culpabiliser les plus fragiles. Multiplier les règles sans offrir d’aide, ' +
     'c’est finir par punir ceux qui avaient déjà le moins de marge.\n\n' +

@@ -417,7 +417,7 @@ export const CE_B1: ExamTask = {
         '3. Attention : l’évaluation comparative ne donne pas le droit d’exercer une profession réglementée, ' +
         'comme infirmière ou ingénieur. Pour ces métiers, il faut s’adresser à l’ordre professionnel concerné, ' +
         'qui peut exiger un stage ou un examen.\n' +
-        '4. Les frais d’évaluation sont de cent vingt dollars. ' +
+        '4. Les frais d’évaluation sont de deux cent trente dollars. ' +
         'Ils ne sont pas remboursés si la demande est refusée ou abandonnée en cours de route.',
       items: [
         {
