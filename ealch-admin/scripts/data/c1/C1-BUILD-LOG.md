@@ -1176,3 +1176,8 @@ The 9 unrecorded tasks (TCF blanc-06 x7, TEF blanc-06 x2, scratch/_render_ids_le
   content, so these never got carried. `--reapply`: 6 lessons updated, read back
   identical, 0 blockers. Merged into the layer (6 replaced, 0 validateCorpus
   issues). Suites: admin 1299/1299 + 1 skipped, app 5778/5778 (a671153).
+
+- **DALF papers 1-5 promoted to published (Paul's OK, 2026-10-08).** `promote-paper.ts
+  dalf 1..5`: each flipped 9 tasks + 1 paper, reference graph checked (all 9 referenced
+  tasks published for each paper), no strays. TEF and TCF blanc-06 stay `in_review`
+  (decision 47: their audio is not finished).
