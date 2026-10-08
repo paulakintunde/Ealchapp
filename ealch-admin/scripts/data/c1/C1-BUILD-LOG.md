@@ -1134,3 +1134,15 @@ of the theme.
 ## Decision 47 (Paul, 2026-10-07): finish the exam audio after the C2 lessons
 
 The 9 unrecorded tasks (TCF blanc-06 x7, TEF blanc-06 x2, scratch/_render_ids_left.txt) wait until the C2 lessons are done. Until then TEF and TCF blanc-06 stay in_review and are NOT promoted: a paper ships whole, audio included. DALF 1-5 are fully recorded and can ship with v87.
+
+- **Gate C1-3 preview on the Pixel 9 (dev build, 2026-10-07).** Fixture: 12 lessons
+  (wave 4-6), 2511 items (473 from seed+packs, 204 from Postgres, 0 missing against
+  validateCorpus besides the pre-existing packs-layer gap on unrelated already-published
+  units), DALF blanc-01's 9 tasks + 1 paper read live from Postgres (status in_review,
+  so its rendered audioRefs are included). Debug APK (2026-09-30) replaced the release
+  build that was installed (data wipe, expected). Metro 8083 + manifest-cache proxy 8082,
+  both reversed. Bundle cold 106s / 3588 modules, no errors, app painted the welcome screen.
+- **GATE C1-3 PASSED (Paul, 2026-10-07): "good".** No changes. Restore
+  `npx tsx scripts/data/b1/_preview-b1.ts` before any further work that reads
+  dev-preview-b1.json, so it reverts to the committed 12-lesson shape (no DALF
+  overlay, no reused-row additions) and stays in sync with the fixture test.
