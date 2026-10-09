@@ -441,3 +441,56 @@ the matching `C2-RESEARCH-PLAN.md` section for full scope/sources/risks.
   pressure," not just correctness.
 - **Image prompts**: `c2-production-spontanee-image-prompts.md`, save paths
   under `ealch-v2/assets/lessons/c2-08-production-spontanee/actNN.jpg`.
+
+## Progress, continued
+
+- **2026-10-09, same day: wave 2 authored, pre-reviewed and device-proven.**
+  All four lessons landed clean on their FIRST pre-review pass (unlike wave
+  1, which had a real defect in 3 of 4 lessons) — c2.05 `c496f72`, c2.06
+  `b8bc324`, c2.07 `51938e1`, c2.08 `71c9b68`.
+  - **c2.05** « Étymologie et formation des mots »: 10 acts, 63 missions,
+    113 rows. The author had no web access and wrote every etymological
+    claim from training-data recall — flagged as the #1 risk. The
+    pre-reviewer DID have web access and independently verified every
+    claim against CNRTL/Wiktionary: all 8 Greek/Latin root-and-prefix
+    claims, all 7 populaire/savant doublets (hospitale, potionem,
+    captivus, legalis, directum, fragilis, auscultare), and all 3 corrected
+    folk etymologies (choucroute, contredanse, forcené) confirmed accurate.
+    Zero factual corrections needed — unusually clean for a no-verification
+    draft. One cosmetic nit (header said 64 missions, actual is 63) fixed
+    (`dade579`).
+  - **c2.06** « La médiation linguistique »: 8 acts, 44 missions, 67 rows,
+    three original specialist/plain-language text pairs (legal, medical,
+    scientific) written to sidestep any copyright question. Pre-review:
+    clean, confirmed the French-to-French distinction from c1.22's
+    language-to-language translation holds throughout, confirmed the
+    false-simplification trap (act 5) genuinely tests two different failure
+    modes, not one twice.
+  - **c2.07** « Traduire la poésie » (optional enrichment): 6 acts, 33
+    missions, 89 rows. Verlaine's "Chanson d'automne" and Rimbaud's
+    "Sensation", both independently re-fetched and verified word-for-word
+    by the pre-reviewer against Wikisource's own page exports — including
+    confirming Rimbaud's source genuinely carries an authentic em dash at
+    the claimed point, correctly kept out of all learner-facing code (only
+    in comments documenting the edit).
+  - **c2.08** « La production orale spontanée »: 8 acts, 40 missions, 119
+    rows. A 6-criterion, 20-point spontaneity rubric for the graded task;
+    pre-review judged it genuinely gradeable by an LLM grader (not a
+    deterministic one) and flagged that for whoever wires grading. Confirmed
+    c1.21 is never cited or re-taught (comment-only, as the brief required).
+
+  **Wave-2 dry run**: 8 lessons total (wave 1 + wave 2), wave 1's 574 rows
+  correctly read back as already published (skipped, not re-inserted),
+  wave 2's 388 new rows ready to insert, 0 blockers. `C2_SLUGS` now carries
+  all eight slugs. Dev preview fixture rebuilt (4 lessons, 32 acts, 388
+  items) and device-proven on the Pixel 9: Levels screen shows "Level C2 .
+  8 units"; three of the four wave-2 units (c2.06, c2.07, c2.08) directly
+  confirmed rendering with exact matching act titles; c2.05 confirmed via
+  the served bundle carrying its specific content strings (same rendering
+  path as the other three, already proven). This time Metro's file watcher
+  stayed live without a `--clear` restart (started without `CI=1`, unlike
+  wave 1's first pass) — still verified the served bundle directly rather
+  than trusting a fast fetch, per the standing rule.
+
+  **Not yet imported to Postgres or merged into seed.json** — wave 2 is
+  drafts only, gated on Paul's own device review, same pattern as wave 1.
