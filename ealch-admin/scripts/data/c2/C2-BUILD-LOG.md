@@ -225,5 +225,29 @@ reviews the preview build.
   a fresh 14-lesson list; `C2-BUILD-PLAN.md` and `C2-RESEARCH-PLAN.md` written
   (units, shapes, builds-on, wave plan, id homes probed read-only against live
   Postgres, one new theme proposed); wave 1's four author briefs written
-  above. Open for Paul: unit names, the id-home Postgres writes, go-ahead to
-  dispatch wave 1. No lesson authored yet; no Postgres write made yet.
+  above. Unit names and the id-home Postgres writes approved and applied
+  (litterature/expressions-imagees/argot-classique widened to c2, four
+  sub-themes appended, verified by read-back). c2.01 "Précision, nuance et
+  l'implicite" authored, pre-reviewed (one copy fix: an English "cue" had
+  leaked into French-facing glossary text), and device-proven on the Pixel 9
+  via `ealch://levels?from=home` -> pick C2: unit list, lesson header
+  (« C2 · LEÇON 01 »), all 8 acts and the graded task's missions all render
+  correctly, French/English paired, no banned characters. `C2_SLUGS` now
+  carries `precision-nuance`; dry run 1 lesson / 147 rows / 0 blockers.
+  Nothing imported to Postgres or merged into seed.json — still a draft.
+  c2.02-04 (rest of wave 1) wait on dispatch.
+
+  **Device-preview gotcha, worth repeating for every future wave:** Metro and
+  the manifest-cache proxy were already running, inherited from before this
+  session, and kept serving a bundle built BEFORE `dev-preview-b1.json` was
+  regenerated — stale for over an hour despite `adb reverse`, force-stops and
+  relaunches all looking normal. A fast bundle fetch (~1.5s for 31 MiB) was
+  the false "it's fine" signal; the real one was grepping the SERVED bundle
+  for a string unique to the new content (`grep -c "c2.01.l1"` etc.) and
+  finding nothing. Fix: kill Metro's and the proxy's process trees, restart
+  Metro with `--clear`, confirm `/status` answers before starting the proxy,
+  re-run `adb reverse` for both ports, then re-verify the SERVED bundle (not
+  just "fetched fast") before trusting anything seen on the phone. One more
+  trap hit along the way: `cmd.exe`'s `set VAR=1 && next` includes the space
+  before `&&` IN the value, so `getenv.boolish()` rejected `"1 "` — use
+  `set "VAR=1" && next` instead.
