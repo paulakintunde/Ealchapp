@@ -1076529,7 +1076529,7 @@
               "correct": 0
             },
             {
-              "q": "« Disons que… » fait quoi, précisément ?",
+              "q": "La deuxième phrase fait quoi, précisément ?",
               "why": "C’est une porte ouverte vers la réponse, pas un aveu. EN: it is a door opened toward the answer, not an admission.",
               "opts": [
                 "Admet que tu ne sais pas",
@@ -1076539,7 +1076539,7 @@
               "correct": 1
             },
             {
-              "q": "« Laissez-moi reformuler votre question » fait quoi ?",
+              "q": "La dernière des sept phrases fait quoi ?",
               "why": "Reformuler prend le contrôle du rythme sans jamais répéter mot pour mot. EN: rephrasing takes control of the pace without ever repeating word for word.",
               "opts": [
                 "Refuse de répondre",
@@ -1076558,7 +1076558,7 @@
               "correct": 0
             },
             {
-              "q": "« Je dirais même plus » annonce quoi ?",
+              "q": "La sixième phrase annonce quoi ?",
               "why": "Il prépare un renforcement de ce qui vient d’être dit. EN: it sets up a strengthening of what was just said.",
               "opts": [
                 "Que tu changes d’avis complètement",
