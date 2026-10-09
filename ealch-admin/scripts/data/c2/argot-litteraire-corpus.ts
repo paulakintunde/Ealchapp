@@ -309,7 +309,7 @@ const ACT1_ROWS: Row[] = [
   sent(1000, 'Le vieux Jules n’avait plus un pèze, et ça, toute la rue le savait.', 'Old Jules had no money left, and the whole street knew it.', ['extrait-ouverture', 'pastiche'], SR),
   sent(1001, 'Il y a sans doute une faute ; il faudrait écrire de l’argent.', 'There is probably a mistake; it should say money.', ['reflexe-correcteur', 'faux'], SR),
   sent(1002, 'L’auteur a choisi ce mot pour nous faire entendre comment Jules voit sa propre vie.', 'The author chose this word to let us hear how Jules sees his own life.', ['lecture-correcte']),
-  sent(1003, 'Le pèze, ici, n’est pas une erreur de registre : c’est la façon dont Jules pense sa propre pauvreté.', 'Le pèze here is not a register slip: it is how Jules himself thinks about his own poverty.', ['regle']),
+  sent(1003, 'Le pèze, ici, n’est pas une erreur de registre : c’est la façon dont Jules pense sa propre pauvreté.', 'Le pèze here is not a register slip: it is how Jules himself thinks about his own poverty.', ['regle'], SR),
   sent(1004, 'Un texte peut citer un mot que son propre registre général n’emploierait jamais.', 'A text can quote a word its own general register would never use itself.', ['regle']),
   sent(1005, `${Cap(B232_REF)} t’a appris à placer un mot d’argot sur une échelle, et à ne jamais l’employer là où il ne va pas.`, `The lesson in B2 taught you to place a slang word on a ladder, and never to use it where it does not belong.`, ['acquis']),
   sent(1006, 'Cette leçon part du même mot, déjà mal placé par quelqu’un d’autre, à dessein : pourquoi l’a-t-il mis là.', 'This lesson starts from the same word, already placed where it does not belong by someone else, on purpose: why did they put it there.', ['acquis']),
@@ -328,22 +328,22 @@ const ACT1_ROWS: Row[] = [
 
 const ACT2_ROWS: Row[] = [
   // Raison 1 : vraisemblance / la voix du personnage
-  sent(1014, '« Encore fauché, ce mois-ci, mon vieux », dit Jules : on entend l’homme, pas seulement le fait.', '"Broke again this month, old friend," says Jules: we hear the man, not only the fact.', ['raison-vraisemblance']),
+  sent(1014, '« Encore fauché, ce mois-ci, mon vieux », dit Jules : on entend l’homme, pas seulement le fait.', '"Broke again this month, old friend," says Jules: we hear the man, not only the fact.', ['raison-vraisemblance'], SR),
   phrase(1015, 'la vraisemblance', 'verisimilitude, believability', ['metalangage']),
   // Raison 2 : réalisme social
-  sent(1016, '« On becte quand même » situe Jules dans un milieu, une génération, un quartier, en trois mots.', '"We still eat anyway" places Jules in a milieu, a generation, a neighbourhood, in three words.', ['raison-realisme']),
+  sent(1016, '« On becte quand même » situe Jules dans un milieu, une génération, un quartier, en trois mots.', '"We still eat anyway" places Jules in a milieu, a generation, a neighbourhood, in three words.', ['raison-realisme'], SR),
   phrase(1017, 'le réalisme social', 'social realism', ['metalangage']),
   // Raison 3 : décalage ironique
-  sent(1018, 'Un élu cité en pleine réunion, « on est fauchés, messieurs », crée un contraste que la suite du texte ne referme jamais.', 'A councillor quoted mid-meeting, "we are broke, gentlemen," creates a contrast the rest of the text never closes.', ['raison-ironie']),
+  sent(1018, 'Un élu cité en pleine réunion, « on est fauchés, messieurs », crée un contraste que la suite du texte ne referme jamais.', 'A councillor quoted mid-meeting, "we are broke, gentlemen," creates a contrast the rest of the text never closes.', ['raison-ironie'], SR),
   phrase(1019, 'le décalage ironique', 'ironic contrast', ['metalangage']),
   // Raison 4 : économie de caractérisation
-  sent(1020, 'Un seul mot, costard, et le lecteur voit déjà l’homme, son âge, sa seule tenue correcte.', 'One single word, costard, and the reader already sees the man, his age, his one decent suit.', ['raison-economie']),
+  sent(1020, 'Un seul mot, costard, et le lecteur voit déjà l’homme, son âge, sa seule tenue correcte.', 'One single word, costard, and the reader already sees the man, his age, his one decent suit.', ['raison-economie'], SR),
   phrase(1021, 'l’économie de caractérisation', 'economy of characterisation', ['metalangage']),
   // Raison 5 : connivence avec le lecteur
-  sent(1022, '« Chouette, cette matinée », pense Jules : le mot familier invite le lecteur à partager son regard, pas à le juger.', '"Chouette, this morning," thinks Jules: the familiar word invites the reader to share his view, not to judge it.', ['raison-connivence']),
+  sent(1022, '« Chouette, cette matinée », pense Jules : le mot familier invite le lecteur à partager son regard, pas à le juger.', '"Chouette, this morning," thinks Jules: the familiar word invites the reader to share his view, not to judge it.', ['raison-connivence'], SR),
   phrase(1023, 'la connivence', 'complicity, shared understanding', ['metalangage']),
   // Raison 6 : distance narrative
-  sent(1024, 'En citant « la rousse » dans la bouche d’un personnage, le narrateur montre un point de vue sans jamais le cautionner lui-même.', 'By quoting "la rousse" in a character’s mouth, the narrator shows a point of view without ever endorsing it himself.', ['raison-distance']),
+  sent(1024, 'En citant « la rousse » dans la bouche d’un personnage, le narrateur montre un point de vue sans jamais le cautionner lui-même.', 'By quoting "la rousse" in a character’s mouth, the narrator shows a point of view without ever endorsing it himself.', ['raison-distance'], SR),
   phrase(1025, 'la distance narrative', 'narrative distance', ['metalangage']),
   // Support rows for the tapTable / groupDrill
   sent(1026, 'Le même fait, dit par le narrateur, perdrait tout ce que le mot de Jules lui donnait.', 'The same fact, said by the narrator, would lose everything Jules’s own word gave it.', ['regle']),
@@ -351,7 +351,7 @@ const ACT2_ROWS: Row[] = [
   phrase(1028, 'l’effet voulu', 'the intended effect', ['metalangage']),
   phrase(1029, 'l’intention de l’auteur', 'the author’s intent', ['metalangage']),
   sent(1030, 'Reconnaître la raison d’un choix n’efface jamais le registre réel du mot choisi.', 'Recognising the reason for a choice never erases the real register of the chosen word.', ['regle']),
-  sent(1031, 'Costard, chouette, pèze, fauché, becter, la rousse : six mots, un seul test à chaque fois, pourquoi ici.', 'Costard, chouette, pèze, fauché, becter, la rousse: six words, the same test every time, why here.', ['bilan']),
+  sent(1031, 'Costard, chouette, pèze, fauché, becter, la rousse : six mots, un seul test à chaque fois, pourquoi ici.', 'Costard, chouette, pèze, fauché, becter, la rousse: six words, the same test every time, why here.', ['bilan'], SR),
   sent(1032, 'Un roman peut faire parler un personnage comme la rue le fait vraiment parler, sans que le narrateur parle ainsi lui-même.', 'A novel can make a character speak the way the street really speaks, without the narrator himself speaking that way.', ['regle']),
   sent(1033, 'Nomme d’abord la raison, puis cherche l’indice dans le texte qui la prouve.', 'Name the reason first, then look for the textual cue that proves it.', ['methode']),
 ];
@@ -361,7 +361,7 @@ const ACT2_ROWS: Row[] = [
  * ══════════════════════════════════════════════════════════════════════════ */
 
 const ACT3_ROWS: Row[] = [
-  sent(1034, '« Encore fauché, ce mois-ci, mon vieux, dit Jules en riant à moitié. Mais on becte quand même, hein. »', '"Broke again this month, old friend," said Jules, half laughing. "But we still eat, eh."', ['extrait-direct']),
+  sent(1034, '« Encore fauché, ce mois-ci, mon vieux, dit Jules en riant à moitié. Mais on becte quand même, hein. »', '"Broke again this month, old friend," said Jules, half laughing. "But we still eat, eh."', ['extrait-direct'], SR),
   sent(1035, 'Les guillemets encadrent la phrase de Jules comme un cadre encadre un tableau : ce qui est dedans n’est pas signé par le peintre du mur.', 'The quotation marks frame Jules’s line the way a frame surrounds a painting: what is inside is not signed by whoever painted the wall.', ['regle']),
   sent(1036, '« dit Jules » est un verbe de parole : il annonce que la phrase qui suit appartient à quelqu’un, pas au narrateur.', '"said Jules" is a reporting verb: it announces that the sentence which follows belongs to someone, not to the narrator.', ['regle']),
   phrase(1037, 'le discours direct', 'direct speech', ['metalangage']),
@@ -382,13 +382,13 @@ const ACT3_ROWS: Row[] = [
  * ══════════════════════════════════════════════════════════════════════════ */
 
 const ACT4_ROWS: Row[] = [
-  sent(1048, 'Jules descendit l’escalier à pas lents. Il n’avait plus un pèze, et ça n’avait plus grand sens de s’en inquiéter à son âge.', 'Jules went down the stairs slowly. He had no money left, and at his age there was not much point worrying about it.', ['extrait-indirect-libre']),
-  sent(1049, 'Aucun guillemet, aucun verbe de parole : « il n’avait plus un pèze » semble sortir directement du narrateur.', 'No quotation marks, no reporting verb: "he had no money left" seems to come straight from the narrator.', ['regle']),
-  sent(1050, 'Pourtant, le pèze, c’est le mot de Jules, pas celui que le narrateur emploierait pour lui-même.', 'And yet, le pèze is Jules’s word, not one the narrator would use for himself.', ['regle']),
+  sent(1048, 'Jules descendit l’escalier à pas lents. Il n’avait plus un pèze, et ça n’avait plus grand sens de s’en inquiéter à son âge.', 'Jules went down the stairs slowly. He had no money left, and at his age there was not much point worrying about it.', ['extrait-indirect-libre'], SR),
+  sent(1049, 'Aucun guillemet, aucun verbe de parole : « il n’avait plus un pèze » semble sortir directement du narrateur.', 'No quotation marks, no reporting verb: "he had no money left" seems to come straight from the narrator.', ['regle'], SR),
+  sent(1050, 'Pourtant, le pèze, c’est le mot de Jules, pas celui que le narrateur emploierait pour lui-même.', 'And yet, le pèze is Jules’s word, not one the narrator would use for himself.', ['regle'], SR),
   phrase(1051, 'le discours indirect libre', 'free indirect style', ['metalangage']),
   sent(1052, 'Le discours indirect libre fond la voix du personnage dans celle du narrateur, sans jamais l’annoncer.', 'Free indirect style blends the character’s voice into the narrator’s, without ever announcing it.', ['regle']),
   sent(1053, 'L’indice n’est pas un guillemet : c’est un mot, un registre, qui ne ressemble pas au reste du paragraphe.', 'The cue is not a quotation mark: it is a word, a register, that does not match the rest of the paragraph.', ['methode']),
-  sent(1054, 'Il n’irait pas chez le boulanger ce matin, tant pis pour le pèze qu’il n’avait pas et pour le pain qu’il ne mangerait pas.', 'He would not go to the baker this morning, too bad for the money he did not have and the bread he would not eat.', ['extrait-indirect-libre']),
+  sent(1054, 'Il n’irait pas chez le boulanger ce matin, tant pis pour le pèze qu’il n’avait pas et pour le pain qu’il ne mangerait pas.', 'He would not go to the baker this morning, too bad for the money he did not have and the bread he would not eat.', ['extrait-indirect-libre'], SR),
   sent(1055, 'Après tout, à quoi bon se faire du souci pour si peu : la phrase sonne comme la propre résignation de Jules, prêtée au narrateur.', 'After all, what good was it to worry over so little: the line sounds like Jules’s own resignation, lent to the narrator.', ['extrait-indirect-libre']),
   sent(1056, 'Comparé à l’acte précédent, ce passage ne cite jamais Jules ; il pense comme lui, sans jamais le dire ouvertement.', 'Compared to the previous act, this passage never quotes Jules; it thinks like him, without ever stating it openly.', ['regle']),
   sent(1057, 'Repérer le discours indirect libre demande de comparer le registre d’une phrase à celui du paragraphe qui la porte.', 'Spotting free indirect style means comparing a sentence’s register to that of the paragraph carrying it.', ['methode']),
@@ -402,8 +402,8 @@ const ACT4_ROWS: Row[] = [
 
 const ACT5_ROWS: Row[] = [
   sent(1060, 'Le conseil municipal s’est réuni mardi soir pour discuter du budget du quartier, après deux heures de débats mesurés.', 'The town council met on Tuesday evening to discuss the district budget, after two hours of measured debate.', ['extrait-ironique']),
-  sent(1061, '« De toute façon, on est fauchés, messieurs, y a plus un pèze dans les caisses », conclut Georges Maillard, l’adjoint aux travaux.', '"Either way, we are broke, gentlemen, there is not a cent left in the coffers," concluded Georges Maillard, the deputy for public works.', ['extrait-ironique']),
-  sent(1062, 'La phrase, prononcée devant des notables en costard, a jeté un silence que le compte rendu officiel s’est bien gardé de retranscrire.', 'The line, delivered in front of notables in suits, drew a silence the official minutes carefully declined to transcribe.', ['extrait-ironique']),
+  sent(1061, '« De toute façon, on est fauchés, messieurs, y a plus un pèze dans les caisses », conclut Georges Maillard, l’adjoint aux travaux.', '"Either way, we are broke, gentlemen, there is not a cent left in the coffers," concluded Georges Maillard, the deputy for public works.', ['extrait-ironique'], SR),
+  sent(1062, 'La phrase, prononcée devant des notables en costard, a jeté un silence que le compte rendu officiel s’est bien gardé de retranscrire.', 'The line, delivered in front of notables in suits, drew a silence the official minutes carefully declined to transcribe.', ['extrait-ironique'], SR),
   sent(1063, 'Le reste de la chronique de Yvon Castel reste au registre soutenu ; seule la citation bascule dans l’argot.', 'The rest of Yvon Castel’s chronicle stays at a soutenu register; only the quotation drops into argot.', ['regle']),
   sent(1064, 'Ce décalage, entre le cadre officiel et les mots exacts de l’élu, est le point que le chroniqueur veut faire sentir.', 'This gap, between the official setting and the councillor’s exact words, is the very point the columnist wants the reader to feel.', ['regle']),
   sent(1065, 'Citer mot pour mot, plutôt que résumer poliment, est déjà un jugement du chroniqueur sur la scène qu’il décrit.', 'Quoting word for word, rather than paraphrasing politely, is already the columnist’s own judgement on the scene he describes.', ['regle']),
@@ -428,16 +428,16 @@ const ACT6_ROWS: Row[] = [
   sent(1076, 'Un indice du choix délibéré : un effet nommable, pour un personnage, pour l’ironie, pour le réalisme.', 'A cue of deliberate choice: a nameable effect, for a character, for irony, for realism.', ['grille']),
   sent(1077, 'L’absence de ces indices, dans un texte qui se veut soigné de bout en bout, signale plutôt un accident.', 'The absence of these cues, in a text meant to stay careful throughout, signals an accident instead.', ['grille']),
   // Exemples DÉLIBÉRÉS, nouveaux ou repris en un trait
-  sent(1078, '« Encore fauché, ce mois-ci, mon vieux », dit Jules : guillemets, verbe de parole, personnage nommé.', '"Broke again this month, old friend," said Jules: quotation marks, reporting verb, a named character.', ['voulu']),
-  sent(1079, 'Il n’avait plus un pèze, pense Jules sans le dire : registre décalé du reste du paragraphe, aucune autre explication.', 'He had no money left, Jules thinks without saying so: a register out of step with the rest of the paragraph, no other explanation.', ['voulu']),
-  sent(1080, '« On est fauchés, messieurs », cité dans une chronique par ailleurs soutenue : contraste net, effet ironique nommable.', '"We are broke, gentlemen," quoted inside an otherwise soutenu chronicle: a clear contrast, a nameable ironic effect.', ['voulu']),
+  sent(1078, '« Encore fauché, ce mois-ci, mon vieux », dit Jules : guillemets, verbe de parole, personnage nommé.', '"Broke again this month, old friend," said Jules: quotation marks, reporting verb, a named character.', ['voulu'], SR),
+  sent(1079, 'Il n’avait plus un pèze, pense Jules sans le dire : registre décalé du reste du paragraphe, aucune autre explication.', 'He had no money left, Jules thinks without saying so: a register out of step with the rest of the paragraph, no other explanation.', ['voulu'], SR),
+  sent(1080, '« On est fauchés, messieurs », cité dans une chronique par ailleurs soutenue : contraste net, effet ironique nommable.', '"We are broke, gentlemen," quoted inside an otherwise soutenu chronicle: a clear contrast, a nameable ironic effect.', ['voulu'], SR),
   // Exemples ACCIDENTELS, nouveaux
   sent(1081, 'Madame, je me permets de vous écrire concernant le dossier numéro quatre mille cinq cent vingt et un. Bref, j’ai un peu la rage parce que ça traîne depuis trois mois. Cordialement.', 'Madam, I am writing to you regarding file number four thousand five hundred and twenty one. Anyway, I am a bit furious because it has been dragging on for three months. Regards.', ['accidentel'], SR),
   sent(1082, '« J’ai un peu la rage » glisse dans une lettre par ailleurs soutenue, sans guillemets, sans verbe de parole, sans effet nommable : une vraie glissade.', '"I am a bit furious" slips into an otherwise soutenu letter, with no quotation marks, no reporting verb, no nameable effect: a real slip.', ['accidentel']),
   sent(1083, 'Dans cet extrait, l’auteur montre bien que le personnage est carrément à cran, ce qui prouve son style littéraire.', 'In this extract, the author clearly shows that the character is totally on edge, which proves his literary style.', ['accidentel'], SR),
   sent(1084, '« Carrément à cran » glisse dans une phrase d’analyse qui se voulait soignée : le registre de l’analyse elle-même déraille.', '"Totally on edge" slips into an analytical sentence meant to stay careful: the analysis’s own register derails.', ['accidentel']),
   // La règle du tri
-  sent(1085, 'Le tri ne porte jamais sur le mot seul : « fauché » peut être voulu dans un roman et accidentel dans une lettre.', 'The sort is never about the word alone: "fauché" can be deliberate in a novel and accidental in a letter.', ['regle']),
+  sent(1085, 'Le tri ne porte jamais sur le mot seul : « fauché » peut être voulu dans un roman et accidentel dans une lettre.', 'The sort is never about the word alone: "fauché" can be deliberate in a novel and accidental in a letter.', ['regle'], SR),
   sent(1086, 'Le tri porte sur le cadre : guillemets, verbe de parole, contraste net, effet nommable, ou leur absence complète.', 'The sort is about the frame: quotation marks, a reporting verb, a clear contrast, a nameable effect, or their complete absence.', ['regle']),
   sent(1087, 'Une lettre officielle qui glisse dans l’argot, sans aucun de ces indices, reste une faiblesse d’écriture, pas un procédé.', 'An official letter that slips into argot, with none of these cues, remains a writing weakness, not a device.', ['regle']),
   phrase(1088, 'la glissade de registre', 'the register slip', ['metalangage']),
@@ -456,25 +456,25 @@ const ACT7_ROWS: Row[] = [
   sent(1094, 'Citer un mot d’argot pour l’analyser et l’employer dans son propre texte sont deux gestes opposés, pas deux degrés du même geste.', 'Quoting a slang word to analyse it and using it in one’s own text are two opposite gestures, not two degrees of the same gesture.', ['regle']),
   // Paire 1 : fauché
   sent(1095, 'L’auteur est fauché de mots pour décrire Jules, ce qui montre son style.', 'The author is broke of words to describe Jules, which shows his style.', ['piege-fauche'], SR),
-  sent(1096, 'En employant le terme argotique fauché, l’auteur fait entendre la voix même de Jules, dans un récit par ailleurs soigné.', 'By using the slang term fauché, the author lets us hear Jules’s own voice, inside an otherwise careful narrative.', ['piege-fauche', 'reglage']),
+  sent(1096, 'En employant le terme argotique fauché, l’auteur fait entendre la voix même de Jules, dans un récit par ailleurs soigné.', 'By using the slang term fauché, the author lets us hear Jules’s own voice, inside an otherwise careful narrative.', ['piege-fauche', 'reglage'], SR),
   // Paire 2 : becter
   sent(1097, 'On a vraiment envie de becter après cette lecture, tellement l’extrait donne faim.', 'You really want to becter after this reading, the extract makes you so hungry.', ['piege-becter'], SR),
-  sent(1098, 'Le verbe becter, mis dans la bouche de Jules, ancre le personnage dans un milieu populaire que la langue soignée du narrateur ne partage pas.', 'The verb becter, put in Jules’s mouth, anchors the character in a working class milieu the narrator’s careful language does not share.', ['piege-becter', 'reglage']),
+  sent(1098, 'Le verbe becter, mis dans la bouche de Jules, ancre le personnage dans un milieu populaire que la langue soignée du narrateur ne partage pas.', 'The verb becter, put in Jules’s mouth, anchors the character in a working class milieu the narrator’s careful language does not share.', ['piege-becter', 'reglage'], SR),
   // Paire 3 : pèze / élu
   sent(1099, 'Comme l’élu, on peut dire que la commune est bien fauchée cette année ; il n’y a plus un pèze dans le budget réel.', 'Like the councillor, one could say the town is really broke this year; there is not a cent left in the real budget.', ['piege-peze'], SR),
-  sent(1100, 'La citation directe des mots de l’élu, « on est fauchés... plus un pèze », crée un contraste ironique avec le compte rendu officiel qui l’entoure.', 'The direct quotation of the councillor’s own words, "we are broke... not a cent left," creates an ironic contrast with the official minutes around it.', ['piege-peze', 'reglage']),
+  sent(1100, 'La citation directe des mots de l’élu, « on est fauchés... plus un pèze », crée un contraste ironique avec le compte rendu officiel qui l’entoure.', 'The direct quotation of the councillor’s own words, "we are broke... not a cent left," creates an ironic contrast with the official minutes around it.', ['piege-peze', 'reglage'], SR),
   // Paire 4 : la rousse
   sent(1101, 'Le texte parle de la police avec le mot rousse ; je dirai donc, moi aussi, que la rousse a raison d’intervenir dans mon rapport officiel.', 'The text speaks of the police with the word rousse; so I too will say, in my official report, that la rousse was right to intervene.', ['piege-rousse'], SR),
-  sent(1102, 'Le texte emploie le mot argotique la rousse pour la police, un choix qui situe le point de vue du personnage, jamais une recommandation d’emploi dans un rapport officiel.', 'The text uses the slang word la rousse for the police, a choice that places the character’s point of view, never a recommendation to use it in an official report.', ['piege-rousse', 'reglage']),
+  sent(1102, 'Le texte emploie le mot argotique la rousse pour la police, un choix qui situe le point de vue du personnage, jamais une recommandation d’emploi dans un rapport officiel.', 'The text uses the slang word la rousse for the police, a choice that places the character’s point of view, never a recommendation to use it in an official report.', ['piege-rousse', 'reglage'], SR),
   // Paire 5 : costard
   sent(1103, 'Jules porte son costard, ce qui est un terme familier ; je peux donc aussi écrire que je mets mon costard pour l’examen oral.', 'Jules wears his costard, which is a familiar term; so I too can write that I am wearing my costard for my oral exam.', ['piege-costard'], SR),
-  sent(1104, 'Jules porte son costard, terme familier qui rappelle sa condition modeste, un détail à analyser, jamais à reproduire dans son propre registre d’examen.', 'Jules wears his costard, a familiar term recalling his modest condition, a detail to analyse, never to reproduce in one’s own exam register.', ['piege-costard', 'reglage']),
+  sent(1104, 'Jules porte son costard, terme familier qui rappelle sa condition modeste, un détail à analyser, jamais à reproduire dans son propre registre d’examen.', 'Jules wears his costard, a familiar term recalling his modest condition, a detail to analyse, never to reproduce in one’s own exam register.', ['piege-costard', 'reglage'], SR),
   // Paire 6 : chouette
   sent(1105, 'L’extrait est vraiment chouette à lire ; on sent le style de l’auteur.', 'The extract is really chouette to read; you can feel the author’s style.', ['piege-chouette'], SR),
-  sent(1106, 'L’adjectif familier chouette, employé ici du point de vue de Jules, donne de la chaleur au personnage sans jamais devenir le vocabulaire du commentaire qui l’analyse.', 'The familiar adjective chouette, used here from Jules’s point of view, gives the character warmth without ever becoming the vocabulary of the commentary that analyses it.', ['piege-chouette', 'reglage']),
+  sent(1106, 'L’adjectif familier chouette, employé ici du point de vue de Jules, donne de la chaleur au personnage sans jamais devenir le vocabulaire du commentaire qui l’analyse.', 'The familiar adjective chouette, used here from Jules’s point of view, gives the character warmth without ever becoming the vocabulary of the commentary that analyses it.', ['piege-chouette', 'reglage'], SR),
   // Règle et méthode
   sent(1107, 'Dans un devoir, tu peux citer un mot d’argot entre guillemets pour l’analyser, jamais l’employer toi-même dans ton propre texte soigné.', 'In an essay, you can quote a slang word between quotation marks to analyse it, never use it yourself in your own careful text.', ['regle-centrale']),
-  sent(1108, 'Même deux mots modernes bien connus (relou, wesh) suivent la même règle : citables entre guillemets, jamais adoptés dans ta propre voix d’analyse.', 'Even two well-known modern words (relou, wesh) follow the same rule: quotable between quotation marks, never adopted into your own analytical voice.', ['regle-centrale']),
+  sent(1108, 'Même deux mots modernes bien connus (relou, wesh) suivent la même règle : citables entre guillemets, jamais adoptés dans ta propre voix d’analyse.', 'Even two well-known modern words (relou, wesh) follow the same rule: quotable between quotation marks, never adopted into your own analytical voice.', ['regle-centrale'], SR),
   phrase(1109, 'analyser, ce n’est pas adopter', 'to analyse is not to adopt', ['metalangage']),
   sent(1110, 'Le piège prend d’abord la forme d’un mot du texte qui se glisse, sans guillemets, dans ta propre phrase d’analyse.', 'The trap first takes the shape of a word from the text slipping, without quotation marks, into your own analytical sentence.', ['methode']),
   sent(1111, 'Pour t’en garder, mets le mot cité entre guillemets chaque fois que tu le nommes, et change de mot pour ta propre phrase.', 'To guard against it, put the quoted word between quotation marks every time you name it, and switch to your own word for your own sentence.', ['methode']),
@@ -490,7 +490,7 @@ const ACT7_ROWS: Row[] = [
 
 const ACT8_ROWS: Row[] = [
   sent(1116, 'Lucienne Berthoud, soixante-dix-huit ans, locataire depuis 1962, a déclaré qu’elle ne quitterait jamais son appartement.', 'Lucienne Berthoud, seventy eight, a tenant since 1962, declared she would never leave her apartment.', ['modele']),
-  sent(1117, '« Même fauchée comme les blés, même si on me propose la lune » : la citation directe garde le mot exact de Madame Berthoud.', '"Even dirt poor, even if they offered me the moon": the direct quotation keeps Madame Berthoud’s exact words.', ['modele']),
+  sent(1117, '« Même fauchée comme les blés, même si on me propose la lune » : la citation directe garde le mot exact de Madame Berthoud.', '"Even dirt poor, even if they offered me the moon": the direct quotation keeps Madame Berthoud’s exact words.', ['modele'], SR),
   sent(1118, 'Le comité, lui, écrit « pour des raisons personnelles », sans reproduire la formule de Madame Berthoud dans sa propre conclusion.', 'The committee itself writes "for personal reasons," without reproducing Madame Berthoud’s own phrasing in its own conclusion.', ['modele']),
   sent(1119, 'La citation garde la voix vive de Madame Berthoud ; la conclusion, elle, l’efface derrière une formule neutre.', 'The quotation keeps Madame Berthoud’s living voice; the conclusion, by contrast, erases it behind a neutral phrase.', ['modele']),
   sent(1120, 'Nomme d’abord le mot ou la formule argotique citée, puis le cadre qui l’entoure, puis l’effet probable, puis la preuve dans le texte.', 'Name first the quoted slang word or phrase, then its surrounding frame, then its probable effect, then the proof in the text.', ['plan']),
@@ -500,7 +500,7 @@ const ACT8_ROWS: Row[] = [
   sent(1124, 'Une analyse réussie justifie toujours son effet par un mot précis du texte, jamais par une impression générale.', 'A successful analysis always justifies its effect with a precise word from the text, never with a general impression.', ['plan']),
   sent(1125, 'Pour Lucienne Berthoud, dénoncer le comité comme froid et bureaucratique serait aller plus loin que ce que le texte prouve réellement.', 'For Lucienne Berthoud, denouncing the committee as cold and bureaucratic would go further than what the text actually proves.', ['scenario-alt']),
   sent(1126, 'Le comité a choisi de garder la citation exacte de Madame Berthoud pour montrer qu’il l’a vraiment écoutée.', 'The committee chose to keep Madame Berthoud’s exact quotation to show it had really listened to her.', ['scenario-reponse']),
-  sent(1127, 'La formule fauchée comme les blés reste citée entre guillemets ; une analyse qui la reprendrait sans guillemets commettrait exactement le piège de l’acte précédent.', 'The phrase fauchée comme les blés stays quoted between quotation marks; an analysis that repeated it without quotation marks would commit exactly the previous act’s trap.', ['scenario-alt']),
+  sent(1127, 'La formule fauchée comme les blés reste citée entre guillemets ; une analyse qui la reprendrait sans guillemets commettrait exactement le piège de l’acte précédent.', 'The phrase fauchée comme les blés stays quoted between quotation marks; an analysis that repeated it without quotation marks would commit exactly the previous act’s trap.', ['scenario-alt'], SR),
   phrase(1128, 'la préservation de la voix', 'the preservation of voice', ['vocabulaire']),
   phrase(1129, 'le rapport administratif', 'the administrative report', ['vocabulaire']),
   sent(1130, 'Une mission écrite marque la lecture du procédé et la précision de l’analyse, jamais la gravité du cas de Madame Berthoud elle-même.', 'A written mission marks the reading of the device and the precision of the analysis, never the severity of Madame Berthoud’s situation itself.', ['bilan']),
