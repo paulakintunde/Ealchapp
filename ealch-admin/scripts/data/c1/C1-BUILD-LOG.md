@@ -1209,3 +1209,17 @@ The 9 unrecorded tasks (TCF blanc-06 x7, TEF blanc-06 x2, scratch/_render_ids_le
   `content:publish` right now would DELETE `sons.09.l1` (seed-only, not in Postgres)
   — the known issue in [[ealch-publish-blocked-sons09]]. Surfacing for Paul rather
   than routing around it.
+
+- **v88 published (Paul's OK, 2026-10-08).** The sons.09.l1 blocker closed first
+  (content:masterclass + merge, its "DIFFERENT" warning was a false positive from
+  a non-deep-equal compare: 0 real content diffs; check-seed-db-parity no longer
+  lists it; [[ealch-publish-blocked-sons09]] updated to RESOLVED). v88 then shipped
+  clean: core only (9.97 MiB), 0 deadlocks, 0 a1.03 drift, all 4 paid packs reused
+  unchanged at v87. Suites: admin 1299/1299 + 1 skipped, app 5778/5778.
+
+## C1 CLOSED (2026-10-08)
+
+All 24 lessons published, 7 exam papers published (DALF 1-5, TEF/TCF blanc-06, both
+fully recorded), v87 and v88 shipped, no open blockers. Next: C2 (14 lessons) — needs
+C2 to become a real level (app + DB + tests) before the first lesson, per decision in
+[[ealch-b1-c2-curriculum-decisions]].
