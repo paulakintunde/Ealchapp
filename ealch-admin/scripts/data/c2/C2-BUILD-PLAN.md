@@ -114,10 +114,10 @@ exist at any level.
 | c2.02 | litterature | 2000-2199 | b1-c2 | **widened 2026-10-09** | **claimed** (sub-theme « l'analyse littéraire intégrale » applied) |
 | c2.03 | expressions-imagees | 1800-1999 | b1-c2 | **widened 2026-10-09** | **claimed** (sub-theme « cent expressions idiomatiques avancées » applied) |
 | c2.04 | argot-classique | 1000-1199 | b2-c2 | **widened 2026-10-09** | **claimed** (sub-theme « l'argot et le registre en littérature » applied) |
-| c2.05 | etymologie (NEW row) | 1000-1199 | — | create, c1-c2 | proposed |
-| c2.06 | langue-soignee | 2400-2599 | a2-c1 | widen to c2 | proposed |
-| c2.07 | litterature | 2200-2399 | b1-c1 (widening above covers this) | c2 | proposed |
-| c2.08 | discours-dexamen | 1800-1999 | c1-c2 | no change | proposed |
+| c2.05 | etymologie (created 2026-10-09) | 1000-1199 | c1-c2 | — | **claimed** (sub-theme « les racines et les familles de mots » set at creation) |
+| c2.06 | langue-soignee | 2400-2599 | a2-c2 | **widened 2026-10-09** | **claimed** (sub-theme « la médiation linguistique » applied) |
+| c2.07 | litterature | 2200-2399 | b1-c2 (widened in wave 1) | c2 | **claimed** (sub-theme « traduire la poésie » applied 2026-10-09) |
+| c2.08 | discours-dexamen | 1800-1999 | c1-c2 | no change | **claimed** (sub-theme « la production orale spontanée » applied 2026-10-09) |
 | c2.09 | discours-dexamen | 2000-2199 | c1-c2 | no change | proposed |
 | c2.10 | discours-dexamen | 2200-2399 | c1-c2 | no change | proposed |
 | c2.11 | strategies-de-comprehension | 2200-2399 | b1-c1 | widen to c2 | proposed |
@@ -144,10 +144,10 @@ expertes" (c2.10), "le bilan de maîtrise" (c2.14); strategies-de-comprehension
 (c2.12). The new `etymologie` row starts with sub_themes = ["les racines et
 les familles de mots"] (c2.05).
 
-**Proposed new theme row** (Paul approves the values, since this writes to
-Postgres): `etymologie`, domain `fondations` (beside its lexical siblings
-langue-soignee, nuances-et-registres, faux-amis), title "L'étymologie et la
-formation des mots", level range c1-c2, exam_flag false, immig_flag false.
+**New theme row, created 2026-10-09, verified by read-back**: `etymologie`,
+domain `fondations` (beside its lexical siblings langue-soignee,
+nuances-et-registres, faux-amis), title "L'étymologie et la formation des
+mots", level range c1-c2, exam_flag false, immig_flag false.
 
 ## Pack layout
 
