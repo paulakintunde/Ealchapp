@@ -99,11 +99,23 @@ shapes, builds-on and id homes:
 
 Phase 0 research and planning (`C2-BUILD-PLAN.md`, `C2-RESEARCH-PLAN.md`) is
 done, written the same day as the list, at the depth C1's Phase 0 reached.
-**Open for Paul before wave 1 dispatch**: the four unit names (proposed
-above), and the id-home table's theme writes (three widens — litterature,
-expressions-imagees, argot-classique, each to reach c2 — plus four sub-theme
-appends), all in `C2-BUILD-PLAN.md`'s "Id homes" section. Wave 1's author
-briefs are below. Authors are not dispatched until Paul says go.
+Wave 1's author briefs are below.
+
+**Paul approved both 2026-10-09**: the four unit names, and the wave 1
+theme writes. **Done, verified by read-back:** `litterature` b1-c1 -> b1-c2,
+`expressions-imagees` b1-b2 -> b1-c2, `argot-classique` b2-c1 -> b2-c2; sub-themes
+appended — nuances-et-registres += "la précision et l'implicite",
+litterature += "l'analyse littéraire intégrale", expressions-imagees +=
+"cent expressions idiomatiques avancées", argot-classique += "l'argot et le
+registre en littérature". `nuances-et-registres` needed no widen (already
+c1-c2). The four id blocks in the table above are now live, not merely
+proposed.
+
+Per the house rule (curriculum decisions, round 3: lessons are built ONE AT A
+TIME, slow is fine, preview on the phone, Paul's OK, then the next one),
+**c2.01 is dispatched first**, not all four of wave 1 at once. c2.02-04
+dispatch after Paul reviews c2.01 on device at Gate C2-1a (an informal
+per-lesson checkpoint, not the wave gate).
 
 ## Wave 1 author briefs (c2.01-04)
 
