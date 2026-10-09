@@ -42,7 +42,7 @@
 //   10  Ta pierre                     11   model, plan, scenario, TASK,
 //                                          practice, quiz, review, roundup
 //
-//   TOTAL 64 missions, 10 acts. Corpus: 113 authored rows (.1000-.1112,
+//   TOTAL 63 missions, 10 acts. Corpus: 113 authored rows (.1000-.1112,
 //   inside the claimed .1000-.1199 block, .1113-.1199 left free). Quiz: 8
 //   rounds of 8 (one per family act, 2-9). Eight error triggers, eight
 //   drills, six reference sheets, six terms. Chapter artwork:
@@ -96,7 +96,7 @@
 //  OPEN QUESTIONS FOR PAUL
 // ══════════════════════════════════════════════════════════════════════════
 //
-//   1. 64 missions, leaner than cent-idiomes' 76 and above precision-
+//   1. 63 missions, leaner than cent-idiomes' 76 and above precision-
 //      nuance's 45. This lesson's scope (8 families of 10-11 words, each
 //      needing a careful etymological grounding) felt complete at this
 //      size without padding — extend any family before the phone review,
