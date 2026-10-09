@@ -68,9 +68,12 @@ export const C1_SLUGS: readonly string[] = [
   'lire-entre-les-lignes', 'debats-entretiens', 'analyse-presse',
 ];
 
-/** Every C2 lesson authored so far (none yet; files would live in data/c2/). A
- *  wave adds its slugs here, same as every other band. */
-export const C2_SLUGS: readonly string[] = [];
+/** Every C2 lesson authored so far. A wave adds its slugs here, same as every
+ *  other band. */
+export const C2_SLUGS: readonly string[] = [
+  // wave 1 (c2.01-c2.04)
+  'precision-nuance',
+];
 
 /** The bands this pipeline imports. Each band's lessons live in data/<band>/. */
 export const BANDS = ['b1', 'b2', 'c1', 'c2'] as const;
