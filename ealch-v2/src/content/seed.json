@@ -11152,6 +11152,252 @@
           ]
         }
       ]
+    },
+    {
+      "id": "c2.01",
+      "seq": 1,
+      "sub": "Précision, nuance et l’implicite",
+      "canDo": "Can choose, among several real near-synonyms, the one word that carries the exact register and connotation a context calls for; can read what a short French text implies without stating it (irony, understatement, presupposition) and produce a reply that matches the register the implicit carries, neither flattening it nor overreacting to it",
+      "level": "c2",
+      "title": "C2 Language Use: Precision, Nuance and the Implicit",
+      "lessonIds": [
+        "c2.01.l1"
+      ],
+      "prereqUnitIds": [
+        "c1.20",
+        "c1.06",
+        "c1.17",
+        "c1.19"
+      ],
+      "outline": [
+        {
+          "lessonId": "c2.01.l1",
+          "title": "Précision, nuance et l’implicite",
+          "acts": [
+            {
+              "title": "Le mot qui blesse",
+              "cards": 9
+            },
+            {
+              "title": "Les nuances de sens",
+              "cards": 30
+            },
+            {
+              "title": "Choisir le mot exact",
+              "cards": 19
+            },
+            {
+              "title": "Le réflexe du mot anglais",
+              "cards": 19
+            },
+            {
+              "title": "Ce que le texte laisse entendre",
+              "cards": 18
+            },
+            {
+              "title": "Lire sans trop lire",
+              "cards": 13
+            },
+            {
+              "title": "Répondre dans le ton juste",
+              "cards": 10
+            },
+            {
+              "title": "Ta réponse",
+              "cards": 15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c2.02",
+      "seq": 2,
+      "sub": "L’analyse littéraire intégrale",
+      "canDo": "Can read a full literary extract and produce a structured analysis that holds register, narrative voice, structure and at least one figure of style together, as one integrated reading, rather than naming each in isolation",
+      "level": "c2",
+      "title": "Literary French: Complete Analysis",
+      "lessonIds": [
+        "c2.02.l1"
+      ],
+      "prereqUnitIds": [
+        "c1.14",
+        "c1.02",
+        "c1.03",
+        "c1.19"
+      ],
+      "outline": [
+        {
+          "lessonId": "c2.02.l1",
+          "title": "L’analyse littéraire intégrale",
+          "acts": [
+            {
+              "title": "Le problème : un fil à la fois",
+              "cards": 11
+            },
+            {
+              "title": "Le registre, en deux voix",
+              "cards": 26
+            },
+            {
+              "title": "La voix narrative",
+              "cards": 23
+            },
+            {
+              "title": "La structure : de l’exposition au basculement",
+              "cards": 25
+            },
+            {
+              "title": "Les figures en réseau",
+              "cards": 22
+            },
+            {
+              "title": "Les quatre fils ensemble",
+              "cards": 13
+            },
+            {
+              "title": "Choisir la bonne lecture",
+              "cards": 10
+            },
+            {
+              "title": "Le piège qui arrête l’analyse trop tôt",
+              "cards": 11
+            },
+            {
+              "title": "Ta lecture intégrale",
+              "cards": 13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c2.03",
+      "seq": 3,
+      "sub": "Cent expressions idiomatiques avancées",
+      "canDo": "Can recognise and correctly use, in context, 100 advanced idiomatic and figurative expressions at a literary or formal register past what B1/B2 taught, choosing the idiom whose image AND register fit a formal or literary text, telling a real idiom from a confusable near-miss that does not exist or sits at the wrong register",
+      "level": "c2",
+      "title": "Advanced Idiomatic Expressions: 100 Items",
+      "lessonIds": [
+        "c2.03.l1"
+      ],
+      "prereqUnitIds": [
+        "c1.17",
+        "b1.27",
+        "b1.28",
+        "b1.29",
+        "b2.34"
+      ],
+      "outline": [
+        {
+          "lessonId": "c2.03.l1",
+          "title": "Cent expressions idiomatiques avancées",
+          "acts": [
+            {
+              "title": "Le registre de l’image",
+              "cards": 7
+            },
+            {
+              "title": "Le pouvoir et l’autorité",
+              "cards": 11
+            },
+            {
+              "title": "La ruse, le double jeu et la rhétorique",
+              "cards": 11
+            },
+            {
+              "title": "Le jugement et la mesure",
+              "cards": 11
+            },
+            {
+              "title": "L’excès et la démesure",
+              "cards": 11
+            },
+            {
+              "title": "La réputation et la disgrâce",
+              "cards": 11
+            },
+            {
+              "title": "Le destin et l’inéluctable",
+              "cards": 11
+            },
+            {
+              "title": "Le temps, la mémoire et l’oubli",
+              "cards": 11
+            },
+            {
+              "title": "La parole soutenue",
+              "cards": 11
+            },
+            {
+              "title": "L’ambition, l’effort et l’échec",
+              "cards": 11
+            },
+            {
+              "title": "La solitude, le repli et la distance",
+              "cards": 12
+            },
+            {
+              "title": "Ton portrait",
+              "cards": 18
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c2.04",
+      "seq": 4,
+      "sub": "Verlan, argot et registres : l’usage littéraire",
+      "canDo": "Can read a literary or formal text that deploys verlan or classic argot deliberately, for voice, realism or ironic effect, name the device that frames it (direct quotation, free indirect style, ironic contrast within a soutenu text), distinguish it from an accidental register slip, and explain in writing why the author chose it there, without ever mistaking the quotation for an instruction to use the word in one’s own formal register",
+      "level": "c2",
+      "title": "Verlan, Slang and Registers: Literary Use",
+      "lessonIds": [
+        "c2.04.l1"
+      ],
+      "prereqUnitIds": [
+        "b2.32"
+      ],
+      "outline": [
+        {
+          "lessonId": "c2.04.l1",
+          "title": "Verlan, argot et registres : l’usage littéraire",
+          "acts": [
+            {
+              "title": "Un mot entre guillemets",
+              "cards": 11
+            },
+            {
+              "title": "Pourquoi cet auteur choisit ce mot",
+              "cards": 13
+            },
+            {
+              "title": "Discours direct",
+              "cards": 13
+            },
+            {
+              "title": "Discours indirect libre",
+              "cards": 8
+            },
+            {
+              "title": "Le décalage ironique",
+              "cards": 12
+            },
+            {
+              "title": "Accidentel ou voulu",
+              "cards": 14
+            },
+            {
+              "title": "Le piège",
+              "cards": 9
+            },
+            {
+              "title": "Rédiger l’analyse",
+              "cards": 14
+            }
+          ]
+        }
+      ]
     }
   ],
   "lessons": [
