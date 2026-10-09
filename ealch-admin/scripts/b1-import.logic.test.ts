@@ -4,7 +4,7 @@
 import { test } from 'node:test';
 import { deepStrictEqual, ok, strictEqual, throws } from 'node:assert';
 import {
-  B1_SLUGS, BAND_SLUGS, addMissingThemes, authoredFloors, parseBand, unitBody, crossLessonClashes, dbRowToItem, mergeIntoSeed, normaliseItem,
+  B1_SLUGS, BAND_SLUGS, addMissingThemes, authoredFloors, parseBand, crossLessonClashes, dbRowToItem, mergeIntoSeed, normaliseItem,
   planLesson, sameItem, twinCount, unitBody, versionVerdict, headwordClashes, headwordKey,
   normFr, declaredTwins, decideTwins, rewriteIds, applyDedupe,
   type DbState, type LessonInput,
@@ -372,10 +372,11 @@ test('parseBand defaults to b1 and strips the flag and its value from the slugs'
   deepStrictEqual(parseBand(['medias', '--apply']), { band: 'b1', rest: ['medias', '--apply'] });
   deepStrictEqual(parseBand(['--band', 'b2', 'argumentation', '--apply']), { band: 'b2', rest: ['argumentation', '--apply'] });
   deepStrictEqual(parseBand(['--band', 'c1', '--dry']), { band: 'c1', rest: ['--dry'] });
-  throws(() => parseBand(['--band', 'c2']));
+  deepStrictEqual(parseBand(['--band', 'c2', '--dry']), { band: 'c2', rest: ['--dry'] });
+  throws(() => parseBand(['--band', 'c3']));
   throws(() => parseBand(['--band']));
   strictEqual(BAND_SLUGS.b1, B1_SLUGS);
-  deepStrictEqual(Object.keys(BAND_SLUGS), ['b1', 'b2', 'c1']);
+  deepStrictEqual(Object.keys(BAND_SLUGS), ['b1', 'b2', 'c1', 'c2']);
 });
 
 test('unitBody takes the level from the unit id, so a b1 unit is unchanged and a b2 unit says b2', () => {

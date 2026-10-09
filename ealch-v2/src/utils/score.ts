@@ -206,6 +206,7 @@ export function barsForLevel(level?: string | null): VerdictBars {
     case 'b1': return DEFAULT_BARS;
     case 'b2': return { good: 0.85, close: 0.58 };
     case 'c1': return { good: 0.88, close: 0.62 };
+    case 'c2': return { good: 0.92, close: 0.68 };
     default: return DEFAULT_BARS;
   }
 }

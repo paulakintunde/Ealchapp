@@ -94,6 +94,10 @@ test('barsForLevel: forgiving early, stricter late, default for unknown', () => 
   // A 0.85 take: good at b1, not good enough at c1.
   strictEqual(verdictFor(0.85, barsForLevel('b1')), 'good');
   strictEqual(verdictFor(0.85, barsForLevel('c1')), 'close');
+  // c2 is stricter again: a 0.90 take that clears c1's bar misses c2's.
+  strictEqual(verdictFor(0.9, barsForLevel('c1')), 'good');
+  strictEqual(verdictFor(0.9, barsForLevel('c2')), 'close');
+  strictEqual(verdictFor(0.93, barsForLevel('c2')), 'good');
   // Below every close bar is off everywhere.
   strictEqual(verdictFor(0.3, barsForLevel('sons')), 'off');
   strictEqual(verdictFor(0.3, barsForLevel('c1')), 'off');

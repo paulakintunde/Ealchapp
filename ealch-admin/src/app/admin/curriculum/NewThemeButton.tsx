@@ -4,7 +4,7 @@ import { useToast } from '@/components/toast';
 import { createTheme } from './actions';
 import styles from './curriculum.module.css';
 
-const LEVELS = ['sons', 'a1', 'a2', 'b1', 'b2', 'c1'];
+const LEVELS = ['sons', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
 
 export default function NewThemeButton({ domains }: { domains: string[] }) {
   const [open, setOpen] = useState(false);

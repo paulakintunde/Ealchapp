@@ -68,10 +68,14 @@ export const C1_SLUGS: readonly string[] = [
   'lire-entre-les-lignes', 'debats-entretiens', 'analyse-presse',
 ];
 
+/** Every C2 lesson authored so far (none yet; files would live in data/c2/). A
+ *  wave adds its slugs here, same as every other band. */
+export const C2_SLUGS: readonly string[] = [];
+
 /** The bands this pipeline imports. Each band's lessons live in data/<band>/. */
-export const BANDS = ['b1', 'b2', 'c1'] as const;
+export const BANDS = ['b1', 'b2', 'c1', 'c2'] as const;
 export type Band = (typeof BANDS)[number];
-export const BAND_SLUGS: Record<Band, readonly string[]> = { b1: B1_SLUGS, b2: B2_SLUGS, c1: C1_SLUGS };
+export const BAND_SLUGS: Record<Band, readonly string[]> = { b1: B1_SLUGS, b2: B2_SLUGS, c1: C1_SLUGS, c2: C2_SLUGS };
 
 /** `--band b2` picks the band (default b1, so every B1 command runs as before);
  *  `rest` is argv without the flag and its value. */

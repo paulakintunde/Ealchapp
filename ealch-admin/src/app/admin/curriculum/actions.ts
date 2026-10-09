@@ -21,7 +21,7 @@ function fail(e: unknown): { ok: false; error: string } {
 
 const LIST_PATH = '/admin/curriculum';
 const SLUG_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
-const LEVELS = ['sons', 'a1', 'a2', 'b1', 'b2', 'c1'];
+const LEVELS = ['sons', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
 
 export async function createDomain(input: { slug: string; title: string; order: number }): Promise<ActionResult> {
   try {
