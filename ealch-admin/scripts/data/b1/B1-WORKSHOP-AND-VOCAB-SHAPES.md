@@ -167,6 +167,25 @@ collocations and a reading.
 - **`fold()` does not decompose « œ »**, so a typed answer with cœur, œil or
   œuf also accepts « oe ». And a regex `\w` does not match accented letters:
   count usage with explicit character classes.
+
+### 2.2b Amended for C2 after c2.03 (2026-10-09)
+
+- **§2.2's "8 per act" and "50 to 70 total" ceilings were calibrated for B1**
+  and do not bind a C2-scale vocab lesson by default. c2.03 ("Cent expressions
+  idiomatiques avancées") shipped 10 idioms per act across 10 family acts,
+  100 total, splitting the NAME beat across a 5-card deck plus a 5-row table
+  so no single RENDER exceeds 8, even though the act as a whole teaches 10.
+  Paul ratified this as shipped (2026-10-09) after a pre-reviewer flagged it
+  as a real, not cosmetic, deviation from §2.2's plain text.
+- **Register, not frequency, is the C2 filter.** §2.2's "only expressions a
+  B1 learner will actually hear... no rare literary idioms" is inverted at
+  C2: c2.03 is `register: 'soutenu'` throughout by design, the literary/
+  formal register b1/b2 deliberately left untaught.
+- **Apply §2.2's other rules unchanged** at C2 scale: mark the francophone
+  variant, literal image before meaning before English, a task graded on fit
+  not count. Confirm the new total (not 50-70) with Paul per lesson rather
+  than assuming 100 is the new default — c2.03's 100 came from its own brief,
+  not from this amendment.
 - **Mark `register` on every row** (familier or courant), as b1.27 did.
 
 ### 2.3 Rules for topic vocabulary (b1.33 and later)
