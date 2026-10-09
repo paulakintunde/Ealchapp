@@ -117,7 +117,7 @@ export const PRECISION_NUANCE_TERMS: Record<string, LessonTerm> = {
   souslecture: {
     term: 'sous-lecture',
     title: 'Ne pas voir ce que le ton couvre',
-    body: "Répondre au premier degré à une ligne clairement chargée, c’est la sous-lecture : le cue est là, et la réponse l’a laissé passer. Les deux fautes se corrigent de la même façon : chercher l’indice avant de régler le ton de la réponse. EN: Answering a clearly loaded line at face value is under-reading: the cue was there and the reply missed it.",
+    body: "Répondre au premier degré à une ligne clairement chargée, c’est la sous-lecture : l’indice était là, et la réponse l’a laissé passer. Les deux fautes se corrigent de la même façon : chercher l’indice avant de régler le ton de la réponse. EN: Answering a clearly loaded line at face value is under-reading: the cue was there and the reply missed it.",
     examples: [
       { itemId: E(1523), note: 'un message neutre, sans indice, lu au premier degré' },
       { itemId: E(1510), note: 'une réponse qui esquive sans le dire' },
