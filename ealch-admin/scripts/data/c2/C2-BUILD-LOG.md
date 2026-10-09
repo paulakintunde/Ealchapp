@@ -257,3 +257,88 @@ reviews the preview build.
   trap hit along the way: `cmd.exe`'s `set VAR=1 && next` includes the space
   before `&&` IN the value, so `getenv.boolish()` rejected `"1 "` — use
   `set "VAR=1" && next` instead.
+
+- **2026-10-09, later the same day: wave 1 completed properly.** A stop-hook
+  check caught two real gaps in the entry above: the id-homes table still
+  read "proposed" for wave 1 despite the Postgres writes being live (fixed,
+  see the table above), and "c2.01 dispatched first, not all four" cited
+  curriculum-decisions round 3 ("one lesson at a time") as if it still
+  governed dispatch — it does not; that was B1's PRE-FACTORY pilot rule,
+  superseded once wave dispatch existed (C1-BUILD-PLAN.md's own wave table
+  sends all 4 lessons of a wave out together with ONE gate after the wave,
+  not one gate per lesson). Corrected, and c2.02-04 dispatched as three
+  parallel fresh author agents, same as c2.01.
+
+  **All four wave 1 lessons are now authored, pre-reviewed and fixed:**
+  - **c2.02** « L'analyse littéraire intégrale » (`50ef5b5`): 9 acts, 50
+    missions, 160 rows (now 159, see below), anchored on Maupassant's "La
+    Parure" opening — fetched from Wikisource's raw wikitext to get it
+    word-for-word, independently re-verified against the live source by the
+    pre-reviewer. The authentic dialogue's em-dash-opened turns were
+    rewritten as guillemets-opened turns, preserving every word, to satisfy
+    the no-em-dash rule. Pre-review found one real defect: a hardcoded scene
+    bubble (`A8_SCENE`, act 8) had a spaced `?` before its closing mark,
+    exactly the device-proven "scene bubble clips its tail" pattern (memory
+    `ealch-scene-bubble-clips-tail`) — fixed (`38fa94b`). The wave-1 dry run
+    then found a second, independent defect: id 2007 and id 2136 were the
+    same flashcard ("une lecture intégrale") authored twice with no
+    published row to dedupe against — a real import blocker. Removed the
+    earlier, unpaired occurrence (2007); kept 2136, which pairs meaningfully
+    with "une lecture plausible" (2135) in act 7 (`78bd27d`). 159 rows after
+    the removal.
+  - **c2.03** « Cent expressions idiomatiques avancées » (`f8791e0`): 12
+    acts (V shape, 10 idiom families x 10 idioms), 76 missions, 139 rows,
+    soutenu register throughout, a recurring character (le juge Antoine
+    Berthier) threading acts 2/6/8/11/task. Pre-review: clean, ready as-is.
+    One open decision surfaced for Paul, not a defect: the lesson teaches 10
+    idioms per act, past `B1-WORKSHOP-AND-VOCAB-SHAPES.md`'s documented
+    "max 8/act" ceiling (written and calibrated for B1). The pre-reviewer's
+    read: defensible, since the brief's own 100-item/8-12-family scope
+    cannot hit <=8/act without 13 acts the brief never asked for, and C2's
+    100-item scope already knowingly supersedes B1's density numbers — but
+    it should be a Paul-ratified C2-scale amendment to that doc, not a
+    silent default.
+  - **c2.04** « Verlan, argot et registres : l'usage littéraire » (`eb18ebc`):
+    8 acts, 41 missions, 132 rows, all extracts original pastiches (clearly
+    labelled as such), confirmed never overlapping or reusing b2.32's own
+    vocabulary (argot-classique register vs b2.32's argot-des-jeunes set).
+    Pre-review found one real defect: the lesson's own header promises every
+    argotique row is sentence+review-only (never a flashcard/speaking
+    target, the whole point of an analysis-not-production lesson), but 28
+    rows embedding one of the six headwords (or the act 7 meta-example
+    "relou, wesh") defaulted to flashcard/voiceflash/review — independently
+    re-verified by a corpus-level audit script, not just trusted. Fixed, all
+    28 rows now `SR` (`d6135ad`); re-validated clean.
+  - **c2.01** (from earlier the same day): one pre-review fix already landed
+    (an English "cue" leaked into French glossary copy, `aab474d`).
+
+  **Wave-1 dry run, after all four fixes:** 4 lessons, 575 to insert (now
+  574 after the c2.02 dedupe), 0 blockers, 7 warnings (all the expected
+  "art not registered yet" kind, plus 3 harmless dedupe-against-published
+  notices for c2.02's reused `litterature` hub rows).
+
+  **`C2_SLUGS` now carries all four**: `precision-nuance`, `analyse-litteraire`,
+  `cent-idiomes`, `argot-litteraire` (`78bd27d`).
+
+  **Device-proven on the Pixel 9, the whole wave, not just c2.01.** Hit the
+  Metro-staleness trap a SECOND time, a different flavour: this Metro
+  session had been started with `CI=1` (to survive being launched from a
+  Claude background shell), and `CI=1` is documented to disable Metro's file
+  watcher entirely (memory `ealch-usb-metro-dev`) — so three new lesson
+  files plus two bugfixes, all added after that Metro started, were silently
+  absent from every "fast" bundle fetch afterward. Caught the same way as
+  before: grepped the served bundle for strings unique to c2.02/03/04 and
+  found nothing. Fixed by the same `--clear` restart recipe, this time
+  WITHOUT `CI=1` (launched from a real detached console via
+  `Start-Process cmd.exe`, which survives fine without it), confirmed a
+  genuine cold transform (~60s, not ~2s) before trusting the result. The
+  served bundle then confirmed all four lessons byte-for-byte, including the
+  exact fixed scene-bubble string. On device: the Levels screen shows
+  "Level C2 . 4 units"; all four units and their acts render with the exact
+  titles each author reported; two full lessons opened and rendered their
+  final acts' missions correctly (c2.01, already proven earlier, and c2.04's
+  act 8 "Rédiger l'analyse", freshly opened this pass).
+
+  **Still open for Paul:** the c2.03 idiom-density amendment (10/act vs the
+  documented 8/act ceiling); review the whole wave on your own device; the
+  go-ahead for wave 2 (c2.05-08).
