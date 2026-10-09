@@ -337,7 +337,6 @@ const ACT1_ROWS: Row[] = [
   sent(2004, "Cette leçon lit un seul extrait, en entier, à travers quatre fils tenus ensemble.", 'This lesson reads a single extract, in full, through four threads held together.', ['plan']),
   phrase(2005, 'une fiche de lecture', 'a reading note', ['metalangage']),
   phrase(2006, 'un fil tiré seul', 'a thread pulled alone', ['metalangage']),
-  phrase(2007, 'une lecture intégrale', 'an integrated reading', ['metalangage']),
   sent(2008, "Le séminaire du jeudi lit cette semaine l’ouverture d’un conte de Maupassant.", 'This week, the Thursday seminar reads the opening of a short story by Maupassant.', ['scene-probleme']),
   sent(2009, "Devine le sens, sans dictionnaire : à quoi Mathilde pense-t-elle sans cesse dans cet extrait.", 'Guess the meaning, no dictionary: what does Mathilde think about constantly in this extract.', ['lecture-question']),
   sent(2010, "La professeure annonce : « À la fin du mois, chacun présente une analyse qui tient les quatre fils ensemble, pas un à la fois. »", 'The professor announces: "By the end of the month, each of you presents an analysis that holds the four threads together, not one at a time."', ['scene-probleme']),

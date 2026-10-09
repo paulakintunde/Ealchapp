@@ -72,7 +72,7 @@ export const C1_SLUGS: readonly string[] = [
  *  other band. */
 export const C2_SLUGS: readonly string[] = [
   // wave 1 (c2.01-c2.04)
-  'precision-nuance',
+  'precision-nuance', 'analyse-litteraire', 'cent-idiomes', 'argot-litteraire',
 ];
 
 /** The bands this pipeline imports. Each band's lessons live in data/<band>/. */
