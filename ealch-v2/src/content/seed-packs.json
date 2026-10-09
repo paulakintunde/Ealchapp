@@ -1044096,9 +1044096,14 @@
               "word": "gélinotte"
             },
             {
-              "en": "stammered / faltered",
+              "en": "stammered",
               "note": "Parla avec hésitation, cherchant ses mots. EN: spoke with hesitation, searching for words.",
-              "word": "balbutia / bégaya"
+              "word": "balbutia"
+            },
+            {
+              "en": "faltered",
+              "note": "Parla de façon saccadée, sous le coup de l’émotion. EN: spoke haltingly, overcome by emotion.",
+              "word": "bégaya"
             }
           ],
           "questions": [
@@ -1052814,9 +1052819,9 @@
           "title": "Le bilan de Berthier",
           "glossary": [
             {
-              "en": "the career path",
+              "en": "career path",
               "note": "L’ensemble du chemin professionnel suivi. EN: the whole professional path followed.",
-              "word": "le parcours"
+              "word": "parcours"
             }
           ],
           "questions": [
@@ -1058135,9 +1058140,9 @@
               "word": "fauché"
             },
             {
-              "en": "to eat",
+              "en": "eats (becter, to eat)",
               "note": "Argot classique pour manger. EN: classic argot for to eat.",
-              "word": "becter"
+              "word": "becte"
             }
           ],
           "questions": [
@@ -1070248,9 +1070253,9 @@
           "title": "La ligne qui ne bouge jamais",
           "glossary": [
             {
-              "en": "to cross the line",
-              "note": "Dépasser une limite qu’on ne doit jamais dépasser. EN: to go beyond a limit that must never be crossed.",
-              "word": "franchir la ligne"
+              "en": "crossed the line",
+              "note": "A dépassé une limite qu’on ne doit jamais dépasser. EN: went beyond a limit that must never be crossed.",
+              "word": "franchi la ligne"
             }
           ],
           "questions": [
