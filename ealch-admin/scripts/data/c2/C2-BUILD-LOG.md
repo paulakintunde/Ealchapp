@@ -111,11 +111,17 @@ registre en littérature". `nuances-et-registres` needed no widen (already
 c1-c2). The four id blocks in the table above are now live, not merely
 proposed.
 
-Per the house rule (curriculum decisions, round 3: lessons are built ONE AT A
-TIME, slow is fine, preview on the phone, Paul's OK, then the next one),
-**c2.01 is dispatched first**, not all four of wave 1 at once. c2.02-04
-dispatch after Paul reviews c2.01 on device at Gate C2-1a (an informal
-per-lesson checkpoint, not the wave gate).
+**Correction, 2026-10-09:** this file first said c2.01 would dispatch alone,
+citing curriculum-decisions round 3 ("lessons are built ONE AT A TIME"). That
+rule was B1's PILOT-phase rule, before the agent-dispatch factory existed; it
+was superseded once B1/B2/C1 moved to wave dispatch — C1-BUILD-PLAN.md's own
+wave table sends all 4 lessons of a wave out together ("about 55 agent
+dispatches for authors and pre-reviewers" across 24 lessons, roughly 2 per
+lesson, and ONE gate after each 4-lesson wave, not one gate per lesson). C2
+follows the same wave process. c2.01 was built, pre-reviewed and device-proven
+alone first only because that is how this correction was caught, not because
+it is the intended process — c2.02-04 dispatch now, alongside this fix, and
+Gate C2-1 (device review, Paul's OK) comes once after all four, before wave 2.
 
 ## Wave 1 author briefs (c2.01-04)
 

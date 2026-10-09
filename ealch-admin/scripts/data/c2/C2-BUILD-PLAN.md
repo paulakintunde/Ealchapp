@@ -110,10 +110,10 @@ exist at any level.
 
 | Lesson | Theme | Block | Current range | Needed range | State |
 |---|---|---|---|---|---|
-| c2.01 | nuances-et-registres | 1400-1599 | c1-c2 | no change | proposed |
-| c2.02 | litterature | 2000-2199 | b1-c1 | widen to c2 | proposed |
-| c2.03 | expressions-imagees | 1800-1999 | b1-b2 | widen to c2 | proposed |
-| c2.04 | argot-classique | 1000-1199 | b2-c1 | widen to c2 | proposed |
+| c2.01 | nuances-et-registres | 1400-1599 | c1-c2 | no change | **claimed** (widen none needed; sub-theme « la précision et l'implicite » applied 2026-10-09) |
+| c2.02 | litterature | 2000-2199 | b1-c2 | **widened 2026-10-09** | **claimed** (sub-theme « l'analyse littéraire intégrale » applied) |
+| c2.03 | expressions-imagees | 1800-1999 | b1-c2 | **widened 2026-10-09** | **claimed** (sub-theme « cent expressions idiomatiques avancées » applied) |
+| c2.04 | argot-classique | 1000-1199 | b2-c2 | **widened 2026-10-09** | **claimed** (sub-theme « l'argot et le registre en littérature » applied) |
 | c2.05 | etymologie (NEW row) | 1000-1199 | — | create, c1-c2 | proposed |
 | c2.06 | langue-soignee | 2400-2599 | a2-c1 | widen to c2 | proposed |
 | c2.07 | litterature | 2200-2399 | b1-c1 (widening above covers this) | c2 | proposed |
