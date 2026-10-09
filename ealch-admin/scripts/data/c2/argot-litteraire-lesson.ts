@@ -392,7 +392,7 @@ const A3_LECTURE: Sec<'reading'> = {
   text: PASTICHE_DIRECT,
   glossary: [
     { word: 'fauché', en: 'broke, penniless', note: 'Argot classique pour sans argent. EN: classic argot for having no money.' },
-    { word: 'becter', en: 'to eat', note: 'Argot classique pour manger. EN: classic argot for to eat.' },
+    { word: 'becte', en: 'eats (becter, to eat)', note: 'Argot classique pour manger. EN: classic argot for to eat.' },
   ],
   questions: [
     { q: 'Global : qui parle dans la phrase entre guillemets, et qui parle autour.', a: 'Jules parle dans la phrase entre guillemets ; le narrateur parle dans tout le reste, en une langue soignée.' },

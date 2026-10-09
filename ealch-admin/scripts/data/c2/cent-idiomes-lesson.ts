@@ -992,7 +992,7 @@ const A8_LECTURE: Sec<'reading'> = {
   title: 'Le bilan de Berthier', frSub: 'À l’aube de la retraite',
   text: "À l’aube de sa retraite, le juge Berthier regarde son parcours avec un œil différent. Peu de ses décisions ont résisté à l’épreuve du temps, reconnaît-il enfin. Certaines, pourtant, restent gravées dans le marbre du droit local. D’autres sont tombées dans l’oubli dès l’année suivante. On n’avait pas vu, de mémoire d’homme, un juge revenir ainsi sur son propre bilan.",
   glossary: [
-    { word: 'le parcours', en: 'the career path', note: 'L’ensemble du chemin professionnel suivi. EN: the whole professional path followed.' },
+    { word: 'parcours', en: 'career path', note: 'L’ensemble du chemin professionnel suivi. EN: the whole professional path followed.' },
   ],
   questions: [
     { q: "Devine le sens, sans dictionnaire : « peu de ses décisions ont résisté à l’épreuve du temps ». Que dit cette phrase sur son héritage.", a: 'Que la plupart de ses décisions ont fini par paraître dépassées ou fausses, avec le temps.' },

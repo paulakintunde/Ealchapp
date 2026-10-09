@@ -644,7 +644,7 @@ const A6_LECTURE: Sec<'reading'> = {
   title: 'La ligne qui ne bouge jamais', frSub: 'Trois fautes, une seule ligne à ne jamais franchir',
   text: "Léna relit toujours sa reformulation en se posant une seule question : qu’est-ce que j’ai perdu, et qu’est-ce que j’ai ajouté. Une reformulation qui oublie le délai de trente jours, qui invente un risque que la lettre ne mentionne pas, ou qui traite M. Castonguay comme un enfant incapable de comprendre, a franchi la ligne, même si elle reste courte et facile à lire.",
   glossary: [
-    { word: 'franchir la ligne', en: 'to cross the line', note: 'Dépasser une limite qu’on ne doit jamais dépasser. EN: to go beyond a limit that must never be crossed.' },
+    { word: 'franchi la ligne', en: 'crossed the line', note: 'A dépassé une limite qu’on ne doit jamais dépasser. EN: went beyond a limit that must never be crossed.' },
   ],
   questions: [
     { q: 'Quelle est la seule question que Léna se pose en relisant.', a: 'Qu’est-ce que j’ai perdu, et qu’est-ce que j’ai ajouté.' },

@@ -249,7 +249,8 @@ const A1_LECTURE: Sec<'reading'> = {
     { word: 'calorifère', en: 'stove, central heating', note: "Un appareil de chauffage du dix-neuvième siècle. EN: a nineteenth-century heating device." },
     { word: 'bibelots', en: 'trinkets', note: "De petits objets décoratifs précieux. EN: small, precious decorative objects." },
     { word: 'gélinotte', en: 'hazel-hen', note: "Un oiseau de gibier fin, servi dans les grands dîners. EN: a fine game bird, served at grand dinners." },
-    { word: 'balbutia / bégaya', en: 'stammered / faltered', note: "Parla avec hésitation, cherchant ses mots. EN: spoke with hesitation, searching for words." },
+    { word: 'balbutia', en: 'stammered', note: "Parla avec hésitation, cherchant ses mots. EN: spoke with hesitation, searching for words." },
+    { word: 'bégaya', en: 'faltered', note: "Parla de façon saccadée, sous le coup de l’émotion. EN: spoke haltingly, overcome by emotion." },
   ],
   questions: [
     { q: "Devine le sens, sans dictionnaire : à quoi Mathilde pense-t-elle sans cesse, du premier au quatrième paragraphe.", a: "À un luxe qu’elle n’a jamais eu : antichambres, salons, dîners fins, bijoux, tout ce que son salaire de petit commis ne permet pas." },
