@@ -1188,3 +1188,24 @@ The 9 unrecorded tasks (TCF blanc-06 x7, TEF blanc-06 x2, scratch/_render_ids_le
   C2" half of decision 47; both papers now have every clip on R2 (confirmed by a
   second idempotent run: 0 rendered, all already up to date). Both still `in_review`;
   not promoted yet.
+
+- **v87 PUBLISHED (Paul's OK, 2026-10-08).** First attempt (bare `content:publish`,
+  no `--packs`) crashed at the legacy full-snapshot upload: 58.74 MiB, Supabase
+  Storage rejected it with 413 EntityTooLarge. Nothing was written (the crash is
+  before both the local seed write and the DB version-counter insert, confirmed by
+  git status and by the retry being clean). Correct command is `--packs`, matching
+  how v86 actually shipped (c1/exam packs in that gate's own log entry): legacy
+  snapshot RETIRED under packs, only core (9.97 MiB) + 4 private packs (b1 16.46,
+  b2 15.22, c1 8.38, exam 1.82 MiB) upload, each well under any size limit.
+  Published: +12 units/lessons, +1834 items, +80 examTasks, +7 examPapers. 0
+  pack-replay deadlocks across every launch path (fresh, premium, exam-only, core-
+  first, packs-first, from v82/84/85/86). Old snapshot pruned, 39.6 MiB reclaimed.
+  a1.03 drift was 14 figures under the WRONG (legacy) cut computation and only 1
+  under the real `--packs` cut (-e: 1076 -> 1078, from the new exam-task target
+  items unioning in) — re-measured, re-authored, merged locally (44a4149). Suites:
+  admin 1299/1299 + 1 skipped, app 5778/5778.
+  **Open, pre-existing, NOT touched today:** the local seed fix is not yet re-shipped
+  (would need a v88 publish), and `content:gender`'s own warning says a real
+  `content:publish` right now would DELETE `sons.09.l1` (seed-only, not in Postgres)
+  — the known issue in [[ealch-publish-blocked-sons09]]. Surfacing for Paul rather
+  than routing around it.
