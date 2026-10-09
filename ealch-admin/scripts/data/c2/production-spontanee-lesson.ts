@@ -965,6 +965,7 @@ const A7_SCENARIO: Sec<'scenario'> = {
       userEn: `${en(E(1900))} ${en(E(1902))} (Name a concrete next step, then close for real.)`,
       alts: [
         { fr: 'En trois mots : un vrai geste, des réglages possibles, et une suite publique. Merci d’avoir appelé.', en: 'In three words: a real move, possible adjustments, and a public follow-up. Thanks for calling.' },
+        { fr: 'Dernier mot : un geste concret, des ajustements à venir, et on se retrouve bientôt. Merci de votre écoute.', en: 'Final word: one concrete move, adjustments to come, and we will be back soon. Thanks for listening.' },
       ],
     },
   ],

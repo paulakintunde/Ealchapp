@@ -815,6 +815,7 @@ const A8_SCENARIO: Sec<'scenario'> = {
       user: src(E(1117)).fr, userEn: src(E(1117)).en,
       alts: [
         { fr: '« Fauchée comme les blés », une locution bien plus vive que le style habituel d’un rapport.', en: '"Flat broke," a far more vivid phrase than a report’s usual style.' },
+        { fr: 'C’est surtout le contraste entre cette expression imagée et le ton habituel du rapport qui me frappe.', en: 'It is mostly the contrast between this vivid expression and the report’s usual tone that strikes me.' },
       ],
     },
     {
@@ -822,6 +823,7 @@ const A8_SCENARIO: Sec<'scenario'> = {
       user: src(E(1126)).fr, userEn: src(E(1126)).en,
       alts: [
         { fr: 'Pour préserver, un instant, la voix propre de Madame Berthoud, avant la formule neutre de la conclusion.', en: 'To preserve, for a moment, Madame Berthoud’s own voice, before the conclusion’s neutral phrasing.' },
+        { fr: 'Cela donne aussi plus de poids au rapport, en ancrant la conclusion dans un vécu réel.', en: 'It also gives the report more weight, anchoring the conclusion in a real lived experience.' },
       ],
     },
   ],

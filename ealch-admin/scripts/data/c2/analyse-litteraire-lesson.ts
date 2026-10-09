@@ -941,6 +941,7 @@ const A9_SCENARIO: Sec<'scenario'> = {
       user: src(E(2160)).fr, userEn: 'I start with the register, then I show the voice that carries it. (Register, then voice, named together.)',
       alts: [
         { fr: src(E(2161)).fr, en: 'I am now linking this anaphora to the structure of the exposition, not only to its meaning.' },
+        { fr: 'Je remarque d’abord l’ironie du narrateur, avant de revenir au registre qui la porte.', en: 'I notice the narrator’s irony first, before coming back to the register that carries it.' },
       ],
     },
     {
@@ -948,6 +949,7 @@ const A9_SCENARIO: Sec<'scenario'> = {
       user: 'L’antithèse oppose un fait social et un sentiment, et elle est portée par le jugement ironique du narrateur, pas par Mathilde elle-même.', userEn: 'The antithesis opposes a social fact and a feeling, and it is carried by the narrator’s ironic judgement, not by Mathilde herself. (Figure, then voice, together.)',
       alts: [
         { fr: src(E(2162)).fr, en: 'I stop after naming the antithesis, without saying who carries it or where it falls in the text. (Incomplete: one thread only.)' },
+        { fr: 'Ici, l’antithèse met en tension un fait de société et une émotion intime, portée par la voix ironique du narrateur, pas par Mathilde.', en: 'Here, the antithesis sets a social fact against an intimate emotion in tension, carried by the narrator’s ironic voice, not by Mathilde.' },
       ],
     },
   ],

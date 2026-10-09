@@ -1212,6 +1212,7 @@ const A10_SCENARIO: Sec<'scenario'> = {
       user: src(E(1095)).fr, userEn: 'Photophobe reads as phot-, light, and -phobe, which fears: something that fears the light. (The decomposition before the meaning.)',
       alts: [
         { fr: src(E(1101)).fr, en: 'I thought it looked like a word I already knew, so I answered fast. (The wrong reflex, never the right move.)' },
+        { fr: 'Phot- vient du grec pour la lumière, et -phobe marque la peur : littéralement, qui a peur de la lumière.', en: 'Phot- comes from the Greek for light, and -phobe marks fear: literally, someone who fears the light.' },
       ],
     },
     {
@@ -1219,6 +1220,7 @@ const A10_SCENARIO: Sec<'scenario'> = {
       user: src(E(1098)).fr, userEn: 'According to the TLFi, loyal descends from legalis through Old French leial, while légal was borrowed later, directly from the Latin. (A named source, not a guess.)',
       alts: [
         { fr: src(E(1103)).fr, en: 'I explained that the two words probably meant the same thing, without checking. (No source, a real fault.)' },
+        { fr: 'Les deux mots viennent du même mot latin, mais loyal est arrivé par la langue parlée et légal directement par l’écrit savant.', en: 'Both words come from the same Latin word, but loyal arrived through the spoken language and légal came directly from the learned written form.' },
       ],
     },
   ],

@@ -575,6 +575,7 @@ const A6_SCENARIO: Sec<'scenario'> = {
       user: src(E(2285)).fr, userEn: 'I am keeping "wander" for "bohémien": it keeps the free movement, even though the exact word disappears.',
       alts: [
         { fr: src(E(2286)).fr, en: 'I am translating "comme un bohémien" as "like a gypsy", without checking whether that word still sounds right in English today. (A choice made without checking; the register is lost without being noticed.)' },
+        { fr: 'Je choisis « like a drifter » : ça évite le mot daté « gypsy » tout en gardant l’image du mouvement libre.', en: 'I am choosing "like a drifter": it avoids the dated word "gypsy" while keeping the image of free movement.' },
       ],
     },
     {
@@ -582,6 +583,7 @@ const A6_SCENARIO: Sec<'scenario'> = {
       user: "Je garde le sens littéral presque mot pour mot ici : le ton rêveur du poème porte déjà cette simplicité, inutile de la décorer.", userEn: "I am keeping the literal meaning almost word for word here: the poem’s own dreamy tone already carries this plainness, no need to decorate it. (Sometimes the literal meaning IS the chosen one.)",
       alts: [
         { fr: 'Je traduis trop littéralement toute la ligne, sans me demander si son ton reste le même en anglais.', en: 'I translate the whole line too literally, without asking whether its tone stays the same in English. (A literal choice made by default, not by judgement.)' },
+        { fr: 'Je garde une version presque littérale, juste assez lissée pour sonner naturel en anglais, sans ajouter d’image absente du texte.', en: 'I keep an almost literal version, just smoothed enough to sound natural in English, without adding an image absent from the text.' },
       ],
     },
   ],

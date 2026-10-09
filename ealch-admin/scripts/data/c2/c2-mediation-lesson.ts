@@ -721,6 +721,7 @@ const A7_SCENARIO: Sec<'scenario'> = {
       user: src(E(2459)).fr, userEn: 'First I spot the technical term, then I check each sentence’s length, finally I choose the words you already use. (Naming the plan, for a competent colleague.)',
       alts: [
         { fr: 'Je garde le terme exact et je l’explique, sans tout réécrire.', en: 'I keep the exact term and explain it, without rewriting everything.' },
+        { fr: 'Je remplace chaque terme technique par son équivalent courant, sans toucher à la structure de la phrase.', en: 'I replace each technical term with its everyday equivalent, without touching the sentence structure.' },
       ],
     },
     {
@@ -728,6 +729,7 @@ const A7_SCENARIO: Sec<'scenario'> = {
       user: src(E(2461)).fr, userEn: 'It is a letter about grandma’s apartment; I will tell it to you with simple words. (Naming the plan, for a child.)',
       alts: [
         { fr: src(E(2421)).fr, en: src(E(2421)).en },
+        { fr: 'C’est un papier qui explique pourquoi mamie doit faire attention à une règle de son appartement.', en: 'It is a paper that explains why grandma needs to pay attention to a rule about her apartment.' },
       ],
     },
   ],
@@ -821,6 +823,7 @@ const A8_SCENARIO: Sec<'scenario'> = {
       user: 'Le programme pourra commencer une fois que la ville aura donné son accord, et il durera cinq ans.', userEn: 'The programme can start once the city has given its approval, and it will last five years. (The same two facts, shorter sentence.)',
       alts: [
         { fr: 'Dès que la ville aura dit oui, les plantations commenceront, et le tout durera cinq ans.', en: 'As soon as the city says yes, the plantings will start, and the whole thing will last five years.' },
+        { fr: 'La ville doit d’abord donner son accord, puis le programme se déroulera sur cinq ans.', en: 'The city must first give its approval, then the programme will run over five years.' },
       ],
     },
   ],

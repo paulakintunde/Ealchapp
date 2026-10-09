@@ -923,6 +923,7 @@ const A8_SCENARIO: Sec<'scenario'> = {
       user: 'Je vais leur demander un résumé clair des causes, pour qu’on les ait tous les deux.', userEn: 'I will ask them for a clear summary of the causes, so we both have it. (A concrete next step, closing the loop.)',
       alts: [
         { fr: 'Je propose qu’on exige, ensemble, une explication écrite cette fois.', en: 'I suggest we jointly require a written explanation this time.' },
+        { fr: 'Je préfère qu’on organise une réunion rapide avec eux pour clarifier tout ça ensemble.', en: 'I’d rather we set up a quick meeting with them to clarify everything together.' },
       ],
     },
   ],

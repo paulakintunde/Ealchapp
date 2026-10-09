@@ -1489,6 +1489,7 @@ const A12_SCENARIO: Sec<'scenario'> = {
       user: src(E(1956)).fr, userEn: 'The picture speaks; the register decides. Ten families, the same rule a hundred times over. (A general answer, naming the method.)',
       alts: [
         { fr: 'Parce que « discret » ne dit rien du choix volontaire, ni de la distance qu’il a mise avec tout le monde.', en: 'Because "discreet" says nothing of the deliberate choice, nor of the distance he put between himself and everyone.' },
+        { fr: 'Le choix littéraire crée une image mémorable, alors que « discret » reste un mot neutre et vite oublié.', en: 'The literary choice creates a memorable image, whereas "discreet" stays a neutral, easily forgotten word.' },
       ],
     },
     {
@@ -1496,6 +1497,7 @@ const A12_SCENARIO: Sec<'scenario'> = {
       user: 'Parce que « passer à la postérité » dit un jugement des générations suivantes, pas seulement du présent.', userEn: 'Because "passer à la postérité" names a judgement by later generations, not only the present.',
       alts: [
         { fr: 'Parce que « rester connu » reste trop faible pour un texte de ce registre.', en: 'Because "rester connu" stays too weak for a text at this register.' },
+        { fr: 'L’expression ajoute aussi une dimension presque solennelle, absente du verbe « rester ».', en: 'The expression also adds an almost solemn dimension, absent from the verb "rester".' },
       ],
     },
   ],
