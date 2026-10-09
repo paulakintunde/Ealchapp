@@ -861,7 +861,7 @@ const A8_PIEGE: Sec<'trapDrill'> = {
 
 const A8_SCENE = sceneAnalyse('a8-scene', 'La première réponse correcte ne suffit pas', [
   { from: 'user', fr: src(E(2147)).fr, en: src(E(2147)).en },
-  { from: 'coach', fr: 'Portée par quelle voix, dans quel registre ?', en: 'Carried by which voice, in which register?' },
+  { from: 'coach', fr: 'Portée par quelle voix, dans quel registre?', en: 'Carried by which voice, in which register?' },
   { from: 'narrator', fr: src(E(2148)).fr, en: src(E(2148)).en },
 ]);
 A8_SCENE.terms = ['lectureintegrale'];
