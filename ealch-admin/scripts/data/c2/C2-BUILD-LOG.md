@@ -342,3 +342,102 @@ reviews the preview build.
   **Still open for Paul:** the c2.03 idiom-density amendment (10/act vs the
   documented 8/act ceiling); review the whole wave on your own device; the
   go-ahead for wave 2 (c2.05-08).
+
+- **2026-10-09, same day: "wave 1 all good."** Paul reviewed and approved.
+  Ratified the c2.03 idiom-density call as its own amendment, §2.2b in
+  `../b1/B1-WORKSHOP-AND-VOCAB-SHAPES.md` (`a39f623`), same precedent as
+  §2.2a after b1.27/b1.28 — the B1-calibrated 8/act and 50-70-total ceilings
+  do not bind C2 by default, but each lesson's actual total still needs
+  Paul's own sign-off, not an assumed new default.
+
+  **Wave 1 shipped for real**, Paul's OK: `pnpm tsx scripts/b1-import.ts
+  --band c2 --apply` (574 rows, 4 units, 4 lessons, 0 blockers, read-back
+  clean), then `pnpm tsx scripts/b1-merge-into-seed.ts --band c2
+  precision-nuance analyse-litteraire cent-idiomes argot-litteraire` (seed
+  v88 -> seed.json 177 units/41 lessons/6534 items, seed-packs.json layer
+  137 units/139 lessons/22557 items, validateCorpus 0 issues before and
+  after). c2.01-04 are in Postgres and the seed layer now — no longer
+  drafts. **Not published**: `content:publish` has not run, so none of this
+  reaches a learner yet (still waiting on art — every wave-1 lesson's act
+  openers are unregistered, the dry run's own standing warning). The dev
+  preview fixture was regenerated and correctly came back empty (`e425493`)
+  — nothing left to overlay until wave 2 has drafts.
+
+  **Wave 2 setup, Paul's OK:** the theme writes `C2-BUILD-PLAN.md` proposed
+  for wave 2, applied and verified by read-back — new theme row `etymologie`
+  (domain fondations, c1-c2, sub-theme "les racines et les familles de
+  mots"), `langue-soignee` widened a2-c1 -> c2 with "la médiation
+  linguistique" appended, `litterature` += "traduire la poésie",
+  `discours-dexamen` += "la production orale spontanée". All four id blocks
+  (c2.05-08, see the table above) are now live, not proposed.
+
+## Wave 2 author briefs (c2.05-08)
+
+Same standard as wave 1: rich-lesson standard, French only, tu, no em dash/
+U+203F tie/"honnête", curly apostrophes, cite predecessors by trail position
+in words. Draft only — nothing merges into seed.json or imports until Paul
+reviews the wave-2 preview build. Every author should read wave 1's four
+lesson files first (especially `precision-nuance-*` and `argot-litteraire-*`,
+the two that had real pre-review defects) as the current quality bar, and
+the matching `C2-RESEARCH-PLAN.md` section for full scope/sources/risks.
+
+### Author c2.05 — « Étymologie et formation des mots »
+
+- **Id range**: `fr.c2.etymologie.1000` to `.1199` (new theme, nothing to
+  collide with).
+- **Shape**: V (vocab). **Builds on**: « la leçon 18 du C1 » (c1.18, false
+  friends — word-level, closest owner, but never taught word FORMATION
+  systematically). **New here**: deriving a word's probable meaning from
+  Greek/Latin roots, prefixes and suffixes, and explaining how French built
+  a given word historically — a genuinely new theme, confirmed absent from
+  all 141 pre-existing `content_themes` rows.
+  **Research-heavy**: every etymology claim needs a named source (TLFi/
+  CNRTL, Bloch & Wartburg, Le Robert historique) — no folk etymology.
+  Budget more fact-check time than a typical lesson.
+- **Image prompts**: `c2-etymologie-image-prompts.md`, save paths under
+  `ealch-v2/assets/lessons/c2-05-etymologie/actNN.jpg`.
+
+### Author c2.06 — « La médiation linguistique »
+
+- **Id range**: `fr.c2.langue-soignee.2400` to `.2599`.
+- **Shape**: W. **Builds on**: « la leçon 22 du C1 » (c1.22, translating
+  complex ideas by reformulation) exact — this lesson continues that same
+  thread toward a named AUDIENCE change (a specialist text reformulated for
+  a child, a layperson, a colleague) rather than a language-to-language
+  translation. The real CEFR C2 "mediation" descriptor nothing else teaches.
+- **Sources**: OQLF Vitrine linguistique (plain-language guidance), a real
+  government/public-health plain-language rewrite as a before/after model
+  (prefer public-sector sources, reusable; or write an original technical
+  passage, labelled as such, to avoid any copyright question).
+- **Image prompts**: `c2-mediation-image-prompts.md`, save paths under
+  `ealch-v2/assets/lessons/c2-06-mediation/actNN.jpg`.
+
+### Author c2.07 — « Traduire la poésie » (optional enrichment)
+
+- **Id range**: `fr.c2.litterature.2200` to `.2399`.
+- **Shape**: W. **Builds on**: « la leçon 22 du C1 » (c1.22, translating
+  ideas), « la leçon 19 du C1 » (c1.19, naming a figure's effect). Flagged
+  **optional** per the one surviving hint from the lost 2026-09-22 list
+  ("c2.07 poetry is optional enrichment") — confirm scope with Paul before
+  going deep; cut is acceptable if wave 2 runs long.
+- **Sources**: Wikisource/Gutenberg for public-domain French poems
+  (Baudelaire, Verlaine, Apollinaire all safely public domain) — same
+  verify-word-for-word rule c2.02 followed for its Maupassant extract.
+- **Image prompts**: `c2-poesie-image-prompts.md`, save paths under
+  `ealch-v2/assets/lessons/c2-07-poesie/actNN.jpg`.
+
+### Author c2.08 — « La production orale spontanée »
+
+- **Id range**: `fr.c2.discours-dexamen.1800` to `.1999`.
+- **Shape**: W. **Builds on**: « la leçon 9 du C1 » (c1.09, debate and
+  formal oral expression: exposé, floor, objections, reformulation) —
+  structured and prepared; c2.08 removes the preparation time, responding
+  to an unplanned prompt in real time. Future PO@c2 link (informational,
+  nothing wired, no `dalf_c2` format exists).
+- **Sources**: none fact-heavy — this is a production-shape lesson; sourcing
+  is realistic prompt design, not citations.
+- **Risk**: grading spontaneous production objectively is harder than a
+  scripted task; the rubric needs explicit criteria for "coherent under time
+  pressure," not just correctness.
+- **Image prompts**: `c2-production-spontanee-image-prompts.md`, save paths
+  under `ealch-v2/assets/lessons/c2-08-production-spontanee/actNN.jpg`.
