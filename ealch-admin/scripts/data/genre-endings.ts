@@ -562,7 +562,8 @@ export const WORTHLESS_ENDINGS: WorthlessEnding[] = [
         // 1044 since 2026-10-02: four orphan rows in `sons.jours-et-mois`, referenced by no lesson, were removed from the seed by their owning merges.
         // 1076 since 2026-10-08: wave 4-6 merge (c1.10-c1.19, c1.22, c1.23).
         // 1078 since 2026-10-09: v87 publish cut (packs regime).
-    items: 1078,
+        // 1079 since 2026-10-09: four orphan rows in `sons.jours-et-mois`, referenced by no lesson, were removed from the seed by their owning merges.
+    items: 1079,
     bothWays: [
       { id: 'fr.a1.ecole.029', fr: 'le livre', en: 'the book' },
       { id: 'fr.a1.maison.015', fr: 'la table', en: 'the table' },
