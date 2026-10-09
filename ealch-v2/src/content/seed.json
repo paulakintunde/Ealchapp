@@ -691,6 +691,20 @@
       ]
     },
     {
+      "slug": "etymologie",
+      "title": "L'étymologie et la formation des mots",
+      "domain": "fondations",
+      "levelRange": [
+        "c1",
+        "c2"
+      ],
+      "examFlag": false,
+      "immigFlag": false,
+      "subThemes": [
+        "les racines et les familles de mots"
+      ]
+    },
+    {
       "slug": "evenements-familiaux",
       "title": "Les événements familiaux",
       "domain": "relations",
@@ -11394,6 +11408,223 @@
             {
               "title": "Rédiger l’analyse",
               "cards": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c2.05",
+      "seq": 5,
+      "sub": "Étymologie et formation des mots",
+      "canDo": "Can derive a word's probable meaning from its Greek or Latin roots, prefixes and suffixes, tell a real root apart from a look-alike one that means something different, and explain, with a named source, how French actually built a given word historically, including when one Latin word gave French two different descendants",
+      "level": "c2",
+      "title": "Etymology and Word Formation",
+      "lessonIds": [
+        "c2.05.l1"
+      ],
+      "prereqUnitIds": [
+        "c1.18"
+      ],
+      "outline": [
+        {
+          "lessonId": "c2.05.l1",
+          "title": "Étymologie et formation des mots",
+          "acts": [
+            {
+              "title": "Le problème",
+              "cards": 9
+            },
+            {
+              "title": "Les racines grecques du savoir",
+              "cards": 11
+            },
+            {
+              "title": "Préfixes de position et de mouvement",
+              "cards": 10
+            },
+            {
+              "title": "Préfixes de négation",
+              "cards": 10
+            },
+            {
+              "title": "Une racine, une famille de verbes",
+              "cards": 10
+            },
+            {
+              "title": "Suffixes qui fabriquent un nom",
+              "cards": 10
+            },
+            {
+              "title": "Suffixes qui fabriquent un adjectif",
+              "cards": 10
+            },
+            {
+              "title": "Le mot populaire et le mot savant",
+              "cards": 14
+            },
+            {
+              "title": "Racines voisines, histoires séparées",
+              "cards": 8
+            },
+            {
+              "title": "Ta pierre",
+              "cards": 18
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c2.06",
+      "seq": 6,
+      "sub": "La médiation linguistique",
+      "canDo": "Can reformulate a specialist or technical French text (legal, medical, scientific) for a named different audience (a child, a layperson, a non-specialist colleague), preserving its meaning, its actionable facts and its real force while adjusting register, sentence length and the treatment of each technical term (kept and explained, replaced with an image, or generalised), without omitting, inventing or condescending",
+      "level": "c2",
+      "title": "Linguistic Mediation",
+      "lessonIds": [
+        "c2.06.l1"
+      ],
+      "prereqUnitIds": [
+        "c1.22"
+      ],
+      "outline": [
+        {
+          "lessonId": "c2.06.l1",
+          "title": "La médiation linguistique",
+          "acts": [
+            {
+              "title": "Le même texte, deux lecteurs",
+              "cards": 13
+            },
+            {
+              "title": "Trois leviers pour médier",
+              "cards": 16
+            },
+            {
+              "title": "Construire la reformulation",
+              "cards": 9
+            },
+            {
+              "title": "Garder le sens, pas la forme",
+              "cards": 5
+            },
+            {
+              "title": "Le piège de la fausse simplification",
+              "cards": 5
+            },
+            {
+              "title": "Ce qu’on ne touche jamais",
+              "cards": 2
+            },
+            {
+              "title": "Avant ta médiation",
+              "cards": 8
+            },
+            {
+              "title": "Ta médiation",
+              "cards": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c2.07",
+      "seq": 7,
+      "sub": "Traduire la poésie",
+      "canDo": "Can translate or closely paraphrase a short French poem into English, naming what the attempt preserves (tone, rhythm cues, imagery) and what it necessarily sacrifices, while accepting that no single translation is the only correct one",
+      "level": "c2",
+      "title": "Translating French Poetry",
+      "lessonIds": [
+        "c2.07.l1"
+      ],
+      "prereqUnitIds": [
+        "c1.22",
+        "c1.19"
+      ],
+      "outline": [
+        {
+          "lessonId": "c2.07.l1",
+          "title": "Traduire la poésie",
+          "acts": [
+            {
+              "title": "Rencontrer le poème",
+              "cards": 12
+            },
+            {
+              "title": "Ce qui se perd, ce qui reste",
+              "cards": 20
+            },
+            {
+              "title": "Traduire ligne par ligne",
+              "cards": 17
+            },
+            {
+              "title": "Choisir la meilleure traduction",
+              "cards": 11
+            },
+            {
+              "title": "Le piège du mot à mot",
+              "cards": 6
+            },
+            {
+              "title": "Ta traduction",
+              "cards": 15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c2.08",
+      "seq": 8,
+      "sub": "La production orale spontanée",
+      "canDo": "Can answer an unplanned question, objection or change of topic in real time, with no preparation, using a deliberate gambit to buy thinking time, a mental template to structure the answer on the fly, and a self-correction that keeps the thread rather than restarting from zero, and can bring the answer to a real conclusion rather than trailing off",
+      "level": "c2",
+      "title": "Spontaneous Oral Production",
+      "lessonIds": [
+        "c2.08.l1"
+      ],
+      "prereqUnitIds": [
+        "c1.09"
+      ],
+      "outline": [
+        {
+          "lessonId": "c2.08.l1",
+          "title": "La production orale spontanée",
+          "acts": [
+            {
+              "title": "Le direct, sans filet",
+              "cards": 11
+            },
+            {
+              "title": "Les mots qui tiennent le temps",
+              "cards": 14
+            },
+            {
+              "title": "Le gabarit mental",
+              "cards": 17
+            },
+            {
+              "title": "Se corriger sans perdre le fil",
+              "cards": 15
+            },
+            {
+              "title": "Choisis la meilleure réponse",
+              "cards": 12
+            },
+            {
+              "title": "Le vrai rétablissement",
+              "cards": 8
+            },
+            {
+              "title": "Sous pression, en scénario",
+              "cards": 17
+            },
+            {
+              "title": "Ta réponse, à l’instant",
+              "cards": 12
             }
           ]
         }
