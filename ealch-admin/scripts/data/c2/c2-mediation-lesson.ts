@@ -300,7 +300,7 @@ const ACT1: ActDef = {
  * ══════════════════════════════════════════════════════════════════════════ */
 
 const A2_DECK: Sec<'cardDeck'> = {
-  type: 'cardDeck', id: 'a2-deck', render: 'deck', layer: 'core', size: 'lg', sheetId: 'sheet-mediation',
+  type: 'cardDeck', id: 'a2-deck', render: 'deck', layer: 'core', size: 'lg', sheetId: 'sheet-mediation-domaines',
   title: 'Trois leviers, trois domaines', frSub: 'Le registre, la longueur, le terme technique',
   hint: 'Trois cartes. Chaque fois, le fait ne change pas ; la porte, oui.',
   audio: REC('rec-c2-06-trois-leviers'), say: REFRAME, terms: ['leviers'],
