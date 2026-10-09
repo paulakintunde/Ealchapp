@@ -382,10 +382,10 @@ const A2_ECOUTE: Sec<'listening'> = {
   lines: [ln(E(1812)), ln(E(1813)), ln(E(1814)), ln(E(1815)), ln(E(1816)), ln(E(1817)), ln(E(1818))],
   questions: [
     { q: 'Qu’est-ce que ces sept phrases ont en commun ?', opts: ['Elles annoncent qu’une réponse construite arrive', 'Elles répondent déjà à la question', 'Elles sont toutes des excuses'], correct: 0, why: 'Chacune gagne un instant sans encore rien affirmer sur le fond. EN: each buys a moment without yet stating anything on the substance.' },
-    { q: '« Disons que… » fait quoi, précisément ?', opts: ['Ouvre une piste, sans encore la formuler entièrement', 'Change complètement de sujet', 'Admet que tu ne sais pas'], correct: 0, why: 'C’est une porte ouverte vers la réponse, pas un aveu. EN: it is a door opened toward the answer, not an admission.' },
-    { q: '« Laissez-moi reformuler votre question » fait quoi ?', opts: ['Redonne la question dans tes propres mots', 'Refuse de répondre', 'Répète mot pour mot ce qui a été dit'], correct: 0, why: 'Reformuler prend le contrôle du rythme sans jamais répéter mot pour mot. EN: rephrasing takes control of the pace without ever repeating word for word.' },
+    { q: 'La deuxième phrase fait quoi, précisément ?', opts: ['Ouvre une piste, sans encore la formuler entièrement', 'Change complètement de sujet', 'Admet que tu ne sais pas'], correct: 0, why: 'C’est une porte ouverte vers la réponse, pas un aveu. EN: it is a door opened toward the answer, not an admission.' },
+    { q: 'La dernière des sept phrases fait quoi ?', opts: ['Redonne la question dans tes propres mots', 'Refuse de répondre', 'Répète mot pour mot ce qui a été dit'], correct: 0, why: 'Reformuler prend le contrôle du rythme sans jamais répéter mot pour mot. EN: rephrasing takes control of the pace without ever repeating word for word.' },
     { q: 'Pourquoi dire ces phrases lentement, et non à toute vitesse ?', opts: ['Parce qu’un gambit dit vite sonne comme un tic vide', 'Pour des raisons de respiration uniquement'], correct: 0, why: 'La vitesse est ce qui distingue un vrai gambit d’un tic nerveux. EN: speed is what tells a real gambit apart from a nervous tic.' },
-    { q: '« Je dirais même plus » annonce quoi ?', opts: ['Que la réponse va aller plus loin que prévu', 'Que tu changes d’avis complètement'], correct: 0, why: 'Il prépare un renforcement de ce qui vient d’être dit. EN: it sets up a strengthening of what was just said.' },
+    { q: 'La sixième phrase annonce quoi ?', opts: ['Que la réponse va aller plus loin que prévu', 'Que tu changes d’avis complètement'], correct: 0, why: 'Il prépare un renforcement de ce qui vient d’être dit. EN: it sets up a strengthening of what was just said.' },
   ],
   audio: AUDIO,
   say: REFRAME,
