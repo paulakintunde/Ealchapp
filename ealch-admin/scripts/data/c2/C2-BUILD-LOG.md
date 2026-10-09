@@ -64,30 +64,154 @@ both typecheck clean.
   a product decision — a C2 diploma-exam product — not a content-authoring
   blocker, and nobody has asked for one yet.
 
-## BLOCKED: the actual C2 lesson list
+## RESOLVED 2026-10-08: the actual C2 lesson list
 
-Paul supplied a 111-lesson B1-C2 plan on 2026-09-22 (b1-l01..l39, b2-l01..l34,
-c1-l01..l24, c2-l01..l14), pasted directly into a chat session. **That list was
-never saved to a file in this repo.** A search for every trace of it found only:
+Paul's original 111-lesson B1-C2 plan (2026-09-22, pasted into a chat, never
+saved to a file) was never recovered — the search described below found only
+the wave grouping and one hint. Paul instead supplied a fresh 14-item list on
+2026-10-08. It was compared lesson-by-lesson against every shipped C1/B2
+lesson title; three items overlapped existing lessons (literary slang vs
+b2.32's recognise-and-avoid verlan, "C2 writing" vs c1.10's academic essays,
+"rapid native speech" vs b2.25's real-time listening) and were reframed to
+explicitly go past their predecessor rather than repeat it; two items (word
+formation, etymology) were merged into one lesson, freeing a slot for "la
+médiation linguistique" — a real CEFR C2 descriptor nothing in the list
+covered. Paul approved the adjusted 14 ("Looks good and great").
 
-- `ealch-admin/scripts/data/b1/B1-C2-BUILD-SEQUENCE.md` — the wave GROUPING
-  (c2.01-04, c2.05-08, c2.09-12, c2.13-14) and one topic hint ("c2.07 poetry is
-  optional enrichment"), but no titles or scope for the other 13 lessons.
-- The memory index (`ealch-b1-c2-curriculum-decisions`) — records the
-  DECISIONS made about the plan (one unit per lesson, tu, fr-FR narration,
-  the rich-lesson standard, c2 becomes a real level) but not the plan's
-  content itself.
+The original search, for the record: `ealch-admin/scripts/data/b1/
+B1-C2-BUILD-SEQUENCE.md` held the wave GROUPING (c2.01-04, c2.05-08, c2.09-12,
+c2.13-14) and one topic hint ("c2.07 poetry is optional enrichment"), both of
+which the fresh list was fitted onto rather than overridden; the memory index
+(`ealch-b1-c2-curriculum-decisions`) held the DECISIONS (one unit per lesson,
+tu, fr-FR narration, the rich-lesson standard) but never the list's content.
 
-So before a C1-Phase-0-style research pass (per-lesson scope, builds-on,
-sources, id home) can start, **Paul needs to either resupply the original
-14-lesson list, or approve a freshly drafted one** (the same way C1's 24
-lessons were planned from scratch, extending past B2's actual scope, in
-`C1-BUILD-PLAN.md`). Nothing below this point is decided.
+**The approved 14, with units** — see `C2-BUILD-PLAN.md` for the full table,
+shapes, builds-on and id homes:
 
-## Next, once the list exists
+| Unit | Lessons |
+|---|---|
+| 1. Précision et style | c2.01 language use/nuance/implicit, c2.02 literary analysis, c2.03 100 idioms, c2.04 verlan/argot in literary use |
+| 2. Mots et médiation | c2.05 étymologie et formation des mots, c2.06 médiation linguistique, c2.07 poetry translation (optional), c2.08 spontaneous oral production |
+| 3. Discours et analyse | c2.09 sustained discourse, c2.10 expert synthèse/dissertation, c2.11 expert listening, c2.12 dense academic reading |
+| 4. Révision et maîtrise | c2.13 self-editing, c2.14 capstone |
 
-Follow `scripts/data/c1/C1-PHASE0-PROMPT.md` as the template (it is explicitly
-written to be reusable): Paul's decisions on any B1/B2/C1 overlap, unit
-naming, wave order and theme rows; a `C2-RESEARCH-PLAN.md` per lesson (scope,
-builds-on, seed/DB inventory, sources, exam target, id home, risks); then
-wave 1's author briefs. Do not dispatch authors until Paul says so.
+## Next
+
+Phase 0 research and planning (`C2-BUILD-PLAN.md`, `C2-RESEARCH-PLAN.md`) is
+done, written the same day as the list, at the depth C1's Phase 0 reached.
+**Open for Paul before wave 1 dispatch**: the four unit names (proposed
+above), and the id-home table's theme writes (three widens — litterature,
+expressions-imagees, argot-classique, each to reach c2 — plus four sub-theme
+appends), all in `C2-BUILD-PLAN.md`'s "Id homes" section. Wave 1's author
+briefs are below. Authors are not dispatched until Paul says go.
+
+## Wave 1 author briefs (c2.01-04)
+
+Each brief assumes the rich-lesson standard (`../b1/RICH-LESSON-STANDARD.md`):
+up to 100 missions in 8-12 acts, one quiz of 8-12 rounds x 8 questions with
+per-round remediation drills, act checks, deck tranches per act, `opener`
+artwork per act. French only, tu, no em dash, no U+203F tie, never
+"honnête"/"honest", curly apostrophes, cite predecessors by trail position in
+words. Draft only — nothing merged into seed.json or imported until Paul
+reviews the preview build.
+
+### Author c2.01 — « Précision, nuance et l'implicite »
+
+- **Id range**: `fr.c2.nuances-et-registres.1400` to `.1599` (once the id-home
+  table is approved and no widen is needed for this theme).
+- **Builds on, cite by trail position**: c1.20 (« la leçon 20 du C1 », reading
+  the implicit — recognition only, never re-teach its examples); c1.06
+  (hedging/modality in speech); c1.17 (connotation and register); c1.19
+  (naming a figure's effect).
+- **What is NEW here**: c1.20 only asked the learner to SPOT irony,
+  presupposition and omission; c2.01 asks them to PRODUCE a reply that
+  matches an implied register, and to choose the one near-synonym among
+  several that carries the exact connotation wanted.
+- **Suggested act shape** (adapt freely): meet precision failures in a real
+  exchange (scene) -> name the near-synonym families and their connotation
+  differences (cardDeck/tapTable) -> build it (groupDrill choosing the right
+  register for a context) -> trap it (the English-speaker reflex to pick the
+  literal cognate over the connoted French word) -> produce a reply matching
+  an implied register (task, the graded production act) -> check it.
+- **Sources**: Le Robert and TLFi/CNRTL for connotation; Académie française
+  « Dire, ne pas dire » for contested register calls, stated as « selon … ».
+- **Image prompts**: write `c2-langue-use-image-prompts.md` with full save
+  paths under `ealch-v2/assets/lessons/c2-01-precision-nuance/actNN.jpg`.
+
+### Author c2.02 — « L'analyse littéraire intégrale »
+
+- **Id range**: `fr.c2.litterature.2000` to `.2199` (theme widen to c2 needed
+  first).
+- **Builds on, cite by trail position**: c1.02 (passé antérieur in narrative
+  sequence), c1.03 (literary subjunctive), c1.19 (naming a figure's effect),
+  **c1.14** closest (film/literature/arts: reaction to analysis through form —
+  the lesson c2.02 must clearly surpass).
+- **What is NEW here**: a FULL extract analysed as one integrated whole
+  (register + voice + structure + at least one figure of style together),
+  where every predecessor taught one piece in isolation.
+- **Suggested act shape**: meet a full extract (reading with glossary) ->
+  name register/voice/structure/figures one at a time (cardDeck) -> build a
+  combined reading grid (groupDrill) -> choose the right analytical claim
+  among plausible distractors (errorSpot-style) -> produce a structured
+  written analysis (task) -> check it.
+- **Sources**: Wikisource/Gutenberg for the extract, verified public domain
+  and copied word for word; never paraphrase a quotation.
+- **Image prompts**: `c2-litterature-image-prompts.md`, save paths under
+  `ealch-v2/assets/lessons/c2-02-analyse-litteraire/actNN.jpg`.
+
+### Author c2.03 — « Cent expressions idiomatiques avancées »
+
+- **Id range**: `fr.c2.expressions-imagees.1800` to `.1999` (theme widen to c2
+  needed first).
+- **Builds on, cite by trail position**: **c1.17** (connotation, register,
+  collocation) closest; the b1/b2 `expressions-imagees` rows (body,
+  animals/food, colours, proverbs, four 200-blocks already published) are the
+  FAMILIES this lesson extends into literary/formal register, past B2's level.
+- **What is NEW here**: a dedicated bank of 100 advanced idioms (literary or
+  formal register), used in context, not just defined.
+- **Suggested act shape**: this is the V (vocab) shape — mission journey
+  around word families, not a single narrative arc. Group the 100 idioms into
+  8-12 families (by image domain or by register), each family its own act:
+  meet (reading/examples in context) -> name (cardDeck) -> build (groupDrill)
+  -> choose/trap (confusable near-idiom pairs) -> check.
+- **Before drafting**: probe `expressions-imagees` for which idioms b1/b2
+  already published, so c2.03 extends rather than repeats (see
+  C2-RESEARCH-PLAN.md's risk note).
+- **Sources**: Larousse and Le Robert idiom entries; OQLF BDL for any
+  Québécois variant, per the mixed-francophone setting.
+- **Image prompts**: `c2-idiomes-image-prompts.md`, save paths under
+  `ealch-v2/assets/lessons/c2-03-cent-idiomes/actNN.jpg`.
+
+### Author c2.04 — « Verlan, argot et registres : l'usage littéraire »
+
+- **Id range**: `fr.c2.argot-classique.1000` to `.1199` (theme widen to c2
+  needed first).
+- **Builds on, cite by trail position**: **b2.32** exact (« la leçon 32 du
+  B2 », recognise-and-avoid slang) — cite it and go past it, never re-teach
+  its vocabulary list.
+- **What is NEW here**: reading slang deployed DELIBERATELY for literary or
+  ironic effect (free indirect style, a character's voice, a formal text
+  quoting slang on purpose) and explaining the author's choice, the opposite
+  direction from b2.32's "know it exists, avoid it in formal writing".
+- **Suggested act shape**: meet a literary extract using slang for effect
+  (reading) -> name what register the author is signalling and why (cardDeck)
+  -> build a reading grid distinguishing accidental vs deliberate register
+  shift (groupDrill) -> trap it (mistaking literary slang quotation for an
+  instruction to USE it formally) -> produce a short analysis (task) -> check.
+- **Sources**: period literary slang (Bruant, Céline, Queneau — verify public
+  domain) or an original contemporary pastiche, clearly labelled as such, if
+  no suitable public-domain extract exists; verify any modern-sounding term's
+  currency via OQLF/Usito before using it as a positive example.
+- **Image prompts**: `c2-argot-litteraire-image-prompts.md`, save paths under
+  `ealch-v2/assets/lessons/c2-04-argot-litteraire/actNN.jpg`.
+
+## Progress
+
+- **2026-10-08** (`1a7398b`): Phase 1 admin pipeline wiring (`--band c2`
+  support, score.ts strictness, Ops Console UI) — see the section above.
+- **2026-10-09**: the lost-list blocker resolved — Paul supplied and approved
+  a fresh 14-lesson list; `C2-BUILD-PLAN.md` and `C2-RESEARCH-PLAN.md` written
+  (units, shapes, builds-on, wave plan, id homes probed read-only against live
+  Postgres, one new theme proposed); wave 1's four author briefs written
+  above. Open for Paul: unit names, the id-home Postgres writes, go-ahead to
+  dispatch wave 1. No lesson authored yet; no Postgres write made yet.
