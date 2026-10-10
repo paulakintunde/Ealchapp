@@ -118,10 +118,10 @@ exist at any level.
 | c2.06 | langue-soignee | 2400-2599 | a2-c2 | **widened 2026-10-09** | **claimed** (sub-theme « la médiation linguistique » applied) |
 | c2.07 | litterature | 2200-2399 | b1-c2 (widened in wave 1) | c2 | **claimed** (sub-theme « traduire la poésie » applied 2026-10-09) |
 | c2.08 | discours-dexamen | 1800-1999 | c1-c2 | no change | **claimed** (sub-theme « la production orale spontanée » applied 2026-10-09) |
-| c2.09 | discours-dexamen | 2000-2199 | c1-c2 | no change | proposed |
-| c2.10 | discours-dexamen | 2200-2399 | c1-c2 | no change | proposed |
-| c2.11 | strategies-de-comprehension | 2200-2399 | b1-c1 | widen to c2 | proposed |
-| c2.12 | strategies-de-comprehension | 2400-2599 | b1-c1 (widening above covers this) | c2 | proposed |
+| c2.09 | discours-dexamen | 2000-2199 | c1-c2 | no change | **claimed** (sub-theme « maintenir un discours long » applied 2026-10-10) |
+| c2.10 | discours-dexamen | 2200-2399 | c1-c2 | no change | **claimed** (sub-theme « la synthèse et la dissertation expertes » applied) |
+| c2.11 | strategies-de-comprehension | 2200-2399 | b1-c2 | **widened 2026-10-10** | **claimed** (sub-theme « l'écoute native avancée » applied) |
+| c2.12 | strategies-de-comprehension | 2400-2599 | b1-c2 (widening above covers this) | c2 | **claimed** (sub-theme « lire des textes académiques denses » applied) |
 | c2.13 | langue-soignee | 2600-2799 | a2-c1 (widening above covers this) | c2 | proposed |
 | c2.14 | discours-dexamen | 2400-2599 | c1-c2 | no change | proposed |
 
