@@ -75,6 +75,8 @@ export const C2_SLUGS: readonly string[] = [
   'precision-nuance', 'analyse-litteraire', 'cent-idiomes', 'argot-litteraire',
   // wave 2 (c2.05-c2.08)
   'etymologie', 'c2-mediation', 'poesie', 'production-spontanee',
+  // wave 3 (c2.09-c2.12)
+  'discours-long', 'synthese-dissertation', 'ecoute-experte', 'lecture-academique',
 ];
 
 /** The bands this pipeline imports. Each band's lessons live in data/<band>/. */
