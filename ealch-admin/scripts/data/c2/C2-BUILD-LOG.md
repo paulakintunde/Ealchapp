@@ -494,3 +494,74 @@ the matching `C2-RESEARCH-PLAN.md` section for full scope/sources/risks.
 
   **Not yet imported to Postgres or merged into seed.json** — wave 2 is
   drafts only, gated on Paul's own device review, same pattern as wave 1.
+
+- **2026-10-09, same day: "I have done 1-3," wave 2 shipped, and a
+  full-suite sweep found 5 more real bugs.** Paul's "next 5 steps" list
+  was: (1) draw the 69 chapter-opener images, (2) register them in
+  `lessonImages.ts`, (3) review wave 2 on device then say go. "I have done
+  1-3" meant exactly that — all 69 images existed on disk, both
+  `lessonImages.ts` maps already carried all 1216 registry entries
+  (verified: every ref resolves to a real file, REG/ALT key sets match
+  exactly, no duplicates, app typecheck and test suite both clean before
+  committing). Taken as the go-ahead: wave 2 imported for real
+  (`b1-import.ts --band c2 --apply`, included wave 1's reapply for the
+  alts fix below in the same run) and merged into seed.json/seed-packs.json.
+
+  **Running the full `npm test` / `pnpm test` suites (not just per-lesson
+  validators) after shipping surfaced 5 real content bugs no pre-review
+  brief had explicitly checked for**, each found, fixed, re-validated,
+  re-synced to Postgres (`--reapply`) and re-merged, one at a time:
+  1. **15 scenario turns across all 8 lessons had only one accepted reply**
+     (`scenario.logic.test.ts`, "every authored role-play turn offers more
+     than one way to answer" — the cloze-test guard). 7 in wave 1
+     (precision-nuance x1, analyse-litteraire x2, cent-idiomes x2,
+     argot-litteraire x2), 8 in wave 2 (etymologie x2, c2-mediation x3,
+     poesie x2, production-spontanee x1). One genuine second alternative
+     authored per turn — a plausible reply a French speaker could actually
+     give, not a near-miss.
+  2. **c2.06's `sheet-mediation-domaines` had no mission linking to it**
+     (`sheet-reach.test.ts`). Re-pointed `A2_DECK` ("Trois leviers, trois
+     domaines") from `sheet-mediation` (which kept three other links) to
+     `sheet-mediation-domaines`, a closer content match anyway.
+  3. **The dev preview fixture drifted from the generator's output, twice**
+     (`b1-preview-fixture.test.ts`) — once after wave 1's import, once
+     after wave 2's. Regenerated each time; it correctly comes back empty
+     once a wave is fully shipped.
+  4. **c2.08's `hideLines` listening section reprinted 3 of 7 hidden lines
+     almost verbatim inside its own quiz questions**
+     (`listening-hidelines.test.ts`). The exact-substring check caught only
+     one (trailing punctuation masked the other two from the automated
+     check); all three were the same real defect. Reworded all three to
+     refer to the line by position ("la deuxième phrase", "la dernière des
+     sept phrases", "la sixième phrase") instead of quoting it.
+  5. **4 glossary entries across 4 lessons named a word form that never
+     appeared in their own passage** (`gloss.logic.test.ts`). c2.02's
+     "balbutia / bégaya" was one entry wrongly combining two different
+     words that each appear once, separately, in the real Maupassant
+     extract — split into two entries. c2.03's "le parcours" never
+     appears (the text says "son parcours" twice) — renamed to the bare
+     word "parcours". c2.04's "becter" (infinitive) never appears (the
+     pastiche uses conjugated "on becte") — renamed to "becte". c2.06's
+     "franchir la ligne" (infinitive) never appears (the text says "a
+     franchi la ligne") — renamed to "franchi la ligne".
+
+  Also re-ran the standing, documented a1.03 noun-ending remeasure: the
+  corpus growing by 962 items moved the `-e` ending count 1078→1079, the
+  same unrelated-to-nouns drift this file has recorded before.
+  `_a1_genre_remeasure.ts --write`, `content:gender`,
+  `merge-noun-gender-into-seed.ts`.
+
+  **Final state, verified clean**: `npm test` (app) 5778/5778 pass,
+  `pnpm test` (admin) 1299/1300 pass + 1 skip, `content:publish --packs
+  --dry-run` valid (v88 → v89 if published: +8 units/lessons, +962 items,
+  +1 theme). **Still not published** — `content:publish` has not run for
+  real; that is Paul's own separate decision, distinct from "imported."
+
+  **The lesson for every future wave**: per-lesson pre-review (what this
+  file's briefs ask for) catches lesson-local defects well, but it cannot
+  catch house-wide, cross-content rules that only a full suite run
+  exercises (scenario alts, sheet reachability, glossary resolution,
+  hideLines leaks, fixture drift). Run `npm test` and `pnpm test` in full,
+  not just the per-lesson validators, before calling a wave done — this
+  wave needed it twice (once after wave 1 alone, once after wave 2) and
+  both times found real, previously-invisible defects.
