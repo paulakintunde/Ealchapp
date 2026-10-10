@@ -682,3 +682,74 @@ caught by any single-lesson pre-review brief:
   not just the per-lesson validators, before calling a wave done — this
   wave needed it twice (once after wave 1 alone, once after wave 2) and
   both times found real, previously-invisible defects.
+
+- **2026-10-09, same day: wave 3 (c2.09-12) authored, pre-reviewed, fixed,
+  and dry-run clean.** Theme writes applied and verified by read-back
+  (`strategies-de-comprehension` widened c1→c2, 4 sub-themes appended),
+  id-homes ledger claimed, four author briefs written (`766d11f`,
+  `7a19668`). Four fresh author agents dispatched in parallel, same factory
+  pattern as waves 1-2, then four independent pre-review agents (not the
+  authors) — each pre-reviewer wrote its own from-scratch verification
+  script rather than trusting the author's self-report.
+  - **c2.09** « Soutenir un discours long » (`4639cc4`): 8 acts, 40
+    missions, 119 rows. Pre-review found 5 real defects: 3
+    `validateDensity` core-word-budget overflows, a scenario `alt` that
+    never actually answered the in-fiction question (replaced), a
+    model-answer passage that read as if the GUIDE had the hiker's
+    appointment (reframed as reported speech), and — the most
+    consequential — a model answer at 179 words against a 180-300s spec,
+    far too short to exemplify the lesson's own core "sustain discourse
+    for minutes" skill (expanded to 404 words). 7 stray straight
+    apostrophes also fixed.
+  - **c2.10** « La synthèse experte et la dissertation avancée »
+    (`e5aea21`): 8 acts, 45 sections, 113 rows. Pre-review confirmed every
+    scale claim by direct count/script, confirmed against c1.10's own
+    lesson file that the "fuse synthèse+essai into one text" claim is
+    real content, not just asserted. Two comment-only accuracy fixes. One
+    framing nuance flagged for Paul: the corpus header's "every document
+    self-qualifies" claim slightly overclaims for docs 2-3 (they
+    complicate the cross-document debate, not their own headline) — the
+    exercises themselves are built correctly either way.
+  - **c2.11** « Compréhension orale experte » (`e8e6ceb`): 9 acts, 55
+    missions, 126 rows, R-shape (CO). Pre-review wrote its own n-gram
+    overlap script against every `hideLines` section and found ONE
+    residual near-verbatim leak in the DALF-C2 exam sitting that survived
+    the author's own two-pass cleanup (fixed) — the exact bug class that
+    broke wave 1-2 post-publish, now caught pre-merge instead. Also fixed
+    5 documentation-accuracy slips (listening/mission counts, an
+    inaccurate "quoted by import" claim, two ElevenLabs risk-description
+    corrections). Open for Paul: ElevenLabs overlapping/multi-accent
+    voice feasibility still unconfirmed.
+  - **c2.12** « Lire des textes académiques denses » (`b31dfcc`): 8 acts,
+    39 missions, 108 rows, R-shape (CE). Pre-review ran the real
+    `validateLesson`/`validateItem` itself via `tsx` (0 issues, both
+    before and after fixes) rather than trusting the author's report of
+    the same. Found one real learner-facing defect: a section title
+    claimed "61 mots" for what is actually a 52-word extract shown
+    directly to the learner (fixed). Confirmed the three academic extracts
+    are genuine original pastiche, not reworded real sources.
+
+  **`C2_SLUGS` now carries all four** (`915ecf9`): `discours-long`,
+  `synthese-dissertation`, `ecoute-experte`, `lecture-academique`.
+
+  **Wave-3 dry run, after all fixes**: 12 lessons (8 published + 4 new),
+  464 rows to insert, 0 blockers, 9 warnings (all expected: unregistered
+  art, plus the correct "0 task sections" flag on the two R-shape lessons
+  c2.11/c2.12, which deliberately carry no production task).
+
+  **Still open, same two items both pre-reviewers for c2.09/c2.11 flagged
+  independently**: no row id reused from a predecessor by any wave-3
+  lesson (each author chose to re-export the predecessor's `REFRAME`
+  rather than guess at a row's exact text without a Postgres session —
+  same reasoning c2.02 used in wave 1); and the ElevenLabs overlapping/
+  multi-accent voice feasibility question for c2.11, flagged before
+  scripting per the brief but only resolved-as-still-open after, per the
+  brief's own intent of surfacing it before act 8's audio goes into
+  production.
+
+  **Not yet done**: device-proving wave 3 on the Pixel 9 (next, before
+  asking Paul for the wave-3 go-ahead); the full `npm test`/`pnpm test`
+  sweep (kicked off, running) — per the standing lesson two bullets above,
+  this will only exercise wave 3's cross-content rules for real once the
+  wave is imported and merged, so a second pass after that step is still
+  expected, not a sign anything was skipped now.
