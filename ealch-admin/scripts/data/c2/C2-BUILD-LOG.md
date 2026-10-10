@@ -782,3 +782,46 @@ caught by any single-lesson pre-review brief:
   himself or authorize explicitly. c2.14 (the capstone) will NOT be
   dispatched until c2.13 lands, per its own risk note ("must be authored
   LAST... or its trail-position citations will be placeholders").
+
+  **c2.13 authored and pre-reviewed** (`5c3a2e2`): « Correction et
+  révision », 8 acts, 44 missions, 87 rows, an invented-newsletter
+  throughline (« La Feuille ») recapping the whole langue-soignee thread
+  via a thread/sewing metaphor across 4 coherence faults. Pre-review found
+  and fixed 4 real defects: a `hideLines` leak in act 6 (the fully-
+  corrected 4th version was never shown visibly before the hidden
+  listening test, the exact bug class caught again, this time pre-merge),
+  a learner-facing "honnête" inside a groupDrill `note` field (a field
+  type easy to mistake for a dev comment, the house rule needs checking
+  in every field type, not just the obvious ones), a rubric gap, and a
+  factual misattribution of what c1.05 actually taught (cherry-picked
+  tools from two different acts, presented as one unified toolkit c1.05
+  never taught as such, corrected to the real toolkit).
+
+  **c2.14 authored and pre-reviewed** (`ed2efe1`): « Bilan de maîtrise »,
+  the band's capstone, 8 acts, 40 missions, 114 rows. The first C2 lesson
+  to reuse real rows BY ID across siblings (15 ids from 5 predecessors,
+  12 passages, 13 REFRAMEs, all via re-export, never retyped, so drift is
+  structurally impossible). Pre-review independently verified every one
+  of those 15 ids and every re-export against the real sibling files
+  directly (no typos, no wrong-sibling pointers) and found zero new
+  defects, the only lesson in the whole band pre-review didn't need to
+  touch. Confirmed the `validateCorpus` "11-13 issues" are pure
+  referential-integrity artifacts of the 13 predecessor Units not
+  existing yet (0 after stubbing them), not real defects, and can only
+  resolve for real once the whole band is merged.
+
+  **All 14 C2 lessons now exist as drafts.** `C2_SLUGS` carries all 14
+  (`17b1d7b`). Dry run: 14/14 lessons, 665 rows to insert, 0 blockers, 11
+  expected warnings (unregistered art, correct "0 task sections" flag on
+  the two R-shape lessons). c2.14's cross-lesson row reuse resolved
+  cleanly by the importer's own dedup logic end to end, not just verified
+  in isolation by the pre-reviewer. Dev preview fixture regenerated for
+  all 6 wave 3-4 drafts (`93a5ca0`): 6 lessons, 49 acts, 667 items. Full
+  `npm test`/`pnpm test` sweep re-running now against the fixture-updated
+  state.
+
+  **Still open**: the 2 blocked wave-4 sub-theme-append writes (see
+  above); device-proving wave 3-4 on the Pixel 9; every lesson's own
+  "open questions for Paul" (listed per-lesson above and in each file's
+  own header); Paul's explicit go-ahead before import; the two standing
+  C2-band decisions (`dalf_c2` exam format, the wave 3-4 art pass).
