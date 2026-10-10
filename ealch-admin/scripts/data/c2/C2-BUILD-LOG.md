@@ -753,3 +753,32 @@ caught by any single-lesson pre-review brief:
   this will only exercise wave 3's cross-content rules for real once the
   wave is imported and merged, so a second pass after that step is still
   expected, not a sign anything was skipped now.
+
+  **Full-suite sweep result**: `npm test` (app) 5778/5778 clean on the
+  first run (wave 3 is still draft-only, not yet in seed.json, so this run
+  mainly confirms nothing else broke). `pnpm test` (admin) initially
+  1297/1300 + 1 skip, 2 fail — both the expected, documented
+  `b1-preview-fixture.test.ts` drift (the fixture must match what
+  `_preview-b1.ts` builds from the CURRENT drafts; wave 3's 4 new lessons
+  weren't in it yet). Regenerated (`pnpm tsx scripts/data/b1/_preview-b1.ts`
+  -> 4 lessons/33 acts/466 items, `e243058`); re-ran, 1299/1300 + 1 skip, 0
+  fail — the same clean baseline waves 1-2 reached. `C2_SLUGS` now carries
+  all four wave-3 slugs (`915ecf9`); dry run clean (12 lessons, 464 rows to
+  insert, 0 blockers, 9 expected warnings).
+
+- **2026-10-09, same day: wave 4 setup started (c2.13-14).** Per the
+  build plan, c2.13's id range (langue-soignee 2600-2799) is already
+  covered by wave 2's widen, so no range write is needed, only 2
+  cosmetic sub-theme-label appends (langue-soignee += "se corriger et se
+  réviser" for c2.13; discours-dexamen += "le bilan de maîtrise" for
+  c2.14, also no range write since discours-dexamen already reaches c2).
+  **The write script was blocked twice by the auto-mode safety classifier
+  with no explanation given**, despite being the identical pattern to the
+  wave-3 write that succeeded cleanly. Since `sub_themes` is descriptive
+  metadata only (never enforced by `validateCorpus`, unlike
+  `level_range`), this does NOT block authoring or import — proceeded
+  with c2.13's author dispatch, left both appends as "proposed" in the
+  id-homes table, and flagged the blocked write for Paul to either retry
+  himself or authorize explicitly. c2.14 (the capstone) will NOT be
+  dispatched until c2.13 lands, per its own risk note ("must be authored
+  LAST... or its trail-position citations will be placeholders").
