@@ -442,6 +442,123 @@ the matching `C2-RESEARCH-PLAN.md` section for full scope/sources/risks.
 - **Image prompts**: `c2-production-spontanee-image-prompts.md`, save paths
   under `ealch-v2/assets/lessons/c2-08-production-spontanee/actNN.jpg`.
 
+## Wave 3 author briefs (c2.09-12)
+
+Same standard as waves 1-2: rich-lesson standard, French only, tu, no em
+dash/U+203F tie/"honnête", curly apostrophes, cite predecessors by trail
+position in words. Draft only — nothing merges into seed.json or imports
+until Paul reviews the wave-3 preview build. Every author should read at
+least one wave-1 and one wave-2 lesson file first as the current quality
+bar, and the matching `C2-RESEARCH-PLAN.md` section for full scope/sources/
+risks.
+
+**Self-check before reporting back, all four lessons** — five specific bug
+classes surfaced only by the FULL test suites after wave 1-2 shipped, none
+caught by any single-lesson pre-review brief:
+1. every `ScenarioTurn` with an `alts` array needs at least 2 entries, and
+   each one a genuinely different valid reply, not a near-miss
+   (`scenario.logic.test.ts`).
+2. every reference sheet the lesson defines must have at least one mission
+   whose `sheetId` actually points to it — an authored, unlinked sheet is
+   silently unreachable (`sheet-reach.test.ts`).
+3. no two rows in the lesson share the exact same `fr` text with nothing to
+   dedupe against (a real import blocker, caught by the wave-1 dry run, not
+   a test).
+4. if any section sets `hideLines: true`, that section's own quiz questions
+   must never quote the hidden line, even near-verbatim or with different
+   trailing punctuation — refer to it by position instead
+   (`listening-hidelines.test.ts`).
+5. every glossary `word` must be a string that genuinely appears in that
+   section's own passage `text` (same inflection/form, elision-aware) — no
+   infinitive glossing a conjugated form, no two words merged with a slash
+   (`gloss.logic.test.ts`).
+
+### Author c2.09 — « Soutenir un discours long »
+
+- **Id range**: `fr.c2.discours-dexamen.2000` to `.2199` (no widen).
+- **Shape**: W. **Builds on**: « la leçon 9 du C1 » (c1.09, debate — turn-
+  based, structured exchange) from the LENGTH angle this time, and c2.08
+  (same band, « la leçon 8 du C2 », spontaneity) for the unplanned half of
+  the skill. **New here**: the learner sustains ONE coherent response alone,
+  for several minutes, without losing structure — holding the floor, not
+  trading turns. State the ownership split explicitly in the lesson's own
+  framing (c2.08 = unplanned prompts, c2.09 = sustained length) so missions
+  don't duplicate c2.08's material.
+- **Sources**: none fact-heavy — production-shape lesson, sourcing is
+  realistic monologue/argument prompt design.
+- **Future exam link**: PO@c2 (informational only, no `dalf_c2` format
+  exists yet).
+- **Image prompts**: `c2-discours-long-image-prompts.md`, save paths under
+  `ealch-v2/assets/lessons/c2-09-discours-long/actNN.jpg`.
+
+### Author c2.10 — « Synthèse experte et dissertation avancée »
+
+- **Id range**: `fr.c2.discours-dexamen.2200` to `.2399` (no widen).
+- **Shape**: W. **Builds on**: « la leçon 10 du C1 » (c1.10, the problem
+  question and plan types — thèse/antithèse/synthèse, comparative plans,
+  single-source-oriented) exactly — name what c1.10 already covers in the
+  brief so c2.10 does not repeat it, only raises source count and density:
+  synthesising MULTIPLE dense sources under tight constraints into one
+  structured essay.
+- **Sources**: DALF C1/C2 writing specifications (France Éducation
+  internationale) as a content-difficulty reference only, even though no
+  `dalf_c2` format exists in this app yet.
+- **Risk, confirm with Paul before drafting**: the real DALF C2 synthesis
+  task (multiple source documents) can run long — this is the same open
+  word/source-count question C1-BUILD-PLAN.md left open for c1.10 itself;
+  don't silently default to the heaviest DALF version.
+- **Future exam link**: PE@c2 (informational only).
+- **Image prompts**: `c2-synthese-dissertation-image-prompts.md`, save
+  paths under `ealch-v2/assets/lessons/c2-10-synthese-dissertation/actNN.jpg`.
+
+### Author c2.11 — « Compréhension orale experte »
+
+- **Id range**: `fr.c2.strategies-de-comprehension.2200` to `.2399` (widen
+  to c2 already applied and verified by read-back).
+- **Shape**: R (recognition only — never ask for production; this is a
+  listening-comprehension lesson). **Builds on**: « la leçon 25 du B2 »
+  (b2.25, « écouter à vitesse réelle », real-time listening at natural
+  speed) exact predecessor, and « la leçon 21 du C1 » (c1.21, debates/
+  interviews: turn-taking, interruption, fillers) the closest C1 listening
+  lesson. **New here**: stacking BOTH difficulty dimensions together that
+  b2.25 and c1.21 each handled separately — overlapping speakers, mixed
+  registers, regional accents stacked, degraded-audio conditions — the
+  learner only extracts the right information, never produces speech.
+- **Sources**: none fact-heavy — sourcing here is AUDIO difficulty design.
+  Mixed-francophone accent selection (FR, Québec, Belgique, Suisse, West
+  Africa) per the house setting.
+- **Risk, flag at dispatch not after scripting**: ElevenLabs voice
+  availability for stacked/overlapping audio and regional accents needs a
+  feasibility check before this lesson goes deep on audio design — confirm
+  achievable voice/accent combinations early, don't discover a gap after
+  the act scripts are written.
+- **Future exam link**: CO@c2 (informational only).
+- **Image prompts**: `c2-ecoute-experte-image-prompts.md`, save paths under
+  `ealch-v2/assets/lessons/c2-11-ecoute-experte/actNN.jpg`.
+
+### Author c2.12 — « Lire des textes académiques denses »
+
+- **Id range**: `fr.c2.strategies-de-comprehension.2400` to `.2599`
+  (covered by c2.11's widen, no further write needed).
+- **Shape**: R (recognition only — reading comprehension, never asks for
+  production). **Builds on**: « la leçon 20 du C1 » (c1.20, reading between
+  the lines: stance, irony, presupposition — taught INTERPRETATION) — c2.12
+  goes past interpretation into raw TEXT DENSITY and register: genuinely
+  dense, unsimplified academic/specialist prose that assumes background
+  knowledge, extracting argument structure under a realistic time
+  constraint.
+- **Sources**: Le Monde / Cairn.info-style academic-register models — never
+  copy a live paywalled article verbatim; write an original text in that
+  register, clearly labelled as such, same copyright rule c2.02 and c2.07
+  followed for their literary extracts.
+- **Risk**: "dense academic" can drift into one discipline's own jargon
+  (law, medicine, philosophy already each have a dedicated C1 vocab
+  lesson) — keep the texts general-academic register, not discipline-
+  specific terminology.
+- **Future exam link**: CE@c2 (informational only).
+- **Image prompts**: `c2-lecture-academique-image-prompts.md`, save paths
+  under `ealch-v2/assets/lessons/c2-12-lecture-academique/actNN.jpg`.
+
 ## Progress, continued
 
 - **2026-10-09, same day: wave 2 authored, pre-reviewed and device-proven.**
