@@ -816,9 +816,12 @@ caught by any single-lesson pre-review brief:
   the two R-shape lessons). c2.14's cross-lesson row reuse resolved
   cleanly by the importer's own dedup logic end to end, not just verified
   in isolation by the pre-reviewer. Dev preview fixture regenerated for
-  all 6 wave 3-4 drafts (`93a5ca0`): 6 lessons, 49 acts, 667 items. Full
-  `npm test`/`pnpm test` sweep re-running now against the fixture-updated
-  state.
+  all 6 wave 3-4 drafts (`93a5ca0`): 6 lessons, 49 acts, 667 items.
+
+  **Full-suite sweep, clean**: `npm test` (app) 5778/5778, 0 fail.
+  `pnpm test` (admin) 1299/1300 + 1 skip, 0 fail. Both match the exact
+  baseline waves 1-2 reached before publish. Wave 3-4's pre-review +
+  full-suite gate is now satisfied for all 14 C2 lessons.
 
   **Still open**: the 2 blocked wave-4 sub-theme-append writes (see
   above); device-proving wave 3-4 on the Pixel 9; every lesson's own
