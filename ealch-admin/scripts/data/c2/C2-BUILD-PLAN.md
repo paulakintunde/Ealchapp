@@ -122,8 +122,8 @@ exist at any level.
 | c2.10 | discours-dexamen | 2200-2399 | c1-c2 | no change | **claimed** (sub-theme « la synthèse et la dissertation expertes » applied) |
 | c2.11 | strategies-de-comprehension | 2200-2399 | b1-c2 | **widened 2026-10-10** | **claimed** (sub-theme « l'écoute native avancée » applied) |
 | c2.12 | strategies-de-comprehension | 2400-2599 | b1-c2 (widening above covers this) | c2 | **claimed** (sub-theme « lire des textes académiques denses » applied) |
-| c2.13 | langue-soignee | 2600-2799 | a2-c1 (widening above covers this) | c2 | proposed |
-| c2.14 | discours-dexamen | 2400-2599 | c1-c2 | no change | proposed |
+| c2.13 | langue-soignee | 2600-2799 | a2-c1 (widening above covers this) | c2 | **claimed** (sub-theme « se corriger et se réviser » applied 2026-10-13) |
+| c2.14 | discours-dexamen | 2400-2599 | c1-c2 | no change | **claimed** (sub-theme « le bilan de maîtrise » applied 2026-10-13) |
 
 Verified against the live `content_items` table (read-only transaction, no
 writes): every block above is the first clean 200-block after that theme's
