@@ -1,5 +1,5 @@
 {
-  "version": 89,
+  "version": 90,
   "domains": [
     {
       "slug": "fondations",
@@ -581,7 +581,10 @@
         "suivre un débat à l'oral",
         "l'exposé et le jury",
         "la dissertation et la synthèse",
-        "la production orale spontanée"
+        "la production orale spontanée",
+        "maintenir un discours long",
+        "la synthèse et la dissertation expertes",
+        "le bilan de maîtrise"
       ]
     },
     {
@@ -991,7 +994,8 @@
         "traduire sans calquer",
         "l'ellipse et la reprise",
         "traduire des idées",
-        "la médiation linguistique"
+        "la médiation linguistique",
+        "se corriger et se réviser"
       ]
     },
     {
@@ -1726,7 +1730,7 @@
       "domain": "education",
       "levelRange": [
         "b1",
-        "c1"
+        "c2"
       ],
       "examFlag": false,
       "immigFlag": false,
@@ -1737,7 +1741,9 @@
         "lire de façon critique",
         "écouter à vitesse réelle",
         "lire entre les lignes",
-        "analyser la presse"
+        "analyser la presse",
+        "l'écoute native avancée",
+        "lire des textes académiques denses"
       ]
     },
     {

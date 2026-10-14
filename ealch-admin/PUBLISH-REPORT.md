@@ -1,7 +1,7 @@
 # Publish report
 
-Generated: 2026-10-14T02:28:13.658Z
-Mode: dry run (nothing is written or uploaded)
+Generated: 2026-10-14T02:51:36.405Z
+Mode: publish
 Status: v89 → v90
 
 ## What changed
