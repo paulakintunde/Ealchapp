@@ -999,3 +999,8 @@ caught by any single-lesson pre-review brief:
   This is now his action item, not an open task for a future session to
   pick up — nothing more is computationally possible on this specific
   point from a dev build.
+
+  **Paul confirmed: "Approved all and tested it to work."** Verified on
+  his own entitled device, the one proof this dev build could never
+  produce. This closes out the last open item from this wave — **the
+  C2 band is fully shipped, verified, and done.**
