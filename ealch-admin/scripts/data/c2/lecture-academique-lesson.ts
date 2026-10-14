@@ -896,6 +896,26 @@ const A8_ROUNDUP: Sec<'roundup'> = {
   audio: AUDIO, say: REFRAME, terms: ['architecturedelargument', 'lirecontrelechrono'],
 };
 
+/** Vocab-only Voice Flash pass, one item per glossary term, each already
+ *  carrying `voiceflash`. Scoped deliberately to the six glossary words,
+ *  never to the lesson's comprehension content: every other section stays
+ *  recognition-only, matching the lesson's R shape, but the house-wide
+ *  publish gate requires every non-assessment lesson to carry a `practice`
+ *  section, and the only implemented practice surface is the speaking
+ *  pass. Paul's call: pronunciation practice on the lesson's own vocabulary
+ *  is a defensible exception; a graded writing task would not be. */
+const A8_PARLER: Sec<'practice'> = {
+  type: 'practice',
+  id: 'a8-parler',
+  layer: 'core',
+  title: 'Dis le vocabulaire de la densité à voix haute',
+  skill: 'speak',
+  itemIds: [E(2411), E(2425), E(2442), E(2456), E(2475), E(2481)],
+  audio: AUDIO,
+  say: REFRAME,
+  terms: ['armature', 'reserveempilee'],
+};
+
 const ACT8: ActDef = {
   act: {
     id: 'act8', title: 'Ta lecture dense',
@@ -907,7 +927,7 @@ const ACT8: ActDef = {
     milestone: 'Tu lis un texte académique dense complet, une seule fois, et tu en extrais l’armature, les réserves, l’attribution des citations et les chaînes nominales de chaque paragraphe, sous un temps réaliste. EN: You read a complete dense academic text, once, and extract each paragraph’s backbone, hedges, citation attribution and nominal chains, under a realistic time budget.',
     estScreens: 32, restPoints: ['a8-lecture', 'a8-cheat', 'a8-quiz'],
   },
-  sections: [A8_LECTURE, A8_STEPS, A8_CHEAT, A8_PROGRESS, A8_QUIZ, A8_REVIEW, A8_ROUNDUP],
+  sections: [A8_LECTURE, A8_STEPS, A8_CHEAT, A8_PROGRESS, A8_QUIZ, A8_REVIEW, A8_PARLER, A8_ROUNDUP],
   imports: IMPORTED.act8,
 };
 

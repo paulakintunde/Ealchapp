@@ -1796,6 +1796,26 @@ const A9_ROUNDUP: Sec<'roundup'> = {
   audio: AUDIO, say: REFRAME, terms: ['signal', 'triage'],
 };
 
+/** Vocab-only Voice Flash pass, one item per glossary term, each already
+ *  carrying `voiceflash`. Scoped deliberately to the nine glossary words,
+ *  never to the lesson's comprehension content: every other section stays
+ *  recognition-only, matching the lesson's R shape, but the house-wide
+ *  publish gate requires every non-assessment lesson to carry a `practice`
+ *  section, and the only implemented practice surface is the speaking
+ *  pass. Paul's call: pronunciation practice on the lesson's own vocabulary
+ *  is a defensible exception; a graded listening task would not be. */
+const A9_PARLER: Sec<'practice'> = {
+  type: 'practice',
+  id: 'a9-parler',
+  layer: 'core',
+  title: 'Dis le vocabulaire du triage à voix haute',
+  skill: 'speak',
+  itemIds: [E(2201), E(2307), E(2211), E(2225), E(2239), E(2257), E(2269), E(2281), E(2311)],
+  audio: AUDIO,
+  say: REFRAME,
+  terms: ['signal', 'triage'],
+};
+
 const ACT9: ActDef = {
   act: {
     id: 'act9', title: 'L’épreuve experte',
@@ -1808,7 +1828,7 @@ const ACT9: ActDef = {
     estScreens: 60,
     restPoints: ['a9-exam-a', 'a9-exam-b', 'a9-quiz/r3-quebec', 'a9-quiz/r6-panne'],
   },
-  sections: [A9_EXAM_A, A9_EXAM_B, A9_CHEAT, A9_PROGRESS, A9_QUIZ, A9_REVIEW, A9_ROUNDUP],
+  sections: [A9_EXAM_A, A9_EXAM_B, A9_CHEAT, A9_PROGRESS, A9_QUIZ, A9_REVIEW, A9_PARLER, A9_ROUNDUP],
   imports: IMPORTED.act9,
 };
 
