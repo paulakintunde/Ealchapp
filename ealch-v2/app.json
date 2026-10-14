@@ -11,7 +11,14 @@
       "policy": "fingerprint"
     },
     "updates": {
-      "url": "https://u.expo.dev/f7effa79-feb1-4e79-a567-536e32da5306"
+      "url": "https://u.expo.dev/f7effa79-feb1-4e79-a567-536e32da5306",
+      "assetPatternsToBeBundled": [
+        "assets/*",
+        "assets/avatars/**/*",
+        "assets/sounds/**/*",
+        "node_modules/@expo-google-fonts/**/*",
+        "node_modules/expo-router/assets/**/*"
+      ]
     },
     "ios": {
       "supportsTablet": true,
