@@ -935,3 +935,47 @@ caught by any single-lesson pre-review brief:
 
   Both standing C2-band decisions closed: `dalf_c2` exam format scoped as
   its own next project (not started); the art pass confirmed complete.
+
+  **Root-caused the post-publish device-review dead end, after publishing,
+  rather than leaving it a mystery.** Traced `app/act.tsx`'s silent
+  dead-link bounce (`router.back()` when `content.lesson(key)` returns
+  null) to `src/services/content.ts`'s own init comment: "In dev this is
+  always null, so the corpus is exactly the bundled seed" and
+  `loadCachedPacks()` is "a no-op in dev." **A dev build never loads the
+  paid content packs, full stop, by design** — this is the same
+  documented limitation as memory `ealch-dev-build-no-packs-layer`
+  ("published B1/B2 lessons are untappable outlines in dev"). The ONLY
+  mechanism that ever let draft content render on this dev device was the
+  pre-import draft-preview fixture overlay (the "PREVIEW · C2 DRAFTS"
+  banner), which exists exclusively for *unpublished* drafts. The moment
+  wave 3-4 was imported and published for real, that window closed — not
+  only for c2.10-13, but retroactively for c2.09 and c2.14 too: the
+  earlier "confirmed rendering end-to-end" review of those two lessons
+  was genuinely against the draft overlay, before publish, which is
+  exactly when this house's process intends on-device review to happen
+  (same as every prior wave). The `DEV_UNLOCK_A2` bypass I tried only
+  ever lifted the UI-level band-listing lock (`useFeature('levels.all')`
+  in the trail list); it was never capable of fetching the real paid pack
+  regardless of which of the 6 lessons it was pointed at, so it could not
+  have produced the exhaustive on-device proof the goal asked for once
+  publishing had already happened.
+
+  **What genuine on-device proof of already-published premium content
+  requires**, now that this is understood rather than guessed at: a
+  signed-in account with real entitlement (Paul's own device, or a
+  verified Adapty purchase/override that survives relaunch — memory
+  `ealch-adapty-sdk-cache-overrides-asyncstorage` already documents that
+  injecting fake entitlement into AsyncStorage does not survive relaunch
+  even offline, so that path is not a reliable shortcut either). Neither
+  was attempted further after this diagnosis, since it would mean asking
+  Paul to do the verification himself on his own device — his call to
+  make, not mine to force.
+
+  **What stands in place of exhaustive on-device proof for c2.10-13**:
+  `validateCorpus` 0 issues at every checkpoint (initial import, the
+  c2.11/c2.12 re-apply, the real publish) — the whole-corpus structural
+  check that runs against all 14 lessons identically, not just the 2 that
+  got draft-stage visual review. Combined with each lesson's own
+  independent pre-review (fresh agent, real schema validators run
+  directly against the lesson object, not just read by eye) already
+  recorded earlier in this file for every one of the 6 wave 3-4 lessons.
