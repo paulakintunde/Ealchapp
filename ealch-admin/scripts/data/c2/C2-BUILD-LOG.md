@@ -890,7 +890,38 @@ caught by any single-lesson pre-review brief:
   preview fixture to empty — all 14 C2 lessons are published now, so the
   fixture correctly carries nothing). `validateCorpus` 0 issues throughout.
 
-  **Still open**: fresh `content:publish --packs --dry-run`, checksum
-  compare, then Paul's explicit OK before the real publish; the two
-  standing C2-band decisions (`dalf_c2` exam format, now confirmed as the
-  only remaining open scope since the art pass is done).
+  **Fresh dry run clean**: v89 → v90, +6 units/lessons, +665 items, all
+  pack-launch scenarios pass. checksum `65e23f5...`, content digest
+  `f1e24dd...`, `PUBLISH-REPORT.md` regenerated and committed.
+
+  **Further device review of c2.10-13 hit a dead end, not a defect.**
+  Tried unlocking Première content on the Pixel 6 via the existing
+  `DEV_UNLOCK_A2` dev-only bypass (`entitlement.logic.ts`, `__DEV__`-gated,
+  never used for C2 before) to click through the remaining 4 lessons the
+  same way c2.09/c2.14 were confirmed earlier. The unlock itself worked
+  (C2 showed unlocked, no paywall), but every row tap into c2.10-13 then
+  silently failed to navigate — confirmed via logcat this wasn't a
+  coordinate-targeting problem (the back button worked fine at the same
+  time), and a direct `ealch://act?key=...` deep link redirected to home
+  instead of opening. Given this started only after flipping a bypass
+  flag that has never been exercised against C2 content before, and
+  c2.09/c2.14 both navigated and rendered correctly via completely normal
+  in-app taps earlier, this reads as friction in the dev-bypass path
+  itself, not a defect in c2.10-13. Reverted `DEV_UNLOCK_A2` to `false`
+  immediately; `git diff` on the file came back empty, confirming a clean
+  revert with nothing left behind.
+
+  **Put the gap to Paul rather than guessing**: all 14 lessons passed
+  identical automated gates (schema validators per lesson, import dry-run,
+  real merge, full test suites, 0 blockers throughout) — the same standard
+  every lesson in the house ships under, visual click-through or not.
+  Paul's call: proceed to publish now; spot-check on his own device
+  post-publish if he wants the extra reassurance.
+
+  **Closed the `dalf_c2` decision**: Paul's call — scope it as the next
+  project after this C2 band ships (real DALF C2 exam-structure research
+  plus a build plan, not a quick add-on). Not started yet; the build plan
+  and research-plan files still carry it as informational notes until
+  that project actually begins.
+
+  **Real publish next.**
