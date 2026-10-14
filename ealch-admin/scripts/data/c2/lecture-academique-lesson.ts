@@ -1062,7 +1062,7 @@ export const LESSON: Lesson = {
   terms: LECTURE_ACADEMIQUE_TERMS,
   sections: SECTIONS,
   itemIds: ITEM_IDS,
-  version: 1,
+  version: 2,
   audio: {
     defaultLang: 'fr-FR',
     speeds: [1, 0.65],
