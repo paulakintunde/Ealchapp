@@ -320,6 +320,7 @@ export type Strings = {
   resetTag: string; resetTitle: string; resetSub: string; resetInvalid: string;
   newPwPh: string; setNewPw: string; backToSignIn: string; errResetFailed: string;
   pwShow: string; pwHide: string;
+  resetUseCode: string; resetCodeSub: string; codePh: string; errCode: string;
 
   // --- account deletion (Apple 5.1.1(v) / Play) ---
   dangerZone: string; delAccount: string; delAccountSub: string;
@@ -834,6 +835,10 @@ export const T: Record<Lang, Strings> = {
     resetTitle: 'Nouveau mot de passe.',
     resetSub: 'Choisissez un mot de passe d’au moins 8 caractères. Vous serez connecté aussitôt.',
     resetInvalid: 'Ce lien est invalide ou a expiré. Demandez-en un nouveau depuis l’écran de connexion.',
+    resetUseCode: 'Vous avez un code ?',
+    resetCodeSub: 'Entrez l’adresse e-mail et le code à 6 chiffres reçus dans l’e-mail de réinitialisation, puis choisissez un nouveau mot de passe.',
+    codePh: 'Code de réinitialisation',
+    errCode: 'Entrez le code à 6 chiffres reçu par e-mail.',
     dangerZone: 'Zone sensible',
     delAccount: 'Supprimer mon compte',
     delAccountSub: 'Efface définitivement votre compte et vos données.',
@@ -1351,6 +1356,10 @@ export const T: Record<Lang, Strings> = {
     resetTitle: 'Set a new password.',
     resetSub: 'Choose a password of at least 8 characters. You’ll be signed in straight away.',
     resetInvalid: 'This link is invalid or has expired. Request a new one from the sign-in screen.',
+    resetUseCode: 'Have a code instead?',
+    resetCodeSub: 'Enter the email address and the 6-digit code from the reset email, then choose a new password.',
+    codePh: 'Reset code',
+    errCode: 'Enter the 6-digit code from your email.',
     dangerZone: 'Danger zone',
     delAccount: 'Delete my account',
     delAccountSub: 'Permanently erase your account and your data.',

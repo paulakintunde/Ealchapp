@@ -12,7 +12,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
 import { Press, Button } from '@/components/ui';
 import { RadialGlow } from '@/components/RadialGlow';
-import { PasswordField } from '@/components/AuthFields';
+import { AuthField, PasswordField } from '@/components/AuthFields';
 import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { useStore } from '@/store/useStore';
@@ -20,6 +20,8 @@ import { auth, sound } from '@/services';
 import { AUTH_UNAVAILABLE } from '@/services/auth';
 
 type Tokens = { access: string; refresh: string };
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 /** Pull recovery tokens out of the fragment (or query, if a proxy rewrote it). */
 function parseTokens(url: string | null): Tokens | null {
@@ -57,25 +59,49 @@ export default function ResetPassword() {
   const [password, setPassword] = useState('');
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  // Fallback path for when the link itself never arrives intact: the same
+  // recovery email also carries a 6-digit code (once the dashboard template
+  // is updated to show it), exchanged via verifyOtp instead of a URL.
+  const [useCode, setUseCode] = useState(false);
+  const [email, setEmail] = useState('');
+  const [code, setCode] = useState('');
+  // __DEV__-only: the last raw URL this screen actually saw, so a dead-end
+  // "invalid link" report is debuggable instead of a silent guess. Never
+  // shown in a release build (may contain tokens).
+  const [lastSeenUrl, setLastSeenUrl] = useState<string | null>(null);
   const mounted = useRef(true);
   useEffect(() => () => { mounted.current = false; }, []);
 
-  // The link may arrive as the cold-start URL or while the app is already open.
+  // The link may arrive as the cold-start URL or while the app is already
+  // open. On a real device the native bridge does not always have the
+  // cold-start URL ready by the time this effect first runs (RN Linking
+  // issue, worse right after a fresh install/relaunch) — one synchronous
+  // check followed by one getInitialURL() call was giving up and hiding the
+  // password field on links that were actually fine, just not delivered
+  // yet. Poll a few times before concluding the link itself is dead.
   useEffect(() => {
     let cancelled = false;
-    const found = parseTokens(initialUrl) ?? parseTokens(currentWebUrl());
-    if (found) {
-      setTokens(found);
-      setChecked(true);
-      return;
-    }
-    Linking.getInitialURL()
-      .then((url) => {
-        if (cancelled) return;
-        setTokens(parseTokens(url));
+    let attempt = 0;
+    const MAX_ATTEMPTS = 6; // ~3s total — generous for a cold-started bridge
+    const tryOnce = async () => {
+      if (cancelled) return;
+      const direct = parseTokens(initialUrl) ?? parseTokens(currentWebUrl());
+      const fromBridge = direct ?? parseTokens(await Linking.getInitialURL().catch(() => null));
+      if (cancelled) return;
+      if (fromBridge) {
+        setTokens(fromBridge);
         setChecked(true);
-      })
-      .catch(() => !cancelled && setChecked(true));
+        return;
+      }
+      attempt += 1;
+      if (__DEV__) setLastSeenUrl(initialUrl ?? '(none yet)');
+      if (attempt >= MAX_ATTEMPTS) {
+        setChecked(true);
+        return;
+      }
+      setTimeout(() => void tryOnce(), 500);
+    };
+    void tryOnce();
     return () => { cancelled = true; };
   }, [initialUrl]);
 
@@ -90,6 +116,15 @@ export default function ResetPassword() {
     if (err === AUTH_UNAVAILABLE) return T.errAuthUnavailable;
     if (/jwt|token|expired|invalid|session|claim/i.test(err)) return T.resetInvalid;
     return err;
+  };
+
+  /** Shared by both the link and code paths once auth reports success. */
+  const finishReset = (resEmail: string | undefined) => {
+    sound.play('success');
+    store.signIn(resEmail, store.userName);
+    store.setField('accountType', 'email');
+    store.completeOnboarding(store.level);
+    router.replace('/home');
   };
 
   const submit = async () => {
@@ -109,15 +144,40 @@ export default function ResetPassword() {
       setError(resetErrorText(res.error));
       return;
     }
-    // The recovery session is now a real session — go straight into the app.
-    sound.play('success');
-    store.signIn(res.email, store.userName);
-    store.setField('accountType', 'email');
-    store.completeOnboarding(store.level);
-    router.replace('/home');
+    finishReset(res.email);
   };
 
-  const invalid = checked && !tokens;
+  const submitWithCode = async () => {
+    if (pending) return;
+    if (!EMAIL_RE.test(email.trim())) {
+      sound.play('error');
+      setError(T.errEmail);
+      return;
+    }
+    if (code.trim().length === 0) {
+      sound.play('error');
+      setError(T.errCode);
+      return;
+    }
+    if (password.length < 8) {
+      sound.play('error');
+      setError(T.errPw);
+      return;
+    }
+    setError(null);
+    setPending(true);
+    const res = await auth.completePasswordResetWithCode(email.trim(), code.trim(), password);
+    if (!mounted.current) return;
+    setPending(false);
+    if (!res.ok) {
+      sound.play('error');
+      setError(resetErrorText(res.error));
+      return;
+    }
+    finishReset(res.email);
+  };
+
+  const invalid = checked && !tokens && !useCode;
 
   return (
     <View style={{ flex: 1, backgroundColor: t.bg, paddingHorizontal: 28, paddingTop: insets.top + 70, paddingBottom: insets.bottom + 30 }}>
@@ -134,7 +194,61 @@ export default function ResetPassword() {
           <TX role="bodySm" color={t.txMuted} style={{ marginBottom: 26 }}>
             {T.resetInvalid}
           </TX>
+          {__DEV__ ? (
+            <TX role="label" color={t.txSubtle} style={{ marginBottom: 20 }}>
+              dev: last URL seen — {lastSeenUrl ?? '(none)'}
+            </TX>
+          ) : null}
           <Button label={T.backToSignIn} onPress={() => router.replace('/signin')} style={{ minHeight: 54, paddingVertical: 6 }} />
+          <Press accessibilityRole="button" onPress={() => { setError(null); setUseCode(true); }} style={{ alignItems: 'center', marginTop: 18 }}>
+            <TX role="bodySm" color={t.txMuted} style={{ textDecorationLine: 'underline' }}>
+              {T.resetUseCode}
+            </TX>
+          </Press>
+        </>
+      ) : useCode ? (
+        <>
+          <TX role="bodySm" color={t.txMuted} style={{ marginBottom: 26 }}>
+            {T.resetCodeSub}
+          </TX>
+          <AuthField
+            placeholder={T.emailPh}
+            value={email}
+            onChangeText={setEmail}
+            autoCapitalize="none"
+            autoCorrect={false}
+            keyboardType="email-address"
+          />
+          <AuthField
+            placeholder={T.codePh}
+            value={code}
+            onChangeText={setCode}
+            autoCapitalize="none"
+            autoCorrect={false}
+            keyboardType="number-pad"
+          />
+          <PasswordField
+            placeholder={T.newPwPh}
+            value={password}
+            onChangeText={setPassword}
+            onSubmitEditing={() => void submitWithCode()}
+          />
+          {error ? (
+            <TX role="label" color={t.danger} style={{ marginTop: 2, marginBottom: 10 }}>
+              {error}
+            </TX>
+          ) : null}
+          <Button
+            label={T.setNewPw}
+            onPress={submitWithCode}
+            disabled={pending}
+            style={{ minHeight: 54, paddingVertical: 6, marginTop: 6 }}
+          />
+          <Press accessibilityRole="button" onPress={() => router.replace('/signin')} style={{ alignItems: 'center', marginTop: 'auto', paddingTop: 20 }}>
+            <TX role="bodySm" color={t.txMuted}>
+              {T.backToSignIn}
+            </TX>
+          </Press>
         </>
       ) : (
         <>

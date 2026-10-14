@@ -108,6 +108,29 @@ export const auth = {
     });
   },
 
+  /**
+   * Complete a recovery using the 6-digit code the recovery email also
+   * carries, instead of the link's tokens — the fallback reset.tsx offers
+   * when the deep link itself does not arrive intact (native bridge timing,
+   * an email client mangling the link, …). verifyOtp exchanges the code for
+   * a session the same way setSession does for the link's tokens; everything
+   * after that is identical to completePasswordReset.
+   */
+  async completePasswordResetWithCode(
+    email: string,
+    code: string,
+    newPassword: string
+  ): Promise<AuthResult> {
+    const sb = supabase();
+    if (!sb) return unavailable;
+    return attempt(async () => {
+      const { error: otpErr } = await sb.auth.verifyOtp({ email, token: code, type: 'recovery' });
+      if (otpErr) return { error: otpErr };
+      const { data, error } = await sb.auth.updateUser({ password: newPassword });
+      return { error, email: data?.user?.email };
+    });
+  },
+
   /** Sync the display name to Supabase user_metadata; best-effort. */
   async updateDisplayName(name: string): Promise<void> {
     const sb = supabase();
