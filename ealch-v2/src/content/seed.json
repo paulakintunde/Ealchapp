@@ -11637,6 +11637,351 @@
           ]
         }
       ]
+    },
+    {
+      "id": "c2.09",
+      "seq": 9,
+      "sub": "Soutenir un discours long",
+      "canDo": "Can sustain a single, uninterrupted spoken turn for several minutes, announcing its whole structure up front, signposting every passage from one part to the next, returning to the announced plan by name after any aside rather than restarting it, and closing by looping back onto the structure named at the start rather than trailing off",
+      "level": "c2",
+      "title": "Sustaining Long-Form Spoken Discourse",
+      "lessonIds": [
+        "c2.09.l1"
+      ],
+      "prereqUnitIds": [
+        "c1.09",
+        "c2.08"
+      ],
+      "outline": [
+        {
+          "lessonId": "c2.09.l1",
+          "title": "Soutenir un discours long",
+          "acts": [
+            {
+              "title": "Le problème : tenir seul",
+              "cards": 11
+            },
+            {
+              "title": "Les balises qui tiennent le chemin",
+              "cards": 14
+            },
+            {
+              "title": "La charpente annoncée",
+              "cards": 17
+            },
+            {
+              "title": "La reprise, jamais un redémarrage",
+              "cards": 15
+            },
+            {
+              "title": "Tenir la distance",
+              "cards": 12
+            },
+            {
+              "title": "La vraie reprise, pas la dérive",
+              "cards": 8
+            },
+            {
+              "title": "Sous la durée, en scénario",
+              "cards": 17
+            },
+            {
+              "title": "Ton discours, du début à la fin",
+              "cards": 12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c2.10",
+      "seq": 10,
+      "sub": "La synthèse experte et la dissertation avancée",
+      "canDo": "Can read two to three dense sources on one topic, identify the real tension across them rather than summarising document by document, and write a single text that weighs those sources faithfully while defending a structured personal position in the same sentences, under a tight word budget",
+      "level": "c2",
+      "title": "Expert Synthesis and Advanced Dissertation",
+      "lessonIds": [
+        "c2.10.l1"
+      ],
+      "prereqUnitIds": [
+        "c1.10"
+      ],
+      "outline": [
+        {
+          "lessonId": "c2.10.l1",
+          "title": "La synthèse experte et la dissertation avancée",
+          "acts": [
+            {
+              "title": "Le problème : un genre à part entière",
+              "cards": 10
+            },
+            {
+              "title": "Lire trois sources denses comme un seul dossier",
+              "cards": 19
+            },
+            {
+              "title": "Tenir le fil : citer et trancher dans la même phrase",
+              "cards": 13
+            },
+            {
+              "title": "La compression : choisir ce qui compte",
+              "cards": 13
+            },
+            {
+              "title": "Ce qu’on ne trahit jamais",
+              "cards": 9
+            },
+            {
+              "title": "Choisir son plan pour ce dossier",
+              "cards": 12
+            },
+            {
+              "title": "Le piège : la moitié manquante",
+              "cards": 5
+            },
+            {
+              "title": "Ta synthèse-dissertation",
+              "cards": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c2.11",
+      "seq": 11,
+      "sub": "Compréhension orale experte",
+      "canDo": "Can follow natural, unscripted French when several real obstacles stack at once, overlapping speakers, a mid-exchange register shift, an unfamiliar regional accent (Québec, Belgique, Suisse, Afrique de l'Ouest), and degraded audio (static, a dropped word, competing background noise), extracting who said what, each one's position, and the information that survives the interference, without ever producing a spoken or written response",
+      "level": "c2",
+      "title": "Expert Listening Comprehension",
+      "lessonIds": [
+        "c2.11.l1"
+      ],
+      "prereqUnitIds": [
+        "b2.25",
+        "c1.21"
+      ],
+      "outline": [
+        {
+          "lessonId": "c2.11.l1",
+          "title": "Compréhension orale experte",
+          "acts": [
+            {
+              "title": "Le signal perdu",
+              "cards": 10
+            },
+            {
+              "title": "Deux voix à la fois",
+              "cards": 14
+            },
+            {
+              "title": "Le registre qui bascule",
+              "cards": 14
+            },
+            {
+              "title": "Des mots d’ailleurs : le Québec",
+              "cards": 14
+            },
+            {
+              "title": "Des mots d’ailleurs : Belgique et Suisse",
+              "cards": 14
+            },
+            {
+              "title": "Des mots d’ailleurs : l’Afrique de l’Ouest",
+              "cards": 14
+            },
+            {
+              "title": "Le son abîmé",
+              "cards": 14
+            },
+            {
+              "title": "Tout en même temps",
+              "cards": 16
+            },
+            {
+              "title": "L’épreuve experte",
+              "cards": 16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c2.12",
+      "seq": 12,
+      "sub": "Lire des textes académiques denses",
+      "canDo": "Can read a genuinely dense, unsimplified general-academic text (argumentative structure, hedged claims, citation conventions, chains of abstract nominalisation) and extract its thesis, its stacked qualifications, who is being cited for what and how a compressed noun phrase unpacks into plain clauses, inside a realistic time budget, without first needing to resolve stance or irony",
+      "level": "c2",
+      "title": "Dense Academic Reading",
+      "lessonIds": [
+        "c2.12.l1"
+      ],
+      "prereqUnitIds": [
+        "c1.20"
+      ],
+      "outline": [
+        {
+          "lessonId": "c2.12.l1",
+          "title": "Lire des textes académiques denses",
+          "acts": [
+            {
+              "title": "Le problème : une phrase, une horloge",
+              "cards": 10
+            },
+            {
+              "title": "L’armature de la phrase",
+              "cards": 15
+            },
+            {
+              "title": "Les réserves empilées",
+              "cards": 15
+            },
+            {
+              "title": "Attribuer la citation",
+              "cards": 15
+            },
+            {
+              "title": "La chaîne nominale",
+              "cards": 15
+            },
+            {
+              "title": "L’architecture de l’argument",
+              "cards": 10
+            },
+            {
+              "title": "Lire contre le chronomètre",
+              "cards": 15
+            },
+            {
+              "title": "Ta lecture dense",
+              "cards": 13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c2.13",
+      "seq": 13,
+      "sub": "Correction et révision",
+      "canDo": "Can review a C2-level French text, one's own draft or a model, and diagnose four recurring faults of coherence in a grammatically correct text: an unmarked register slip, a redundant restatement, a pronoun or demonstrative reference that has drifted or turned ambiguous, and a connector that does not deliver the logical relationship it promises; can then produce a corrected version that repairs all four, in a single pass or several, without losing or inventing any of the original's meaning",
+      "level": "c2",
+      "title": "Correction and Revision",
+      "lessonIds": [
+        "c2.13.l1"
+      ],
+      "prereqUnitIds": [
+        "c1.05",
+        "c1.06",
+        "c1.17",
+        "c1.22"
+      ],
+      "outline": [
+        {
+          "lessonId": "c2.13.l1",
+          "title": "Correction et révision",
+          "acts": [
+            {
+              "title": "Un texte presque sous presse",
+              "cards": 13
+            },
+            {
+              "title": "Le registre qui glisse",
+              "cards": 11
+            },
+            {
+              "title": "La redondance",
+              "cards": 9
+            },
+            {
+              "title": "La référence qui dérive",
+              "cards": 10
+            },
+            {
+              "title": "La transition qui ne tient pas",
+              "cards": 9
+            },
+            {
+              "title": "Le piège : une correction peut en cacher une autre",
+              "cards": 6
+            },
+            {
+              "title": "Avant ta révision",
+              "cards": 7
+            },
+            {
+              "title": "Ta révision",
+              "cards": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c2.14",
+      "seq": 14,
+      "sub": "Bilan de maîtrise",
+      "canDo": "Can assemble, under a realistic time budget, a single coherent response that draws on every C2 skill at once: extracting the argument of a dense, unsimplified passage; taking and defending a position on it; naming the rhetorical or idiomatic device that carries its central claim; sustaining a full written response in precise, consistently soutenu register; and self-editing that response against a four-question coherence checklist before submitting it",
+      "level": "c2",
+      "title": "Mastery Portfolio Exercise",
+      "lessonIds": [
+        "c2.14.l1"
+      ],
+      "prereqUnitIds": [
+        "c2.01",
+        "c2.02",
+        "c2.03",
+        "c2.04",
+        "c2.05",
+        "c2.06",
+        "c2.07",
+        "c2.08",
+        "c2.09",
+        "c2.10",
+        "c2.11",
+        "c2.12",
+        "c2.13"
+      ],
+      "outline": [
+        {
+          "lessonId": "c2.14.l1",
+          "title": "Bilan de maîtrise",
+          "acts": [
+            {
+              "title": "Le dossier de maîtrise",
+              "cards": 14
+            },
+            {
+              "title": "Lire et entendre, sous contrainte",
+              "cards": 13
+            },
+            {
+              "title": "Les mots, le registre, l’origine",
+              "cards": 17
+            },
+            {
+              "title": "La nuance et la lecture intégrale",
+              "cards": 14
+            },
+            {
+              "title": "Médier, traduire, improviser à l’oral",
+              "cards": 15
+            },
+            {
+              "title": "Tenir un discours, trancher par écrit",
+              "cards": 10
+            },
+            {
+              "title": "Le piège du bilan",
+              "cards": 10
+            },
+            {
+              "title": "Ton bilan de maîtrise",
+              "cards": 22
+            }
+          ]
+        }
+      ]
     }
   ],
   "lessons": [
