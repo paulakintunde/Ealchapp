@@ -1,6 +1,6 @@
 import { strictEqual } from 'node:assert';
 import { test } from 'node:test';
-import { restoreOutcome, type PurchasesStatusLike, type RestoreOutcome } from './purchases.logic.ts';
+import { needsIdentityLogout, restoreOutcome, type PurchasesStatusLike, type RestoreOutcome } from './purchases.logic.ts';
 import type { PurchasesStatus } from './purchases.ts';
 
 // Compile-time parity: if purchases.ts's union ever gains or loses a member,
@@ -34,4 +34,21 @@ test('every outcome has exactly one caller-facing branch', () => {
     restored: 'restored', none: 'none', failed: 'failed', unavailable: 'unavailable',
   };
   strictEqual(Object.keys(copy).length, 4);
+});
+
+test('switching directly between two different signed-in users forces a logout', () => {
+  strictEqual(needsIdentityLogout('userA', 'userB'), true);
+});
+
+test('a guest signing into their first account does not force a logout (the intended merge)', () => {
+  strictEqual(needsIdentityLogout(null, 'userA'), false);
+});
+
+test('signing out does not force a logout (identify is never called for a null userId anyway)', () => {
+  strictEqual(needsIdentityLogout('userA', null), false);
+});
+
+test('two nulls (no-op) and the same user twice both need no forced logout', () => {
+  strictEqual(needsIdentityLogout(null, null), false);
+  strictEqual(needsIdentityLogout('userA', 'userA'), false);
 });

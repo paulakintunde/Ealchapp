@@ -31,6 +31,7 @@ import {
 } from '@/store/entitlement.logic';
 import { ANON_USER, useEntitlement } from '@/store/useEntitlement';
 import { useStore } from '@/store/useStore';
+import { needsIdentityLogout } from './purchases.logic';
 
 type AdaptyModule = (typeof import('react-native-adapty'))['adapty'];
 
@@ -107,12 +108,25 @@ export async function refreshEntitlement(): Promise<void> {
 }
 
 /** Follow an auth identity change: swap the cached entitlement immediately
- *  (offline-honest), then re-point the Adapty identity and reconcile. */
-async function syncIdentity(userId: string | null): Promise<void> {
+ *  (offline-honest), then re-point the Adapty identity and reconcile.
+ *
+ *  `prevUserId` decides whether a logout must run before identify(). Adapty's
+ *  identify() MERGES onto whatever profile is currently active — intentional
+ *  for null -> user (an anonymous guest's activity correctly carries into the
+ *  account they just created), but wrong for user A -> user B (switching
+ *  directly from one signed-in account to another, e.g. signing in over an
+ *  already-authenticated session without signing out first: Supabase's
+ *  onAuthStateChange goes straight from A's session to B's, with no SIGNED_OUT
+ *  in between). Without the forced logout here, B silently inherits A's
+ *  entitlement — confirmed 2026-10-14 with two QA accounts, where the second
+ *  sign-in came back premium because it merged onto the first account's
+ *  already-identified Adapty profile. */
+async function syncIdentity(userId: string | null, prevUserId: string | null): Promise<void> {
   await useEntitlement.getState().loadFor(userId);
   if (!configured) return;
   const A = loadModule()!;
   try {
+    if (needsIdentityLogout(prevUserId, userId)) await A.logout();
     if (userId) await A.identify(userId);
     else await A.logout();
     await apply((await A.getProfile()) as ProfileLike);
@@ -136,7 +150,7 @@ export function useEntitlementSync(): void {
       if (next === 'active') void refreshEntitlement();
     });
     const unsub = useStore.subscribe((s, prev) => {
-      if (s.userId !== prev.userId) void syncIdentity(s.userId);
+      if (s.userId !== prev.userId) void syncIdentity(s.userId, prev.userId);
     });
     return () => {
       app.remove();

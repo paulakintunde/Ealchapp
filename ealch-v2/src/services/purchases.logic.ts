@@ -39,3 +39,16 @@ export function restoreOutcome(
   if (res.ok) return res.premium ? 'restored' : 'none';
   return status === 'ready' ? 'failed' : 'unavailable';
 }
+
+/** Whether an auth identity change must log out of Adapty before identifying
+ *  the new user. Adapty's identify() MERGES onto whatever profile is
+ *  currently active, which is correct exactly once — an anonymous guest's
+ *  activity carrying into the account they just created (prevUserId null) —
+ *  and wrong every other time a real user id is replaced by a DIFFERENT real
+ *  user id, which happens with no intervening sign-out when Supabase's
+ *  onAuthStateChange goes straight from one session to another (e.g. signing
+ *  in over an already-authenticated session). Without the forced logout, the
+ *  new user silently inherits the old user's entitlement. */
+export function needsIdentityLogout(prevUserId: string | null, userId: string | null): boolean {
+  return prevUserId !== null && userId !== null && prevUserId !== userId;
+}
