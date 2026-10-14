@@ -857,3 +857,40 @@ caught by any single-lesson pre-review brief:
   per-lesson above and in each file's own header); the two standing C2-band
   decisions (`dalf_c2` exam format, confirming the art pass — now done — was
   the whole remaining scope).
+
+- **2026-10-13: "wave 3 - 4 all good."** Paul's explicit sign-off. Real
+  import (`b1-import.ts --band c2 --apply`, 665 rows, 0 blockers, read-back
+  clean) and real merge (`b1-merge-into-seed.ts`, `validateCorpus` 0 issues
+  before/after) for all 14 C2 lessons.
+
+  **The post-merge full-suite sweep found one real, previously-invisible
+  defect**, exactly the lesson this file has now recorded three separate
+  times: `c2.11.l1: no practice section. Author one, or mark the lesson
+  features: ['assessment']`. Neither c2.11 nor c2.12 (both R-shape) carries
+  a `type: 'practice'` section, confirmed independently by both author and
+  pre-reviewer as deliberate — but the house-wide publish gate requires one
+  on every non-assessment lesson, and `features: ['assessment']` doesn't fit
+  either (that marker demands zero owned corpus rows; both lessons own
+  100+ real rows). Investigated the renderer directly: the only implemented
+  practice surface is Voice Flash (speaking), even for sections declared
+  `skill: 'listen'`/`'read'` — a documented, deliberate gap in
+  `LessonSection.tsx` ("DECIDED, deliberately, to share the speaking
+  surface for now"). Put the real tradeoff to Paul rather than guessing;
+  his call: a small practice section on each lesson's own glossary
+  vocabulary only (9 words/c2.11, 6/c2.12, each independently confirmed to
+  carry the `voiceflash` drill) — the comprehension missions stay
+  recognition-only, only pronunciation practice on vocabulary was added,
+  the same thing every other lesson in the house already does for its own
+  terms. Structural change, not text-only, so both lessons bumped v1->v2
+  (zero real learner progress existed on either, both imported minutes
+  earlier in this same session) — re-applied, re-merged, re-tested.
+
+  **Full-suite sweep, clean on the second pass**: `npm test` 5778/5778, 0
+  fail. `pnpm test` 1299/1300 + 1 skip, 0 fail (after regenerating the dev
+  preview fixture to empty — all 14 C2 lessons are published now, so the
+  fixture correctly carries nothing). `validateCorpus` 0 issues throughout.
+
+  **Still open**: fresh `content:publish --packs --dry-run`, checksum
+  compare, then Paul's explicit OK before the real publish; the two
+  standing C2-band decisions (`dalf_c2` exam format, now confirmed as the
+  only remaining open scope since the art pass is done).
