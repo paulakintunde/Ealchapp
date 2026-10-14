@@ -14,7 +14,13 @@ import { ENV } from './env';
 import { RESET_REDIRECT } from '@/config/legal';
 import { handleAuthTransition, prepareEmailSignup, recordAcceptedEmailSignup, track } from './analytics';
 
-export type AuthResult = { ok: boolean; email?: string; error?: string };
+// `code` is Supabase's stable machine-readable error code (e.g.
+// 'over_email_send_rate_limit', 'email_exists') — present on API-level
+// failures, absent on thrown/network errors. Callers that need to tell a
+// rate limit apart from a duplicate email from a real network failure
+// branch on this, not on `error` (a human-readable message that can change
+// wording without notice).
+export type AuthResult = { ok: boolean; email?: string; error?: string; code?: string };
 
 /** Sentinel: Supabase is not configured, or the call never reached it. */
 export const AUTH_UNAVAILABLE = 'auth-unavailable';
@@ -30,7 +36,7 @@ async function attempt(
 ): Promise<AuthResult> {
   try {
     const { error, email } = await run();
-    if (error) return { ok: false, error: error.message };
+    if (error) return { ok: false, error: error.message, code: error.code };
     return { ok: true, email };
   } catch {
     // Network failure, malformed token, aborted fetch — the call never completed.

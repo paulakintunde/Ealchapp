@@ -302,6 +302,7 @@ export type Strings = {
   obSteps: string[];
   obTagline: string; obIntro: string; createAccount: string; alreadyAccount: string; signInLink: string;
   obCreateT: string; obCreateAccount: string; obSignupError: string; obSignupRetry: string; passwordPh: string; continueT: string; orT: string; withApple: string; withGoogle: string;
+  obSignupRateLimited: string; obSignupEmailExists: string;
   obThemeT: string; obThemeS: string; obGoalT: string; obExpT: string; obPaceT: string; obAccentT: string;
   obRemindT: string; obRemindS: string; enableReminders: string; obSkipReminders: string; alarmChips: string[]; paceSubs: string[];
   expTitles: string[]; expSubs: string[];
@@ -797,7 +798,9 @@ export const T: Record<Lang, Strings> = {
     obTagline: 'Parlez avec élégance.',
     obIntro: 'Vous avez fait la grammaire. Passez à la parole. Parlez à voix haute dès le premier jour, et faites-vous comprendre.',
     createAccount: 'Créer un compte', alreadyAccount: 'Vous avez déjà un compte ?', signInLink: 'Se connecter',
-    obCreateT: 'Créez votre compte.', obCreateAccount: 'Créer mon compte', obSignupError: 'Impossible de créer le compte. Vérifiez votre connexion, puis réessayez, ou continuez sans compte.', obSignupRetry: 'Réessayer la création du compte', passwordPh: 'Mot de passe', continueT: 'Continuer', orT: 'OU',
+    obCreateT: 'Créez votre compte.', obCreateAccount: 'Créer mon compte', obSignupError: 'Impossible de créer le compte. Réessayez, ou continuez sans compte.', obSignupRetry: 'Réessayer la création du compte', passwordPh: 'Mot de passe', continueT: 'Continuer', orT: 'OU',
+    obSignupRateLimited: 'Trop de tentatives. Patientez quelques minutes, puis réessayez, ou continuez sans compte.',
+    obSignupEmailExists: 'Un compte existe déjà avec cet e-mail. Essayez de vous connecter à la place.',
     withApple: 'Continuer avec Apple', withGoogle: 'Continuer avec Google',
     obThemeT: 'Choisissez votre\ncouleur signature.', obThemeS: "Un fil vibrant dans l'obscurité. Modifiable à tout moment dans votre profil.",
     obGoalT: 'Pourquoi le français ?', obExpT: 'Combien de français\nvit déjà en vous ?', obPaceT: 'Minutes par jour ?',
@@ -1318,7 +1321,9 @@ export const T: Record<Lang, Strings> = {
     obTagline: 'Speak with elegance.',
     obIntro: "You've done the grammar. Now do the talking. Speak French out loud from day one, and be understood.",
     createAccount: 'Create an account', alreadyAccount: 'Already have an account?', signInLink: 'Sign in',
-    obCreateT: 'Create your account.', obCreateAccount: 'Create account', obSignupError: 'Could not create your account. Check your connection and try again, or continue without an account.', obSignupRetry: 'Retry account creation', passwordPh: 'Password', continueT: 'Continue', orT: 'OR',
+    obCreateT: 'Create your account.', obCreateAccount: 'Create account', obSignupError: 'Could not create your account. Try again, or continue without an account.', obSignupRetry: 'Retry account creation', passwordPh: 'Password', continueT: 'Continue', orT: 'OR',
+    obSignupRateLimited: 'Too many attempts. Wait a few minutes, then try again, or continue without an account.',
+    obSignupEmailExists: 'An account already exists with this email. Try signing in instead.',
     withApple: 'Continue with Apple', withGoogle: 'Continue with Google',
     obThemeT: 'Choose your\nsignature color.', obThemeS: 'One vibrant thread through the dark. Change it anytime in your profile.',
     obGoalT: 'Why French?', obExpT: 'How much French\nlives in you already?', obPaceT: 'Minutes per day?',

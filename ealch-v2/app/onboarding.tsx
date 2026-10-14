@@ -17,6 +17,7 @@ import { ACCENTS } from '@/theme/palette';
 import { AVATARS, avatarName } from '@/content/avatars';
 import { langs } from '@/content';
 import { auth, sound, stt, type SttResult } from '@/services';
+import { AUTH_UNAVAILABLE } from '@/services/auth';
 import { track } from '@/services/analytics';
 import { FLAGS } from '@/services/flags';
 import { PasswordField, LegalConsent } from '@/components/AuthFields';
@@ -192,7 +193,18 @@ export default function Onboarding() {
       if (!res.ok) {
         sound.play('error');
         setSignupFailed(true);
-        setAcctErr(T.obSignupError);
+        // Branch on Supabase's stable error `code`, not the human-readable
+        // message — a rate limit and a duplicate email are both routine,
+        // actionable outcomes, not "check your connection" (reserved for an
+        // actual AUTH_UNAVAILABLE: the call never reached the backend).
+        if (res.error === AUTH_UNAVAILABLE) setAcctErr(T.errAuthUnavailable);
+        else if (res.code === 'over_email_send_rate_limit' || res.code === 'over_request_rate_limit') {
+          setAcctErr(T.obSignupRateLimited);
+        } else if (res.code === 'email_exists' || res.code === 'user_already_exists') {
+          setAcctErr(T.obSignupEmailExists);
+        } else {
+          setAcctErr(T.obSignupError);
+        }
         return;
       }
       s.setField('email', res.email ?? email);
