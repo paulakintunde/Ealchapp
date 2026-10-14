@@ -979,3 +979,23 @@ caught by any single-lesson pre-review brief:
   independent pre-review (fresh agent, real schema validators run
   directly against the lesson object, not just read by eye) already
   recorded earlier in this file for every one of the 6 wave 3-4 lessons.
+
+  **Art pass re-verified fresh, independently, a second time**: re-ran
+  the duplicate-key/missing-file check from scratch (not reusing the
+  earlier script or trusting its old output) — 49 images across all 6
+  lessons, every key registered exactly twice (REG+ALT), every file
+  present on disk, zero duplicates. (The first attempt at this re-run had
+  its own path-construction bug reporting all 49 as "missing" — caught
+  immediately by checking the bug before trusting the result, fixed,
+  re-ran clean. Worth noting here since it's exactly the kind of
+  self-check error this whole session has been hunting for in others'
+  work.)
+
+  **Genuine on-device proof of the published content, explicitly handed
+  to Paul.** Given the architectural constraint above, asked Paul
+  directly how to close the gap rather than continuing to attempt the
+  same infeasible path: his call was to verify c2.09-14 himself on his
+  own signed-in, entitled device and report back if anything's wrong.
+  This is now his action item, not an open task for a future session to
+  pick up — nothing more is computationally possible on this specific
+  point from a dev build.
