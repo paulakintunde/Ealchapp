@@ -1088234,6 +1088234,7 @@
             "a9-progress",
             "a9-quiz",
             "a9-review",
+            "a9-parler",
             "a9-roundup"
           ],
           "milestone": "Tu as trié tous les bruits de la leçon sous un format d’examen, et passé l’épreuve : quarante-deux questions, sept rounds. EN: You have triaged every kind of noise in the lesson under exam conditions, and sat the test: forty-two questions, seven rounds.",
@@ -1089175,7 +1089176,7 @@
         "fr.c2.strategies-de-comprehension.2325"
       ],
       "reframe": "Cherche le signal, même dans le bruit.",
-      "version": 1,
+      "version": 2,
       "overview": {
         "glyph": "écoute",
         "subFr": "Compréhension orale experte",
@@ -1093694,6 +1093695,37 @@
           "title": "Une dernière fois"
         },
         {
+          "id": "a9-parler",
+          "say": "Cherche le signal, même dans le bruit.",
+          "type": "practice",
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "layer": "core",
+          "skill": "speak",
+          "terms": [
+            "signal",
+            "triage"
+          ],
+          "title": "Dis le vocabulaire du triage à voix haute",
+          "itemIds": [
+            "fr.c2.strategies-de-comprehension.2201",
+            "fr.c2.strategies-de-comprehension.2307",
+            "fr.c2.strategies-de-comprehension.2211",
+            "fr.c2.strategies-de-comprehension.2225",
+            "fr.c2.strategies-de-comprehension.2239",
+            "fr.c2.strategies-de-comprehension.2257",
+            "fr.c2.strategies-de-comprehension.2269",
+            "fr.c2.strategies-de-comprehension.2281",
+            "fr.c2.strategies-de-comprehension.2311"
+          ]
+        },
+        {
           "id": "a9-roundup",
           "say": "Cherche le signal, même dans le bruit.",
           "body": "Cherche le signal, même dans le bruit. Tu avais déjà, grâce à la leçon 25 du B2 et la leçon 21 du C1, le signal : la charpente, la ligne de partage. Cette leçon t'a appris à le retrouver à travers quatre bruits, parfois empilés : le chevauchement, le registre, l'accent, la panne de son. la leçon 12 du C2 fait le même travail à l'écrit, avec des textes académiques denses plutôt que des voix. EN: Next, the reading twin to this lesson works on dense written text the same way this one worked on noisy speech.",
@@ -1094087,6 +1094119,7 @@
             "a8-progress",
             "a8-quiz",
             "a8-review",
+            "a8-parler",
             "a8-roundup"
           ],
           "milestone": "Tu lis un texte académique dense complet, une seule fois, et tu en extrais l’armature, les réserves, l’attribution des citations et les chaînes nominales de chaque paragraphe, sous un temps réaliste. EN: You read a complete dense academic text, once, and extract each paragraph’s backbone, hedges, citation attribution and nominal chains, under a realistic time budget.",
@@ -1094525,7 +1094558,7 @@
         "fr.c2.strategies-de-comprehension.2507"
       ],
       "reframe": "Un texte dense se déplie, phrase par phrase, avant que l’horloge ne s’arrête.",
-      "version": 1,
+      "version": 2,
       "overview": {
         "glyph": "horloge",
         "subFr": "Lire des textes académiques denses",
@@ -1096748,6 +1096781,34 @@
           ],
           "layer": "core",
           "title": "Une dernière fois"
+        },
+        {
+          "id": "a8-parler",
+          "say": "Un texte dense se déplie, phrase par phrase, avant que l’horloge ne s’arrête.",
+          "type": "practice",
+          "audio": {
+            "lang": "fr-FR",
+            "mode": "tts",
+            "speeds": [
+              1,
+              0.65
+            ]
+          },
+          "layer": "core",
+          "skill": "speak",
+          "terms": [
+            "armature",
+            "reserveempilee"
+          ],
+          "title": "Dis le vocabulaire de la densité à voix haute",
+          "itemIds": [
+            "fr.c2.strategies-de-comprehension.2411",
+            "fr.c2.strategies-de-comprehension.2425",
+            "fr.c2.strategies-de-comprehension.2442",
+            "fr.c2.strategies-de-comprehension.2456",
+            "fr.c2.strategies-de-comprehension.2475",
+            "fr.c2.strategies-de-comprehension.2481"
+          ]
         },
         {
           "id": "a8-roundup",
