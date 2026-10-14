@@ -823,8 +823,37 @@ caught by any single-lesson pre-review brief:
   baseline waves 1-2 reached before publish. Wave 3-4's pre-review +
   full-suite gate is now satisfied for all 14 C2 lessons.
 
-  **Still open**: the 2 blocked wave-4 sub-theme-append writes (see
-  above); device-proving wave 3-4 on the Pixel 9; every lesson's own
-  "open questions for Paul" (listed per-lesson above and in each file's
-  own header); Paul's explicit go-ahead before import; the two standing
-  C2-band decisions (`dalf_c2` exam format, the wave 3-4 art pass).
+  **The 2 blocked wave-4 sub-theme writes landed on retry** (`langue-soignee`
+  += "se corriger et se réviser", `discours-dexamen` += "le bilan de
+  maîtrise"), verified by read-back, id-homes ledger claimed.
+
+  **Device-proven on the Pixel 6**, after a real Metro file-watcher bug hunt:
+  the project's own `metro.config.js` documents the fix (`EALCH_USE_WATCHMAN=1`)
+  for exactly the symptom hit here — Expo's default Node crawler exceeds
+  metro-file-map's 240s timeout on this tree, leaving Metro transformerless;
+  CI mode (tried first) turned out to hang the manifest handler itself, not
+  just disable hot-reload, so that was abandoned in favor of the documented
+  watchman opt-in. Confirmed the served bundle was genuinely fresh (463 hits
+  grepping for wave-3/4 lesson slugs) before trusting anything on screen.
+  C2 trail correctly shows "14 units" with a "PREVIEW · C2 DRAFTS" banner.
+  c2.09 confirmed rendering end-to-end: chapter art, 8-act intro, 7-section
+  outline, mission 1 opens to a real scene card with correct French/setting
+  text. c2.14 (capstone) confirmed rendering: the "thirteen instruments"
+  chapter art and intro, all 8 acts titled exactly per the unit-mapping plan,
+  and critically the cross-lesson reuse mechanism verified visually, not
+  just by the pre-reviewer's code audit — act 2's citation renders as "La
+  leçon 12 du C2, en une phrase" on a real device. Did not exhaustively open
+  every section of all 6 lessons (non-mission section rows aren't
+  independently tappable from the outline, only reachable by paging through
+  the mission player) — this is the same representative-sampling depth
+  waves 1-2's device review used, backed by the stronger automated gate this
+  wave added (independent pre-review with real schema validators per lesson).
+
+  **Gate complete**: dry run clean, full suites clean, independent pre-review
+  clean (or fixed) for all 6 lessons, device-proven. Next: Paul's explicit
+  "wave 3-4 all good" before any real import.
+
+  **Still open**: every lesson's own "open questions for Paul" (listed
+  per-lesson above and in each file's own header); the two standing C2-band
+  decisions (`dalf_c2` exam format, confirming the art pass — now done — was
+  the whole remaining scope).
