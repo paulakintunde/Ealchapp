@@ -924,4 +924,14 @@ caught by any single-lesson pre-review brief:
   and research-plan files still carry it as informational notes until
   that project actually begins.
 
-  **Real publish next.**
+  **PUBLISHED 2026-10-14**: `pnpm content:publish --packs`, v89 → v90.
+  checksum `65e23f5...` and content digest `f1e24dd...` identical to the
+  dry run, confirming zero drift. `content/core/v90.json` and
+  `content-packs/c2/v90.json` uploaded, `manifest-v2.json` updated,
+  retention pruned 1 old snapshot (42.2 MiB reclaimed). **The entire
+  14-lesson C2 band is now live for premium learners** — c2.01-08 (v89,
+  2026-10-09) plus c2.09-14 (v90, 2026-10-14) complete the band Paul
+  approved in Phase 0. Sons through C2, the whole course, now exists.
+
+  Both standing C2-band decisions closed: `dalf_c2` exam format scoped as
+  its own next project (not started); the art pass confirmed complete.
