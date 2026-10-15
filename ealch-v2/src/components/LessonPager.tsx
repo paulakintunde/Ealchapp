@@ -20,6 +20,7 @@ import { useTheme } from '@/theme/useTheme';
 import { useT } from '@/i18n/useT';
 import { sound, audio } from '@/services';
 import { QuizRoundsView } from '@/components/QuizRoundsView';
+import { percentToCorrect } from '@/services/reviewPrompt.logic';
 import type { PlayFn } from '@/components/LessonDeck';
 import { narrationOf, type LessonAct, type LessonDrill, type LessonSection, type LessonTerm, type QuizQuestion as SchemaQuizQuestion } from '@/content/schema';
 import { quizQuestions as flattenRounds } from '@/content/schema';
@@ -911,7 +912,7 @@ export function LessonPager({
                       cfg={quizCfg}
                       drills={drills ?? []}
                       onAnswer={(q, correct) => onQuizAnswer(quizIndexOf(quizCfg, q), correct)}
-                      onComplete={onQuizComplete}
+                      onComplete={(pct, total) => onQuizComplete(percentToCorrect(pct, total), total)}
                       onFinish={onFinish}
                       finishLabel={finishLabel}
                       onJumpToRef={onJumpToRef}

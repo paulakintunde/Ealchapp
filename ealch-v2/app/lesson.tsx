@@ -28,6 +28,8 @@ import { FREE_BANDS } from '@/store/entitlement.logic';
 import { missingLessonState } from '@/services/packs.logic';
 import { useFeature } from '@/store/useEntitlement';
 import { track as trackEvent } from '@/services/analytics';
+import { armReviewPrompt, noteLessonCompleted } from '@/services/reviewPrompt';
+import { isPerfectQuiz, quizScoreBucket } from '@/services/reviewPrompt.logic';
 import * as Crypto from 'expo-crypto';
 import { GlossContext } from '@/components/GlossContext';
 import { englishMode, glossToggleApplies } from '@/content/english.logic';
@@ -657,7 +659,7 @@ function LessonScreenBody() {
   // end of the quiz is finishing the lesson: the streak records showing up,
   // and the hero stops offering to resume what was just completed. A retry
   // inside the deck re-shuffles for fun but never re-logs the session.
-  const onQuizComplete = () => {
+  const onQuizComplete = (score: number, total: number) => {
     if (completedRef.current) return;
     completedRef.current = true;
     logSession('lesson');
@@ -669,7 +671,11 @@ function LessonScreenBody() {
     if (quizIx >= 0) markMissionDone(L.id, L.version, quizIx);
     trackEvent('lesson_completed', {
       lesson_id: L.id, lesson_version: String(L.version), session_id: visitId, completion_kind: 'quiz',
+      quiz_score_bucket: quizScoreBucket(score, total),
     });
+    // FEEDBACK-02: count the completion; a first perfect non-Sons quiz arms the review request (D-01, D-39).
+    void noteLessonCompleted(L.id);
+    if (isPerfectQuiz(score, total)) void armReviewPrompt(L.id);
   };
 
   const finish = () => {
@@ -684,7 +690,9 @@ function LessonScreenBody() {
       clearResume('lesson');
       trackEvent('lesson_completed', {
         lesson_id: L.id, lesson_version: String(L.version), session_id: visitId, completion_kind: 'no_quiz',
+        quiz_score_bucket: 'none',
       });
+      void noteLessonCompleted(L.id);
     }
     router.back();
   };
