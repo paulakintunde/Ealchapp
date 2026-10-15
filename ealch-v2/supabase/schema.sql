@@ -50,7 +50,7 @@ create table if not exists public.profiles (
 -- zero live consumers — nothing ever queried it). Mirrors AttemptEntry
 -- (ealch-v2/src/store/progress.logic.ts), narrowed to what the SRS fold
 -- (srsCards/gradeAttempt) and Le Rapport's per-drill breakdown
--- (app/feedback.tsx, keyed on `activity`) actually read. `id` is
+-- (app/report.tsx, keyed on `activity`) actually read. `id` is
 -- CLIENT-generated (mintAttemptId) and IS the idempotency key: a client can
 -- safely re-upload after a partial failure via `on conflict (id) do nothing`
 -- (see src/services/sync.ts).
@@ -252,7 +252,12 @@ values ('active', '{
   "ttsPremiumMonthlyChars": 25000,
   "ttsPremiumDailyRequests": 30,
   "ttsPremiumBurstPerMinute": 3,
-  "ttsFreePreviewChars": 2500
+  "ttsFreePreviewChars": 2500,
+  "reviewPromptOn": true,
+  "reportDailyGuest": 3,
+  "reportDailyUser": 10,
+  "reportDailyGlobal": 200,
+  "reportDailyIp": 20
 }'::jsonb)
 on conflict (id) do nothing;
 
@@ -270,7 +275,11 @@ on conflict (id) do nothing;
 -- not gain them from this insert. `ealch-admin/scripts/apply-tts-quota-schema.ts`
 -- runs the explicit `update` that lands them on the live row; this file's copy
 -- of the defaults exists only so a fresh install/reseed gets sane values
--- without a manual step.
+-- without a manual step. The same caveat covers reviewPromptOn and the
+-- reportDaily* keys (Phase 10): plan 10-09 runs the live
+-- `update public.system_config set config = config || '{"reviewPromptOn": true,
+-- "reportDailyGuest": 3, "reportDailyUser": 10, "reportDailyGlobal": 200,
+-- "reportDailyIp": 20}'::jsonb where id = 'active'`.
 
 -- ── TTS usage quota (Phase 3, SEC-01) ──
 -- Character-weighted, multi-window: coach_usage/coach_bump only ever needed
@@ -448,3 +457,115 @@ alter table public.exam_attempts enable row level security;
 -- supabase/functions/delete-account needs no change), and an expired row is
 -- harmless — grade-exam's predicate is `expires_at > now()`, so a stale row
 -- authorizes nothing.
+
+-- ── Problem reports (Phase 10, FEEDBACK-03) ──
+-- Written ONLY by the report-problem edge function, with the service role,
+-- through problem_report_submit. RLS is on with NO policies on purpose (an
+-- "RLS enabled, no policy" lint here is intended): no client may read or
+-- write these tables directly. user_id cascades from auth.users, so account
+-- deletion removes account reports; guest-era reports (user_id null) are
+-- removed by install_id from delete-account. Retention is 12 months
+-- (problem_reports_purge, scheduled by pg_cron when present, otherwise run
+-- opportunistically by the function). D-35: only ACCEPTED reports increment
+-- any usage counter; admission, insert and increments are one atomic call.
+create table if not exists public.problem_reports (
+  id                uuid        primary key,
+  user_id           uuid        references auth.users(id) on delete cascade,
+  install_id        text        not null check (install_id ~ '^[A-Za-z0-9_-]{8,64}$'),
+  category          text        not null check (category in ('audio','grading','content','crash','payment','other')),
+  details           text        check (details is null or char_length(details) <= 1000),
+  screen            text,
+  lesson_id         text,
+  item_id           text,
+  contact_email     text,
+  context           jsonb       not null default '{}'::jsonb,
+  status            text        not null default 'new' check (status in ('new','seen','fixed','wont_fix')),
+  client_created_at timestamptz,
+  created_at        timestamptz not null default now()
+);
+
+alter table public.problem_reports enable row level security;
+revoke all on table public.problem_reports from anon, authenticated;
+
+create index if not exists problem_reports_created_idx on public.problem_reports (created_at);
+create index if not exists problem_reports_status_idx on public.problem_reports (status, created_at desc);
+create index if not exists problem_reports_guest_install_idx on public.problem_reports (install_id) where user_id is null;
+
+create table if not exists public.problem_report_usage (
+  subject_key text    not null,
+  day         date    not null,
+  count       integer not null default 0,
+  primary key (subject_key, day)
+);
+
+alter table public.problem_report_usage enable row level security;
+revoke all on table public.problem_report_usage from anon, authenticated;
+
+-- Admit, insert and count in one transaction. Counters move only for an
+-- accepted report, so a rejected, duplicate or 429 attempt never consumes g:all.
+create or replace function public.problem_report_submit(
+  p_report jsonb, p_user uuid, p_contact_email text,
+  p_subject text, p_ip text,
+  p_limit_subject integer, p_limit_global integer, p_limit_ip integer)
+returns table (outcome text, reason text)
+language plpgsql
+set search_path = ''
+as $$
+declare s integer; g integer; i integer; v_id uuid := (p_report->>'report_id')::uuid;
+begin
+  if exists (select 1 from public.problem_reports where id = v_id) then
+    return query select 'duplicate'::text, null::text; return;
+  end if;
+  -- Lock order is fixed (subject, ip, global) so concurrent callers cannot deadlock.
+  insert into public.problem_report_usage (subject_key, day) values (p_subject, current_date) on conflict do nothing;
+  if p_ip is not null then insert into public.problem_report_usage (subject_key, day) values (p_ip, current_date) on conflict do nothing; end if;
+  insert into public.problem_report_usage (subject_key, day) values ('g:all', current_date) on conflict do nothing;
+  select u.count into s from public.problem_report_usage u where u.subject_key = p_subject and u.day = current_date for update;
+  if p_ip is not null then select u.count into i from public.problem_report_usage u where u.subject_key = p_ip and u.day = current_date for update; end if;
+  select u.count into g from public.problem_report_usage u where u.subject_key = 'g:all' and u.day = current_date for update;
+  if s >= p_limit_subject then return query select 'limited'::text, 'subject'::text; return; end if;
+  if p_ip is not null and i >= p_limit_ip then return query select 'limited'::text, 'ip'::text; return; end if;
+  if g >= p_limit_global then return query select 'limited'::text, 'global'::text; return; end if;
+  insert into public.problem_reports (id, user_id, install_id, category, details, screen, lesson_id, item_id, contact_email, context, client_created_at)
+  values (v_id, p_user, p_report->>'install_id', p_report->>'category', p_report->>'details', p_report->>'screen',
+          p_report->>'lesson_id', p_report->>'item_id', p_contact_email, coalesce(p_report->'context', '{}'::jsonb),
+          (p_report->>'client_created_at')::timestamptz)
+  on conflict (id) do nothing;
+  if not found then return query select 'duplicate'::text, null::text; return; end if;
+  -- D-35: counters move only for an accepted report.
+  update public.problem_report_usage set count = count + 1 where day = current_date and subject_key in (p_subject, 'g:all');
+  if p_ip is not null then update public.problem_report_usage set count = count + 1 where day = current_date and subject_key = p_ip; end if;
+  return query select 'inserted'::text, null::text;
+end;
+$$;
+
+revoke all on function public.problem_report_submit(jsonb, uuid, text, text, text, integer, integer, integer) from public;
+revoke all on function public.problem_report_submit(jsonb, uuid, text, text, text, integer, integer, integer) from anon;
+revoke all on function public.problem_report_submit(jsonb, uuid, text, text, text, integer, integer, integer) from authenticated;
+
+-- 12-month retention for reports, 7 days for the usage rows.
+create or replace function public.problem_reports_purge()
+returns integer
+language plpgsql
+set search_path = ''
+as $$
+declare n integer;
+begin
+  delete from public.problem_reports where created_at < now() - interval '12 months';
+  get diagnostics n = row_count;
+  delete from public.problem_report_usage where day < current_date - 7;
+  return n;
+end;
+$$;
+
+revoke all on function public.problem_reports_purge() from public;
+revoke all on function public.problem_reports_purge() from anon;
+revoke all on function public.problem_reports_purge() from authenticated;
+
+do $$
+begin
+  if exists (select 1 from pg_extension where extname = 'pg_cron') then
+    perform cron.schedule('problem-reports-retention', '17 3 * * *', 'select public.problem_reports_purge()');
+  end if;
+end;
+$$;
