@@ -4,6 +4,7 @@ import { useEntryFocus } from '@/a11y/useEntryFocus';
 import { useFocusReturn } from '@/a11y/focusReturn';
 import { focusAfterOpen } from '@/a11y/focusNode';
 import { useRouter, useFocusEffect, useLocalSearchParams } from 'expo-router';
+import { useReviewPromptOnFocus } from '@/hooks/useReviewPromptOnFocus';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FlashList, type FlashListRef } from '@shopify/flash-list';
 import { TX } from '@/components/Type';
@@ -195,6 +196,8 @@ export default function Den() {
   // offset — speakmap.tsx's fixed two-constant pixel arithmetic is already
   // known wrong at font scale 1.3, and the trail is 251 variable-height rows.
   const listRef = useRef<FlashListRef<TrailRowT>>(null);
+  // D-03: a trail screen taking focus is the only place the review request may fire.
+  useReviewPromptOnFocus();
   useFocusEffect(
     useCallback(() => {
       return () => {

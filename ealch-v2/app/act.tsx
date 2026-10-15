@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { useRouter, useLocalSearchParams, useFocusEffect } from 'expo-router';
+import { useReviewPromptOnFocus } from '@/hooks/useReviewPromptOnFocus';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TX } from '@/components/Type';
 import { Press, ProgressBar } from '@/components/ui';
@@ -64,6 +65,8 @@ export default function Act() {
   // l'ouverture" player below).
   useEffect(() => () => audio.stop(), []);
   useFocusEffect(useCallback(() => () => audio.stop(), []));
+  // D-03: a trail screen taking focus is the only place the review request may fire.
+  useReviewPromptOnFocus();
 
   const rec = useProgress((s) => (L ? s.lessonMissions[L.id] : undefined));
   const attempts = useProgress((s) => s.attempts);
