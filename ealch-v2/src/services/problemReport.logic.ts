@@ -191,3 +191,57 @@ export function outcomeFor(status: SendStatus): SendOutcome {
   if (cls === 'sent') return 'sent';
   return cls === 'retry' ? 'queued-busy' : 'rejected';
 }
+
+// ---------- claim-then-send outbox model (D-35, D-38) ----------
+
+export type OutboxEntry = { payload: ReportPayload; notBefore: number | null };
+export const REPORT_OUTBOX_LIMIT = 20;
+export const REPORT_OUTBOX_MAX_AGE_MS = 30 * 24 * 60 * 60 * 1000;
+
+/** The next UTC midnight after `now`. A 429 is never retried sooner. */
+export function nextUtcDay(now: number): number {
+  const d = new Date(now);
+  return Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate() + 1);
+}
+
+/** Drops entries older than the TTL, measured from the report's own creation time. */
+export function pruneReports(outbox: readonly OutboxEntry[], now: number): OutboxEntry[] {
+  return outbox.filter((entry) => {
+    const at = Date.parse(entry.payload.client_created_at);
+    return Number.isFinite(at) && now - at <= REPORT_OUTBOX_MAX_AGE_MS;
+  });
+}
+
+/** A report enters the outbox before any send. One copy per report_id; when full the oldest is evicted. */
+export function claimReport(outbox: readonly OutboxEntry[], payload: ReportPayload, now: number): OutboxEntry[] {
+  const kept = pruneReports(outbox, now);
+  if (kept.some((e) => e.payload.report_id === payload.report_id)) return kept;
+  const next = [...kept, { payload, notBefore: null }];
+  return next.length > REPORT_OUTBOX_LIMIT ? next.slice(next.length - REPORT_OUTBOX_LIMIT) : next;
+}
+
+/** sent and drop remove the entry; retry keeps it, and a 429 holds it until the next UTC midnight. */
+export function settleReport(outbox: readonly OutboxEntry[], reportId: string, status: SendStatus, now: number): OutboxEntry[] {
+  const cls = classifySend(status);
+  if (cls !== 'retry') return outbox.filter((e) => e.payload.report_id !== reportId);
+  const notBefore = status === 429 ? nextUtcDay(now) : null;
+  return outbox.map((e) => (e.payload.report_id === reportId ? { payload: e.payload, notBefore } : e));
+}
+
+export function dueReports(outbox: readonly OutboxEntry[], now: number): OutboxEntry[] {
+  return outbox.filter((e) => e.notBefore === null || e.notBefore <= now);
+}
+
+/** Stored entries are untrusted: each payload is rebuilt through the builder. */
+export function validReportOutbox(value: unknown): OutboxEntry[] {
+  if (!Array.isArray(value)) return [];
+  const out: OutboxEntry[] = [];
+  for (const entry of value) {
+    if (!isObj(entry) || !isObj(entry.payload)) continue;
+    const payload = buildReportPayload(entry.payload);
+    if (!payload) continue;
+    const nb = entry.notBefore;
+    out.push({ payload, notBefore: typeof nb === 'number' && Number.isFinite(nb) ? nb : null });
+  }
+  return out;
+}
