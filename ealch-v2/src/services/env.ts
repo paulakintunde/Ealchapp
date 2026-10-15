@@ -17,6 +17,7 @@ export const ENV = {
   ttsFunction: process.env.EXPO_PUBLIC_TTS_FN ?? 'tts',
   sttFunction: process.env.EXPO_PUBLIC_STT_FN ?? 'stt',
   deleteAccountFunction: process.env.EXPO_PUBLIC_DELETE_ACCOUNT_FN ?? 'delete-account',
+  reportProblemFunction: process.env.EXPO_PUBLIC_REPORT_PROBLEM_FN ?? 'report-problem',
   // Premium content packs: signs a 10-minute URL for one entitled pack.
   contentPackUrlFunction: process.env.EXPO_PUBLIC_CONTENT_PACK_URL_FN ?? 'content-pack-url',
 

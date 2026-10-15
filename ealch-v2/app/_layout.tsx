@@ -30,6 +30,7 @@ import { useForegroundSync } from '@/services/sync';
 import { useEntitlementSync } from '@/services/purchases';
 import { recordAppForeground, recordAppLaunch, recordInstallAttribution } from '@/services/acquisition';
 import { flushAnalyticsOutbox } from '@/services/analytics';
+import { flushProblemReportOutbox } from '@/services/problemReport';
 
 SplashScreen.preventAutoHideAsync().catch(() => {});
 
@@ -93,10 +94,12 @@ export default function RootLayout() {
   useEffect(() => {
     void recordAppLaunch().then(() => recordInstallAttribution());
     void flushAnalyticsOutbox();
+    void flushProblemReportOutbox();
     const subscription = AppState.addEventListener('change', (next) => {
       if (next === 'active' && lastAppState.current !== 'active') {
         void recordAppForeground();
         void flushAnalyticsOutbox();
+        void flushProblemReportOutbox();
       }
       lastAppState.current = next;
     });

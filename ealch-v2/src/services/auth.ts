@@ -12,7 +12,13 @@ import type { AuthError } from '@supabase/supabase-js';
 import { supabase } from './supabase';
 import { ENV } from './env';
 import { RESET_REDIRECT } from '@/config/legal';
-import { handleAuthTransition, prepareEmailSignup, recordAcceptedEmailSignup, track } from './analytics';
+import { handleAuthTransition, installId, prepareEmailSignup, recordAcceptedEmailSignup, track } from './analytics';
+import { clearProblemReportOutbox } from './problemReport';
+
+/** The install id the server uses to remove guest-era reports; null if it cannot be read. */
+async function installIdSafe(): Promise<string | null> {
+  try { return await installId(); } catch { return null; }
+}
 
 // `code` is Supabase's stable machine-readable error code (e.g.
 // 'over_email_send_rate_limit', 'email_exists') — present on API-level
@@ -180,7 +186,13 @@ export const auth = {
       const { data } = await sb.auth.getSession();
       if (!data.session) return { ok: false, error: DELETE_NO_SESSION };
 
-      const { error } = await sb.functions.invoke(ENV.deleteAccountFunction, { method: 'POST' });
+      // D-20: drop queued problem reports first so none can recreate a row after deletion. If the
+      // delete then fails, those queued reports are lost; that is accepted.
+      await clearProblemReportOutbox();
+      const { error } = await sb.functions.invoke(ENV.deleteAccountFunction, {
+        method: 'POST',
+        body: { install_id: await installIdSafe() },
+      });
       if (error) return { ok: false, error: error.message };
 
       // The account no longer exists; drop the now-orphaned local session so no
