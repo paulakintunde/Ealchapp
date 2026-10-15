@@ -433,7 +433,7 @@ export default function Roleplay() {
                     {T.redo}
                   </TX>
                 </Press>
-                <Press accessibilityRole="button" cue={null} onPress={() => router.push('/feedback')} style={{ flex: 1, minHeight: 46, paddingVertical: 6, borderRadius: 23, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+                <Press accessibilityRole="button" cue={null} onPress={() => router.push('/report')} style={{ flex: 1, minHeight: 46, paddingVertical: 6, borderRadius: 23, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
                   <TX font="semi" role="bodySm" color={t.accInk}>
                     {T.rpReport}
                   </TX>

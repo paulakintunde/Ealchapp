@@ -204,7 +204,8 @@ export default function RootLayout() {
               <Stack.Screen name="speak" options={{ animation: 'slide_from_bottom' }} />
               <Stack.Screen name="player" options={{ animation: 'slide_from_bottom' }} />
               <Stack.Screen name="playlists" options={{ animation: 'slide_from_right' }} />
-              <Stack.Screen name="feedback" options={{ animation: 'slide_from_right' }} />
+              <Stack.Screen name="report" options={{ animation: 'slide_from_right' }} />
+              <Stack.Screen name="feedback" options={{ animation: 'none' }} />
               <Stack.Screen name="chat" />
               <Stack.Screen name="profile" />
               <Stack.Screen name="settings" options={{ animation: 'slide_from_right' }} />

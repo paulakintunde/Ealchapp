@@ -13,6 +13,7 @@ import { useStore } from '@/store/useStore';
 import { useProgress } from '@/store/useProgress';
 import { itemsPracticed, localDay, minutesToday, mondayIndex, shiftDay, streak, topWeaknesses, weekDots } from '@/store/progress.logic';
 import { useUI } from '@/store/useUI';
+import { headlineAttempts } from '@/store/report.logic';
 import { accentData } from '@/content/onboarding';
 import { avatarSrc, avatarName } from '@/content/avatars';
 import { openWeakRows } from '@/content/weakness';
@@ -117,8 +118,9 @@ export default function Profile() {
   // log), and overall accuracy. A fresh install reads 0m / 0 / — , which is true.
   const totalMin = sessions.reduce((sum, s) => sum + s.minutes, 0);
   const wordsMet = itemsPracticed(attempts).size;
-  const graded = attempts.length;
-  const correct = attempts.reduce((n, a) => n + (a.correct ? 1 : 0), 0);
+  const headline = headlineAttempts(attempts);
+  const graded = headline.length;
+  const correct = headline.reduce((n, a) => n + (a.correct ? 1 : 0), 0);
   const accValue = graded ? `${Math.round((correct / graded) * 100)}%` : '—';
 
   // Minutes practised on each day of THIS calendar week, Monday-first — the same
@@ -521,6 +523,33 @@ export default function Profile() {
             ))}
           </View>
         </CardBox>
+
+        {/* Your report (D-29) */}
+        <Press accessibilityRole="button"
+          accessibilityLabel={T.profileReportT}
+          onPress={() => router.push('/report')}
+          style={{
+            minHeight: 58,
+            paddingVertical: 10,
+            borderRadius: 16,
+            borderWidth: 1,
+            borderColor: t.line(10),
+            backgroundColor: t.card,
+            ...t.cardShadow,
+            flexDirection: 'row',
+            alignItems: 'center',
+            gap: 14,
+            paddingHorizontal: 16,
+            marginBottom: 14,
+          }}
+        >
+          <Icon name="book" size={18} color={t.txSecondary} />
+          <View style={{ flex: 1 }}>
+            <TX font="semi" role="body">{T.profileReportT}</TX>
+            <TX role="meta" color={t.txMuted}>{T.profileReportSub}</TX>
+          </View>
+          <Icon name="chevronRight" size={14} color={t.txNonText} strokeWidth={1.6} />
+        </Press>
 
         {/* Settings link */}
         <Press accessibilityRole="button"

@@ -353,7 +353,7 @@ export default function Speak() {
   const endSession = () => {
     sound.play('tap');
     logSession('speak');
-    router.push('/feedback');
+    router.push('/report');
   };
 
   const startBlock = (ix: number) => {

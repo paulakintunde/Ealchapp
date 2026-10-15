@@ -1,0 +1,256 @@
+import { useMemo } from 'react';
+import { ScrollView, View } from 'react-native';
+import { useRouter } from 'expo-router';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Svg, { Circle } from 'react-native-svg';
+import { TX } from '@/components/Type';
+import { Icon } from '@/components/Icon';
+import { Press, ProgressBar, FocusHeader } from '@/components/ui';
+import { useTheme } from '@/theme/useTheme';
+import { useT } from '@/i18n/useT';
+import { useProgress } from '@/store/useProgress';
+import { localDay, statsByItem, weakSpots, type Activity, type AttemptVerdict } from '@/store/progress.logic';
+import { content } from '@/services/content';
+import { parseAnchor } from '@/services/content.logic';
+import { reportFigures } from '@/store/report.logic';
+
+// Le Rapport — the honest version. Every number here is a view over the attempt
+// log (progress.logic.ts); nothing is sampled or hardcoded. Before this the whole
+// screen was a fabrication, openly labelled "shown with sample data" (review
+// §feedback). It now says only what the log actually knows: how accurate the
+// learner has been, per drill, and which words they keep getting wrong.
+
+// Confidence ring — SVG circular progress (r=52 → circumference ≈ 326.7).
+function ConfidenceRing({ pct, score, label, a11y }: { pct: number; score: string; label: string; a11y: string }) {
+  const t = useTheme();
+  const C = 2 * Math.PI * 52;
+  const offset = C * (1 - pct);
+  return (
+    <View accessible accessibilityRole="text" accessibilityLabel={a11y} style={{ alignItems: 'center', gap: 6 }}>
+      <View style={{ width: 120, height: 120 }}>
+        <Svg width={120} height={120} viewBox="0 0 120 120" accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
+          <Circle cx={60} cy={60} r={52} fill="none" stroke={t.line(9)} strokeWidth={5} />
+          <Circle
+            cx={60}
+            cy={60}
+            r={52}
+            fill="none"
+            stroke={t.acc}
+            strokeWidth={5}
+            strokeLinecap="round"
+            strokeDasharray={C}
+            strokeDashoffset={offset}
+            transform="rotate(-90 60 60)"
+          />
+        </Svg>
+        <View style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, alignItems: 'center', justifyContent: 'center' }}>
+          <TX font="serif" role="display" size={36} accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
+            {score}
+          </TX>
+        </View>
+      </View>
+      {/* Outside the ring: a caps label at large font scale cannot fit inside a
+          fixed 120px circle without shrinking below the size this pass exists to fix. */}
+      <TX font="semi" role="eyebrow" ls={1.8} color={t.txMuted} center accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
+        {label}
+      </TX>
+    </View>
+  );
+}
+
+export default function Report() {
+  const t = useTheme();
+  const T = useT();
+  const router = useRouter();
+  const insets = useSafeAreaInsets();
+
+  // Reactive: an attempt logged this session updates the report live.
+  const attempts = useProgress((s) => s.attempts);
+
+  const verdictColor = (v: AttemptVerdict) =>
+    v === 'good' ? t.accTx : v === 'close' ? t.txPrimary : t.danger;
+
+  const report = useMemo(() => {
+    // The review queue: weakest first by Wilson lower bound (a single fumble no
+    // longer outranks a real pattern), over the last 30 days, and only items not
+    // yet solid (a perfect item does not belong on a "to review" list).
+    const weak = weakSpots(attempts, localDay(), { windowDays: 30 })
+      .filter((s) => s.ratio < 1 || !s.lastCorrect)
+      .slice(0, 6)
+      .map((s) => {
+        const item = content.item(s.itemId);
+        return {
+          itemId: s.itemId,
+          fr: item?.fr ?? s.lastExpected,
+          en: item?.en ?? '',
+          seen: s.seen,
+          correct: Math.round(s.ratio * s.seen),
+          lastVerdict: s.lastVerdict,
+          // Only set when the most recent attempt came from a lesson's practice
+          // section (lesson.tsx's self-rated Got-it/Missed-it). Standalone-drill
+          // attempts (flashcards, voiceflash, …) have no lesson block to point
+          // back to, and that is a normal, expected case — not a bug.
+          anchor: s.lastAnchor,
+        };
+      });
+
+    return { weak };
+  }, [attempts]);
+
+  // D-27: headline figures exclude exam-review; the weak list above uses the full log.
+  const figures = useMemo(() => reportFigures(attempts), [attempts]);
+  const empty = figures.total === 0;
+
+  return (
+    <View style={{ flex: 1, backgroundColor: t.bg }}>
+      <View style={{ paddingTop: insets.top }}>
+        <FocusHeader onClose={() => router.replace('/home')} onSettings={() => router.push('/settings')} />
+      </View>
+      <ScrollView contentContainerStyle={{ paddingHorizontal: 26, paddingTop: 8, paddingBottom: insets.bottom + 40, flexGrow: 1 }} showsVerticalScrollIndicator={false}>
+        {/* Kicker + title */}
+        <TX font="semi" role="meta" ls={2.8} color={t.txSubtle} style={{ marginBottom: 10 }}>
+          {T.reportTag}
+        </TX>
+        <TX font="serif" role="display" size={38} style={{ marginBottom: 6 }}>
+          Le Rapport
+        </TX>
+        <TX role="bodySm" color={t.txMuted} style={{ marginBottom: 24 }}>
+          {T.reportSub}
+        </TX>
+
+        {empty ? (
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 20, paddingTop: 40 }}>
+            <TX font="serifI" size={26} role="display" center style={{ marginBottom: 10 }}>
+              {T.reportEmptyT}
+            </TX>
+            <TX role="bodySm" center lhMult={1.6} color={t.txMuted} style={{ maxWidth: 300, marginBottom: 30 }}>
+              {T.reportEmptyS}
+            </TX>
+            <Press accessibilityRole="button" onPress={() => router.replace('/home')} style={{ minHeight: 50, paddingVertical: 6, paddingHorizontal: 30, borderRadius: 25, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+              <TX font="semi" role="body" color={t.accInk}>
+                {T.backFeed}
+              </TX>
+            </Press>
+          </View>
+        ) : (
+          <>
+            {/* Accuracy ring + attempt tally */}
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 24, marginBottom: 30 }}>
+              <ConfidenceRing pct={figures.accuracy} score={String(Math.round(figures.accuracy * 100))} label={T.accuracyLabel} a11y={T.reportRingA11y.replace('{n}', String(Math.round(figures.accuracy * 100)))} />
+              <View style={{ flex: 1, gap: 8 }}>
+                <TX font="serif" role="display" size={30} color={t.accTx}>
+                  {figures.correct} / {figures.total}
+                </TX>
+                <TX role="label" color={t.txMuted}>
+                  {T.attemptsLabel.replace('{n}', String(figures.total))}
+                </TX>
+              </View>
+            </View>
+
+            {/* Accuracy by drill — real per-activity coverage */}
+            {figures.byDrill.length ? (
+              <>
+                <TX font="semi" role="meta" ls={2.4} color={t.txSubtle} style={{ marginBottom: 14 }}>
+                  {T.byDrillT}
+                </TX>
+                <View style={{ gap: 14, marginBottom: 32 }}>
+                  {figures.byDrill.map((d) => (
+                    <View key={d.activity}>
+                      <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 7 }}>
+                        <TX font="semi" role="label" ls={0.7}>
+                          {T.drillNames[d.activity]}
+                        </TX>
+                        <TX role="label" color={t.txMuted}>
+                          {d.pct}% · {T.attemptsLabel.replace('{n}', String(d.seen))}
+                        </TX>
+                      </View>
+                      <ProgressBar pct={d.pct} height={3} />
+                    </View>
+                  ))}
+                </View>
+              </>
+            ) : null}
+
+            {/* To review — the weakest items, straight from the attempt log */}
+            <TX font="serif" role="display" size={22} style={{ marginBottom: 14 }}>
+              {T.review}
+            </TX>
+            {report.weak.length ? (
+              <View style={{ gap: 10, marginBottom: 30 }}>
+                {report.weak.map((w) => {
+                  const rowStyle = { borderRadius: 16, borderWidth: 1, borderColor: t.line(7), backgroundColor: t.card, padding: 15, paddingHorizontal: 17 } as const;
+                  const inner = (
+                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
+                      <View style={{ flex: 1, minWidth: 0 }}>
+                        <TX font="serifI" role="titleLg" size={19} lang="fr" style={{ marginBottom: 3 }}>
+                          « {w.fr} »
+                        </TX>
+                        {w.en ? (
+                          <TX role="label" color={t.txMuted} numberOfLines={1}>
+                            {w.en}
+                          </TX>
+                        ) : null}
+                      </View>
+                      <View style={{ alignItems: 'flex-end', gap: 4 }}>
+                        <TX font="semi" role="label" color={verdictColor(w.lastVerdict)}>
+                          {w.correct}/{w.seen}
+                        </TX>
+                        <View style={{ width: 8, height: 8, borderRadius: 4, backgroundColor: verdictColor(w.lastVerdict) }} />
+                      </View>
+                      {/* Only present when the last attempt anchors to a real
+                          lesson block — a visual cue this row can be tapped,
+                          not just decoration on every row. */}
+                      {w.anchor ? <Icon name="arrowRight" size={14} color={t.txNonText} strokeWidth={1.6} /> : null}
+                    </View>
+                  );
+                  // Tappable only when an anchor exists (a lesson-practice
+                  // attempt). A standalone-drill weak item (flashcards,
+                  // voiceflash, …) has nowhere to jump to and stays a plain
+                  // row, exactly as before this feature existed.
+                  if (w.anchor) {
+                    const anchor = w.anchor;
+                    return (
+                      <Press accessibilityRole="button"
+                        key={w.itemId}
+                        cue={null}
+                        accessibilityLabel={T.reportWeakA11y.replace('{fr}', w.fr).replace('{c}', String(w.correct)).replace('{s}', String(w.seen))}
+                        onPress={() => {
+                          const parsed = parseAnchor(anchor);
+                          if (parsed) router.push({ pathname: '/lesson', params: { key: parsed.lessonId, at: anchor } });
+                        }}
+                        style={rowStyle}
+                      >
+                        {inner}
+                      </Press>
+                    );
+                  }
+                  return (
+                    <View key={w.itemId} style={rowStyle}>
+                      {inner}
+                    </View>
+                  );
+                })}
+              </View>
+            ) : (
+              <View style={{ borderRadius: 16, borderWidth: 1, borderColor: t.accA(30), backgroundColor: t.accA(6), padding: 18, marginBottom: 30 }}>
+                <TX role="bodySm" color={t.txSecondary} lhMult={1.5}>
+                  {T.reviewNone}
+                </TX>
+              </View>
+            )}
+
+            {/* Action — practise the weak words for real (Voice Flash reads the
+                same corpus these items came from). */}
+            {report.weak.length ? (
+              <Press accessibilityRole="button" onPress={() => router.push('/voiceflash')} style={{ minHeight: 52, paddingVertical: 6, borderRadius: 26, backgroundColor: t.acc, alignItems: 'center', justifyContent: 'center' }}>
+                <TX font="semi" role="body" color={t.accInk}>
+                  {T.practiceWeak}
+                </TX>
+              </Press>
+            ) : null}
+          </>
+        )}
+      </ScrollView>
+    </View>
+  );
+}
