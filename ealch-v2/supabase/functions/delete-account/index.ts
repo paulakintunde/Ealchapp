@@ -14,6 +14,9 @@
 // removing the auth user removes their rows in the same transaction. Any NEW
 // user-owned table MUST carry the same cascade or it will orphan data here.
 //
+// Phase 10: the optional POST body `{ install_id }` also removes that install's
+// guest-era problem_reports (user_id null), which the cascade cannot reach.
+//
 // Deploy:
 //   supabase functions deploy delete-account
 // Requires (auto-injected by Supabase, no manual secrets needed):
@@ -66,6 +69,28 @@ Deno.serve(async (req: Request) => {
   if (deleteErr) {
     console.error('delete-account failed', { userId: user.id, message: deleteErr.message });
     return json({ error: 'delete-failed' }, 500);
+  }
+
+  // 3. Phase 10 (D-20): problem_reports rows of this account went with the cascade above.
+  //    Guest-era reports from the same install (user_id null) are removed by install_id.
+  //    The id is client-asserted, but only user_id-null rows for that random id can match,
+  //    and the caller already holds a valid session. A failure here is logged, not fatal.
+  let installId: string | null = null;
+  try {
+    const body = await req.json();
+    if (body && typeof body.install_id === 'string' && /^[A-Za-z0-9_-]{8,64}$/.test(body.install_id)) {
+      installId = body.install_id;
+    }
+  } catch {
+    // No body or not JSON: nothing to clean up by install.
+  }
+  if (installId) {
+    const { error: guestErr } = await admin
+      .from('problem_reports')
+      .delete()
+      .eq('install_id', installId)
+      .is('user_id', null);
+    if (guestErr) console.error('delete-account guest reports failed', { message: guestErr.message });
   }
 
   return json({ ok: true }, 200);
