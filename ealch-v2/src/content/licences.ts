@@ -49,6 +49,7 @@ export const RUNTIME_DEPS: Attribution[] = [
   { name: 'expo-speech-recognition', licence: 'MIT' },
   { name: 'expo-splash-screen', licence: 'MIT' },
   { name: 'expo-status-bar', licence: 'MIT' },
+  { name: 'expo-store-review', licence: 'MIT' },
   { name: 'expo-system-ui', licence: 'MIT' },
   { name: 'expo-updates', licence: 'MIT' },
   { name: 'react', licence: 'MIT' },
