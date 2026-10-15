@@ -101,3 +101,15 @@ export async function recordInstallAttribution(
     // Acquisition is optional and must never delay onboarding.
   }
 }
+
+/** Epoch ms of the first recorded open on this install, or null when unknown (D-04 install-age input). */
+export async function firstOpenAt(): Promise<number | null> {
+  try {
+    const raw = await AsyncStorage.getItem(FIRST_KEY);
+    if (!raw) return null;
+    const at = (JSON.parse(raw) as { at?: unknown }).at;
+    return typeof at === 'number' && Number.isFinite(at) ? at : null;
+  } catch {
+    return null;
+  }
+}
