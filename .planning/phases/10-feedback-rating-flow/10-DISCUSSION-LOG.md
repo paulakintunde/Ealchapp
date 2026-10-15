@@ -1,5 +1,7 @@
 # Phase 10: Feedback & Rating Flow - Discussion Log
 
+> **SUPERSEDED (2026-10-15):** parts of this file describe the earlier "recent report" skip and 12-plan layout. `10-CONTEXT.md` is the source of truth (D-06 amended: a report never affects review eligibility; D-34 to D-49). Where this file disagrees, CONTEXT wins.
+
 > **Audit trail only.** Do not use as input to planning, research, or execution agents.
 > Decisions are captured in CONTEXT.md. This log keeps the alternatives that were considered.
 

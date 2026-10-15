@@ -1,5 +1,7 @@
 # Phase 10: Feedback & Rating Flow - Research
 
+> **SUPERSEDED (2026-10-15):** parts of this file describe the earlier "recent report" skip and 12-plan layout. `10-CONTEXT.md` is the source of truth (D-06 amended: a report never affects review eligibility; D-34 to D-49). Where this file disagrees, CONTEXT wins.
+
 **Researched:** 2026-10-01
 **Domain:** Expo SDK 57 / React Native 0.86 app (npm, `ealch-v2/`), Supabase edge functions, PostHog
 **Confidence:** HIGH on codebase seams, MEDIUM on Play/Apple quota behaviour (platform-owned, undisclosed)
@@ -55,7 +57,7 @@ Crash reporter (Sentry); admin triage page; proactive "Having trouble?" banner; 
 | ID | Description | Research Support |
 |----|-------------|------------------|
 | FEEDBACK-01 | Le Rapport labels all activities, no exam-miss skew, component test, device-proven | Activity union has 13 values (`progress.logic.ts:19-27`); jest-expo harness exists in `__tests__/`; patterns below |
-| FEEDBACK-02 | Native store review, no pre-question, positive milestone, 3 per 365 days per install | `expo-store-review ~57.0.3`; trigger seam is `onQuizComplete(score,total)` in `LessonRich.tsx:1436`; pure logic file; remote flag |
+| FEEDBACK-02 | Native store review, no pre-question, positive milestone, 3 per 365 days per install | `expo-store-review ~57.0.3`; trigger seam is `onQuizComplete(score,total)` in `LessonPager.tsx:105/914/934 (LessonRich.tsx is only the flat deck's onComplete)`; pure logic file; remote flag |
 | FEEDBACK-03 | Report a problem, categorized + free text, reachable from Settings and failure surfaces, private | New `problem_reports` table in `schema.sql`, new `report-problem` edge function modeled on `tts`/`delete-account`, outbox modeled on analytics |
 </phase_requirements>
 
@@ -63,7 +65,7 @@ Crash reporter (Sentry); admin triage page; proactive "Having trouble?" banner; 
 
 Phase 10 is three independent deliverables on top of a mature codebase that already has nearly every seam needed: a remote-plus-cached config (`config.ts`), a per-install id (`analytics.installId()`), a persistent retry outbox (analytics), an error ring (`errors.ts`), a formSheet convention in `_layout.tsx`, an edge function auth pattern (`tts`, `delete-account`), and a jest-expo component test harness. The only new dependency is `expo-store-review`, which is not installed. SDK 57 line is published as 57.0.3 [VERIFIED: npm registry].
 
-Three findings change what the plan should assume. (1) The "migrations under ealch-v2/supabase/migrations" premise is false: that directory does not exist. App-plane tables live in one flat idempotent `ealch-v2/supabase/schema.sql`; the new table goes there, NOT in `ealch-admin/drizzle` [VERIFIED: filesystem + memory note ealch-two-database-planes]. (2) The D-01 trigger needs the quiz score, which exists at `LessonRich.tsx:1436/1488` (`onComplete(score,total)`) but `lesson.tsx:662 onQuizComplete` currently takes no arguments, so the score must be plumbed. Also the lesson screen exit is `router.back()` (finish) or `router.replace('/lesson')` (next lesson), and D-03 requires firing only after landing on the trail. (3) There is no network-state library installed (no NetInfo, no expo-network, no Sentry), so D-06 "offline" must be derived without one.
+Three findings change what the plan should assume. (1) The "migrations under ealch-v2/supabase/migrations" premise is false: that directory does not exist. App-plane tables live in one flat idempotent `ealch-v2/supabase/schema.sql`; the new table goes there, NOT in `ealch-admin/drizzle` [VERIFIED: filesystem + memory note ealch-two-database-planes]. (2) The D-01 trigger needs the quiz score, which exists at `LessonPager.tsx:105/914/934 (LessonRich.tsx is only the flat deck's onComplete)/1488` (`onComplete(score,total)`) but `lesson.tsx:662 onQuizComplete` currently takes no arguments, so the score must be plumbed. Also the lesson screen exit is `router.back()` (finish) or `router.replace('/lesson')` (next lesson), and D-03 requires firing only after landing on the trail. (3) There is no network-state library installed (no NetInfo, no expo-network, no Sentry), so D-06 "offline" must be derived without one.
 
 **Primary recommendation:** Add `expo-store-review ~57.0.3` via `npx expo install`; put eligibility and cap math in one pure `reviewPrompt.logic.ts` (node --test), the persisted state in a thin `reviewPrompt.ts`, arm a pending flag at quiz completion with score 100 and fire it from the trail (home/den) focus handler; build the report as `problem_reports` table in `schema.sql` + `report-problem` edge function (deployed `--no-verify-jwt`, in-body `callerUid()`), with a client outbox copied from the analytics outbox shape.
 

@@ -600,7 +600,7 @@ Phases 1, 2, 3, 4 (→5), 6, 7, 10, 18, 20, 21 have no shared files/state with e
 | 8. Accessibility Retrofit | 10/10 | Executed; requirements reopened by 08-QUALITY-AUDIT.md (2026-10-01), closure moves to 8.1 | 2026-09-29 |
 | 8.1 Accessibility Quality Pass (INSERTED) | 0/8 | Planned; D-13..D-22 locked 2026-10-01 | - |
 | 9. Onboarding & Analytics Audit | 3/6 | In progress | Analytics foundation, onboarding recovery, and placement persistence complete; device proof remains |
-| 10. Feedback & Rating Flow | 0/TBD | Not started | - |
+| 10. Feedback & Rating Flow | 0/16 | Planned (ready to execute) | - |
 | 11. Brix Mascot Rive Animation Rollout — Core States | 0/TBD | Not started | - |
 | 12. Brix Mascot Rive Animation Rollout — Delight States | 0/TBD | Not started | - |
 | 13. UI/UX Polish Audit | 0/TBD | Not started | - |

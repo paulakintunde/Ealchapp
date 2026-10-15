@@ -8,7 +8,7 @@ revised: 2026-10-01
 
 # Phase 10 - UI Design Contract
 
-> Visual and interaction contract for the report-a-problem sheet, its entry points, the Profile row, and the Le Rapport fixes. The existing Ealch visual language is the source of truth. Decisions D-01..D-41 in `10-CONTEXT.md` are locked and are not restated except where they set a visual rule. Items marked **(researcher default)** were not covered by CONTEXT.md and were chosen to match existing screens; the user can override them.
+> Visual and interaction contract for the report-a-problem sheet, its entry points, the Profile row, and the Le Rapport fixes. The existing Ealch visual language is the source of truth. Decisions D-01..D-49 in `10-CONTEXT.md` are locked and are not restated except where they set a visual rule. Items marked **(researcher default)** were not covered by CONTEXT.md and were chosen to match existing screens; the user can override them.
 >
 > Revision 2026-10-01: every control this spec builds on is cited as `file:line` from the live `ealch-v2` tree. Where a control does not exist yet, it is listed under "New component and API changes" so the plans pick it up.
 
@@ -85,10 +85,10 @@ In the copy table below, every no-break space is written as the real character a
 | # | Surface | Route / location | New or changed |
 |---|---------|------------------|----------------|
 | S1 | Report-a-problem sheet | `app/report-problem.tsx`, `presentation: 'formSheet'` | New |
-| S2 | Settings rows "Report a problem" and "Rate Ealch" (Android only) | `app/settings.tsx`, About section | Changed |
+| S2 | Settings row "Report a problem" (About section) and the Android-only "Rate Ealch" row (its own "Play Store" section) | `app/settings.tsx` | Changed |
 | S3 | Crash fallback report panel | `src/components/ErrorScreen.tsx` | Changed |
 | S4 | STT no-speech / mic failure action, 7 surfaces | `speak.tsx`, `voiceflash.tsx`, `sentence.tsx`, `onboarding.tsx`, `roleplay.tsx`, `MissionRich.tsx`, `WordPractice.tsx` | Changed |
-| S5 | Exam section with no band because grading or audio failed | `app/exam-report.tsx` `SectionRow` / `DelfRow` | Changed |
+| S5 | Exam report grading-failure surfaces: `audio-failed`, `not-graded` and `examShortUnchecked` | `app/exam-report.tsx` `SectionRow` / `DelfRow` | Changed |
 | S6 | Lesson header overflow menu with the content report | `app/lesson.tsx` `FocusHeader` `extra` slot | Changed |
 | S7 | Profile "Your report" row and accuracy StatCard | `app/profile.tsx` | Changed |
 | S8 | Le Rapport fixes | `app/report.tsx` (renamed from `app/feedback.tsx`) | Changed |
@@ -175,7 +175,7 @@ Every state keeps the user's category and text intact until success. A report is
 | sending | Send uses `loading` (N1): spinner in the icon slot, label stays "Send report". Status line above Send: "Sending…" (`TX role="meta" color={t.txMuted}`). Category rows, text field and checkbox are `disabled`. Footer stays visible | status line has `accessibilityLiveRegion="polite"`: "Sending…" | close stays active. Closing mid-send is allowed; the send continues in the background (see "after close" rows) |
 | double-submit guard | Send is inactive from the **first** tap until the sheet resolves to sent, queued or 4xx. The guard is a synchronous ref set inside the press handler before any `await`, not only React state, so a second tap in the same frame cannot create a second outbox entry | none | Send inactive |
 | send timeout (15 s) | If the request has not resolved 15 s after the tap, the sheet stops the spinner and shows the 5xx "Saved" state (heading "Saved", body "Queued body (5xx)"). The report is already claimed in the outbox (D-38), so nothing is lost. The in-flight request is not cancelled: if it later succeeds, the outbox entry is cleared silently; if it later returns 4xx, the "4xx, after close" row applies. The outbox never re-sends an entry while its first request is still in flight (D-38 single queue) | the heading and body | "Close" |
-| outbox write fails (claim step) | Writing the report to the outbox fails (storage error). Nothing is sent, because D-38 sends only a claimed report. The form stays open with category and text kept. Inline block in the 4xx style above Send with the "Outbox write failure" copy. Send is re-enabled with its normal label | `accessibilityLiveRegion="assertive"`, `accessibilityRole="alert"` | "Send report" |
+| outbox write fails (claim step) | Writing the report to the outbox fails (storage error). Nothing is sent, because D-38 sends only a claimed report. The form stays open with category and text kept. Inline block in the 4xx style above Send with the `probSaveFailed` copy ("Outbox write failure" row). Send is re-enabled with its normal label | `accessibilityLiveRegion="assertive"`, `accessibilityRole="alert"` | "Send report" |
 | sent | Form replaced by a centered confirmation block: 56 px circle `t.accA(14)` with `Icon check` 24 px `t.accTx`, heading `TX font="semi" role="titleLg"`, body `TX role="body" color={t.txMuted}` | the heading then the body: "Sent. Thank you." "Your report reached us." | Primary `Button` "Close". Sheet auto-dismisses after 2500 ms and returns the learner to where they were (D-26); Close dismisses immediately. Auto-dismiss is suspended while a screen reader is active (TalkBack/VoiceOver on) so the message is fully read; the learner uses Close |
 | queued-offline | Same confirmation layout as sent but with `Icon wifi` instead of check. Calm, not an error: `t.accA(14)` circle, no danger color. Heading "Saved", body "Queued body (offline)" | the heading and body | "Close"; auto-dismiss 2500 ms (suspended with screen reader). Retried on next launch and each return to foreground (D-18) |
 | rate-limited (429) | Same layout as queued-offline. Heading "Saved", body **"Queued body (429)"**, word-for-word the copy table row. Not an error color. The report stays in the outbox and is not retried before the next calendar day, UTC (D-35) | the heading and body | "Close" |
@@ -197,9 +197,15 @@ The route takes params: `category` (one of `audio | grading | content | crash | 
 
 ---
 
-## S2. Settings rows
+## S2. Settings rows (D-49: two separate sections)
 
-Placed in the existing **About** section of `app/settings.tsx`, directly above the Licences row and in this order: "Report a problem", "Rate Ealch", then the existing Licences row. Reuse the Licences row geometry exactly: `Press`, `minHeight: 58`, radius 16, `borderWidth: 1`, `t.line(10)` (decorative; title and chevron identify the row), `t.card`, `t.cardShadow`, `gap: 14`, `paddingHorizontal: 16`, `paddingVertical: 10`, and `marginBottom: 8` on each new row ("Report a problem" and, on Android, "Rate Ealch"), matching the category-row gap. The existing Licences row stays last in the section and keeps its own `marginBottom: 24` (`settings.tsx:594`).
+**Section order (D-49).** The two rows never share a section, so they cannot read as a happy/unhappy split:
+1. **About** (existing `SectionHead` `T.aboutSec`, `settings.tsx:577`): "Report a problem" first, directly above the existing Licences row, then Licences.
+2. **Play Store** (NEW section, Android only): `SectionHead label={T.storeSec.toUpperCase()}` containing the single "Rate Ealch" row. It sits **after About and before the danger zone** (`SectionHead` `T.dangerZone`, `settings.tsx:612`); deletion stays last. On iOS the whole section, heading included, is not rendered.
+
+New string `storeSec`: FR "Play Store", EN "Play Store" (identical in both languages; see the copy table). Both rows reuse the Licences row geometry exactly: `Press`, `minHeight: 58`, radius 16, `borderWidth: 1`, `t.line(10)` (decorative; title and chevron identify the row), `t.card`, `t.cardShadow`, `gap: 14`, `paddingHorizontal: 16`, `paddingVertical: 10`. "Report a problem" takes `marginBottom: 8`, because Licences follows it in the same section. Licences keeps its own `marginBottom: 24` (`settings.tsx:594`). "Rate Ealch" is the only row in its section and takes `marginBottom: 24`, like the last row of any section.
+
+**Neutral-copy rule (D-49).** Neither row's title or sub-line may suggest a sentiment or a choice between them: no "Enjoying Ealch?", no "Having a problem?", no "Love it?", no cross-reference from one row to the other, no icon or accent that ranks them. The titles stay the plain verbs "Report a problem" and "Rate Ealch". After the review cap is spent (3 per rolling 365 days, D-07), the Rate row stays in Settings unchanged: it is the permanent way to rate, and nothing in the UI tells the learner the cap was reached.
 
 **"Rate Ealch" is Android only until an App Store id exists.** Render it only when `Platform.OS === 'android'`. On iOS the row is not rendered at all (no disabled placeholder); adding it is a named row on the pre-App-Store launch checklist, alongside the D-32 iOS proof.
 
@@ -208,7 +214,7 @@ Placed in the existing **About** section of `app/settings.tsx`, directly above t
 | Report a problem | `flag` | Report a problem | Something broken or wrong? Tell us. | `router.push({ pathname: '/report-problem', params: { screen: 'settings' } })`, no category pre-fill | `accessibilityRole="button"`, label = title |
 | Rate Ealch (Android only) | `star` | Rate Ealch | Opens the Play Store page. | `Linking.openURL('market://details?id=app.ealch.mobile')`; if that rejects, `Linking.openURL('https://play.google.com/store/apps/details?id=app.ealch.mobile')` (package from `app.json:26`). Never `requestReview` | `accessibilityRole="link"`, label = "Rate Ealch, opens the Play Store" |
 
-**Rate row open failure:** if both `openURL` calls reject, a quiet inline line appears directly below the Rate row (`marginTop: 4`, `marginBottom: 8`, inside the About section): `TX role="meta" color={t.txMuted}` "Could not open the Play Store. Try again later." in a `View` with `accessibilityLiveRegion="polite"`. No icon, no danger color, no dialog. It clears on the next tap of the row or when Settings unmounts.
+**Rate row open failure:** if both `openURL` calls reject, a quiet inline line appears directly below the Rate row (`marginTop: 4`, `marginBottom: 8`, inside the Play Store section, between the Rate row and the section's end; the Rate row's own `marginBottom: 24` is then applied to the wrapper that holds row and line): `TX role="meta" color={t.txMuted}` "Could not open the Play Store. Try again later." in a `View` with `accessibilityLiveRegion="polite"`. No icon, no danger color, no dialog. It clears on the next tap of the row or when Settings unmounts.
 
 Trailing glyph: `Icon chevronRight` (14 px, `t.txNonText`) on both rows. Neither row is in the danger zone and neither uses accent fill.
 
@@ -304,21 +310,24 @@ It appears on every no-speech result and every mic error (permission denied, una
 
 ---
 
-## S5. Exam section with no band (grading or audio failed)
+## S5. Exam grading-failure surfaces (`audio-failed`, `not-graded`, `examShortUnchecked`)
 
 There is **no "Retry grading" control** in `app/exam-report.tsx`. What exists: `noBandNote(reason: NoBandReason, T)` (`exam-report.tsx:555-569`; `case 'audio-failed'` at `:557`, `case 'not-graded'` at `:558`), a switch over `NoBandReason` (`src/utils/nclc.logic.ts:83`). `SectionRow` computes the note and its colour at `:318-319` and renders it at `:341-343`; `DelfRow` computes it at `:511` and renders it at `:534-539`. Both failure reasons are already coloured `t.danger` (`:319`, `:536`).
 
-Per locked D-22 (clarified 2026-10-01), **both** failure reasons pre-fill "Grading felt wrong". One label covers both.
+Per locked D-22 (clarified 2026-10-01), **both** `NoBandReason` failures pre-fill "Grading felt wrong"; `audio-failed` does NOT pre-fill "Audio or voice". D-44 adds a third surface that is not a `NoBandReason`: `T.examShortUnchecked` (typed DALF C1 answers the grader could not check). It also pre-fills "Grading felt wrong". One label, "Report a grading problem", covers all three.
 
 | `NoBandReason` | Existing note (`noBandNote`) | Report action | Pre-filled category | `a11yLabel` |
 |----------------|------------------------------|---------------|---------------------|-------------|
 | `'not-graded'` | `T.examUngraded` (`:558`) | `ReportProblemLink` "Report a problem" | `grading` ("Grading felt wrong") | "Report a grading problem" |
 | `'audio-failed'` | `T.examAudioFailed` (`:557`) | `ReportProblemLink` "Report a problem" | `grading` ("Grading felt wrong") | "Report a grading problem" |
-| `practice`, `not-sat`, `not-answered`, `no-scoring`, `below-scale`, or scored | unchanged | none | none | none |
+| `examShortUnchecked` (DelfRow only; `unchecked > 0`; `uncheckedBySkill` at `exam-report.tsx:106-115`, rendered at `:544-546` as `T.examShortUnchecked.replace('{n}', ...)`) | `T.examShortUnchecked` ("Typed answers not checked: {n}. They count as 0 for now.") | `ReportProblemLink` "Report a problem", **below that line** | `grading` ("Grading felt wrong") | "Report a grading problem" |
+| `practice`, `not-sat`, `not-answered`, `no-scoring`, `below-scale`, or scored with `unchecked === 0` | unchanged | none | none | none |
 
-Placement: the row's note column is capped at `maxWidth: 140` (`:341`, `:537`), so the link does not go there. The row container (`:322-327` in `SectionRow`, the matching `View` in `DelfRow`) becomes a column: the existing horizontal row unchanged on top, and below it, only for the two reasons above, `ReportProblemLink` with `align="flex-start"`, `marginTop: 4`, inside the same card. The card's padding (16) and `marginBottom: 10` are unchanged.
+Placement: the row's note column is capped at `maxWidth: 140` (`:341`, `:537`), so the link does not go there. The row container (`:322-327` in `SectionRow`, the matching `View` in `DelfRow`) becomes a column: the existing horizontal row unchanged on top, and below it, for the three surfaces above, `ReportProblemLink` with `align="flex-start"`, `marginTop: 4`, inside the same card. The card's padding (16) and `marginBottom: 10` are unchanged.
 
-Params: `screen: 'exam-report'`, `itemId: \`${paperId}:${skill}\`` (`paperId` from `exam-report.tsx:62`, passed to both rows as a new prop, N6). The link does not appear on scored sections; a learner who disputes a score uses the Settings row.
+**One link per row.** A `DelfRow` can show both a no-band note (`audio-failed` or `not-graded`) and the `examShortUnchecked` line. It still renders exactly **one** `ReportProblemLink`, once, below the whole content block, never one per message. Its params are identical in every case, so nothing is lost. The `examShortUnchecked` link also appears when the épreuve **has a mark** (`e.mark !== null`), because the unchecked answers counted as 0 and the mark may be understated.
+
+Params: `screen: 'exam-report'`, `itemId: \`${paperId}:${skill}\`` (`paperId` from `exam-report.tsx:62`, passed to both rows as a new prop, N6), the same for all three surfaces. The link does not appear on scored sections with `unchecked === 0`; a learner who disputes such a score uses the Settings row.
 
 ---
 
@@ -533,6 +542,7 @@ Rules C1 to C8 above apply to every row. Label separators "·" are fine. French 
 | Close (header button and sent/saved button) | Fermer | none | Close |
 | Settings row title | Signaler un problème | none | Report a problem |
 | Settings row sub | Quelque chose ne marche pas ? Dites-le-nous. | `pas[NNBSP]?` | Something broken or wrong? Tell us. |
+| Play Store section heading (Android only; rendered upper-case by `SectionHead`) | Play Store | none | Play Store |
 | Rate row title (Android only) | Noter Ealch | none | Rate Ealch |
 | Rate row sub | Ouvre la page du Play Store. | none | Opens the Play Store page. |
 | Rate row a11y label | Noter Ealch, ouvre le Play Store | none | Rate Ealch, opens the Play Store |
@@ -561,7 +571,7 @@ Rules C1 to C8 above apply to every row. Label separators "·" are fine. French 
 | Weak row a11y label | {fr}, {c} sur {s} réussis, ouvrir la leçon | none | {fr}, {c} of {s} correct, open the lesson |
 | Radio group a11y label | Ce qui ne va pas, obligatoire | none | What went wrong, required |
 | Category selected announcement | Choix : {category} | `Choix[NBSP]:` | {category} selected |
-| Outbox write failure (sheet and crash panel) | Impossible d'enregistrer ce signalement sur le téléphone. Votre texte est conservé. Réessayez. | none | Could not save this report on the phone. Your text is kept. Try again. |
+| Outbox write failure `probSaveFailed` (sheet, crash panel `saveFailed`) | Impossible d'enregistrer votre signalement. Réessayez. | none | Could not save your report. Try again. |
 
 The 429 body is the same string in the States table (S1) and here. It promises only that the report is saved and will go no earlier than tomorrow, which matches D-35 (retry no sooner than the next UTC day). FR and EN say the same thing.
 
@@ -617,9 +627,9 @@ These are the dimensions the quality review failed. The checker and auditor tick
 - [ ] S3 crash screen: keyboard open, TextInput, counter and Send visible; title and body end in full
 - [ ] S6 header at B1+ (chip present): title ellipsizes with `…`; close, chip, book, overflow and gear all fully visible and tappable; menu rows wrap without clipping
 - [ ] S4: each of the 7 surfaces shows the failure message and the link in full
-- [ ] S5: a `not-graded` and an `audio-failed` section each show the link under the row, and both open S1 with "Grading felt wrong" selected (D-22)
+- [ ] S5: a `not-graded` section, an `audio-failed` section and a DELF épreuve with `unchecked > 0` (with and without a mark) each show exactly one link under the row, and all open S1 with "Grading felt wrong" selected (D-22, D-44)
 - [ ] S1 keyboard contract holds as written; on failure a deviation is recorded and execution stopped
-- [ ] S2: Rate row absent on iOS; on Android it opens the Play Store page
+- [ ] S2: "Report a problem" sits in About above Licences; on Android the Rate row sits alone under a "Play Store" heading after About and before the danger zone; on iOS neither the row nor the heading renders; no copy links the two rows (D-49)
 
 ---
 
@@ -637,7 +647,7 @@ These are the dimensions the quality review failed. The checker and auditor tick
 10. Ring a11y is a single text element reading "accuracy, N percent".
 11. A 4xx that arrives after the learner closed the sheet drops the report silently; nothing re-notifies the learner. Aligned with D-18 (a 4xx is not retried); D-18 says nothing about notification.
 12. A send that has not resolved after 15 s is shown as queued ("Saved", 5xx copy); the claimed report stays in the outbox (D-38).
-13. Rate row: `market://` first, `https://play.google.com/...` fallback, quiet inline line if both fail.
+13. Rate row: `market://` first, `https://play.google.com/...` fallback, quiet inline line if both fail. Lives in its own "Play Store" section (D-49).
 
 ## Needs Paul
 
