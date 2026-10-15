@@ -1,6 +1,8 @@
 import { deepStrictEqual, notStrictEqual, ok, strictEqual } from 'node:assert';
 import { existsSync, readFileSync } from 'node:fs';
+import { dirname, sep } from 'node:path';
 import { test } from 'node:test';
+import { fileURLToPath } from 'node:url';
 import { hash8, missionItemKey, quizItemKey } from './quizItemKey.logic.ts';
 import type { QuizQuestion } from './schema.ts';
 
@@ -45,6 +47,7 @@ test('missionItemKey', () => {
 });
 
 type Entry = { key: string; hash: string; canon: string; pos: string };
+// pos is the flat authored index across the quiz (q4, q61), matching KNOWN_DUPLICATES.
 
 function lessonsOf(file: string): any[] {
   if (!existsSync(file)) return [];
@@ -55,9 +58,10 @@ function lessonsOf(file: string): any[] {
 function entriesFor(lesson: any): Entry[] {
   const out: Entry[] = [];
   const add = (q: QuizQuestion, rid: string | null, i: number) => {
+    const flatIx = out.length;
     const key = quizItemKey(lesson.id, q, rid, i);
     const m = /:h([0-9a-f]{8})$/.exec(key);
-    out.push({ key, hash: m ? m[1] : '', canon: '', pos: rid ? `${rid}.q${i}` : `q${i}` });
+    out.push({ key, hash: m ? m[1] : '', canon: '', pos: `q${flatIx}` });
   };
   for (const s of lesson.sections ?? []) {
     if (s.type !== 'quiz') continue;
@@ -71,7 +75,7 @@ function entriesFor(lesson: any): Entry[] {
 }
 
 test('corpus: keys match the wire pattern, are unique per lesson, and only listed duplicates share a hash', () => {
-  const dir = new URL('.', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
+  const dir = dirname(fileURLToPath(import.meta.url)) + sep;
   const files = [`${dir}seed.json`, `${dir}seed-packs.json`];
   let total = 0;
   let longest = 0;
