@@ -21,7 +21,7 @@ export type EventProperties = {
   placement_abandoned: { attempt_id: string; answered_count: number };
   placement_result: { attempt_id: string; level: 'A0' | 'A1' | 'A2'; correct_count: number; question_count: number; initial_result: boolean };
   first_lesson_started: { lesson_id: string; unit_id: string };
-  lesson_completed: { lesson_id: string; lesson_version: string; session_id: string; completion_kind: 'quiz' | 'no_quiz' };
+  lesson_completed: { lesson_id: string; lesson_version: string; session_id: string; completion_kind: 'quiz' | 'no_quiz'; quiz_score_bucket?: '100' | '95-99' | '90-94' | '<90' | 'none' };
   exam_submitted: { paper_id: string; skill: string; sitting_id: string; graded_count: number; ungraded_count: number };
   streak_updated: { local_day: string; days: number };
   paywall_viewed: { from: PaywallSource };
@@ -38,6 +38,9 @@ export type EventProperties = {
   upgrade_nudge_shown: { trigger: 'roleplay' | 'coach' };
   upgrade_nudge_tapped: { trigger: 'roleplay' | 'coach' };
   reconciliation_shown: Record<string, never>;
+  review_requested: { lesson_id: string };
+  report_submitted: { category: string; entry_point: string };
+  report_queued: { category: string; entry_point: string };
 };
 
 export type AnalyticsEvent = keyof EventProperties;
@@ -52,7 +55,7 @@ const allowed: { [K in AnalyticsEvent]: readonly (keyof EventProperties[K])[] } 
   placement_skipped: ['source'], placement_load_failed: ['attempt_id', 'reason'],
   placement_abandoned: ['attempt_id', 'answered_count'],
   placement_result: ['attempt_id', 'level', 'correct_count', 'question_count', 'initial_result'],
-  first_lesson_started: ['lesson_id', 'unit_id'], lesson_completed: ['lesson_id', 'lesson_version', 'session_id', 'completion_kind'],
+  first_lesson_started: ['lesson_id', 'unit_id'], lesson_completed: ['lesson_id', 'lesson_version', 'session_id', 'completion_kind', 'quiz_score_bucket'],
   exam_submitted: ['paper_id', 'skill', 'sitting_id', 'graded_count', 'ungraded_count'],
   streak_updated: ['local_day', 'days'], paywall_viewed: ['from'], plan_selected: ['plan'],
   purchase_started: ['plan', 'currency', 'attempt_id'], purchase_completed: ['plan', 'currency', 'attempt_id'],
@@ -60,6 +63,7 @@ const allowed: { [K in AnalyticsEvent]: readonly (keyof EventProperties[K])[] } 
   restore_completed: ['found'], gate_blocked: ['feature', 'from'], placement_paywall_offered: ['level'],
   entitlement_downgraded: ['fromPlan', 'toPlan', 'hadExpiry'], upgrade_nudge_shown: ['trigger'],
   upgrade_nudge_tapped: ['trigger'], reconciliation_shown: [],
+  review_requested: ['lesson_id'], report_submitted: ['category', 'entry_point'], report_queued: ['category', 'entry_point'],
 };
 
 /** Runtime boundary: a caller using `as any` cannot add learner content. */

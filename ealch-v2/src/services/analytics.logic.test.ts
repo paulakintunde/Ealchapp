@@ -14,9 +14,9 @@ test('only declared properties reach the product event body', () => {
   strictEqual(safeProperties('install_attribution', { status: 'campaign', campaign: 'https://example.com/?email=a@b.com' }).campaign, 'redacted');
   strictEqual(paywallSource('person@example.com'), 'direct');
   deepStrictEqual(safeProperties('lesson_completed', {
-    lesson_id: 'a1.01.l1', lesson_version: '2', session_id: 'visit-1', completion_kind: 'quiz',
+    lesson_id: 'a1.01.l1', lesson_version: '2', session_id: 'visit-1', completion_kind: 'quiz', quiz_score_bucket: '100',
     answer: 'private answer', transcript: 'private speech',
-  } as any), { lesson_id: 'a1.01.l1', lesson_version: '2', session_id: 'visit-1', completion_kind: 'quiz' });
+  } as any), { lesson_id: 'a1.01.l1', lesson_version: '2', session_id: 'visit-1', completion_kind: 'quiz', quiz_score_bucket: '100' });
 });
 
 test('first open is per install and repeat milestones use a stable claim key', () => {
@@ -127,4 +127,20 @@ test('first_open is stamped with its launch time so it precedes the first screen
   // A future or malformed launch time falls back to the send time.
   strictEqual(eventTimestamp('first_open', { opened_at: '2026-10-02T00:00:00.000Z' }, now), now.toISOString());
   strictEqual(eventTimestamp('first_open', { opened_at: 'not a date' }, now), now.toISOString());
+});
+
+test('review_requested and report events are allowlisted with only their keys', () => {
+  deepStrictEqual(safeProperties('review_requested', { lesson_id: 'a1.04.l1', email: 'e', item_id: 'z' } as any), { lesson_id: 'a1.04.l1' });
+  strictEqual(milestoneKey('review_requested', { lesson_id: 'a1.04.l1' }, 'i', 'j'), null);
+  const dirty = { category: 'audio', entry_point: 'speak', details: 'x', stack: 'y', item_id: 'z', lesson_id: 'w', email: 'e' } as any;
+  deepStrictEqual(safeProperties('report_submitted', dirty), { category: 'audio', entry_point: 'speak' });
+  deepStrictEqual(safeProperties('report_queued', dirty), { category: 'audio', entry_point: 'speak' });
+  strictEqual(milestoneKey('report_submitted', dirty, 'i', 'j'), null);
+  strictEqual(milestoneKey('report_queued', dirty, 'i', 'j'), null);
+});
+
+test('lesson_completed keeps quiz_score_bucket and its milestone key is unchanged', () => {
+  const props = { lesson_id: 'a1.01.l1', lesson_version: '2', session_id: 'v1', completion_kind: 'quiz', quiz_score_bucket: '95-99' } as const;
+  strictEqual(safeProperties('lesson_completed', props).quiz_score_bucket, '95-99');
+  strictEqual(milestoneKey('lesson_completed', props, 'i', 'guest'), 'lesson_completed:guest:a1.01.l1:2:v1');
 });

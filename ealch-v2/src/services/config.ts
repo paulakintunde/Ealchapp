@@ -81,6 +81,10 @@ export type RemoteConfig = {
    *  until then, English narration speaks through the device's own default
    *  en-US voice, which is the honest fallback, not a bug. */
   ttsVoiceEn: { android: string | null; ios: string | null };
+  /** Remote kill switch for the native store-review request (D-10). FALSE means
+   *  the app never asks. Ships ON; flipping it off in system_config pauses the
+   *  ask with no release. */
+  reviewPromptOn: boolean;
 };
 
 const DEFAULTS: RemoteConfig = {
@@ -103,10 +107,17 @@ const DEFAULTS: RemoteConfig = {
   examFreePapers: 1,
   ttsVoice: { android: null, ios: null },
   ttsVoiceEn: { android: null, ios: null },
+  reviewPromptOn: true,
 };
 
 const CACHE_KEY = 'ealch-remote-config';
 let current: RemoteConfig = DEFAULTS;
+let reachable = false;
+
+/** True only when the most recent system_config read succeeded (D-06). */
+export function configReachable(): boolean {
+  return reachable;
+}
 
 export function getConfig(): RemoteConfig {
   return current;
@@ -123,6 +134,7 @@ export async function refreshConfig(): Promise<RemoteConfig> {
         .eq('id', 'active')
         .single();
       if (!error && data?.config) {
+        reachable = true;
         current = { ...DEFAULTS, ...(data.config as Partial<RemoteConfig>) };
         await AsyncStorage.setItem(CACHE_KEY, JSON.stringify(current));
         return current;
@@ -131,6 +143,7 @@ export async function refreshConfig(): Promise<RemoteConfig> {
       // fall through to cache
     }
   }
+  reachable = false;
   try {
     const cached = await AsyncStorage.getItem(CACHE_KEY);
     if (cached) current = { ...DEFAULTS, ...JSON.parse(cached) };
@@ -138,4 +151,34 @@ export async function refreshConfig(): Promise<RemoteConfig> {
     // keep defaults
   }
   return current;
+}
+
+/** Like refreshConfig, but bounded. ANY system_config read failure (no client, error
+ *  response including a paused project, throw, or no answer within ms) counts as
+ *  offline: skip without spending. Resolves with the reachable flag. */
+export async function refreshConfigWithin(ms: number): Promise<boolean> {
+  const sb = supabase();
+  if (!sb) {
+    reachable = false;
+    return false;
+  }
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  try {
+    const ok = await Promise.race([
+      (async () => {
+        const { data, error } = await sb.from('system_config').select('config').eq('id', 'active').single();
+        if (error || !data?.config) return false;
+        current = { ...DEFAULTS, ...(data.config as Partial<RemoteConfig>) };
+        return true;
+      })(),
+      new Promise<boolean>((resolve) => { timer = setTimeout(() => resolve(false), ms); }),
+    ]);
+    reachable = ok;
+    return ok;
+  } catch {
+    reachable = false;
+    return false;
+  } finally {
+    if (timer) clearTimeout(timer);
+  }
 }
