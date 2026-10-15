@@ -2,6 +2,8 @@ import { deepStrictEqual, strictEqual } from 'node:assert';
 import { test } from 'node:test';
 import {
   buildReportPayload, classifySend, outcomeFor, validateWire, BODY_MAX_BYTES,
+  claimReport, settleReport, dueReports, nextUtcDay, pruneReports, validReportOutbox, REPORT_OUTBOX_LIMIT, REPORT_OUTBOX_MAX_AGE_MS,
+  type ReportPayload,
 } from './problemReport.logic.ts';
 
 const RID = '12345671-aaaa-4bbb-8ccc-1234567890a1';
@@ -79,4 +81,62 @@ test('classifySend and outcomeFor', () => {
   strictEqual(outcomeFor(503), 'queued-busy');
   strictEqual(outcomeFor(201), 'sent');
   strictEqual(outcomeFor(422), 'rejected');
+});
+
+// ---------- outbox ----------
+const NOW = Date.UTC(2026, 9, 1, 23, 30);
+const mk = (n: number, at = NOW): ReportPayload => buildReportPayload(input({
+  report_id: `${String(10000000 + n)}-aaaa-4bbb-8ccc-1234567890ab`, client_created_at: new Date(at).toISOString(),
+}))!;
+
+test('nextUtcDay is the next UTC midnight', () => {
+  strictEqual(nextUtcDay(Date.UTC(2026, 9, 1, 23, 30)), Date.UTC(2026, 9, 2, 0, 0));
+  strictEqual(nextUtcDay(Date.UTC(2026, 9, 2, 0, 0)), Date.UTC(2026, 9, 3, 0, 0));
+});
+
+test('claimReport appends, dedupes, evicts the oldest, prunes expired', () => {
+  let box = claimReport([], mk(1), NOW);
+  strictEqual(box.length, 1);
+  strictEqual(box[0].notBefore, null);
+  box = claimReport(box, mk(1), NOW);
+  strictEqual(box.length, 1);
+  for (let i = 2; i <= REPORT_OUTBOX_LIMIT + 1; i++) box = claimReport(box, mk(i), NOW);
+  strictEqual(box.length, REPORT_OUTBOX_LIMIT);
+  strictEqual(box.some((e) => e.payload.report_id === mk(1).report_id), false);
+  strictEqual(box[box.length - 1].payload.report_id, mk(REPORT_OUTBOX_LIMIT + 1).report_id);
+  const stale = [{ payload: mk(50, NOW - REPORT_OUTBOX_MAX_AGE_MS - 1000), notBefore: null }];
+  strictEqual(claimReport(stale, mk(51), NOW).length, 1);
+  strictEqual(pruneReports(stale, NOW).length, 0);
+});
+
+test('settleReport removes on sent/drop, keeps on retry, 429 waits for the next UTC day', () => {
+  const box = claimReport(claimReport([], mk(1), NOW), mk(2), NOW);
+  const id = mk(1).report_id;
+  strictEqual(settleReport(box, id, 201, NOW).length, 1);
+  strictEqual(settleReport(box, id, 422, NOW).length, 1);
+  const busy = settleReport(box, id, 503, NOW);
+  strictEqual(busy.length, 2);
+  strictEqual(busy[0].notBefore, null);
+  strictEqual(settleReport(box, id, 'offline', NOW)[0].notBefore, null);
+  const limited = settleReport(box, id, 429, NOW);
+  strictEqual(limited[0].notBefore, nextUtcDay(NOW));
+  strictEqual(limited[1].notBefore, null);
+});
+
+test('a 429 entry is absent from dueReports until the next UTC midnight', () => {
+  const box = settleReport(claimReport([], mk(1), NOW), mk(1).report_id, 429, NOW);
+  strictEqual(dueReports(box, NOW).length, 0);
+  strictEqual(dueReports(box, nextUtcDay(NOW) - 1).length, 0);
+  strictEqual(dueReports(box, nextUtcDay(NOW)).length, 1);
+});
+
+test('validReportOutbox drops garbage and rebuilds payloads', () => {
+  deepStrictEqual(validReportOutbox('nope'), []);
+  deepStrictEqual(validReportOutbox(null), []);
+  const good = { payload: { ...mk(1), email: 'a@b.com' }, notBefore: 5 };
+  const out = validReportOutbox([good, null, 3, { payload: { report_id: 'x' }, notBefore: null }, { payload: mk(2), notBefore: 'soon' }]);
+  strictEqual(out.length, 2);
+  strictEqual('email' in out[0].payload, false);
+  strictEqual(out[0].notBefore, 5);
+  strictEqual(out[1].notBefore, null);
 });
