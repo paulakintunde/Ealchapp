@@ -1,0 +1,633 @@
+{
+  "valid": [
+    {
+      "name": "guest minimal",
+      "body": {
+        "report_id": "12345671-aaaa-4bbb-8ccc-1234567890a1",
+        "install_id": "install_abcdef12",
+        "category": "other",
+        "details": null,
+        "contact": false,
+        "screen": null,
+        "lesson_id": null,
+        "item_id": null,
+        "client_created_at": "2026-10-01T12:00:00.000Z",
+        "context": {
+          "app_version": "2.4.0",
+          "runtime_version": "2.4.0",
+          "update_id": null,
+          "platform": "android",
+          "os_version": "14",
+          "device_model": "Pixel 6",
+          "font_scale": 1,
+          "theme": "light",
+          "errors": []
+        }
+      }
+    },
+    {
+      "name": "signed-in full with 10 errors",
+      "body": {
+        "report_id": "12345672-aaaa-4bbb-8ccc-1234567890a2",
+        "install_id": "install_abcdef12",
+        "category": "audio",
+        "details": "The mic stops after two words.",
+        "contact": true,
+        "screen": "lesson-play",
+        "lesson_id": "a1.04.l1",
+        "item_id": null,
+        "client_created_at": "2026-10-01T12:00:00.000Z",
+        "context": {
+          "app_version": "2.4.0",
+          "runtime_version": "2.4.0",
+          "update_id": "upd-123",
+          "platform": "android",
+          "os_version": "14",
+          "device_model": "Pixel 6",
+          "font_scale": 1.3,
+          "theme": "dark",
+          "errors": [
+            {
+              "scope": "render",
+              "message": "boom 0",
+              "stack": "at foo (bar.js:1:2)",
+              "at": 1790000000000
+            },
+            {
+              "scope": "render",
+              "message": "boom 1",
+              "stack": null,
+              "at": 1790000000001
+            },
+            {
+              "scope": "render",
+              "message": "boom 2",
+              "stack": "at foo (bar.js:1:2)",
+              "at": 1790000000002
+            },
+            {
+              "scope": "render",
+              "message": "boom 3",
+              "stack": null,
+              "at": 1790000000003
+            },
+            {
+              "scope": "render",
+              "message": "boom 4",
+              "stack": "at foo (bar.js:1:2)",
+              "at": 1790000000004
+            },
+            {
+              "scope": "render",
+              "message": "boom 5",
+              "stack": null,
+              "at": 1790000000005
+            },
+            {
+              "scope": "render",
+              "message": "boom 6",
+              "stack": "at foo (bar.js:1:2)",
+              "at": 1790000000006
+            },
+            {
+              "scope": "render",
+              "message": "boom 7",
+              "stack": null,
+              "at": 1790000000007
+            },
+            {
+              "scope": "render",
+              "message": "boom 8",
+              "stack": "at foo (bar.js:1:2)",
+              "at": 1790000000008
+            },
+            {
+              "scope": "render",
+              "message": "boom 9",
+              "stack": null,
+              "at": 1790000000009
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "content report with item_id",
+      "body": {
+        "report_id": "12345673-aaaa-4bbb-8ccc-1234567890a3",
+        "install_id": "install_abcdef12",
+        "category": "content",
+        "details": "Typo in the sentence.",
+        "contact": false,
+        "screen": "lesson-play",
+        "lesson_id": "a1.04.l1",
+        "item_id": "a1.04.l1#s3.0",
+        "client_created_at": "2026-10-01T12:00:00.000Z",
+        "context": {
+          "app_version": "2.4.0",
+          "runtime_version": "2.4.0",
+          "update_id": null,
+          "platform": "android",
+          "os_version": "14",
+          "device_model": "Pixel 6",
+          "font_scale": 1,
+          "theme": "light",
+          "errors": []
+        }
+      }
+    },
+    {
+      "name": "D-40 hybrid item_id",
+      "body": {
+        "report_id": "12345674-aaaa-4bbb-8ccc-1234567890a4",
+        "install_id": "install_abcdef12",
+        "category": "grading",
+        "details": null,
+        "contact": false,
+        "screen": null,
+        "lesson_id": "a1.04.l1",
+        "item_id": "a1.04.l1#quiz.q3:h1a2b3c4d",
+        "client_created_at": "2026-10-01T12:00:00.000Z",
+        "context": {
+          "app_version": "2.4.0",
+          "runtime_version": "2.4.0",
+          "update_id": null,
+          "platform": "android",
+          "os_version": "14",
+          "device_model": "Pixel 6",
+          "font_scale": 1,
+          "theme": "light",
+          "errors": []
+        }
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "email key",
+      "body": {
+        "report_id": "12345675-aaaa-4bbb-8ccc-1234567890a5",
+        "install_id": "install_abcdef12",
+        "category": "other",
+        "details": null,
+        "contact": false,
+        "screen": null,
+        "lesson_id": null,
+        "item_id": null,
+        "client_created_at": "2026-10-01T12:00:00.000Z",
+        "context": {
+          "app_version": "2.4.0",
+          "runtime_version": "2.4.0",
+          "update_id": null,
+          "platform": "android",
+          "os_version": "14",
+          "device_model": "Pixel 6",
+          "font_scale": 1,
+          "theme": "light",
+          "errors": []
+        },
+        "email": "a@b.com"
+      },
+      "field": "email"
+    },
+    {
+      "name": "extra top-level key",
+      "body": {
+        "report_id": "12345675-aaaa-4bbb-8ccc-1234567890a5",
+        "install_id": "install_abcdef12",
+        "category": "other",
+        "details": null,
+        "contact": false,
+        "screen": null,
+        "lesson_id": null,
+        "item_id": null,
+        "client_created_at": "2026-10-01T12:00:00.000Z",
+        "context": {
+          "app_version": "2.4.0",
+          "runtime_version": "2.4.0",
+          "update_id": null,
+          "platform": "android",
+          "os_version": "14",
+          "device_model": "Pixel 6",
+          "font_scale": 1,
+          "theme": "light",
+          "errors": []
+        },
+        "foo": 1
+      },
+      "field": "foo"
+    },
+    {
+      "name": "missing category",
+      "body": {
+        "report_id": "12345675-aaaa-4bbb-8ccc-1234567890a5",
+        "install_id": "install_abcdef12",
+        "details": null,
+        "contact": false,
+        "screen": null,
+        "lesson_id": null,
+        "item_id": null,
+        "client_created_at": "2026-10-01T12:00:00.000Z",
+        "context": {
+          "app_version": "2.4.0",
+          "runtime_version": "2.4.0",
+          "update_id": null,
+          "platform": "android",
+          "os_version": "14",
+          "device_model": "Pixel 6",
+          "font_scale": 1,
+          "theme": "light",
+          "errors": []
+        }
+      },
+      "field": "category"
+    },
+    {
+      "name": "category bogus",
+      "body": {
+        "report_id": "12345675-aaaa-4bbb-8ccc-1234567890a5",
+        "install_id": "install_abcdef12",
+        "category": "bogus",
+        "details": null,
+        "contact": false,
+        "screen": null,
+        "lesson_id": null,
+        "item_id": null,
+        "client_created_at": "2026-10-01T12:00:00.000Z",
+        "context": {
+          "app_version": "2.4.0",
+          "runtime_version": "2.4.0",
+          "update_id": null,
+          "platform": "android",
+          "os_version": "14",
+          "device_model": "Pixel 6",
+          "font_scale": 1,
+          "theme": "light",
+          "errors": []
+        }
+      },
+      "field": "category"
+    },
+    {
+      "name": "details 1001 chars",
+      "body": {
+        "report_id": "12345675-aaaa-4bbb-8ccc-1234567890a5",
+        "install_id": "install_abcdef12",
+        "category": "other",
+        "details": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "contact": false,
+        "screen": null,
+        "lesson_id": null,
+        "item_id": null,
+        "client_created_at": "2026-10-01T12:00:00.000Z",
+        "context": {
+          "app_version": "2.4.0",
+          "runtime_version": "2.4.0",
+          "update_id": null,
+          "platform": "android",
+          "os_version": "14",
+          "device_model": "Pixel 6",
+          "font_scale": 1,
+          "theme": "light",
+          "errors": []
+        }
+      },
+      "field": "details"
+    },
+    {
+      "name": "11 errors",
+      "body": {
+        "report_id": "12345675-aaaa-4bbb-8ccc-1234567890a5",
+        "install_id": "install_abcdef12",
+        "category": "other",
+        "details": null,
+        "contact": false,
+        "screen": null,
+        "lesson_id": null,
+        "item_id": null,
+        "client_created_at": "2026-10-01T12:00:00.000Z",
+        "context": {
+          "app_version": "2.4.0",
+          "runtime_version": "2.4.0",
+          "update_id": null,
+          "platform": "android",
+          "os_version": "14",
+          "device_model": "Pixel 6",
+          "font_scale": 1,
+          "theme": "light",
+          "errors": [
+            {
+              "scope": "render",
+              "message": "boom 0",
+              "stack": "at foo (bar.js:1:2)",
+              "at": 1790000000000
+            },
+            {
+              "scope": "render",
+              "message": "boom 1",
+              "stack": null,
+              "at": 1790000000001
+            },
+            {
+              "scope": "render",
+              "message": "boom 2",
+              "stack": "at foo (bar.js:1:2)",
+              "at": 1790000000002
+            },
+            {
+              "scope": "render",
+              "message": "boom 3",
+              "stack": null,
+              "at": 1790000000003
+            },
+            {
+              "scope": "render",
+              "message": "boom 4",
+              "stack": "at foo (bar.js:1:2)",
+              "at": 1790000000004
+            },
+            {
+              "scope": "render",
+              "message": "boom 5",
+              "stack": null,
+              "at": 1790000000005
+            },
+            {
+              "scope": "render",
+              "message": "boom 6",
+              "stack": "at foo (bar.js:1:2)",
+              "at": 1790000000006
+            },
+            {
+              "scope": "render",
+              "message": "boom 7",
+              "stack": null,
+              "at": 1790000000007
+            },
+            {
+              "scope": "render",
+              "message": "boom 8",
+              "stack": "at foo (bar.js:1:2)",
+              "at": 1790000000008
+            },
+            {
+              "scope": "render",
+              "message": "boom 9",
+              "stack": null,
+              "at": 1790000000009
+            },
+            {
+              "scope": "render",
+              "message": "boom 10",
+              "stack": "at foo (bar.js:1:2)",
+              "at": 1790000000010
+            }
+          ]
+        }
+      },
+      "field": "context.errors"
+    },
+    {
+      "name": "error message 301 chars",
+      "body": {
+        "report_id": "12345675-aaaa-4bbb-8ccc-1234567890a5",
+        "install_id": "install_abcdef12",
+        "category": "other",
+        "details": null,
+        "contact": false,
+        "screen": null,
+        "lesson_id": null,
+        "item_id": null,
+        "client_created_at": "2026-10-01T12:00:00.000Z",
+        "context": {
+          "app_version": "2.4.0",
+          "runtime_version": "2.4.0",
+          "update_id": null,
+          "platform": "android",
+          "os_version": "14",
+          "device_model": "Pixel 6",
+          "font_scale": 1,
+          "theme": "light",
+          "errors": [
+            {
+              "scope": "render",
+              "message": "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
+              "stack": "at foo (bar.js:1:2)",
+              "at": 1790000000000
+            }
+          ]
+        }
+      },
+      "field": "context.errors"
+    },
+    {
+      "name": "unknown context key",
+      "body": {
+        "report_id": "12345675-aaaa-4bbb-8ccc-1234567890a5",
+        "install_id": "install_abcdef12",
+        "category": "other",
+        "details": null,
+        "contact": false,
+        "screen": null,
+        "lesson_id": null,
+        "item_id": null,
+        "client_created_at": "2026-10-01T12:00:00.000Z",
+        "context": {
+          "app_version": "2.4.0",
+          "runtime_version": "2.4.0",
+          "update_id": null,
+          "platform": "android",
+          "os_version": "14",
+          "device_model": "Pixel 6",
+          "font_scale": 1,
+          "theme": "light",
+          "errors": [],
+          "battery": 50
+        }
+      },
+      "field": "context.battery"
+    },
+    {
+      "name": "report_id x",
+      "body": {
+        "report_id": "x",
+        "install_id": "install_abcdef12",
+        "category": "other",
+        "details": null,
+        "contact": false,
+        "screen": null,
+        "lesson_id": null,
+        "item_id": null,
+        "client_created_at": "2026-10-01T12:00:00.000Z",
+        "context": {
+          "app_version": "2.4.0",
+          "runtime_version": "2.4.0",
+          "update_id": null,
+          "platform": "android",
+          "os_version": "14",
+          "device_model": "Pixel 6",
+          "font_scale": 1,
+          "theme": "light",
+          "errors": []
+        }
+      },
+      "field": "report_id"
+    },
+    {
+      "name": "install_id x",
+      "body": {
+        "report_id": "12345675-aaaa-4bbb-8ccc-1234567890a5",
+        "install_id": "x",
+        "category": "other",
+        "details": null,
+        "contact": false,
+        "screen": null,
+        "lesson_id": null,
+        "item_id": null,
+        "client_created_at": "2026-10-01T12:00:00.000Z",
+        "context": {
+          "app_version": "2.4.0",
+          "runtime_version": "2.4.0",
+          "update_id": null,
+          "platform": "android",
+          "os_version": "14",
+          "device_model": "Pixel 6",
+          "font_scale": 1,
+          "theme": "light",
+          "errors": []
+        }
+      },
+      "field": "install_id"
+    },
+    {
+      "name": "contact yes",
+      "body": {
+        "report_id": "12345675-aaaa-4bbb-8ccc-1234567890a5",
+        "install_id": "install_abcdef12",
+        "category": "other",
+        "details": null,
+        "contact": "yes",
+        "screen": null,
+        "lesson_id": null,
+        "item_id": null,
+        "client_created_at": "2026-10-01T12:00:00.000Z",
+        "context": {
+          "app_version": "2.4.0",
+          "runtime_version": "2.4.0",
+          "update_id": null,
+          "platform": "android",
+          "os_version": "14",
+          "device_model": "Pixel 6",
+          "font_scale": 1,
+          "theme": "light",
+          "errors": []
+        }
+      },
+      "field": "contact"
+    },
+    {
+      "name": "screen with punctuation",
+      "body": {
+        "report_id": "12345675-aaaa-4bbb-8ccc-1234567890a5",
+        "install_id": "install_abcdef12",
+        "category": "other",
+        "details": null,
+        "contact": false,
+        "screen": "Exam Report!",
+        "lesson_id": null,
+        "item_id": null,
+        "client_created_at": "2026-10-01T12:00:00.000Z",
+        "context": {
+          "app_version": "2.4.0",
+          "runtime_version": "2.4.0",
+          "update_id": null,
+          "platform": "android",
+          "os_version": "14",
+          "device_model": "Pixel 6",
+          "font_scale": 1,
+          "theme": "light",
+          "errors": []
+        }
+      },
+      "field": "screen"
+    },
+    {
+      "name": "font_scale 9",
+      "body": {
+        "report_id": "12345675-aaaa-4bbb-8ccc-1234567890a5",
+        "install_id": "install_abcdef12",
+        "category": "other",
+        "details": null,
+        "contact": false,
+        "screen": null,
+        "lesson_id": null,
+        "item_id": null,
+        "client_created_at": "2026-10-01T12:00:00.000Z",
+        "context": {
+          "app_version": "2.4.0",
+          "runtime_version": "2.4.0",
+          "update_id": null,
+          "platform": "android",
+          "os_version": "14",
+          "device_model": "Pixel 6",
+          "font_scale": 9,
+          "theme": "light",
+          "errors": []
+        }
+      },
+      "field": "context.font_scale"
+    },
+    {
+      "name": "client_created_at date only",
+      "body": {
+        "report_id": "12345675-aaaa-4bbb-8ccc-1234567890a5",
+        "install_id": "install_abcdef12",
+        "category": "other",
+        "details": null,
+        "contact": false,
+        "screen": null,
+        "lesson_id": null,
+        "item_id": null,
+        "client_created_at": "2026-10-01",
+        "context": {
+          "app_version": "2.4.0",
+          "runtime_version": "2.4.0",
+          "update_id": null,
+          "platform": "android",
+          "os_version": "14",
+          "device_model": "Pixel 6",
+          "font_scale": 1,
+          "theme": "light",
+          "errors": []
+        }
+      },
+      "field": "client_created_at"
+    },
+    {
+      "name": "client_created_at prose",
+      "body": {
+        "report_id": "12345675-aaaa-4bbb-8ccc-1234567890a5",
+        "install_id": "install_abcdef12",
+        "category": "other",
+        "details": null,
+        "contact": false,
+        "screen": null,
+        "lesson_id": null,
+        "item_id": null,
+        "client_created_at": "Oct 1 2026",
+        "context": {
+          "app_version": "2.4.0",
+          "runtime_version": "2.4.0",
+          "update_id": null,
+          "platform": "android",
+          "os_version": "14",
+          "device_model": "Pixel 6",
+          "font_scale": 1,
+          "theme": "light",
+          "errors": []
+        }
+      },
+      "field": "client_created_at"
+    }
+  ]
+}
