@@ -378,9 +378,9 @@ Plans:
 - [x] 10-16-PLAN.md -- TDD: D-40 hybrid quiz item key and D-41 card key, corpus collision test
 
 **Wave 2**
-- [ ] 10-03-PLAN.md -- Schema with atomic accepted-only problem_report_submit, report-problem edge function (deno check), delete-account server cleanup
-- [ ] 10-05-PLAN.md -- Le Rapport: /report rename, headlineAttempts (src/store/report.logic.ts) shared with the Profile StatCard, labels, ring a11y, Profile row
-- [ ] 10-07-PLAN.md -- Installs expo-store-review (STATE.md runtime notice); review wiring on one queue, hydration-safe seed, trail-focus firing, behaviour tests
+- [x] 10-03-PLAN.md -- Schema with atomic accepted-only problem_report_submit, report-problem edge function (deno check), delete-account server cleanup
+- [x] 10-05-PLAN.md -- Le Rapport: /report rename, headlineAttempts (src/store/report.logic.ts) shared with the Profile StatCard, labels, ring a11y, Profile row
+- [x] 10-07-PLAN.md -- Installs expo-store-review (STATE.md runtime notice); review wiring on one queue, hydration-safe seed, trail-focus firing, behaviour tests
 
 **Wave 3**
 - [ ] 10-06-PLAN.md -- Report service: claim-then-send, launch/foreground flush, delete-account clears the outbox and sends install_id, behaviour tests
@@ -600,7 +600,7 @@ Phases 1, 2, 3, 4 (→5), 6, 7, 10, 18, 20, 21 have no shared files/state with e
 | 8. Accessibility Retrofit | 10/10 | Executed; requirements reopened by 08-QUALITY-AUDIT.md (2026-10-01), closure moves to 8.1 | 2026-09-29 |
 | 8.1 Accessibility Quality Pass (INSERTED) | 0/8 | Planned; D-13..D-22 locked 2026-10-01 | - |
 | 9. Onboarding & Analytics Audit | 3/6 | In progress | Analytics foundation, onboarding recovery, and placement persistence complete; device proof remains |
-| 10. Feedback & Rating Flow | 4/16 | In Progress|  |
+| 10. Feedback & Rating Flow | 7/16 | In Progress|  |
 | 11. Brix Mascot Rive Animation Rollout — Core States | 0/TBD | Not started | - |
 | 12. Brix Mascot Rive Animation Rollout — Delight States | 0/TBD | Not started | - |
 | 13. UI/UX Polish Audit | 0/TBD | Not started | - |
