@@ -1,6 +1,7 @@
 // Interface strings ported 1:1 from the Ealch v2 prototype `T` table.
 // FR & EN are fully translated; the 7-language app picker falls back to EN.
 import type { Lang } from '@/store/useStore';
+import type { Activity } from '@/store/progress.logic';
 
 export type NotifLabel = { label: string; sub: string };
 
@@ -61,7 +62,7 @@ export type Strings = {
   accuracyLabel: string; byDrillT: string; reviewNone: string;
   statPractice: string; statWords: string;
   attemptsLabel: string; practiceWeak: string;
-  drillNames: { flashcards: string; voiceflash: string; dictation: string; sentence: string; roleplay: string; placement: string };
+  drillNames: Record<Activity, string>;
   hours: string; convs: string; minutes: string; days7: string;
   accentT: string; weakEngine: string;
   coachStatus: string; unlimited: string; placeholder: string;
@@ -531,7 +532,7 @@ export const T: Record<Lang, Strings> = {
     statPractice: 'PRATIQUE', statWords: 'MOTS VUS',
     reviewNone: "Rien à revoir pour l'instant. Vous les réussissez.",
     attemptsLabel: '{n} tentatives', practiceWeak: 'Réviser ces mots',
-    drillNames: { flashcards: 'Cartes', voiceflash: 'Flash vocal', dictation: 'Dictée', sentence: 'Constructeur', roleplay: 'Jeu de rôle', placement: 'Niveau' },
+    drillNames: { lesson: 'Leçons', flashcards: 'Cartes', voiceflash: 'Flash vocal', dictation: 'Dictée', sentence: 'Constructeur', roleplay: 'Jeu de rôle', speak: 'Parler', player: 'Lecteur', review: 'Révision', placement: 'Niveau', narrated: 'Leçons audio', exam: 'Examen blanc', 'exam-review': "Révision d'examen" },
     hours: 'HEURES PARLÉES', convs: 'CONVERSATIONS', minutes: 'Minutes parlées', days7: '7 DERNIERS JOURS',
     accentT: 'Votre accent', weakEngine: 'Le moteur de faiblesses',
     coachStatus: 'votre coach · en ligne', unlimited: 'POURQUOI ? · ILLIMITÉ', placeholder: 'Posez votre question…',
@@ -1054,7 +1055,7 @@ export const T: Record<Lang, Strings> = {
     statPractice: 'PRACTICE', statWords: 'WORDS MET',
     reviewNone: 'Nothing to review yet. You are getting these right.',
     attemptsLabel: '{n} attempts', practiceWeak: 'Practice these words',
-    drillNames: { flashcards: 'Flashcards', voiceflash: 'Voice Flash', dictation: 'Dictation', sentence: 'Builder', roleplay: 'Role Play', placement: 'Level check' },
+    drillNames: { lesson: 'Lessons', flashcards: 'Flashcards', voiceflash: 'Voice Flash', dictation: 'Dictation', sentence: 'Builder', roleplay: 'Role Play', speak: 'Speaking', player: 'Player', review: 'Review', placement: 'Level check', narrated: 'Narrated lessons', exam: 'Mock exam', 'exam-review': 'Exam review' },
     hours: 'HOURS SPOKEN', convs: 'CONVERSATIONS', minutes: 'Minutes spoken', days7: 'LAST 7 DAYS',
     accentT: 'Your accent', weakEngine: 'The weakness engine',
     coachStatus: 'your coach · online', unlimited: 'WHY? · UNLIMITED', placeholder: 'Ask your question…',
