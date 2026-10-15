@@ -371,11 +371,11 @@ Plans:
 
 Plans:
 **Wave 1** *(parallel, no shared files)*
-- [ ] 10-01-PLAN.md -- All Phase 10 FR+EN copy inserted by script with the D-36 NBSP test, 13 activity names, flag and more glyphs
-- [ ] 10-02-PLAN.md -- Pure review decision (no report input), cap, first-only arming, 30-min in-memory arm, seed merge; fail-safe offline signal; review_requested (no native install)
-- [ ] 10-04-PLAN.md -- TDD: report wire contract with strict ISO timestamps, shared fixture, claim-then-send outbox model with the 429 next-UTC-day rule
+- [x] 10-01-PLAN.md -- All Phase 10 FR+EN copy inserted by script with the D-36 NBSP test, 13 activity names, flag and more glyphs
+- [x] 10-02-PLAN.md -- Pure review decision (no report input), cap, first-only arming, 30-min in-memory arm, seed merge; fail-safe offline signal; review_requested (no native install)
+- [x] 10-04-PLAN.md -- TDD: report wire contract with strict ISO timestamps, shared fixture, claim-then-send outbox model with the 429 next-UTC-day rule
 - [ ] 10-15-PLAN.md -- [checkpoint] Play internal-track build of HEAD installed on the Pixel 9 so install age accrues (D-32)
-- [ ] 10-16-PLAN.md -- TDD: D-40 hybrid quiz item key and D-41 card key, corpus collision test
+- [x] 10-16-PLAN.md -- TDD: D-40 hybrid quiz item key and D-41 card key, corpus collision test
 
 **Wave 2**
 - [ ] 10-03-PLAN.md -- Schema with atomic accepted-only problem_report_submit, report-problem edge function (deno check), delete-account server cleanup
@@ -600,7 +600,7 @@ Phases 1, 2, 3, 4 (→5), 6, 7, 10, 18, 20, 21 have no shared files/state with e
 | 8. Accessibility Retrofit | 10/10 | Executed; requirements reopened by 08-QUALITY-AUDIT.md (2026-10-01), closure moves to 8.1 | 2026-09-29 |
 | 8.1 Accessibility Quality Pass (INSERTED) | 0/8 | Planned; D-13..D-22 locked 2026-10-01 | - |
 | 9. Onboarding & Analytics Audit | 3/6 | In progress | Analytics foundation, onboarding recovery, and placement persistence complete; device proof remains |
-| 10. Feedback & Rating Flow | 0/16 | Planned (ready to execute) | - |
+| 10. Feedback & Rating Flow | 4/16 | In Progress|  |
 | 11. Brix Mascot Rive Animation Rollout — Core States | 0/TBD | Not started | - |
 | 12. Brix Mascot Rive Animation Rollout — Delight States | 0/TBD | Not started | - |
 | 13. UI/UX Polish Audit | 0/TBD | Not started | - |

@@ -3,9 +3,9 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Phase 10 planned (16 plans), staleness amendments D-42..D-49 applied 2026-10-15
-last_updated: "2026-10-01T22:09:17.574Z"
-last_activity: 2026-10-15 -- Phase 10 staleness amendments (D-42..D-49)
+stopped_at: Phase 10 UI-SPEC approved
+last_updated: "2026-10-15T04:49:59.522Z"
+last_activity: 2026-10-15 -- Phase 10 execution started
 progress:
   total_phases: 26
   completed_phases: 10
@@ -21,24 +21,24 @@ progress:
 See: .planning/PROJECT.md (updated 2026-09-19)
 
 **Core value:** Users can reliably learn French through Ealch's lessons and practice — the app must teach correctly and not lose or corrupt a learner's progress, content, or purchased access.
-**Current focus:** Phase 09 - onboarding-analytics-audit (6/7 plans executed)
+**Current focus:** Phase 10 — feedback-rating-flow
 
 ## Current Position
 
-Phase: 09 (onboarding-analytics-audit) - EXECUTING
-Plan: 6/7 plans executed; next is 09-06 device and accepted-capture proof
+Phase: 10 (feedback-rating-flow) — EXECUTING
+Plan: 1 of 16
   font scale 1.3); its findings and a first-lesson crash were closed in a72f284.
   07.1-07 had shipped the three-state B1+ language control (fr/both/onDemand):
   englishMode()/migrateLessonEnglishMode() in english.logic.ts, the v6-to-v7 store
   migration, Type.tsx's on-demand reveal, MissionRich's group-drill reveal,
   LanguageChip/LanguagePanel in app/lesson.tsx, and answers-not-glosses.test.ts.
-Status: Ready to execute
+Status: Executing Phase 10
 NOTE: The frontmatter `percent` above measures written plans, not milestone
   progress. Phase 09 now has 1 unexecuted plan. The figure of record is
   in ROADMAP.md's "How to read this table". Do not re-add
   percent_basis/percent_note here; the handler has deleted them twice.
 Prior phase: 22.1 (bundle-exam-content-in-the-seed-so-exams-load-at-first-launc) — ALL PLANS EXECUTED, still awaiting close-out verification
-Last activity: 2026-10-01 -- Phase 10 planning complete
+Last activity: 2026-10-15 -- Phase 10 execution started
 
 Progress: [█████████░] 89%
 
