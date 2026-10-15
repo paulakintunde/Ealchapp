@@ -1,9 +1,11 @@
 ---
 phase: 10
 slug: feedback-rating-flow
-status: draft
+status: approved
 created: 2026-10-01
-revised: 2026-10-01
+revised: 2026-10-15
+reviewed_at: 2026-10-15
+reviewed_by: gsd-ui-checker (APPROVED, no BLOCK; citations re-grepped 2026-10-15)
 ---
 
 # Phase 10 - UI Design Contract
@@ -38,7 +40,7 @@ Sources: `10-CONTEXT.md`, `10-PRE-DISCUSSION-AUDIT.md`, `09-UI-SPEC.md`, `src/co
 | N3 | `Icon` gains `flag` and `more` | `src/components/Icon.tsx` (`IconName` union at :4, `ICONS` map) | Settings row, overflow button |
 | N4 | `ReportProblemLink` (new shared component) | new `src/components/ReportProblemLink.tsx` | S4 and S5 use one quiet action, one implementation |
 | N5 | `LessonPager` gains `onQuizItemChange?: (key: string \| null, answerPending: boolean) => void` and `onPageKindChange?: (kind: 'cover' \| 'act' \| 'image' \| 'section' \| 'quiz') => void` | `src/components/LessonPager.tsx` (`PageEntry` kinds at :331-338, props at :348-370), `QuizRoundsView.tsx`, `LessonRich.tsx` (QuizDeckView) | `key` is the D-40 hybrid key: flat `${L.id}#quiz.q${authoredIndex}:h${hash8}`, rounds `${L.id}#quiz.${round.id}.q${i}:h${hash8}`, where `authoredIndex = quizSection.questions.indexOf(question)` (questions are never reordered; only options are, and the flat deck renders a filtered list, `lesson.tsx:553-556`). `key` is `null` on the quiz result card and on every non-quiz page. `answerPending` is `true` while an answer is committing or grading. Page kinds mirror `PageEntry`, including `'act'` (the act opener card, `LessonPager.tsx:336`) |
-| N6 | `SectionRow` and `DelfRow` gain a `paperId: string` prop | `app/exam-report.tsx:305` and `:503`; `paperId` comes from `:62` | S5 attaches `paperId` and skill as the item id |
+| N6 | `SectionRow` and `DelfRow` gain a `paperId: string` prop | `app/exam-report.tsx:323` and `:521`; `paperId` comes from `:62` | S5 attaches `paperId` and skill as the item id |
 | N7 | Pure helper `headlineAttempts(attempts)` (drops `activity === 'exam-review'`) | `src/store/report.logic.ts` (the file `10-05-PLAN.md:39-41` creates, next to `reportFigures`), used by `app/report.tsx` and `app/profile.tsx:120-122` | Ring and Profile StatCard must agree (S7, S8) |
 | N8 | `ErrorScreen` restructured: ScrollView root, KeyboardAvoidingView, inline report panel, text through `typeMetrics` | `src/components/ErrorScreen.tsx:61-143` | S3 |
 | N9 | `WordPractice` mic error text loses `numberOfLines={2}` | `src/components/WordPractice.tsx:278` | House rule: no `numberOfLines` on body copy; the link now sits below it |
@@ -286,6 +288,8 @@ Every `Text` and the `TextInput` in `ErrorScreen` uses `allowFontScaling={false}
 
 ---
 
+- **After sent or saved (crash panel):** the Send button is hidden, the status line stays showing the sent or saved text, the typed text is cleared, and the panel offers no second send. The learner still has the existing restart action. Focus moves to the status line.
+
 ## S4. STT "hears nothing" / mic failure (7 surfaces)
 
 One shared component, `ReportProblemLink` (N4):
@@ -312,14 +316,14 @@ It appears on every no-speech result and every mic error (permission denied, una
 
 ## S5. Exam grading-failure surfaces (`audio-failed`, `not-graded`, `examShortUnchecked`)
 
-There is **no "Retry grading" control** in `app/exam-report.tsx`. What exists: `noBandNote(reason: NoBandReason, T)` (`exam-report.tsx:555-569`; `case 'audio-failed'` at `:557`, `case 'not-graded'` at `:558`), a switch over `NoBandReason` (`src/utils/nclc.logic.ts:83`). `SectionRow` computes the note and its colour at `:318-319` and renders it at `:341-343`; `DelfRow` computes it at `:511` and renders it at `:534-539`. Both failure reasons are already coloured `t.danger` (`:319`, `:536`).
+There is **no "Retry grading" control** in `app/exam-report.tsx`. What exists: `noBandNote(reason: NoBandReason, T)` (`exam-report.tsx:575`; `case 'audio-failed'` at `:557`, `case 'not-graded'` at `:558`), a switch over `NoBandReason` (`src/utils/nclc.logic.ts:83`). `SectionRow` computes the note and its colour at `:318-319` and renders it at `:341-343`; `DelfRow` computes it at `:511` and renders it at `:534-539`. Both failure reasons are already coloured `t.danger` (`:319`, `:536`).
 
 Per locked D-22 (clarified 2026-10-01), **both** `NoBandReason` failures pre-fill "Grading felt wrong"; `audio-failed` does NOT pre-fill "Audio or voice". D-44 adds a third surface that is not a `NoBandReason`: `T.examShortUnchecked` (typed DALF C1 answers the grader could not check). It also pre-fills "Grading felt wrong". One label, "Report a grading problem", covers all three.
 
 | `NoBandReason` | Existing note (`noBandNote`) | Report action | Pre-filled category | `a11yLabel` |
 |----------------|------------------------------|---------------|---------------------|-------------|
-| `'not-graded'` | `T.examUngraded` (`:558`) | `ReportProblemLink` "Report a problem" | `grading` ("Grading felt wrong") | "Report a grading problem" |
-| `'audio-failed'` | `T.examAudioFailed` (`:557`) | `ReportProblemLink` "Report a problem" | `grading` ("Grading felt wrong") | "Report a grading problem" |
+| `'not-graded'` | `T.examUngraded` (`:578`) | `ReportProblemLink` "Report a problem" | `grading` ("Grading felt wrong") | "Report a grading problem" |
+| `'audio-failed'` | `T.examAudioFailed` (`:577`) | `ReportProblemLink` "Report a problem" | `grading` ("Grading felt wrong") | "Report a grading problem" |
 | `examShortUnchecked` (DelfRow only; `unchecked > 0`; `uncheckedBySkill` at `exam-report.tsx:106-115`, rendered at `:544-546` as `T.examShortUnchecked.replace('{n}', ...)`) | `T.examShortUnchecked` ("Typed answers not checked: {n}. They count as 0 for now.") | `ReportProblemLink` "Report a problem", **below that line** | `grading` ("Grading felt wrong") | "Report a grading problem" |
 | `practice`, `not-sat`, `not-answered`, `no-scoring`, `below-scale`, or scored with `unchecked === 0` | unchanged | none | none | none |
 
@@ -432,7 +436,7 @@ New copy uses a subset of the established `TX` ramp (`type.logic.ts:20-31`). Fou
 | Label | `label` | 13 px | Regular | 1.4 | Settings and Profile row subs only, matching the adjacent Licences sub (`settings.tsx:602`) |
 | Body | `body` | 15 px | Regular; Semibold for row titles | 1.5 | Intro, category labels, details input, checkbox label, "What's included" list, 4xx error text, sent/saved body, menu rows |
 | Title | `titleLg` | 21 px | Semibold (Instrument Sans, `font="semi"`) | 1.25 | Sheet title, sent/saved heading, crash screen title |
-| Display | `display` | 34 px (Serif regular) | Regular | 1.1 | Existing "Le Rapport" heading only; no new display text |
+| Display (inherited, not new) | `display` | 34 px (Serif regular) | Regular | 1.1 | Existing "Le Rapport" heading only; no new display text. Not counted among the new-type sizes. Button labels (16 px) are inherited from `Button` |
 
 Weights: Instrument Sans Regular (400) and Semibold (600) only. New copy uses exactly four sizes, 12, 13, 15 and 21, plus the inherited 34; 13 is used only for the two row subs that sit next to the existing 13 px Licences sub. `Button` labels stay on the inherited `bodyLg` 16 px (`ui.tsx:152`). Existing 13 px text that Phase 10 does not author (the `FocusHeader` title, the existing Licences row sub-line, Le Rapport's own `label` text, the exam row notes) is inherited and is not changed. Rules C5, C6 and C7 apply to every new text node. Verified requirement: no clipped word endings at OS font scale 1.3 and 1.5 for the category labels, intro, "What's included" list, counter, sent confirmation, menu rows, every `ReportProblemLink`, and the full crash screen.
 
@@ -602,7 +606,7 @@ The 429 body is the same string in the States table (S1) and here. It promises o
 These are the dimensions the quality review failed. The checker and auditor tick each against the code and the device, not against this document.
 
 **Grounding (every referenced control exists, or is listed as new)**
-- [ ] `noBandNote` and the `'not-graded'` / `'audio-failed'` reasons exist at `app/exam-report.tsx:555-569`; no "Retry grading" control is referenced anywhere
+- [ ] `noBandNote` and the `'not-graded'` / `'audio-failed'` reasons exist at `app/exam-report.tsx:575`; no "Retry grading" control is referenced anywhere
 - [ ] The "?" help `Press` being replaced is at `app/lesson.tsx:780-789`; `FocusHeader` title is `flex: 1` + `numberOfLines={1}` at `ui.tsx:338-348` (`:344`)
 - [ ] The mission flag carries the D-41 card id (section `id` + `lastSub`), never `#s{ix}.0`; the quiz flag carries the D-40 hybrid key with `:h{hash8}`
 - [ ] `Button` props at `ui.tsx:105-122` have no loading slot before N1 lands; N1 adds it
