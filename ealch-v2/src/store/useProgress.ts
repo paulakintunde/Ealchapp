@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useRef } from 'react';
 import { AppState } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
-import { createJSONStorage, persist } from 'zustand/middleware';
+import { persist, type PersistStorage } from 'zustand/middleware';
+import { logError } from '../services/errors';
+import { progressStorage } from './progressStorage';
 import {
   clampMinutes, decomposeExamMiss, localDay, markMission, migrateProgressToV4, mintAttemptId, mintExamResultId,
   type Activity, type AttemptEntry, type AttemptInput, type ErrorEvent, type ErrorInput,
@@ -84,6 +85,12 @@ export type ProgressState = {
    *  logAttempt, it never replaces the whole log. */
   replaceAttempts: (attempts: AttemptEntry[]) => void;
 };
+
+/** The fields that persist — one storage shard each. */
+type PersistedProgress = Pick<
+  ProgressState,
+  'sessions' | 'attempts' | 'examResults' | 'errors' | 'resumeByMode' | 'lessonMissions'
+>;
 
 /** Roughly a decade of daily practice. A bound on the persisted blob, not a
  *  product decision — the streak never looks back further than this either. */
@@ -241,9 +248,11 @@ export const useProgress = create<ProgressState>()(
       // rewrite, only a stale position that is better forgotten than mis-resumed
       // into the wrong screen.
       version: 5,
-      migrate: (persisted, version) => {
+      // Typed as the full persisted shape: fields a pre-v5 blob never had
+      // (examResults, lessonMissions) are filled by persist's shallow merge.
+      migrate: (persisted, version): PersistedProgress => {
         const v4 = version >= 4 ? (persisted as ReturnType<typeof migrateProgressToV4>) : migrateProgressToV4(persisted);
-        if (version >= 5) return v4;
+        if (version >= 5) return v4 as PersistedProgress;
         const resumeByMode = { ...v4.resumeByMode };
         for (const key of Object.keys(resumeByMode) as (keyof typeof resumeByMode)[]) {
           const route = resumeByMode[key]?.route;
@@ -251,18 +260,29 @@ export const useProgress = create<ProgressState>()(
             delete resumeByMode[key];
           }
         }
-        return { ...v4, resumeByMode };
+        return { ...v4, resumeByMode } as PersistedProgress;
       },
-      storage: createJSONStorage(() => AsyncStorage),
-      partialize: (s) => ({
+      // One file per field, not one AsyncStorage row: the row outgrew Android's
+      // 6 MB / 2 MB-per-row limits — see progressStorage.logic.ts. The legacy
+      // row is imported on first launch and then removed.
+      storage: progressStorage as unknown as PersistStorage<PersistedProgress>,
+      partialize: (s): PersistedProgress => ({
         sessions: s.sessions, attempts: s.attempts, examResults: s.examResults, errors: s.errors,
         resumeByMode: s.resumeByMode, lessonMissions: s.lessonMissions,
       }),
-      // Always flip `hydrated`, even when rehydration fails — a corrupt log must
-      // never brick startup, it must only mean "no progress yet".
+      // Always flip `hydrated`, even when rehydration fails — a failed read must
+      // never brick startup. But hold writes FIRST: zustand's persist wraps
+      // api.setState to write through, so flipping `hydrated` on an unheld
+      // storage would persist the empty initial state over the log it just
+      // failed to read. Held, the stored log survives for the next launch.
       onRehydrateStorage: () => (state, error) => {
-        if (state && !error) state.setHydrated();
-        else useProgress.setState({ hydrated: true });
+        if (state && !error) {
+          state.setHydrated();
+          return;
+        }
+        progressStorage.hold();
+        if (error) logError('js', error);
+        useProgress.setState({ hydrated: true });
       },
     }
   )

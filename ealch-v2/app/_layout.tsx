@@ -25,6 +25,7 @@ import { useProgress } from '@/store/useProgress';
 import { useContent, initContent } from '@/services/content';
 import { loadTimeFloor } from '@/services/serverClock';
 import { installErrorHandlers, logError } from '@/services/errors';
+import { applyPlaybackSession } from '@/services/audioSession';
 import { useAuthSession } from '@/services/session';
 import { useForegroundSync } from '@/services/sync';
 import { useEntitlementSync } from '@/services/purchases';
@@ -125,6 +126,9 @@ export default function RootLayout() {
     void loadTimeFloor();
     refreshConfig();
     void initContent();
+    // Before anything can play: without this the iOS ringer switch mutes every
+    // clip and the device voice. See services/audioSession.ts.
+    void applyPlaybackSession();
     // Warm the device voice list at launch so the home greeting (and the first
     // drill utterance) speak in the configured voice from the first word rather
     // than the language-only fallback. Fire-and-forget; home awaits it too.

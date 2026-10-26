@@ -19,7 +19,8 @@
 // instead of a source-text guard, without touching useProgress.ts itself.
 const RN_STUB = 'data:text/javascript,' + encodeURIComponent(
   `export const AppState = { addEventListener: () => ({ remove: () => {} }) };\n` +
-  `export default { AppState };\n`
+  `export const Platform = { OS: 'android' };\n` +
+  `export default { AppState, Platform };\n`
 );
 const ASYNC_STORAGE_STUB = 'data:text/javascript,' + encodeURIComponent(
   `const mem = new Map();\n` +
@@ -31,8 +32,31 @@ const ASYNC_STORAGE_STUB = 'data:text/javascript,' + encodeURIComponent(
   `export default AsyncStorage;\n`
 );
 
+// useProgress.ts persists through progressStorage.ts, which writes shards with
+// expo-file-system. Its package entry is untranspiled TS under node_modules,
+// which Node refuses to type-strip, so it gets an in-memory stand-in too.
+const EXPO_FS_STUB = 'data:text/javascript,' + encodeURIComponent(
+  `const files = new Map();\n` +
+  `const join = (parts) => parts.map((p) => (typeof p === 'string' ? p : p.uri)).join('/');\n` +
+  `export const Paths = { document: 'mem://doc' };\n` +
+  `export class Directory {\n` +
+  `  constructor(...parts) { this.uri = join(parts); }\n` +
+  `  get exists() { return true; }\n` +
+  `  create() {}\n` +
+  `}\n` +
+  `export class File {\n` +
+  `  constructor(...parts) { this.uri = join(parts); }\n` +
+  `  get exists() { return files.has(this.uri); }\n` +
+  `  write(t) { files.set(this.uri, t); }\n` +
+  `  async text() { return files.get(this.uri); }\n` +
+  `  async move(dest) { files.set(dest.uri, files.get(this.uri)); files.delete(this.uri); this.uri = dest.uri; }\n` +
+  `  delete() { files.delete(this.uri); }\n` +
+  `}\n`
+);
+
 export async function resolve(specifier, context, nextResolve) {
   if (specifier === 'react-native') return nextResolve(RN_STUB, context);
+  if (specifier === 'expo-file-system') return nextResolve(EXPO_FS_STUB, context);
   if (specifier === '@react-native-async-storage/async-storage') return nextResolve(ASYNC_STORAGE_STUB, context);
   try {
     return await nextResolve(specifier, context);

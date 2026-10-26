@@ -13,6 +13,8 @@ import { supabase } from '@/services/supabase';
 import { T as STRINGS } from '@/i18n/strings';
 // useProgress does not import this store back, so this is not a cycle either.
 import { setSessionEndListener, useProgress } from './useProgress';
+import { holdable } from './progressStorage.logic';
+import { logError } from '@/services/errors';
 import { device24h, formatTime } from '@/utils/time';
 import { formatNotifText } from '@/utils/notifText.logic';
 import { migrateLessonEnglishMode, type EnglishMode } from '@/content/english.logic';
@@ -254,6 +256,10 @@ const initialData = () => ({
   lastGreetAt: 0,
   lastNudgeAt: 0,
 });
+
+/** The settings blob stays one small AsyncStorage row; `holdable` only adds the
+ *  ability to stop writing when hydration fails (see onRehydrateStorage). */
+const storeStorage = holdable(createJSONStorage<Partial<AppState>>(() => AsyncStorage)!);
 
 export const useStore = create<AppState>()(
   persist(
@@ -542,7 +548,7 @@ export const useStore = create<AppState>()(
         const saved = persisted as Partial<AppState> | undefined;
         return { ...current, ...saved, ...normalizeWizard(saved), mode: normalizeAppearancePreference(saved?.mode) };
       },
-      storage: createJSONStorage(() => AsyncStorage),
+      storage: storeStorage,
       partialize: (s) => ({
         lang: s.lang,
         appLang: s.appLang,
@@ -592,6 +598,11 @@ export const useStore = create<AppState>()(
           // the other, so what Settings shows is what the device will do.
           void state.resyncNotifs();
         } else {
+          // Hold first: persist's wrapped setState writes through, so flipping
+          // `hydrated` unheld would save defaults over the settings it could
+          // not read (name, level, onboarding, placement).
+          storeStorage.hold();
+          if (error) logError('js', error);
           useStore.setState({ hydrated: true });
         }
       },

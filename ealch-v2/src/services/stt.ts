@@ -24,6 +24,8 @@ import type {
   ExpoSpeechRecognitionErrorEvent,
 } from 'expo-speech-recognition';
 import { scoreUtterance, DEFAULT_BARS, type Verdict, type VerdictBars } from '@/utils/score';
+import { Platform } from 'react-native';
+import { applyPlaybackSession } from './audioSession';
 import { getConfig } from './config';
 import { ENV } from './env';
 import { supabase } from './supabase';
@@ -147,7 +149,12 @@ export const stt = {
     // holds the audio session leaves the recognizer deaf (jamsch#130).
     tts.stop();
 
-    const result = await captureOnce(expected, lang, maxMs, opts);
+    let result: SttResult;
+    try {
+      result = await captureOnce(expected, lang, maxMs, opts);
+    } finally {
+      restorePlaybackSession();
+    }
 
     // Edge backstop: remote config asked for it, or the device heard nothing
     // but did capture audio we can still send somewhere.
@@ -178,6 +185,27 @@ export const stt = {
     }
   },
 };
+
+/**
+ * Hand the audio session back to playback once a listen ends.
+ *
+ * On iOS the recognizer sets playAndRecord + `measurement` (see the
+ * `iosCategory` below) and never restores it, so the next clip played in a
+ * record session tuned for measurement, and the silent-switch override from
+ * launch was gone. expo-audio's setAudioModeAsync re-applies the category, but
+ * with mixing options it keeps the session's current MODE — so the mode is
+ * reset to `default` through the recognizer's own setCategoryIOS first.
+ */
+function restorePlaybackSession(): void {
+  if (Platform.OS === 'ios') {
+    try {
+      nativeSTT()?.setCategoryIOS({ category: 'playback', categoryOptions: ['mixWithOthers'], mode: 'default' });
+    } catch {
+      // Recognizer gone or session busy — setAudioModeAsync below still runs.
+    }
+  }
+  void applyPlaybackSession();
+}
 
 /** One start→final-result→end cycle, wrapped in a promise that always settles. */
 function captureOnce(
